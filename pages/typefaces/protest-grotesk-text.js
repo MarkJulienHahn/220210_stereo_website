@@ -45,7 +45,7 @@ const ProtestGroteskText = () => {
                 </a>
             </Link>
 
-            <Link href="/typefaces" scroll={false} scroll={false}>
+            <Link href="/typefaces" scroll={false}>
                 <a>
                     <Button 
                         lable={"Typefaces"} 

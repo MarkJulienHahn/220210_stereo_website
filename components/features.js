@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from '../styles/Features.module.css'
 
-const features = ( name ) => {
+const Features = ( name ) => {
 
     const [val, updateVal] = useState(0);
 
@@ -48,4 +48,4 @@ const features = ( name ) => {
     )
 };
 
-export default features;
+export default Features;

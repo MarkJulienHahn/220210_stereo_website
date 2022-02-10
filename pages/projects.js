@@ -12,7 +12,7 @@ import Project from '../components/project'
 
 
 
-const projects = () => {
+const Projects = () => {
 
     const location = useRouter();
 
@@ -70,4 +70,4 @@ const projects = () => {
         )
 }   
 
-export default projects;
+export default Projects;

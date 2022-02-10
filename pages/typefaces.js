@@ -16,7 +16,7 @@ const Buy = dynamic(() => import("../components/Buy"))
 
 
 
-const typefaces = () => {
+const Typefaces = () => {
 
     const { ref: gialloRef, inView: gialloIsVisible} = useInView({
         threshold: 0.5,
@@ -174,4 +174,4 @@ const typefaces = () => {
     )
 }   
 
-export default typefaces;
+export default Typefaces;

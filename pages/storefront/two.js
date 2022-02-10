@@ -15,9 +15,9 @@ const Two = () => {
 
   return (
 
-    <div class="storefrontWrapper">
+    <div className="storefrontWrapper">
       <Link  href="/">
-          <div class="backButton"></div>
+          <div className="backButton"></div>
       </Link>
 
       <div className="buttonsLeftWrapper">

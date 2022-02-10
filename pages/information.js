@@ -8,12 +8,16 @@ import Infocontainer from '../components/Infocontainer'
 import Footer from '../components/footer'
 import Button from '../components/Button'
 
-const information = () => {
+const Information = () => {
 
   const location = useRouter();
 
   return (
     <>
+    <Head>
+        <title>Stereo Typefaces&#x2122; </title>
+    </Head>
+
     <AnimatePresence exitBeforeEnter>
 
         <div className="buttonsLeftWrapper" scroll={false}>
@@ -88,4 +92,4 @@ const information = () => {
     )
 }   
 
-export default information;
+export default Information;

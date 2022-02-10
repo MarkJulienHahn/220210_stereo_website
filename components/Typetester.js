@@ -102,43 +102,43 @@ function Typetester ( props ) {
         </div>
 
         <div className={styles.inputWrapper}>
-          <div contentEditable="true" className={styles.input} style={testerStyle} type="text" name="lname">'Round your city, 'round the clock
+          <div contentEditable="true" className={styles.input} style={testerStyle} type="text" name="lname">Round your city, round the clock
 Everybody needs you
-No, you can't make everybody equal
+No, you can&apos;t make everybody equal
 Although you got beaucoup family
-You don't even got nobody bein' honest with you
-Breathe 'til I evaporated
+You don&apos;t even got nobody bein&apos; honest with you
+Breathe &apos;til I evaporated
 My whole body see through
-Transportation, handmade
+Transportation, handmade (G)
 And I know it better than most people
-I don't trust 'em anyways
-You can't break the law with them
+I don&apos;t trust &apos;em anyways
+You can&apos;t break the law with them
 Get some gushy, have a calm night
-Shooters killin' left and right
-Workin' through your worst night
+Shooters killin&apos; left and right
+Workin&apos; through your worst night
 If I get my money right
-You know I won't need you
-And I tell you (bitch)
+You know I won&apos;t need you
+And I tell you (Bitch)
 I hope the sack is full up
-I'm fuckin', no, I'm fucked up
+I'm fuckin&apos;, no, I&apos;m fucked up
 Spend it when I get that
-I ain't tryna keep you
-Can't keep up a conversation
-Can't nobody reach you
+I ain&apos;t tryna keep you
+Can&apos;t keep up a conversation
+Can&apos;t nobody reach you
 Why your eyes well up?
-Did you call me from a seance?
+Did you call me from a séance?
 You are from my past life
-Hope you're doin' well, bruh
+Hope you&apos;re doin&apos; well, bruh
 I been out here head first
 Always like the head first
-Signal comin' in and out
-Hope you're doin' well, bruh
+Signal comin&apos; in and out
+Hope you&apos;re doin&apos; well, bruh
 Everybody needs you
 Everybody needs you
 Ooh, nani nani
 This feel like a Quaalude
 No sleep in my body
-Ain't no bitch in my body, ah
+Ain&apos;t no bitch in my body, ah
 
           </div>
         </div>
