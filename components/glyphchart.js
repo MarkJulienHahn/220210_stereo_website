@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { Slider } from '@material-ui/core';
 
 import styles from '../styles/Glyphchart.module.css'
-import Glyphchartletter from '../components/glyphchartletter'
+import Glyphchartletter from './Glyphchartletter'
 
 
 function Glyphchart( props ) {

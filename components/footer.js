@@ -1,8 +1,8 @@
 import React from 'react';
 import Styles from '../styles/Footer.module.css'
-import Button from '../components/Button'
+import Button from './Button'
 
-const footer = () => {
+const Footer = () => {
   return (
     <div className={Styles.footer}>
         {/* <div className={Styles.logo}>STEREO</div> */}
@@ -37,4 +37,4 @@ const footer = () => {
     </div>)
 }
 
-export default footer;
+export default Footer;

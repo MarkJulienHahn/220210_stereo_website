@@ -6,7 +6,7 @@ import image04 from '../public/images/image_04.gif';
 
 import Styles from '../styles/Projects.module.css'
 
-const project = ( props ) => {
+const Project = ( props ) => {
   return ( 
     <section className={Styles.projectWrapper}>
         <div className={Styles.projectHeader}>
@@ -30,4 +30,4 @@ const project = ( props ) => {
   )
 };
 
-export default project;
+export default Project;

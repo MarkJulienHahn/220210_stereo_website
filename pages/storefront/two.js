@@ -9,7 +9,7 @@ import Infobutton from '../../components/Infobutton'
 
 
 
-const two = () => {
+const Two = () => {
 
 
 
@@ -44,4 +44,4 @@ const two = () => {
   )
 };
 
-export default two;
+export default Two;

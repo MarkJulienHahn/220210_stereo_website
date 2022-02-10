@@ -10,15 +10,15 @@ import image01 from '../../public/images/image_01.png';
 
 import styles from './ProtestGroteskText.module.css'
 
-import Typetester from '../../components/typetester'
+import Typetester from '../../components/Typetester'
 import Button from '../../components/Button'
-import Glyphchart from '../../components/glyphchart'
-import Footer from '../../components/footer'
+import Glyphchart from '../../components/Glyphchart'
+import Footer from '../../components/Footer'
 
 
 const Buy = dynamic(() => import("../../components/Buy"))
 
-const protestGroteskText = () => {
+const ProtestGroteskText = () => {
 
   const [showBuy, setShowBuy] = useState(false);
   const location = useRouter();
@@ -223,4 +223,4 @@ const protestGroteskText = () => {
     )
 }   
 
-export default protestGroteskText;
+export default ProtestGroteskText;

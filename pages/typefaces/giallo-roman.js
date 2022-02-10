@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-const gialloRoman = () => {
+const GialloRoman = () => {
   return (
     <div>
         <Head>
@@ -11,4 +11,4 @@ const gialloRoman = () => {
     )
 }   
 
-export default gialloRoman;
+export default GialloRoman;

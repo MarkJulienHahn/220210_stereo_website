@@ -1,5 +1,4 @@
 import { useState} from 'react'
-import Head from 'next/head'
 import Styles from '../styles/Information.module.css'
 
 const infoSmall = {
@@ -17,7 +16,7 @@ const infoSmall = {
     fontVariationSettings: `'wdth' 300`}
 
 
-const infocontainer = ( props ) => {
+const Infocontainer = ( props ) => {
 
     const [isActive, setActive] = useState(props.big);
     
@@ -42,4 +41,4 @@ const infocontainer = ( props ) => {
     )
 }   
 
-export default infocontainer;
+export default Infocontainer;

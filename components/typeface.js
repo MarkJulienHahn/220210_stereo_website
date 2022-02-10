@@ -2,7 +2,7 @@ import React, { useState, } from 'react';
 import Link from 'next/link';
 import Styles from '../styles/Typeface.module.css'
 
-const typeface = ( props ) => {
+const Typeface = ( props ) => {
 
 const [wdth, updateWdth] = useState([150, 0]);
 const [nmbr, updateNmbr] = useState(0)
@@ -57,4 +57,4 @@ const style01 = {
     )
 };
 
-export default typeface;
+export default Typeface;

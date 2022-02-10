@@ -3,7 +3,7 @@ import { Slider } from '@material-ui/core';
 import styles from '../styles/Typetester.module.css'
 
 
-function typetester ( props ) {
+function Typetester ( props ) {
 
   const [val, updateVal] = useState(200);
   const [val2, updateVal2] = useState(-10);
@@ -147,4 +147,4 @@ Ain't no bitch in my body, ah
   )
 }
 
-export default typetester; 
+export default Typetester; 

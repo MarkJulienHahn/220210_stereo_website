@@ -8,7 +8,7 @@ import Infobutton from '../../components/Infobutton'
 import image01 from '../../public/images/image_01.png';
 
 
-const one = () => {
+const One = () => {
 
 
 
@@ -37,4 +37,4 @@ const one = () => {
   )
 };
 
-export default one;
+export default One;
