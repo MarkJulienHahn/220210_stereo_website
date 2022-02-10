@@ -120,7 +120,7 @@ If I get my money right
 You know I won&apos;t need you
 And I tell you (Bitch)
 I hope the sack is full up
-I'm fuckin&apos;, no, I&apos;m fucked up
+I&apos;m fuckin&apos;, no, I&apos;m fucked up
 Spend it when I get that
 I ain&apos;t tryna keep you
 Can&apos;t keep up a conversation
