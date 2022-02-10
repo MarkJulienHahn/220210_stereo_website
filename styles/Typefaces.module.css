@@ -1,0 +1,11 @@
+.AppInner {
+    margin: var(--margin-M)
+}
+
+.button {
+    display: none;
+}
+
+.buttonShow {
+    display: block !important;
+}

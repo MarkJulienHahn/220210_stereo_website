@@ -1,0 +1,68 @@
+.glyphchartWrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-top: var(--margin-XL);
+    margin-bottom: var(--margin-XL);
+}
+
+.glyphchartDisplayWrapper {
+    width: 50%;
+    height: 350vh;
+}
+
+.glyphchartDisplay {
+    position: sticky;
+    top: 20vh;
+    width: 100%;
+    font-size: 40vw;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.glyphchartTable {
+    width: 50%;
+    height: 10vh;
+}
+
+.glyphchartLetterWrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.glyphchartLetter {
+    width: 70px;
+    height: 70px;
+    font-size: 20pt;
+    display: flex;
+    justify-content: center;
+    transition: font-size 0.2s ease-out, transform 0.2s ease-out;
+    cursor: unset;
+}
+
+.glyphchartLetter:hover {
+    font-size: 40pt;
+    transform: translateY(-10px);
+}
+
+.glyphchartHeading {
+    padding-bottom: var(--margin-M)
+}
+
+.slider {
+    width: 18vw !important;
+    position: -webkit-sticky !important;
+    position: sticky !important;
+    top: var(--margin-M);
+    display: flex;
+    flex-direction: row;
+    margin-right: 60px !important;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.glyphchartWrapper:hover .slider {
+    opacity: 1;
+}    

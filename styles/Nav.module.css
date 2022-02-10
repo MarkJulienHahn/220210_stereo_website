@@ -1,0 +1,63 @@
+.menuContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+#menuBar {
+    pointer-events: auto;
+    position: fixed;
+    bottom: 0;
+    background: var(--quaternary);
+    margin-bottom: var(--margin-M);
+    border-radius: 3px;
+    transition: width 0.3s cubic-bezier(0.19, 1, 0.22, 1), height 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    cursor: pointer;
+    -webkit-backdrop-filter: blur(30px);
+    backdrop-filter: blur(30px);
+}
+
+.menuTypo {
+    font-size: 6vw;
+    line-height: 0px;
+    letter-spacing: -0.5vw;
+    font-weight: 100;
+    font-family: 'Skyline';
+    font-variation-settings: 'wdth' 800;
+    height: 30px;
+    height: 0px;
+    list-style: none;
+    transform: translateY(-7px);
+    opacity: 0.7;
+    transition: font-variation-settings .5s ease;
+}
+
+.menuTypo:hover {
+    font-variation-settings: 'wdth' 650;
+    transition: font-variation-settings 0.5s ease;
+}
+
+.menuBarClosed .menuLink, .menuBarClosed hr {
+    display: none;
+    pointer-events: none;
+}
+
+.logoTypo {
+    font-family: 'Skyline';
+    font-variation-settings: 'wdth' 800;
+    position: fixed;
+    bottom: 25px;
+    width: 100%;
+    text-align: center;
+    z-index: 101;
+    font-size: 28px;
+    color: #4A4A4A;
+    opacity: 0.8;
+}

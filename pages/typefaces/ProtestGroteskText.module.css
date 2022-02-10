@@ -1,0 +1,70 @@
+.fontOpener {
+    font-family: 'Protest';
+    font-variation-settings: 'wdth' 50, 'wght' 40;
+    font-size: clamp(30pt, 5vw, 10vw);
+    line-height: clamp(30pt, 4.5vw, 4.5vw);
+    letter-spacing: clamp(-0.3vw, -0.03vw, -2vw);
+    opacity: 0.8;
+}
+
+.pgtBlack {
+    font-variation-settings: 'wdth' 50, 'wght' 150;
+}
+
+.pgtBlackItalic {
+    font-variation-settings: 'wdth' 50, 'wght' 150, 'ital' 100;
+}
+
+.pgtBold {
+    font-variation-settings: 'wdth' 50, 'wght' 133;
+}
+
+.pgtBoldItalic {
+    font-variation-settings: 'wdth' 50, 'wght' 133, 'ital' 100;
+}
+
+.pgtMedium {
+    font-variation-settings: 'wdth' 50, 'wght' 116;
+}
+
+.pgtMediumItalic {
+    font-variation-settings: 'wdth' 50, 'wght' 116, 'ital' 100;
+}
+
+.pgtBook {
+    font-variation-settings: 'wdth' 50, 'wght' 100;
+}
+
+.pgtBookItalic {
+    font-variation-settings: 'wdth' 50, 'wght' 100, 'ital' 100;
+}
+
+.pgtRegular {
+    font-variation-settings: 'wdth' 50, 'wght' 80;
+}
+
+.pgtRegularItalic {
+    font-variation-settings: 'wdth' 50, 'wght' 80, 'ital' 100;
+}
+
+.pgtLight {
+    font-variation-settings: 'wdth' 50, 'wght' 60;
+}
+
+.pgtLightItalic {
+    font-variation-settings: 'wdth' 50, 'wght' 60, 'ital' 100;
+}
+
+.pgtThin {
+    font-variation-settings: 'wdth' 50, 'wght' 40;
+}
+
+.pgtThinItalic {
+    font-variation-settings: 'wdth' 50, 'wght' 40, 'ital' 100;
+}
+
+.closeButton {
+    z-index: 1000;
+    position: fixed;
+    bottom: 0;
+}

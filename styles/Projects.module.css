@@ -1,0 +1,33 @@
+.AppInner {
+    margin: var(--margin-M)
+}
+
+.projectHeader {
+    font-family: 'Giallo';
+    font-size: 20pt;
+    letter-spacing: -1px;
+    line-height: 22pt;
+    top: var(--margin-M);
+    margin-bottom: 50px;
+}
+
+.projectContent {
+    margin-bottom: var(--margin-XL)
+}
+
+.projectContent p {
+    font-family: 'Giallo-Mono';
+    font-size: 12.5px;
+    line-height: 16px;
+    letter-spacing: 1px;
+}
+
+.imageRow {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.w6 {
+    width: 49%;
+}

@@ -1,0 +1,25 @@
+.footer {
+    height:95vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-direction: row;
+    margin-bottom: 82px;
+    font-family: 'Giallo-Mono';
+    font-size: 12.5px;
+    line-height: 16px;
+    letter-spacing: 1px;
+}
+
+.footerInfo, .footerNewsletter {
+    width: 50vw;
+}
+
+.logo {
+    font-family: 'Skyline';
+    font-size: 17.5vw;
+    font-variation-settings: 'wdth' 800;
+    letter-spacing: -1.6vw;
+    color: var(--quaternary);
+    margin-top: 50vh;
+}

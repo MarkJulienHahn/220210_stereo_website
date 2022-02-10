@@ -1,0 +1,23 @@
+.infoWrapper {
+    margin: var(--margin-M);
+    font-family: 'Giallo-Mono';
+}
+
+.infoContainer {
+    padding-bottom: var(--margin-M)
+}
+
+.infoHeader {
+    width: 50vw;
+    font-size: 12.5px;
+    line-height: 16px;
+    letter-spacing: 1px;
+    font-family: 'Protest';
+    letter-spacing: -0.2px;
+    font-variation-settings: 'wght' 120, 'wdth' 50;
+}
+
+.infoContent {
+    transition: font-size 0.3s cubic-bezier(0.19, 1, 0.22, 1), width 0.3s cubic-bezier(0.19, 1, 0.22, 1), font-variation-settings 0.3s cubic-bezier(0.19, 1, 0.22, 1), line-heigth 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    cursor:ew-resize;
+}
