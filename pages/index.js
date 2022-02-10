@@ -18,9 +18,9 @@ export default function Home( router ) {
         <meta name='keywords' content='web' />
       </Head>
 
-      <div class="storefrontWrapper">
+      <div className="storefrontWrapper">
         <Link  href="/storefront/two">
-            <div class="nextButton"></div>
+            <div className="nextButton"></div>
         </Link>
         <AnimatePresence exitBeforeEnter onExitComplete={() => window.scrollTo(0, 0)}>
             <motion.div 
