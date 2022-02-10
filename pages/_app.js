@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import Layout from '../components/Layout'
-import Nav from '../components/nav'
+import Nav from '../components/Nav'
 import { useRouter } from 'next/router'
 
 import '../styles/globals.css'

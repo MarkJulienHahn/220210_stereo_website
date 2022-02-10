@@ -6,8 +6,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/router'
 import { motion, AnimatePresence } from "framer-motion";
 
-import Typeface from '../components/typeface'
-import Footer from '../components/footer'
+import Typeface from '../components/Typeface'
+import Footer from '../components/Footer'
 import Button from '../components/Button'
 
 import Styles from '../styles/Typefaces.module.css'
