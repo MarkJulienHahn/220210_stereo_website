@@ -5,10 +5,10 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import Styles from '../styles/Projects.module.css'
 
-import Footer from '../components/footer'
+import Footer from '../components/Footer'
 import Button from '../components/Button'
 
-import Project from '../components/project'
+import Project from '../components/Project'
 
 
 

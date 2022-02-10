@@ -5,7 +5,7 @@ import Styles from '../styles/Information.module.css'
 import { AnimatePresence, motion } from 'framer-motion'
 
 import Infocontainer from '../components/Infocontainer'
-import Footer from '../components/footer'
+import Footer from '../components/Footer'
 import Button from '../components/Button'
 
 const Information = () => {
