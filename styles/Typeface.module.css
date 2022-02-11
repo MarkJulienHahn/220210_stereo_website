@@ -25,6 +25,8 @@
     position: sticky;
     top: var(--margin-M);
     margin-bottom: 50px;
+    color: white;
+    mix-blend-mode: difference;
 }
 
 .typefaceControlButton {

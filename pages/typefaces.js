@@ -6,7 +6,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/router'
 import { motion, AnimatePresence } from "framer-motion";
 
-import Typeface from '../components/Typeface'
+import ProtestTypeface from '../components/ProtestTypeface'
+import GialloTypeface from '../components/GialloTypeface'
 import Footer from '../components/Footer'
 import Button from '../components/Button'
 
@@ -30,6 +31,11 @@ const Typefaces = () => {
     const { ref: protestMonoRef, inView: protestMonoIsVisible} =useInView({
         threshold: 0.5,
     });
+    const { ref: automatMonoRef, inView: automatIsVisible} =useInView({
+        threshold: 0.5,
+    });
+
+
 
     const [showBuy, setShowBuy] = useState(false);
     const location = useRouter();
@@ -113,6 +119,17 @@ const Typefaces = () => {
             </Link>
             </div>
 
+            <div className={`${Styles.button} ${automatIsVisible ? Styles.buttonShow : ''}  `} >
+            <Link href="/typefaces/protest-grotesk-text" scroll={false}>
+                <a>
+                    <Button 
+                        lable={'Automat Square (Concept)'}
+                        subclass={"tertiary"}
+                    /> 
+                </a>
+            </Link>
+            </div>
+
         </div> 
 
         <div className="buttonsRightWrapper">
@@ -138,28 +155,33 @@ const Typefaces = () => {
 
 
                 <div ref={protestRef}> 
-                    <Typeface 
+                    <ProtestTypeface 
                         fontFamily= 'Protest'
                         lable='Protest Grotesk'
-                        content={['[ Mono ] Terpene* UNII 68,9°F 12,23°C (about 7°K) ', '<MyComponent somProp= "something" />', 'var myArray = ["something"]', 'getDefaultProps: function () {', 'Inspired by Virgil Abloh’s original “Swiss” and “Meteor Shower” ']}/>  
+                        content={
+                            ['[ Mono ] Terpene* UNII 68,9°F 12,23°C (about 7°K) ', 
+                            '<MyComponent somProp= "something" />', 
+                            'var myArray = ["something"]', 
+                            'getDefaultProps: function () {', 
+                            'Inspired by Virgil Abloh’s original “Swiss” and “Meteor Shower” ']}/>  
                 </div>      
 
                 <div ref={gialloRef}>  
-                    <Typeface 
+                    <GialloTypeface 
                         fontFamily= 'Giallo'
                         lable='Giallo Roman'
                         content={['[ Mono ] Terpene* UNII 68,9°F 12,23°C (about 7°K) ', '<MyComponent somProp= "something" />', 'var myArray = ["something"]', 'getDefaultProps: function () {', 'Inspired by Virgil Abloh’s original “Swiss” and “Meteor Shower” ']}/>  
                 </div>     
     
                 <div ref={protestMonoRef}>
-                    <Typeface 
+                    <ProtestTypeface 
                         fontFamily= 'Protest'
                         lable='Protest Grotesk'
                         content={['[ Mono ] Terpene* UNII 68,9°F 12,23°C (about 7°K) ', '<MyComponent somProp= "something" />', 'var myArray = ["something"]', 'getDefaultProps: function () {', 'Inspired by Virgil Abloh’s original “Swiss” and “Meteor Shower” ']}/>  
                 </div>     
     
                  <div ref={gialloMonoRef}>
-                    <Typeface 
+                    <ProtestTypeface 
                         fontFamily= 'Giallo'
                         lable='Giallo Roman'
                         content={['[ Mono ] Terpene* UNII 68,9°F 12,23°C (about 7°K) ', '<MyComponent somProp= "something" />', 'var myArray = ["something"]', 'getDefaultProps: function () {', 'Inspired by Virgil Abloh’s original “Swiss” and “Meteor Shower” ']}/>  

@@ -39,6 +39,12 @@ body {
   src: url(../public/fonts/Giallo-Medium.otf) format('opentype');
 }
 
+@font-face {
+  font-family: 'AutomatSquare';
+  font-style: normal;   
+  src: url(../public/fonts/Automat_SquareGX.ttf) format('opentype');
+}
+
 /* VARIABLES */
 
 :root {

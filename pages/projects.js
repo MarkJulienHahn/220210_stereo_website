@@ -5,10 +5,12 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import Styles from '../styles/Projects.module.css'
 
+import Project from '../components/Project'
+import AutomatTypeface from '../components/AutomatTypeface'
 import Footer from '../components/Footer'
 import Button from '../components/Button'
 
-import Project from '../components/Project'
+
 
 
 
@@ -58,9 +60,12 @@ const Projects = () => {
                         header={"Automat is a modular, grid-based variable typeface system available in three different styles. Influenced by the systematic work of Wim Crouwel and Karl Gerstner in the 1960s and 1970s as well as later digital reinterpretations in the 1990s, Automat complements them by adding the possibility to steplessly manipulate the typeface in a broad design frame."}
                     />
 
-                    <Project 
-                        header={"Automat is a modular, grid-based variable typeface system available in three different styles. Influenced by the systematic work of Wim Crouwel and Karl Gerstner in the 1960s and 1970s as well as later digital reinterpretations in the 1990s, Automat complements them by adding the possibility to steplessly manipulate the typeface in a broad design frame."}
-                    />          
+                    <div>
+                        <AutomatTypeface 
+                            fontFamily= 'AutomatSquare'
+                            lable='Automat Square Concept'
+                            content={['UBER', 'ÖMALLA', 'TOMPKIN', 'AMARILLO', 'BOBBY']}/>  
+                    </div>       
 
                     <Footer />    
 
