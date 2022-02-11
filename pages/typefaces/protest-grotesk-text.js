@@ -95,7 +95,20 @@ const ProtestGroteskText = () => {
 
                     <div className="typeface-single-opener">
                         <div className="fontOpener">
-                        <span className="pgtBlack">Protest Grotesk Black</span> / <span className={styles.pgtBlackItalic}>Protest Grotesk Black Italic</span> / <span className={styles.pgtBold}>Protest Grotesk Bold</span> / <span className={styles.pgtBoldItalic}>Protest Grotesk Bold Italic</span> / <span className={styles.pgtMedium}>Protest Grotesk Medium</span> / <span className={styles.pgtMediumItalic}>Protest Grotesk Medium Italic</span> / <span className={styles.pgtBook}>Protest Grotesk Book</span> / <span className={styles.pgtBookItalic}>Protest Grotesk Book Italic</span> / <span className={styles.pgtRegular}>Protest Grotesk Regular</span> / <span className={styles.pgtRegularItalic}>Protest Grotesk Regular Italic</span> / <span className={styles.pgtLight}>Protest Grotesk Light</span> / <span className={styles.pgtLightItalic}>Protest Grotesk Light Italic</span> / <span className={styles.pgtThin}>Protest Grotesk Thin</span> / <span className={styles.pgtThinItalic}>Protest Grotesk Thin Italic</span>
+                            <span style={{fontVariationSettings: "'wght' 150, 'wdth' 50"}}>Protest Grotesk Black</span> / 
+                            <span style={{fontVariationSettings: "'wght' 150, 'wdth' 50, 'ital' 100"}}>Protest Grotesk Black Italic</span> / 
+                            <span style={{fontVariationSettings: "'wght' 133, 'wdth' 50, 'ital'  00"}}>Protest Grotesk Bold</span> / 
+                            <span style={{fontVariationSettings: "'wght' 133, 'wdth' 50, 'ital' 100"}}>Protest Grotesk Bold Italic</span> / 
+                            <span style={{fontVariationSettings: "'wght' 116, 'wdth' 50, 'ital'  00"}}>Protest Grotesk Medium</span> / 
+                            <span style={{fontVariationSettings: "'wght' 116, 'wdth' 50, 'ital' 100"}}>Protest Grotesk Medium Italic</span> / 
+                            <span style={{fontVariationSettings: "'wght' 100, 'wdth' 50, 'ital'  00"}}>Protest Grotesk Book</span> / 
+                            <span style={{fontVariationSettings: "'wght' 100, 'wdth' 50, 'ital' 100"}}>Protest Grotesk Book Italic</span> / 
+                            <span style={{fontVariationSettings: "'wght'  80, 'wdth' 50, 'ital'  00"}}>Protest Grotesk Regular</span> / 
+                            <span style={{fontVariationSettings: "'wght'  80, 'wdth' 50, 'ital' 100"}}>Protest Grotesk Regular Italic</span> / 
+                            <span style={{fontVariationSettings: "'wght'  60, 'wdth' 50, 'ital'  00"}}>Protest Grotesk Light</span> / 
+                            <span style={{fontVariationSettings: "'wght'  60, 'wdth' 50, 'ital' 100"}}>Protest Grotesk Light Italic</span> / 
+                            <span style={{fontVariationSettings: "'wght'  60, 'wdth' 50, 'ital'  00"}}>Protest Grotesk Thin</span> / 
+                            <span style={{fontVariationSettings: "'wght'  60, 'wdth' 50, 'ital' 100"}}>Protest Grotesk Thin Italic</span>
                         </div>
                     </div>
 
