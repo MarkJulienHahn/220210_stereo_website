@@ -290,6 +290,48 @@ li {
   opacity: 0.8;
 }
 
+.typefaceWrapper {
+  height: 100vh;
+  width: 100%;
+}
+
+.typefaceControl {
+  font-family: 'Giallo';
+  font-size: 20pt;
+  letter-spacing: -1px;
+  line-height: 22pt;
+  position: sticky;
+  top: var(--margin-M);
+  margin-bottom: 50px;
+  mix-blend-mode: difference;
+  color: white;
+
+}
+
+.typefaceDisplay {
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10.9vw;
+  letter-spacing: -0.5vw;
+  font-variation-settings: 'wdth' 50;
+  text-align: center;
+  transition: font-variation-settings 0.2s ease;
+  border: none;
+  cursor: e-resize
+}
+
+.typefaceControlButton {
+  cursor: Pointer;
+  opacity: 0.3;
+  transition: opacity 0.2s linear;
+}
+
+.typefaceControlButton:hover {
+  opacity: 1;
+}
+
 /* T E S T E R */
 
 .typeface-single-tester-wrap {
