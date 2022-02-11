@@ -63,20 +63,20 @@ function Typetester ( props ) {
   return  (
 
     <>
-      <div className={styles.typetesterWrapper}>
-        <div className={styles.controlsWrapper}>
-          <div className={styles.controlsColumn}>
-            <div className={styles.sliderWrapper}>
+      <div className="typetesterWrapper">
+        <div className="controlsWrapper">
+          <div className="controlsColumn">
+            <div className="sliderWrapper">
               <p>&#8594; {props.name}</p>
               <p>
                 <span onClick={makeSS01} style={ss01Style} >SS01 </span> / <span onClick={makeSS02} style={ss02Style}>SS02</span></p>
             </div>
           </div>
-          <div className={styles.sliderWrapper}>
+          <div className="sliderWrapper">
             <p>&#8594; Click the Field to Type</p>
           </div>
-          <div className={styles.controlsColumn}>
-            <div className={styles.sliderWrapper}><p>&#8594; Font Size {val}pt </p>
+          <div className="controlsColumn">
+            <div className="sliderWrapper"><p>&#8594; Font Size {val}pt </p>
               <Slider
                 className={styles.slider}
                 min={15}
@@ -87,8 +87,8 @@ function Typetester ( props ) {
               />
             </div>
             </div>
-            <div className={styles.controlsColumn}>
-              <div className={styles.sliderWrapper}><p>&#8594; Tracking </p>
+            <div className="controlsColumn">
+              <div className="sliderWrapper"><p>&#8594; Tracking </p>
                 <Slider
                   className={styles.slider}
                   min={-20}

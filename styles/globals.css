@@ -310,6 +310,45 @@ li {
   overflow-y: hidden;
 }
 
+.controlsWrapper {
+  display: flex; 
+  flex-direction: row;
+  justify-content: space-between;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  width: 100%;
+  padding-top: 20px;
+}
+
+.typetesterWrapper {
+  opacity: 0.7;
+  transition: opacity 0.5s ease;
+}
+
+.typetesterWrapper:hover {
+  opacity: 1
+}
+
+.typetesterWrapper:hover .controlsWrapper {
+  opacity: 1
+}
+
+.input {
+  color: black;
+  width: 100%;
+  border: 0;
+  word-break: break-all;
+  padding-top: 20px;
+  word-spacing: -1px;
+}
+
+.sliderWrapper {
+  display: flex; 
+  flex-direction: column;
+  justify-content: space-between;
+  width: 20vw;
+}
+
 .MuiSlider-root {
   color: black !important;
   opacity: 0.8;
@@ -323,8 +362,80 @@ li {
   box-shadow: none !important;
 }
 
+
 /* F E A T U R E S */
 
 .features-wrapper {
   padding: var(--margin-XL) 0;
 }
+
+/* G L Y P H C H A R T */
+
+.glyphchartWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-top: var(--margin-XL);
+  margin-bottom: var(--margin-XL);
+}
+
+.glyphchartDisplayWrapper {
+  width: 50%;
+  height: 350vh;
+}
+
+.glyphchartDisplay {
+  position: sticky;
+  top: 20vh;
+  width: 100%;
+  font-size: 40vw;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.glyphchartTable {
+  width: 50%;
+  height: 10vh;
+}
+
+.glyphchartLetterWrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.glyphchartLetter {
+  width: 70px;
+  height: 70px;
+  font-size: 20pt;
+  display: flex;
+  justify-content: center;
+  transition: font-size 0.2s ease-out, transform 0.2s ease-out;
+  cursor: unset;
+}
+
+.glyphchartLetter:hover {
+  font-size: 40pt;
+  transform: translateY(-10px);
+}
+
+.glyphchartHeading {
+  padding-bottom: var(--margin-M)
+}
+
+.glyphchartSlider {
+  width: 18vw !important;
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: var(--margin-M);
+  display: flex;
+  flex-direction: row;
+  margin-right: 60px !important;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.glyphchartWrapper:hover .glyphchartSlider {
+  opacity: 1;
+}   

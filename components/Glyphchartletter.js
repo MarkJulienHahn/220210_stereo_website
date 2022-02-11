@@ -10,7 +10,7 @@ function Glyphchartletter(props) {
 
   return (
     <>
-        <div className={styles.glyphchartLetter} onMouseEnter={() => props.changeGlyph(props.lable)} style={glyphstyle}>
+        <div className="glyphchartLetter" onMouseEnter={() => props.changeGlyph(props.lable)} style={glyphstyle}>
             {props.lable}
         </div>
     </>

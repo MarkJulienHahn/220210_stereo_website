@@ -37,14 +37,14 @@ function changeStyleset(styleset) {
     
 
     return (
-        <div className={styles.glyphchartWrapper} style={glyphStyle}>
+        <div className="glyphchartWrapper" style={glyphStyle}>
 
-        <div className={styles.glyphchartDisplayWrapper}>
-            <div className={styles.slider}>
-                <div className={styles.sliderWrapper}>
+        <div className="glyphchartDisplayWrapper">
+            <div className="glyphchartSlider">
+                <div>
                     <p>&#8594;  Weight</p>
                     <Slider
-                        className={styles.slider}
+                        className="glyphchartSlider"
                         min={40}
                         max={150}
                         step={0.1}
@@ -52,10 +52,10 @@ function changeStyleset(styleset) {
                         onChange={changeWght}
                         />
                 </div>    
-                <div className={styles.sliderWrapper}>
+                <div>
                     <p>&#8594;  Italic</p>
                     <Slider
-                        className={styles.slider}
+                        className="glyphchartSlider"
                         min={0}
                         max={100}
                         step={0.1}
@@ -64,11 +64,11 @@ function changeStyleset(styleset) {
                         />   
                 </div>        
             </div>
-            <div className={styles.glyphchartDisplay} style={glyphDisplay}>{glyph}</div>
+            <div className="glyphchartDisplay" style={glyphDisplay}>{glyph}</div>
         </div>
-        <div className={styles.glyphchartTable}>
-            <p className={styles.glyphchartHeading}>&#8594;  Uppercase</p>
-            <div className={styles.glyphchartLetterWrapper}>
+        <div className="glyphchartTable">
+            <p className="glyphchartHeading">&#8594;  Uppercase</p>
+            <div className="glyphchartLetterWrapper">
                 <Glyphchartletter 
                     lable={"A"}
                     changeGlyph={glyph => setGlyph(glyph)}/>
@@ -148,8 +148,8 @@ function changeStyleset(styleset) {
                     lable={"Z"}
                     changeGlyph={glyph => setGlyph(glyph)}/>
             </div>     
-            <p className={styles.glyphchartHeading}>&#8594;  Lowercase</p>
-            <div className={styles.glyphchartLetterWrapper}  onMouseEnter={() => changeStyleset('normal')}>
+            <p className="glyphchartHeading">&#8594;  Lowercase</p>
+            <div className="glyphchartLetterWrapper"  onMouseEnter={() => changeStyleset('normal')}>
                 <Glyphchartletter 
                     lable={"a"}
                     changeGlyph={glyph => setGlyph(glyph)}/>
@@ -229,8 +229,8 @@ function changeStyleset(styleset) {
                     lable={"z"}
                     changeGlyph={glyph => setGlyph(glyph)}/>
             </div>   
-            <p className={styles.glyphchartHeading}>&#8594;  Latin Extended Uppercase </p>
-            <div className={styles.glyphchartLetterWrapper}>
+            <p className="glyphchartHeading" >&#8594;  Latin Extended Uppercase </p>
+            <div className="glyphchartLetterWrapper" >
                 <Glyphchartletter 
                     lable={"Á"}
                     changeGlyph={glyph => setGlyph(glyph)}/>
@@ -544,8 +544,8 @@ function changeStyleset(styleset) {
                     lable={"Ż"}
                     changeGlyph={glyph => setGlyph(glyph)}/>              
             </div>  
-            <p className={styles.glyphchartHeading}>&#8594;  Latin Extended Lowercase </p>
-            <div className={styles.glyphchartLetterWrapper} onMouseEnter={() => changeStyleset('normal')}>
+            <p className="glyphchartHeading" >&#8594;  Latin Extended Lowercase </p>
+            <div className="glyphchartLetterWrapper" onMouseEnter={() => changeStyleset('normal')}>
                 <Glyphchartletter 
                     lable={"á"}
                     changeGlyph={glyph => setGlyph(glyph)}/>
@@ -856,8 +856,8 @@ function changeStyleset(styleset) {
                     lable={"ż"}
                     changeGlyph={glyph => setGlyph(glyph)}/>               
             </div>                     
-            <p className={styles.glyphchartHeading}>&#8594;  Stylistic Set 01</p>
-            <div className={styles.glyphchartLetterWrapper} onMouseEnter={() => changeStyleset('"ss01"')}>
+            <p className="glyphchartHeading" >&#8594;  Stylistic Set 01</p>
+            <div className="glyphchartLetterWrapper" onMouseEnter={() => changeStyleset('"ss01"')}>
                 <Glyphchartletter 
                     lable={"a"}
                     changeGlyph={glyph => setGlyph(glyph)}
@@ -927,8 +927,8 @@ function changeStyleset(styleset) {
                     changeGlyph={glyph => setGlyph(glyph)}
                     ss={"ss01"}/>                             
             </div>  
-            <p className={styles.glyphchartHeading}>&#8594;  Stylistic Set 02</p>
-            <div className={styles.glyphchartLetterWrapper}  onMouseEnter={() => changeStyleset('"ss02"')}>
+            <p className="glyphchartHeading" >&#8594;  Stylistic Set 02</p>
+            <div className="glyphchartLetterWrapper"  onMouseEnter={() => changeStyleset('"ss02"')}>
                 <Glyphchartletter 
                     lable={"g"}
                     changeGlyph={glyph => setGlyph(glyph)}
@@ -946,8 +946,8 @@ function changeStyleset(styleset) {
                     changeGlyph={glyph => setGlyph(glyph)}
                     ss={"ss02"}/>    
             </div> 
-            <p className={styles.glyphchartHeading}>&#8594;  Figures</p>
-            <div className={styles.glyphchartLetterWrapper}>
+            <p className="glyphchartHeading" >&#8594;  Figures</p>
+            <div className="glyphchartLetterWrapper" >
                 <Glyphchartletter 
                     lable={"0"}
                     changeGlyph={glyph => setGlyph(glyph)}/>
@@ -1162,8 +1162,8 @@ function changeStyleset(styleset) {
                     lable={"Ⅿ"}
                     changeGlyph={glyph => setGlyph(glyph)}/>                                                                                                             
             </div>          
-            <p className={styles.glyphchartHeading}>&#8594;  Punctuation</p>
-            <div className={styles.glyphchartLetterWrapper}>
+            <p className="glyphchartHeading" >&#8594;  Punctuation</p>
+            <div className="glyphchartLetterWrapper" >
                 <Glyphchartletter 
                     lable={"."}
                     changeGlyph={glyph => setGlyph(glyph)}/>
@@ -1270,8 +1270,8 @@ function changeStyleset(styleset) {
                     lable={`"`}
                     changeGlyph={glyph => setGlyph(glyph)}/>  
             </div>          
-            <p className={styles.glyphchartHeading}>&#8594;  Currency</p>
-            <div className={styles.glyphchartLetterWrapper}>
+            <p className="glyphchartHeading">&#8594;  Currency</p>
+            <div className="glyphchartLetterWrapper">
                 <Glyphchartletter 
                     lable={"€"}
                     changeGlyph={glyph => setGlyph(glyph)}/>
@@ -1297,8 +1297,8 @@ function changeStyleset(styleset) {
                     lable={"¥"}
                     changeGlyph={glyph => setGlyph(glyph)}/>
             </div>          
-            <p className={styles.glyphchartHeading}>&#8594;  Symbols</p>
-            <div className={styles.glyphchartLetterWrapper}>
+            <p className="glyphchartHeading">&#8594;  Symbols</p>
+            <div className="glyphchartLetterWrapper" >
                 <Glyphchartletter 
                     lable={"+"}
                     changeGlyph={glyph => setGlyph(glyph)}/>
@@ -1429,8 +1429,8 @@ function changeStyleset(styleset) {
                     lable={"№"}
                     changeGlyph={glyph => setGlyph(glyph)}/> 
             </div>                     
-            <p className={styles.glyphchartHeading}>&#8594;  Arrows</p>
-            <div className={styles.glyphchartLetterWrapper}>
+            <p className="glyphchartHeading">&#8594;  Arrows</p>
+            <div className="glyphchartLetterWrapper" >
                 <Glyphchartletter 
                     lable={"↑"}
                     changeGlyph={glyph => setGlyph(glyph)}/>
