@@ -303,7 +303,11 @@ li {
   font-variation-settings: 'wght' 40, 'wdth' 50;
   letter-spacing: -15px;
   white-space: nowrap;
+}
 
+.inputWrapper {
+  width: calc(100vw -30px);
+  overflow-y: hidden;
 }
 
 .MuiSlider-root {

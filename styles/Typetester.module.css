@@ -21,11 +21,6 @@
     opacity: 1
 }
 
-.inputWrapper {
-    width: calc(100vw -30px);
-    overflow-y: hidden;
-}
-
 .input {
     color: black;
     width: 100%;
