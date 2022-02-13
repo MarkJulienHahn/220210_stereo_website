@@ -266,6 +266,28 @@ li {
   color: black;
 }
 
+@media only screen and (max-width: 600px) {
+  .buttonsLeftWrapper {
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-end;
+    max-width: 60vw;
+  }
+  .buttonsRightWrapper {
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    bottom: 0px;
+    max-width: 30vw;
+  }
+  .buttonsRightWrapper div {
+    margin: 3px 0 0 3px;
+  }
+}
+
 /* C A R T */
 
 

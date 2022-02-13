@@ -47,3 +47,15 @@
     -webkit-backdrop-filter: blur(23px);
     backdrop-filter: blur(23px);
 }
+
+@media only screen and (max-width: 600px) {
+    .button {
+        margin-bottom: 0;
+        margin-top: 3px;
+    }
+    .infoButton {
+        position: relative;
+        right: inherit;
+        max-width: inherit;
+    } 
+}
