@@ -5,7 +5,7 @@ import styles from '../styles/Typetester.module.css'
 
 function Typetester ( props ) {
 
-  const [val, updateVal] = useState(200);
+  const [val, updateVal] = useState(257);
   const [val2, updateVal2] = useState(-10);
   const [val3, setVal3] = useState("ss00");
   const [val4, setVal4] = useState("ss00");
@@ -42,8 +42,8 @@ function Typetester ( props ) {
 
   const testerStyle = {
     fontSize: `${val}pt`,
-    lineHeight: `${val+5}pt`,
-    height: `clamp(300px, ${val+100}px, ${val+100}px)`,
+    lineHeight: `${val*1.2}pt`,
+    height: `clamp(300px, ${val+150}px, ${val+150}px)`,
     letterSpacing: `${val2*val/200}px`,
     fontVariationSettings: `'wght' ${props.wght}, 'ital' ${props.ital}, 'wdth' 50`,
     fontFeatureSettings: `"${val3}", "${val4}"`
@@ -102,7 +102,7 @@ function Typetester ( props ) {
         </div>
 
         <div className="inputWrapper">
-          <div contentEditable="true" className={styles.input} style={testerStyle} type="text" name="lname">
+          <div contentEditable="true" className={styles.input} style={testerStyle} type="text" name="lname" spellcheck="false">
           Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
           </div>
         </div>

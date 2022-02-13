@@ -166,7 +166,8 @@ li {
   justify-content: flex-end;
   z-index: 50;
   height: 25px;
-  animation: fadeIn 2s linear;
+  animation: fadeIn 1s linear;
+  z-index: 200;
 }
 
 @keyframes fadeIn {
@@ -195,7 +196,8 @@ li {
   display: flex;
   z-index: 50;
   height: 25px;
-  animation: fadeIn 0.5s linear;
+  /* animation: fadeIn 0.5s linear; */
+  z-index: 200;
 }
 
 .buttonsLeftWrapper div {
@@ -305,7 +307,7 @@ li {
   margin-bottom: 50px;
   mix-blend-mode: difference;
   color: white;
-
+  z-index: 100;
 }
 
 .typefaceDisplay {
@@ -350,6 +352,7 @@ li {
 .inputWrapper {
   width: calc(100vw -30px);
   overflow-y: hidden;
+  word-break: break-all;
 }
 
 .controlsWrapper {

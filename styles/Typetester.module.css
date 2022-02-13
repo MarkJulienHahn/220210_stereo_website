@@ -1,0 +1,8 @@
+.input {
+    border: 0;
+    outline: 0px solid transparent;
+}
+
+.input::selection{
+    background-color: var(--primary);
+}
