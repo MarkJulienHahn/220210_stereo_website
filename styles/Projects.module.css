@@ -31,3 +31,20 @@
 .w6 {
     width: 49%;
 }
+
+@media only screen and (max-width: 600px) {
+    .AppInner {
+        margin-top: calc(5*var(--margin-M));
+        overflow: hidden;
+    }
+    .imageRow {
+        width: calc(100vw - 2*(var(--margin-M)));
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .w6 {
+        width: calc(100vw - 2*(var(--margin-M)));
+        padding-bottom: var(--margin-M)
+    }
+}

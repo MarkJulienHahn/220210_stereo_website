@@ -273,7 +273,7 @@ li {
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: flex-end;
-    max-width: 60vw;
+    max-width: 70vw;
   }
   .buttonsRightWrapper {
     height: auto;
@@ -368,12 +368,33 @@ li {
   opacity: 1;
 }
 
+@keyframes changeStyle {
+  0% {
+    font-variation-settings: 'ital' 0, 'wght' 40;
+  }
+  33% {
+    font-variation-settings: 'ital' 0, 'wght' 150;
+  }
+  66% {
+    font-variation-settings: 'ital' 100, 'wght' 150;
+  }
+  100% {
+    font-variation-settings: 'ital' 0, 'wght' 40;
+  }
+}
+
 @media only screen and (max-width: 600px) {
+  .typefaceWrapper {
+    height: 40vh;
+  }
+
   .typefaceControl {
-    font-size: 15pt;
-    letter-spacing: -1px;
-    line-height: 17pt;
-    position: sticky;
+    display: none;
+  }
+  .typefaceDisplay {
+    height: 40vh;
+    font-size: 10vw;
+    animation: changeStyle 5s ease 0s infinite alternate; 
   }
 }
 

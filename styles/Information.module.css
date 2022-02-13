@@ -21,3 +21,12 @@
     transition: font-size 0.3s cubic-bezier(0.19, 1, 0.22, 1), width 0.3s cubic-bezier(0.19, 1, 0.22, 1), font-variation-settings 0.3s cubic-bezier(0.19, 1, 0.22, 1), line-heigth 0.3s cubic-bezier(0.19, 1, 0.22, 1);
     cursor:ew-resize;
 }
+
+@media only screen and (max-width: 600px) {
+    .infoWrapper {
+        margin-top: calc(5*var(--margin-M))
+    }
+    .infoContent {
+        width: calc(100vw - 2*(var(--margin-M))) !important;
+    }
+}
