@@ -58,6 +58,14 @@ body {
   --quaternary: rgba(220, 220, 220, 0.4);
 }
 
+@media only screen and (max-width: 600px) {
+  :root {
+    --margin-XL: 200px;
+    --margin-M: 15px;
+    --margin-S: 10px;
+  }
+}
+
 ::-moz-selection { background: transparent; color: inherit; }
 ::selection { background: transparent; color: inherit; }
 
@@ -76,24 +84,20 @@ p {
   margin: 0;
 }
 
+ul {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 0;
+}
+
 li {
   list-style: none;
 }
 
 /* M E N U  */
 
-.menuContainer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 100;
-}
 
 .menuBarClosed {
   width: 35vw;
@@ -106,10 +110,9 @@ li {
 }
 
 .menuBarOpen {
-  width: calc(100vw - 60px);
-  height: calc(100vh - 60px);
+  width: calc(100vw - 2*var(--margin-M));
+  height: calc(100vh - 2*var(--margin-M));
 }
-
 
 .menuBarClosed li {
   display: none;
@@ -126,6 +129,15 @@ li {
 
 .menuLinkClosed {
   opacity: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  .menuBarClosed {
+    width: calc(100vw - 2*var(--margin-M));
+  }
+  .menuBarClosed:hover {
+    width: calc(100vw - 2*var(--margin-M));
+  }
 }
 
 /* S T O R E F R O N T */
@@ -332,6 +344,15 @@ li {
 
 .typefaceControlButton:hover {
   opacity: 1;
+}
+
+@media only screen and (max-width: 600px) {
+  .typefaceControl {
+    font-size: 15pt;
+    letter-spacing: -1px;
+    line-height: 17pt;
+    position: sticky;
+  }
 }
 
 /* T E S T E R */

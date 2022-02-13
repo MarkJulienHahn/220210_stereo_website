@@ -5,7 +5,7 @@
     height: 100vh;
     width: 100vw;
     background: var(--tertiary);
-    z-index: 200;
+    z-index: 300;
     backdrop-filter: blur(20px);
     animation: fadeIn 0.2s ease;
     transition: opacity 0.5s ease;

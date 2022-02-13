@@ -8,7 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 200;
+    z-index: 400;
 }
 
 #menuBar {
@@ -61,3 +61,18 @@
     color: #4A4A4A;
     opacity: 0.8;
 }
+
+@media only screen and (max-width: 600px) {
+    #menuBar {
+        top: var(--margin-M);
+    }
+
+    .logoTypo {
+        top: 16px;
+    }
+
+    .menuTypo {
+        font-size: 28px;
+        transform: translateY(15px);
+    }
+  }
