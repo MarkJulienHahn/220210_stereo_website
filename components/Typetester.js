@@ -41,10 +41,10 @@ function Typetester ( props ) {
   }  
 
   const testerStyle = {
-    fontSize: `${val}pt`,
-    lineHeight: `${val*1.2}pt`,
-    height: `clamp(300px, ${val+150}px, ${val+150}px)`,
-    letterSpacing: `${val2*val/200}px`,
+    fontSize: `calc(0.1*${val}vw)`,
+    lineHeight: `calc(0.12*${val}vw)`,
+    height: `clamp(300px, calc(0.1*${val}vw), calc(0.1*${val}vw))`,
+    letterSpacing: `${val2*val/1500}vw`,
     fontVariationSettings: `'wght' ${props.wght}, 'ital' ${props.ital}, 'wdth' 50`,
     fontFeatureSettings: `"${val3}", "${val4}"`
   }
