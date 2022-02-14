@@ -68,12 +68,14 @@ function changeStyleset(styleset) {
 
         </div>
         <div className="glyphchartTable">
-             <div className="glyphchartDisplayMobile" style={glyphDisplay}>{glyph}
-                <div className="glyphchartSlider">
-                        <div>
+             <div className="glyphchartDisplayMobile" style={glyphDisplay}>
+                 
+                 {glyph}
+                
+                <div className="glyphchartSliderMobile">
+                        <div className="glyphchartSliderSingle">
                             <p>&#8594;  Weight</p>
                             <Slider
-                                className="glyphchartSlider"
                                 min={40}
                                 max={150}
                                 step={0.1}
@@ -81,10 +83,9 @@ function changeStyleset(styleset) {
                                 onChange={changeWght}
                                 />
                         </div>    
-                        <div>
+                        <div className="glyphchartSliderSingle">
                             <p>&#8594;  Italic</p>
                             <Slider
-                                className="glyphchartSlider"
                                 min={0}
                                 max={100}
                                 step={0.1}
