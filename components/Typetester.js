@@ -72,7 +72,7 @@ function Typetester ( props ) {
                 <span onClick={makeSS01} style={ss01Style} >SS01 </span> / <span onClick={makeSS02} style={ss02Style}>SS02</span></p>
             </div>
           </div>
-          <div className="sliderWrapper">
+          <div className="sliderWrapper" id="click2type">
             <p>&#8594; Click the Field to Type</p>
           </div>
           <div className="controlsColumn">
