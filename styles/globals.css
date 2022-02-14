@@ -503,6 +503,10 @@ li {
   pointer-events: none;
 }
 
+.glyphchartDisplayMobile {
+  display: none;
+}
+
 .glyphchartTable {
   width: 50%;
   height: 10vh;
@@ -548,3 +552,38 @@ li {
 .glyphchartWrapper:hover .glyphchartSlider {
   opacity: 1;
 }   
+
+@media only screen and (max-width: 600px) {
+  .glyphchartTable {
+    width: 100%;
+    height: auto;
+  }
+
+  .glyphchartDisplayMobile {
+    width: 100%;
+    height: 50vh;
+    font-size: 60vw;
+    padding-top: 40px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;;
+    pointer-events: none;
+    position: sticky;
+    top: 0;
+    z-index: 200;
+  }
+
+  .glyphchartDisplayWrapper {
+    display: none;
+  }
+
+  .glyphchartSlider {
+    opacity: 1;
+    display: flex;
+    bottom: 0;
+    height: 20px;
+  }   
+
+}
