@@ -307,10 +307,15 @@ li {
 }
 
 .typeface-single-header {
-  height: calc(100vh - 150px);
+  height: 200vh;
   min-height: 800px;
   background: black;
   overflow: hidden;
+}
+
+.typeface-single-header span {
+  height: 100%;
+  object-fit: contain;
 }
 
 .typeface-single-opener {
@@ -320,9 +325,9 @@ li {
 .fontOpener {
   font-family: 'Protest';
   font-variation-settings: 'wdth' 50, 'wght' 40;
-  font-size: clamp(30pt, 5vw, 10vw);
-  line-height: clamp(30pt, 4.5vw, 4.5vw);
-  letter-spacing: clamp(-0.3vw, -0.03vw, -2vw);
+  font-size: 6.8vw;
+  line-height: 7vw;
+  letter-spacing: -0.5vw;
   opacity: 0.8;
 }
 
@@ -415,7 +420,7 @@ li {
 
 .inputWrapper {
   width: calc(100vw -30px);
-  overflow-y: hidden;
+  overflow: hidden;
   word-break: break-all;
 }
 

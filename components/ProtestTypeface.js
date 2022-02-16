@@ -30,8 +30,8 @@ const style01 = {
         <section className="typefaceWrapper">
             <Link href="/typefaces/protest-grotesk-text"  scroll={false}>
                 <div className="typefaceControl">
-                    <span className="typefaceControlButton" onMouseEnter={() => setWdth([150, 100])}>Protest Grotesk Black Italic / </span>
                     <span className="typefaceControlButton" onMouseEnter={() => setWdth([150, 0])}>Protest Grotesk Black / </span> 
+                    <span className="typefaceControlButton" onMouseEnter={() => setWdth([150, 100])}>Protest Grotesk Black Italic / </span>
                     <span className="typefaceControlButton" onMouseEnter={() => setWdth([133, 0])}>Protest Grotesk Bold / </span>
                     <span className="typefaceControlButton" onMouseEnter={() => setWdth([133, 100])}>Protest Grotesk Bold Italic / </span>
                     <span className="typefaceControlButton" onMouseEnter={() => setWdth([116, 0])}>Protest Grotesk Medium / </span>
