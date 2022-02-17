@@ -336,6 +336,13 @@ li {
   width: 100%;
 }
 
+.typefaceWrapper p {
+  font-family: 'Giallo-Mono';
+  font-size: 12.5px;
+  line-height: 16px;
+  letter-spacing: 1px;
+}
+
 .typefaceControl {
   font-family: 'Giallo';
   font-size: 20pt;
@@ -349,6 +356,13 @@ li {
   z-index: 100;
 }
 
+.typefaceInfo {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
 .typefaceDisplay {
   height: 80%;
   display: flex;
@@ -360,7 +374,7 @@ li {
   text-align: center;
   transition: font-variation-settings 0.2s ease;
   border: none;
-  cursor: e-resize
+  cursor: pointer;
 }
 
 .typefaceControlButton {

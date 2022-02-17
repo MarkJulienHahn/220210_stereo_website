@@ -28,29 +28,33 @@ const style01 = {
   return (
 
         <section className="typefaceWrapper">
-            <Link href="/typefaces/protest-grotesk-text"  scroll={false}>
+
                 <div className="typefaceControl">
-                    <span className="typefaceControlButton" onMouseEnter={() => setWdth([150, 0])}>Protest Grotesk Black / </span> 
-                    <span className="typefaceControlButton" onMouseEnter={() => setWdth([150, 100])}>Protest Grotesk Black Italic / </span>
-                    <span className="typefaceControlButton" onMouseEnter={() => setWdth([133, 0])}>Protest Grotesk Bold / </span>
-                    <span className="typefaceControlButton" onMouseEnter={() => setWdth([133, 100])}>Protest Grotesk Bold Italic / </span>
-                    <span className="typefaceControlButton" onMouseEnter={() => setWdth([116, 0])}>Protest Grotesk Medium / </span>
-                    <span className="typefaceControlButton" onMouseEnter={() => setWdth([116, 100])}>Protest Grotesk Medium Italic / </span>
-                    <span className="typefaceControlButton" onMouseEnter={() => setWdth([100, 0])}>Protest Grotesk Book / </span>
-                    <span className="typefaceControlButton" onMouseEnter={() => setWdth([100, 100])}>Protest Grotesk Book Italic / </span>
-                    <span className="typefaceControlButton" onMouseEnter={() => setWdth([80, 0])}>Protest Grotesk Regular / </span>
-                    <span className="typefaceControlButton" onMouseEnter={() => setWdth([80, 100])}>Protest Grotesk Regular Italic / </span>
+                    <div className="typefaceInfo">
+                        <p>→ 14 Styles / Price per style from 69 EUR</p>
+                        <p className="typefaceCount" onClick={nmbr < 4 ? setNmbr : setbackNmbr}>[ Text {nmbr+1} of 5 ]</p>
+                    </div>
+                    <span className="typefaceControlButton" onMouseEnter={() => setWdth([40, 100])}>Protest Grotesk Thin Italic / </span>
+                    <span className="typefaceControlButton" onMouseEnter={() => setWdth([40, 0])}>Protest Grotesk Thin / </span>
                     <span className="typefaceControlButton" onMouseEnter={() => setWdth([60, 0])}>Protest Grotesk Light / </span>
                     <span className="typefaceControlButton" onMouseEnter={() => setWdth([60, 100])}>Protest Grotesk Light Italic / </span>
-                    <span className="typefaceControlButton" onMouseEnter={() => setWdth([40, 0])}>Protest Grotesk Thin / </span>
-                    <span className="typefaceControlButton" onMouseEnter={() => setWdth([40, 100])}>Protest Grotesk Thin Italic / </span>
+                    <span className="typefaceControlButton" onMouseEnter={() => setWdth([80, 0])}>Protest Grotesk Regular / </span>
+                    <span className="typefaceControlButton" onMouseEnter={() => setWdth([80, 100])}>Protest Grotesk Regular Italic / </span>
+                    <span className="typefaceControlButton" onMouseEnter={() => setWdth([100, 0])}>Protest Grotesk Book / </span>
+                    <span className="typefaceControlButton" onMouseEnter={() => setWdth([100, 100])}>Protest Grotesk Book Italic / </span>
+                    <span className="typefaceControlButton" onMouseEnter={() => setWdth([116, 0])}>Protest Grotesk Medium / </span>
+                    <span className="typefaceControlButton" onMouseEnter={() => setWdth([116, 100])}>Protest Grotesk Medium Italic / </span>
+                    <span className="typefaceControlButton" onMouseEnter={() => setWdth([133, 0])}>Protest Grotesk Bold / </span>
+                    <span className="typefaceControlButton" onMouseEnter={() => setWdth([133, 100])}>Protest Grotesk Bold Italic / </span>
+                    <span className="typefaceControlButton" onMouseEnter={() => setWdth([150, 0])}>Protest Grotesk Black / </span> 
+                    <span className="typefaceControlButton" onMouseEnter={() => setWdth([150, 100])}>Protest Grotesk Black Italic / </span>
                 </div>
-            </Link>
-            
 
-            <div className="typefaceDisplay" style={style01} onClick={nmbr < 4 ? setNmbr : setbackNmbr}>  
-                <p>{props.content[nmbr]}</p>
-            </div>
+                <Link href="/typefaces/protest-grotesk-text"  scroll={false}>
+                    <div className="typefaceDisplay" style={style01}>  
+                        <div>{props.content[nmbr]}</div>
+                    </div>
+                </Link>
 
 
         </section> 

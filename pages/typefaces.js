@@ -31,9 +31,6 @@ const Typefaces = () => {
     const { ref: protestMonoRef, inView: protestMonoIsVisible} =useInView({
         threshold: 0.5,
     });
-    const { ref: automatMonoRef, inView: automatIsVisible} =useInView({
-        threshold: 0.5,
-    });
 
 
 
@@ -113,17 +110,6 @@ const Typefaces = () => {
                 <a>
                     <Button 
                         lable={'Giallo Mono'}
-                        subclass={"tertiary"}
-                    /> 
-                </a>
-            </Link>
-            </div>
-
-            <div className={`${Styles.button} ${automatIsVisible ? Styles.buttonShow : ''}  `} >
-            <Link href="/typefaces/protest-grotesk-text" scroll={false}>
-                <a>
-                    <Button 
-                        lable={'Automat Square (Concept)'}
                         subclass={"tertiary"}
                     /> 
                 </a>

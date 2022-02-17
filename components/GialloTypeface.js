@@ -28,8 +28,12 @@ const style01 = {
   return (
 
         <section className="typefaceWrapper">
-            <Link href="/typefaces/protest-grotesk-text"  scroll={false}>
+
                 <div className="typefaceControl">
+                    <div className="typefaceInfo">
+                        <p>→ 14 Styles / Price per style from 69 EUR</p>
+                        <p className="typefaceCount" onClick={nmbr < 4 ? setNmbr : setbackNmbr}>[ Text {nmbr+1} of 5 ]</p>
+                    </div>
                     <span className="typefaceControlButton" onMouseEnter={() => setWdth([150, 0])}>Giallo Roman Black / </span> 
                     <span className="typefaceControlButton" onMouseEnter={() => setWdth([150, 100])}>Giallo Roman Black Italic / </span>
                     <span className="typefaceControlButton" onMouseEnter={() => setWdth([133, 0])}>Giallo Roman Bold / </span>
@@ -45,12 +49,13 @@ const style01 = {
                     <span className="typefaceControlButton" onMouseEnter={() => setWdth([40, 0])}>Giallo Roman Thin / </span>
                     <span className="typefaceControlButton" onMouseEnter={() => setWdth([40, 100])}>Giallo Roman Thin Italic / </span>
                 </div>
-            </Link>
-            
 
-            <div className="typefaceDisplay" style={style01} onClick={nmbr < 4 ? setNmbr : setbackNmbr}>  
-                <p>{props.content[nmbr]}</p>
-            </div>
+            
+            <Link href="/typefaces/protest-grotesk-text"  scroll={false}>
+                <div className="typefaceDisplay" style={style01}>  
+                    <div>{props.content[nmbr]}</div>
+                </div>
+            </Link>
 
 
         </section> 
