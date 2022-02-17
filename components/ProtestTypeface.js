@@ -19,6 +19,15 @@ function setbackNmbr() {
     updateNmbr(nmbr => 0)
 }
 
+function changeText() {
+    if (nmbr < 4) {
+        setNmbr();
+        return
+    }   else {
+        setbackNmbr()}
+        return
+}
+
 
 const style01 = {
     fontVariationSettings: `'wght' ${wdth[0]}, 'ital' ${wdth[1]},'wdth' 50`,
@@ -32,7 +41,7 @@ const style01 = {
                 <div className="typefaceControl">
                     <div className="typefaceInfo">
                         <p>→ 14 Styles / Price per style from 69 EUR</p>
-                        <p className="typefaceCount" onClick={nmbr < 4 ? setNmbr : setbackNmbr}>[ Text {nmbr+1} of 5 ]</p>
+                        <p className="typefaceCount" onClick={changeText}>→ Change Text {nmbr+1} / 5</p>
                     </div>
                     <span className="typefaceControlButton" onMouseEnter={() => setWdth([40, 100])}>Protest Grotesk Thin Italic / </span>
                     <span className="typefaceControlButton" onMouseEnter={() => setWdth([40, 0])}>Protest Grotesk Thin / </span>

@@ -328,7 +328,6 @@ li {
   font-size: 6.8vw;
   line-height: 7vw;
   letter-spacing: -0.5vw;
-  opacity: 0.8;
 }
 
 .typefaceWrapper {
@@ -369,7 +368,7 @@ li {
   justify-content: center;
   align-items: center;
   font-size: 10.9vw;
-  letter-spacing: -0.5vw;
+  letter-spacing: -0.7vw;
   font-variation-settings: 'wdth' 50;
   text-align: center;
   transition: font-variation-settings 0.2s ease;
@@ -415,6 +414,25 @@ li {
     font-size: 10vw;
     animation: changeStyle 5s ease 0s infinite alternate; 
   }
+}
+
+/* V A R I A B L E */
+
+.lettersVariableWrapper {
+  margin: var(--margin-XL) 0;
+  font-size: 50vw;
+  font-variation-settings: 'wdth' 50;
+  letter-spacing: -1vw;
+  height: 700vh;
+}
+
+.lettersVariable {
+  position: sticky;
+  top: 0;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  /* transform: translateY(-10vh); */
 }
 
 /* T E S T E R */
