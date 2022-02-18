@@ -423,7 +423,7 @@ li {
   font-size: 50vw;
   font-variation-settings: 'wdth' 50;
   letter-spacing: -1vw;
-  height: 700vh;
+  height: 300vh;
 }
 
 .lettersVariable {
@@ -433,6 +433,12 @@ li {
   display: flex;
   justify-content: center;
   /* transform: translateY(-10vh); */
+}
+
+.letterIndicator {
+  position: absolute;
+  left: 0;
+  top: var(--margin-M)
 }
 
 /* T E S T E R */

@@ -1,44 +1,44 @@
 import React, { useState, useEffect, useRef } from "react";
 
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 
 const Variable = () => {
 
-    gsap.registerPlugin(ScrollTrigger);
 
-    const ref = useRef(null);
+    const testRef = useRef(null);
+    const [scrollPosition, setScrollPosition] = useState("");
+
+    const handleScroll = () => {
+    setScrollPosition(window.scrollY );
+    };
+
+    const pos = testRef.current.offsetTop;
 
     useEffect(() => {
-        const element = ref.current;
-        gsap.fromTo(
-          element.querySelector("#gsap-logo"),
-          {
-            opacity: 1,
-            scale: 0.2,
-            y: -20
-          },
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 1,
-            ease: "none",
-            scrollTrigger: {
-              trigger: element.querySelector(".first"),
-              start: "top center",
-              end: "bottom top",
-              scrub: true
-            }
-          }
-        );
-      }, []);
+    window.addEventListener("scroll", handleScroll); 
+    return () => window.removeEventListener("scroll", handleScroll);    
+    });
+
+    const [wght, setWght] = useState(150);
+
+    useEffect(() => {
+        let wghtVar = Math.floor((pos - scrollPosition) * -0.1);
+        setWght(wghtVar)
+    })
+
+    console.log(wght);
+    
+
+    const style = {
+        fontVariationSettings: `'wght' ${wght}`,
+    }
 
     return (
 
-        <div className="lettersVariableWrapper" ref={ref}>
-            <div className="lettersVariable" id="gsap-logo">
+        <div className="lettersVariableWrapper" ref={testRef} >
+
+            <div className="lettersVariable" style={style}>
+            <p className="letterIndicator">{wght}</p>
             gA
             </div>
         </div>
@@ -47,50 +47,3 @@ const Variable = () => {
 
 export default Variable
 
-
-    // const [clientWindowHeight, setClientWindowHeight] = useState("");
-
-    // const handleScroll = () => {
-    // setClientWindowHeight(window.scrollY);
-    // };
-
-
-
-
-    // useEffect(() => {
-    // window.addEventListener("scroll", handleScroll); 
-    // return () => window.removeEventListener("scroll", handleScroll);    
-    // });
-
-    // const [wght, setWght] = useState(150);
-
-    // useEffect(() => {
-    //     let wghtVar = clientWindowHeight * 0.0004;
-    //     wghtVar = Math.pow(wghtVar, wghtVar)/10000
-    //     setWght(wghtVar)
-    // })
-
-    // console.log(wght)
-
-    // const style = {
-    //     fontVariationSettings: `'wght' ${wght}, 'ital' ${wght}`,
-    // }
-
-
-
-    // const [backgroundTransparacy, setBackgroundTransparacy] = useState(0);
-    // const [padding, setPadding] = useState(30);
-    // const [boxShadow, setBoxShadow] = useState(0);
-    
-    
-    // useEffect(() => {
-    //   let backgroundTransparacyVar = clientWindowHeight / 600;
-    
-    //   if (backgroundTransparacyVar < 1) {
-    //       let paddingVar = 30 - backgroundTransparacyVar * 20;
-    //       let boxShadowVar = backgroundTransparacyVar * 0.1;
-    //       setBackgroundTransparacy(backgroundTransparacyVar);
-    //       setPadding(paddingVar);
-    //       setBoxShadow(boxShadowVar);
-    //   }
-    // }, [clientWindowHeight]);
