@@ -437,7 +437,8 @@ li {
 .letterIndicator {
   position: absolute;
   left: 0;
-  top: var(--margin-M)
+  top: var(--margin-M);
+  transform: translateY(-5vh);
 }
 
 .baseline, .xHeight, .versal, .upperHeight, .underShoot {

@@ -10,7 +10,8 @@ const Variable = ( props ) => {
     const [refPosition, setRefPosition] = useState(0);
 
 
-    const [variableFontValue, setVariableFontValue] = useState(40);
+    const [vfWeightValue, setVfWeightValue] = useState(40);
+    const [vfItalValue, setVfItalValue] = useState(0);
 
 
 
@@ -24,13 +25,14 @@ const Variable = ( props ) => {
 
     useEffect(() => {
         setRefPosition(testRef.current.offsetTop)
-        let wghtVar = Math.floor((refPosition - scrollPosition) * -0.1);
-        (wghtVar >= 40 && wghtVar <= 150 ? setVariableFontValue(wghtVar) : "")
+        let vfVar = Math.floor((refPosition - scrollPosition) * -0.1);
+        (vfVar >= 40 && vfVar <= 150 ? setVfWeightValue(vfVar) : "");
+        (vfVar >= 0 && vfVar <= 100 ? setVfItalValue(vfVar) : "")
     })
 
 
     const style = {
-        fontVariationSettings: `'wght' ${variableFontValue}`,
+        fontVariationSettings: `'wght' ${vfWeightValue}, 'ital' ${vfItalValue}`,
     }
 
 
@@ -39,7 +41,7 @@ const Variable = ( props ) => {
         <div className="lettersVariableWrapper" ref={testRef} >
 
             <div className="lettersVariable" style={style}>
-                <p className="letterIndicator">&#8594; Weight: {variableFontValue}</p>
+                <p className="letterIndicator">&#8594; Weight: {vfWeightValue} Italic: {vfItalValue}</p>
                 {props.letters}   
                 <hr className="upperHeight"/>  
                 <hr className="versal"/>   
