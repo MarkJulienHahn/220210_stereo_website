@@ -428,17 +428,41 @@ li {
 
 .lettersVariable {
   position: sticky;
-  top: 0;
-  height: auto;
+  top: 5vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
-  /* transform: translateY(-10vh); */
 }
 
 .letterIndicator {
   position: absolute;
   left: 0;
   top: var(--margin-M)
+}
+
+.baseline, .xHeight, .versal, .upperHeight, .underShoot {
+  position: absolute;
+  width: 100%;
+}
+.upperHeight {
+  transform: translateY(-22.19vw);
+  border-top: 0.5px dashed;
+}
+.versal {
+  transform: translateY(-21.45vw);
+  border-top: 0.1px solid ;
+}
+.xHeight {
+  transform: translateY(-11.265vw);
+  border-top: 0.5px solid;
+}
+.baseline {
+  transform: translateY(16.2vw);
+  border-top: 0.5px solid;
+}
+.underShoot {
+  transform: translateY(16.94vw);
+  border-top: 0.5px dashed;
 }
 
 /* T E S T E R */

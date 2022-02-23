@@ -1,46 +1,54 @@
 import React, { useState, useEffect, useRef } from "react";
 
 
-
-const Variable = () => {
+const Variable = ( props ) => {
 
 
     const testRef = useRef(null);
+
     const [scrollPosition, setScrollPosition] = useState("");
+    const [refPosition, setRefPosition] = useState(0);
 
-    const handleScroll = () => {
-    setScrollPosition(window.scrollY );
-    };
 
-    const pos = testRef.current.offsetTop;
+    const [variableFontValue, setVariableFontValue] = useState(40);
 
-    useEffect(() => {
-    window.addEventListener("scroll", handleScroll); 
-    return () => window.removeEventListener("scroll", handleScroll);    
-    });
 
-    const [wght, setWght] = useState(150);
 
     useEffect(() => {
-        let wghtVar = Math.floor((pos - scrollPosition) * -0.1);
-        setWght(wghtVar)
+        const handleScroll = () => {
+            setScrollPosition(window.scrollY);
+            }
+        window.addEventListener("scroll", handleScroll); 
+        return () => window.removeEventListener("scroll", handleScroll);    
     })
 
-    console.log(wght);
-    
+    useEffect(() => {
+        setRefPosition(testRef.current.offsetTop)
+        let wghtVar = Math.floor((refPosition - scrollPosition) * -0.1);
+        (wghtVar >= 40 && wghtVar <= 150 ? setVariableFontValue(wghtVar) : "")
+    })
+
 
     const style = {
-        fontVariationSettings: `'wght' ${wght}`,
+        fontVariationSettings: `'wght' ${variableFontValue}`,
     }
+
 
     return (
 
         <div className="lettersVariableWrapper" ref={testRef} >
 
             <div className="lettersVariable" style={style}>
-            <p className="letterIndicator">{wght}</p>
-            gA
+                <p className="letterIndicator">&#8594; Weight: {variableFontValue}</p>
+                {props.letters}   
+                <hr className="upperHeight"/>  
+                <hr className="versal"/>   
+                <hr className="xHeight"/>   
+                <hr className="baseline"/>   
+                <hr className="underShoot"/>   
+      
             </div>
+
         </div>
     )
 }
