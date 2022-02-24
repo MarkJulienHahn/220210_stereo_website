@@ -103,7 +103,17 @@ function Typetester ( props ) {
 
         <div className="inputWrapper">
           <div contentEditable="true" className={styles.input} style={testerStyle} type="text" name="lname" spellCheck="false">
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+          Protest Grotesk or the Internet Project, or something in between. It could be used to do it all. It's just different. What the heck?
+
+          If the whole idea of this site is to turn a simple web site into a website, then it's not very convincing. I think I'm a little late to the party.
+
+          Here's the problem.
+
+          I'm already writing a whole new web site that's trying to do a lot more than just give you access to all the services you want (like email, Twitter, Facebook, and so on). I just have to show you all how, and how many times I have to stop and think if we take this away, we are going to have completely different things going on than what my friends are telling me to do. And the problem, it turns out, is that it's really hard to get what you need.
+
+          My experience has taught me that the same thing that makes you think you have a lot of stuff to learn by doing is that you want to understand lots of different things. You want to learn about something in particular and to have a particular sense of it, and that's hard to do as a human. You're not a programmer.
+
+          The reason I'm here is because I learned to code something at college. I wanted to be able to code. I wanted to be able to run tests. I want to be able to test things.
           </div>
         </div>
       </div>

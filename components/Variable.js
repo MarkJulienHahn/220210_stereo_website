@@ -32,7 +32,7 @@ const Variable = ( props ) => {
 
 
     const style = {
-        fontVariationSettings: `'wght' ${vfWeightValue}, 'ital' ${vfItalValue}`,
+        fontVariationSettings: `'wght' ${vfWeightValue}, 'ital' ${vfItalValue}, 'wdth' 50`,
     }
 
 
