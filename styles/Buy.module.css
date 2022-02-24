@@ -37,10 +37,39 @@
 
 .buyConfigurationHead {
     padding: 20px 0;
+    text-transform: uppercase;
 }
 
 .buyConfiguration :first-child {
     padding-top: 0;
+}
+
+.buyTableButtons {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+}
+
+.buyTableButtons div {
+    margin-left: 3px;
+    margin-bottom: 3px;
+}
+
+.buyTableButtons div:hover {
+    background: black;
+}
+
+.buyTableContent {
+    padding-top: var(--margin-M)
+}
+
+.buyTableContent .buyConfigurationHead {
+    padding-bottom: var(--margin-M)
+}
+
+.buyTableContent :not(.buyConfigurationHead) {
+    font-size: 20pt;
+    letter-spacing: -0px;
 }
 
 

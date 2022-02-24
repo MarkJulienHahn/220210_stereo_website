@@ -54,9 +54,38 @@ const Buy = () => {
           <div className={styles.buyTable}>
             <div className={styles.buyTableButtons}>
               <Button 
-                  lable={"Save as PDF"} 
+                  lable={"Protest Grotesk"} 
+                  subclass={"secondary"} 
+              /> 
+              <Button 
+                  lable={"Protest Grotesk Mono"} 
                   subclass={"quaternary"} 
               /> 
+              <Button 
+                  lable={"Giallo Roman"} 
+                  subclass={"quaternary"} 
+              /> 
+             <Button 
+                  lable={"Giallo Semimono"} 
+                  subclass={"quaternary"} 
+              /> 
+             <Button 
+                  lable={"Giallo Mono"} 
+                  subclass={"quaternary"} 
+              />       
+             <Button 
+                  lable={"Skyline"} 
+                  subclass={"quaternary"} 
+              /> 
+              <Button 
+                  lable={"Automat"} 
+                  subclass={"quaternary"} 
+              />                                    
+            </div>
+
+            <div className={styles.buyTableContent}>
+                <p className={styles.buyConfigurationHead}>Bundles</p>
+                <p>Protest Grotesk Full Family</p>
             </div>
 
           </div>
