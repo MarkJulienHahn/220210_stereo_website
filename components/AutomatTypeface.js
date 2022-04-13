@@ -65,7 +65,7 @@ const AutomatTypeface = ( props ) => {
             
 
             <div className="typefaceDisplay" style={style01} onClick={nmbr < 4 ? setNmbr : setbackNmbr}>  
-                <p>{props.content[nmbr]}</p>
+                {props.content[nmbr]}
             </div>
 
 

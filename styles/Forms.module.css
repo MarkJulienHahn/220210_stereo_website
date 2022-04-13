@@ -1,0 +1,93 @@
+.productWrapper {
+    width: calc(50vw - 2*var(--margin-M));
+    display: flex;
+    justify-content: space-between;
+    letter-spacing: var(--pgSmallLetterSpacing);
+    font-size: var(--pgSmallSize);
+    line-height: var(--pgSmallLineHeight);
+    font-variation-settings: var(--pgSmallVariable);
+    text-transform: uppercase;
+    padding-bottom: var(--margin-M);
+}
+
+.licenceType {
+    opacity: 0.3;
+}
+
+.payButton {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    margin-bottom: var(--margin-M);
+    height: 25px;
+    background: var(--primary);
+    padding: 0 20px;
+    font-variation-settings: 'wght' 133, 'wdth' 50;
+    text-transform: uppercase;
+    z-index: 100;
+    font-size: var(--pgSmallSize);
+    letter-spacing: var(--pgSmallLetterSpacing);
+    border-radius: 3px;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    margin-right: var(--margin-M);
+    border: 0;
+    font-family: 'Protest'
+}
+
+.payButton:hover {
+    background: var(--tertiary)
+
+}
+
+.inputField {
+    height: 40px;
+    width: 100%;
+    background: var(--tertiary);
+    padding: 13px 0 10px 10px ;
+    font-variation-settings: 'wght' 116, 'wdth' 50;
+    opacity: 0.6;
+    z-index: 100;
+    font-size: var(--pgSmallSize);
+    letter-spacing: 0.5px;
+    border-radius: 3px;
+    transition: opacity 0.2s ease;
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    margin-right: var(--margin-M);
+    border: 0;
+    font-family: 'Protest';
+    outline: 0;
+    -webkit-appearance:none;
+}
+
+.inputField::selection { background: #111; color: #fff; }
+
+.inputField::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: black;
+    opacity: 1; /* Firefox */
+  }
+
+  .inputField:focus {
+    opacity: 1;
+  }
+
+  .inputHeader {
+      padding: 10px;
+      text-transform: uppercase;
+      letter-spacing: var(--pgSmallLetterSpacing);
+  }
+
+  .paymentInfo hr {
+    border: 0.5px black solid;
+    margin-bottom: 20px;
+}
+
+.paymentWrapper {
+    transition: height 0.2s ease-out, padding 0.2s ease-out;
+}

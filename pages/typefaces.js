@@ -13,7 +13,7 @@ import Button from '../components/Button'
 
 import Styles from '../styles/Typefaces.module.css'
 
-const Buy = dynamic(() => import("../components/Buy"))
+const Checkout = dynamic(() => import("../components/Checkout/Checkout"))
 
 
 
@@ -34,7 +34,7 @@ const Typefaces = () => {
 
 
 
-    const [showBuy, setShowBuy] = useState(false);
+    const [showCheckout, setShowCheckout] = useState(false);
     const location = useRouter();
 
     const hide = {
@@ -53,8 +53,8 @@ const Typefaces = () => {
             <meta name='keywords' content='web' />
         </Head>
 
-        {showBuy && <Button lable={"Continue Shopping"} subclass={"closeButton"}  onClick={() => setShowBuy(false)} />}
-        {showBuy && <Buy />}
+        {showCheckout && <Button lable={"Continue Shopping"} subclass={"closeButton"}  onClick={() => setShowCheckout(false)} />}
+        {showCheckout && <Checkout />}
 
 
         <div className="buttonsLeftWrapper" >
@@ -149,21 +149,21 @@ const Typefaces = () => {
                             '<MyComponent somProp= "something" />', 
                             'var myArray = ["something"]', 
                             'getDefaultProps: function () {', 
-                            'Inspired by Virgil Abloh’s original “Swiss” and “Meteor Shower” ']}/>  
+                            'Inspired by Virgil Abloh’s original “Meteor Shower” ']}/>  
                 </div>      
 
                 <div ref={gialloRef}>  
                     <GialloTypeface 
                         fontFamily= 'Giallo'
                         lable='Giallo Roman'
-                        content={['[ Mono ] Terpene* UNII 68,9°F 12,23°C (about 7°K) ', '<MyComponent somProp= "something" />', 'var myArray = ["something"]', 'getDefaultProps: function () {', 'Inspired by Virgil Abloh’s original “Swiss” and “Meteor Shower” ']}/>  
+                        content={[`La ragazza che sapeva troppo`, '5 bambole per la luna ', 'Anni 70: il thrilling', ' Morirai a mezzanotte e Le foto di Gioia', '"AI MARGINI DELLA METROPOLI"']}/>  
                 </div>     
     
                 <div ref={protestMonoRef}>
                     <ProtestTypeface 
                         fontFamily= 'Protest'
                         lable='Protest Grotesk'
-                        content={['[ Mono ] Terpene* UNII 68,9°F 12,23°C (about 7°K) ', '<MyComponent somProp= "something" />', 'var myArray = ["something"]', 'getDefaultProps: function () {', 'Inspired by Virgil Abloh’s original “Swiss” and “Meteor Shower” ']}/>  
+                        content={['[ Mono ] Terpene* UNII 68,9°F 12,23°C (about 7°K) ', '<MyComponent somProp= "something" />', 'specializzandosi soprattutto', 'getDefaultProps: function () {', 'Inspired by Virgil Abloh’s original “Swiss” and “Meteor Shower” ']}/>  
                 </div>     
     
                  <div ref={gialloMonoRef}>

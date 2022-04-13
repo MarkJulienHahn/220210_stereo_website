@@ -36,7 +36,7 @@ body {
 @font-face {
   font-family: 'Giallo';
   font-style: normal;   
-  src: url(../public/fonts/Giallo-Medium.otf) format('opentype');
+  src: url(../public/fonts/GialloRoman_VF.ttf) format('woff2');
 }
 
 @font-face {
@@ -262,7 +262,6 @@ li {
   z-index: 1000;
   position: fixed;
   bottom: 0;
-  margin-left: var(--margin-M);
   background: var(--secondary);
   color: white;
 }
@@ -305,6 +304,10 @@ li {
   height: 100%;
 }
 
+.typeface-single-giallo {
+  font-family: 'Giallo'
+}
+
 .typeface-single-inner p {
   font-family: 'Giallo-Mono';
   font-size: 12.5px;
@@ -336,7 +339,17 @@ li {
   letter-spacing: -0.5vw;
 }
 
+.fontOpenerGiallo {
+  font-family: 'Giallo';
+  font-variation-settings: 'wdth' 50, 'wght' 40;
+  font-size: 7.8vw;
+  line-height: 7.5vw;
+  letter-spacing: -0.3vw;
+}
+
 .typefaceWrapper {
+  position: relative;
+  top: 0;
   height: 100vh;
   width: 100%;
 }
@@ -358,18 +371,18 @@ li {
   margin-bottom: 50px;
   mix-blend-mode: difference;
   color: white;
-  z-index: 100;
+  z-index: 350;
 }
 
 .typefaceInfo {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  cursor: pointer;
+  cursor: default;
 }
 
 .typefaceDisplay {
-  height: 80%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -380,10 +393,11 @@ li {
   transition: font-variation-settings 0.2s ease;
   border: none;
   cursor: pointer;
+  transform: translateY(-17vh);
 }
 
 .typefaceControlButton {
-  cursor: Pointer;
+  cursor: default;
   opacity: 0.3;
   transition: opacity 0.2s linear;
 }
@@ -707,4 +721,38 @@ li {
     pointer-events: auto;
   }   
 
+}
+
+/* P R O D U C T */
+
+.productItalic:hover::after {
+    content: "50% off incl. Regular";
+    color: var(--primary);
+    font-size: 10pt;
+    line-height: 10pt;
+    padding-left: 50px;
+}
+
+.productFullFamily:hover::after {
+  content: "66% off";
+  color: var(--primary);
+  font-size: 10pt;
+  line-height: 10pt;
+  padding-left: 50px;
+}
+
+.productBundle1:hover::after {
+  content: "44% off";
+  color: var(--primary);
+  font-size: 10pt;
+  line-height: 10pt;
+  padding-left: 50px;
+}
+
+.productBundle2:hover::after {
+  content: "22% off";
+  color: var(--primary);
+  font-size: 10pt;
+  line-height: 10pt;
+  padding-left: 50px;
 }

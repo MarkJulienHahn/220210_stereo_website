@@ -1,0 +1,23 @@
+.typefaceSliderWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.typefaceNextButton {
+    height: 100%;
+    width: 20vw;
+    z-index: 300;
+    cursor: e-resize;
+}
+
+.typefacePrevButton {
+    height: 100%;
+    width: 20vw;
+    z-index: 300;
+    cursor: w-resize;
+}

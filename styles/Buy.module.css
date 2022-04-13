@@ -1,12 +1,13 @@
 .buyWrapper {
     position: fixed;
+    overflow-y: scroll;
     top: 0;
     left: 0;
     height: 100vh;
     width: 100vw;
     background: var(--tertiary);
     z-index: 400;
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(40px);
     animation: fadeIn 0.2s ease;
     transition: opacity 0.5s ease;
     padding: var(--margin-M);
@@ -21,57 +22,98 @@
     display: flex;
 }
 
-.buyConfiguration {
-    width: 25%;
-    text-transform: uppercase;
+.buyConfigurationWrapper {
+    position: fixed;
+    width: 50%;
+    display: flex;
+    font-size: 20pt;
+    line-height: 25pt;
+    letter-spacing: -0px;
     cursor: default;
-}
-
-.buyConfiguration li:hover {
-    opacity: 1;
-}
-
-.buyConfiguration :not(.buyConfigurationHead) {
-    opacity: 0.5;
+    font-variation-settings: var(--pgSmallVariable);
 }
 
 .buyConfigurationHead {
-    padding: 20px 0;
+
+    transition: font-variation-settings 0.1s linear;
+    letter-spacing: var(--pgSmallLetterSpacing);
+    font-size: var(--pgSmallSize);
+    line-height: var(--pgSmallLineHeight);
+    padding: 20px 0 15px;
     text-transform: uppercase;
 }
 
+.buyConfiguration li {
+    transition: font-variation-settings 0.1s linear;
+}
+
 .buyConfiguration :first-child {
-    padding-top: 0;
+    padding-bottom: var(--margin-M);
+    padding-top: 0
+}
+
+.buyConfigurationCheckout {
+    opacity: 1;
+}
+
+.buyTable {
+    padding-left: 50vw;
+    transition: opacity 0.1s linear;
+}
+
+.overviewTable {
+    width: 50vw;
+    transition: opacity 0.1s linear;
+    padding-top: 105px;
+}
+
+.formTable {
+    width: 50vw;
+    transition: opacity 0.1s linear;
 }
 
 .buyTableButtons {
+    position: fixed;
     display: flex;
     flex-wrap: wrap;
-    width: 80%;
+    width: 45%;
+    z-index: 500;
+    top: 73px;
 }
 
 .buyTableButtons div {
-    margin-left: 3px;
+    margin-right: 3px;
     margin-bottom: 3px;
+    cursor: pointer !important;
 }
 
 .buyTableButtons div:hover {
-    background: black;
+    background: black !important;
+    color: white !important;
 }
 
 .buyTableContent {
+    padding-top: 105px;
+    cursor: default;
+    overflow: scroll;
+}
+
+.buyHead {
+    position: fixed;
+    top: var(--margin-M);
+}
+
+.cartHead {
     padding-top: var(--margin-M)
 }
 
-.buyTableContent .buyConfigurationHead {
-    padding-bottom: var(--margin-M)
+.changeLicenseButton {
+    padding-top: 10px
 }
 
-.buyTableContent :not(.buyConfigurationHead) {
-    font-size: 20pt;
-    letter-spacing: -0px;
+.licenceType {
+    opacity: 0.3;
 }
-
 
 
 @keyframes fadeIn {
@@ -83,3 +125,65 @@
     }
 }
 
+.productWrapper, .productWrapperOverview {
+    width: calc(50vw - 2*var(--margin-M));
+    display: flex;
+    justify-content: space-between;
+    font-size: 20pt;
+    line-height: 25pt;
+    letter-spacing: -0px;
+
+}
+
+.productPrice {
+    font-size: 10pt;
+}
+
+.totalWrapper {
+    width: calc(50vw - 2*var(--margin-M));
+    font-size: 20pt;
+    line-height: 25pt;
+    letter-spacing: -0px;
+    margin-top: var(--margin-M);
+    margin-bottom: calc(2*var(--margin-M));
+}
+
+.overviewWrapper {
+    width: calc(50vw - 2*var(--margin-M));
+    font-size: 20pt;
+    line-height: 25pt;
+    letter-spacing: -0px;
+    margin-bottom: calc(2*var(--margin-M));
+        cursor:default;
+}
+
+.total {
+    padding-top: var(--margin-M);
+    display: flex;
+    justify-content: space-between;
+    width: 100%
+}
+
+.cartRemove {
+    position: absolute; 
+    opacity: 0;
+    right: var(--margin-M);
+    /* letter-spacing: var(--pgSmallLetterSpacing);
+    font-size: var(--pgSmallSize);
+    font-variation-settings: var(--pgSmallVariable);
+    text-transform: uppercase; */
+    text-align: left;
+    color: var(--secondary)
+}
+
+.productWrapper:hover .cartRemove{
+    opacity: 1 !important;
+}
+
+.productWrapper:hover .productPrice {
+    opacity: 0;
+}
+
+.formsWrapper {
+    display: flex;
+}

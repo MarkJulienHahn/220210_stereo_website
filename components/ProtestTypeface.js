@@ -11,20 +11,37 @@ function setWdth(i, j) {
     updateWdth(i, j)
 }  
 
-function setNmbr() {
+function nextNmbr() {
     updateNmbr(prevNmbr => prevNmbr +1)
+}
+
+function prevNmbr() {
+    updateNmbr(prevNmbr => prevNmbr -1)
 }
 
 function setbackNmbr() {
     updateNmbr(nmbr => 0)
 }
 
-function changeText() {
+function setfrwrdNmbr() {
+    updateNmbr(nmbr => 4)
+}
+
+function nextText() {
     if (nmbr < 4) {
-        setNmbr();
+        nextNmbr();
         return
     }   else {
         setbackNmbr()}
+        return
+}
+
+function prevText() {
+    if (nmbr > 0) {
+        prevNmbr();
+        return
+    }   else {
+        setfrwrdNmbr()}
         return
 }
 
@@ -36,12 +53,11 @@ const style01 = {
 
   return (
 
-        <section className="typefaceWrapper">
+        <div className="typefaceWrapper">
 
                 <div className="typefaceControl">
                     <div className="typefaceInfo">
                         <p>→ 14 Styles / Price per style from 69 EUR</p>
-                        <p className="typefaceCount" onClick={changeText}>→ Change Text {nmbr+1} / 5</p>
                     </div>
                     <span className="typefaceControlButton" onMouseEnter={() => setWdth([40, 100])}>Protest Grotesk Thin Italic / </span>
                     <span className="typefaceControlButton" onMouseEnter={() => setWdth([40, 0])}>Protest Grotesk Thin / </span>
@@ -59,6 +75,12 @@ const style01 = {
                     <span className="typefaceControlButton" onMouseEnter={() => setWdth([150, 100])}>Protest Grotesk Black Italic / </span>
                 </div>
 
+                <div className={Styles.typefaceSliderWrapper}>
+                    <div className={Styles.typefacePrevButton} onClick={prevText}></div>
+                    <div className={Styles.typefaceNextButton} onClick={nextText}></div>
+                </div>
+
+
                 <Link href="/typefaces/protest-grotesk-text"  scroll={false}>
                     <div className="typefaceDisplay" style={style01}>  
                         <div>{props.content[nmbr]}</div>
@@ -66,7 +88,7 @@ const style01 = {
                 </Link>
 
 
-        </section> 
+        </div> 
     )
 };
 

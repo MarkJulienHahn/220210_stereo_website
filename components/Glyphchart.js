@@ -32,7 +32,7 @@ function changeItal(e,ital) {
     }  
 
 function changeStyleset(styleset) {
-    updateStyleset(prevValue => styleset), console.log(styleset)
+    updateStyleset(prevValue => styleset)
     }     
     
 

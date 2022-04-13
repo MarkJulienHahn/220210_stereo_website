@@ -8,8 +8,6 @@ import { motion, AnimatePresence } from "framer-motion"
 
 import image01 from '../../public/images/image_01.png';
 
-import styles from './ProtestGroteskText.module.css'
-
 import Typetester from '../../components/Typetester'
 import Button from '../../components/Button'
 import Variable from '../../components/Variable'
@@ -17,14 +15,14 @@ import Glyphchart from '../../components/Glyphchart'
 import Footer from '../../components/Footer'
 
 
-const Buy = dynamic(() => import("../../components/Buy"))
+const Checkout = dynamic(() => import("../../components/Checkout/Checkout"))
 
-const ProtestGroteskText = () => {
+const ProtestGroteskText = ( { products, cart, checkoutToken, handleAddToCart, handleEmptyCart, handleUpdateCartQty, handleRemoveFromCart, handleUpdateCartPrice, onCaptureCheckout, loading }) => {
 
-  const [showBuy, setShowBuy] = useState(false);
+  const [showCheckout, setShowCheckout] = useState(false);
   const location = useRouter();
 
-
+  console.log(cart)
 
   return (
     <>   
@@ -33,8 +31,21 @@ const ProtestGroteskText = () => {
             <title>Protest Grotesk | Stereo Typefaces&#x2122; </title>
         </Head>
 
-        {showBuy && <Button lable={"Continue Shopping"} subclass={"closeButton"}  onClick={() => setShowBuy(false)} />}
-        {showBuy && <Buy />}
+
+        {showCheckout && <Checkout 
+            products={products} 
+            cart={cart}
+            handleAddToCart={handleAddToCart}
+            handleRemoveFromCart={handleRemoveFromCart}
+            handleEmptyCart={handleEmptyCart}
+            handleUpdateCartQty={handleUpdateCartQty}
+            handleUpdateCartPrice={handleUpdateCartPrice}
+            onCaptureCheckout={onCaptureCheckout}
+            setShowCheckout={setShowCheckout}
+            showCheckout={showCheckout}
+            loading={loading}
+            checkoutToken={checkoutToken}   
+            />}
 
 
         <div className="buttonsLeftWrapper" scroll={false}>
@@ -70,11 +81,11 @@ const ProtestGroteskText = () => {
             /> 
             <Button 
                 lable={"Buy"} 
-                subclass={"primary"} 
-                onClick={() => setShowBuy(true)} 
+                subclass={"primary"}
+                onClick={cart.line_items ? () => setShowCheckout(true) : () => {}} 
             /> 
             <Button 
-                lable={"Cart (0)"}
+                lable={cart.line_items ? `Cart [${cart.total_unique_items}]` : `Cart [0]`}
                 subclass={"tertiary"} 
             />    
         </div> 

@@ -2,13 +2,14 @@ import Link from 'next/link'
 import styles from '../styles/Nav.module.css'
 import React, { useState} from 'react';
 
-const Nav = () => {
+const Nav = ( ) => {
 
     const [isActive, setActive] = useState("false");
 
     const ToggleClass = () => {
         setActive(!isActive);
     };
+
 
     return (
         <nav className={styles.menuContainer}>
@@ -32,13 +33,8 @@ const Nav = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link href="/projects" scroll={false}>
-                                <h2 className={styles.menuTypo}>INDEF</h2>
-                            </Link>
-                        </li>
-                        <li>
                             <Link href="/information" scroll={false}>
-                                <h2 className={styles.menuTypo}>INFORNETION</h2>
+                                <h2 className={styles.menuTypo}>INFO</h2>
                             </Link>
                         </li>
                     </ul>
