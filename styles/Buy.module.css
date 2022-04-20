@@ -1,6 +1,5 @@
 .buyWrapper {
     position: fixed;
-    overflow-y: scroll;
     top: 0;
     left: 0;
     height: 100vh;
@@ -65,6 +64,7 @@
 .buyTable {
     padding-left: 50vw;
     transition: opacity 0.1s linear;
+    overflow-y: scroll;
 }
 
 .overviewTable {
