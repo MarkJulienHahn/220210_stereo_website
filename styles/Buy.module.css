@@ -34,21 +34,28 @@
 }
 
 .buyConfigurationHead {
-
     transition: font-variation-settings 0.1s linear;
     letter-spacing: var(--pgSmallLetterSpacing);
     font-size: var(--pgSmallSize);
     line-height: var(--pgSmallLineHeight);
     padding: 20px 0 15px;
     text-transform: uppercase;
+    cursor: default;
+    pointer-events: none;
 }
 
 .buyConfiguration li {
-    transition: font-variation-settings 0.1s linear;
+    transition: font-variation-settings 1s linear;
+    cursor: pointer;
 }
 
+.buyConfiguration li:hover {
+    color: var(--primary) !important;
+} 
+
 .buyConfiguration :first-child {
-    padding-top: 0
+    padding-top: 0;
+
 }
 
 .buyConfigurationCheckout {

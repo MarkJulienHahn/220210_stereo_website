@@ -47,7 +47,7 @@ const PaymentForm = ( { products, cart, checkoutToken, shippingData, backStep, o
             onCaptureCheckout(checkoutToken.id, orderData);
       
             nextStep();
-            console.log(orderData, shippingData); 
+
           }
         };
 
@@ -63,6 +63,7 @@ const PaymentForm = ( { products, cart, checkoutToken, shippingData, backStep, o
         padding: "20px"
       }
 
+      console.log(cart, checkoutToken, products, shippingData); 
 
     return (
         <>
@@ -77,7 +78,7 @@ const PaymentForm = ( { products, cart, checkoutToken, shippingData, backStep, o
                           <form onSubmit={(e) => handleSubmit(e, elements, stripe)}>
                             <CardElement />
                             <button className={styles.payButton} type="submit" disabled={!stripe} >
-                                Pay { checkoutToken.live.subtotal.formatted_with_symbol }
+                                Pay EUR { checkoutToken.live.subtotal.raw }
                             </button>
                           </form>
                         )}
@@ -96,7 +97,7 @@ const PaymentForm = ( { products, cart, checkoutToken, shippingData, backStep, o
                           <form onSubmit={(e) => handleSubmit(e, elements, stripe)}>
                             <CardElement />
                             <button className={styles.payButton} type="submit" disabled={!stripe} >
-                                Pay { checkoutToken.live.subtotal.formatted_with_symbol }
+                                Pay { checkoutToken.live.subtotal.raw }
                             </button>
                           </form>
                         )}

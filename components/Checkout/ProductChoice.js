@@ -40,7 +40,7 @@ const ProductChoice = ( props ) => {
   const ItemNotInCart = ( ) => (
     <>
       <div className={styles.notInCart}>
-        <div style={props.licenceChoice ? enabled : disabled} className={styles.productWrapper}>
+        <div style={props.licenceChoice && props.licenceUser? enabled : disabled} className={styles.productWrapper}>
           <span className={styles.productName}>
               {props.name}
               <span className={styles.productDescription}>
@@ -74,24 +74,7 @@ const ProductChoice = ( props ) => {
 
   return (
     <>
-
         { inCart ? <ItemInCart/> : <ItemNotInCart/>}
-        {/* { props.licenceChoice ? "ayayayayaya" : ""} */}
-      {/* 
-        <div style={inCart ? disabled : enabled} className={styles.productWrapper}>
-            <span className={`product${props.className}`}>
-                {props.name}
-                <span className={styles.productDescription}>
-                  {props.priceFactor1 == 1 ? "  Desktop  " : ""}
-                  {props.priceFactor2 == 2 ? "  Web" : ""}
-                  {props.priceFactor3 == 3 ? "  App  " : ""}
-                </span>
-            </span>
-            <span style={inCart ? primary : normal} className={styles.productPrice}>
-                {props.price}
-            </span>
-        </div>
-         */}
     </>    
   )
 }
