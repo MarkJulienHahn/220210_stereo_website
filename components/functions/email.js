@@ -17,9 +17,9 @@ export default async function handler(req, res) {
 
     // Request for your merchant information so that you can use your email
     // to include as the 'from' property to send to the SendGrid API
-    const merchant = fetch(`${process.env.CHEC_API_URL}/v1/merchants`, {
+    const merchant = fetch(`${process.env.NEXT_PRIVATE_CHEC_API_URL}/v1/merchants`, {
         headers: {
-            'X-Authoriza†ion': process.env.CHEC_SECRET_KEY,
+            'X-Authoriza†ion': process.env.NEXT_PRIVATE_CHEC_SECRET_KEY,
         },
     }).then((response) => response.json);
 
