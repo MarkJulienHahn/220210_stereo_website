@@ -48,7 +48,6 @@
 }
 
 .buyConfiguration :first-child {
-    padding-bottom: var(--margin-M);
     padding-top: 0
 }
 
@@ -186,4 +185,19 @@
 
 .formsWrapper {
     display: flex;
+}
+
+.mouseElement {
+    background: var(--primary);
+    height: 25px;
+    padding: 20px;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.hoverButton {
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    z-index: 1000;
 }

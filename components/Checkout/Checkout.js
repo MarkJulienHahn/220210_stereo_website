@@ -6,17 +6,20 @@ import styles from '../../styles/Buy.module.css';
 import { commerce } from '../../lib/commerce';
 
 import Button from '../Button'
+import MouseButton from '../MouseButton';
 
 const BuyProtest = dynamic(() => import("./BuyProtest"))
 const BuyGiallo = dynamic(() => import("./BuyGiallo"))
 
 const Coupon = dynamic(() => import("../Coupon"))
+const LicensingTerms = dynamic(() => import("./LicensingTerms"))
 
 const CheckoutStep2 = dynamic(() => import("./CheckoutStep2"))
 const CheckoutStep3 = dynamic(() => import("./CheckoutStep3"))
 const CheckoutStep4 = dynamic(() => import("./CheckoutStep4"))
 
 const Checkout = ({ setShowCheckout, showCheckout, products, cart, handleAddToCart, handleEmptyCart, handleUpdateCartQty, handleRemoveFromCart, handleUpdateCartPrice, loading, onCaptureCheckout, order, error  }) => {
+
 
   const [showCheckoutStep1, setShowCheckoutStep1] = useState(true);
   const [showCheckoutStep2, setShowCheckoutStep2] = useState(false);
@@ -29,20 +32,33 @@ const Checkout = ({ setShowCheckout, showCheckout, products, cart, handleAddToCa
   const [buttonStateGiallo, setButtonStateGiallo] = useState("quaternary");
   const [buttonStateProtest, setButtonStateProtest] = useState("secondary");
 
+  const [showLicensing, setShowLicensing] = useState(false);
+
   const [checkoutToken, setCheckoutToken] = useState(null);
   const [shippingData, setShippingData] = useState({});
+
+  const [buttonContent, setButtonContent] = useState(null)
 
   const [priceFactor1, setPriceFactor1] = useState(1)
   const [priceFactor2, setPriceFactor2] = useState(0)
   const [priceFactor3, setPriceFactor3] = useState(0)
   const [priceFactor4, setPriceFactor4] = useState(0)
+  const [priceFactor5, setPriceFactor5] = useState(0)
+  const [priceFactor6, setPriceFactor6] = useState(0)
 
+  const [LicenceUser, setLicenceUser] = useState([])
   const [DesktopLicence, setDesktopLicence] = useState([]);
   const [WebLicence, setWebLicence] = useState("");
   const [InteractiveLicence, setInteractiveLicence] = useState("");
+  const [SocialLicence, setSocialLicence] = useState("");
+  const [LogoLicence, setLogoLicence] = useState("");
   const [NumEmployees, setNumEmployees] = useState("");
 
-  const Licence = [`${DesktopLicence} ${WebLicence} ${InteractiveLicence}`]
+  const Licence = [`${DesktopLicence} ${WebLicence} ${InteractiveLicence} ${SocialLicence} ${LogoLicence}`]
+
+  const updateLicenceUser = (user) => {
+    setLicenceUser(user)
+  }
 
   const updateDesktopLicence = (licence) => {
     setDesktopLicence(licence)
@@ -53,9 +69,27 @@ const Checkout = ({ setShowCheckout, showCheckout, products, cart, handleAddToCa
   const updateInteractiveLicence = (licence) => {
     setInteractiveLicence(licence)
   }
-
+  const updateSocialLicence = (licence) => {
+    setSocialLicence(licence)
+  }
+  const updateLogoLicence = (licence) => {
+    setLogoLicence(licence)
+  }
   const updateNumEmployees = (num) => {
     setNumEmployees(num)
+  }
+
+  useEffect(() => {
+    if (priceFactor4 < 5)  {
+      updatePriceFactor5(0),
+      updateSocialLicence(""),
+      updateLogoLicence(""),
+      updatePriceFactor6(0)
+    }
+  });
+
+  const updateButtonContent = (input1) => {
+    setButtonContent(input1)
   }
 
 
@@ -107,9 +141,15 @@ const Checkout = ({ setShowCheckout, showCheckout, products, cart, handleAddToCa
   const updatePriceFactor4 = (fact4) => {
     setPriceFactor4(fact4)
   }
+  const updatePriceFactor5 = (fact5) => {
+    setPriceFactor5(fact5)
+  }
+  const updatePriceFactor6 = (fact6) => {
+    setPriceFactor6(fact6)
+  }
 
 
-  const licenceChoice = priceFactor1+priceFactor2+priceFactor3 && priceFactor4 ? true : false;
+  const licenceChoice = priceFactor1+priceFactor2+priceFactor3+priceFactor5+priceFactor6 && priceFactor4 ? true : false;
 
   React.useEffect(() => {
     const data = localStorage.getItem('storage1');
@@ -156,6 +196,39 @@ const Checkout = ({ setShowCheckout, showCheckout, products, cart, handleAddToCa
   });
 
   React.useEffect(() => {
+    const data = localStorage.getItem('storage5');
+    if (data) {
+    setPriceFactor5(JSON.parse(data))
+    }
+  }, [])
+
+  React.useEffect(() => {
+    localStorage.setItem("storage5", JSON.stringify(priceFactor5));
+  });
+
+  React.useEffect(() => {
+    const data = localStorage.getItem('storage6');
+    if (data) {
+    setPriceFactor6(JSON.parse(data))
+    }
+  }, [])
+
+  React.useEffect(() => {
+    localStorage.setItem("storage6", JSON.stringify(priceFactor6));
+  });
+
+  React.useEffect(() => {
+    const data = localStorage.getItem('licenceUser');
+    if (data) {
+    setLicenceUser(JSON.parse(data))
+    }
+  }, [])
+
+  React.useEffect(() => {
+    localStorage.setItem("licenceUser", JSON.stringify(LicenceUser));
+  });
+
+  React.useEffect(() => {
     const data = localStorage.getItem('licenceDesktop');
     if (data) {
     setDesktopLicence(JSON.parse(data))
@@ -189,6 +262,28 @@ const Checkout = ({ setShowCheckout, showCheckout, products, cart, handleAddToCa
   });
 
   React.useEffect(() => {
+    const data = localStorage.getItem('licenceSocial');
+    if (data) {
+    setInteractiveLicence(JSON.parse(data))
+    }
+  }, [])
+
+  React.useEffect(() => {
+    localStorage.setItem("licenceSocial", JSON.stringify(SocialLicence));
+  });
+
+  React.useEffect(() => {
+    const data = localStorage.getItem('licenceLogo');
+    if (data) {
+    setInteractiveLicence(JSON.parse(data))
+    }
+  }, [])
+
+  React.useEffect(() => {
+    localStorage.setItem("licenceLogo", JSON.stringify(LogoLicence));
+  });
+
+  React.useEffect(() => {
     localStorage.setItem("licence", JSON.stringify(Licence));
   });
 
@@ -203,14 +298,14 @@ const Checkout = ({ setShowCheckout, showCheckout, products, cart, handleAddToCa
     localStorage.setItem("Number of Employees", JSON.stringify(NumEmployees));
   });
 
-
-
     const active = {
-    color: "var(--primary)"
+    color: "var(--primary)",
+    opacity: 1
     }
 
     const inactive = {
-    color: "black"
+    color: "black",
+    opacty: 0.3
     }
 
     const buyInactive = {
@@ -232,6 +327,13 @@ const Checkout = ({ setShowCheckout, showCheckout, products, cart, handleAddToCa
     pointerEvents: "auto",
     opacity: 1
     }
+
+    const none = {
+
+    }
+
+    const visibility = ""
+
 
 
     const nextStep = () => {
@@ -261,6 +363,8 @@ const Checkout = ({ setShowCheckout, showCheckout, products, cart, handleAddToCa
         }
     }, [cart]);
 
+
+
   return (
     <div>       
         
@@ -269,14 +373,20 @@ const Checkout = ({ setShowCheckout, showCheckout, products, cart, handleAddToCa
         <div className={styles.buyWrapper}>
 
             {showCoupon && <Coupon />}
+            {showLicensing && <LicensingTerms showLicensing={showLicensing} setShowLicensing={setShowLicensing}/>}
         
 
             {showCheckoutStep1 ? 
 
             <>
+                <MouseButton lable={buttonContent}/>
+
                 <div className="buttonsLeftWrapper">
-                    <Button lable={"Continue Shopping"} subclass={"secondary"} onClick={() => setShowCheckout(false)} />          
+                    <Button lable={"Continue Shopping"} subclass={"secondary"} onClick={() => setShowCheckout(false)} /> 
+                    <Button lable={"Licensing Terms"} subclass={"secondary"} onClick={() => setShowLicensing(true)} />   
                 </div> 
+
+
 
                 <div className="buttonsRightWrapper">
                     <Button 
@@ -296,23 +406,44 @@ const Checkout = ({ setShowCheckout, showCheckout, products, cart, handleAddToCa
                 </div> 
 
 
-                <div className={styles.buyTableWrapper}>
+                <div className={styles.buyTableWrapper} >
 
                     <div className={styles.buyConfigurationWrapper}>
 
                         <ul className={styles.buyConfiguration}>
                             <li className={styles.buyConfigurationHead}> [ 1 ] LICENSE TYPE</li>
                             <li className={styles.buyConfigurationHead}>&#8594; License End User</li>
-                            <li style={inactive}>Designer</li>
-                            <li style={inactive}>Client</li>
+                            <li style={LicenceUser == "Designer" ? active : inactive}
+                                onClick={LicenceUser !== "Designer" ? () => updateLicenceUser("Designer") : () => updateLicenceUser("")}>Designer</li>
+                            <li style={LicenceUser == "Client" ? active : inactive}
+                                onClick={LicenceUser !== "Client" ? () => updateLicenceUser("Client") : () => updateLicenceUser("")}>Client</li>
                             <li className={styles.buyConfigurationHead}>&#8594; License Type</li>
+
                             <li style={priceFactor1 === 7 ? active : inactive} 
                                 onClick={priceFactor1 === 7 ? () => {updatePriceFactor1(0), updateDesktopLicence("")} : () => {updatePriceFactor1(7), updateDesktopLicence("Desktop")}}>Desktop Licence</li>
+
                             <li style={priceFactor2 === 11 ? active : inactive} 
                                 onClick={priceFactor2 === 11 ? () => {updatePriceFactor2(0), updateWebLicence("")} : () => {updatePriceFactor2(11), updateWebLicence("Web")}}>Web Licence</li>
+
                             <li style={priceFactor3 === 24 ? active : inactive} 
                                 onClick={priceFactor3 === 24 ? () => {updatePriceFactor3(0), updateInteractiveLicence("")} : () => {updatePriceFactor3(24), updateInteractiveLicence("Interactive")}}>Interactive Licence</li>
+
+                            <div
+                                onMouseEnter={priceFactor4 >= 5 ? () => {} : () => updateButtonContent("Only mandatory for Company Size 10 and bigger")}
+                                onMouseLeave={priceFactor4 <= 5 ? () => updateButtonContent("") : () => {}}>
+                              <div 
+                                style={priceFactor4 >= 5 ? enabled : disabled}>  
+
+                                <li style={priceFactor5 === 24 ? active : none}
+                                    onClick={priceFactor4 >= 5 && priceFactor5 === 24 ? () => {updatePriceFactor5(0), updateSocialLicence("")} : () => {updatePriceFactor5(24), updateSocialLicence("Social Media")}}>Social Media Licence</li>    
+
+                                <li style={priceFactor6 === 24 ? active : inactive} 
+                                    onClick={priceFactor6 === 24 ? () => {updatePriceFactor6(0), updateLogoLicence("")} : () => {updatePriceFactor6(24), updateLogoLicence("Logo")}}>Logo Licence</li>    
+                              </div>  
+                            </div>       
+
                             <li className={styles.buyConfigurationHead}>&#8594; Company Size</li>
+
                             <li style={priceFactor4 === 2 ? active : inactive} 
                                 onClick={priceFactor4 === 2 ? () => {updatePriceFactor4(0)} : () => {updatePriceFactor4(2), updateNumEmployees(5)}}>Up to 5 employees</li>
                             <li style={priceFactor4 === 3 ? active : inactive} 
@@ -367,40 +498,52 @@ const Checkout = ({ setShowCheckout, showCheckout, products, cart, handleAddToCa
                             />                                    
                         </div>
 
-                        <div style={licenceChoice ? buyActive : buyInactive} className={styles.buyTableContent}>
+                        <div 
+                          onMouseEnter={!licenceChoice || !LicenceUser ? () => updateButtonContent("Please complete your Licence Choice") : () => {}}
+                          onMouseLeave={!licenceChoice || !LicenceUser ? () => updateButtonContent("") : () => {}}>
 
-                            {showBuyProtest && <BuyProtest 
-                                products={products} 
-                                onAddToCart={handleAddToCart} 
-                                handleEmptyCart={handleEmptyCart} 
-                                onRemoveFromCart={handleRemoveFromCart} 
-                                onUpdateCartQty={handleUpdateCartQty}
-                                cart={cart}
-                                checkoutToken={checkoutToken}
-                                priceFactor1={priceFactor1}
-                                priceFactor2={priceFactor2}
-                                priceFactor3={priceFactor3}
-                                priceFactor4={priceFactor4}
-                                licenceChoice={licenceChoice}
-                                onUpdateCartPrice={handleUpdateCartPrice}
-                                // generateToken={generateToken}
-                                Licence={Licence}
-                                NumEmployees={NumEmployees}/>}
-                        
-                            {/* {showBuyGiallo && <BuyGiallo 
-                                products={products} 
-                                onAddToCart={onAddToCart} 
-                                handleEmptyCart={handleEmptyCart} 
-                                onRemoveFromCart={onRemoveFromCart} 
-                                onUpdateCartQty={onUpdateCartQty}
-                                cart={cart}
-                                priceFactor1={priceFactor1}
-                                priceFactor2={priceFactor2}
-                                priceFactor3={priceFactor3}
-                                priceFactor4={priceFactor4}
-                                onUpdateCartPrice={onUpdateCartPrice}/>} */}
+                          <div 
+                            style={!licenceChoice || !LicenceUser ? buyInactive : buyActive} 
+                            className={styles.buyTableContent} 
 
-                        </div>    
+                          >
+
+                              {showBuyProtest && <BuyProtest 
+                                  products={products} 
+                                  onAddToCart={handleAddToCart} 
+                                  handleEmptyCart={handleEmptyCart} 
+                                  onRemoveFromCart={handleRemoveFromCart} 
+                                  onUpdateCartQty={handleUpdateCartQty}
+                                  cart={cart}
+                                  checkoutToken={checkoutToken}
+                                  priceFactor1={priceFactor1}
+                                  priceFactor2={priceFactor2}
+                                  priceFactor3={priceFactor3}
+                                  priceFactor4={priceFactor4}
+                                  priceFactor5={priceFactor5}
+                                  priceFactor6={priceFactor6}
+                                  licenceChoice={licenceChoice}
+                                  LicenceUser={LicenceUser}
+                                  onUpdateCartPrice={handleUpdateCartPrice}
+                                  Licence={Licence}
+                                  NumEmployees={NumEmployees}/>}
+                          
+                              {/* {showBuyGiallo && <BuyGiallo 
+                                  products={products} 
+                                  onAddToCart={onAddToCart} 
+                                  handleEmptyCart={handleEmptyCart} 
+                                  onRemoveFromCart={onRemoveFromCart} 
+                                  onUpdateCartQty={onUpdateCartQty}
+                                  cart={cart}
+                                  priceFactor1={priceFactor1}
+                                  priceFactor2={priceFactor2}
+                                  priceFactor3={priceFactor3}
+                                  priceFactor4={priceFactor4}
+                                  onUpdateCartPrice={onUpdateCartPrice}/>} */}
+
+                          </div>    
+
+                        </div>
 
                         <p className={styles.cartHead}> { cart.line_items.length || "" ? "CART" : "YOUR CART IS EMPTY"} </p> 
 

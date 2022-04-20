@@ -22,6 +22,28 @@
     background: var(--quaternary);
 }
 
+.hoverButton {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    margin-bottom: var(--margin-M);
+    height: 25px;
+    background: var(--tertiary);
+    padding: 0 20px;
+    font-variation-settings: 'wght' 116, 'wdth' 0;
+    z-index: 100;
+    font-size: var(--pgSmallSize);
+    letter-spacing: var(--pgSmallLetterSpacing);
+    border-radius: 3px;
+    transition: opacity 0.2s ease;
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    pointer-events: none;
+    opacity: 0.8;
+    white-space: nowrap;
+    transform: translateX(10%)
+}
+
 .infoButton {
     position: absolute;
     display: flex; 

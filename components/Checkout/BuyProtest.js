@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import ProductChoice from './ProductChoice'
 import styles from '../../styles/Buy.module.css';
 
-const BuyProtest = ( { licenceChoice, products, onAddToCart, onUpdateCartQty, onRemoveFromCart, cart, priceFactor1, priceFactor2, priceFactor3, priceFactor4, Licence, NumEmployees } ) => {
+const BuyProtest = ( { licenceChoice, LicenceUser, products, onAddToCart, onUpdateCartQty, onRemoveFromCart, cart, priceFactor1, priceFactor2, priceFactor3, priceFactor4, priceFactor5, priceFactor6, Licence, NumEmployees } ) => {
 
 
   const [LineItem, setLineItem] = useState("");
@@ -33,7 +33,7 @@ const BuyProtest = ( { licenceChoice, products, onAddToCart, onUpdateCartQty, on
   const protestStyles = protest.filter(isStyle)
   const protestBundles = protest.filter(isBundle)
 
-  const priceFactor = (priceFactor1+priceFactor2+priceFactor3)*priceFactor4;
+  const priceFactor = (priceFactor1+priceFactor2+priceFactor3+priceFactor5+priceFactor6)*priceFactor4;
 
   const items = cart.line_items
 
@@ -47,7 +47,7 @@ const BuyProtest = ( { licenceChoice, products, onAddToCart, onUpdateCartQty, on
 
         {protestBundles.map((product) => (
         <>  
-          <div item onClick={licenceChoice && !items.some(item => item.product_id === product.id) ? () => {updateLicenceType(product.name, Licence, NumEmployees), onAddToCart(product.id, 1*priceFactor)} : () => onRemoveFromCart(items.find(item => item.product_id === product.id).id)}>
+          <div item onClick={licenceChoice && LicenceUser && !items.some(item => item.product_id === product.id) ? () => {updateLicenceType(product.name, Licence, NumEmployees), onAddToCart(product.id, 1*priceFactor)} : () => onRemoveFromCart(items.find(item => item.product_id === product.id).id)}>
             <ProductChoice 
               product={product} 
               name={product.name} 
@@ -65,7 +65,7 @@ const BuyProtest = ( { licenceChoice, products, onAddToCart, onUpdateCartQty, on
 
         {protestStyles.map((product) => (
           <>
-          <div item onClick={licenceChoice && !items.some(item => item.product_id === product.id) ? () => {updateLicenceType(product.name, Licence, NumEmployees), onAddToCart(product.id, 1*priceFactor)} : () => onRemoveFromCart(items.find(item => item.product_id === product.id).id)}>
+          <div item onClick={licenceChoice && LicenceUser && !items.some(item => item.product_id === product.id) ? () => {updateLicenceType(product.name, Licence, NumEmployees), onAddToCart(product.id, 1*priceFactor)} : () => onRemoveFromCart(items.find(item => item.product_id === product.id).id)}>
               <ProductChoice 
                 product={product} 
                 name={product.name} 
