@@ -1,5 +1,6 @@
 const axios = require('axios');
 const sgMailClient = require("@sendgrid/mail");
+require('dotenv').config();
 sgMailClient.setApiKey(process.env.SENDGRID_API_KEY);
 // Includes crypto module
 const crypto = require('crypto');
