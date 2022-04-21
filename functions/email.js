@@ -12,6 +12,8 @@ export default async function handler(req, res) {
 
     const { data } = JSON.parse(req.body);
 
+    const webHookSigningKey = '5LY83EWtdtkzUAEuolmKpdtmvMp6irk4'
+
     // Request for your merchant information so that you can use your email
     // to include as the 'from' property to send to the SendGrid API
     const merchant = fetch(`${process.env.CHEC_API_URL}/v1/merchants`, {
