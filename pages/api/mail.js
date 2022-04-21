@@ -22,7 +22,7 @@ export default function handler(req, res) {
     const { signature } = data;
     delete data.signature;
     // Your Chec webhook signing key, from the Chec Dashboard webhooks view
-    const webHookSigningKey = 'KEJlxz6cIlrWIpsX5jypcMeGl2uh7jJg';
+    const webHookSigningKey = '6R4I7YjhpxkiTXA9wXbkzyfy47PK5miQ';
     // Verify the signature
     const expectedSignature = crypto.createHmac('sha256', webHookSigningKey)
         .update(JSON.stringify(data))
