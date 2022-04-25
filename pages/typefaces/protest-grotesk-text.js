@@ -22,8 +22,6 @@ const ProtestGroteskText = ( { products, cart, checkoutToken, handleAddToCart, h
   const [showCheckout, setShowCheckout] = useState(false);
   const location = useRouter();
 
-  console.log(cart)
-
   return (
     <>   
 

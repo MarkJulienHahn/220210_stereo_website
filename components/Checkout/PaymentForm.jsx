@@ -4,24 +4,28 @@ import { loadStripe } from '@stripe/stripe-js';
 
 import styles from '../../styles/Forms.module.css';
 
-import Button from '../../components/Button'
-
-import Review from './Review';
 
 const stripePromise = loadStripe(`${process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY}`);
 
 const PaymentForm = ( { products, cart, checkoutToken, shippingData, backStep, onCaptureCheckout, nextStep } ) => {
 
   const [CreditCard, setCreditCard] = useState(false);
+  const [Processing, setProcessing] = useState(false);
 
   const handleCreditCard = (val) => {
     setCreditCard(val)
+  }
+
+  const handleProcessing = (val) => {
+    setProcessing(val)
   }
 
     const handleSubmit = async (event, elements, stripe) => {
         event.preventDefault();
 
         if(!stripe || !elements) return;
+
+        handleProcessing(true);
 
         const cardElement = elements.getElement(CardElement);
 
@@ -42,14 +46,31 @@ const PaymentForm = ( { products, cart, checkoutToken, shippingData, backStep, o
                   payment_method_id: paymentMethod.id,
                 },
               },
+
             };
+
+            const formData = {
+              name: `${shippingData.firstName} ${shippingData.lastName}`,
+              adress: shippingData.address1,
+              email: shippingData.email,
+              zip: shippingData.zip,
+              city: shippingData.city,
+              country: shippingData.shippingCountry,
+              items: checkoutToken.line_items.map(el => el.name),
+              id: checkoutToken.id,
+              total: checkoutToken.live.total.formatted_with_code,
+            }
+
+            const checkoutData = {
+              id: checkoutToken.id,
+            }
       
-            onCaptureCheckout(checkoutToken.id, orderData);
-      
-            nextStep();
+            await onCaptureCheckout(checkoutToken.id, orderData);
+            await nextStep();
 
           }
         };
+
 
       const inactive = {
         height: "0px",
@@ -63,10 +84,20 @@ const PaymentForm = ( { products, cart, checkoutToken, shippingData, backStep, o
         padding: "20px"
       }
 
-      console.log(cart, checkoutToken, products, shippingData); 
+      const visible = {
+        display: 'flex'
+      }
+
+      const invisible = {
+        display: 'none'
+      }
+
 
     return (
         <>
+
+          <div style={Processing ? visible : invisible} className={styles.loadingWrapper}>We are processing you Order, please weit a couple of seconds...</div>
+
           <div className={styles.paymentInfo}>
             <hr/>
             <div className={styles.paymentHeader} onClick={CreditCard ? () => handleCreditCard(false) : () => handleCreditCard(true)}>CREDIT CARD</div>

@@ -91,3 +91,19 @@
 .paymentWrapper {
     transition: height 0.2s ease-out, padding 0.2s ease-out;
 }
+
+.loadingWrapper {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--tertiary);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(40px);
+    animation: fadeIn 0.2s ease;
+    transition: opacity 0.5s ease;
+}

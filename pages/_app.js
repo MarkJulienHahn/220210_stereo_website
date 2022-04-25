@@ -31,17 +31,17 @@ function MyApp({ Component, pageProps }) {
 
   const fetchCart = async () => {
     setCart(await commerce.cart.retrieve())
-}
+  }
 
-const handleAddToCart = async (productId, quantity) => {
+  const handleAddToCart = async (productId, quantity) => {
     setLoading(true);
     const { cart } = await commerce.cart.add(productId, quantity);
     
     setCart(cart); 
     setLoading(false)
-}
+  }
 
-const handleUpdateCartQty = async (productId, quantity) => {
+  const handleUpdateCartQty = async (productId, quantity) => {
     const { cart } = await commerce.cart.update(productId, { quantity });
 
     setCart(cart);
@@ -78,7 +78,35 @@ const handleCaptureCheckout = async (checkoutTokenId, newOrder) => {
       const incomingOrder = await commerce.checkout.capture(checkoutTokenId, newOrder);
 
       setOrder(incomingOrder);
+      console.log(incomingOrder)
       refreshCart();
+
+      const orderData = {
+        firstName: incomingOrder.customer.firstname,
+        lastName: incomingOrder.customer.lastname,
+        email: incomingOrder.customer.email,
+        adress: incomingOrder.shipping.street,
+        zip: incomingOrder.shipping.postal_zip_code,
+        city: incomingOrder.shipping.town_city,
+        country: incomingOrder.shipping.country,
+        state: incomingOrder.shipping.county_state,
+        items: incomingOrder.order.line_items.map(el => ` ${el.product_name}`),
+        singlePrice: incomingOrder.order.line_items.map(el => ` ${el.line_total_with_tax.formatted_with_code}`),
+        total: incomingOrder.order_value.formatted_with_code,
+        tax: incomingOrder.tax.amount.formatted_with_code,
+        link: incomingOrder.fulfillment.digital.downloads.map(el => el.packages.map(el => ` ${el.access_link}`)),
+        paymentMethod: 
+          `${incomingOrder.transactions[0].payment_source.brand}, 
+          ${incomingOrder.transactions[0].payment_source.payments_source_type}, 
+          **** ${incomingOrder.transactions[0].payment_source.gateway_reference}`,
+        id: incomingOrder.customer_reference
+      }
+    
+      await fetch('/api/mail', {
+        method: 'post',
+        body: JSON.stringify(orderData)
+      })
+
   } catch (error) {
       setErrorMessage(error.data.error.message);
   }
@@ -88,7 +116,6 @@ const handleCaptureCheckout = async (checkoutTokenId, newOrder) => {
     fetchProducts();
     fetchCart();
   }, []);
-
 
 
   return (
@@ -113,7 +140,8 @@ const handleCaptureCheckout = async (checkoutTokenId, newOrder) => {
                 handleUpdateCartPrice={handleUpdateCartPrice}
                 onCaptureCheckout={handleCaptureCheckout}
                 loading={loading}
-                commerce={commerce}/>
+                commerce={commerce}
+                />
             </Layout>
 
           </motion.div>

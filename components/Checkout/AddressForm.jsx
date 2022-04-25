@@ -68,7 +68,7 @@ const AddressForm = ( { checkoutToken, next, cart }) => {
                         <FormInput name='lastName' label='Last name' />
                         <FormInput name='address1' label='Streetname, Nr.' />
                         <FormInput name='email' label='Email' />
-                        <FormInput name='City' label='City' />
+                        <FormInput name='city' label='City' />
                         <FormInput name='zip' label='ZIP / Postal code' />
                         <Grid item xs={12} sm={6}>
                             <div className={styles2.inputHeader}>Country</div>
