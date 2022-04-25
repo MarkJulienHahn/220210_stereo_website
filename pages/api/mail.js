@@ -35,8 +35,12 @@ export default async function handler(req, res) {
     text: message,
   }
 
-  mail.send(data)
+  // mail.send(data)
 
+ return mail
+  .send(data)
+  .then((response) => console.log("Email sent..."))
+  .catch((error) => console.log(error.message));
   res.status(200).json({ status: 'Ok' });
-
 }  
+

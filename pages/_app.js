@@ -107,10 +107,10 @@ const handleCaptureCheckout = async (checkoutTokenId, newOrder) => {
         body: JSON.stringify(orderData)
       })
 
-  } catch (error) {
-      setErrorMessage(error.data.error.message);
+    } catch (error) {
+        setErrorMessage(error.data.error.message);
+    }
   }
-}
 
   useEffect(() => {
     fetchProducts();
