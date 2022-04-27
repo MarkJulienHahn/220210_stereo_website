@@ -95,7 +95,7 @@ const AddressForm = ( { checkoutToken, next, cart }) => {
 
                     <div style={{ display: 'flex', justifyContent: 'space-between '}}>
                         <button className={styles2.payButton} type="submit">
-                            Next Step 
+                            Continue to Payment 
                         </button>
                     </div>
 
@@ -103,7 +103,7 @@ const AddressForm = ( { checkoutToken, next, cart }) => {
 
                     <div style={{ display: 'flex', justifyContent: 'space-between '}}>
                         <button className={styles2.payButtonLocked}>
-                            Next Step 
+                            Continue to Payment
                         </button>
                     </div>
 
