@@ -14,7 +14,7 @@ export default async function handler(req, res) {
     Country: ${body.country}\r\n
     State: ${body.state}\r\n
     Items: ${body.items}\r\n
-    Single Price: ${body.singlePrice}\r\n
+    Discount: ${body.discount}\r\n
     Total: ${body.total}\r\n
     Tax: ${body.tax}\r\n
     Link: ${body.link}\r\n
@@ -35,7 +35,6 @@ export default async function handler(req, res) {
     text: message,
   }
 
-  // mail.send(data)
 
  return mail
   .send(data)

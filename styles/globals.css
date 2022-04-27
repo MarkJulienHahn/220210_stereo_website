@@ -271,6 +271,12 @@ li {
   color: black;
 }
 
+/* #quaternary:hover {
+  background: black;
+  color: white;
+  cursor: pointer;
+} */
+
 @media only screen and (max-width: 600px) {
   .buttonsLeftWrapper {
     height: auto;

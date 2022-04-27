@@ -40,6 +40,32 @@
     font-family: 'Protest'
 }
 
+.payButtonLocked {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    margin-bottom: var(--margin-M);
+    height: 25px;
+    background: var(--quaternary);
+    padding: 0 20px;
+    font-variation-settings: 'wght' 133, 'wdth' 50;
+    text-transform: uppercase;
+    z-index: 100;
+    font-size: var(--pgSmallSize);
+    letter-spacing: var(--pgSmallLetterSpacing);
+    border-radius: 3px;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    margin-right: var(--margin-M);
+    border: 0;
+    font-family: 'Protest'
+}
+
 .payButton:hover {
     background: var(--tertiary)
 
@@ -48,7 +74,7 @@
 .inputField {
     height: 40px;
     width: 100%;
-    background: var(--tertiary);
+    background: var(--tertiary) !important;
     padding: 13px 0 10px 10px ;
     font-variation-settings: 'wght' 116, 'wdth' 50;
     opacity: 0.6;
@@ -71,21 +97,25 @@
 .inputField::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: black;
     opacity: 1; /* Firefox */
-  }
+}
 
-  .inputField:focus {
-    opacity: 1;
-  }
+.inputField:focus {
+opacity: 1;
+}
 
-  .inputHeader {
-      padding: 10px;
-      text-transform: uppercase;
-      letter-spacing: var(--pgSmallLetterSpacing);
-  }
+.inputField::autofill {
+    background-color: var(--tertiary) !important
+}
 
-  .paymentInfo hr {
-    border: 0.5px black solid;
-    margin-bottom: 20px;
+.inputHeader {
+    padding: 10px;
+    text-transform: uppercase;
+    letter-spacing: var(--pgSmallLetterSpacing);
+}
+
+.paymentInfo hr {
+border: 0.5px black solid;
+margin-bottom: 20px;
 }
 
 .paymentWrapper {
@@ -93,17 +123,15 @@
 }
 
 .loadingWrapper {
-    display: flex;
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: var(--tertiary);
     z-index: 1000;
     justify-content: center;
     align-items: center;
-    backdrop-filter: blur(40px);
+    backdrop-filter: blur(12px);
     animation: fadeIn 0.2s ease;
     transition: opacity 0.5s ease;
 }

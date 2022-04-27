@@ -11,7 +11,7 @@ const FormInput = ({ name, label, required }) => {
     return (
         <Grid item xs={12} sm={6}>
             <Controller 
-                render={({ field }) => <input className={styles.inputField} {...field} placeholder={label} label={label} fullWidth   required/>}
+                render={({ field }) => <input className={styles.inputField} {...field} placeholder={label} label={label} fullwidth   required/>}
                 control={control}      
                 name={name}
                 label={label}

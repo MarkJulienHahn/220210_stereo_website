@@ -18,7 +18,7 @@ const CheckoutStep2 = dynamic(() => import("./CheckoutStep2"))
 const CheckoutStep3 = dynamic(() => import("./CheckoutStep3"))
 const CheckoutStep4 = dynamic(() => import("./CheckoutStep4"))
 
-const Checkout = ({ setShowCheckout, showCheckout, products, cart, handleAddToCart, handleEmptyCart, handleUpdateCartQty, handleRemoveFromCart, handleUpdateCartPrice, loading, onCaptureCheckout, order, error  }) => {
+const Checkout = ({ setShowCheckout, showCheckout, products, cart, handleAddToCart, handleEmptyCart, handleUpdateCartQty, handleRemoveFromCart, handleUpdateCartPrice, handleCouponCode, setCart, loading, onCaptureCheckout, getLiveObject, live, order, error  }) => {
 
 
   const [showCheckoutStep1, setShowCheckoutStep1] = useState(true);
@@ -28,7 +28,6 @@ const Checkout = ({ setShowCheckout, showCheckout, products, cart, handleAddToCa
 
   const [showBuyProtest, setShowBuyProtest] = useState(true);
   const [showBuyGiallo, setShowBuyGiallo] = useState(false);
-  const [showCoupon, setShowCoupon] = useState(false);
   const [buttonStateGiallo, setButtonStateGiallo] = useState("quaternary");
   const [buttonStateProtest, setButtonStateProtest] = useState("secondary");
 
@@ -38,6 +37,7 @@ const Checkout = ({ setShowCheckout, showCheckout, products, cart, handleAddToCa
   const [shippingData, setShippingData] = useState({});
 
   const [buttonContent, setButtonContent] = useState(null)
+  const [showCoupon, setShowCoupon] = useState(false);
 
   const [priceFactor1, setPriceFactor1] = useState(1)
   const [priceFactor2, setPriceFactor2] = useState(0)
@@ -55,6 +55,10 @@ const Checkout = ({ setShowCheckout, showCheckout, products, cart, handleAddToCa
   const [NumEmployees, setNumEmployees] = useState("");
 
   const Licence = [`${DesktopLicence} ${WebLicence} ${InteractiveLicence} ${SocialLicence} ${LogoLicence}`]
+
+  const showCouponInput = () => {
+    setShowCoupon(true)
+  }
 
   const updateLicenceUser = (user) => {
     setLicenceUser(user)
@@ -98,17 +102,17 @@ const Checkout = ({ setShowCheckout, showCheckout, products, cart, handleAddToCa
         const generateToken = async () => {
             try {
                 const token = await commerce.checkout.generateToken(cart.id, { type: 'cart' });
-
-                setCheckoutToken(token);
+                await setCheckoutToken(token);
+                getLiveObject(token.id)
             }   catch {
                 // if (activeStep !== steps.length) navigate('/');
             }
     };
 
     generateToken();
-    }
-}, [cart]);
 
+    }
+  }, [cart]);
 
   const showProtest = () => {
       setShowBuyProtest(true),
@@ -124,9 +128,6 @@ const Checkout = ({ setShowCheckout, showCheckout, products, cart, handleAddToCa
     setButtonStateGiallo("secondary")
   }
 
-  const showCouponInput = () => {
-    setShowCoupon(true)
-  }
 
 
   const updatePriceFactor1 = (fact1) => {
@@ -338,7 +339,7 @@ const Checkout = ({ setShowCheckout, showCheckout, products, cart, handleAddToCa
 
     const nextStep = () => {
         setShowCheckoutStep3(false), 
-        setShowCheckoutStep4(true);
+        setShowCheckoutStep4(true)
     }
 
     const next = (data) => {
@@ -347,33 +348,26 @@ const Checkout = ({ setShowCheckout, showCheckout, products, cart, handleAddToCa
         setShowCheckoutStep3(true)
     }
 
-    useEffect(() => {
-        if (cart.id) {
-            const generateToken = async () => {
-                try {
-                    const token = await commerce.checkout.generateToken(cart.id, { type: 'cart' });
-    
-                    setCheckoutToken(token);
-                }   catch {
+    const step2 = async () => {
+      // await getLiveObject(checkoutToken.id)
+      setShowCheckoutStep2(true)
+      setShowCheckoutStep1(false)
+    }
 
-                }
-        };
-    
-        generateToken();
-        }
-    }, [cart]);
 
+  console.log(checkoutToken, live)   
 
 
   return (
-    <div>       
-        
-
+    <div>
 
         <div className={styles.buyWrapper}>
 
-            {showCoupon && <Coupon />}
-            {showLicensing && <LicensingTerms showLicensing={showLicensing} setShowLicensing={setShowLicensing}/>}
+            {showLicensing && 
+            <LicensingTerms 
+              showLicensing={showLicensing} 
+              setShowLicensing={setShowLicensing}
+            />}
         
 
             {showCheckoutStep1 ? 
@@ -383,25 +377,16 @@ const Checkout = ({ setShowCheckout, showCheckout, products, cart, handleAddToCa
 
                 <div className="buttonsLeftWrapper">
                     <Button lable={"Continue Shopping"} subclass={"secondary"} onClick={() => setShowCheckout(false)} /> 
-                    <Button lable={"Licensing Terms"} subclass={"secondary"} onClick={() => setShowLicensing(true)} />   
+                    <Button lable={"Licensing Terms"} subclass={"quaternary"} onClick={() => setShowLicensing(true)} />   
                 </div> 
 
 
 
                 <div className="buttonsRightWrapper">
                     <Button 
-                        lable={"Save as PDF"} 
-                        subclass={"quaternary"} 
-                    /> 
-                    <Button 
-                        lable={"Add coupon Code"} 
-                        subclass={"quaternary"} 
-                        onClick={() => showCouponInput()}
-                    /> 
-                    <Button 
                         lable={"Continue to Checkout"} 
-                        onClick={cart.line_items.length  && checkoutToken ? () => {setShowCheckoutStep2(true), setShowCheckoutStep1(false)} : () => {}}
-                        subclass={ cart.line_items.length  && checkoutToken ? "primary" : "quaternary"} 
+                        onClick={cart.line_items.length && checkoutToken && live ? () => { step2() }: () => {}}
+                        subclass={ cart.line_items.length  && checkoutToken && live ? "primary" : "quaternary"} 
                     />   
                 </div> 
 
@@ -429,7 +414,7 @@ const Checkout = ({ setShowCheckout, showCheckout, products, cart, handleAddToCa
                                 onClick={priceFactor3 === 24 ? () => {updatePriceFactor3(0), updateInteractiveLicence("")} : () => {updatePriceFactor3(24), updateInteractiveLicence("Interactive")}}>Interactive Licence</li>
 
                             <div
-                                onMouseEnter={priceFactor4 >= 5 ? () => {} : () => updateButtonContent("Only mandatory for Company Size 10 and bigger")}
+                                onMouseEnter={priceFactor4 >= 5 ? () => {} : () => updateButtonContent("Only for companies bigger than 10")}
                                 onMouseLeave={priceFactor4 <= 5 ? () => updateButtonContent("") : () => {}}>
                               <div 
                                 style={priceFactor4 >= 5 ? enabled : disabled}>  
@@ -548,37 +533,42 @@ const Checkout = ({ setShowCheckout, showCheckout, products, cart, handleAddToCa
                         <p className={styles.cartHead}> { cart.line_items.length || "" ? "CART" : "YOUR CART IS EMPTY"} </p> 
 
                         <div className={styles.totalWrapper}>
-                            <div>
-                                {cart.line_items.map((item) => (
-                                <>
-                                    <div className={styles.productWrapper} onClick={() => handleRemoveFromCart(item.id)}>
+                          <div className={styles.overviewItems}>
+                            {cart.line_items.map((item) => (
+                            <>
+                                <div className={styles.productWrapper} onClick={() => handleRemoveFromCart(item.id)}>
 
-                                    <span className={styles.cartItem}>
-                                    —   {item.name}<br/>
-                                        <span className={styles.licenceType}>
-                                        {products.find(el => el.name === item.name).licence}
-                                        </span>
+                                <span className={styles.cartItem}>
+                                —   {item.name}<br/>
+                                    <span className={styles.licenceType}>
+                                    {products.find(el => el.name === item.name).licence}
                                     </span>
+                                </span>
 
-                                    <span className={styles.productPrice}>
-                                        EUR {item.line_total.raw}
-                                    </span>
-                                    <span className={styles.cartRemove}>
-                                    &#8594; Remove
-                                    </span>
-                                    </div>
+                                <span className={styles.productPrice}>
+                                    EUR {item.line_total.formatted}
+                                </span>
+                                <span className={styles.cartRemove}>
+                                &#8594; Remove
+                                </span>
+                                </div>
 
-                                </>
-                                ))}
+                            </>
+                            ))}
 
                             </div>
 
                             <div>{loading ? "Calculating..." : ""}</div>
 
-                            <div className={styles.total}>
-                                <span>{ cart.line_items.length || "" ? "Total (incl. Tax)" : ""}</span>
-                                <span>{ cart.line_items.length  || "" ? `EUR ${cart.subtotal.raw}` : ""}</span>
-                            </div>
+                                            
+
+
+                              <div className={styles.total}>
+                                <span>Total (incl. Tax)</span>
+                                <span>EUR {cart.subtotal.formatted}</span>
+                              </div>
+
+
                         </div>
 
                     </div>
@@ -592,17 +582,20 @@ const Checkout = ({ setShowCheckout, showCheckout, products, cart, handleAddToCa
             {showCheckoutStep2 && <CheckoutStep2 
                 products={products} 
                 cart={cart}
+                live={live}
                 checkoutToken={checkoutToken}
                 handleRemoveFromCart={handleRemoveFromCart}
                 handleEmptyCart={handleEmptyCart}
                 handleUpdateCartQty={handleUpdateCartQty}
                 setShowCheckoutStep2={setShowCheckoutStep2}
                 setShowCheckoutStep1={setShowCheckoutStep1}
+                getLiveObject={getLiveObject}
                 next={next}/>} 
 
             {showCheckoutStep3 && <CheckoutStep3 
                 products={products} 
                 cart={cart}
+                live={live}
                 checkoutToken={checkoutToken}
                 handleRemoveFromCart={handleRemoveFromCart}
                 handleEmptyCart={handleEmptyCart}
@@ -610,9 +603,14 @@ const Checkout = ({ setShowCheckout, showCheckout, products, cart, handleAddToCa
                 setShowCheckoutStep1={setShowCheckoutStep1}
                 setShowCheckoutStep2={setShowCheckoutStep2}
                 setShowCheckoutStep3={setShowCheckoutStep3}
+                setShowCoupon={setShowCoupon}
+                showCoupon={showCoupon}
+                handleCouponCode={handleCouponCode}
+                setCart={setCart}
                 nextStep={nextStep}
                 shippingData={shippingData}
                 onCaptureCheckout={onCaptureCheckout}
+                getLiveObject={getLiveObject}
                 />}     
 
             {showCheckoutStep4 && <CheckoutStep4 

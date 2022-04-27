@@ -139,7 +139,10 @@
     font-size: 20pt;
     line-height: 25pt;
     letter-spacing: -0px;
+}
 
+.productWrapper {
+    cursor: pointer;
 }
 
 .productPrice {
@@ -161,11 +164,21 @@
     line-height: 25pt;
     letter-spacing: -0px;
     margin-bottom: calc(2*var(--margin-M));
-        cursor:default;
+    cursor: default;
+}
+
+.overviewItems {
+    padding-bottom: var(--margin-M)
 }
 
 .total {
-    padding-top: var(--margin-M);
+    display: flex;
+    justify-content: space-between;
+    width: 100%
+}
+
+.totalDiscount {
+    color: var(--primary);
     display: flex;
     justify-content: space-between;
     width: 100%

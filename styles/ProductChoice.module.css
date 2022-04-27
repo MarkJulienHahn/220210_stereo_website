@@ -44,3 +44,7 @@
     line-height: 25pt;
     letter-spacing: -0px;
 }
+
+.inCart, .notInCart {
+    cursor: pointer
+}

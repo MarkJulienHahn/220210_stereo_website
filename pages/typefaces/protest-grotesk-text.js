@@ -17,7 +17,7 @@ import Footer from '../../components/Footer'
 
 const Checkout = dynamic(() => import("../../components/Checkout/Checkout"))
 
-const ProtestGroteskText = ( { products, cart, checkoutToken, handleAddToCart, handleEmptyCart, handleUpdateCartQty, handleRemoveFromCart, handleUpdateCartPrice, onCaptureCheckout, loading }) => {
+const ProtestGroteskText = ( { products, cart, checkoutToken, handleAddToCart, handleEmptyCart, handleUpdateCartQty, handleRemoveFromCart, handleUpdateCartPrice, onCaptureCheckout, setCart, handleCouponCode, loading, getLiveObject, live }) => {
 
   const [showCheckout, setShowCheckout] = useState(false);
   const location = useRouter();
@@ -33,12 +33,16 @@ const ProtestGroteskText = ( { products, cart, checkoutToken, handleAddToCart, h
         {showCheckout && <Checkout 
             products={products} 
             cart={cart}
+            live={live}
             handleAddToCart={handleAddToCart}
             handleRemoveFromCart={handleRemoveFromCart}
             handleEmptyCart={handleEmptyCart}
             handleUpdateCartQty={handleUpdateCartQty}
             handleUpdateCartPrice={handleUpdateCartPrice}
             onCaptureCheckout={onCaptureCheckout}
+            handleCouponCode={handleCouponCode}
+            getLiveObject={getLiveObject}
+            setCart={setCart}
             setShowCheckout={setShowCheckout}
             showCheckout={showCheckout}
             loading={loading}

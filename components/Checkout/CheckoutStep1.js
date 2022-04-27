@@ -12,7 +12,7 @@ const BuyGiallo = dynamic(() => import("./BuyGiallo"))
 const Coupon = dynamic(() => import("../Coupon"))
 
 
-const CheckoutStep1 = ( { showCheckoutStep1, showCheckoutStep2,setShowCheckoutStep1, setShowCheckoutStep2, products, cart, onAddToCart, handleEmptyCart, handleUpdateCartQty, handleRemoveFromCart, handleUpdateCartPrice, loading }) => {
+const CheckoutStep1 = ( { showCoupon, showCheckoutStep2,setShowCheckoutStep1, setShowCheckoutStep2, products, cart, live, onAddToCart, handleEmptyCart, handleUpdateCartQty, handleRemoveFromCart, handleUpdateCartPrice, loading }) => {
 
   const [showBuyProtest, setShowBuyProtest] = useState(true);
   const [showBuyGiallo, setShowBuyGiallo] = useState(false);
@@ -26,7 +26,6 @@ const CheckoutStep1 = ( { showCheckoutStep1, showCheckoutStep2,setShowCheckoutSt
   const [priceFactor2, setPriceFactor2] = useState(0)
   const [priceFactor3, setPriceFactor3] = useState(0)
   const [priceFactor4, setPriceFactor4] = useState(0)
-
 
 
 
@@ -50,24 +49,6 @@ const CheckoutStep1 = ( { showCheckoutStep1, showCheckoutStep2,setShowCheckoutSt
   const updateNumEmployees = (num) => {
     setNumEmployees(num)
   }
-
-
-  useEffect(() => {
-    if (cart.id) {
-        const generateToken = async () => {
-            try {
-                const token = await commerce.checkout.generateToken(cart.id, { type: 'cart' });
-
-                setCheckoutToken(token);
-            }   catch {
-                // if (activeStep !== steps.length) navigate('/');
-            }
-    };
-
-    generateToken();
-    }
-}, [cart]);
-
 
   const showProtest = () => {
       setShowBuyProtest(true),
@@ -199,86 +180,48 @@ const CheckoutStep1 = ( { showCheckoutStep1, showCheckoutStep2,setShowCheckoutSt
 
   const CheckoutStep2 = dynamic(() => import("./CheckoutStep2"))
 
-  // const FilledCart = ( ) => (
-  //   <>
 
-  //     <p className={styles.buyConfigurationHead}>Your Cart</p>    
+  const active = {
+    color: "var(--primary)"
+  }
 
-  //     {cart.line_items.map((item) => (
-  //       <>
-          
-  //         <div className={styles.productWrapper} onClick={() => onRemoveFromCart(item.id, 2)}>
+  const inactive = {
+    color: "black"
+  }
 
-  //           <span className={styles.cartItem}>
-  //               {item.name}
-  //           </span>
-  //           <span className={styles.productPrice}>
-  //             EUR {item.line_total.raw}
-  //           </span>
-  //           <span className={styles.cartRemove}>
-  //            &#8594; Remove
-  //           </span>
-  //         </div>
-  //       </>
-  //     ))}
+  const buyInactive = {
+    opacity: 0.3,
+    pointerEvents: "none"
+  }
 
+  const buyActive = {
+    opacity: 1,
+    pointerEvents: "auto"
+  }
 
+  const disabled = {
+    pointerEvents: "none",
+    opacity: 0.3
+  }
 
-  //     <div className={styles.totalWrapper}>
-
-  //       <span>
-  //           Total (incl. Tax)        
-  //       </span>
-  //       <span>
-  //         {cart.subtotal.raw || ""}
-  //       </span>
-  //     </div>  
-  //     <div onClick={handleEmptyCart}>REMOVE ALL ITEMS FROM YOUR CART</div>
-  //   </>
-  // );
-
-const active = {
-  color: "var(--primary)"
-}
-
-const inactive = {
-  color: "black"
-}
-
-const buyInactive = {
-  opacity: 0.3,
-  pointerEvents: "none"
-}
-
-const buyActive = {
-  opacity: 1,
-  pointerEvents: "auto"
-}
-
-const disabled = {
-  pointerEvents: "none",
-  opacity: 0.3
-}
-
-const enabled = {
-  pointerEvents: "auto",
-  opacity: 1
-}
+  const enabled = {
+    pointerEvents: "auto",
+    opacity: 1
+  }
 
   return (
 
     <>
-      {showCoupon && <Coupon />}
+
+        {showCoupon && live.discount.length == 0 &&
+        <Coupon 
+          handleCouponCode={handleCouponCode} 
+          checkoutToken={checkoutToken}
+          setShowCoupon={setShowCoupon}
+          getLiveObject={getLiveObject}
+        />}
+
         <div className="buttonsRightWrapper">
-            <Button 
-                lable={"Save as PDF"} 
-                subclass={"quaternary"} 
-            /> 
-            <Button 
-                lable={"Add coupon Code"} 
-                subclass={"quaternary"} 
-                onClick={() => showCouponInput()}
-            /> 
               <Button 
                   lable={"Continue to Checkout"} 
                   onClick={cart.line_items.length  && checkoutToken ? () => {setShowCheckoutStep2(true), setShowCheckoutStep1(true)} : () => {}}
@@ -373,7 +316,6 @@ const enabled = {
                 priceFactor4={priceFactor4}
                 licenceChoice={licenceChoice}
                 onUpdateCartPrice={handleUpdateCartPrice}
-                // generateToken={generateToken}
                 Licence={Licence}
                 NumEmployees={NumEmployees}/>}
                 
@@ -408,7 +350,7 @@ const enabled = {
                               </span>
 
                               <span className={styles.productPrice}>
-                                EUR {item.line_total.raw}
+                                EUR {item.line_total.formatted}
                               </span>
                               <span className={styles.cartRemove}>
                               &#8594; Remove
@@ -422,10 +364,29 @@ const enabled = {
 
                     <div>{loading ? "Calculating..." : ""}</div>
 
+                    { live.discount.length !== 0 ? 
+
+                    <>
+                      <div className={styles.totalDiscount}>
+                            <span>Discount</span>
+                            <span>— EUR {live.discount.amount_saved?.formatted}</span>
+                        </div>
+
+                      <div className={styles.total}>
+                        <span>Total (incl. Tax)</span>
+                        <span>EUR {live.total.formatted}</span>
+                      </div>
+                    </>
+
+                    :
+
                     <div className={styles.total}>
-                      <span>{ cart.line_items.length || "" ? "Total (incl. Tax)" : ""}</span>
-                      <span>{ cart.line_items.length  || "" ? `EUR ${cart.subtotal.raw}` : ""}</span>
+                    <span>Total (incl. Tax)</span>
+                    <span>EUR {cart.subtotal.formatted}</span>
                     </div>
+
+                    }
+
                   </div>
 
             </div>
@@ -435,6 +396,7 @@ const enabled = {
           {showCheckoutStep2 && <CheckoutStep2 
             products={products} 
             cart={cart}
+            live={live}
             checkoutToken={checkoutToken}
             handleRemoveFromCart={handleRemoveFromCart}
             handleEmptyCart={handleEmptyCart}

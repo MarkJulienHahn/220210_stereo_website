@@ -14,7 +14,8 @@ function MyApp({ Component, pageProps }) {
 
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState({});
-  const [order, setOrder] = useState({});
+  const [live, setLive] = useState(null);
+  const [order, setOrder] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
   const [loading, setLoading] = useState(false)
 
@@ -37,6 +38,7 @@ function MyApp({ Component, pageProps }) {
     setLoading(true);
     const { cart } = await commerce.cart.add(productId, quantity);
     
+
     setCart(cart); 
     setLoading(false)
   }
@@ -45,40 +47,62 @@ function MyApp({ Component, pageProps }) {
     const { cart } = await commerce.cart.update(productId, { quantity });
 
     setCart(cart);
-}
+  }
 
-const handleUpdateCartPrice = async (productId, subtotal ) => {
-  const { cart } = await commerce.cart.update(productId, { subtotal });
-
-  setCart(cart);
-}
-
-const handleRemoveFromCart = async (productId) => {
-    setLoading(true);
-    const { cart } = await commerce.cart.remove(productId);
+  const handleUpdateCartPrice = async (productId, subtotal ) => {
+    const { cart } = await commerce.cart.update(productId, { subtotal });
 
     setCart(cart);
-    setLoading(false)
-}
+  }
 
-const handleEmptyCart = async () => {
-    const { cart } = await commerce.cart.empty();
+  const handleRemoveFromCart = async (productId) => {
+      setLoading(true);
+      const { cart } = await commerce.cart.remove(productId);
 
-    setCart(cart);
-}
+      setCart(cart);
+      setLoading(false)
+  }
 
-const refreshCart = async () => {
-    const newCart = await commerce.cart.refresh();
+  const handleEmptyCart = async () => {
+      const { cart } = await commerce.cart.empty();
 
-    setCart(newCart);
-}
+      setCart(cart);
+  }
+
+  const refreshCart = async () => {
+      const newCart = await commerce.cart.refresh();
+
+      setCart(newCart);
+  }
+
+  const handleCouponCode = async (checkoutTokenId, discountCode) => {
+    const coupon = await commerce.checkout.checkDiscount(checkoutTokenId, {
+      code: discountCode,
+    }).then(response => console.log(response.valid, response.type, response.value))
+
+    setCart(cart)
+  }
+
+  const getLiveObject = async (checkoutTokenId) => {
+    const token = await commerce.checkout.getLive(checkoutTokenId);
+    setLive(token)
+  }
+
+
+// const handleCouponCode = async (checkoutTokenId, discountCode) => {
+//   const coupon = await commerce.checkout.checkDiscount(checkoutTokenId, {
+//     code: discountCode,
+// }).then(response => console.log(response.valid, response.type, response.value));
+
+//   setCart(cart);
+// }
 
 const handleCaptureCheckout = async (checkoutTokenId, newOrder) => {
   try {
       const incomingOrder = await commerce.checkout.capture(checkoutTokenId, newOrder);
 
       setOrder(incomingOrder);
-      console.log(incomingOrder)
+      console.log(incomingOrder, cart)
       refreshCart();
 
       const orderData = {
@@ -90,8 +114,10 @@ const handleCaptureCheckout = async (checkoutTokenId, newOrder) => {
         city: incomingOrder.shipping.town_city,
         country: incomingOrder.shipping.country,
         state: incomingOrder.shipping.county_state,
-        items: incomingOrder.order.line_items.map(el => ` ${el.product_name}`),
-        singlePrice: incomingOrder.order.line_items.map(el => ` ${el.line_total_with_tax.formatted_with_code}`),
+        items: incomingOrder.order.line_items.map((item) => (
+          ` ${item.product_name}, ${products.find(el => el.name === item.product_name).licence}, ${item.line_total_with_tax.formatted_with_code}\r\n`
+        )),
+        discount: incomingOrder.order.discount.amount_saved?.formatted_with_code,
         total: incomingOrder.order_value.formatted_with_code,
         tax: incomingOrder.tax.amount.formatted_with_code,
         link: incomingOrder.fulfillment.digital.downloads.map(el => el.packages.map(el => ` ${el.access_link}`)),
@@ -112,10 +138,13 @@ const handleCaptureCheckout = async (checkoutTokenId, newOrder) => {
     }
   }
 
-  useEffect(() => {
+  useEffect( async () => {
     fetchProducts();
     fetchCart();
+    refreshCart();
+    console.log(live)
   }, []);
+
 
 
   return (
@@ -133,12 +162,16 @@ const handleCaptureCheckout = async (checkoutTokenId, newOrder) => {
               <Component {...pageProps}
                 products={products}
                 cart={cart}
+                live={live}
                 handleUpdateCartQty={handleUpdateCartQty}
                 handleRemoveFromCart={handleRemoveFromCart}
                 handleEmptyCart={handleEmptyCart}
                 handleAddToCart={handleAddToCart}
                 handleUpdateCartPrice={handleUpdateCartPrice}
                 onCaptureCheckout={handleCaptureCheckout}
+                handleCouponCode={handleCouponCode}
+                getLiveObject={getLiveObject}
+                setCart={setCart}
                 loading={loading}
                 commerce={commerce}
                 />

@@ -1,22 +1,36 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import dynamic from 'next/dynamic'
 
 import PaymentForm from './PaymentForm';
 import Button from '../Button'
 
 import styles from '../../styles/Buy.module.css';
+const Coupon = dynamic(() => import("../Coupon"))
 
-
-const CheckoutStep3 = ( {setShowCheckoutStep3, setShowCheckoutStep2, checkoutToken, products, cart, nextStep, shippingData, onCaptureCheckout} ) => {
+const CheckoutStep3 = ( {setShowCoupon, showCoupon, handleCouponCode, setShowCheckoutStep3, setShowCheckoutStep2, checkoutToken, products, cart, nextStep, shippingData, onCaptureCheckout, getLiveObject, live} ) => {
 
   return (
-    <>            
+    <>           
+        {showCoupon && live.discount.length == 0 &&
+        <Coupon 
+          handleCouponCode={handleCouponCode} 
+          checkoutToken={checkoutToken}
+          setShowCoupon={setShowCoupon}
+          getLiveObject={getLiveObject}
+        />}
 
       <div className="buttonsLeftWrapper">
         <Button 
             lable={"Back to Overview"} 
-            onClick={cart.line_items.length  || "" ? () => {setShowCheckoutStep3(false), setShowCheckoutStep2(true)} : () => {}}
+            onClick={cart.line_items.length  || "" ? () => {setShowCheckoutStep3(false), setShowCheckoutStep2(true), getLiveObject(null)} : () => {}}
             subclass={"secondary"} 
         />     
+        <Button 
+            lable={"Coupon code"} 
+            onClick={() => {setShowCoupon(true)}}
+            subclass={"quaternary"} 
+        />  
+
       </div> 
 
       <p className={styles.buyHead}> [ 3 ] ORDER REVIEW</p>
@@ -25,29 +39,53 @@ const CheckoutStep3 = ( {setShowCheckoutStep3, setShowCheckoutStep2, checkoutTok
         <div className={styles.overviewTable}>
           <div className={styles.overviewWrapper}>
 
-            {cart.line_items.map((item) => (
-              <>
-                <div className={styles.productWrapperOverview}>
+            <div className={styles.overviewItems}>
+              {cart.line_items.map((item) => (
+                <>
+                  <div className={styles.productWrapperOverview}>
 
-                  <span className={styles.cartItem}>
-                  —   {item.name}<br/>
-                    <span className={styles.licenceType}>
-                      {products.find(el => el.name === item.name).licence}
+                    <span className={styles.cartItem}>
+                    —   {item.name}<br/>
+                      <span className={styles.licenceType}>
+                        {products.find(el => el.name === item.name).licence}
+                      </span>
                     </span>
-                  </span>
 
-                  <span className={styles.productPrice}>
-                    EUR {item.line_total.raw}
-                  </span>
+                    <span className={styles.productPrice}>
+                      EUR {item.line_total.formatted}
+                    </span>
+                  </div>
+
+                </>
+              ))}
+            </div>
+
+
+
+            { live.discount.length !== 0 ? 
+
+            <>
+              <div className={styles.totalDiscount}>
+                    <span>Discount</span>
+                    <span>— EUR {live.discount.amount_saved?.formatted}</span>
                 </div>
 
-              </>
-            ))}
+              <div className={styles.total}>
+                <span>Total (incl. Tax)</span>
+                <span>EUR {live.total.formatted}</span>
+              </div>
+            </>
+
+            :
 
             <div className={styles.total}>
-              <span>{ cart.line_items.length || "" ? "Total (incl. Tax)" : ""}</span>
-              <span>{ cart.line_items.length  || "" ? `EUR ${cart.subtotal.raw}` : ""}</span>
+            <span>Total (incl. Tax)</span>
+            <span>EUR {cart.subtotal.formatted}</span>
             </div>
+
+            }
+
+    
 
           </div>
         </div>
@@ -58,7 +96,13 @@ const CheckoutStep3 = ( {setShowCheckoutStep3, setShowCheckoutStep2, checkoutTok
 
           <div className={styles.buyTableContent}>
                   
-          <PaymentForm products={products} cart={cart} checkoutToken={checkoutToken} nextStep={nextStep} shippingData={shippingData} onCaptureCheckout={onCaptureCheckout}/>
+          <PaymentForm 
+            checkoutToken={checkoutToken} 
+            nextStep={nextStep} 
+            shippingData={shippingData} 
+            onCaptureCheckout={onCaptureCheckout} 
+            live={live}
+          />
 
           </div>
 

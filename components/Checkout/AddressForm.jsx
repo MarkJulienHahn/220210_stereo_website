@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { InputLabel, Select, MenuItem, Button, Grid, Typography } from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 import { useForm, FormProvider } from 'react-hook-form';
-import Link from 'next/link'
 
-// import Button from '../../components/Button'
-
-import styles from '../../styles/Checkout.module.css';
 import styles2 from '../../styles/Forms.module.css';
 
 import { commerce } from '../../lib/commerce';
@@ -58,6 +54,8 @@ const AddressForm = ( { checkoutToken, next, cart }) => {
         if(shippingSubdivision) fetchShippingOptions(checkoutToken.id, shippingCountry, shippingSubdivision);
     }, [shippingSubdivision]);
 
+    console.log(shippingSubdivision, shippingCountry)
+
     return (
         <>
 
@@ -72,7 +70,7 @@ const AddressForm = ( { checkoutToken, next, cart }) => {
                         <FormInput name='zip' label='ZIP / Postal code' />
                         <Grid item xs={12} sm={6}>
                             <div className={styles2.inputHeader}>Country</div>
-                            <select className={styles2.inputField} value={shippingCountry} fullWidth onChange={(e) => setShippingCountry(e.target.value)}>
+                            <select className={styles2.inputField} value={shippingCountry} fullwidth onChange={(e) => setShippingCountry(e.target.value)}>
                                 {countries.map((country) => (
                                     <option key={country.id} value={country.id}>
                                         {country.label}
@@ -82,7 +80,7 @@ const AddressForm = ( { checkoutToken, next, cart }) => {
                         </Grid>
                         <Grid item xs={12} sm={6}>
                             <div className={styles2.inputHeader}>State / Subdivision</div>
-                            <select className={styles2.inputField} value={shippingSubdivision} fullWidth onChange={(e) => setShippingSubdivision(e.target.value)}>
+                            <select className={styles2.inputField} value={shippingSubdivision} fullwidth onChange={(e) => setShippingSubdivision(e.target.value)}>
                                 {subdivisions.map((subdivision) => (
                                     <option key={subdivision.id} value={subdivision.id}>
                                         {subdivision.label}
@@ -90,37 +88,28 @@ const AddressForm = ( { checkoutToken, next, cart }) => {
                                 ))}    
                             </select>
                         </Grid>
-                        {/* <Grid item xs={12} sm={6}>
-                            <InputLabel>Subdivision / State</InputLabel>
-                            <Select value={shippingSubdivision} fullWidth onChange={(e) => setShippingSubdivision(e.target.value)}>
-                                {subdivisions.map((subdivision) => (
-                                    <MenuItem key={subdivision.id} value={subdivision.id}>
-                                        {subdivision.label}
-                                    </MenuItem>
-                                ))}    
-                            </Select>
-                        </Grid> */}
-                        {/* <Grid item xs={12} sm={6}>
-                            <InputLabel>Shipping Options</InputLabel>
-                            <Select value={shippingOption} fullWidth onChange={(e) => setShippingOption(e.target.value)}>
-                                {options.map((option) => (
-                                    <MenuItem key={option.id} value={option.id}>
-                                        {option.label}
-                                    </MenuItem>
-                                ))} 
-                            </Select>
-                        </Grid> */}
                     </Grid>
                     <br />
+
+                    { shippingSubdivision && shippingCountry ?
+
                     <div style={{ display: 'flex', justifyContent: 'space-between '}}>
-                        {/* <Button subclass={"quaternary"} lable={"NEXT"} type="submit" variant="contained">NEXT</Button> */}
                         <button className={styles2.payButton} type="submit">
                             Next Step 
                         </button>
                     </div>
-                </form>
 
-                
+                    :
+
+                    <div style={{ display: 'flex', justifyContent: 'space-between '}}>
+                        <button className={styles2.payButtonLocked}>
+                            Next Step 
+                        </button>
+                    </div>
+
+
+                    }
+                </form>
             </FormProvider>
 
         </>
