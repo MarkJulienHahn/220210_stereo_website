@@ -1,25 +1,94 @@
 .footer {
-    height:95vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    flex-direction: row;
-    margin-bottom: 82px;
-    font-family: 'Giallo-Mono';
-    font-size: 12.5px;
-    line-height: 16px;
-    letter-spacing: 1px;
+  height: 95vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-direction: row;
+  margin-bottom: 82px;
+  font-family: "Giallo-Mono";
+  font-size: 12.5px;
+  line-height: 16px;
+  letter-spacing: 1px;
 }
 
-.footerInfo, .footerNewsletter {
-    width: 50vw;
+.footerInfo{
+  width: 50vw;
 }
 
-.logo {
-    font-family: 'Skyline';
-    font-size: 17.5vw;
-    font-variation-settings: 'wdth' 800;
-    letter-spacing: -1.6vw;
-    color: var(--quaternary);
-    margin-top: 50vh;
+.footerNewsletter {
+    width: 25vw;
+}
+
+.form {
+  margin-top: var(--margin-S);
+}
+
+.form button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: var(--margin-M);
+  height: 25px;
+  background: var(--tertiary);
+  padding: 0 20px;
+  font-variation-settings: "wght" 116, "wdth" 0;
+  text-transform: uppercase;
+  z-index: 100;
+  font-size: var(--pgSmallSize);
+  letter-spacing: var(--pgSmallLetterSpacing);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  font-family: 'Protest';
+  font-variation-settings: 'wdth' 50 'wght' 100;
+  border: 0;
+  outline: 0;
+  width: 100%
+}
+
+.form button:hover {
+    background: var(--quaternary)
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+}
+
+.input input {
+  border: 0;
+  padding: 0;
+  font-family: "Giallo";
+  font-size: 40px;
+  line-height: 16px;
+  letter-spacing: 1px;
+}
+
+.input input::placeholder {
+  font-family: "Giallo-Mono";
+  color: black;
+  opacity: 1;
+  font-size: 12.5px;
+  line-height: 16px;
+  letter-spacing: 1px;
+}
+
+.input input::selection {
+  background: var(--primary);
+}
+
+.input input:focus {
+  border: 0px;
+  outline: 0;
+}
+
+.confirmation {
+    text-align: right;
+}
+
+
+.disclaimer {
+    padding-top: var(--margin-M);
 }
