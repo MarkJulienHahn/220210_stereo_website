@@ -47,7 +47,7 @@ const Trials = ({ setShowTrials }) => {
                 <div className={styles.formUpper}>
                   <p className={styles.input}>
                     <input
-                      autofocus="true"
+                      autoFocus="true"
                       placeholder="Name"
                       type="text"
                       name="name"
