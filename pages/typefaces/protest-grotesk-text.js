@@ -16,6 +16,7 @@ import Glyphchart from "../../components/Glyphchart";
 import Footer from "../../components/Footer";
 
 const Checkout = dynamic(() => import("../../components/Checkout/Checkout"));
+const Trials = dynamic(() => import("../../components/Trials"));
 
 const ProtestGroteskText = ({
   products,
@@ -35,6 +36,7 @@ const ProtestGroteskText = ({
   live,
 }) => {
   const [showCheckout, setShowCheckout] = useState(false);
+  const [showTrials, setShowTrials] = useState(false);
   const location = useRouter();
 
   return (
@@ -65,6 +67,10 @@ const ProtestGroteskText = ({
         />
       )}
 
+      {showTrials && (
+        <Trials setShowTrials={setShowTrials}/>
+      )}
+
       <div className="buttonsLeftWrapper" scroll={false}>
         <Link href="/" scroll={false}>
           <a>
@@ -82,7 +88,11 @@ const ProtestGroteskText = ({
       </div>
 
       <div className="buttonsRightWrapper">
-        <Button lable={"Trials"} subclass={"tertiary"} />
+        <Button
+          lable={"Trials"}
+          subclass={"tertiary"}
+          onClick={() => setShowTrials(true)}
+        />
         <Button
           lable={"Buy"}
           subclass={"primary"}

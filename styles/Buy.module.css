@@ -102,7 +102,7 @@
 .buyTableContent {
     padding-top: 105px;
     cursor: default;
-    overflow: scroll;
+    /* overflow: scroll; */
 }
 
 .buyHead {

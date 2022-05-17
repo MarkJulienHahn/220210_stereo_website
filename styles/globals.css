@@ -184,7 +184,7 @@ li {
   z-index: 50;
   height: 25px;
   animation: fadeIn 1s linear;
-  z-index: 200;
+  z-index: 351;
 }
 
 @keyframes fadeIn {
@@ -368,16 +368,16 @@ li {
 }
 
 .typefaceControl {
-  font-family: 'Giallo';
   font-size: 20pt;
-  letter-spacing: -1px;
-  line-height: 22pt;
+  line-height: 25pt;
+  letter-spacing: -0.6px;
+  font-variation-settings: var(--pgSmallVariable);
   position: sticky;
   top: var(--margin-M);
   margin-bottom: 50px;
   mix-blend-mode: difference;
   color: white;
-  z-index: 350;
+  z-index: 150;
 }
 
 .typefaceInfo {
@@ -393,6 +393,7 @@ li {
   justify-content: center;
   align-items: center;
   font-size: 10.9vw;
+  line-height: 12vw;
   letter-spacing: -0.7vw;
   font-variation-settings: 'wdth' 50;
   text-align: center;
@@ -410,6 +411,10 @@ li {
 
 .typefaceControlButton:hover {
   opacity: 1;
+}
+
+.swiper {
+  height: 100vh;
 }
 
 @keyframes changeStyle {
@@ -493,6 +498,8 @@ li {
 }
 
 /* T E S T E R */
+
+
 
 .typeface-single-tester-wrap {
   padding: var(--margin-XL) 0;

@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Script from "next/script";
 import { AnimatePresence, motion } from "framer-motion";
 import { commerce } from "../lib/commerce";
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 
 import Layout from "../components/Layout";
 import Nav from "../components/Nav";
@@ -103,15 +104,15 @@ function MyApp({ Component, pageProps }) {
         ...incomingOrder,
         // Include PayPal action:
         payment: {
-          gateway: 'paypal',
+          gateway: "paypal",
           paypal: {
-            action: 'authorize',
+            action: "authorize",
           },
         },
-      })
+      });
 
-      console.log(paypalAuth, incomingOrder)
-  
+      console.log(paypalAuth, incomingOrder);
+
       // If we get here, we can now push the user to the PayPal URL.
       // An example of rendering the PayPal button is below
       renderPaypalButton(paypalAuth);
@@ -129,21 +130,21 @@ function MyApp({ Component, pageProps }) {
   async function captureOrder() {
     try {
       // Complete capturing the order.
-      
+
       const order = await commerce.checkout.capture(checkoutTokenId, {
         ...orderDetails,
-        
+
         // We have now changed the action to "capture" as well as included the "payment_id and "payer_id"
         payment: {
-          gateway: 'paypal',
+          gateway: "paypal",
           paypal: {
-            action: 'capture',
-            payment_id: 'PAY-51028384J84281644LGFZXJQ',
-            payer_id: 'VE57TQRTVER5Y',
+            action: "capture",
+            payment_id: "PAY-51028384J84281644LGFZXJQ",
+            payer_id: "VE57TQRTVER5Y",
           },
         },
-      })
-  
+      });
+
       // If we get here, the order has been successfully captured and the order detail is part of the `order` variable
       console.log(order);
       return;
@@ -213,46 +214,48 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      <Script
+      {/* <Script
         strategy="lazyOnload"
         src={`https://www.paypalobjects.com/api/checkout.js`}
-      />
+      /> */}
 
-      <Nav />
-      <AnimatePresence
-        exitBeforeEnter
-        onExitComplete={() => window.scrollTo(0, 0)}
-      >
-        <motion.div
-          location={location}
-          key={location.pathname}
-          initial={{ y: 0, opacity: 1 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: 0, opacity: 0 }}
-          transition={{ duration: 0.3, ease: "easeIn" }}
+      <PayPalScriptProvider options={{ "client-id": process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID, "currency": "EUR" }}>
+        <Nav />
+        <AnimatePresence
+          exitBeforeEnter
+          onExitComplete={() => window.scrollTo(0, 0)}
         >
-          <Layout>
-            <Component
-              {...pageProps}
-              products={products}
-              cart={cart}
-              live={live}
-              handleUpdateCartQty={handleUpdateCartQty}
-              handleRemoveFromCart={handleRemoveFromCart}
-              handleEmptyCart={handleEmptyCart}
-              handleAddToCart={handleAddToCart}
-              handleUpdateCartPrice={handleUpdateCartPrice}
-              onCaptureCheckout={handleCaptureCheckout}
-              handleCouponCode={handleCouponCode}
-              getLiveObject={getLiveObject}
-              getPaypalPaymentId={getPaypalPaymentId}
-              setCart={setCart}
-              loading={loading}
-              commerce={commerce}
-            />
-          </Layout>
-        </motion.div>
-      </AnimatePresence>
+          <motion.div
+            location={location}
+            key={location.pathname}
+            initial={{ y: 0, opacity: 1 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeIn" }}
+          >
+            <Layout>
+              <Component
+                {...pageProps}
+                products={products}
+                cart={cart}
+                live={live}
+                handleUpdateCartQty={handleUpdateCartQty}
+                handleRemoveFromCart={handleRemoveFromCart}
+                handleEmptyCart={handleEmptyCart}
+                handleAddToCart={handleAddToCart}
+                handleUpdateCartPrice={handleUpdateCartPrice}
+                onCaptureCheckout={handleCaptureCheckout}
+                handleCouponCode={handleCouponCode}
+                getLiveObject={getLiveObject}
+                getPaypalPaymentId={getPaypalPaymentId}
+                setCart={setCart}
+                loading={loading}
+                commerce={commerce}
+              />
+            </Layout>
+          </motion.div>
+        </AnimatePresence>
+      </PayPalScriptProvider>
     </>
   );
 }

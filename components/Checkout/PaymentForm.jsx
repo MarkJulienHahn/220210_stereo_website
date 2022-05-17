@@ -6,8 +6,9 @@ import {
 } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 
+import PaypalCheckoutButton from "./PaypalCheckoutButton";
+
 import styles from "../../styles/Forms.module.css";
-import { render } from "react-dom";
 
 const stripePromise = loadStripe(
   `${process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY}`
@@ -18,7 +19,6 @@ const PaymentForm = ({
   shippingData,
   live,
   onCaptureCheckout,
-  getPaypalPaymentId,
   nextStep,
 }) => {
   const [AccCreditCard, setAccCreditCard] = useState(false);
@@ -30,7 +30,6 @@ const PaymentForm = ({
     if (!stripe || !elements) return;
 
     setProcessing(true);
-    console.log(Processing);
 
     const cardElement = elements.getElement(CardElement);
 
@@ -71,57 +70,6 @@ const PaymentForm = ({
       nextStep();
     }
   };
-
-  function renderPaypalButton(paypalAuth) {
-    paypal.Button.render(
-      {
-        env: "sandbox", // Or 'sandbox',
-        commit: true, // Show a 'Pay Now' button
-        payment: function () {
-          return paypalAuth.payment_id; // The payment ID from earlier
-        },
-        onAuthorize: function (data, actions) {
-          // Handler if customer DOES authorize payment (this is where you get the payment_id & payer_id you need to pass to Chec)
-          captureOrder(data);
-        },
-        onCancel: function (data, actions) {
-          // Handler if customer does not authorize payment
-        },
-      },
-      "#paypal-button-container"
-    );
-  }
-
-  const handlePaypal = () => {
-    const orderData = {
-      line_items: checkoutToken.live.line_items,
-      customer: {
-        firstname: shippingData.firstName,
-        lastname: shippingData.lastName,
-        email: shippingData.email,
-      },
-      shipping: {
-        name: "International",
-        street: shippingData.address1,
-        town_city: shippingData.city,
-        county_state: shippingData.shippingSubdivision,
-        postal_zip_code: shippingData.zip,
-        country: shippingData.shippingCountry,
-      },
-      fulfillment: { shipping_method: shippingData.shippingOption },
-      payment: {
-        gateway: "paypal",
-        paypal: {
-          action: 'authorize',
-        },
-      },
-    };
-    getPaypalPaymentId(checkoutToken.id, orderData);
-  };
-
-  useEffect(() => {
-    renderPaypalButton();
-  }, []);
 
   const inactive = {
     height: "0px",
@@ -201,7 +149,8 @@ const PaymentForm = ({
           AccPayPal
             ? () => setAccPayPal(false)
             : () => {
-                setAccPayPal(true), setAccCreditCard(false), handlePaypal();
+                setAccPayPal(true), setAccCreditCard(false);
+                // handlePaypal();
               }
         }
         className={styles.paymentInfo}
@@ -214,7 +163,13 @@ const PaymentForm = ({
           className={styles.paymentWrapper}
           style={AccPayPal ? active : inactive}
         >
-          <div id="paypal-button-container"></div>
+          <PaypalCheckoutButton
+            product={live}
+            checkoutToken={checkoutToken}
+            nextStep={nextStep}
+            onCaptureCheckout={onCaptureCheckout}
+            shippingData={shippingData}
+          />
         </div>
 
         <hr />
