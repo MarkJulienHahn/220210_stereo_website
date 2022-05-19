@@ -147,29 +147,10 @@ li {
 
 /* S T O R E F R O N T */
 
-.nextButton {
-  position: fixed;
-  top:0;
-  right:0;
-  width: 30vw;
-  height: 90vh;
-  cursor: pointer;
-  z-index: 200;
-}
-
 .storefrontWrapper {
   height: 100vh;
   overflow: hidden;
-}
-
-.backButton {
-  position: fixed;
-  top:0;
-  left:0;
-  width: 30vw;
-  height: 90vh;
-  cursor: pointer;
-  z-index: 200;
+  cursor: grab;
 }
 
 /* B U T T O N S */

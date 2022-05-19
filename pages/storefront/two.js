@@ -1,48 +1,27 @@
-import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
+import React from "react";
+import { useSwiperSlide, useSwiper } from 'swiper/react';
+import { useEffect } from "react";
+import Image from "next/image";
 
-import image02 from '../../public/images/image_02.jpeg';
+import image02 from "../../public/images/image_02.jpeg";
 
-import Button from '../../components/Button'
-import Infobutton from '../../components/Infobutton'
+const Two = ( { setCategory, setPage, setLinkCategory, setLinkPage, setDescription, category, page, linkCategory, linkPage, description}) => {
+  const swiper = useSwiper();
+  const swiperSlide = useSwiperSlide();
 
-
-
-const Two = () => {
-
-
+  useEffect( () => {
+    { swiperSlide.isActive ? setCategory(category) : "" }
+    { swiperSlide.isActive ? setPage(page) : "" }
+    { swiperSlide.isActive ? setLinkCategory(linkCategory) : "" }
+    { swiperSlide.isActive ? setLinkPage(linkPage) : "" }
+    { swiperSlide.isActive ? setDescription(description) : "" }
+  });
 
   return (
-
-    <div className="storefrontWrapper">
-      <Link  href="/">
-          <div className="backButton"></div>
-      </Link>
-
-      <div className="buttonsLeftWrapper">
-        <Button lable={"Home"} subclass={"quaternary"}/> 
-        <Link href="/projects">
-          <a>
-            <Button lable={"Projects"}/> 
-          </a>
-        </Link>
-
-        <Link href="/projects">
-          <a>        
-            <Button lable={"Automat"} />  
-          </a>
-        </Link>
-
-        </div> 
-
-        <div className="buttonsRightWrapper">
-            <Infobutton lable={"description"} subclass={"tertiary"} content={"Automat is a modular, grid-based variable typeface system available in three different styles. Influenced by the systematic work of Wim Crouwel and Karl Gerstner in the 1960s and 1970s as well as later digital reinterpretations in the 1990s, Automat complements them by adding the possibility to steplessly manipulate the typeface in a broad design frame. With two adjustable axes, unconsidered compositions can be generated, legibility can be dissolved and unpreditermined images can be developed. Access a free-to-use design tool, which helps generate unconventional images and aims to change the designers thought process by adding a factor of generative randomness and unpredictability to the creative approach. Automat is open-source and free to use — generate compositions in the browser application and instantly download them to your computer. Feel free to leave us feedback via Mail — Stereo Typefaces would appreciate being mentioned in the final design result."}/>
-        </div> 
-
-  <Image src={image02} placeholder="blur"/> 
-</div>
-  )
+    <>
+      <Image onClick={() => swiper.slideNext()} src={image02} placeholder="blur" />
+    </>
+  );
 };
 
 export default Two;
