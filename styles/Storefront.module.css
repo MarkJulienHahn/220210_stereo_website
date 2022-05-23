@@ -1,0 +1,23 @@
+.swiperNav {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 100000000000000000000;
+}
+
+.swiperPrev {
+    width: 50vw;
+    height: 100vh;
+    cursor: w-resize;
+}
+
+.swiperNext {
+    width: 50vw;
+    height: 100vh;
+    cursor: e-resize;
+}

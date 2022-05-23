@@ -69,7 +69,6 @@ export default function Home(router) {
           <Swiper
             spaceBetween={0}
             slidesPerView={1}
-            clickable={true}
             loop={true}
             speed={300}
             autoplay={{

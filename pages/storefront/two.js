@@ -3,6 +3,8 @@ import { useSwiperSlide, useSwiper } from 'swiper/react';
 import { useEffect } from "react";
 import Image from "next/image";
 
+import styles from "../../styles/Storefront.module.css"
+
 import image02 from "../../public/images/image_02.jpeg";
 
 const Two = ( { setCategory, setPage, setLinkCategory, setLinkPage, setDescription, category, page, linkCategory, linkPage, description}) => {
@@ -19,7 +21,11 @@ const Two = ( { setCategory, setPage, setLinkCategory, setLinkPage, setDescripti
 
   return (
     <>
-      <Image onClick={() => swiper.slideNext()} src={image02} placeholder="blur" />
+      <div className={styles.swiperNav}>
+        <div className={styles.swiperPrev} onClick={() => swiper.slidePrev()} ></div>
+        <div className={styles.swiperNext} onClick={() => swiper.slideNext()} ></div>
+      </div>
+      <Image src={image02} placeholder="blur" />
     </>
   );
 };
