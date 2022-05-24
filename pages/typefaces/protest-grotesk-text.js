@@ -30,10 +30,10 @@ const ProtestGroteskText = ({
   onCaptureCheckout,
   setCart,
   handleCouponCode,
-  getPaypalPaymentId,
   loading,
   getLiveObject,
   live,
+  getPaypalPaymentId
 }) => {
   const [showCheckout, setShowCheckout] = useState(false);
   const [showTrials, setShowTrials] = useState(false);
@@ -58,12 +58,12 @@ const ProtestGroteskText = ({
           onCaptureCheckout={onCaptureCheckout}
           handleCouponCode={handleCouponCode}
           getLiveObject={getLiveObject}
-          getPaypalPaymentId={getPaypalPaymentId}
           setCart={setCart}
           setShowCheckout={setShowCheckout}
           showCheckout={showCheckout}
           loading={loading}
           checkoutToken={checkoutToken}
+          getPaypalPaymentId={getPaypalPaymentId}
         />
       )}
 

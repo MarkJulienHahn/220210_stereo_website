@@ -20,10 +20,6 @@ function MyApp({ Component, pageProps }) {
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const updateLoading = () => {
-    setLoading();
-  };
-
   const fetchProducts = async () => {
     const { data } = await commerce.products.list();
 
@@ -91,73 +87,6 @@ function MyApp({ Component, pageProps }) {
     setLive(token);
   };
 
-  async function getPaypalPaymentId(checkoutTokenId, newOrder) {
-    try {
-      const incomingOrder = await commerce.checkout.capture(
-        checkoutTokenId,
-        newOrder
-      );
-      setOrder(incomingOrder);
-      // Use a checkout token ID that was generated earlier, and any order details that may have been collected
-      // on this page.
-      const paypalAuth = await commerce.checkout.capture(checkoutTokenId, {
-        ...incomingOrder,
-        // Include PayPal action:
-        payment: {
-          gateway: "paypal",
-          paypal: {
-            action: "authorize",
-          },
-        },
-      });
-
-      console.log(paypalAuth, incomingOrder);
-
-      // If we get here, we can now push the user to the PayPal URL.
-      // An example of rendering the PayPal button is below
-      renderPaypalButton(paypalAuth);
-      return;
-    } catch (response) {
-      // There was an issue with capturing the order with Commerce.js
-      console.log(response);
-      alert(response.message);
-      return;
-    } finally {
-      // Any loading state can be removed here.
-    }
-  }
-
-  async function captureOrder() {
-    try {
-      // Complete capturing the order.
-
-      const order = await commerce.checkout.capture(checkoutTokenId, {
-        ...orderDetails,
-
-        // We have now changed the action to "capture" as well as included the "payment_id and "payer_id"
-        payment: {
-          gateway: "paypal",
-          paypal: {
-            action: "capture",
-            payment_id: "PAY-51028384J84281644LGFZXJQ",
-            payer_id: "VE57TQRTVER5Y",
-          },
-        },
-      });
-
-      // If we get here, the order has been successfully captured and the order detail is part of the `order` variable
-      console.log(order);
-      return;
-    } catch (response) {
-      // There was an issue capturing the order with Commerce.js
-      console.log(response);
-      alert(response.message);
-      return;
-    } finally {
-      // Any loading state can be removed here.
-    }
-  }
-
   const handleCaptureCheckout = async (checkoutTokenId, newOrder) => {
     try {
       const incomingOrder = await commerce.checkout.capture(
@@ -205,6 +134,101 @@ function MyApp({ Component, pageProps }) {
     }
   };
 
+  // Create a function that will generate the PayPal approval URL to be called when the checkout loads.
+  async function getPaypalPaymentId(checkoutTokenId, orderDetails) {
+    console.log(orderDetails)
+    try {
+      // Use a checkout token ID that was generated earlier, and any order details that may have been collected
+      // on this page.
+      const paypalAuth = await commerce.checkout.capture(checkoutTokenId, {
+        ...orderDetails,
+        // Include PayPal action:
+        payment: {
+          gateway: "paypal",
+          paypal: {
+            action: "authorize",
+          },
+        },
+      });
+
+      // If we get here, we can now push the user to the PayPal URL.
+      // An example of rendering the PayPal button is below
+      console.log(paypalAuth)
+      const order = await commerce.checkout.capture(checkoutTokenId, {
+        ...orderDetails,
+        // We have now changed the action to "capture" as well as included the "payment_id and "payer_id"
+        payment: {
+          gateway: "paypal",
+          paypal: {
+            action: "capture",
+            payment_id: paypalAuth.payment_id,
+            payer_id: orderDetails.payer_id
+          },
+        },
+      });
+      await console.log(orderDetails)
+      return;
+    } catch (response) {
+      // There was an issue with capturing the order with Commerce.js
+      console.log(response);
+      alert(response.message);
+      return;
+    } finally {
+      // Any loading state can be removed here.
+      
+    }
+  }
+
+  // function renderPaypalButton(paypalAuth) {
+  //   paypal.Button.render(
+  //     {
+  //       env: "sandbox", // Or 'sandbox',
+  //       commit: true, // Show a 'Pay Now' button
+  //       payment: function () {
+  //         return paypalAuth.payment_id; // The payment ID from earlier
+  //       },
+  //       onAuthorize: function (data, actions) {
+  //         // Handler if customer DOES authorize payment (this is where you get the payment_id & payer_id you need to pass to Chec)
+  //         captureOrder(data);
+  //       },
+  //       onCancel: function (data, actions) {
+  //         // Handler if customer does not authorize payment
+  //       },
+  //     },
+  //     "#paypal-button-container"
+  //   );
+  // }
+
+  // Create a function that can be called when the PayPal payment has been authorized.
+  // async function captureOrder() {
+  //   try {
+  //     // Complete capturing the order.
+  //     const order = await commerce.checkout.capture(checkoutTokenId, {
+  //       ...orderDetails,
+  //       // We have now changed the action to "capture" as well as included the "payment_id and "payer_id"
+  //       payment: {
+  //         gateway: "paypal",
+  //         paypal: {
+  //           action: "capture",
+  //           payment_id: "PAY-51028384J84281644LGFZXJQ",
+  //           payer_id: "VE57TQRTVER5Y",
+  //         },
+  //       },
+  //     });
+
+  //     // If we get here, the order has been successfully captured and the order detail is part of the `order` variable
+  //     console.log(order);
+  //     return;
+  //   } catch (response) {
+  //     // There was an issue capturing the order with Commerce.js
+  //     console.log(response);
+  //     alert(response.message);
+  //     return;
+  //   } finally {
+  //     // Any loading state can be removed here.
+  //   }
+  // }
+
   useEffect(async () => {
     fetchProducts();
     fetchCart();
@@ -214,12 +238,14 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      {/* <Script
-        strategy="lazyOnload"
-        src={`https://www.paypalobjects.com/api/checkout.js`}
-      /> */}
+      {/* <Script src={`https://www.paypalobjects.com/api/checkout.js`} /> */}
 
-      <PayPalScriptProvider options={{ "client-id": process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID, "currency": "EUR" }}>
+      <PayPalScriptProvider
+        options={{
+          "client-id": process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID,
+          currency: "EUR",
+        }}
+      />
         <Nav />
         <AnimatePresence
           exitBeforeEnter
@@ -247,15 +273,15 @@ function MyApp({ Component, pageProps }) {
                 onCaptureCheckout={handleCaptureCheckout}
                 handleCouponCode={handleCouponCode}
                 getLiveObject={getLiveObject}
-                getPaypalPaymentId={getPaypalPaymentId}
                 setCart={setCart}
                 loading={loading}
                 commerce={commerce}
+                getPaypalPaymentId={getPaypalPaymentId}
               />
             </Layout>
           </motion.div>
         </AnimatePresence>
-      </PayPalScriptProvider>
+      {/* </PayPalScriptProvider> */}
     </>
   );
 }

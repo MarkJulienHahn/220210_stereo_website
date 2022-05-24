@@ -29,7 +29,6 @@ const Typefaces = ({
   onCaptureCheckout,
   setCart,
   handleCouponCode,
-  getPaypalPaymentId,
   loading,
   getLiveObject,
   live,
@@ -79,7 +78,6 @@ const Typefaces = ({
           onCaptureCheckout={onCaptureCheckout}
           handleCouponCode={handleCouponCode}
           getLiveObject={getLiveObject}
-          getPaypalPaymentId={getPaypalPaymentId}
           setCart={setCart}
           setShowCheckout={setShowCheckout}
           showCheckout={showCheckout}

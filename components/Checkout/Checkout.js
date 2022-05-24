@@ -377,6 +377,7 @@ const Checkout = ({
 
         {showCheckoutStep1 ? (
           <>
+
             <MouseButton lable={buttonContent} />
 
             <div className="buttonsLeftWrapper">
@@ -791,7 +792,6 @@ const Checkout = ({
             handleRemoveFromCart={handleRemoveFromCart}
             handleEmptyCart={handleEmptyCart}
             handleUpdateCartQty={handleUpdateCartQty}
-            getPaypalPaymentId={getPaypalPaymentId}
             setShowCheckoutStep1={setShowCheckoutStep1}
             setShowCheckoutStep2={setShowCheckoutStep2}
             setShowCheckoutStep3={setShowCheckoutStep3}
@@ -803,6 +803,7 @@ const Checkout = ({
             shippingData={shippingData}
             onCaptureCheckout={onCaptureCheckout}
             getLiveObject={getLiveObject}
+            getPaypalPaymentId={getPaypalPaymentId}
           />
         )}
 

@@ -19,6 +19,8 @@ const PaymentForm = ({
   shippingData,
   live,
   onCaptureCheckout,
+  onCapturePaypalCheckout,
+  getPaypalPaymentId,
   nextStep,
 }) => {
   const [AccCreditCard, setAccCreditCard] = useState(false);
@@ -69,6 +71,30 @@ const PaymentForm = ({
       setProcessing(false);
       nextStep();
     }
+  };
+
+  const handlePaypalSubmit = async (checkoutTokenId, order) => {
+    console.log(order.payer.payer_id)
+    const orderData = {
+      line_items: checkoutToken.live.line_items,
+      customer: {
+        firstname: shippingData.firstName,
+        lastname: shippingData.lastName,
+        email: shippingData.email,
+      },
+      shipping: {
+        name: "International",
+        street: shippingData.address1,
+        town_city: shippingData.city,
+        county_state: shippingData.shippingSubdivision,
+        postal_zip_code: shippingData.zip,
+        country: shippingData.shippingCountry,
+      },
+      fulfillment: { shipping_method: shippingData.shippingOption },
+      payer_id: order.payer.payer_id
+    };
+
+    await getPaypalPaymentId(checkoutTokenId, orderData);
   };
 
   const inactive = {
@@ -159,18 +185,19 @@ const PaymentForm = ({
 
         <div className={styles.paymentHeader}>PAYPAL</div>
 
-        <div
+        {AccPayPal ? (
+          <PaypalCheckoutButton checkoutToken={checkoutToken} handlePaypalSubmit={handlePaypalSubmit} nextStep={nextStep}/>
+        ) : (
+          ""
+        )}
+
+        <button
           className={styles.paymentWrapper}
           style={AccPayPal ? active : inactive}
+          onClick={() => handlePaypalSubmit()}
         >
-          <PaypalCheckoutButton
-            product={live}
-            checkoutToken={checkoutToken}
-            nextStep={nextStep}
-            onCaptureCheckout={onCaptureCheckout}
-            shippingData={shippingData}
-          />
-        </div>
+          PAY
+        </button>
 
         <hr />
       </div>

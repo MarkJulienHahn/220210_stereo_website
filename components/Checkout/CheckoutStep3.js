@@ -112,8 +112,8 @@ const CheckoutStep3 = ({
               nextStep={nextStep}
               shippingData={shippingData}
               onCaptureCheckout={onCaptureCheckout}
-              getPaypalPaymentId={getPaypalPaymentId}
               live={live}
+              getPaypalPaymentId={getPaypalPaymentId}
             />
           </div>
         </div>
