@@ -190,15 +190,6 @@ const PaymentForm = ({
         ) : (
           ""
         )}
-
-        <button
-          className={styles.paymentWrapper}
-          style={AccPayPal ? active : inactive}
-          onClick={() => handlePaypalSubmit()}
-        >
-          PAY
-        </button>
-
         <hr />
       </div>
     </>

@@ -136,7 +136,6 @@ function MyApp({ Component, pageProps }) {
 
   // Create a function that will generate the PayPal approval URL to be called when the checkout loads.
   async function getPaypalPaymentId(checkoutTokenId, orderDetails) {
-    console.log(orderDetails)
     try {
       // Use a checkout token ID that was generated earlier, and any order details that may have been collected
       // on this page.
@@ -151,9 +150,11 @@ function MyApp({ Component, pageProps }) {
         },
       });
 
+      await setOrder(paypalAuth);
+
       // If we get here, we can now push the user to the PayPal URL.
       // An example of rendering the PayPal button is below
-      console.log(paypalAuth)
+      console.log(paypalAuth);
       const order = await commerce.checkout.capture(checkoutTokenId, {
         ...orderDetails,
         // We have now changed the action to "capture" as well as included the "payment_id and "payer_id"
@@ -162,11 +163,52 @@ function MyApp({ Component, pageProps }) {
           paypal: {
             action: "capture",
             payment_id: paypalAuth.payment_id,
-            payer_id: orderDetails.payer_id
+            payer_id: orderDetails.payer_id,
           },
         },
       });
-      await console.log(orderDetails)
+
+      const incomingOrder = await commerce.checkout.capture(
+        checkoutTokenId,
+        newOrder
+      );
+
+      setOrder(incomingOrder);
+      refreshCart();
+
+      const orderData = {
+        firstName: incomingOrder.customer.firstname,
+        lastName: incomingOrder.customer.lastname,
+        email: incomingOrder.customer.email,
+        adress: incomingOrder.shipping.street,
+        zip: incomingOrder.shipping.postal_zip_code,
+        city: incomingOrder.shipping.town_city,
+        country: incomingOrder.shipping.country,
+        state: incomingOrder.shipping.county_state,
+        items: incomingOrder.order.line_items.map(
+          (item) =>
+            ` ${item.product_name}, ${
+              products.find((el) => el.name === item.product_name).licence
+            }, ${item.line_total_with_tax.formatted_with_code}\r\n`
+        ),
+        discount:
+          incomingOrder.order.discount.amount_saved?.formatted_with_code,
+        total: incomingOrder.order_value.formatted_with_code,
+        tax: incomingOrder.tax.amount.formatted_with_code,
+        link: incomingOrder.fulfillment.digital.downloads.map((el) =>
+          el.packages.map((el) => ` ${el.access_link}`)
+        ),
+        paymentMethod: `${incomingOrder.transactions[0].payment_source.brand}, 
+            ${incomingOrder.transactions[0].payment_source.payments_source_type}, 
+            **** ${incomingOrder.transactions[0].payment_source.gateway_reference}`,
+        id: incomingOrder.customer_reference,
+      };
+
+      await fetch("/api/mail", {
+        method: "post",
+        body: JSON.stringify(orderData),
+      });
+
       return;
     } catch (response) {
       // There was an issue with capturing the order with Commerce.js
@@ -175,7 +217,6 @@ function MyApp({ Component, pageProps }) {
       return;
     } finally {
       // Any loading state can be removed here.
-      
     }
   }
 
@@ -233,7 +274,6 @@ function MyApp({ Component, pageProps }) {
     fetchProducts();
     fetchCart();
     refreshCart();
-    console.log(live);
   }, []);
 
   return (
@@ -246,41 +286,41 @@ function MyApp({ Component, pageProps }) {
           currency: "EUR",
         }}
       />
-        <Nav />
-        <AnimatePresence
-          exitBeforeEnter
-          onExitComplete={() => window.scrollTo(0, 0)}
+      <Nav />
+      <AnimatePresence
+        exitBeforeEnter
+        onExitComplete={() => window.scrollTo(0, 0)}
+      >
+        <motion.div
+          location={location}
+          key={location.pathname}
+          initial={{ y: 0, opacity: 1 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: 0, opacity: 0 }}
+          transition={{ duration: 0.3, ease: "easeIn" }}
         >
-          <motion.div
-            location={location}
-            key={location.pathname}
-            initial={{ y: 0, opacity: 1 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeIn" }}
-          >
-            <Layout>
-              <Component
-                {...pageProps}
-                products={products}
-                cart={cart}
-                live={live}
-                handleUpdateCartQty={handleUpdateCartQty}
-                handleRemoveFromCart={handleRemoveFromCart}
-                handleEmptyCart={handleEmptyCart}
-                handleAddToCart={handleAddToCart}
-                handleUpdateCartPrice={handleUpdateCartPrice}
-                onCaptureCheckout={handleCaptureCheckout}
-                handleCouponCode={handleCouponCode}
-                getLiveObject={getLiveObject}
-                setCart={setCart}
-                loading={loading}
-                commerce={commerce}
-                getPaypalPaymentId={getPaypalPaymentId}
-              />
-            </Layout>
-          </motion.div>
-        </AnimatePresence>
+          <Layout>
+            <Component
+              {...pageProps}
+              products={products}
+              cart={cart}
+              live={live}
+              handleUpdateCartQty={handleUpdateCartQty}
+              handleRemoveFromCart={handleRemoveFromCart}
+              handleEmptyCart={handleEmptyCart}
+              handleAddToCart={handleAddToCart}
+              handleUpdateCartPrice={handleUpdateCartPrice}
+              onCaptureCheckout={handleCaptureCheckout}
+              handleCouponCode={handleCouponCode}
+              getLiveObject={getLiveObject}
+              setCart={setCart}
+              loading={loading}
+              commerce={commerce}
+              getPaypalPaymentId={getPaypalPaymentId}
+            />
+          </Layout>
+        </motion.div>
+      </AnimatePresence>
       {/* </PayPalScriptProvider> */}
     </>
   );

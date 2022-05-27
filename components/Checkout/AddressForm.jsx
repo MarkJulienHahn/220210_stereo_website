@@ -78,8 +78,6 @@ const AddressForm = ({ checkoutToken, next, cart }) => {
       );
   }, [shippingSubdivision]);
 
-  console.log(shippingSubdivision, shippingCountry);
-
   return (
     <>
       <FormProvider {...methods}>
