@@ -1,9 +1,10 @@
-const mail = require('@sendgrid/mail');
+import { Client } from "@sendgrid/client";
+const sgMail = require("@sendgrid/mail");
 
-mail.setApiKey(process.env.SENDGRID_API_KEY);
+sgMail.setClient(new Client());
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 export default async function handler(req, res) {
-
   const body = JSON.parse(req.body);
 
   const message = `
@@ -22,24 +23,37 @@ export default async function handler(req, res) {
     Invoice-Number: ${body.id}
   `;
 
-  console.log(message)
-
   const data = {
     to: body.email,
-    from: { 
-      email: 'orders@stereotypefaces.com', 
-      name: 'Stereo Typefaces',
+    from: {
+      email: "orders@stereotypefaces.com",
+      name: "Stereo Typefaces",
     },
-    // templateId: 'd-9eff645d58bd4cdb8d1448651eb8772a',
     subject: `Thank you for your Order, ${body.firstName}`,
     text: message,
-  }
+    html: "<p>Hello HTML world!</p>",
+    template_id: "d-481ad35bffc74473a0ce7d72772a16b7",
+    dynamic_template_data: { 
+      firstName: body.firstName,
+      lastName: body.lastName,
+      adress: body.adress,
+      zip: body.zip,
+      city: body.city,
+      line_items: body.line_items,
+      items: body.items,
+      total: body.total,
+      tax: body.tax,
+      link: body.link,
+      id: body.id,
+      licensing: body.licensing
+    }
+  };
 
+  console.log(data);
 
- return mail
-  .send(data)
-  .then((response) => console.log("Email sent..."))
-  .catch((error) => console.log(error.message));
-  res.status(200).json({ status: 'Ok' });
-}  
-
+  return sgMail
+    .send(data)
+    .then((response) => console.log("Email sent..."))
+    .catch((error) => console.log(error.message));
+  res.status(200).json({ status: "Ok" });
+}

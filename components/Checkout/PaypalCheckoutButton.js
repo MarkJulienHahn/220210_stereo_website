@@ -33,7 +33,6 @@ const PaypalCheckoutButton = ({
           console.log(order);
           await handlePaypalSubmit(checkoutToken.id, order);
 
-          nextStep();
         },
         onError: (err) => {
           console.log(err);

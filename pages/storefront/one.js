@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 import styles from "../../styles/Storefront.module.css"
 
-import image01 from '../../public/images/image_01.png';
+import image from '../../public/images/image_05.png';
 
 const One = ( { setCategory, setPage, setLinkCategory, setLinkPage, setDescription, category, page, linkCategory, linkPage, description}) => {
   const swiper = useSwiper();
@@ -25,7 +25,7 @@ const One = ( { setCategory, setPage, setLinkCategory, setLinkPage, setDescripti
         <div className={styles.swiperPrev} onClick={() => swiper.slidePrev()} ></div>
         <div className={styles.swiperNext} onClick={() => swiper.slideNext()} ></div>
       </div>
-      <Image src={image01} placeholder="blur" priority={true}/>   
+      <Image src={image} placeholder="blur" priority={true}/>   
     </>
   )
 };

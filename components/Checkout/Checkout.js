@@ -32,6 +32,8 @@ const Checkout = ({
   onCaptureCheckout,
   getLiveObject,
   live,
+  refreshCart,
+  setOrder,
   order,
   error,
 }) => {
@@ -46,12 +48,15 @@ const Checkout = ({
   const [buttonStateProtest, setButtonStateProtest] = useState("secondary");
 
   const [showLicensing, setShowLicensing] = useState(false);
+  const [Processing, setProcessing] = useState(false);
 
   const [checkoutToken, setCheckoutToken] = useState(null);
   const [shippingData, setShippingData] = useState({});
 
   const [buttonContent, setButtonContent] = useState(null);
   const [showCoupon, setShowCoupon] = useState(false);
+
+  const [errorMessage, setErrorMessage] = useState("");
 
   const [priceFactor1, setPriceFactor1] = useState(1);
   const [priceFactor2, setPriceFactor2] = useState(0);
@@ -348,7 +353,6 @@ const Checkout = ({
 
   const none = {};
 
-  const visibility = "";
 
   const nextStep = () => {
     setShowCheckoutStep3(false), setShowCheckoutStep4(true);
@@ -360,9 +364,78 @@ const Checkout = ({
   };
 
   const step2 = async () => {
-    // await getLiveObject(checkoutToken.id)
     setShowCheckoutStep2(true);
     setShowCheckoutStep1(false);
+  };
+
+  const handleCaptureCheckout = async (checkoutTokenId, newOrder) => {
+    try {
+      const incomingOrder = await commerce.checkout.capture(
+        checkoutTokenId,
+        newOrder
+      );
+      const orderData = {
+        firstName: incomingOrder.customer.firstname,
+        lastName: incomingOrder.customer.lastname,
+        email: incomingOrder.customer.email,
+        adress: incomingOrder.shipping.street,
+        zip: incomingOrder.shipping.postal_zip_code,
+        city: incomingOrder.shipping.town_city,
+        country: incomingOrder.shipping.country,
+        state: incomingOrder.shipping.county_state,
+        line_items: incomingOrder.order.line_items,
+        items: incomingOrder.order.line_items.map((item) => [
+          {
+            product_name: item.product_name,
+          },
+          {
+            product_license: products.find(
+              (el) => el.name === item.product_name
+            ).licence,
+          },
+          { product_price: item.line_total_with_tax.formatted_with_code },
+          {
+            product_link: incomingOrder.fulfillment.digital.downloads.find(
+              (el) => el.product_name === item.product_name
+            ).packages[0].access_link
+          },
+        ]),
+        discount:
+          incomingOrder.order.discount.amount_saved?.formatted_with_code,
+        total: incomingOrder.order_value.formatted_with_code,
+        tax: incomingOrder.tax.amount.formatted_with_code,
+        link: incomingOrder.fulfillment.digital.downloads.map((el) =>
+          el.packages.map((el) => ` ${el.access_link}`)
+        ),
+        paymentMethod: `${incomingOrder.transactions[0].payment_source.brand}, 
+          ${incomingOrder.transactions[0].payment_source.payments_source_type}, 
+          **** ${incomingOrder.transactions[0].payment_source.gateway_reference}`,
+        id: incomingOrder.customer_reference,
+        licensing: {
+          company: shippingData.companyLicense,
+          website: shippingData.website,
+          city: shippingData.cityLicense,
+          zip: shippingData.zipLicense,
+          country: shippingData.licenseCountry
+        }  
+      };
+
+      console.log(shippingData, incomingOrder, orderData);
+
+      setProcessing(false);
+      nextStep();
+      handleEmptyCart();
+
+      await fetch("/api/mail", {
+        method: "post",
+        body: JSON.stringify(orderData),
+      });
+    } catch (error) {
+      setErrorMessage(error.data.error.message);
+      alert(
+        "Oops... This payment method is currently unavailable. Please contact support, sorry!"
+      );
+    }
   };
 
   return (
@@ -377,7 +450,6 @@ const Checkout = ({
 
         {showCheckoutStep1 ? (
           <>
-
             <MouseButton lable={buttonContent} />
 
             <div className="buttonsLeftWrapper">
@@ -701,18 +773,28 @@ const Checkout = ({
                       />
                     )}
 
-                    {/* {showBuyGiallo && <BuyGiallo 
-                                  products={products} 
-                                  onAddToCart={onAddToCart} 
-                                  handleEmptyCart={handleEmptyCart} 
-                                  onRemoveFromCart={onRemoveFromCart} 
-                                  onUpdateCartQty={onUpdateCartQty}
-                                  cart={cart}
-                                  priceFactor1={priceFactor1}
-                                  priceFactor2={priceFactor2}
-                                  priceFactor3={priceFactor3}
-                                  priceFactor4={priceFactor4}
-                                  onUpdateCartPrice={onUpdateCartPrice}/>} */}
+                    {showBuyGiallo && (
+                      <BuyGiallo
+                        products={products}
+                        onAddToCart={handleAddToCart}
+                        handleEmptyCart={handleEmptyCart}
+                        onRemoveFromCart={handleRemoveFromCart}
+                        onUpdateCartQty={handleUpdateCartQty}
+                        cart={cart}
+                        checkoutToken={checkoutToken}
+                        priceFactor1={priceFactor1}
+                        priceFactor2={priceFactor2}
+                        priceFactor3={priceFactor3}
+                        priceFactor4={priceFactor4}
+                        priceFactor5={priceFactor5}
+                        priceFactor6={priceFactor6}
+                        licenceChoice={licenceChoice}
+                        LicenceUser={LicenceUser}
+                        onUpdateCartPrice={handleUpdateCartPrice}
+                        Licence={Licence}
+                        NumEmployees={NumEmployees}
+                      />
+                    )}
                   </div>
                 </div>
 
@@ -801,9 +883,11 @@ const Checkout = ({
             setCart={setCart}
             nextStep={nextStep}
             shippingData={shippingData}
-            onCaptureCheckout={onCaptureCheckout}
+            onCaptureCheckout={handleCaptureCheckout}
             getLiveObject={getLiveObject}
             getPaypalPaymentId={getPaypalPaymentId}
+            Processing={Processing}
+            setProcessing={setProcessing}
           />
         )}
 
@@ -811,6 +895,7 @@ const Checkout = ({
           <CheckoutStep4
             products={products}
             cart={cart}
+            live={live}
             checkoutToken={checkoutToken}
             handleRemoveFromCart={handleRemoveFromCart}
             handleEmptyCart={handleEmptyCart}
@@ -820,8 +905,9 @@ const Checkout = ({
             setShowCheckoutStep3={setShowCheckoutStep3}
             nextStep={nextStep}
             shippingData={shippingData}
-            onCaptureCheckout={onCaptureCheckout}
+            onCaptureCheckout={handleCaptureCheckout}
             setShowCheckout={setShowCheckout}
+            refreshCart={refreshCart}
           />
         )}
       </div>

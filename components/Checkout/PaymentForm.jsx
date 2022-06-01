@@ -5,6 +5,7 @@ import {
   ElementsConsumer,
 } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import { commerce } from "../../lib/commerce";
 
 import PaypalCheckoutButton from "./PaypalCheckoutButton";
 
@@ -19,13 +20,12 @@ const PaymentForm = ({
   shippingData,
   live,
   onCaptureCheckout,
-  onCapturePaypalCheckout,
-  getPaypalPaymentId,
   nextStep,
+  setProcessing,
+  Processing,
 }) => {
   const [AccCreditCard, setAccCreditCard] = useState(false);
   const [AccPayPal, setAccPayPal] = useState(false);
-  const [Processing, setProcessing] = useState(false);
 
   const handleSubmit = async (event, elements, stripe) => {
     event.preventDefault();
@@ -41,7 +41,6 @@ const PaymentForm = ({
     });
 
     if (error) {
-      console.log(error);
     } else {
       const orderData = {
         line_items: checkoutToken.live.line_items,
@@ -66,15 +65,18 @@ const PaymentForm = ({
           },
         },
       };
-
       onCaptureCheckout(checkoutToken.id, orderData);
-      setProcessing(false);
-      nextStep();
     }
   };
 
-  const handlePaypalSubmit = async (checkoutTokenId, order) => {
-    console.log(order.payer.payer_id)
+  const handlePaypalSubmit = async (event, elements, stripe) => {
+    setProcessing(true);
+
+    const checkout = await commerce.checkout.generateTokenFrom(
+      "cart",
+      checkoutToken.cart_id
+    );
+
     const orderData = {
       line_items: checkoutToken.live.line_items,
       customer: {
@@ -91,10 +93,15 @@ const PaymentForm = ({
         country: shippingData.shippingCountry,
       },
       fulfillment: { shipping_method: shippingData.shippingOption },
-      payer_id: order.payer.payer_id
+      payment: {
+        gateway: "manual",
+        manual: {
+          id: "gway_Mo1p2z129QLMwN",
+        },
+      },
     };
 
-    await getPaypalPaymentId(checkoutTokenId, orderData);
+    onCaptureCheckout(checkoutToken.id, orderData);
   };
 
   const inactive = {
@@ -186,7 +193,11 @@ const PaymentForm = ({
         <div className={styles.paymentHeader}>PAYPAL</div>
 
         {AccPayPal ? (
-          <PaypalCheckoutButton checkoutToken={checkoutToken} handlePaypalSubmit={handlePaypalSubmit} nextStep={nextStep}/>
+          <PaypalCheckoutButton
+            checkoutToken={checkoutToken}
+            handlePaypalSubmit={handlePaypalSubmit}
+            nextStep={nextStep}
+          />
         ) : (
           ""
         )}

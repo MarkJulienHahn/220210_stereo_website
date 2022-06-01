@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
-import image01 from "../../public/images/image_01.png";
+import headerimage from "../../public/images/image_06.gif";
 
 import Typetester from "../../components/Typetester";
 import Button from "../../components/Button";
@@ -33,7 +33,8 @@ const ProtestGroteskText = ({
   loading,
   getLiveObject,
   live,
-  getPaypalPaymentId
+  getPaypalPaymentId,
+  refreshCart,
 }) => {
   const [showCheckout, setShowCheckout] = useState(false);
   const [showTrials, setShowTrials] = useState(false);
@@ -64,6 +65,7 @@ const ProtestGroteskText = ({
           loading={loading}
           checkoutToken={checkoutToken}
           getPaypalPaymentId={getPaypalPaymentId}
+          refreshCart={refreshCart}
         />
       )}
 
@@ -119,7 +121,7 @@ const ProtestGroteskText = ({
           transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
         >
           <div className="typeface-single-header">
-            <Image src={image01} placeholder="blur" />
+            <Image src={headerimage}/>
           </div>
 
           <main className="typeface-single-inner">

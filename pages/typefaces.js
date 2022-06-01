@@ -32,6 +32,7 @@ const Typefaces = ({
   loading,
   getLiveObject,
   live,
+  refreshCart,
 }) => {
   const { ref: gialloRef, inView: gialloIsVisible } = useInView({
     threshold: 0.5,
@@ -83,6 +84,7 @@ const Typefaces = ({
           showCheckout={showCheckout}
           loading={loading}
           checkoutToken={checkoutToken}
+          refreshCart={refreshCart}
         />
       )}
 

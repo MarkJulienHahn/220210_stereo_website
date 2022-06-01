@@ -1,32 +1,32 @@
-const mail = require('@sendgrid/mail');
+import { Client } from "@sendgrid/client";
+const sgMail = require("@sendgrid/mail");
 
-mail.setApiKey(process.env.SENDGRID_API_KEY);
+sgMail.setClient(new Client());
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 export default async function handler(req, res) {
-
   const body = JSON.parse(req.body);
-
-  const message = `
-    Thank you for signing up to our Newsletter, ${body.name}\r\n
-    Sign up to our newsletter to receive information regarding exclusive font previews, new releases, special events, and seasonal sale offers.`;
-
-  console.log(message)
 
   const data = {
     to: body.email,
-    from: { 
-      email: 'orders@stereotypefaces.com', 
-      name: 'Stereo Typefaces',
+    from: {
+      email: "newsletter@stereotypefaces.com",
+      name: "Stereo Typefaces",
     },
-    // templateId: 'd-9eff645d58bd4cdb8d1448651eb8772a',
-    subject: `Thank you for signing up to our Newsletter, ${body.name}`,
-    text: message,
-  }
+    subject: `Thank you for subscribing to our newsletter, ${body.firstName}`,
+    html: "<p>Hello HTML world!</p>",
+    template_id: "d-7c5123180b364b8eb7bc497fbf811fda",
+    dynamic_template_data: { 
+      name: body.name,
+      email: body.email
+    }
+  };
 
+  console.log(data);
 
- return mail
-  .send(data)
-  .then((response) => console.log("Email sent..."))
-  .catch((error) => console.log(error.message));
-  res.status(200).json({ status: 'Ok' });
-}  
+  return sgMail
+    .send(data)
+    .then((response) => console.log("Email sent..."))
+    .catch((error) => console.log(error.message));
+  res.status(200).json({ status: "Ok" });
+}

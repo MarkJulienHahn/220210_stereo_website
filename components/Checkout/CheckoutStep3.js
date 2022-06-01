@@ -22,7 +22,10 @@ const CheckoutStep3 = ({
   getPaypalPaymentId,
   getLiveObject,
   live,
+  setProcessing,
+  Processing
 }) => {
+
   return (
     <>
       {showCoupon && live.discount.length == 0 && (
@@ -41,8 +44,8 @@ const CheckoutStep3 = ({
             cart.line_items.length || ""
               ? () => {
                   setShowCheckoutStep3(false),
-                  setShowCheckoutStep2(true),
-                  getLiveObject(null);
+                    setShowCheckoutStep2(true),
+                    getLiveObject(null);
                 }
               : () => {}
           }
@@ -108,6 +111,8 @@ const CheckoutStep3 = ({
 
           <div className={styles.buyTableContent}>
             <PaymentForm
+            Processing={Processing}
+              setProcessing={setProcessing}
               checkoutToken={checkoutToken}
               nextStep={nextStep}
               shippingData={shippingData}

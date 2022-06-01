@@ -452,16 +452,20 @@ li {
   transform: translateY(-5vh);
 }
 
+.variableLetters {
+  transform: translateY(-9vh);
+}
+
 .baseline, .xHeight, .versal, .upperHeight, .underShoot {
   position: absolute;
   width: 100%;
 }
 .upperHeight {
-  transform: translateY(-22.19vw);
+  transform: translateY(-22.24vw);
   border-top: 0.5px dashed;
 }
 .versal {
-  transform: translateY(-21.45vw);
+  transform: translateY(-21.49vw);
   border-top: 0.1px solid ;
 }
 .xHeight {

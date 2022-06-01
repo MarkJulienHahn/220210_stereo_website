@@ -125,7 +125,6 @@
   margin-bottom: 20px;
 }
 
-
 .paymentWrapper {
   transition: height 0.2s ease-out, padding 0.2s ease-out;
 }
@@ -151,4 +150,24 @@
   text-align: center;
   border: 0;
   outline: 0;
+}
+
+.licenseButton {
+  margin-top: 30px;
+}
+
+.billingHeader {
+  text-transform: uppercase;
+  padding: 0px 0 30px 10px;
+}
+
+.licenseHeader {
+  text-transform: uppercase;
+  padding: 30px 0 30px 10px;
+}
+
+.inputLeftbound {
+  margin: 12px;
+  width: calc(100% - 50px);
+  flex-flow: wrap;
 }

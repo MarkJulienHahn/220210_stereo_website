@@ -40,3 +40,12 @@
     font-variation-settings: var(--pgSmallVariable);
     text-transform: uppercase;
 }
+
+.confirmation {
+    font-variation-settings: var(--pgSmallVariable);
+    flex-direction: column;
+    font-size: 20pt;
+    line-height: 25pt;
+    letter-spacing: -0.5px;
+
+}
