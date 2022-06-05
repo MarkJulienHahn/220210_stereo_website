@@ -3,8 +3,17 @@
     font-family: 'Giallo-Mono';
 }
 
+.infoWrapper h1{
+    font-size: 12.5px;
+    line-height: 16px;
+    letter-spacing: 1px;
+    font-variation-settings: "wdth" 300;
+    font-weight: normal;
+    text-align: center
+}
+
 .infoContainer {
-    padding-bottom: var(--margin-M)
+    padding: calc(2*var(--margin-M)) 0;
 }
 
 .infoHeader {
@@ -12,15 +21,18 @@
     font-size: 12.5px;
     line-height: 16px;
     letter-spacing: 1px;
-    font-family: 'Protest';
-    letter-spacing: -0.2px;
-    font-variation-settings: 'wght' 120, 'wdth' 50;
 }
 
 .infoContent {
     transition: font-size 0.3s cubic-bezier(0.19, 1, 0.22, 1), width 0.3s cubic-bezier(0.19, 1, 0.22, 1), font-variation-settings 0.3s cubic-bezier(0.19, 1, 0.22, 1), line-heigth 0.3s cubic-bezier(0.19, 1, 0.22, 1);
-    cursor:ew-resize;
+    cursor: default;
 }
+
+.infoContent p {
+    padding: 15px 0 30px 0;
+}
+
+
 
 @media only screen and (max-width: 600px) {
     .infoWrapper {

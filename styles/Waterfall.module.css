@@ -1,0 +1,13 @@
+.waterfallWrapper {
+    margin: var(--margin-XL) 0;
+    width: 100%;
+    color: red
+}
+
+.waterfallRow {
+    display: flex;
+}
+
+.waterfallElement {
+    width: 50%
+}

@@ -17,6 +17,7 @@
     "@stripe/stripe-js": "^1.25.0",
     "axios": "^0.26.1",
     "braintree-web": "^3.85.3",
+    "contentful": "^9.1.31",
     "dotenv": "^16.0.0",
     "framer-motion": "^6.2.3",
     "next": "^12.0.8",
