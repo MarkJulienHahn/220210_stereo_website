@@ -169,7 +169,7 @@ const AddressForm = ({ checkoutToken, next, cart }) => {
             <FormInput name="companyLicense" label="Company / User" />
             <FormInput name="website" label="Website" />
             <FormInput name="cityLicense" label="City" />
-            <FormInput name="zipLicense" label="ZIP / Porstal code" />
+            <FormInput name="zipLicense" label="ZIP / Postal code" />
             <Grid item xs={12} sm={6}>
               <div className={styles2.inputHeader}>Country</div>
               <select

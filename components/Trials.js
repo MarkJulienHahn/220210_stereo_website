@@ -7,12 +7,15 @@ const Trials = ({ setShowTrials }) => {
   const [name, setName] = useState();
   const [mail, setMail] = useState();
   const [fulfilled, setFulfilled] = useState(false);
+  const [checkbox1, setCheckbox1] = useState(false);
+  const [checkbox2, setCheckbox2] = useState(false);
+  const [check, setCheck] = useState(true);
 
   async function handleOnSubmit(e) {
     e.preventDefault();
     const formData = {};
 
-    if (name && mail) {
+    if (name && mail && checkbox1) {
       Array.from(e.currentTarget.elements).forEach((field) => {
         if (!field.name) return;
         formData[field.name] = field.value;
@@ -26,11 +29,47 @@ const Trials = ({ setShowTrials }) => {
       setTimeout(function () {
         setShowTrials(false);
       }, 2500);
+
+      if (checkbox2) {
+        fetch("/api/newsletter", {
+          method: "post",
+          body: JSON.stringify(formData),
+        });
+        fetch("/api/newsletterConfirmation", {
+          method: "post",
+          body: JSON.stringify(formData),
+        });
+      } else {
+        return;
+      }
     } else {
-      // console.log("nothing");
+      setCheck(false);
+      setTimeout(function () {
+        setCheck(true);
+      }, 100);
+      setCheckbox1(true);
+      setTimeout(function () {
+        setCheckbox1(false);
+      }, 100);
       return;
     }
   }
+
+  const clicked = {
+    background: "black",
+  };
+
+  const unclicked = {
+    background: "inherit",
+  };
+
+  const checked = {
+    letterSpacing: "1px",
+  };
+
+  const unchecked = {
+    letterSpacing: "3px",
+  };
 
   return (
     <>
@@ -42,7 +81,7 @@ const Trials = ({ setShowTrials }) => {
               <form
                 method="post"
                 className={styles.formWrapper}
-                onSubmit={handleOnSubmit}
+                onSubmit={(e) => handleOnSubmit(e)}
               >
                 <div className={styles.formUpper}>
                   <p className={styles.input}>
@@ -57,7 +96,7 @@ const Trials = ({ setShowTrials }) => {
                   <hr />
                   <p className={styles.input}>
                     <input
-                      placeholder="E-Mail Adress"
+                      placeholder="Email"
                       type="email"
                       name="email"
                       onChange={(e) => setMail(e.target.value)}
@@ -66,20 +105,42 @@ const Trials = ({ setShowTrials }) => {
                   <hr />
                 </div>
 
-                <div className={styles.formLower}>
-                  <p className={styles.disclaimer}>
-                    Submit your email above to request free trials of all STEREO
-                    Typefaces — perfect for trying out and experimenting before
-                    purchasing a full license.
-                    <br />
-                    <br />
-                    By downloading and/or installing KOMETA Trial Fonts, you
-                    acknowledge that you have read and accepted the terms of our
-                    EULA.
-                  </p>
-                  <div className={styles.buttonWrapper}>
-                    <button>Download Trials</button>
-                    <div></div>
+                <div>
+                  <div className={styles.checkboxes}>
+                    <span
+                      className={styles.checkbox}
+                      onClick={() => setCheckbox1(!checkbox1)}
+                      style={checkbox1 ? clicked : unclicked}
+                    ></span>
+                    <p
+                      style={!check ? unchecked : checked}
+                      onClick={() => setCheckbox1(!checkbox1)}
+                    >
+                      I agree to Stereo Typefaces’{" "}
+                      <a href="">terms of service</a>
+                    </p>
+                  </div>
+                  <div className={styles.checkboxes}>
+                    <span
+                      className={styles.checkbox}
+                      onClick={() => setCheckbox2(!checkbox2)}
+                      style={checkbox2 ? clicked : unclicked}
+                    ></span>
+                    <p onClick={() => setCheckbox2(!checkbox2)}>
+                      I would like to stay informed about updates, future
+                      releases and special discounts
+                    </p>
+                  </div>
+
+                  <div className={styles.formLower}>
+                    <p className={styles.disclaimer}>
+                      Submit your email above to request free trials of all
+                      Stereo Typefaces — perfect for trying out and
+                      experimenting before purchasing a full license.
+                    </p>
+                    <div className={styles.buttonWrapper}>
+                      <button>Download Trials</button>
+                    </div>
                   </div>
                 </div>
               </form>
@@ -94,7 +155,12 @@ const Trials = ({ setShowTrials }) => {
           ) : (
             <>
               <div className={styles.confirmation}>
-                <p>Thank you for your Interest, <br/>{name}<br/>{`<3`}</p>
+                <p>
+                  Thank you for your Interest, <br />
+                  {name}
+                  <br />
+                  ✌️
+                </p>
               </div>
             </>
           )}

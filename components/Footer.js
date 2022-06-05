@@ -24,6 +24,10 @@ const Footer = () => {
         method: "post",
         body: JSON.stringify(formData),
       });
+      fetch("/api/mailinglist", {
+        method: "post",
+        body: JSON.stringify(formData),
+      });
       setFulfilled(true);
     } else {
       // console.log("nothing");
