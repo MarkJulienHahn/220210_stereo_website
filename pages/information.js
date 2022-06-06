@@ -87,11 +87,11 @@ const Information = ({ info }) => {
             <div className={Styles.infoContainer}>
               {stereo.map((item) => (
                 <div
+                  key={item.sys.id}
                   onMouseEnter={() => setButtonContent("← Resize →")}
                   onMouseLeave={() => setButtonContent("")}
                 >
                   <Infocontainer
-                    key={item.sys.id}
                     head={item.fields.title}
                     body={item.fields.text}
                     big={"false"}
@@ -106,11 +106,11 @@ const Information = ({ info }) => {
             <div className={Styles.infoContainer}>
               {fonts.map((item) => (
                 <div
+                  key={item.sys.id}
                   onMouseEnter={() => setButtonContent("← Resize →")}
                   onMouseLeave={() => setButtonContent("")}
                 >
                   <Infocontainer
-                    key={item.sys.id}
                     head={item.fields.title}
                     body={item.fields.text}
                     big={"false"}
@@ -125,11 +125,11 @@ const Information = ({ info }) => {
             <div className={Styles.infoContainer}>
               {licensing.map((item) => (
                 <div
+                  key={item.sys.id}
                   onMouseEnter={() => setButtonContent("← Resize →")}
                   onMouseLeave={() => setButtonContent("")}
                 >
                   <Infocontainer
-                    key={item.sys.id}
                     head={item.fields.title}
                     body={item.fields.text}
                     big={"false"}
