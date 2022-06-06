@@ -49,6 +49,7 @@ body {
 
 :root {
   --margin-XL: 400px;
+  --margin-L: 100px;
   --margin-M: 30px;
   --margin-S: 12px;
 
@@ -719,6 +720,13 @@ li {
   }   
 
 }
+
+/* W A T E R F A L L  */
+
+.MuiSlider-markLabel {
+  color: grey !important;
+  font-family: "Giallo-Mono" !important;
+  }
 
 /* P R O D U C T */
 

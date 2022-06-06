@@ -1,13 +1,66 @@
 .waterfallWrapper {
-    margin: var(--margin-XL) 0;
-    width: 100%;
-    color: red
+  margin: var(--margin-XL) 0;
+  width: 100%;
+  font-family: "Protest";
+  font-variation-settings: "wdth" 50;
+  transition: font-variation-settings 0.2s ease-out;
 }
 
 .waterfallRow {
-    display: flex;
+  display: flex;
+  justify-content: space-between;
+  padding: var(--margin-L) 0;
 }
 
 .waterfallElement {
-    width: 50%
+  display: flex;
+  justify-content: space-between;
+  width: 48%;
+}
+
+.xxl {
+  font-size: 32vw;
+  line-height: 26vw;
+  letter-spacing: -2.7vw;
+}
+
+.xl {
+  font-size: 14.5vw;
+  line-height: 13vw;
+  letter-spacing: -1.2vw;
+  text-align: center;
+}
+
+.l {
+  font-size: 6.5vw;
+  line-height: 6.245vw;
+  letter-spacing: -0.4vw;
+  text-align: center;
+}
+
+.m {
+  font-size: 3vw;
+  line-height: 3.5vw;
+  letter-spacing: -0.12vw;
+}
+
+.s {
+  font-size: 1.5vw;
+  line-height: 1.95vw;
+  letter-spacing: -0.03vw;
+
+}
+
+.xs {
+  font-size: 1vw;
+  line-height: 1.35vw;
+  letter-spacing: -0.0vw;
+}
+
+.controls {
+    position: sticky;
+    top: 0;
+    height: 60px;
+    width: 100;
+    padding-top: var(--margin-M)
 }

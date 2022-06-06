@@ -244,6 +244,23 @@ const ProtestGroteskText = ({
               users. Protest Grotesk is placed right into thes field of tension.
             </p>
 
+            <WaterfallProtest />
+
+            <p>&#8594; INFORMATION</p>
+            <p>
+              When the very first sans-serif Typefaces were introduced in the
+              Mid 1880s they were regarded as ugly and an insult for the renewed
+              graphic designer. The term »Grotesk« was meant to disqualify the
+              typefaces. These typefaces were controversial, highly misregarded
+              and bad reputed. They were seen as a protest against all
+              ornamental and historically coloured typefaces. They were an
+              uprising against conservative values. Protest Grotesk pays homage
+              to these Typefaces. Nowadays quality can not only stem from formal
+              design-descisions. A typeface has to rely on a strong technical
+              foundation, in order to deliver an advantage to modern-day type
+              users. Protest Grotesk is placed right into thes field of tension.
+            </p>
+
             <div className="typeface-single-tester-wrap">
               <Typetester
                 wght={40}
@@ -330,23 +347,6 @@ const ProtestGroteskText = ({
                 fontFamily="Protest"
               />
             </div>
-
-            <p>&#8594; INFORMATION</p>
-            <p>
-              When the very first sans-serif Typefaces were introduced in the
-              Mid 1880s they were regarded as ugly and an insult for the renewed
-              graphic designer. The term »Grotesk« was meant to disqualify the
-              typefaces. These typefaces were controversial, highly misregarded
-              and bad reputed. They were seen as a protest against all
-              ornamental and historically coloured typefaces. They were an
-              uprising against conservative values. Protest Grotesk pays homage
-              to these Typefaces. Nowadays quality can not only stem from formal
-              design-descisions. A typeface has to rely on a strong technical
-              foundation, in order to deliver an advantage to modern-day type
-              users. Protest Grotesk is placed right into thes field of tension.
-            </p>
-
-            <WaterfallProtest />
 
             <p>&#8594; INFORMATION</p>
             <p>

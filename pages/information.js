@@ -48,7 +48,7 @@ const Information = ({ info }) => {
 
   const location = useRouter();
 
-  console.log(info)
+  console.log(info);
 
   return (
     <>
@@ -91,6 +91,7 @@ const Information = ({ info }) => {
                   onMouseLeave={() => setButtonContent("")}
                 >
                   <Infocontainer
+                    key={item.sys.id}
                     head={item.fields.title}
                     body={item.fields.text}
                     big={"false"}
@@ -109,6 +110,7 @@ const Information = ({ info }) => {
                   onMouseLeave={() => setButtonContent("")}
                 >
                   <Infocontainer
+                    key={item.sys.id}
                     head={item.fields.title}
                     body={item.fields.text}
                     big={"false"}
@@ -127,6 +129,7 @@ const Information = ({ info }) => {
                   onMouseLeave={() => setButtonContent("")}
                 >
                   <Infocontainer
+                    key={item.sys.id}
                     head={item.fields.title}
                     body={item.fields.text}
                     big={"false"}
