@@ -4,9 +4,9 @@ body {
   padding: 0;
   margin: 0;
   overscroll-behavior: none;
-  font-family: 'Protest';
-  font-variation-settings: 'wght' 100;
-  font-variation-settings: 'ital' 0;
+  font-family: "Protest";
+  font-variation-settings: "wght" 100;
+  font-variation-settings: "ital" 0;
   transition: font-variation-settings 3s ease;
   -webkit-font-smoothing: antialiased;
 }
@@ -16,33 +16,33 @@ body {
 }
 
 @font-face {
-  font-family: 'Protest';
-  font-style: normal;   
-  src: url(../public/fonts/ProtestGroteskGX.ttf) format('woff2');
+  font-family: "Protest";
+  font-style: normal;
+  src: url(../public/fonts/ProtestGroteskGX.ttf) format("woff2");
 }
 
 @font-face {
-  font-family: 'Skyline';
-  font-style: normal;   
-  src: url(../public/fonts/SkylineGX.ttf) format('woff2');
+  font-family: "Skyline";
+  font-style: normal;
+  src: url(../public/fonts/SkylineGX.ttf) format("woff2");
 }
 
 @font-face {
-  font-family: 'Giallo-Mono';
-  font-style: normal;   
-  src: url(../public/fonts/GialloGX_trial.ttf) format('woff2');
+  font-family: "Giallo-Mono";
+  font-style: normal;
+  src: url(../public/fonts/GialloGX_trial.ttf) format("woff2");
 }
 
 @font-face {
-  font-family: 'Giallo';
-  font-style: normal;   
-  src: url(../public/fonts/GialloRoman_VF.ttf) format('woff2');
+  font-family: "Giallo";
+  font-style: normal;
+  src: url(../public/fonts/GialloRoman_VF.ttf) format("woff2");
 }
 
 @font-face {
-  font-family: 'AutomatSquare';
-  font-style: normal;   
-  src: url(../public/fonts/Automat_SquareGX.ttf) format('opentype');
+  font-family: "AutomatSquare";
+  font-style: normal;
+  src: url(../public/fonts/Automat_SquareGX.ttf) format("opentype");
 }
 
 /* VARIABLES */
@@ -61,7 +61,7 @@ body {
   --pgSmallSize: 7.5pt;
   --pgSmallLineHeight: 15pt;
   --pgSmallLetterSpacing: 1.2px;
-  --pgSmallVariable: 'wght' 116, 'wdth' 0;
+  --pgSmallVariable: "wght" 116, "wdth" 0;
 }
 
 @media only screen and (max-width: 600px) {
@@ -72,9 +72,14 @@ body {
   }
 }
 
-::-moz-selection { background: transparent; color: inherit; }
-::selection { background: transparent; color: inherit; }
-
+::-moz-selection {
+  background: transparent;
+  color: inherit;
+}
+::selection {
+  background: transparent;
+  color: inherit;
+}
 
 a {
   color: inherit;
@@ -104,7 +109,6 @@ li {
 
 /* M E N U  */
 
-
 .menuBarClosed {
   width: 35vw;
   height: 24px;
@@ -116,8 +120,8 @@ li {
 }
 
 .menuBarOpen {
-  width: calc(100vw - 2*var(--margin-M));
-  height: calc(100vh - 2*var(--margin-M));
+  width: calc(100vw - 2 * var(--margin-M));
+  height: calc(100vh - 2 * var(--margin-M));
 }
 
 .menuBarClosed li {
@@ -128,7 +132,7 @@ li {
 .menuLinkOpen {
   height: 20px;
   text-align: center;
-  color: #4A4A4A;
+  color: #4a4a4a;
   opacity: 0.8;
   transition: opacity 0.3s linear;
 }
@@ -139,10 +143,10 @@ li {
 
 @media only screen and (max-width: 600px) {
   .menuBarClosed {
-    width: calc(100vw - 2*var(--margin-M));
+    width: calc(100vw - 2 * var(--margin-M));
   }
   .menuBarClosed:hover {
-    width: calc(100vw - 2*var(--margin-M));
+    width: calc(100vw - 2 * var(--margin-M));
   }
 }
 
@@ -170,21 +174,20 @@ li {
 
 @keyframes fadeIn {
   0% {
-      opacity: 0;
+    opacity: 0;
   }
 
   75% {
     opacity: 0;
   }
   100% {
-      opacity: 1;
+    opacity: 1;
   }
 }
 
 .buttonsRightWrapper div {
   margin-left: 3px;
 }
-
 
 .buttonsLeftWrapper {
   position: fixed;
@@ -220,7 +223,6 @@ li {
   cursor: default;
 }
 
-
 #textbutton {
   width: 25vw;
   position: absolute;
@@ -234,10 +236,10 @@ li {
   font-size: 12px;
   letter-spacing: 0.5px;
   word-spacing: -1.5px;
-  font-variation-settings: 'wght' 100, 'wdth' 50;
+  font-variation-settings: "wght" 100, "wdth" 50;
   font-feature-settings: "ss01";
   background: var(--quaternary);
-}  
+}
 
 #closeButton {
   z-index: 1000;
@@ -247,7 +249,9 @@ li {
   color: white;
 }
 
-#primary:hover, #secondary:hover, #tertiary:hover {
+#primary:hover,
+#secondary:hover,
+#tertiary:hover {
   background: var(--quaternary);
   color: black;
 }
@@ -282,7 +286,6 @@ li {
 
 /* C A R T */
 
-
 /* T Y P E F A C E  S I N G L E */
 
 .typeface-single-inner {
@@ -292,11 +295,11 @@ li {
 }
 
 .typeface-single-giallo {
-  font-family: 'Giallo'
+  font-family: "Giallo";
 }
 
 .typeface-single-inner p {
-  font-family: 'Giallo-Mono';
+  font-family: "Giallo-Mono";
   font-size: 12.5px;
   line-height: 16px;
   letter-spacing: 1px;
@@ -319,16 +322,16 @@ li {
 }
 
 .fontOpener {
-  font-family: 'Protest';
-  font-variation-settings: 'wdth' 50, 'wght' 40;
+  font-family: "Protest";
+  font-variation-settings: "wdth" 50, "wght" 40;
   font-size: 6.8vw;
   line-height: 7vw;
   letter-spacing: -0.5vw;
 }
 
 .fontOpenerGiallo {
-  font-family: 'Giallo';
-  font-variation-settings: 'wdth' 50, 'wght' 40;
+  font-family: "Giallo";
+  font-variation-settings: "wdth" 50, "wght" 40;
   font-size: 7.8vw;
   line-height: 7.5vw;
   letter-spacing: -0.3vw;
@@ -342,7 +345,7 @@ li {
 }
 
 .typefaceWrapper p {
-  font-family: 'Giallo-Mono';
+  font-family: "Giallo-Mono";
   font-size: 12.5px;
   line-height: 16px;
   letter-spacing: 1px;
@@ -354,11 +357,13 @@ li {
   letter-spacing: -0.6px;
   font-variation-settings: var(--pgSmallVariable);
   position: sticky;
-  top: var(--margin-M);
-  margin-bottom: 50px;
-  mix-blend-mode: difference;
-  color: white;
+  top: 0;
+  background: rgba(255,255,255,0.8);
+  padding-top: var(--margin-M);
+  padding-bottom: 10px;
   z-index: 150;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
 }
 
 .typefaceInfo {
@@ -376,12 +381,12 @@ li {
   font-size: 10.9vw;
   line-height: 12vw;
   letter-spacing: -0.7vw;
-  font-variation-settings: 'wdth' 50;
+  font-variation-settings: "wdth" 50;
   text-align: center;
   transition: font-variation-settings 0.2s ease;
   border: none;
   cursor: pointer;
-  transform: translateY(-17vh);
+  transform: translateY(-10vh);
 }
 
 .typefaceControlButton {
@@ -400,16 +405,16 @@ li {
 
 @keyframes changeStyle {
   0% {
-    font-variation-settings: 'ital' 0, 'wght' 40;
+    font-variation-settings: "ital" 0, "wght" 40;
   }
   33% {
-    font-variation-settings: 'ital' 0, 'wght' 150;
+    font-variation-settings: "ital" 0, "wght" 150;
   }
   66% {
-    font-variation-settings: 'ital' 100, 'wght' 150;
+    font-variation-settings: "ital" 100, "wght" 150;
   }
   100% {
-    font-variation-settings: 'ital' 0, 'wght' 40;
+    font-variation-settings: "ital" 0, "wght" 40;
   }
 }
 
@@ -424,7 +429,7 @@ li {
   .typefaceDisplay {
     height: 40vh;
     font-size: 10vw;
-    animation: changeStyle 5s ease 0s infinite alternate; 
+    animation: changeStyle 5s ease 0s infinite alternate;
   }
 }
 
@@ -433,7 +438,7 @@ li {
 .lettersVariableWrapper {
   margin: var(--margin-XL) 0;
   font-size: 50vw;
-  font-variation-settings: 'wdth' 50;
+  font-variation-settings: "wdth" 50;
   letter-spacing: -1vw;
   height: 300vh;
 }
@@ -454,10 +459,14 @@ li {
 }
 
 .variableLetters {
-  transform: translateY(-9vh);
+  transform: translateY(-5vw);
 }
 
-.baseline, .xHeight, .versal, .upperHeight, .underShoot {
+.baseline,
+.xHeight,
+.versal,
+.upperHeight,
+.underShoot {
   position: absolute;
   width: 100%;
 }
@@ -467,7 +476,7 @@ li {
 }
 .versal {
   transform: translateY(-21.49vw);
-  border-top: 0.1px solid ;
+  border-top: 0.1px solid;
 }
 .xHeight {
   transform: translateY(-11.265vw);
@@ -484,8 +493,6 @@ li {
 
 /* T E S T E R */
 
-
-
 .typeface-single-tester-wrap {
   padding: var(--margin-XL) 0;
   width: calc(100%-60px);
@@ -494,7 +501,7 @@ li {
 
 .typeface-single-tester {
   font-size: 260px;
-  font-variation-settings: 'wght' 40, 'wdth' 50;
+  font-variation-settings: "wght" 40, "wdth" 50;
   letter-spacing: -15px;
   white-space: nowrap;
 }
@@ -506,7 +513,7 @@ li {
 }
 
 .controlsWrapper {
-  display: flex; 
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
   opacity: 0;
@@ -521,11 +528,11 @@ li {
 }
 
 .typetesterWrapper:hover {
-  opacity: 1
+  opacity: 1;
 }
 
 .typetesterWrapper:hover .controlsWrapper {
-  opacity: 1
+  opacity: 1;
 }
 
 .input {
@@ -538,7 +545,7 @@ li {
 }
 
 .sliderWrapper {
-  display: flex; 
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 20vw;
@@ -553,10 +560,10 @@ li {
   box-shadow: none !important;
 }
 
-.MuiSlider-thumb.Mui-focusVisible, .MuiSlider-thumb:hover {
+.MuiSlider-thumb.Mui-focusVisible,
+.MuiSlider-thumb:hover {
   box-shadow: none !important;
 }
-
 
 /* F E A T U R E S */
 
@@ -576,12 +583,12 @@ li {
 
 .glyphchartDisplayWrapper {
   width: 50%;
-  height: 350vh;
 }
 
 .glyphchartDisplay {
+  height: 100vh;
   position: sticky;
-  top: 20vh;
+  top: 10vh;
   width: 100%;
   font-size: 40vw;
   display: flex;
@@ -595,7 +602,6 @@ li {
 
 .glyphchartTable {
   width: 50%;
-  height: 10vh;
 }
 
 .glyphchartLetterWrapper {
@@ -620,7 +626,7 @@ li {
 }
 
 .glyphchartHeading {
-  padding-bottom: var(--margin-M)
+  padding-bottom: var(--margin-M);
 }
 
 .glyphchartSlider {
@@ -637,7 +643,7 @@ li {
 
 .glyphchartWrapper:hover .glyphchartSlider {
   opacity: 1;
-}   
+}
 
 @media only screen and (max-width: 600px) {
   .typeface-single-header {
@@ -688,7 +694,7 @@ li {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;;
+    align-items: center;
     pointer-events: none;
     position: sticky;
     top: 0;
@@ -710,15 +716,14 @@ li {
     justify-content: space-between;
     width: 100%;
     background: white;
-  }   
+  }
   .glyphchartSliderSingle {
     opacity: 1;
     display: flex;
     flex-direction: column;
     width: 46%;
     pointer-events: auto;
-  }   
-
+  }
 }
 
 /* W A T E R F A L L  */
@@ -726,16 +731,16 @@ li {
 .MuiSlider-markLabel {
   color: grey !important;
   font-family: "Giallo-Mono" !important;
-  }
+}
 
 /* P R O D U C T */
 
 .productItalic:hover::after {
-    content: "50% off incl. Regular";
-    color: var(--primary);
-    font-size: 10pt;
-    line-height: 10pt;
-    padding-left: 50px;
+  content: "50% off incl. Regular";
+  color: var(--primary);
+  font-size: 10pt;
+  line-height: 10pt;
+  padding-left: 50px;
 }
 
 .productFullFamily:hover::after {

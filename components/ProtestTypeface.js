@@ -73,92 +73,92 @@ const ProtestTypeface = (props) => {
   return (
     <div className="typefaceWrapper">
       <div className="typefaceControl">
-        <div className="typefaceInfo">
-          <p>→ 14 Styles / Price per style from 69 EUR</p>
-        </div>
+        <span className="typefaceInfo">
+          → Protest Grotesk <p>14 Weights, from 70 EUR</p>
+        </span>
         <span
           className="typefaceControlButton"
           onMouseEnter={() => setWdth([40, 0])}
         >
-          Protest Grotesk Thin /{" "}
+          Thin /{" "}
         </span>
         <span
           className="typefaceControlButton"
           onMouseEnter={() => setWdth([40, 100])}
         >
-          Protest Grotesk Thin Italic /{" "}
+          Italic /{" "}
         </span>
         <span
           className="typefaceControlButton"
           onMouseEnter={() => setWdth([60, 0])}
         >
-          Protest Grotesk Light /{" "}
+          Light /{" "}
         </span>
         <span
           className="typefaceControlButton"
           onMouseEnter={() => setWdth([60, 100])}
         >
-          Protest Grotesk Light Italic /{" "}
+          Italic /{" "}
         </span>
         <span
           className="typefaceControlButton"
           onMouseEnter={() => setWdth([80, 0])}
         >
-          Protest Grotesk Regular /{" "}
+          Regular /{" "}
         </span>
         <span
           className="typefaceControlButton"
           onMouseEnter={() => setWdth([80, 100])}
         >
-          Protest Grotesk Regular Italic /{" "}
+          Italic /{" "}
         </span>
         <span
           className="typefaceControlButton"
           onMouseEnter={() => setWdth([100, 0])}
         >
-          Protest Grotesk Book /{" "}
+          Book /{" "}
         </span>
         <span
           className="typefaceControlButton"
           onMouseEnter={() => setWdth([100, 100])}
         >
-          Protest Grotesk Book Italic /{" "}
+          Italic /{" "}
         </span>
         <span
           className="typefaceControlButton"
           onMouseEnter={() => setWdth([116, 0])}
         >
-          Protest Grotesk Medium /{" "}
+          Medium /{" "}
         </span>
         <span
           className="typefaceControlButton"
           onMouseEnter={() => setWdth([116, 100])}
         >
-          Protest Grotesk Medium Italic /{" "}
+          Italic /{" "}
         </span>
         <span
           className="typefaceControlButton"
           onMouseEnter={() => setWdth([133, 0])}
         >
-          Protest Grotesk Bold /{" "}
+          Bold /{" "}
         </span>
         <span
           className="typefaceControlButton"
           onMouseEnter={() => setWdth([133, 100])}
         >
-          Protest Grotesk Bold Italic /{" "}
+          Italic /{" "}
         </span>
         <span
           className="typefaceControlButton"
           onMouseEnter={() => setWdth([150, 0])}
         >
-          Protest Grotesk Black /{" "}
+          Black /{" "}
         </span>
         <span
           className="typefaceControlButton"
           onMouseEnter={() => setWdth([150, 100])}
         >
-          Protest Grotesk Black Italic /{" "}
+          Italic{" "}
         </span>
       </div>
 

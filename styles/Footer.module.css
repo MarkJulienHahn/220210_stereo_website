@@ -2,9 +2,7 @@
   height: 95vh;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
-  flex-direction: row;
-  margin-bottom: 82px;
+  flex-direction: column;
   font-family: "Giallo-Mono";
   font-size: 12.5px;
   line-height: 16px;
@@ -13,6 +11,34 @@
 
 .footerInfo{
   width: 50vw;
+}
+
+.footerInfo p:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.footerTop {
+  left: 0;
+  width: 50%;
+}
+
+.footerTop a {
+  text-decoration: underline;
+}
+
+.copyright {
+  text-decoration: none !important;
+  cursor: default !important;
+}
+
+.footerBottom {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-direction: row;
+  padding-bottom: 82px
 }
 
 .footerNewsletter {

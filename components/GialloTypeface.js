@@ -57,92 +57,92 @@ const GialloTypeface = (props) => {
   return (
     <section className="typefaceWrapper">
       <div className="typefaceControl">
-        <div className="typefaceInfo">
-          <p>→ 14 Styles / Price per style from 69 EUR</p>
-        </div>
+        <span className="typefaceInfo">
+          → Giallo Roman <p>14 Weights, from 70 EUR</p>
+        </span>
         <span
           className="typefaceControlButton"
           onMouseEnter={() => setWdth([700, 0])}
         >
-          Giallo Roman Black /{" "}
+          Black /{" "}
         </span>
         <span
           className="typefaceControlButton"
           onMouseEnter={() => setWdth([700, 100])}
         >
-          Giallo Roman Black Italic /{" "}
+          Italic /{" "}
         </span>
         <span
           className="typefaceControlButton"
           onMouseEnter={() => setWdth([600, 0])}
         >
-          Giallo Roman Bold /{" "}
+          Bold /{" "}
         </span>
         <span
           className="typefaceControlButton"
           onMouseEnter={() => setWdth([600, 100])}
         >
-          Giallo Roman Bold Italic /{" "}
+          Italic /{" "}
         </span>
         <span
           className="typefaceControlButton"
           onMouseEnter={() => setWdth([500, 0])}
         >
-          Giallo Roman Semibold /{" "}
+          Semibold /{" "}
         </span>
         <span
           className="typefaceControlButton"
           onMouseEnter={() => setWdth([500, 100])}
         >
-          Giallo Roman Semibold Italic /{" "}
+          Italic /{" "}
         </span>
         <span
           className="typefaceControlButton"
           onMouseEnter={() => setWdth([400, 0])}
         >
-          Giallo Roman Medium /{" "}
+          Medium /{" "}
         </span>
         <span
           className="typefaceControlButton"
           onMouseEnter={() => setWdth([400, 100])}
         >
-          Giallo Roman Medium Italic /{" "}
+          Italic /{" "}
         </span>
         <span
           className="typefaceControlButton"
           onMouseEnter={() => setWdth([300, 0])}
         >
-          Giallo Roman Book /{" "}
+          Book /{" "}
         </span>
         <span
           className="typefaceControlButton"
           onMouseEnter={() => setWdth([300, 100])}
         >
-          Giallo Roman Book Italic /{" "}
+          Italic /{" "}
         </span>
         <span
           className="typefaceControlButton"
           onMouseEnter={() => setWdth([200, 0])}
         >
-          Giallo Roman Regular /{" "}
+          Regular /{" "}
         </span>
         <span
           className="typefaceControlButton"
           onMouseEnter={() => setWdth([200, 100])}
         >
-          Giallo Roman Regular Italic /{" "}
+          Italic /{" "}
         </span>
         <span
           className="typefaceControlButton"
           onMouseEnter={() => setWdth([100, 0])}
         >
-          Giallo Roman Light /{" "}
+          Light /{" "}
         </span>
         <span
           className="typefaceControlButton"
           onMouseEnter={() => setWdth([100, 100])}
         >
-          Giallo Roman Light Oblique /{" "}
+          Italic{" "}
         </span>
       </div>
 

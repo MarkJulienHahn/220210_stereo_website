@@ -88,7 +88,7 @@ const Information = ({ info }) => {
               {stereo.map((item) => (
                 <div
                   key={item.sys.id}
-                  onMouseEnter={() => setButtonContent("← Resize →")}
+                  onMouseEnter={() => setButtonContent("Resize")}
                   onMouseLeave={() => setButtonContent("")}
                 >
                   <Infocontainer
@@ -107,7 +107,7 @@ const Information = ({ info }) => {
               {fonts.map((item) => (
                 <div
                   key={item.sys.id}
-                  onMouseEnter={() => setButtonContent("← Resize →")}
+                  onMouseEnter={() => setButtonContent("Resize")}
                   onMouseLeave={() => setButtonContent("")}
                 >
                   <Infocontainer
@@ -126,7 +126,7 @@ const Information = ({ info }) => {
               {licensing.map((item) => (
                 <div
                   key={item.sys.id}
-                  onMouseEnter={() => setButtonContent("← Resize →")}
+                  onMouseEnter={() => setButtonContent("Resize")}
                   onMouseLeave={() => setButtonContent("")}
                 >
                   <Infocontainer

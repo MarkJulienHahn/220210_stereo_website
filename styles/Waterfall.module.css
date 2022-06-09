@@ -48,19 +48,23 @@
   font-size: 1.5vw;
   line-height: 1.95vw;
   letter-spacing: -0.03vw;
-
 }
 
 .xs {
   font-size: 1vw;
   line-height: 1.35vw;
-  letter-spacing: -0.0vw;
+  letter-spacing: -0vw;
 }
 
 .controls {
-    position: sticky;
-    top: 0;
-    height: 60px;
-    width: 100;
-    padding-top: var(--margin-M)
+  position: sticky;
+  top: 0;
+  height: 60px;
+  width: 100;
+  background: rgba(255, 255, 255, 0.8);
+  padding-top: var(--margin-M);
+  padding-bottom: 60px;
+  z-index: 150;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
 }

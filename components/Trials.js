@@ -11,6 +11,8 @@ const Trials = ({ setShowTrials }) => {
   const [checkbox2, setCheckbox2] = useState(false);
   const [check, setCheck] = useState(true);
 
+  const [fadeTrials, setFadeTrials] = useState(false)
+
   async function handleOnSubmit(e) {
     e.preventDefault();
     const formData = {};
@@ -71,9 +73,29 @@ const Trials = ({ setShowTrials }) => {
     letterSpacing: "3px",
   };
 
+  const fade = {
+    opacity: 0
+  }
+
+  const notFade = {
+    opacity: 1
+  }
+
+  const fadeOutTrials = async () => {
+    setFadeTrials(true),
+    await setTimeout(function(){ setShowTrials(false) }, 300)
+  }
+
   return (
     <>
-      <div className={styles.trialsWrapper}>
+      <div className={styles.trialsWrapper} style={fadeTrials ? fade : notFade}>
+        <div className="buttonsLeftWrapper">
+          <Button
+            lable={"back"}
+            subclass={"secondary"}
+            onClick={() => fadeOutTrials(false)}
+          />
+        </div>
         <div className={styles.form} onClick={() => {}}>
           {!fulfilled ? (
             <>
@@ -144,13 +166,6 @@ const Trials = ({ setShowTrials }) => {
                   </div>
                 </div>
               </form>
-              <div className="buttonsLeftWrapper">
-                <Button
-                  lable={"back"}
-                  subclass={"secondary"}
-                  onClick={() => setShowTrials(false)}
-                />
-              </div>
             </>
           ) : (
             <>

@@ -42,6 +42,8 @@ const Checkout = ({
   const [showCheckoutStep3, setShowCheckoutStep3] = useState(false);
   const [showCheckoutStep4, setShowCheckoutStep4] = useState(false);
 
+  const [fadeCheckout, setFadeCheckout] = useState(false)
+
   const [showBuyProtest, setShowBuyProtest] = useState(true);
   const [showBuyGiallo, setShowBuyGiallo] = useState(false);
   const [buttonStateGiallo, setButtonStateGiallo] = useState("quaternary");
@@ -353,7 +355,6 @@ const Checkout = ({
 
   const none = {};
 
-
   const nextStep = () => {
     setShowCheckoutStep3(false), setShowCheckoutStep4(true);
   };
@@ -397,7 +398,7 @@ const Checkout = ({
           {
             product_link: incomingOrder.fulfillment.digital.downloads.find(
               (el) => el.product_name === item.product_name
-            ).packages[0].access_link
+            ).packages[0].access_link,
           },
         ]),
         discount:
@@ -416,11 +417,9 @@ const Checkout = ({
           website: shippingData.website,
           city: shippingData.cityLicense,
           zip: shippingData.zipLicense,
-          country: shippingData.licenseCountry
-        }  
+          country: shippingData.licenseCountry,
+        },
       };
-
-      console.log(shippingData, incomingOrder, orderData);
 
       setProcessing(false);
       nextStep();
@@ -438,33 +437,42 @@ const Checkout = ({
     }
   };
 
+  const fade = {
+    opacity: 0
+  }
+
+  const notFade = {
+    opacity: 1
+  }
+
+  const fadeOutCheckout = async () => {
+    setFadeCheckout(true),
+    await setTimeout(function(){ setShowCheckout(false) }, 300)
+  }
+
   return (
     <div>
-      <div className={styles.buyWrapper}>
-        {showLicensing && (
-          <LicensingTerms
-            showLicensing={showLicensing}
-            setShowLicensing={setShowLicensing}
-          />
+      <div className={styles.buyBackground} style={fadeCheckout ? fade : notFade}></div>
+      <div className={styles.buyWrapper} style={fadeCheckout ? fade : notFade}>
+        {!showCheckoutStep2 && !showCheckoutStep3 && !showCheckoutStep4 ? (
+          <div className="buttonsLeftWrapper">
+            <Button
+              lable={"Continue Shopping"}
+              subclass={"secondary"}
+              onClick={() => fadeOutCheckout(false)}
+            />
+            <Button
+              lable={"Licensing Terms"}
+              subclass={"quaternary"}
+              onClick={() => setShowLicensing(true)}
+            />
+          </div>
+        ) : (
+          ""
         )}
 
-        {showCheckoutStep1 ? (
+        {!showCheckoutStep2 && !showCheckoutStep3 && !showCheckoutStep4 ? (
           <>
-            <MouseButton lable={buttonContent} />
-
-            <div className="buttonsLeftWrapper">
-              <Button
-                lable={"Continue Shopping"}
-                subclass={"secondary"}
-                onClick={() => setShowCheckout(false)}
-              />
-              <Button
-                lable={"Licensing Terms"}
-                subclass={"quaternary"}
-                onClick={() => setShowLicensing(true)}
-              />
-            </div>
-
             <div className="buttonsRightWrapper">
               <Button
                 lable={"Continue to Checkout"}
@@ -482,6 +490,20 @@ const Checkout = ({
                 }
               />
             </div>
+            {showLicensing && (
+              <LicensingTerms
+                showLicensing={showLicensing}
+                setShowLicensing={setShowLicensing}
+              />
+            )}
+          </>
+        ) : (
+          ""
+        )}
+
+        {showCheckoutStep1 ? (
+          <>
+            <MouseButton lable={buttonContent} />
 
             <div className={styles.buyTableWrapper}>
               <div className={styles.buyConfigurationWrapper}>

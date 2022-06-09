@@ -1,3 +1,17 @@
+.buyBackground {
+    background: var(--tertiary);
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 400;
+    -webkit-backdrop-filter: blur(40px);
+    backdrop-filter: blur(40px);
+    transition: opacity 0.3s ease-in;
+    animation: fadeIn 0.2s ease-in;
+}
+
 .buyWrapper {
     position: fixed;
     overflow-y: scroll;
@@ -5,11 +19,9 @@
     left: 0;
     height: 100vh;
     width: 100vw;
-    background: var(--tertiary);
     z-index: 400;
-    backdrop-filter: blur(40px);
-    animation: fadeIn 0.2s ease;
-    transition: opacity 0.5s ease;
+    animation: fadeIn 0.7s linear;
+    transition: opacity 0.2s ease-in;
     padding: var(--margin-M);
     letter-spacing: var(--pgSmallLetterSpacing);
     font-size: var(--pgSmallSize);
@@ -63,9 +75,8 @@
 }
 
 .buyTable {
-    padding-left: 50vw;
+    margin-left: 50vw;
     transition: opacity 0.1s linear;
-    overflow-y: scroll;
 }
 
 .overviewTable {
@@ -100,13 +111,13 @@
 }
 
 .buyTableContent {
-    padding-top: 105px;
+    margin-top: 105px;
     cursor: default;
-    /* overflow: scroll; */
+    overflow: hidden;
 }
 
 .buyHead {
-    position: fixed;
+    position: absolute;
     top: var(--margin-M);
 }
 
