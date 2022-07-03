@@ -238,7 +238,7 @@ const Typefaces = ({
                   "Stadelĳk CENTRAAL’s Color",
                 ]}
                 configuration={{
-                  letterSpacing: "-0.9vw",}
+                  letterSpacing: "-0.9vw"}
                 }
               />
             </div>
