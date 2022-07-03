@@ -81,6 +81,7 @@ const TypefacePreview = (props) => {
 
         {props.weights.map((item) => (
         <span
+          key={item[1]}
           className="typefaceControlButton"
           onMouseEnter={() => setWdth([item[1], item[2]])}
         >

@@ -211,34 +211,7 @@ const Typefaces = ({
                 configuration={{
                   letterSpacing: "-0.7vw",}
                 }
-              />
-            </div>
-          </Link>
-
-          <Link href="/typefaces/giallo-roman" scroll={false}>
-            <div ref={protestMonoRef}>
-              <TypefacePreview
-                fontFamily="Giallo"
-                lable="Giallo Roman"
-                weights={[
-                  ["Light / ", 100, 0],
-                  ["Regular / ", 200, 0],
-                  ["Book / ", 300, 0],
-                  ["Medium / ", 400, 0],
-                  ["Bold / ", 500, 0],
-                  ["Extra Bold / ", 600, 0],
-                  ["Black / ", 700, 0],
-                ]}
-                content={[
-                  "Graph Tak* (Around 7°Kelvin) ",
-                  "Compiled Successful in 178 ms ",
-                  "[950 hp Modules] Sopra",
-                  "Filament ↗ Function (Focus)",
-                  "Stadelĳk CENTRAAL’s Color",
-                ]}
-                configuration={{
-                  letterSpacing: "0",}
-                }
+                key={001}
               />
             </div>
           </Link>
@@ -268,6 +241,36 @@ const Typefaces = ({
                 configuration={{
                   letterSpacing: "-0.9vw",}
                 }
+                key={002}
+              />
+            </div>
+          </Link>
+
+          <Link href="/typefaces/giallo-roman" scroll={false}>
+            <div ref={protestMonoRef}>
+              <TypefacePreview
+                fontFamily="Giallo"
+                lable="Giallo Roman"
+                weights={[
+                  ["Light / ", 100, 0],
+                  ["Regular / ", 200, 0],
+                  ["Book / ", 300, 0],
+                  ["Medium / ", 400, 0],
+                  ["Bold / ", 500, 0],
+                  ["Extra Bold / ", 600, 0],
+                  ["Black / ", 700, 0],
+                ]}
+                content={[
+                  "Graph Tak* (Around 7°Kelvin) ",
+                  "Compiled Successful in 178 ms ",
+                  "[950 hp Modules] Sopra",
+                  "Filament ↗ Function (Focus)",
+                  "Stadelĳk CENTRAAL’s Color",
+                ]}
+                configuration={{
+                  letterSpacing: "0",}
+                }
+                key={003}
               />
             </div>
           </Link>
