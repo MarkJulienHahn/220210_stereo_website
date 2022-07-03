@@ -211,7 +211,6 @@ const Typefaces = ({
                 configuration={{
                   letterSpacing: "-0.7vw",}
                 }
-                key={001}
               />
             </div>
           </Link>
@@ -241,7 +240,6 @@ const Typefaces = ({
                 configuration={{
                   letterSpacing: "-0.9vw",}
                 }
-                key={002}
               />
             </div>
           </Link>
@@ -270,7 +268,6 @@ const Typefaces = ({
                 configuration={{
                   letterSpacing: "0",}
                 }
-                key={003}
               />
             </div>
           </Link>
