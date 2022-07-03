@@ -42,7 +42,7 @@ function Glyphchart(props) {
               <Slider
                 className="glyphchartSlider"
                 min={40}
-                max={150}
+                max={250}
                 step={0.1}
                 defaultValue={100}
                 onChange={changeWght}

@@ -20,7 +20,7 @@ const Variable = (props) => {
   useEffect(() => {
     setRefPosition(testRef.current.offsetTop);
     let vfVar = Math.floor((refPosition - scrollPosition) * -0.1);
-    vfVar >= 40 && vfVar <= 150 ? setVfWeightValue(vfVar) : "";
+    vfVar >= 40 && vfVar <= 250 ? setVfWeightValue(vfVar) : "";
     vfVar >= 0 && vfVar <= 100 ? setVfItalValue(vfVar) : "";
   });
 

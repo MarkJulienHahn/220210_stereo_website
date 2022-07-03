@@ -1,4 +1,7 @@
 import { Client } from "@sendgrid/client";
+import pdfMake from "pdfmake/build/pdfmake";
+import pdfFonts from "pdfmake/build/vfs_fonts";
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 const sgMail = require("@sendgrid/mail");
 
 sgMail.setClient(new Client());
@@ -23,6 +26,15 @@ export default async function handler(req, res) {
     Invoice-Number: ${body.id}
   `;
 
+  // const docDefinition = { content: 'This is an sample PDF printed with pdfMake' };
+
+  // const pdfDocGenerator = pdfMake.createPdf(docDefinition);
+  // const pdfAttachment = pdfDocGenerator.getBase64((pdf) => {
+  //   console.log(pdf)
+  // });
+
+  
+
   const data = {
     to: body.email,
     from: {
@@ -33,7 +45,7 @@ export default async function handler(req, res) {
     text: message,
     html: "<p>Hello HTML world!</p>",
     template_id: "d-481ad35bffc74473a0ce7d72772a16b7",
-    dynamic_template_data: { 
+    dynamic_template_data: {
       firstName: body.firstName,
       lastName: body.lastName,
       adress: body.adress,
@@ -45,11 +57,23 @@ export default async function handler(req, res) {
       tax: body.tax,
       link: body.link,
       id: body.id,
-      licensing: body.licensing
-    }
+      licensing: body.licensing,
+    },
+    // attachments: [
+    //   {
+    //     content: pdfAttachment,
+    //     filename: 'some-attachment.txt',
+    //     type: 'plain/text',
+    //     disposition: 'attachment',
+    //     content_id: 'mytext'
+    //   },
+    // ],
   };
 
+
+
   console.log(data);
+  // console.log(data, pdfAttachment);
 
   return sgMail
     .send(data)

@@ -3,16 +3,14 @@ import styles from "../styles/Waterfall.module.css";
 import { Slider } from "@material-ui/core";
 
 const WaterfallProtest = () => {
-  const [wdth, setWdth] = useState(Math.random()*150);
+  const [wdth, setWdth] = useState(Math.random() * 250);
 
   const changeWdth = (e, val) => {
     setWdth(val);
   };
 
-  console.log(wdth);
-
   const fontWeightStyle = {
-    fontVariationSettings: `'wght' ${wdth}, 'wdth' 50`,
+    fontVariationSettings: `'wght' ${wdth}, 'wdth' 50`
   };
 
   const marks = [
@@ -21,28 +19,32 @@ const WaterfallProtest = () => {
       label: "Thin",
     },
     {
-      value: 60,
+      value: 70,
       label: "Light",
     },
     {
-      value: 80,
+      value: 100,
       label: "Regular",
     },
     {
-      value: 100,
-      label: "Book",
-    },
-    {
-      value: 116.6,
+      value: 130,
       label: "Medium",
     },
     {
-      value: 133.3,
+      value: 160,
       label: "Semibold",
     },
     {
-      value: 150,
+      value: 190,
       label: "Bold",
+    },
+    {
+      value: 220,
+      label: "Heavy",
+    },
+    {
+      value: 250,
+      label: "Black",
     },
   ];
 
@@ -52,7 +54,7 @@ const WaterfallProtest = () => {
         <Slider
           className={styles.slider}
           min={40}
-          max={150}
+          max={250}
           step={0.1}
           defaultValue={wdth}
           onChange={changeWdth}

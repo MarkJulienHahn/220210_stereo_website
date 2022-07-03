@@ -4,9 +4,9 @@
   justify-content: space-between;
   flex-direction: column;
   font-family: "Giallo-Mono";
-  font-size: 12.5px;
-  line-height: 16px;
-  letter-spacing: 1px;
+  font-size: var(--gialoSmallSize);
+  line-height: var(--gialloSmallLineHeight);
+  letter-spacing: var(--gialloSmallLetterSpacing); 
 }
 
 .footerInfo{
@@ -95,9 +95,9 @@
   font-family: "Giallo-Mono";
   color: black;
   opacity: 1;
-  font-size: 12.5px;
-  line-height: 16px;
-  letter-spacing: 1px;
+  font-size: var(--gialoSmallSize);
+  line-height: var(--gialloSmallLineHeight);
+  letter-spacing: var(--gialloSmallLetterSpacing); 
 }
 
 .input input::selection {

@@ -6,8 +6,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { motion, AnimatePresence } from "framer-motion";
 
-import ProtestTypeface from "../components/ProtestTypeface";
-import GialloTypeface from "../components/GialloTypeface";
+import TypefacePreview from "../components/TypefacePreview";
 import Footer from "../components/Footer";
 import Button from "../components/Button";
 import Cartbutton from "../components/Cartbutton";
@@ -178,61 +177,100 @@ const Typefaces = ({
           exit={{ y: -300, opacity: 0 }}
           transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
         >
-          <div ref={protestRef}>
-            <ProtestTypeface
-              fontFamily="Protest"
-              lable="Protest Grotesk"
-              content={[
-                "[ Tone ] Balance* MONO 102KHz 230MHz Kanal ",
-                'Model №507 (Source) AC475 ⇆Emergency',
-                '↱Pagina LP1 EN 49:2001+A⁷⁴ ¶Mail {Narrow} REAL',
-                'Ŋeo: Wilson () { 475‰"FLARED" ↗nexus Inserg',
-                "Inspired by Ⅷ {Abloh’s} Original ⑨Meteor Shower ",
-              ]}
-            />
-          </div>
 
-          <div ref={gialloRef}>
-            <GialloTypeface
-              fontFamily="Giallo"
-              lable="Giallo Roman"
-              content={[
-                "[ Tone ] Balance* MONO 102KHz 230MHz Kanal ",
-                'Model №507 (Source) AC475 ⇆Emergency',
-                '↱Pagina LP1 EN 49:2001+A⁷⁴ ¶Mail {Narrow} REAL',
-                'Ŋeo: Wilson () { 475‰"FLARED" ↗nexus Inserg',
-                "Inspired by Ⅷ {Abloh’s} Original ⑨Meteor Shower ",
-              ]}
-            />
-          </div>
+          <Link href="/typefaces/protest-grotesk-text" scroll={false}>
+            <div ref={protestRef}>
+              <TypefacePreview
+                fontFamily="Protest"
+                lable="Protest Grotesk"
+                weights={[
+                  ["Thin ", 40, 0],
+                  ["Italic / ", 40, 100],
+                  ["Light ", 70, 0],
+                  ["Italic / ", 70, 100],
+                  ["Regular ", 100, 0],
+                  ["Italic / ", 100, 100],
+                  ["Book ", 130, 0],
+                  ["Italic / ", 130, 100],
+                  ["Medium ", 160, 0],
+                  ["Italic / ", 160, 100],
+                  ["Bold ", 190, 0],
+                  ["Italic / ", 190, 100],
+                  ["Heavy ", 220, 0],
+                  ["Italic / ", 220, 100],
+                  ["Black ", 250, 0],
+                  ["Italic / ", 250, 100],
+                ]}
+                content={[
+                  "[ Tone ] Balance* MONO 102KHz 230MHz Kanal ",
+                  "Model №507 (Source) AC475 ⇆Emergency",
+                  "↱Pagina LP1 EN 49:2001+A⁷⁴ ¶Mail {Narrow} REAL",
+                  'Ŋeo: Wilson () { 475‰"FLARED" ↗nexus Inserg',
+                  "Inspired by Ⅷ {Abloh’s} Original ⑨Meteor Shower ",
+                ]}
+                configuration={{
+                  letterSpacing: "-0.7vw",}
+                }
+              />
+            </div>
+          </Link>
 
-          <div ref={protestMonoRef}>
-            <ProtestTypeface
-              fontFamily="Protest"
-              lable="Protest Grotesk"
-              content={[
-                "[ Mono ] Terpene* UNII 68,9°F 12,23°C (about 7°K) ",
-                '<MyComponent somProp= "something" />',
-                "specializzandosi soprattutto",
-                "Ŋeo: function () {",
-                "Inspired by Virgil Abloh’s original “Swiss” and “Meteor Shower” ",
-              ]}
-            />
-          </div>
+          <Link href="/typefaces/giallo-roman" scroll={false}>
+            <div ref={protestMonoRef}>
+              <TypefacePreview
+                fontFamily="Giallo"
+                lable="Giallo Roman"
+                weights={[
+                  ["Light / ", 100, 0],
+                  ["Regular / ", 200, 0],
+                  ["Book / ", 300, 0],
+                  ["Medium / ", 400, 0],
+                  ["Bold / ", 500, 0],
+                  ["Extra Bold / ", 600, 0],
+                  ["Black / ", 700, 0],
+                ]}
+                content={[
+                  "Graph Tak* (Around 7°Kelvin) ",
+                  "Compiled Successful in 178 ms ",
+                  "[950 hp Modules] Sopra",
+                  "Filament ↗ Function (Focus)",
+                  "Stadelĳk CENTRAAL’s Color",
+                ]}
+                configuration={{
+                  letterSpacing: "0",}
+                }
+              />
+            </div>
+          </Link>
 
-          <div ref={gialloMonoRef}>
-            <ProtestTypeface
-              fontFamily="Giallo"
-              lable="Giallo Roman"
-              content={[
-                "[ Mono ] Terpene* UNII 68,9°F 12,23°C (about 7°K) ",
-                '<MyComponent somProp= "something" />',
-                'var myArray = ["something"]',
-                "getDefaultProps: function () {",
-                "Inspired by Virgil Abloh’s original “Swiss” and “Meteor Shower” ",
-              ]}
-            />
-          </div>
+          <Link href="/typefaces/protest-grotesk-mono" scroll={false}>
+            <div ref={protestMonoRef}>
+              <TypefacePreview
+                fontFamily="ProtestMono"
+                lable="Protest Mono"
+                weights={[
+                  ["Thin / ", 40, 0],
+                  ["Light / ", 70, 0],
+                  ["Regular / ", 100, 0],
+                  ["Book / ", 130, 0],
+                  ["Medium / ", 160, 0],
+                  ["Bold / ", 190, 0],
+                  ["Heavy / ", 220, 0],
+                  ["Black ", 250, 0],
+                ]}
+                content={[
+                  "Graph Tak* (Around 7°Kelvin) ",
+                  "Compiled Successful in 178 ms ",
+                  "[950 hp Modules] Sopra",
+                  "Filament ↗ Function (Focus)",
+                  "Stadelĳk CENTRAAL’s Color",
+                ]}
+                configuration={{
+                  letterSpacing: "-0.9vw",}
+                }
+              />
+            </div>
+          </Link>
 
           <Footer />
         </motion.div>

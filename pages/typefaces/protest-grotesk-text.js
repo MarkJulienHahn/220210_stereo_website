@@ -124,90 +124,109 @@ const ProtestGroteskText = ({
           </div>
 
           <main className="typeface-single-inner">
-            <p>&#8594; FONT-WEIGHT OVERVIEW</p>
-            <p>
-              Protest Grotesk is available in 7 Weights, including the according
-              Italic figures
-            </p>
+            <div className="typefaceInfosection">
+              <h1>
+                <span className="highlight01">&#8594; 16 Weights</span> —
+                Variable for all Purposes
+              </h1>
+              <p>
+                When the very first sans-serif Typefaces were introduced in the
+                Mid 1880s they were regarded as{" "}
+                <span className="highlight01">ugly</span>{" "}
+                <span className="highlight02">
+                  and an insult for the renewed graphic designer.
+                </span>
+              </p>
+            </div>
 
             <div className="typeface-single-opener">
               <div className="fontOpener">
-                <div style={{ fontVariationSettings: "'wght' 150, 'wdth' 50" }}>
+                <div style={{ fontVariationSettings: "'wght' 250, 'wdth' 50" }}>
                   Protest Grotesk Black
                 </div>
                 <div
                   style={{
-                    fontVariationSettings: "'wght' 150, 'wdth' 50, 'ital' 100",
+                    fontVariationSettings: "'wght' 250, 'wdth' 50, 'ital' 100",
                   }}
                 >
                   Protest Grotesk Black Italic
                 </div>
+                <div style={{ fontVariationSettings: "'wght' 220, 'wdth' 50" }}>
+                  Protest Grotesk Heavy
+                </div>
                 <div
                   style={{
-                    fontVariationSettings: "'wght' 133, 'wdth' 50, 'ital'  00",
+                    fontVariationSettings: "'wght' 220, 'wdth' 50, 'ital' 100",
+                  }}
+                >
+                  Protest Grotesk Heavy Italic
+                </div>
+                <div
+                  style={{
+                    fontVariationSettings: "'wght' 190, 'wdth' 50, 'ital'  00",
                   }}
                 >
                   Protest Grotesk Bold
                 </div>
                 <div
                   style={{
-                    fontVariationSettings: "'wght' 133, 'wdth' 50, 'ital' 100",
+                    fontVariationSettings: "'wght' 190, 'wdth' 50, 'ital' 100",
                   }}
                 >
                   Protest Grotesk Bold Italic
                 </div>
                 <div
                   style={{
-                    fontVariationSettings: "'wght' 116, 'wdth' 50, 'ital'  00",
+                    fontVariationSettings: "'wght' 160, 'wdth' 50, 'ital'  00",
+                  }}
+                >
+                  Protest Grotesk Semibold
+                </div>
+                <div
+                  style={{
+                    fontVariationSettings: "'wght' 160, 'wdth' 50, 'ital' 100",
+                  }}
+                >
+                  Protest Grotesk Semibold Italic
+                </div>
+                <div
+                  style={{
+                    fontVariationSettings: "'wght' 130, 'wdth' 50, 'ital'  00",
                   }}
                 >
                   Protest Grotesk Medium
                 </div>
                 <div
                   style={{
-                    fontVariationSettings: "'wght' 116, 'wdth' 50, 'ital' 100",
+                    fontVariationSettings: "'wght' 130, 'wdth' 50, 'ital' 100",
                   }}
                 >
                   Protest Grotesk Medium Italic
                 </div>
                 <div
                   style={{
-                    fontVariationSettings: "'wght' 100, 'wdth' 50, 'ital'  00",
-                  }}
-                >
-                  Protest Grotesk Book
-                </div>
-                <div
-                  style={{
-                    fontVariationSettings: "'wght' 100, 'wdth' 50, 'ital' 100",
-                  }}
-                >
-                  Protest Grotesk Book Italic
-                </div>
-                <div
-                  style={{
-                    fontVariationSettings: "'wght'  80, 'wdth' 50, 'ital'  00",
+                    fontVariationSettings: "'wght'  100, 'wdth' 50, 'ital'  00",
                   }}
                 >
                   Protest Grotesk Regular
                 </div>
                 <div
                   style={{
-                    fontVariationSettings: "'wght'  80, 'wdth' 50, 'ital' 100",
+                    fontVariationSettings: "'wght'  100, 'wdth' 50, 'ital' 100",
                   }}
                 >
                   Protest Grotesk Regular Italic
                 </div>
                 <div
                   style={{
-                    fontVariationSettings: "'wght'  60, 'wdth' 50, 'ital'  00",
+                    fontVariationSettings: "'wght'  70, 'wdth' 50, 'ital'  00",
                   }}
                 >
                   Protest Grotesk Light
                 </div>
                 <div
                   style={{
-                    fontVariationSettings: "'wght'  60, 'wdth' 50, 'ital' 100",
+                    fontVariationSettings: "'wght'  70, 'wdth' 50, 'ital' 100",
                   }}
                 >
                   Protest Grotesk Light Italic
@@ -229,37 +248,61 @@ const ProtestGroteskText = ({
               </div>
             </div>
 
-            <p>&#8594; INFORMATION</p>
-            <p>
-              When the very first sans-serif Typefaces were introduced in the
-              Mid 1880s they were regarded as ugly and an insult for the renewed
-              graphic designer. The term »Grotesk« was meant to disqualify the
-              typefaces. These typefaces were controversial, highly misregarded
-              and bad reputed. They were seen as a protest against all
-              ornamental and historically coloured typefaces. They were an
-              uprising against conservative values. Protest Grotesk pays homage
-              to these Typefaces. Nowadays quality can not only stem from formal
-              design-descisions. A typeface has to rely on a strong technical
-              foundation, in order to deliver an advantage to modern-day type
-              users. Protest Grotesk is placed right into thes field of tension.
-            </p>
+            <div className="typefaceInfosection">
+              <h1>&#8594; Reworked, Refined, Reborn.</h1>
+              <p>
+                When the very first sans-serif Typefaces were introduced in the
+                Mid 1880s they were regarded as{" "}
+                <span className="highlight02">
+                  ugly and an insult for the renewed graphic designer.
+                </span>{" "}
+                The term »Grotesk« was meant to disqualify the typefaces. These
+                typefaces were{" "}
+                <span className="highlight01">
+                  controversial, highly misregarded and bad reputed.
+                </span>{" "}
+                They were seen as a{" "}
+                <span className="highlight02">
+                  protest against all ornamental and historically coloured
+                  typefaces.
+                </span>{" "}
+                They were an uprising against conservative values. Protest
+                Grotesk pays homage to these Typefaces. Nowadays quality can not
+                only stem from formal design-descisions. A typeface has to rely
+                on a strong technical foundation, in order to deliver an
+                advantage to modern-day type users. Protest Grotesk is placed
+                right into thes field of tension.
+              </p>
+            </div>
 
             <WaterfallProtest />
 
-            <p>&#8594; INFORMATION</p>
-            <p>
-              When the very first sans-serif Typefaces were introduced in the
-              Mid 1880s they were regarded as ugly and an insult for the renewed
-              graphic designer. The term »Grotesk« was meant to disqualify the
-              typefaces. These typefaces were controversial, highly misregarded
-              and bad reputed. They were seen as a protest against all
-              ornamental and historically coloured typefaces. They were an
-              uprising against conservative values. Protest Grotesk pays homage
-              to these Typefaces. Nowadays quality can not only stem from formal
-              design-descisions. A typeface has to rely on a strong technical
-              foundation, in order to deliver an advantage to modern-day type
-              users. Protest Grotesk is placed right into thes field of tension.
-            </p>
+            <div className="typefaceInfosection">
+              <h1>&#8594; Reworked, Refined, Reborn.</h1>
+              <p>
+                When the very first sans-serif Typefaces were introduced in the
+                Mid 1880s they were regarded as{" "}
+                <span className="highlight02">
+                  ugly and an insult for the renewed graphic designer.
+                </span>{" "}
+                The term »Grotesk« was meant to disqualify the typefaces. These
+                typefaces were{" "}
+                <span className="highlight01">
+                  controversial, highly misregarded and bad reputed.
+                </span>{" "}
+                They were seen as a{" "}
+                <span className="highlight02">
+                  protest against all ornamental and historically coloured
+                  typefaces.
+                </span>{" "}
+                They were an uprising against conservative values. Protest
+                Grotesk pays homage to these Typefaces. Nowadays quality can not
+                only stem from formal design-descisions. A typeface has to rely
+                on a strong technical foundation, in order to deliver an
+                advantage to modern-day type users. Protest Grotesk is placed
+                right into thes field of tension.
+              </p>
+            </div>
 
             <div className="typeface-single-tester-wrap">
               <Typetester
@@ -267,120 +310,590 @@ const ProtestGroteskText = ({
                 ital={0}
                 name={"Protest Grotesk Thin"}
                 fontFamily="Protest"
+                sample="These bitches want Nikes
+                They looking for a check
+                Tell 'em it ain't likely 
+                Said she need a ring like Carmelo 
+                Must be on that white like Othello 
+                All you want is Nikes
+                But the real ones just like you
+                Just like me
+                I don't play, I don't make time
+                But if you need dick I got you and I yam from the line
+                Pour up for A$AP
+                RIP Pimp C
+                RIP Trayvon, that nigga look just like me
+                Woo, fuckin' buzzin', woo!
+                That my lil cousin, he got a lil trade
+                His girl keep the scales, a lil mermaid
+                We out by the pool, some lil mermaids
+                Me and them gel
+                Like twigs with them bangs
+                Now that's a real mermaid
+                You been holding your breath
+                Weighted down
+                Punk madre, punk papa
+                He don't care for me
+                But he cares for me
+                And that's good enough
+                We don't talk much or nothin'
+                But when we talkin' about somethin'
+                We have good discussion
+                I met his friends last week, feels like they're up to somethin'
+                That's good for us"
               />
               <Typetester
                 wght={40}
                 ital={100}
                 name={"Protest Grotesk Thin Italic"}
                 fontFamily="Protest"
+                sample="tches want Nikes
+                They looking for a check
+                Tell 'em it ain't likely 
+                Said she need a ring like Carmelo 
+                Must be on that white like Othello 
+                All you want is Nikes
+                But the real ones just like you
+                Just like me
+                I don't play, I don't make time
+                But if you need dick I got you and I yam from the line
+                Pour up for A$AP
+                RIP Pimp C
+                RIP Trayvon, that nigga look just like me
+                Woo, fuckin' buzzin', woo!
+                That my lil cousin, he got a lil trade
+                His girl keep the scales, a lil mermaid
+                We out by the pool, some lil mermaids
+                Me and them gel
+                Like twigs with them bangs
+                Now that's a real mermaid
+                You been holding your breath
+                Weighted down
+                Punk madre, punk papa
+                He don't care for me
+                But he cares for me
+                And that's good enough
+                We don't talk much or nothin'
+                But when we talkin' about somethin'
+                We have good discussion
+                I met his friends last week, feels like they're up to somethin'
+                That's good for us"
               />
               <Typetester
-                wght={60}
+                wght={70}
                 ital={0}
                 name={"Protest Grotesk Light"}
                 fontFamily="Protest"
+                sample="nt Nikes
+                They looking for a check
+                Tell 'em it ain't likely 
+                Said she need a ring like Carmelo 
+                Must be on that white like Othello 
+                All you want is Nikes
+                But the real ones just like you
+                Just like me
+                I don't play, I don't make time
+                But if you need dick I got you and I yam from the line
+                Pour up for A$AP
+                RIP Pimp C
+                RIP Trayvon, that nigga look just like me
+                Woo, fuckin' buzzin', woo!
+                That my lil cousin, he got a lil trade
+                His girl keep the scales, a lil mermaid
+                We out by the pool, some lil mermaids
+                Me and them gel
+                Like twigs with them bangs
+                Now that's a real mermaid
+                You been holding your breath
+                Weighted down
+                Punk madre, punk papa
+                He don't care for me
+                But he cares for me
+                And that's good enough
+                We don't talk much or nothin'
+                But when we talkin' about somethin'
+                We have good discussion
+                I met his friends last week, feels like they're up to somethin'
+                That's good for us"
               />
               <Typetester
-                wght={60}
+                wght={70}
                 ital={100}
                 name={"Protest Grotesk Light Italic"}
                 fontFamily="Protest"
+                sample="
+                They looking for a check
+                Tell 'em it ain't likely 
+                Said she need a ring like Carmelo 
+                Must be on that white like Othello 
+                All you want is Nikes
+                But the real ones just like you
+                Just like me
+                I don't play, I don't make time
+                But if you need dick I got you and I yam from the line
+                Pour up for A$AP
+                RIP Pimp C
+                RIP Trayvon, that nigga look just like me
+                Woo, fuckin' buzzin', woo!
+                That my lil cousin, he got a lil trade
+                His girl keep the scales, a lil mermaid
+                We out by the pool, some lil mermaids
+                Me and them gel
+                Like twigs with them bangs
+                Now that's a real mermaid
+                You been holding your breath
+                Weighted down
+                Punk madre, punk papa
+                He don't care for me
+                But he cares for me
+                And that's good enough
+                We don't talk much or nothin'
+                But when we talkin' about somethin'
+                We have good discussion
+                I met his friends last week, feels like they're up to somethin'
+                That's good for us"
               />
               <Typetester
-                wght={80}
+                wght={100}
                 ital={0}
                 name={"Protest Grotesk Regular"}
                 fontFamily="Protest"
+                sample="king for a check
+                Tell 'em it ain't likely 
+                Said she need a ring like Carmelo 
+                Must be on that white like Othello 
+                All you want is Nikes
+                But the real ones just like you
+                Just like me
+                I don't play, I don't make time
+                But if you need dick I got you and I yam from the line
+                Pour up for A$AP
+                RIP Pimp C
+                RIP Trayvon, that nigga look just like me
+                Woo, fuckin' buzzin', woo!
+                That my lil cousin, he got a lil trade
+                His girl keep the scales, a lil mermaid
+                We out by the pool, some lil mermaids
+                Me and them gel
+                Like twigs with them bangs
+                Now that's a real mermaid
+                You been holding your breath
+                Weighted down
+                Punk madre, punk papa
+                He don't care for me
+                But he cares for me
+                And that's good enough
+                We don't talk much or nothin'
+                But when we talkin' about somethin'
+                We have good discussion
+                I met his friends last week, feels like they're up to somethin'
+                That's good for us"
               />
               <Typetester
-                wght={80}
+                wght={100}
                 ital={100}
                 name={"Protest Grotesk Regular Italic"}
                 fontFamily="Protest"
+                sample="a check
+                Tell 'em it ain't likely 
+                Said she need a ring like Carmelo 
+                Must be on that white like Othello 
+                All you want is Nikes
+                But the real ones just like you
+                Just like me
+                I don't play, I don't make time
+                But if you need dick I got you and I yam from the line
+                Pour up for A$AP
+                RIP Pimp C
+                RIP Trayvon, that nigga look just like me
+                Woo, fuckin' buzzin', woo!
+                That my lil cousin, he got a lil trade
+                His girl keep the scales, a lil mermaid
+                We out by the pool, some lil mermaids
+                Me and them gel
+                Like twigs with them bangs
+                Now that's a real mermaid
+                You been holding your breath
+                Weighted down
+                Punk madre, punk papa
+                He don't care for me
+                But he cares for me
+                And that's good enough
+                We don't talk much or nothin'
+                But when we talkin' about somethin'
+                We have good discussion
+                I met his friends last week, feels like they're up to somethin'
+                That's good for us"
               />
+              ≈
               <Typetester
-                wght={100}
-                ital={0}
-                name={"Protest Grotesk Book"}
-                fontFamily="Protest"
-              />
-              <Typetester
-                wght={100}
-                ital={100}
-                name={"Protest Grotesk Book Italic"}
-                fontFamily="Protest"
-              />
-              <Typetester
-                wght={116}
+                wght={130}
                 ital={0}
                 name={"Protest Grotesk Medium"}
                 fontFamily="Protest"
+                sample="Tell 'em it ain't likely 
+                Said she need a ring like Carmelo 
+                Must be on that white like Othello 
+                All you want is Nikes
+                But the real ones just like you
+                Just like me
+                I don't play, I don't make time
+                But if you need dick I got you and I yam from the line
+                Pour up for A$AP
+                RIP Pimp C
+                RIP Trayvon, that nigga look just like me
+                Woo, fuckin' buzzin', woo!
+                That my lil cousin, he got a lil trade
+                His girl keep the scales, a lil mermaid
+                We out by the pool, some lil mermaids
+                Me and them gel
+                Like twigs with them bangs
+                Now that's a real mermaid
+                You been holding your breath
+                Weighted down
+                Punk madre, punk papa
+                He don't care for me
+                But he cares for me
+                And that's good enough
+                We don't talk much or nothin'
+                But when we talkin' about somethin'
+                We have good discussion
+                I met his friends last week, feels like they're up to somethin'
+                That's good for us"
               />
               <Typetester
-                wght={116}
+                wght={130}
                 ital={100}
                 name={"Protest Grotesk Medium Italic"}
                 fontFamily="Protest"
+                sample="t ain't likely 
+                Said she need a ring like Carmelo 
+                Must be on that white like Othello 
+                All you want is Nikes
+                But the real ones just like you
+                Just like me
+                I don't play, I don't make time
+                But if you need dick I got you and I yam from the line
+                Pour up for A$AP
+                RIP Pimp C
+                RIP Trayvon, that nigga look just like me
+                Woo, fuckin' buzzin', woo!
+                That my lil cousin, he got a lil trade
+                His girl keep the scales, a lil mermaid
+                We out by the pool, some lil mermaids
+                Me and them gel
+                Like twigs with them bangs
+                Now that's a real mermaid
+                You been holding your breath
+                Weighted down
+                Punk madre, punk papa
+                He don't care for me
+                But he cares for me
+                And that's good enough
+                We don't talk much or nothin'
+                But when we talkin' about somethin'
+                We have good discussion
+                I met his friends last week, feels like they're up to somethin'
+                That's good for us"
               />
               <Typetester
-                wght={133}
+                wght={160}
+                ital={0}
+                name={"Protest Grotesk Semibold"}
+                fontFamily="Protest"
+                sample="ely 
+                Said she need a ring like Carmelo 
+                Must be on that white like Othello 
+                All you want is Nikes
+                But the real ones just like you
+                Just like me
+                I don't play, I don't make time
+                But if you need dick I got you and I yam from the line
+                Pour up for A$AP
+                RIP Pimp C
+                RIP Trayvon, that nigga look just like me
+                Woo, fuckin' buzzin', woo!
+                That my lil cousin, he got a lil trade
+                His girl keep the scales, a lil mermaid
+                We out by the pool, some lil mermaids
+                Me and them gel
+                Like twigs with them bangs
+                Now that's a real mermaid
+                You been holding your breath
+                Weighted down
+                Punk madre, punk papa
+                He don't care for me
+                But he cares for me
+                And that's good enough
+                We don't talk much or nothin'
+                But when we talkin' about somethin'
+                We have good discussion
+                I met his friends last week, feels like they're up to somethin'
+                That's good for us"
+              />
+              <Typetester
+                wght={160}
+                ital={100}
+                name={"Protest Grotesk Semibold Italic"}
+                fontFamily="Protest"
+                sample="she need a ring like Carmelo 
+                Must be on that white like Othello 
+                All you want is Nikes
+                But the real ones just like you
+                Just like me
+                I don't play, I don't make time
+                But if you need dick I got you and I yam from the line
+                Pour up for A$AP
+                RIP Pimp C
+                RIP Trayvon, that nigga look just like me
+                Woo, fuckin' buzzin', woo!
+                That my lil cousin, he got a lil trade
+                His girl keep the scales, a lil mermaid
+                We out by the pool, some lil mermaids
+                Me and them gel
+                Like twigs with them bangs
+                Now that's a real mermaid
+                You been holding your breath
+                Weighted down
+                Punk madre, punk papa
+                He don't care for me
+                But he cares for me
+                And that's good enough
+                We don't talk much or nothin'
+                But when we talkin' about somethin'
+                We have good discussion
+                I met his friends last week, feels like they're up to somethin'
+                That's good for us"
+              />
+              <Typetester
+                wght={190}
                 ital={0}
                 name={"Protest Grotesk Bold"}
                 fontFamily="Protest"
+                sample="d a ring like Carmelo 
+                Must be on that white like Othello 
+                All you want is Nikes
+                But the real ones just like you
+                Just like me
+                I don't play, I don't make time
+                But if you need dick I got you and I yam from the line
+                Pour up for A$AP
+                RIP Pimp C
+                RIP Trayvon, that nigga look just like me
+                Woo, fuckin' buzzin', woo!
+                That my lil cousin, he got a lil trade
+                His girl keep the scales, a lil mermaid
+                We out by the pool, some lil mermaids
+                Me and them gel
+                Like twigs with them bangs
+                Now that's a real mermaid
+                You been holding your breath
+                Weighted down
+                Punk madre, punk papa
+                He don't care for me
+                But he cares for me
+                And that's good enough
+                We don't talk much or nothin'
+                But when we talkin' about somethin'
+                We have good discussion
+                I met his friends last week, feels like they're up to somethin'
+                That's good for us"
               />
               <Typetester
-                wght={133}
+                wght={190}
                 ital={100}
                 name={"Protest Grotesk Bold Italic"}
                 fontFamily="Protest"
+                sample="ike Carmelo 
+                Must be on that white like Othello 
+                All you want is Nikes
+                But the real ones just like you
+                Just like me
+                I don't play, I don't make time
+                But if you need dick I got you and I yam from the line
+                Pour up for A$AP
+                RIP Pimp C
+                RIP Trayvon, that nigga look just like me
+                Woo, fuckin' buzzin', woo!
+                That my lil cousin, he got a lil trade
+                His girl keep the scales, a lil mermaid
+                We out by the pool, some lil mermaids
+                Me and them gel
+                Like twigs with them bangs
+                Now that's a real mermaid
+                You been holding your breath
+                Weighted down
+                Punk madre, punk papa
+                He don't care for me
+                But he cares for me
+                And that's good enough
+                We don't talk much or nothin'
+                But when we talkin' about somethin'
+                We have good discussion
+                I met his friends last week, feels like they're up to somethin'
+                That's good for us"
               />
               <Typetester
-                wght={150}
+                wght={220}
+                ital={0}
+                name={"Protest Grotesk Heavy"}
+                fontFamily="Protest"
+                sample="melo 
+                Must be on that white like Othello 
+                All you want is Nikes
+                But the real ones just like you
+                Just like me
+                I don't play, I don't make time
+                But if you need dick I got you and I yam from the line
+                Pour up for A$AP
+                RIP Pimp C
+                RIP Trayvon, that nigga look just like me
+                Woo, fuckin' buzzin', woo!
+                That my lil cousin, he got a lil trade
+                His girl keep the scales, a lil mermaid
+                We out by the pool, some lil mermaids
+                Me and them gel
+                Like twigs with them bangs
+                Now that's a real mermaid
+                You been holding your breath
+                Weighted down
+                Punk madre, punk papa
+                He don't care for me
+                But he cares for me
+                And that's good enough
+                We don't talk much or nothin'
+                But when we talkin' about somethin'
+                We have good discussion
+                I met his friends last week, feels like they're up to somethin'
+                That's good for us"
+              />
+              <Typetester
+                wght={220}
+                ital={100}
+                name={"Protest Grotesk Heavy Italic"}
+                fontFamily="Protest"
+                sample="ust be on that white like Othello 
+                All you want is Nikes
+                But the real ones just like you
+                Just like me
+                I don't play, I don't make time
+                But if you need dick I got you and I yam from the line
+                Pour up for A$AP
+                RIP Pimp C
+                RIP Trayvon, that nigga look just like me
+                Woo, fuckin' buzzin', woo!
+                That my lil cousin, he got a lil trade
+                His girl keep the scales, a lil mermaid
+                We out by the pool, some lil mermaids
+                Me and them gel
+                Like twigs with them bangs
+                Now that's a real mermaid
+                You been holding your breath
+                Weighted down
+                Punk madre, punk papa
+                He don't care for me
+                But he cares for me
+                And that's good enough
+                We don't talk much or nothin'
+                But when we talkin' about somethin'
+                We have good discussion
+                I met his friends last week, feels like they're up to somethin'
+                That's good for us"
+              />
+              <Typetester
+                wght={250}
                 ital={0}
                 name={"Protest Grotesk Black"}
                 fontFamily="Protest"
+                sample="  n that white like Othello 
+                All you want is Nikes
+                But the real ones just like you
+                Just like me
+                I don't play, I don't make time
+                But if you need dick I got you and I yam from the line
+                Pour up for A$AP
+                RIP Pimp C
+                RIP Trayvon, that nigga look just like me
+                Woo, fuckin' buzzin', woo!
+                That my lil cousin, he got a lil trade
+                His girl keep the scales, a lil mermaid
+                We out by the pool, some lil mermaids
+                Me and them gel
+                Like twigs with them bangs
+                Now that's a real mermaid
+                You been holding your breath
+                Weighted down
+                Punk madre, punk papa
+                He don't care for me
+                But he cares for me
+                And that's good enough
+                We don't talk much or nothin'
+                But when we talkin' about somethin'
+                We have good discussion
+                I met his friends last week, feels like they're up to somethin'
+                That's good for us"
               />
               <Typetester
-                wght={150}
+                wght={250}
                 ital={100}
                 name={"Protest Grotesk Black Italic"}
                 fontFamily="Protest"
+                sample="white like Othello 
+                All you want is Nikes
+                But the real ones just like you
+                Just like me
+                I don't play, I don't make time
+                But if you need dick I got you and I yam from the line
+                Pour up for A$AP
+                RIP Pimp C
+                RIP Trayvon, that nigga look just like me
+                Woo, fuckin' buzzin', woo!
+                That my lil cousin, he got a lil trade
+                His girl keep the scales, a lil mermaid
+                We out by the pool, some lil mermaids
+                Me and them gel
+                Like twigs with them bangs
+                Now that's a real mermaid
+                You been holding your breath
+                Weighted down
+                Punk madre, punk papa
+                He don't care for me
+                But he cares for me
+                And that's good enough
+                We don't talk much or nothin'
+                But when we talkin' about somethin'
+                We have good discussion
+                I met his friends last week, feels like they're up to somethin'
+                That's good for us"
               />
             </div>
 
-            <p>&#8594; INFORMATION</p>
-            <p>
-              When the very first sans-serif Typefaces were introduced in the
-              Mid 1880s they were regarded as ugly and an insult for the renewed
-              graphic designer. The term »Grotesk« was meant to disqualify the
-              typefaces. These typefaces were controversial, highly misregarded
-              and bad reputed. They were seen as a protest against all
-              ornamental and historically coloured typefaces. They were an
-              uprising against conservative values. Protest Grotesk pays homage
-              to these Typefaces. Nowadays quality can not only stem from formal
-              design-descisions. A typeface has to rely on a strong technical
-              foundation, in order to deliver an advantage to modern-day type
-              users. Protest Grotesk is placed right into thes field of tension.
-            </p>
-
-            <Variable letters={"Kk"} />
-            <Variable letters={"sS"} />
-            <Variable letters={"Bb"} />
-
-            <p>&#8594; INFORMATION</p>
-            <p>
-              When the very first sans-serif Typefaces were introduced in the
-              Mid 1880s they were regarded as ugly and an insult for the renewed
-              graphic designer. The term »Grotesk« was meant to disqualify the
-              typefaces. These typefaces were controversial, highly misregarded
-              and bad reputed. They were seen as a protest against all
-              ornamental and historically coloured typefaces. They were an
-              uprising against conservative values. Protest Grotesk pays homage
-              to these Typefaces. Nowadays quality can not only stem from formal
-              design-descisions. A typeface has to rely on a strong technical
-              foundation, in order to deliver an advantage to modern-day type
-              users. Protest Grotesk is placed right into thes field of tension.
-            </p>
+            <div className="typefaceInfosection">
+              <h1>&#8594; Reworked, Refined, Reborn.</h1>
+              <p>
+                When the very first sans-serif Typefaces were introduced in the
+                Mid 1880s they were regarded as{" "}
+                <span className="highlight02">
+                  ugly and an insult for the renewed graphic designer.
+                </span>{" "}
+                The term »Grotesk« was meant to disqualify the typefaces. These
+                typefaces were{" "}
+                <span className="highlight01">
+                  controversial, highly misregarded and bad reputed.
+                </span>{" "}
+                They were seen as a{" "}
+                <span className="highlight02">
+                  protest against all ornamental and historically coloured
+                  typefaces.
+                </span>{" "}
+                They were an uprising against conservative values. Protest
+                Grotesk pays homage to these Typefaces. Nowadays quality can not
+                only stem from formal design-descisions. A typeface has to rely
+                on a strong technical foundation, in order to deliver an
+                advantage to modern-day type users. Protest Grotesk is placed
+                right into thes field of tension.
+              </p>
+            </div>
 
             <Glyphchart fontFamily="Protest" fontWeight={100} fontWidth={50} />
 

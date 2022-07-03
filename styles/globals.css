@@ -18,7 +18,15 @@ body {
 @font-face {
   font-family: "Protest";
   font-style: normal;
-  src: url(../public/fonts/ProtestGroteskGX.ttf) format("woff2");
+  src: url(../public/fonts/ProtestGrotesk.ttf) format("truetype"),
+    url(../public/fonts/ProtestGrotesk.woff) format("woff"),
+    url(../public/fonts/ProtestGrotesk.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "ProtestMono";
+  font-style: normal;
+  src: url(../public/fonts/ProtestGroteskMono.ttf) format("truetype");
 }
 
 @font-face {
@@ -48,7 +56,7 @@ body {
 /* VARIABLES */
 
 :root {
-  --margin-XL: 400px;
+  --margin-XL: 600px;
   --margin-L: 100px;
   --margin-M: 30px;
   --margin-S: 12px;
@@ -62,6 +70,10 @@ body {
   --pgSmallLineHeight: 15pt;
   --pgSmallLetterSpacing: 1.2px;
   --pgSmallVariable: "wght" 116, "wdth" 0;
+
+  --gialoSmallSize: 10.5pt;
+  --gialloSmallLineHeight: 16pt;
+  --gialloSmallLetterSpacing: 1.5px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -298,11 +310,26 @@ li {
   font-family: "Giallo";
 }
 
-.typeface-single-inner p {
+.typeface-single-inner p, .typefaceInfosection h1 {
   font-family: "Giallo-Mono";
-  font-size: 12.5px;
-  line-height: 16px;
-  letter-spacing: 1px;
+  font-size: var(--gialoSmallSize);
+  line-height: var(--gialloSmallLineHeight);
+  letter-spacing: var(--gialloSmallLetterSpacing); 
+  font-weight: normal;
+}
+
+.highlight01 {
+  background: var(--primary);
+  font-family: "Protest";
+  font-variation-settings: 'wght' 150;
+  letter-spacing: -0.1px;
+}
+
+.highlight02 {
+  background: var(--tertiary);
+  font-family: "Protest";
+  font-variation-settings: 'wght' 150;
+  letter-spacing: -0.1px; 
 }
 
 .typeface-single-header {
@@ -324,7 +351,7 @@ li {
 .fontOpener {
   font-family: "Protest";
   font-variation-settings: "wdth" 50, "wght" 40;
-  font-size: 6.8vw;
+  font-size: 6.6vw;
   line-height: 7vw;
   letter-spacing: -0.5vw;
 }
@@ -336,6 +363,18 @@ li {
   line-height: 7.5vw;
   letter-spacing: -0.3vw;
 }
+
+.fontOpenerProtestMono {
+  font-family: "ProtestMono";
+  font-variation-settings: "wdth" 50, "wght" 40;
+  font-size: 5.8vw;
+  line-height: 7.5vw;
+  letter-spacing: -0.3vw;
+}
+
+/* .typefaceInfosection {
+  padding: 0 10vw;
+} */
 
 .typefaceWrapper {
   position: relative;
@@ -358,7 +397,7 @@ li {
   font-variation-settings: var(--pgSmallVariable);
   position: sticky;
   top: 0;
-  background: rgba(255,255,255,0.8);
+  background: rgba(255, 255, 255, 0.8);
   padding-top: var(--margin-M);
   padding-bottom: 10px;
   z-index: 150;
@@ -459,7 +498,7 @@ li {
 }
 
 .variableLetters {
-  transform: translateY(-5vw);
+  transform: translateY(-24.48vw);
 }
 
 .baseline,
@@ -525,6 +564,7 @@ li {
 .typetesterWrapper {
   opacity: 0.7;
   transition: opacity 0.5s ease;
+  cursor: default;
 }
 
 .typetesterWrapper:hover {
@@ -544,7 +584,15 @@ li {
   word-spacing: -1px;
 }
 
-.sliderWrapper {
+.column01Wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50vw;
+}
+
+
+.column02Wrapper {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -563,6 +611,21 @@ li {
 .MuiSlider-thumb.Mui-focusVisible,
 .MuiSlider-thumb:hover {
   box-shadow: none !important;
+}
+
+.ssButtons {
+  position: absolute;
+  transform: translateY(30px);
+  display: flex;
+}
+
+.ssButtons span {
+  padding-left: 3px;
+}
+
+.ssButtons span div:hover {
+  background: var(--secondary) !important;
+  color: white !important;
 }
 
 /* F E A T U R E S */
@@ -588,11 +651,12 @@ li {
 .glyphchartDisplay {
   height: 100vh;
   position: sticky;
-  top: 10vh;
+  top: 0;
   width: 100%;
   font-size: 40vw;
   display: flex;
   justify-content: center;
+  align-items: flex-end;
   pointer-events: none;
 }
 

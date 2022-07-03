@@ -16,6 +16,8 @@
   transition: opacity 0.2s ease;
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
+  font-family: "Protest";
+  text-transform: uppercase;
 }
 
 .button:hover {
@@ -41,6 +43,8 @@
   pointer-events: none;
   white-space: nowrap;
   transform: translateX(10%);
+  font-family: "Protest";
+  text-transform: uppercase;
 }
 
 .infoButton {
