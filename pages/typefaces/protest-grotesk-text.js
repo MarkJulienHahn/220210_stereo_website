@@ -6,14 +6,12 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
-import headerimage from "../../public/images/image_06.gif";
-
+import HeaderAnimationProtest from "../../components/HeaderAnimationProtest"
 import Typetester from "../../components/Typetester";
 import Button from "../../components/Button";
 import Cartbutton from "../../components/Cartbutton";
 import WaterfallProtest from "../../components/WaterfallProtest";
-import Variable from "../../components/Variable";
-import Glyphchart from "../../components/Glyphchart";
+import GlyphchartProtestGrotesk from "../../components/GlyphchartProtestGrotesk";
 import Footer from "../../components/Footer";
 
 const Checkout = dynamic(() => import("../../components/Checkout/Checkout"));
@@ -120,7 +118,7 @@ const ProtestGroteskText = ({
           transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
         >
           <div className="typeface-single-header">
-            <Image src={headerimage} />
+            <HeaderAnimationProtest />
           </div>
 
           <main className="typeface-single-inner">
@@ -895,7 +893,7 @@ const ProtestGroteskText = ({
               </p>
             </div>
 
-            <Glyphchart fontFamily="Protest" fontWeight={100} fontWidth={50} />
+            <GlyphchartProtestGrotesk fontFamily="Protest" fontWeight={100} fontWidth={50} />
 
             {/* <div class="features-wrapper">
                         <Features 

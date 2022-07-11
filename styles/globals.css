@@ -333,7 +333,7 @@ li {
 }
 
 .typeface-single-header {
-  height: 200vh;
+  height: 100vh;
   min-height: 800px;
   background: black;
   overflow: hidden;
@@ -353,13 +353,13 @@ li {
   font-variation-settings: "wdth" 50, "wght" 40;
   font-size: 6.6vw;
   line-height: 7vw;
-  letter-spacing: -0.5vw;
+  letter-spacing: -0.3vw;
 }
 
 .fontOpenerGiallo {
   font-family: "Giallo";
   font-variation-settings: "wdth" 50, "wght" 40;
-  font-size: 7.8vw;
+  font-size: 7.2vw;
   line-height: 7.5vw;
   letter-spacing: -0.3vw;
 }
@@ -536,6 +536,10 @@ li {
   padding: var(--margin-XL) 0;
   width: calc(100%-60px);
   overflow: hidden;
+}
+
+.pgMono {
+  font-family: 'ProtestMono'
 }
 
 .typeface-single-tester {

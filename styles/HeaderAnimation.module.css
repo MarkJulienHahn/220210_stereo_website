@@ -1,0 +1,135 @@
+.headerAnimationWrapper {
+  height: 100%;
+  overflow: hidden;
+  background: black;
+}
+
+.headerAnimationWrapper .row {
+  display: flex;
+  justify-content: center;
+  animation: rowAnimation 30s linear infinite alternate-reverse;
+}
+
+.headerAnimationWrapper .row p {
+  color: white;
+  font-family: "Protest";
+  font-variation-settings: "";
+  /* letter-spacing: -3.5vw; */
+  animation: typoAnimation 10s ease infinite,
+    variableAnimation 2s ease infinite alternate;
+    font-size: 70vw;
+    line-height: 70vw;
+  letter-spacing: -5vw;
+  white-space: nowrap;
+}
+
+.headerAnimationWrapper .row2 {
+  display: flex;
+  justify-content: center;
+  animation: rowAnimation 30s linear infinite alternate;
+}
+
+.headerAnimationWrapper .row2 p {
+    color: white;
+  font-family: "Protest";
+  font-variation-settings: "";
+  /* letter-spacing: -3.5vw; */
+  animation: typoAnimation 10s ease infinite,
+    variableAnimation 2s ease infinite alternate-reverse;
+  font-size: 70vw;
+  line-height: 70vw;
+  letter-spacing: -5vw;
+  height: 100%;
+  white-space: nowrap;
+}
+
+@keyframes rowAnimation {
+  0% {
+    transform: translateX(-200%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes typoAnimation {
+  0% {
+    transform: scale(0.5);
+    line-height: 37vw;
+  }
+  20% {
+    transform: scale(0.5);
+    line-height: 37vw;
+  }
+  25% {
+    transform: scale(1);
+    line-height: 70vw;
+  }
+  45% {
+    transform: scale(1);
+    line-height: 70vw;
+  }
+  50% {
+    transform: scale(0.25);
+    line-height: 20vw;
+  }
+  70% {
+    transform: scale(0.25);
+    line-height: 20vw;
+  }
+  75% {
+    transform: scale(1);
+    line-height: 70vw;
+  }
+  95% {
+    transform: scale(1);
+    line-height: 70vw;
+  }
+  100% {
+    transform: scale(0.5);
+    line-height: 37vw;
+  }
+}
+
+@keyframes variableAnimation {
+  0% {
+    font-variation-settings: "wght" 40;
+    font-variation-settings: "ital" 100;
+  }
+  40% {
+    font-variation-settings: "ital" 0;
+    font-variation-settings: "wght" 40;
+  }
+  50% {
+    font-variation-settings: "ital" 100;
+    font-variation-settings: "wght" 250;
+  }
+  60% {
+    font-variation-settings: "ital" 0;
+    font-variation-settings: "wght" 250;
+  }
+  100% {
+
+    font-variation-settings: "wght" 150;
+  }
+}
+
+.PGMonoAnimationWrapper {
+    background: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.PGMonoLetter {
+    color: black;
+    width: 3vw;
+    font-size: 2vw;
+    transition: font-variation-settings 1s ease;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: default;
+}

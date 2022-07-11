@@ -1,0 +1,73 @@
+.waterfallWrapper {
+  margin: var(--margin-XL) 0;
+  width: 100%;
+  font-family: "Giallo";
+  font-variation-settings: "wdth" 50;
+  transition: font-variation-settings 0.2s ease-out;
+}
+
+.waterfallRow {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--margin-L) 0;
+  overflow-x: hidden;
+  width: calc(100vw - var(--margin-M));
+}
+
+.waterfallElement {
+  display: flex;
+  justify-content: space-between;
+  width: 48%;
+  margin-right: 10px;
+}
+
+.xxl {
+  font-size: 21.5vw;
+  line-height: 22vw;
+  letter-spacing: -0.3vw;
+}
+
+.xl {
+  font-size: 13.7vw;
+  line-height: 13.5vw;
+  letter-spacing: -0.5vw;
+  text-align: center;
+}
+
+.l {
+  font-size: 5.8vw;
+  line-height: 6.245vw;
+  letter-spacing: -0.2vw;
+  text-align: center;
+}
+
+.m {
+  font-size: 3vw;
+  line-height: 3.5vw;
+  letter-spacing: -0.09vw;
+}
+
+.s {
+  font-size: 1.5vw;
+  line-height: 1.95vw;
+  letter-spacing: -0.02vw;
+}
+
+.xs {
+  font-size: 1vw;
+  line-height: 1.35vw;
+  letter-spacing: -0vw;
+}
+
+.controls {
+  position: sticky;
+  top: 0;
+  height: 60px;
+  width: 100;
+  background: rgba(255, 255, 255, 0.8);
+  padding-top: var(--margin-M);
+  padding-bottom: 60px;
+  z-index: 150;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+}

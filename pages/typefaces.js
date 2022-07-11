@@ -231,11 +231,11 @@ const Typefaces = ({
                   ["Black ", 250, 0],
                 ]}
                 content={[
-                  "Graph Tak* (Around 7°Kelvin) ",
-                  "Compiled Successful in 178 ms ",
-                  "[950 hp Modules] Sopra",
-                  "Filament ↗ Function (Focus)",
-                  "Stadelĳk CENTRAAL’s Color",
+                  "Graph OP—1™ [around 7°Kelvin] ",
+                  "Compiled Successful in 178 ms² ",
+                  "[up to 2.4 GHz] Record  KeyBoard",
+                  "Filament ↲ Function 82 (Focus)",
+                  "Stadelĳk’s SpezSound Color ®",
                 ]}
                 configuration={{
                   letterSpacing: "-0.9vw"}
@@ -263,7 +263,7 @@ const Typefaces = ({
                   "Compiled Successful in 178 ms ",
                   "[950 hp Modules] Sopra",
                   "Filament ↗ Function (Focus)",
-                  "Stadelĳk CENTRAAL’s Color",
+                  "Stadelĳk’s CENTRAAL Color",
                 ]}
                 configuration={{
                   letterSpacing: "0",}

@@ -6,7 +6,7 @@ import MouseButton from "./MouseButton";
 import Button from "./Button";
 
 function Typetester(props) {
-  const [val, updateVal] = useState(257);
+  const [val, updateVal] = useState(200);
   const [val2, updateVal2] = useState(-10);
   const [val3, setVal3] = useState("ss00");
   const [val4, setVal4] = useState("ss00");
