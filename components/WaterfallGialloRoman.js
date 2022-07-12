@@ -81,12 +81,12 @@ const WaterfallGialloRoman = () => {
         <div className={`${styles.waterfallSingle} ${styles.m}`}>
           Oltre a imitarne il modello nei contenuti, questi nuovi thrilling si
           rifecero anche nei titoli ai primi film di Dario Argento, portacolori
-          del genere anche all'estero, ha prodotto numerosi film di qualità e
+          del genere anche all’estero, ha prodotto numerosi film di qualità e
           facendo affermare definitivamente il genere. Nacquerò così sulla scia
-          de L'uccello dalle piume di cristallo, pellicole come La tarantola dal
+          de L’uccello dalle piume di cristallo, pellicole come La tarantola dal
           ventre nero, La coda dello scorpione, Una farfalla con le ali
-          insanguinate, L'iguana dalla lingua di fuoco, La sanguisuga conduce la
-          danza, L'uomo più velenoso del cobra, Il gatto dagli occhi di giada,
+          insanguinate, L’iguana dalla lingua di fuoco, La sanguisuga conduce la
+          danza, L’uomo più velenoso del cobra, Il gatto dagli occhi di giada,
           Gatti rossi in un labirinto di vetro, La volpe dalla coda di velluto,
           Il sorriso della iena, Nella stretta morsa del ragno ovvero una ricca
           serie di film a titolazione zoonomica.
@@ -94,18 +94,18 @@ const WaterfallGialloRoman = () => {
       </div>
       <div className={styles.waterfallRow}>
         <div className={`${styles.waterfallElement} ${styles.s}`}>
-          Ma nacquero anche dei film d'autore che quasi raggiungono il modello
-          argentiano come Giornata nera per l'ariete di Luigi Bazzoni, Il
+          Ma nacquero anche dei film d’autore che quasi raggiungono il modello
+          argentiano come Giornata nera per l’ariete di Luigi Bazzoni, Il
           profumo della signora in nero di Francesco Barilli, Cosa avete fatto a
           Solange? di Massimo Dallamano, E tanta paura di Paolo Cavara, La corta
-          notte delle bambole di vetro e Chi l'ha vista morire? di Aldo Lado, La
+          notte delle bambole di vetro e Chi l’ha vista morire? di Aldo Lado, La
           donna della domenica di Luigi Comencini, Gran bollito di Mauro
           Bolognini e Il mostro di Luigi Zampa. Nei primi anni 70 si ha un vero
-          e proprio boom del thrilling, tant'è che solo tra il 1971 e il 1972
+          e proprio boom del thrilling, tant’è che solo tra il 1971 e il 1972
           vennero girati e distribuiti nelle sale oltre trenta film appartenenti
           al filone, diretti dai maggiori registi italiani del cinema di genere;
           tra questi sono da menzionare Mio caro assassino di Tonino Valerii, un
-          giallo avvincente e a lungo trascurato[5], e L'etrusco uccide ancora
+          giallo avvincente e a lungo trascurato[5], e L’etrusco uccide ancora
           di Armando Crispino, uno dei primi esempi di contaminazione tra giallo
           e horror, considerato il capostipite del "filone archelogico" di
           questo genere cinematografico.
