@@ -319,7 +319,7 @@ function Glyphchart(props) {
               lable={"Ă"}
               changeGlyph={(glyph) => setGlyph(glyph)}
             />
-            <Glyphchartletter
+            {/* <Glyphchartletter
               lable={"Ắ"}
               changeGlyph={(glyph) => setGlyph(glyph)}
             />
@@ -330,7 +330,7 @@ function Glyphchart(props) {
             <Glyphchartletter
               lable={"Ẵ"}
               changeGlyph={(glyph) => setGlyph(glyph)}
-            />
+            /> */}
             <Glyphchartletter
               lable={"Ă"}
               changeGlyph={(glyph) => setGlyph(glyph)}
@@ -339,7 +339,7 @@ function Glyphchart(props) {
               lable={"Â"}
               changeGlyph={(glyph) => setGlyph(glyph)}
             />
-            <Glyphchartletter
+            {/* <Glyphchartletter
               lable={"Ấ"}
               changeGlyph={(glyph) => setGlyph(glyph)}
             />
@@ -350,7 +350,7 @@ function Glyphchart(props) {
             <Glyphchartletter
               lable={"Ẫ"}
               changeGlyph={(glyph) => setGlyph(glyph)}
-            />
+            /> */}
             <Glyphchartletter
               lable={"Ä"}
               changeGlyph={(glyph) => setGlyph(glyph)}
@@ -419,7 +419,7 @@ function Glyphchart(props) {
               lable={"Ê"}
               changeGlyph={(glyph) => setGlyph(glyph)}
             />
-            <Glyphchartletter
+            {/* <Glyphchartletter
               lable={"Ế"}
               changeGlyph={(glyph) => setGlyph(glyph)}
             />
@@ -430,7 +430,7 @@ function Glyphchart(props) {
             <Glyphchartletter
               lable={"Ễ"}
               changeGlyph={(glyph) => setGlyph(glyph)}
-            />
+            /> */}
             <Glyphchartletter
               lable={"Ë"}
               changeGlyph={(glyph) => setGlyph(glyph)}
@@ -551,7 +551,7 @@ function Glyphchart(props) {
               lable={"Ô"}
               changeGlyph={(glyph) => setGlyph(glyph)}
             />
-            <Glyphchartletter
+            {/* <Glyphchartletter
               lable={"Ố"}
               changeGlyph={(glyph) => setGlyph(glyph)}
             />
@@ -562,7 +562,7 @@ function Glyphchart(props) {
             <Glyphchartletter
               lable={"Ỗ"}
               changeGlyph={(glyph) => setGlyph(glyph)}
-            />
+            /> */}
             <Glyphchartletter
               lable={"Ö"}
               changeGlyph={(glyph) => setGlyph(glyph)}
@@ -741,7 +741,7 @@ function Glyphchart(props) {
               lable={"ă"}
               changeGlyph={(glyph) => setGlyph(glyph)}
             />
-            <Glyphchartletter
+            {/* <Glyphchartletter
               lable={"ắ"}
               changeGlyph={(glyph) => setGlyph(glyph)}
             />
@@ -752,12 +752,12 @@ function Glyphchart(props) {
             <Glyphchartletter
               lable={"ẵ"}
               changeGlyph={(glyph) => setGlyph(glyph)}
-            />
+            /> */}
             <Glyphchartletter
               lable={"â"}
               changeGlyph={(glyph) => setGlyph(glyph)}
             />
-            <Glyphchartletter
+            {/* <Glyphchartletter
               lable={"ấ"}
               changeGlyph={(glyph) => setGlyph(glyph)}
             />
@@ -768,7 +768,7 @@ function Glyphchart(props) {
             <Glyphchartletter
               lable={"ẫ"}
               changeGlyph={(glyph) => setGlyph(glyph)}
-            />
+            /> */}
             <Glyphchartletter
               lable={"ä"}
               changeGlyph={(glyph) => setGlyph(glyph)}
@@ -837,7 +837,7 @@ function Glyphchart(props) {
               lable={"ê"}
               changeGlyph={(glyph) => setGlyph(glyph)}
             />
-            <Glyphchartletter
+            {/* <Glyphchartletter
               lable={"ế"}
               changeGlyph={(glyph) => setGlyph(glyph)}
             />
@@ -848,7 +848,7 @@ function Glyphchart(props) {
             <Glyphchartletter
               lable={"ễ"}
               changeGlyph={(glyph) => setGlyph(glyph)}
-            />
+            /> */}
             <Glyphchartletter
               lable={"ë"}
               changeGlyph={(glyph) => setGlyph(glyph)}
@@ -878,11 +878,19 @@ function Glyphchart(props) {
               changeGlyph={(glyph) => setGlyph(glyph)}
             />
             <Glyphchartletter
+              lable={"ĝ"}
+              changeGlyph={(glyph) => setGlyph(glyph)}
+            />
+            <Glyphchartletter
               lable={"ģ"}
               changeGlyph={(glyph) => setGlyph(glyph)}
             />
             <Glyphchartletter
               lable={"ġ"}
+              changeGlyph={(glyph) => setGlyph(glyph)}
+            />
+            <Glyphchartletter
+              lable={"ḡ"}
               changeGlyph={(glyph) => setGlyph(glyph)}
             />
             <Glyphchartletter
@@ -969,7 +977,7 @@ function Glyphchart(props) {
               lable={"ô"}
               changeGlyph={(glyph) => setGlyph(glyph)}
             />
-            <Glyphchartletter
+            {/* <Glyphchartletter
               lable={"ố"}
               changeGlyph={(glyph) => setGlyph(glyph)}
             />
@@ -980,7 +988,7 @@ function Glyphchart(props) {
             <Glyphchartletter
               lable={"ỗ"}
               changeGlyph={(glyph) => setGlyph(glyph)}
-            />
+            /> */}
             <Glyphchartletter
               lable={"ö"}
               changeGlyph={(glyph) => setGlyph(glyph)}
@@ -1166,7 +1174,7 @@ function Glyphchart(props) {
               changeGlyph={(glyph) => setGlyph(glyph)}
               ss={"ss01"}
             />
-            <Glyphchartletter
+            {/* <Glyphchartletter
               lable={"ắ"}
               changeGlyph={(glyph) => setGlyph(glyph)}
               ss={"ss01"}
@@ -1180,13 +1188,13 @@ function Glyphchart(props) {
               lable={"ẵ"}
               changeGlyph={(glyph) => setGlyph(glyph)}
               ss={"ss01"}
-            />
+            /> */}
             <Glyphchartletter
               lable={"â"}
               changeGlyph={(glyph) => setGlyph(glyph)}
               ss={"ss01"}
             />
-            <Glyphchartletter
+            {/* <Glyphchartletter
               lable={"ấ"}
               changeGlyph={(glyph) => setGlyph(glyph)}
               ss={"ss01"}
@@ -1200,7 +1208,7 @@ function Glyphchart(props) {
               lable={"ẫ"}
               changeGlyph={(glyph) => setGlyph(glyph)}
               ss={"ss01"}
-            />
+            /> */}
             <Glyphchartletter
               lable={"ä"}
               changeGlyph={(glyph) => setGlyph(glyph)}

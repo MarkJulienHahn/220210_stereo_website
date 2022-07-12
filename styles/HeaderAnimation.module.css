@@ -1,7 +1,8 @@
 .headerAnimationWrapper {
   height: 100%;
   overflow: hidden;
-  background: black;
+  background: #dfdfff;
+  /* background-image: url("../public/images/image_05.png"); */
 }
 
 .headerAnimationWrapper .row {
@@ -15,7 +16,7 @@
   font-family: "Protest";
   font-variation-settings: "";
   /* letter-spacing: -3.5vw; */
-  animation: typoAnimation 10s ease infinite,
+  animation: typoAnimation 30s ease infinite,
     variableAnimation 2s ease infinite alternate;
     font-size: 70vw;
     line-height: 70vw;
@@ -30,17 +31,18 @@
 }
 
 .headerAnimationWrapper .row2 p {
-    color: white;
+    color: "ghostwhite";
   font-family: "Protest";
   font-variation-settings: "";
   /* letter-spacing: -3.5vw; */
-  animation: typoAnimation 10s ease infinite,
+  animation: typoAnimation 30s ease infinite,
     variableAnimation 2s ease infinite alternate-reverse;
   font-size: 70vw;
   line-height: 70vw;
   letter-spacing: -5vw;
   height: 100%;
   white-space: nowrap;
+  text-align: right;
 }
 
 @keyframes rowAnimation {
@@ -54,40 +56,40 @@
 
 @keyframes typoAnimation {
   0% {
-    transform: scale(0.5);
-    line-height: 37vw;
+    transform: scale(0.25);
+    line-height: 20vw;
   }
   20% {
-    transform: scale(0.5);
-    line-height: 37vw;
+    transform: scale(0.25);
+    line-height: 20vw;
   }
   25% {
-    transform: scale(1);
-    line-height: 70vw;
-  }
-  45% {
-    transform: scale(1);
-    line-height: 70vw;
-  }
-  50% {
-    transform: scale(0.25);
-    line-height: 20vw;
-  }
-  70% {
-    transform: scale(0.25);
-    line-height: 20vw;
-  }
-  75% {
-    transform: scale(1);
-    line-height: 70vw;
-  }
-  95% {
-    transform: scale(1);
-    line-height: 70vw;
-  }
-  100% {
     transform: scale(0.5);
     line-height: 37vw;
+  }
+  45% {
+    transform: scale(0.5);
+    line-height: 37vw;
+  }
+  50% {
+    transform: scale(1);
+    line-height: 70vw;
+  }
+  70% {
+    transform: scale(1);
+    line-height: 70vw;
+  }
+  75% {
+    transform: scale(0.5);
+    line-height: 37vw;
+  }
+  95% {
+    transform: scale(0.5);
+    line-height: 37vw;
+  }
+  100% {
+    transform: scale(0.25);
+    line-height: 20vw;
   }
 }
 
@@ -115,7 +117,7 @@
 }
 
 .PGMonoAnimationWrapper {
-    background: white;
+    background: ghostwhite;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -123,7 +125,7 @@
 }
 
 .PGMonoLetter {
-    color: black;
+    color: #7a7d29;
     width: 3vw;
     font-size: 2vw;
     transition: font-variation-settings 1s ease;

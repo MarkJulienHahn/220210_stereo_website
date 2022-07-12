@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
-import HeaderAnimationProtest from "../../components/HeaderAnimationProtest"
+import HeaderAnimationProtest from "../../components/HeaderAnimationProtest";
 import Typetester from "../../components/Typetester";
 import Button from "../../components/Button";
 import Cartbutton from "../../components/Cartbutton";
@@ -893,31 +893,81 @@ const ProtestGroteskText = ({
               </p>
             </div>
 
-            <GlyphchartProtestGrotesk fontFamily="Protest" fontWeight={100} fontWidth={50} />
+            <GlyphchartProtestGrotesk
+              fontFamily="Protest"
+              fontWeight={100}
+              fontWidth={50}
+            />
 
-            {/* <div class="features-wrapper">
-                        <Features 
-                            state1={"alternative"}
-                            state2={"alternative"}
-                            wght={100} 
-                            ital={0} 
-                            style="ss01"
-                        />   
-                        <Features 
-                            state1={"g"}
-                            state2={"g"}
-                            wght={100} 
-                            ital={0} 
-                            style="ss02"
-                        />    
-                        <Features 
-                            state1={"g"}
-                            state2={"g"}
-                            wght={100} 
-                            ital={0} 
-                            style="ss02"
-                        />  
-                    </div> */}
+            <div className="typefaceInfosection">
+              <h1>
+                &#8594; Character Set
+                <br />
+                <br />
+              </h1>
+
+              <div className="typefaceInfosectionList">
+                <p>
+                  &#8594; Adobe
+                  <br />
+                  Adobe Latin-1
+                  <br />
+                </p>
+                <p>
+                  &#8594; Apple Macintosh
+                  <br />
+                  MacOS Roman (Standard Latin)
+                  <br />
+                  MacOS Central European Latin
+                  <br />
+                  MacOS Croatian
+                  <br />
+                  MacOS Iceland
+                  <br />
+                  MacOS Romanian
+                  <br />
+                  MacOS Turkish
+                </p>
+                <p>
+                  &#8594; Microsoft Windows
+                  <br />
+                  MS Windows 1250 Central European Latin <br />
+                  MS Windows 1252 Western (Standard Latin) <br />
+                  MS Windows 1254 Turkish Latin <br />
+                  MS Windows 1257 Baltic Latin
+                </p>
+                <p>
+                  &#8594; ISO 8859
+                  <br />
+                  8859-1 Latin-1 Western European <br />
+                  8859-2 Latin-2 Central European <br />
+                  8859-3 Latin-3 South European <br />
+                  8859-4 Latin-4 North European <br />
+                  8859-9 Latin-5 Turkish <br />
+                  8859-13 Latin-7 Baltic Rim <br />
+                  8859-15 Latin-9 <br />
+                  8859-16 Latin-10 South-Eastern European
+                  <br />
+                  <br />
+                </p>
+              </div>
+              <p>&#8594; Languages<br />
+                Afrikaans Albanian Asu Basque Bemba Bena Breton Catalan Chiga
+                Colognian Cornish Croatian Czech Danish Dutch Embu English
+                Esperanto Estonian Faroese Filipino Finnish French Friulian
+                Galician Ganda German Gusii Hungarian Icelandic Inari Sami
+                Indonesian Irish Italian Jola-Fonyi Kabuverdianu Kalaallisut
+                Kalenjin Kamba Kikuyu Kinyarwanda Latvian Lithuanian Lower
+                Sorbian Luo Luxembourgish Luyia Machame Makhuwa-Meetto Makonde
+                Malagasy Maltese Manx Meru Morisyen North Ndebele Northern Sami
+                Norwegian Bokmål Norwegian Nynorsk Nyankole Oromo Polish
+                Portuguese Quechua Romanian Romansh Rombo Rundi Rwa Samburu
+                Sango Sangu Scottish Gaelic Sena Serbian Shambala Shona Slovak
+                Slovenian Soga Somali Spanish Swahili Swedish Swiss German Taita
+                Teso Turkish Upper Sorbian Uzbek Volapük Vunjo Walser Welsh
+                Western Frisian Zulu
+              </p>
+            </div>
 
             <Footer />
           </main>

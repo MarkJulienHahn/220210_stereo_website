@@ -332,6 +332,22 @@ li {
   letter-spacing: -0.1px; 
 }
 
+.typefaceInfosectionList h1 {
+  font-family: "Giallo-Mono";
+  font-size: var(--gialoSmallSize);
+  line-height: var(--gialloSmallLineHeight);
+  letter-spacing: var(--gialloSmallLetterSpacing); 
+  font-weight: normal;
+}
+
+.typefaceInfosectionList {
+  display: flex;
+}
+
+.typefaceInfosectionList p {
+  width: 25%
+}
+
 .typeface-single-header {
   height: 100vh;
   min-height: 800px;
@@ -685,7 +701,7 @@ li {
   display: flex;
   justify-content: center;
   transition: font-size 0.2s ease-out, transform 0.2s ease-out;
-  cursor: unset;
+  cursor: default;
 }
 
 .glyphchartLetter:hover {

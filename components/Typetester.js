@@ -53,15 +53,6 @@ function Typetester(props) {
     fontFeatureSettings: `"${val3}", "${val4}"`,
   };
 
-  const ss01Style = {
-    // cursor: "pointer",
-  };
-
-  const ss02Style = {
-    // cursor: "pointer",
-  };
-
-  console.log(ss01Color)
 
   return (
     <>
@@ -74,11 +65,11 @@ function Typetester(props) {
             <div className="column01Wrapper">
               <p>&#8594; {props.name}</p>
               <div className="ssButtons">
-                <span onClick={makeSS01} style={ss01Style}>
+                <span onClick={makeSS01}>
                   <Button lable="Stylistic Set #1" subclass={ss01Color} hoverclass={"secondary"}/>
                 </span>
 
-                <span onClick={makeSS02} style={ss02Style}>
+                <span onClick={makeSS02}>
                   <Button lable="Stylistic Set #2" subclass={ss02Color}/>
                 </span>
               </div>
