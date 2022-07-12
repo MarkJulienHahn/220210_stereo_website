@@ -113,21 +113,21 @@ const WaterfallGialloRoman = () => {
         <div className={styles.waterfallElement}>
           <div className={`${styles.waterfallElement} ${styles.xs}`}>
             Nel 1975 Dario Argento realizza Profondo rosso (film che
-            inizialmente avrebbe dovuto avere anch'esso un titolo dal richiamo
+            inizialmente avrebbe dovuto avere anch’'esso un titolo dal richiamo
             faunistico, ovvero La tigre dai denti a sciabola) che ottiene un
             grande successo, anche a livello internazionale, ed è considerato da
             molti critici e dagli stessi fan come uno dei titoli più riusciti
-            nella storia del giallo all'italiana; Profondo rosso è sicuramente,
+            nella storia del giallo all’italiana; Profondo rosso è sicuramente,
             tra tutte le opere thrilling, quella più famosa e celebrata, ancora
             oggi trasmessa spesso e con successo in televisione. Sette note in
             nero di Lucio Fulci (1977): il particolare degli occhi, cifra
             stilistica tipica del regista. Lucio Fulci, futuro maestro del gore
-            italiano, girerà contributi di indubbio valore come l'hitchockiano
-            Una sull'altra, il violento Una lucertola con la pelle di donna, il
-            rurale Non si sevizia un paperino e l'onirico Sette note in nero. Il
+            italiano, girerà contributi di indubbio valore come l’hitchockiano
+            Una sull’altra, il violento Una lucertola con la pelle di donna, il
+            rurale Non si sevizia un paperino e l’onirico Sette note in nero. Il
             regista emiliano Pupi Avati dirigerà nel 1976 uno dei più famosi
             gialli horror italiani, La casa dalle finestre che ridono.
-            Ironicamente l'anno successivo è la volta del parodistico Tutti
+            Ironicamente l’anno successivo è la volta del parodistico Tutti
             defunti... tranne i morti che oltre agli stessi regista e
             sceneggiatori, presenta molti attori della precedente pellicola.
             Altri film sono anche precursori dello slasher (in particolare della
@@ -136,21 +136,21 @@ const WaterfallGialloRoman = () => {
             Martino.
           </div>
           <div className={`${styles.waterfallElement} ${styles.xs}`}>
-            Con l'arrivo degli anni 80 e la nascita negli Stati Uniti d'America
+            Con l’arrivo degli anni 80 e la nascita negli Stati Uniti d’America
             di un nuovo modo di fare cinema thriller e horror, il giallo
-            all'italiana ha quasi terminato di esistere. Renée Simonsen in Sotto
+            all’italiana ha quasi terminato di esistere. Renée Simonsen in Sotto
             il vestito niente di Carlo Vanzina (1985), tra le ultime opere
             afferenti al filone originale. Poche sono state le pellicole che
             sono rimaste devote ai primi film del genere, tra queste ci sono
             Tenebre, Phenomena e Opera di Dario Argento, Macabro, La casa con la
             scala nel buio, Morirai a mezzanotte e Le foto di Gioia di Lamberto
             Bava (figlio di Mario), Caramelle da uno sconosciuto di Franco
-            Ferrini, L'assassino è ancora tra noi di Camillo Teti, Il mostro di
+            Ferrini, L’assassino è ancora tra noi di Camillo Teti, Il mostro di
             Firenze di Cesare Ferrario e Tramonti fiorentini di Gianni Siragusa
             e Paolo Frajoli (questi ultimi tre titoli ispirati al caso del
             Mostro di Firenze), Lo squartatore di New York e Murderock - Uccide
             a passo di danza di Lucio Fulci, Mystère e Sotto il vestito niente
-            di Carlo Vanzina (quest'ultimo ebbe anche un seguito apocrifo
+            di Carlo Vanzina (quest’ultimo ebbe anche un seguito apocrifo
             diretto da Dario Piana).
           </div>
         </div>
