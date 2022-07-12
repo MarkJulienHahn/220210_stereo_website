@@ -107,13 +107,13 @@ const WaterfallGialloRoman = () => {
           tra questi sono da menzionare Mio caro assassino di Tonino Valerii, un
           giallo avvincente e a lungo trascurato[5], e L’etrusco uccide ancora
           di Armando Crispino, uno dei primi esempi di contaminazione tra giallo
-          e horror, considerato il capostipite del "filone archelogico" di
+          e horror, considerato il capostipite del »filone archelogico« di
           questo genere cinematografico.
         </div>
         <div className={styles.waterfallElement}>
           <div className={`${styles.waterfallElement} ${styles.xs}`}>
             Nel 1975 Dario Argento realizza Profondo rosso (film che
-            inizialmente avrebbe dovuto avere anch’'esso un titolo dal richiamo
+            inizialmente avrebbe dovuto avere anch’esso un titolo dal richiamo
             faunistico, ovvero La tigre dai denti a sciabola) che ottiene un
             grande successo, anche a livello internazionale, ed è considerato da
             molti critici e dagli stessi fan come uno dei titoli più riusciti
