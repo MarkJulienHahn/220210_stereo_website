@@ -310,33 +310,34 @@ li {
   font-family: "Giallo";
 }
 
-.typeface-single-inner p, .typefaceInfosection h1 {
+.typeface-single-inner p,
+.typefaceInfosection h1 {
   font-family: "Giallo-Mono";
   font-size: var(--gialoSmallSize);
   line-height: var(--gialloSmallLineHeight);
-  letter-spacing: var(--gialloSmallLetterSpacing); 
+  letter-spacing: var(--gialloSmallLetterSpacing);
   font-weight: normal;
 }
 
 .highlight01 {
   background: var(--primary);
   font-family: "Protest";
-  font-variation-settings: 'wght' 150;
+  font-variation-settings: "wght" 150;
   letter-spacing: -0.1px;
 }
 
 .highlight02 {
   background: var(--tertiary);
   font-family: "Protest";
-  font-variation-settings: 'wght' 150;
-  letter-spacing: -0.1px; 
+  font-variation-settings: "wght" 150;
+  letter-spacing: -0.1px;
 }
 
 .typefaceInfosectionList h1 {
   font-family: "Giallo-Mono";
   font-size: var(--gialoSmallSize);
   line-height: var(--gialloSmallLineHeight);
-  letter-spacing: var(--gialloSmallLetterSpacing); 
+  letter-spacing: var(--gialloSmallLetterSpacing);
   font-weight: normal;
 }
 
@@ -345,19 +346,13 @@ li {
 }
 
 .typefaceInfosectionList p {
-  width: 25%
+  width: 25%;
 }
 
 .typeface-single-header {
   height: 100vh;
   min-height: 800px;
-  background: black;
   overflow: hidden;
-}
-
-.typeface-single-header span {
-  height: 100%;
-  object-fit: contain;
 }
 
 .typeface-single-opener {
@@ -555,7 +550,7 @@ li {
 }
 
 .pgMono {
-  font-family: 'ProtestMono'
+  font-family: "ProtestMono";
 }
 
 .typeface-single-tester {
@@ -610,7 +605,6 @@ li {
   justify-content: space-between;
   width: 50vw;
 }
-
 
 .column02Wrapper {
   display: flex;
@@ -849,4 +843,169 @@ li {
   font-size: 10pt;
   line-height: 10pt;
   padding-left: 50px;
+}
+
+/* HEADER ANIMATIONS */
+
+.headerAnimationWrapper {
+  height: 100%;
+  overflow: hidden;
+  background: #dfdfff;
+  /* background-image: url("../public/images/image_05.png"); */
+}
+
+.headerAnimationWrapper .row {
+  display: flex;
+  justify-content: center;
+  animation: rowAnimation 30s linear infinite alternate-reverse;
+}
+
+.headerAnimationWrapper .row p {
+  color: white;
+  font-family: "Protest";
+  font-variation-settings: "";
+  /* letter-spacing: -3.5vw; */
+  animation: typoAnimation 30s ease infinite,
+    variableAnimation 2s ease infinite alternate;
+  font-size: 70vw;
+  line-height: 70vw;
+  letter-spacing: -5vw;
+  white-space: nowrap;
+}
+
+.headerAnimationWrapper .row2 {
+  display: flex;
+  justify-content: center;
+  animation: rowAnimation 30s linear infinite alternate;
+}
+
+.headerAnimationWrapper .row2 p {
+  color: "ghostwhite";
+  font-family: "Protest";
+  font-variation-settings: "";
+  /* letter-spacing: -3.5vw; */
+  animation: typoAnimation 30s ease infinite,
+    variableAnimation 2s ease infinite alternate-reverse;
+  font-size: 70vw;
+  line-height: 70vw;
+  letter-spacing: -5vw;
+  height: 100%;
+  white-space: nowrap;
+  text-align: right;
+}
+
+@keyframes rowAnimation {
+  0% {
+    transform: translateX(-200%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes typoAnimation {
+  0% {
+    transform: scale(0.25);
+    line-height: 20vw;
+  }
+  20% {
+    transform: scale(0.25);
+    line-height: 20vw;
+  }
+  25% {
+    transform: scale(0.5);
+    line-height: 37vw;
+  }
+  45% {
+    transform: scale(0.5);
+    line-height: 37vw;
+  }
+  50% {
+    transform: scale(1);
+    line-height: 70vw;
+  }
+  70% {
+    transform: scale(1);
+    line-height: 70vw;
+  }
+  75% {
+    transform: scale(0.5);
+    line-height: 37vw;
+  }
+  95% {
+    transform: scale(0.5);
+    line-height: 37vw;
+  }
+  100% {
+    transform: scale(0.25);
+    line-height: 20vw;
+  }
+}
+
+@keyframes variableAnimation {
+  0% {
+    font-variation-settings: "wght" 40;
+    font-variation-settings: "ital" 100;
+  }
+  40% {
+    font-variation-settings: "ital" 0;
+    font-variation-settings: "wght" 40;
+  }
+  50% {
+    font-variation-settings: "ital" 100;
+    font-variation-settings: "wght" 250;
+  }
+  60% {
+    font-variation-settings: "ital" 0;
+    font-variation-settings: "wght" 250;
+  }
+  100% {
+    font-variation-settings: "wght" 150;
+  }
+}
+
+.PGMonoAnimationWrapper {
+  background: ghostwhite;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.PGMonoLetter {
+  color: #7a7d29;
+  width: 3vw;
+  font-size: 2vw;
+  transition: font-variation-settings 1s ease;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: default;
+}
+
+.GialloAnimationWrapper {
+  height: 100vh;
+  overflow: hidden;
+  background: ghostwhite;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  color: green
+}
+
+.GialloAnimationWrapper * {
+  transition: font-variation-settings 0.2s ease-out;
+  cursor: default;
+}
+
+.GialloWord {
+  font-family: "Giallo";
+  font-size: 5vw;
+  letter-spacing: -0.1vw;
+
+}
+
+.GialloIndex {
+  font-family: "GialloMono";
 }

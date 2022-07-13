@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import image01 from "../../public/images/image_01.png";
 
+import HeaderAnimationGiallo from "../../components/HeaderAnimationGiallo";
 import Typetester from "../../components/Typetester";
 import Button from "../../components/Button";
 import WaterfallGialloRoman from "../../components/WaterfallGialloRoman"
@@ -89,7 +90,7 @@ const GialloRoman = ({
           transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
         >
           <div className="typeface-single-header">
-            <Image src={image01} placeholder="blur" />
+            <HeaderAnimationGiallo />
           </div>
 
           <main className="typeface-single-inner typeface-single-giallo">
