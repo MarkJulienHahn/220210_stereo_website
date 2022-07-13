@@ -1,33 +1,64 @@
-import React from 'react';
-import { useSwiperSlide, useSwiper } from 'swiper/react';
+import React from "react";
+import { useSwiperSlide, useSwiper } from "swiper/react";
 import { useEffect } from "react";
-import Image from 'next/image';
+import Image from "next/image";
 
-import styles from "../../styles/Storefront.module.css"
+import styles from "../../styles/Storefront.module.css";
 
-import image from '../../public/images/image_05.png';
+import HeaderAnimationProtest from "../../components/HeaderAnimationProtest"
 
-const One = ( { setCategory, setPage, setLinkCategory, setLinkPage, setDescription, category, page, linkCategory, linkPage, description}) => {
+import image from "../../public/images/image_05.png";
+
+const One = ({
+  setCategory,
+  setPage,
+  setLinkCategory,
+  setLinkPage,
+  setDescription,
+  category,
+  page,
+  linkCategory,
+  linkPage,
+  description,
+}) => {
   const swiper = useSwiper();
   const swiperSlide = useSwiperSlide();
 
-  useEffect( () => {
-    { swiperSlide.isActive ? setCategory(category) : "" }
-    { swiperSlide.isActive ? setPage(page) : "" }
-    { swiperSlide.isActive ? setLinkCategory(linkCategory) : "" }
-    { swiperSlide.isActive ? setLinkPage(linkPage) : "" }
-    { swiperSlide.isActive ? setDescription(description) : "" }
+  useEffect(() => {
+    {
+      swiperSlide.isActive ? setCategory(category) : "";
+    }
+    {
+      swiperSlide.isActive ? setPage(page) : "";
+    }
+    {
+      swiperSlide.isActive ? setLinkCategory(linkCategory) : "";
+    }
+    {
+      swiperSlide.isActive ? setLinkPage(linkPage) : "";
+    }
+    {
+      swiperSlide.isActive ? setDescription(description) : "";
+    }
   });
 
   return (
     <>
       <div className={styles.swiperNav}>
-        <div className={styles.swiperPrev} onClick={() => swiper.slidePrev()} ></div>
-        <div className={styles.swiperNext} onClick={() => swiper.slideNext()} ></div>
+        <div
+          className={styles.swiperPrev}
+          onClick={() => swiper.slidePrev()}
+        ></div>
+        <div
+          className={styles.swiperNext}
+          onClick={() => swiper.slideNext()}
+        ></div>
       </div>
-      <Image src={image} placeholder="blur" priority={true}/>   
+      <div className="typeface-single-header">
+        <HeaderAnimationProtest />
+      </div>
     </>
-  )
+  );
 };
 
 export default One;

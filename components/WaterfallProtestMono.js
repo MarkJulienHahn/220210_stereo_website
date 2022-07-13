@@ -3,7 +3,7 @@ import styles from "../styles/WaterfallProtestMono.module.css";
 import { Slider } from "@material-ui/core";
 
 const WaterfallProtestMono = () => {
-  const [wdth, setWdth] = useState(Math.random() * 250);
+  const [wdth, setWdth] = useState(Math.floor(Math.random()*8)*30+40);
 
   const changeWdth = (e, val) => {
     setWdth(val);
@@ -56,7 +56,7 @@ const WaterfallProtestMono = () => {
           className={styles.slider}
           min={40}
           max={250}
-          step={0.1}
+          step={5}
           defaultValue={wdth}
           onChange={changeWdth}
           marks={marks}

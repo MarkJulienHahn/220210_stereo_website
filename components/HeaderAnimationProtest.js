@@ -12,6 +12,8 @@ const HeaderAnimationProtest = () => {
     "Practicing Demna’s “Raw Architecture” concept. Practicing Demna’s “Raw Architecture” concept.",
     "Joe Freshgoods' instant sell-out collection, the 9060 has since been spotted on the runway for Mowalola's triumphant return",
     "A standout element was Balenciaga’s custom packaging tape which either acted as a belt around a wrap coat or baggy pants",
+    "ProtestProtestProtestProtestProtestProtestProtestProtestProtestProtestProtestProtestProtestProtestProtestProtestProtestProtest",
+    "GroteskGroteskGroteskGroteskGroteskGroteskGroteskGroteskGroteskGroteskGroteskGroteskGroteskGroteskGroteskGroteskGroteskGrotesk"
   ];
 
   const colorArray = [
@@ -43,13 +45,6 @@ const HeaderAnimationProtest = () => {
     }, 2000);
     return () => clearInterval(timer);
   }, []);
-
-  // useEffect(() => {
-  //   const timer = setInterval(() => {
-  //     setColor(Math.floor(Math.random() * colorArray.length));
-  //   }, 500);
-  //   return () => clearInterval(timer);
-  // }, []);
 
   return (
     <>

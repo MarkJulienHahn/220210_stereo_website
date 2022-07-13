@@ -807,9 +807,13 @@ li {
 /* W A T E R F A L L  */
 
 .MuiSlider-markLabel {
-  color: grey !important;
+  opacity: 0.5 !important;
   font-family: "Giallo-Mono" !important;
 }
+
+.MuiSlider-markLabel:hover {
+  opacity: 1 !important;
+} 
 
 /* P R O D U C T */
 

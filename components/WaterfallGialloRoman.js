@@ -3,7 +3,7 @@ import styles from "../styles/WaterfallGialloRoman.module.css";
 import { Slider } from "@material-ui/core";
 
 const WaterfallGialloRoman = () => {
-  const [wdth, setWdth] = useState(Math.random() * 800);
+  const [wdth, setWdth] = useState(Math.floor(Math.random()*7)*100+100);
 
   const changeWdth = (e, val) => {
     setWdth(val);
@@ -51,7 +51,7 @@ const WaterfallGialloRoman = () => {
           className={styles.slider}
           min={100}
           max={700}
-          step={0.1}
+          step={5}
           defaultValue={wdth}
           onChange={changeWdth}
           marks={marks}

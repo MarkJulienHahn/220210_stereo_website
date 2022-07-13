@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
-import Styles from "../styles/Typeface.module.css";
 
 import MouseButton from "./MouseButton";
 
 const TypefacePreview = (props) => {
-  const [wdth, updateWdth] = useState([150, 0]);
+  const [wdth, updateWdth] = useState([250, 0]);
   const [nmbr, updateNmbr] = useState(0);
 
   const [buttonContent, setButtonContent] = useState(null);
@@ -62,45 +60,45 @@ const TypefacePreview = (props) => {
     }, MINUTE_MS);
 
     return () => clearInterval(interval);
-  });
+  },[]);
 
   const style01 = {
     fontVariationSettings: `'wght' ${wdth[0]}, 'ital' ${wdth[1]},'wdth' 50`,
     fontFamily: `${props.fontFamily}`,
-    letterSpacing: props.configuration.letterSpacing
+    letterSpacing: props.configuration.letterSpacing,
   };
+
+  // console.log(wdth)
 
   return (
     <div className="typefaceWrapper">
-
       <div className="typefaceControl">
         <span className="typefaceInfo">
           → {props.lable} <p>{props.weights.length} Weights, from 70 EUR</p>
         </span>
 
-
         {props.weights.map((item) => (
-        <span
-          key={item[1]}
-          className="typefaceControlButton"
-          onMouseEnter={() => setWdth([item[1], item[2]])}
-        >
-          {item[0]}
-        </span>
-      ))}
-
-      </div> 
+          <span
+            key={item[1]}
+            className="typefaceControlButton"
+            onMouseEnter={() => setWdth([item[1], item[2]])}
+            style={(wdth[0] === item[1] && wdth[1] === item[2] || wdth[0] === item[1] && wdth[1] === 100 ? { opacity: "1" } : { opacity: "0.3" })}
+          >
+            {item[0]}
+          </span>
+        ))}
+      </div>
 
       <MouseButton lable={buttonContent} />
 
-        <div
-          className="typefaceDisplay"
-          style={style01}
-          onMouseEnter={() => updateButtonContent("SHOW SPECIMEN")}
-          onMouseLeave={() => updateButtonContent("")}
-        >
-          <div>{props.content[nmbr]}</div>
-        </div>
+      <div
+        className="typefaceDisplay"
+        style={style01}
+        onMouseEnter={() => updateButtonContent("SHOW SPECIMEN")}
+        onMouseLeave={() => updateButtonContent("")}
+      >
+        <div>{props.content[nmbr]}</div>
+      </div>
     </div>
   );
 };
