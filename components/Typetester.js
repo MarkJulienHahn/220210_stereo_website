@@ -107,6 +107,7 @@ function Typetester(props) {
         <div className="inputWrapper">
           <div
             contentEditable="true"
+            suppressContentEditableWarning="true"
             className={styles.input}
             style={testerStyle}
             type="text"

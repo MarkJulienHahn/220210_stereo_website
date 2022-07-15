@@ -42,7 +42,7 @@ const Checkout = ({
   const [showCheckoutStep3, setShowCheckoutStep3] = useState(false);
   const [showCheckoutStep4, setShowCheckoutStep4] = useState(false);
 
-  const [fadeCheckout, setFadeCheckout] = useState(false)
+  const [fadeCheckout, setFadeCheckout] = useState(false);
 
   const [showBuyProtest, setShowBuyProtest] = useState(true);
   const [showBuyGiallo, setShowBuyGiallo] = useState(false);
@@ -74,6 +74,8 @@ const Checkout = ({
   const [SocialLicence, setSocialLicence] = useState("");
   const [LogoLicence, setLogoLicence] = useState("");
   const [NumEmployees, setNumEmployees] = useState("");
+
+  const [animated, setAnimated] = useState(false);
 
   const Licence = [
     `${DesktopLicence} ${WebLicence} ${InteractiveLicence} ${SocialLicence} ${LogoLicence}`,
@@ -438,21 +440,32 @@ const Checkout = ({
   };
 
   const fade = {
-    opacity: 0
-  }
+    opacity: 0,
+  };
 
   const notFade = {
-    opacity: 1
-  }
+    opacity: 1,
+  };
 
   const fadeOutCheckout = async () => {
     setFadeCheckout(true),
-    await setTimeout(function(){ setShowCheckout(false) }, 300)
-  }
+      await setTimeout(function () {
+        setShowCheckout(false);
+      }, 300);
+  };
+
+  useEffect(() => {
+    loading
+      ? (updateButtonContent("calculating"), setAnimated(true))
+      : (updateButtonContent(""), setAnimated(false));
+  }, [loading]);
 
   return (
     <div>
-      <div className={styles.buyBackground} style={fadeCheckout ? fade : notFade}></div>
+      <div
+        className={styles.buyBackground}
+        style={fadeCheckout ? fade : notFade}
+      ></div>
       <div className={styles.buyWrapper} style={fadeCheckout ? fade : notFade}>
         {!showCheckoutStep2 && !showCheckoutStep3 && !showCheckoutStep4 ? (
           <div className="buttonsLeftWrapper">
@@ -503,7 +516,7 @@ const Checkout = ({
 
         {showCheckoutStep1 ? (
           <>
-            <MouseButton lable={buttonContent} />
+            <MouseButton lable={buttonContent} animated={animated} />
 
             <div className={styles.buyTableWrapper}>
               <div className={styles.buyConfigurationWrapper}>
@@ -652,7 +665,7 @@ const Checkout = ({
                           }
                     }
                   >
-                    Up to 5 employees
+                    Up to 5 people
                   </li>
                   <li
                     style={priceFactor4 === 3 ? active : inactive}
@@ -666,7 +679,7 @@ const Checkout = ({
                           }
                     }
                   >
-                    Up to 10 employees
+                    Up to 10 people
                   </li>
                   <li
                     style={priceFactor4 === 5 ? active : inactive}
@@ -680,7 +693,7 @@ const Checkout = ({
                           }
                     }
                   >
-                    Up to 25 employees
+                    Up to 25 people
                   </li>
                   <li
                     style={priceFactor4 === 7 ? active : inactive}
@@ -694,7 +707,7 @@ const Checkout = ({
                           }
                     }
                   >
-                    Up to 100 employees
+                    Up to 100 people
                   </li>
                   <li
                     style={priceFactor4 === 14 ? active : inactive}
@@ -708,7 +721,7 @@ const Checkout = ({
                           }
                     }
                   >
-                    Up to 500 employees
+                    Up to 500 people
                   </li>
                   <li
                     style={priceFactor4 === 40 ? active : inactive}
@@ -722,7 +735,7 @@ const Checkout = ({
                           }
                     }
                   >
-                    Up to 1500 employees
+                    Up to 1500 people
                   </li>
                 </ul>
               </div>
@@ -856,8 +869,6 @@ const Checkout = ({
                       </>
                     ))}
                   </div>
-
-                  <div>{loading ? "Calculating..." : ""}</div>
 
                   <div className={styles.total}>
                     <span>Total (incl. Tax)</span>

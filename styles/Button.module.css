@@ -47,6 +47,45 @@
   text-transform: uppercase;
 }
 
+.hoverButton span {
+  animation: fontAnimation 1s infinite ease-out alternate;
+  font-variation-settings: 'wght' 100;
+}
+
+.hoverButton span:nth-child(2) {
+  animation-delay: 0.1s
+}
+.hoverButton span:nth-child(3) {
+  animation-delay: 0.2s
+}
+.hoverButton span:nth-child(4) {
+  animation-delay: 0.3s
+}
+.hoverButton span:nth-child(5) {
+  animation-delay: 0.4s
+}
+.hoverButton span:nth-child(6) {
+  animation-delay: 0.5s
+}
+.hoverButton span:nth-child(7) {
+  animation-delay: 0.6s
+}
+.hoverButton span:nth-child(8) {
+  animation-delay: 0.7s
+}
+.hoverButton span:nth-child(9) {
+  animation-delay: 0.8s
+}
+.hoverButton span:nth-child(10) {
+  animation-delay: 0.9s
+}
+.hoverButton span:nth-child(11) {
+  animation-delay: 1s
+}
+.hoverButton span:nth-child(12) {
+  animation-delay: 1.1s
+}
+
 .infoButton {
   position: absolute;
   display: flex;
@@ -71,6 +110,18 @@
   transition: opacity 0.2s ease, height 0.2s ease;
   -webkit-backdrop-filter: blur(23px);
   backdrop-filter: blur(23px);
+}
+
+@keyframes fontAnimation {
+  0% {
+    font-variation-settings: 'wght' 100, 'ital' 0;
+  }
+  30% {
+    font-variation-settings: 'wght' 250, 'ital' 100;
+  }
+  100% {
+    font-variation-settings: 'wght' 100, 'ital' 0;
+  }
 }
 
 @media only screen and (max-width: 600px) {

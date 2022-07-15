@@ -177,10 +177,10 @@ const Typefaces = ({
           exit={{ y: -300, opacity: 0 }}
           transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
         >
-
           <Link href="/typefaces/protest-grotesk-text" scroll={false}>
             <div ref={protestRef}>
               <TypefacePreview
+                key="001"
                 fontFamily="Protest"
                 lable="Protest Grotesk"
                 weights={[
@@ -209,8 +209,9 @@ const Typefaces = ({
                   "Inspired by Ⅷ {Abloh’s} Original ⑨Meteor Shower ",
                 ]}
                 configuration={{
-                  letterSpacing: "-0.7vw",}
-                }
+                  letterSpacing: "-0.7vw",
+                }}
+                default={[160, 0]}
               />
             </div>
           </Link>
@@ -218,17 +219,18 @@ const Typefaces = ({
           <Link href="/typefaces/protest-grotesk-mono" scroll={false}>
             <div ref={protestMonoRef}>
               <TypefacePreview
+                key="002"
                 fontFamily="ProtestMono"
                 lable="Protest Mono"
                 weights={[
-                  ["Thin / ", 40, 0],
-                  ["Light / ", 70, 0],
-                  ["Regular / ", 100, 0],
-                  ["Book / ", 130, 0],
-                  ["Medium / ", 160, 0],
-                  ["Bold / ", 190, 0],
-                  ["Heavy / ", 220, 0],
-                  ["Black ", 250, 0],
+                  ["Thin / ", 40, 0, 1],
+                  ["Light / ", 70, 0, 2],
+                  ["Regular / ", 100, 0, 3],
+                  ["Book / ", 130, 0, 4],
+                  ["Medium / ", 160, 0, 5],
+                  ["Bold / ", 190, 0, 6],
+                  ["Heavy / ", 220, 0, 7],
+                  ["Black ", 250, 0, 8]
                 ]}
                 content={[
                   "Graph OP—1™ [around 7°Kelvin] ",
@@ -238,8 +240,9 @@ const Typefaces = ({
                   "Stadelĳk’s SpezSound Color ®",
                 ]}
                 configuration={{
-                  letterSpacing: "-0.9vw"}
-                }
+                  letterSpacing: "-0.9vw",
+                }}
+                default={[40, 0]}
               />
             </div>
           </Link>
@@ -247,6 +250,7 @@ const Typefaces = ({
           <Link href="/typefaces/giallo-roman" scroll={false}>
             <div ref={protestMonoRef}>
               <TypefacePreview
+                key="001"
                 fontFamily="Giallo"
                 lable="Giallo Roman"
                 weights={[
@@ -255,7 +259,7 @@ const Typefaces = ({
                   ["Book / ", 300, 0],
                   ["Medium / ", 400, 0],
                   ["Bold / ", 500, 0],
-                  ["Extra Bold / ", 600, 0],
+                  ["Heavy / ", 600, 0],
                   ["Black / ", 700, 0],
                 ]}
                 content={[
@@ -266,8 +270,9 @@ const Typefaces = ({
                   "Stadelĳk’s CENTRAAL Color",
                 ]}
                 configuration={{
-                  letterSpacing: "0",}
-                }
+                  letterSpacing: "0",
+                }}
+                default={[300, 0]}
               />
             </div>
           </Link>

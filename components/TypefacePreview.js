@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import MouseButton from "./MouseButton";
 
 const TypefacePreview = (props) => {
-  const [wdth, updateWdth] = useState([250, 0]);
+  const [wdth, updateWdth] = useState(props.default);
   const [nmbr, updateNmbr] = useState(0);
 
   const [buttonContent, setButtonContent] = useState(null);
@@ -58,9 +58,9 @@ const TypefacePreview = (props) => {
     const interval = setInterval(() => {
       prevText();
     }, MINUTE_MS);
-
+    console.log(nmbr)
     return () => clearInterval(interval);
-  },[]);
+  });
 
   const style01 = {
     fontVariationSettings: `'wght' ${wdth[0]}, 'ital' ${wdth[1]},'wdth' 50`,
@@ -79,7 +79,7 @@ const TypefacePreview = (props) => {
 
         {props.weights.map((item) => (
           <span
-            key={item[1]}
+            key={item}
             className="typefaceControlButton"
             onMouseEnter={() => setWdth([item[1], item[2]])}
             style={(wdth[0] === item[1] && wdth[1] === item[2] || wdth[0] === item[1] && wdth[1] === 100 ? { opacity: "1" } : { opacity: "0.3" })}

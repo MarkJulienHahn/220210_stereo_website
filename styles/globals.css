@@ -668,10 +668,16 @@ li {
   top: 0;
   width: 100%;
   font-size: 40vw;
+  line-height: 60vw;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
   pointer-events: none;
+}
+
+.glyphchartDisplay div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .glyphchartDisplayMobile {
@@ -813,7 +819,7 @@ li {
 
 .MuiSlider-markLabel:hover {
   opacity: 1 !important;
-} 
+}
 
 /* P R O D U C T */
 
@@ -991,11 +997,11 @@ li {
 .GialloAnimationWrapper {
   height: 100vh;
   overflow: hidden;
-  background: ghostwhite;
+  background: black;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  color: green
+  color: yellow;
 }
 
 .GialloAnimationWrapper * {
@@ -1007,9 +1013,11 @@ li {
   font-family: "Giallo";
   font-size: 5vw;
   letter-spacing: -0.1vw;
-
 }
 
 .GialloIndex {
   font-family: "GialloMono";
 }
+
+
+

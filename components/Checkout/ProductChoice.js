@@ -36,12 +36,11 @@ const ProductChoice = ( props ) => {
   }
 
 
-
   const ItemNotInCart = ( ) => (
     <>
       <div className={styles.notInCart}>
-        <div style={props.licenceChoice && props.licenceUser? enabled : disabled} className={styles.productWrapper}>
-          <span className={styles.productName}>
+        <div style={props.licenceChoice && props.licenceUser ? enabled : disabled} className={styles.productWrapper}>
+          <span style={props.active || props.bundle  === "Bundle 1" && props.activeBundle1 || props.bundle  === "Bundle 2" && props.activeBundle2 ? primary : normal}  className={styles.productName}>
               {props.name}
               <span className={styles.productDescription}>
               </span>
@@ -51,7 +50,6 @@ const ProductChoice = ( props ) => {
           </span>
         </div>
       </div>
-
     </>
   )
 

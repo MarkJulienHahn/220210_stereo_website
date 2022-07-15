@@ -59,7 +59,7 @@ const Information = ({ info }) => {
       <MouseButton lable={buttonContent} />
 
       <AnimatePresence exitBeforeEnter>
-        <div className="buttonsLeftWrapper" scroll={false}>
+        <div className="buttonsLeftWrapper">
           <Link href="/" scroll={false}>
             <a>
               <Button lable={"Home"} subclass={"tertiary"} />

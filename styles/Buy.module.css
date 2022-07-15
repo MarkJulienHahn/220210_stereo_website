@@ -233,3 +233,24 @@
     left: 50vw;
     z-index: 1000;
 }
+
+.fontPreview {
+    position: fixed;
+    width: 50vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    font-size: 10vw;
+    line-height: 10vw;
+    backdrop-filter: blur(20px);
+    animation: appear 0.5s ease-out
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

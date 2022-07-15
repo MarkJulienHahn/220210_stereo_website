@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import styles from "../styles/HeaderAnimation.module.css";
 
 const HeaderAnimationProtest = () => {
   const [index, setIndex] = useState(0);
@@ -48,27 +47,27 @@ const HeaderAnimationProtest = () => {
 
   return (
     <>
-      <div className={styles.headerAnimationWrapper}>
+      <div className={"headerAnimationWrapper"}>
         <div>
-          <div className={styles.row}>
+          <div className={"row"}>
             <p style={fontcolor}>
               {array[index]}
               <br />
             </p>
           </div>
-          <div className={styles.row2}>
+          <div className={"row2"}>
             <p style={fontcolor}>
               {array[index]}
               <br />
             </p>
           </div>
-          <div className={styles.row}>
+          <div className={"row"}>
             <p style={fontcolor}>
               {array[index]}
               <br />
             </p>
           </div>
-          <div className={styles.row2}>
+          <div className={"row2"}>
             <p>
               {array[index]}
               <br />
