@@ -58,7 +58,6 @@ const TypefacePreview = (props) => {
     const interval = setInterval(() => {
       prevText();
     }, MINUTE_MS);
-    console.log(nmbr)
     return () => clearInterval(interval);
   });
 
@@ -67,8 +66,6 @@ const TypefacePreview = (props) => {
     fontFamily: `${props.fontFamily}`,
     letterSpacing: props.configuration.letterSpacing,
   };
-
-  // console.log(wdth)
 
   return (
     <div className="typefaceWrapper">

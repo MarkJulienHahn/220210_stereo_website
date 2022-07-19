@@ -6,10 +6,14 @@ import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 
 import Layout from "../components/Layout";
 import Nav from "../components/Nav";
+import Cookie from "../components/Cookie";
 
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
+  const [cookieSeen, setCookieSeen] = useState();
+  const [fadeCookie, setFadeCookie] = useState(false);
+
   const location = useRouter();
 
   const [products, setProducts] = useState([]);
@@ -20,7 +24,7 @@ function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(false);
 
   const fetchProducts = async () => {
-    const { data } = await commerce.products.list();
+    const { data } = await commerce.products.list({ limit: 1000 });
 
     setProducts(data);
   };
@@ -86,10 +90,22 @@ function MyApp({ Component, pageProps }) {
     setLive(token);
   };
 
+  const acceptCookie = async () => {
+    setFadeCookie(true),
+      await setTimeout(function () {
+        setCookieSeen(true);
+      }, 300);
+    localStorage.setItem("cookieSeen", "true");
+  };
+
   useEffect(async () => {
     fetchProducts();
     fetchCart();
     refreshCart();
+    const data = localStorage.getItem("cookieSeen");
+    if (data) {
+      setCookieSeen(data);
+    }
   }, []);
 
   return (
@@ -100,7 +116,17 @@ function MyApp({ Component, pageProps }) {
           currency: "EUR",
         }}
       />
+
+      {!cookieSeen ? (
+        <div className="cookieWrapper" style={fadeCookie ? { opacity: 0 } : { opacity: 1 }}>
+          <Cookie acceptCookie={acceptCookie} />
+        </div>
+      ) : (
+        ""
+      )}
+
       <Nav />
+
       <AnimatePresence
         exitBeforeEnter
         onExitComplete={() => window.scrollTo(0, 0)}

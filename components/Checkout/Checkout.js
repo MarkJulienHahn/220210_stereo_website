@@ -460,6 +460,8 @@ const Checkout = ({
       : (updateButtonContent(""), setAnimated(false));
   }, [loading]);
 
+  console.log(loading)
+
   return (
     <div>
       <div
@@ -749,18 +751,15 @@ const Checkout = ({
                     subclass={buttonStateProtest}
                     onClick={() => showProtest()}
                   />
-                  <Button
-                    lable={"Protest Grotesk Mono"}
-                    subclass={"quaternary"}
-                  />
+                  <Button lable={"Protest Mono"} subclass={"quaternary"} />
                   <Button
                     lable={"Giallo Roman"}
                     subclass={buttonStateGiallo}
                     onClick={() => showGiallo()}
                   />
-                  <Button lable={"Giallo Semimono"} subclass={"quaternary"} />
+                  {/* <Button lable={"Giallo Semimono"} subclass={"quaternary"} />
                   <Button lable={"Giallo Mono"} subclass={"quaternary"} />
-                  <Button lable={"Skyline"} subclass={"quaternary"} />
+                  <Button lable={"Skyline"} subclass={"quaternary"} /> */}
                   <Button lable={"Automat"} subclass={"quaternary"} />
                 </div>
 
@@ -786,26 +785,34 @@ const Checkout = ({
                     className={styles.buyTableContent}
                   >
                     {showBuyProtest && (
-                      <BuyProtest
-                        products={products}
-                        onAddToCart={handleAddToCart}
-                        handleEmptyCart={handleEmptyCart}
-                        onRemoveFromCart={handleRemoveFromCart}
-                        onUpdateCartQty={handleUpdateCartQty}
-                        cart={cart}
-                        checkoutToken={checkoutToken}
-                        priceFactor1={priceFactor1}
-                        priceFactor2={priceFactor2}
-                        priceFactor3={priceFactor3}
-                        priceFactor4={priceFactor4}
-                        priceFactor5={priceFactor5}
-                        priceFactor6={priceFactor6}
-                        licenceChoice={licenceChoice}
-                        LicenceUser={LicenceUser}
-                        onUpdateCartPrice={handleUpdateCartPrice}
-                        Licence={Licence}
-                        NumEmployees={NumEmployees}
-                      />
+                      <div
+                        style={
+                          loading
+                            ? { pointerEvents: "none", opacity: 0.6 }
+                            : {  }
+                        }
+                      >
+                        <BuyProtest
+                          products={products}
+                          onAddToCart={handleAddToCart}
+                          handleEmptyCart={handleEmptyCart}
+                          onRemoveFromCart={handleRemoveFromCart}
+                          onUpdateCartQty={handleUpdateCartQty}
+                          cart={cart}
+                          checkoutToken={checkoutToken}
+                          priceFactor1={priceFactor1}
+                          priceFactor2={priceFactor2}
+                          priceFactor3={priceFactor3}
+                          priceFactor4={priceFactor4}
+                          priceFactor5={priceFactor5}
+                          priceFactor6={priceFactor6}
+                          licenceChoice={licenceChoice}
+                          LicenceUser={LicenceUser}
+                          onUpdateCartPrice={handleUpdateCartPrice}
+                          Licence={Licence}
+                          NumEmployees={NumEmployees}
+                        />
+                      </div>
                     )}
 
                     {showBuyGiallo && (
@@ -870,10 +877,14 @@ const Checkout = ({
                     ))}
                   </div>
 
-                  <div className={styles.total}>
-                    <span>Total (incl. Tax)</span>
-                    <span>EUR {cart.subtotal.formatted}</span>
-                  </div>
+                  {cart.line_items.length | undefined ? (
+                    <div className={styles.total}>
+                      <span>Total (incl. Tax)</span>
+                      <span>EUR {cart.subtotal.formatted}</span>
+                    </div>
+                  ) : (
+                    ""
+                  )}
                 </div>
               </div>
             </div>

@@ -1016,8 +1016,43 @@ li {
 }
 
 .GialloIndex {
-  font-family: "GialloMono";
+  font-family: "Giallo-Mono";
 }
 
+/* COOKIE */
 
+.cookieWrapper {
+  background: var(--tertiary);
+  backdrop-filter: blur(20px);
+  border-radius: 3px;
+  position: fixed;
+  top: var(--margin-M);
+  left: var(--margin-M);
+  padding: var(--margin-S);
+  width: 30%;
+  z-index: 200;
+  font-family: "Giallo-Mono";
+  font-size: var(--gialoSmallSize);
+  letter-spacing: 1px;
+  animation: fadeInCookie 2s ease;
+  transition: opacity 0.5s ease-out
+}
 
+.cookieButtonWrapper {
+  padding-top: var(--margin-M);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.cookieButtonWrapper * {
+  margin-left: 20px;
+  width: 200px;
+  margin-bottom: 0;
+}
+
+@keyframes fadeInCookie {
+  0% {transform: translateX(-50vw)}
+  80% {transform: translateX(-50vw)}
+  100% {transform: translateX(0vw)}
+}

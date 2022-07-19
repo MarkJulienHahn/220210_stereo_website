@@ -113,62 +113,62 @@ const GialloRoman = ({
                 <div
                   style={{ fontVariationSettings: "'wght' 600, 'ital'  00" }}
                 >
-                  Giallo Roman Bold
+                  Giallo Roman Heavy
                 </div>
                 <div
                   style={{ fontVariationSettings: "'wght' 600, 'ital' 100" }}
                 >
-                  Giallo Roman Bold Oblique
+                  Giallo Roman Heavy Oblique
                 </div>
                 <div
                   style={{ fontVariationSettings: "'wght' 500, 'ital'  00" }}
                 >
-                  Giallo Roman Medium
+                  Giallo Roman Bold
                 </div>
                 <div
                   style={{ fontVariationSettings: "'wght' 500, 'ital' 100" }}
                 >
-                  Giallo Roman Medium Oblique
+                  Giallo Roman Bold Oblique
                 </div>
                 <div
                   style={{ fontVariationSettings: "'wght' 400, 'ital'  00" }}
                 >
-                  Giallo Roman Book
+                  Giallo Roman Medium
                 </div>
                 <div
                   style={{ fontVariationSettings: "'wght' 400, 'ital' 100" }}
                 >
-                  Giallo Roman Book Oblique
+                  Giallo Roman Medium Oblique
                 </div>
                 <div
                   style={{ fontVariationSettings: "'wght' 300, 'ital'  00" }}
                 >
-                  Giallo Roman Regular
+                  Giallo Roman Book
                 </div>
                 <div
                   style={{ fontVariationSettings: "'wght' 300, 'ital' 100" }}
                 >
-                  Giallo Roman Regular Oblique
+                  Giallo Roman Book Oblique
                 </div>
                 <div
                   style={{ fontVariationSettings: "'wght' 200, 'ital'  00" }}
                 >
-                  Giallo Roman Light
+                  Giallo Roman Regular
                 </div>
                 <div
                   style={{ fontVariationSettings: "'wght' 200, 'ital' 100" }}
                 >
-                  Giallo Roman Light Oblique
+                  Giallo Roman Regular Oblique
                 </div>
                 <div
                   style={{ fontVariationSettings: "'wght' 100, 'ital'  00" }}
                 >
-                  Giallo Roman Thin
+                  Giallo Roman Light
                 </div>
                 <div
                   style={{ fontVariationSettings: "'wght' 100, 'ital' 100" }}
                 >
-                  Giallo Roman Thin Oblique
+                  Giallo Roman Light Oblique
                 </div>
               </div>
             </div>

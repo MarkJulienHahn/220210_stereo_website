@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ProductChoice from "./ProductChoice";
 import styles from "../../styles/Buy.module.css";
 
@@ -7,7 +7,6 @@ const BuyProtest = ({
   LicenceUser,
   products,
   onAddToCart,
-  onUpdateCartQty,
   onRemoveFromCart,
   cart,
   priceFactor1,
@@ -18,18 +17,15 @@ const BuyProtest = ({
   priceFactor6,
   Licence,
   NumEmployees,
-  setVfconfig,
+  loading
 }) => {
-  const [LineItem, setLineItem] = useState("");
-  const [active, setActive] = useState(false);
-  const [activeBundle1, setActiveBundle1] = useState(false);
-  const [activeBundle2, setActiveBundle2] = useState(false);
+  const [hoverFullFamily, setHoverFullFamily] = useState(false);
+  const [hoverBundle1, setHoverBundle1] = useState(false);
+  const [hoverBundle2, setHoverBundle2] = useState(false);
 
-  const updateLineItem = (id) => {
-    setLineItem(id);
-  };
-
-  const lineItem = cart.line_items.find((item) => item.product_id === LineItem);
+  const [addFullFamily, setAddFullFamily] = useState(false);
+  const [addBundle1, setAddBundle1] = useState(false);
+  const [addBundle2, setAddBundle2] = useState(false);
 
   const updateLicenceType = (name, licence) => {
     products.find(
@@ -38,15 +34,15 @@ const BuyProtest = ({
   };
 
   function isProtest(obj) {
-    return obj.categories[0].name === "Protest Grotesk";
+    return obj.categories[1].name === "Protest Grotesk";
   }
 
   function isStyle(obj) {
-    return obj.categories[1].name === "Styles";
+    return obj.categories[0].name === "Styles";
   }
 
   function isBundle(obj) {
-    return obj.categories[1].name === "Bundles";
+    return obj.categories[0].name === "Bundles";
   }
 
   const protest = products.filter(isProtest);
@@ -59,9 +55,146 @@ const BuyProtest = ({
 
   const items = cart.line_items;
 
+  const clearBundle1 = () => {
+    items.forEach((item) =>
+      item.product_id === "prod_ypbroE93pWo8n4"
+        ? onRemoveFromCart(item.id)
+        : () => {}
+    );
+    items.forEach((item) =>
+      item.product_id === "prod_Kvg9l61kNq51bB"
+        ? onRemoveFromCart(item.id)
+        : () => {}
+    );
+    items.forEach((item) =>
+      item.product_id === "prod_NqKE50NeZDwdgB"
+        ? onRemoveFromCart(item.id)
+        : () => {}
+    );
+    items.forEach((item) =>
+      item.product_id === "prod_kpnNwA1JXrwmXB"
+        ? onRemoveFromCart(item.id)
+        : () => {}
+    );
+    items.forEach((item) =>
+      item.product_id === "prod_8XO3wpMOVxoYAz"
+        ? onRemoveFromCart(item.id)
+        : () => {}
+    );
+    items.forEach((item) =>
+      item.product_id === "prod_bO6J5aBOnAlEjp"
+        ? onRemoveFromCart(item.id)
+        : () => {}
+    );
+    items.forEach((item) =>
+      item.product_id === "prod_9BAmwJAqK4leXd"
+        ? onRemoveFromCart(item.id)
+        : () => {}
+    );
+    items.forEach((item) =>
+      item.product_id === "prod_mOVKl4a0nYwprR"
+        ? onRemoveFromCart(item.id)
+        : () => {}
+    );
+    items.forEach((item) =>
+      item.product_id === "prod_eN1ql9KEg2oz3y"
+        ? onRemoveFromCart(item.id)
+        : () => {}
+    );
+    items.forEach((item) =>
+      item.product_id === "prod_gnZO5kr82vo7MN"
+        ? onRemoveFromCart(item.id)
+        : () => {}
+    );
+
+    items.forEach((item) =>
+      item.product_id === "prod_nPEVlN9q3z5a7d"
+        ? onRemoveFromCart(item.id)
+        : () => {}
+    );
+    items.forEach((item) =>
+      item.product_id === "prod_VKXmwDEmWVorgD"
+        ? onRemoveFromCart(item.id)
+        : () => {}
+    );
+  };
+
+  console.log(products)
+
+  const clearBundle2 = () => {
+    items.forEach((item) =>
+      item.product_id === "prod_ypbroE93pWo8n4"
+        ? onRemoveFromCart(item.id)
+        : () => {}
+    );
+    items.forEach((item) =>
+      item.product_id === "prod_Kvg9l61kNq51bB"
+        ? onRemoveFromCart(item.id)
+        : () => {}
+    );
+
+    items.forEach((item) =>
+      item.product_id === "prod_8XO3wpMOVxoYAz"
+        ? onRemoveFromCart(item.id)
+        : () => {}
+    );
+    items.forEach((item) =>
+      item.product_id === "prod_bO6J5aBOnAlEjp"
+        ? onRemoveFromCart(item.id)
+        : () => {}
+    );
+
+    items.forEach((item) =>
+      item.product_id === "prod_eN1ql9KEg2oz3y"
+        ? onRemoveFromCart(item.id)
+        : () => {}
+    );
+    items.forEach((item) =>
+      item.product_id === "prod_gnZO5kr82vo7MN"
+        ? onRemoveFromCart(item.id)
+        : () => {}
+    );
+
+    items.forEach((item) =>
+      item.product_id === "prod_nPEVlN9q3z5a7d"
+        ? onRemoveFromCart(item.id)
+        : () => {}
+    );
+    items.forEach((item) =>
+      item.product_id === "prod_RqEv5xzLr9wZz4"
+        ? onRemoveFromCart(item.id)
+        : () => {}
+    );
+  };
+
+  const clearFullFamily = () => {
+    items.forEach((item) => {
+      item.name.includes("Protest Grotesk")
+        ? onRemoveFromCart(item.id)
+        : () => {};
+    });
+  };
+
+  useEffect(() => {
+    !items.some((item) => item.product_id === protestBundles[0].id)
+      ? setAddFullFamily(false)
+      : "";
+    !items.some((item) => item.product_id === protestBundles[1].id)
+      ? setAddBundle1(false)
+      : "";
+    !items.some((item) => item.product_id === protestBundles[2].id)
+      ? setAddBundle2(false)
+      : "";
+  }, [cart]);
 
   return (
-    <div onMouseEnter={() => {setActive(false), setActiveBundle1(false), setActiveBundle2(false)}}>
+    <div
+      onMouseEnter={() => {
+        setHoverFullFamily(false),
+          setHoverBundle1(false),
+          setHoverBundle2(false);
+      }}
+    >
       <p className={styles.buyConfigurationHead}>Bundles</p>
 
       {/* FULL FAMILY */}
@@ -72,22 +205,27 @@ const BuyProtest = ({
           licenceChoice &&
           LicenceUser &&
           !items.some((item) => item.product_id === protestBundles[0].id)
-            ? () => {
+            ? async () => {
                 updateLicenceType(
                   protestBundles[0].name,
                   Licence,
                   NumEmployees
                 ),
-                  onAddToCart(protestBundles[0].id, 1 * priceFactor);
+                  clearFullFamily();
+                onAddToCart(protestBundles[0].id, 1 * priceFactor);
+
+                setAddFullFamily(true);
               }
-            : () =>
+            : () => {
                 onRemoveFromCart(
                   items.find((item) => item.product_id === protestBundles[0].id)
                     .id
-                )
+                );
+                setAddFullFamily(false);
+              }
         }
-        onMouseEnter={() => setActive(true)}
-        onMouseLeave={() => setActive(false)}
+        onMouseEnter={() => setHoverFullFamily(true)}
+        onMouseLeave={() => setHoverFullFamily(false)}
       >
         <ProductChoice
           product={protestBundles[0]}
@@ -103,7 +241,50 @@ const BuyProtest = ({
         />
       </div>
 
-      {/* BUNDLE 1 */}
+      {/* DELUXE */}
+
+      <div
+        item
+        onClick={
+          licenceChoice &&
+          LicenceUser &&
+          !items.some((item) => item.product_id === protestBundles[1].id)
+            ? async () => {
+                updateLicenceType(
+                  protestBundles[1].name,
+                  Licence,
+                  NumEmployees
+                ),
+                  onAddToCart(protestBundles[1].id, 1 * priceFactor);
+                clearBundle1();
+                setAddBundle1(true);
+              }
+            : () => {
+                onRemoveFromCart(
+                  items.find((item) => item.product_id === protestBundles[1].id)
+                    .id
+                );
+                setAddBundle1(false);
+              }
+        }
+        onMouseEnter={() => setHoverBundle2(true)}
+        onMouseLeave={() => setHoverBundle2(false)}
+      >
+        <ProductChoice
+          product={protestBundles[1]}
+          name={protestBundles[1].name}
+          price={
+            licenceChoice
+              ? `EUR  ${protestBundles[1].price.raw * priceFactor}`
+              : "Please choose a license Type"
+          }
+          id={protestBundles[1].id}
+          cart={cart}
+          licenceChoice={licenceChoice}
+        />
+      </div>
+
+      {/* ESSENTIAL */}
 
       <div
         item
@@ -117,16 +298,20 @@ const BuyProtest = ({
                   Licence,
                   NumEmployees
                 ),
+                  clearBundle2(),
                   onAddToCart(protestBundles[2].id, 1 * priceFactor);
+                setAddBundle2(true);
               }
-            : () =>
+            : () => {
                 onRemoveFromCart(
                   items.find((item) => item.product_id === protestBundles[2].id)
                     .id
-                )
+                );
+                setAddBundle2(false);
+              }
         }
-        onMouseEnter={() => setActiveBundle1(true)}
-        onMouseLeave={() => setActiveBundle1(false)}
+        onMouseEnter={() => setHoverBundle1(true)}
+        onMouseLeave={() => setHoverBundle1(false)}
       >
         <ProductChoice
           product={protestBundles[2]}
@@ -137,45 +322,6 @@ const BuyProtest = ({
               : "Please choose a license Type"
           }
           id={protestBundles[2].id}
-          cart={cart}
-          licenceChoice={licenceChoice}
-        />
-      </div>
-
-      {/* BUNDLE 2 */}
-
-      <div
-        item
-        onClick={
-          licenceChoice &&
-          LicenceUser &&
-          !items.some((item) => item.product_id === protestBundles[1].id)
-            ? () => {
-                updateLicenceType(
-                  protestBundles[1].name,
-                  Licence,
-                  NumEmployees
-                ),
-                  onAddToCart(protestBundles[1].id, 1 * priceFactor);
-              }
-            : () =>
-                onRemoveFromCart(
-                  items.find((item) => item.product_id === protestBundles[1].id)
-                    .id
-                )
-        }
-        onMouseEnter={() => setActiveBundle2(true)}
-        onMouseLeave={() => setActiveBundle2(false)}
-      >
-        <ProductChoice
-          product={protestBundles[1]}
-          name={protestBundles[1].name}
-          price={
-            licenceChoice
-              ? `EUR  ${protestBundles[1].price.raw * priceFactor}`
-              : "Please choose a license Type"
-          }
-          id={protestBundles[1].id}
           cart={cart}
           licenceChoice={licenceChoice}
         />
@@ -209,15 +355,16 @@ const BuyProtest = ({
                   ? `EUR  ${product.price.raw * priceFactor}`
                   : "Please choose a license Type"
               }
-              id={product.id}
-              priceFactor1={priceFactor1}
-              priceFactor2={priceFactor2}
-              priceFactor3={priceFactor3}
+              items={items}
               cart={cart}
-              active={active}
-              activeBundle1={activeBundle1}
-              activeBundle2={activeBundle2}
-              bundle={product.extra_fields[0].name}
+              hoverFullFamily={hoverFullFamily}
+              hoverBundle1={hoverBundle1}
+              hoverBundle2={hoverBundle2}
+              bundle={product.extra_fields.map((a) => a.name)}
+              related={product.related_products[0] || undefined}
+              addFullFamily={addFullFamily}
+              addBundle2={addBundle2}
+              addBundle1={addBundle1}
             />
           </div>
         </>

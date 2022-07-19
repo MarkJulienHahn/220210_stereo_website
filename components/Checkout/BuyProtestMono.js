@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ProductChoice from "./ProductChoice";
 import styles from "../../styles/Buy.module.css";
 
-const BuyGiallo = ({
+const BuyProtestMono = ({
   licenceChoice,
   LicenceUser,
   products,
   onAddToCart,
+  onUpdateCartQty,
   onRemoveFromCart,
   cart,
   priceFactor1,
@@ -17,10 +18,18 @@ const BuyGiallo = ({
   priceFactor6,
   Licence,
   NumEmployees,
+  setVfconfig,
 }) => {
+  const [LineItem, setLineItem] = useState("");
   const [active, setActive] = useState(false);
   const [activeBundle1, setActiveBundle1] = useState(false);
   const [activeBundle2, setActiveBundle2] = useState(false);
+
+  const updateLineItem = (id) => {
+    setLineItem(id);
+  };
+
+  const lineItem = cart.line_items.find((item) => item.product_id === LineItem);
 
   const updateLicenceType = (name, licence) => {
     products.find(
@@ -28,21 +37,21 @@ const BuyGiallo = ({
     ).licence = `${licence} / ${NumEmployees} Employees`;
   };
 
-  function isGiallo(obj) {
-    return obj.categories[1].name === "Giallo Roman";
+  function isProtest(obj) {
+    return obj.categories[0].name === "Protest Grotesk";
   }
 
   function isStyle(obj) {
-    return obj.categories[0].name === "Styles";
+    return obj.categories[1].name === "Styles";
   }
 
   function isBundle(obj) {
-    return obj.categories[0].name === "Bundles";
+    return obj.categories[1].name === "Bundles";
   }
 
-  const giallo = products.filter(isGiallo);
-  const gialloStyles = giallo.filter(isStyle);
-  const gialloBundles = giallo.filter(isBundle);
+  const protest = products.filter(isProtest);
+  const protestStyles = protest.filter(isStyle);
+  const protestBundles = protest.filter(isBundle);
 
   const priceFactor =
     (priceFactor1 + priceFactor2 + priceFactor3 + priceFactor5 + priceFactor6) *
@@ -50,14 +59,9 @@ const BuyGiallo = ({
 
   const items = cart.line_items;
 
-  console.log(giallo, gialloStyles, gialloBundles);
 
   return (
-    <div
-      onMouseEnter={() => {
-        setActive(false), setActiveBundle1(false), setActiveBundle2(false);
-      }}
-    >
+    <div onMouseEnter={() => {setActive(false), setActiveBundle1(false), setActiveBundle2(false)}}>
       <p className={styles.buyConfigurationHead}>Bundles</p>
 
       {/* FULL FAMILY */}
@@ -67,14 +71,18 @@ const BuyGiallo = ({
         onClick={
           licenceChoice &&
           LicenceUser &&
-          !items.some((item) => item.product_id === gialloBundles[0].id)
+          !items.some((item) => item.product_id === protestBundles[0].id)
             ? () => {
-                updateLicenceType(gialloBundles[0].name, Licence, NumEmployees),
-                  onAddToCart(gialloBundles[0].id, 1 * priceFactor);
+                updateLicenceType(
+                  protestBundles[0].name,
+                  Licence,
+                  NumEmployees
+                ),
+                  onAddToCart(protestBundles[0].id, 1 * priceFactor);
               }
             : () =>
                 onRemoveFromCart(
-                  items.find((item) => item.product_id === gialloBundles[0].id)
+                  items.find((item) => item.product_id === protestBundles[0].id)
                     .id
                 )
         }
@@ -82,65 +90,77 @@ const BuyGiallo = ({
         onMouseLeave={() => setActive(false)}
       >
         <ProductChoice
-          product={gialloBundles[0]}
-          name={gialloBundles[0].name}
+          product={protestBundles[0]}
+          name={protestBundles[0].name}
           price={
             licenceChoice
-              ? `EUR  ${gialloBundles[0].price.raw * priceFactor}`
+              ? `EUR  ${protestBundles[0].price.raw * priceFactor}`
               : "Please choose a license Type"
           }
-          id={gialloBundles[0].id}
+          id={protestBundles[0].id}
           cart={cart}
           licenceChoice={licenceChoice}
         />
       </div>
+
+      {/* BUNDLE 1 */}
 
       <div
         item
         onClick={
           licenceChoice &&
           LicenceUser &&
-          !items.some((item) => item.product_id === gialloBundles[2].id)
+          !items.some((item) => item.product_id === protestBundles[2].id)
             ? () => {
-                updateLicenceType(gialloBundles[2].name, Licence, NumEmployees),
-                  onAddToCart(gialloBundles[2].id, 1 * priceFactor);
+                updateLicenceType(
+                  protestBundles[2].name,
+                  Licence,
+                  NumEmployees
+                ),
+                  onAddToCart(protestBundles[2].id, 1 * priceFactor);
               }
             : () =>
                 onRemoveFromCart(
-                  items.find((item) => item.product_id === gialloBundles[2].id)
+                  items.find((item) => item.product_id === protestBundles[2].id)
                     .id
                 )
         }
         onMouseEnter={() => setActiveBundle1(true)}
         onMouseLeave={() => setActiveBundle1(false)}
       >
-      <ProductChoice
-          product={gialloBundles[2]}
-          name={gialloBundles[2].name}
+        <ProductChoice
+          product={protestBundles[2]}
+          name={protestBundles[2].name}
           price={
             licenceChoice
-              ? `EUR  ${gialloBundles[2].price.raw * priceFactor}`
+              ? `EUR  ${protestBundles[2].price.raw * priceFactor}`
               : "Please choose a license Type"
           }
-          id={gialloBundles[2].id}
+          id={protestBundles[2].id}
           cart={cart}
           licenceChoice={licenceChoice}
-        /> 
+        />
       </div>
+
+      {/* BUNDLE 2 */}
 
       <div
         item
         onClick={
           licenceChoice &&
           LicenceUser &&
-          !items.some((item) => item.product_id === gialloBundles[1].id)
+          !items.some((item) => item.product_id === protestBundles[1].id)
             ? () => {
-                updateLicenceType(gialloBundles[1].name, Licence, NumEmployees),
-                  onAddToCart(gialloBundles[1].id, 1 * priceFactor);
+                updateLicenceType(
+                  protestBundles[1].name,
+                  Licence,
+                  NumEmployees
+                ),
+                  onAddToCart(protestBundles[1].id, 1 * priceFactor);
               }
             : () =>
                 onRemoveFromCart(
-                  items.find((item) => item.product_id === gialloBundles[1].id)
+                  items.find((item) => item.product_id === protestBundles[1].id)
                     .id
                 )
         }
@@ -148,14 +168,14 @@ const BuyGiallo = ({
         onMouseLeave={() => setActiveBundle2(false)}
       >
         <ProductChoice
-          product={gialloBundles[1]}
-          name={gialloBundles[1].name}
+          product={protestBundles[1]}
+          name={protestBundles[1].name}
           price={
             licenceChoice
-              ? `EUR  ${gialloBundles[1].price.raw * priceFactor}`
+              ? `EUR  ${protestBundles[1].price.raw * priceFactor}`
               : "Please choose a license Type"
           }
-          id={gialloBundles[1].id}
+          id={protestBundles[1].id}
           cart={cart}
           licenceChoice={licenceChoice}
         />
@@ -163,7 +183,7 @@ const BuyGiallo = ({
 
       <p className={styles.buyConfigurationHead}>Single Styles</p>
 
-      {gialloStyles.map((product) => (
+      {protestStyles.map((product) => (
         <>
           <div
             item
@@ -194,8 +214,7 @@ const BuyGiallo = ({
               active={active}
               activeBundle1={activeBundle1}
               activeBundle2={activeBundle2}
-              // bundle={product.extra_fields[0].name || undefined}
-              related={product.related_products[0] || undefined}
+              bundle={product.extra_fields[0].name}
             />
           </div>
         </>
@@ -203,4 +222,5 @@ const BuyGiallo = ({
     </div>
   );
 };
-export default BuyGiallo;
+
+export default BuyProtestMono;
