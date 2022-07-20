@@ -73,7 +73,7 @@ function Glyphchart(props) {
                 <p>&#8594; Weight</p>
                 <Slider
                   min={40}
-                  max={150}
+                  max={250}
                   step={0.1}
                   defaultValue={100}
                   onChange={changeWght}

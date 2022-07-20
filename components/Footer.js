@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Styles from "../styles/Footer.module.css";
 
 const Contact = () => {
   return (
@@ -123,14 +122,14 @@ const Footer = () => {
   }
 
   return (
-    <div className={Styles.footer}>
-      <div className={Styles.footerTop}>
+    <div className={"footer"}>
+      <div className={"footerTop"}>
         {contact ? <Contact /> : ""}
         {legalNotice ? <LegalNotice /> : ""}
       </div>
 
-      <div className={Styles.footerBottom}>
-        <div className={Styles.footerInfo}>
+      <div className={"footerBottom"}>
+        <div className={"footerInfo"}>
           <p
             onClick={() => {
               showContact(!contact);
@@ -159,15 +158,15 @@ const Footer = () => {
             <br />
             <br />
           </p>
-          <p className={Styles.copyright}>
+          <p className={"copyright"}>
             © {new Date().getFullYear()} Stereo Typefaces™ <br />
             All rights reserved.
           </p>
         </div>
 
-        <div className={Styles.footerNewsletter}>
+        <div className={"footerNewsletter"}>
           {fulfilled ? (
-            <p className={Styles.confirmation}>
+            <p className={"confirmation"}>
               Thank you for your Registration, {name}!
             </p>
           ) : (
@@ -179,11 +178,11 @@ const Footer = () => {
               </p>
 
               <form
-                className={Styles.form}
+                className={"form"}
                 method="post"
                 onSubmit={handleOnSubmit}
               >
-                <p className={Styles.input}>
+                <p className={"input"}>
                   <input
                     placeholder="Name"
                     type="text"
@@ -192,7 +191,7 @@ const Footer = () => {
                   />
                 </p>
                 <hr />
-                <p className={Styles.input}>
+                <p className={"input"}>
                   <input
                     placeholder="E-Mail Adress"
                     type="email"
@@ -201,7 +200,7 @@ const Footer = () => {
                   />
                 </p>
                 <hr />
-                <p className={Styles.disclaimer}>
+                <p className={"disclaimer"}>
                   By registering you agree to accept the Terms & Conditions and
                   have read the Privacy Policy.
                 </p>

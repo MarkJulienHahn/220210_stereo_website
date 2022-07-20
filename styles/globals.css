@@ -161,12 +161,13 @@ li {
   opacity: 0;
 }
 
-@media only screen and (max-width: 600px) {
-  .menuBarClosed {
-    width: calc(100vw - 2 * var(--margin-M));
+@media only screen and (max-width: 1000px) {
+  .menuBarClosed,
+  .menuBarOpen {
+    width: calc(100vw - 30px);
   }
   .menuBarClosed:hover {
-    width: calc(100vw - 2 * var(--margin-M));
+    width: calc(100vw - 30px);
   }
 }
 
@@ -292,12 +293,6 @@ li {
   color: black;
 }
 
-/* #quaternary:hover {
-  background: black;
-  color: white;
-  cursor: pointer;
-} */
-
 @media only screen and (max-width: 600px) {
   .buttonsLeftWrapper {
     flex-wrap: wrap;
@@ -317,6 +312,12 @@ li {
   .buttonsRightWrapper div {
     margin: 3px 0 0 3px;
   }
+  #primary:hover,
+#secondary:hover,
+#tertiary:hover, #quaternary:hover {
+  background: "inherit";
+  color: "inherit";
+}
 }
 
 /* C A R T */
@@ -405,10 +406,6 @@ li {
   line-height: 7.5vw;
   letter-spacing: -0.3vw;
 }
-
-/* .typefaceInfosection {
-  padding: 0 10vw;
-} */
 
 .typefaceWrapper {
   position: relative;
@@ -516,8 +513,18 @@ li {
     animation: changeStyle 5s ease 0s infinite alternate;
   }
 
-  
+  .typefaceInfosectionList {
+    flex-direction: column;
+  }
 
+  .typefaceInfosectionList p {
+    width: 100%;
+    padding-bottom: var(--margin-M);
+  }
+
+  .typefaceInfosection {
+    padding-bottom: var(--margin-XL);
+  }
 }
 
 /* V A R I A B L E */
@@ -648,6 +655,7 @@ li {
   flex-direction: column;
   justify-content: space-between;
   width: 20vw;
+  padding: 6px;
 }
 
 .MuiSlider-root {
@@ -677,6 +685,9 @@ li {
 .ssButtons span div:hover {
   background: var(--secondary) !important;
   color: white !important;
+}
+
+@media only screen and (max-width: 600px) {
 }
 
 /* F E A T U R E S */
@@ -772,7 +783,8 @@ li {
   }
 
   .fontOpener {
-    letter-spacing: -2px;
+    letter-spacing: -1.1px;
+    white-space: nowrap;
   }
 
   .controlsWrapper {
@@ -783,8 +795,18 @@ li {
     transition: height 0.5s;
   }
 
+  .column02Wrapper {
+    width: 100%;
+  }
+
   .typetesterWrapper:hover .controlsWrapper {
-    height: 200px;
+    height: 250px;
+    padding-top: 20px;
+  }
+
+  .column01Wrapper {
+    width: calc(100vw - 2*var(--margin-M));
+    padding-bottom: 60px;
   }
 
   #click2type {
@@ -1163,4 +1185,126 @@ li {
       transform: translateX(0vw);
     }
   }
+}
+
+.footer {
+  height: 95vh;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  font-family: "Giallo-Mono";
+  font-size: var(--gialoSmallSize);
+  line-height: var(--gialloSmallLineHeight);
+  letter-spacing: var(--gialloSmallLetterSpacing);
+}
+
+.footerInfo {
+  width: 50vw;
+}
+
+.footerInfo p:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.footerTop {
+  left: 0;
+  width: 50%;
+}
+
+.footerTop a {
+  text-decoration: underline;
+}
+
+.copyright {
+  text-decoration: none !important;
+  cursor: default !important;
+}
+
+.footerBottom {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-direction: row;
+  padding-bottom: 82px;
+}
+
+.footerNewsletter {
+  width: 25vw;
+}
+
+.form {
+  margin-top: var(--margin-S);
+}
+
+.form button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: var(--margin-M);
+  height: 25px;
+  background: var(--tertiary);
+  padding: 0 20px;
+  font-variation-settings: "wght" 116, "wdth" 0;
+  text-transform: uppercase;
+  z-index: 100;
+  font-size: var(--pgSmallSize);
+  letter-spacing: var(--pgSmallLetterSpacing);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  font-family: "Protest";
+  border: 0;
+  outline: 0;
+  width: 100%;
+}
+
+.form button:hover {
+  background: var(--quaternary);
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+}
+
+.input input {
+  border: 0;
+  padding: 0;
+  font-family: "Giallo";
+  font-size: 40px;
+  line-height: 16px;
+  letter-spacing: 1px;
+}
+
+.input input::placeholder {
+  font-family: "Giallo-Mono";
+  color: black;
+  opacity: 1;
+  font-size: var(--gialoSmallSize);
+  line-height: var(--gialloSmallLineHeight);
+  letter-spacing: var(--gialloSmallLetterSpacing);
+}
+
+.input input::selection {
+  background: var(--primary);
+}
+
+.input input:focus {
+  border: 0px;
+  outline: 0;
+}
+
+.confirmation {
+  text-align: right;
+}
+
+.disclaimer {
+  padding-top: var(--margin-M);
+}
+
+@media only screen and (max-width: 600px) {
 }
