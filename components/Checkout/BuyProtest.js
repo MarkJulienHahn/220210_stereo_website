@@ -17,7 +17,7 @@ const BuyProtest = ({
   priceFactor6,
   Licence,
   NumEmployees,
-  loading
+  loading,
 }) => {
   const [hoverFullFamily, setHoverFullFamily] = useState(false);
   const [hoverBundle1, setHoverBundle1] = useState(false);
@@ -119,8 +119,6 @@ const BuyProtest = ({
     );
   };
 
-  console.log(products)
-
   const clearBundle2 = () => {
     items.forEach((item) =>
       item.product_id === "prod_ypbroE93pWo8n4"
@@ -175,17 +173,39 @@ const BuyProtest = ({
     });
   };
 
+  const updateFullFamily = (i) => {
+    setAddFullFamily(i),
+      localStorage.setItem("PGfullFamily", JSON.stringify(i));
+  };
+
+  const updateBundle1 = (i) => {
+    setAddBundle1(i), localStorage.setItem("PGBundle1", JSON.stringify(i));
+  };
+
+  const updateBundle2 = (i) => {
+    setAddBundle2(i), localStorage.setItem("PGBundle2", JSON.stringify(i));
+  };
+
   useEffect(() => {
     !items.some((item) => item.product_id === protestBundles[0].id)
-      ? setAddFullFamily(false)
+      ? updateFullFamily(false)
       : "";
     !items.some((item) => item.product_id === protestBundles[1].id)
-      ? setAddBundle1(false)
+      ? updateBundle1(false)
       : "";
     !items.some((item) => item.product_id === protestBundles[2].id)
-      ? setAddBundle2(false)
+      ? updateBundle2(false)
       : "";
   }, [cart]);
+
+  useEffect(() => {
+    const data = localStorage.getItem("PGfullFamily");
+    setAddFullFamily(JSON.parse(data));
+    const data2 = localStorage.getItem("PGBundle1");
+    setAddBundle1(JSON.parse(data2));
+    const data3 = localStorage.getItem("PGBundle2");
+    setAddBundle2(JSON.parse(data3));
+  });
 
   return (
     <div
@@ -214,14 +234,14 @@ const BuyProtest = ({
                   clearFullFamily();
                 onAddToCart(protestBundles[0].id, 1 * priceFactor);
 
-                setAddFullFamily(true);
+                updateFullFamily(true);
               }
             : () => {
                 onRemoveFromCart(
                   items.find((item) => item.product_id === protestBundles[0].id)
                     .id
                 );
-                setAddFullFamily(false);
+                updateFullFamily(false);
               }
         }
         onMouseEnter={() => setHoverFullFamily(true)}
@@ -257,14 +277,14 @@ const BuyProtest = ({
                 ),
                   onAddToCart(protestBundles[1].id, 1 * priceFactor);
                 clearBundle1();
-                setAddBundle1(true);
+                updateBundle1(true);
               }
             : () => {
                 onRemoveFromCart(
                   items.find((item) => item.product_id === protestBundles[1].id)
                     .id
                 );
-                setAddBundle1(false);
+                updateBundle1(false);
               }
         }
         onMouseEnter={() => setHoverBundle2(true)}
@@ -300,14 +320,14 @@ const BuyProtest = ({
                 ),
                   clearBundle2(),
                   onAddToCart(protestBundles[2].id, 1 * priceFactor);
-                setAddBundle2(true);
+                updateBundle2(true);
               }
             : () => {
                 onRemoveFromCart(
                   items.find((item) => item.product_id === protestBundles[2].id)
                     .id
                 );
-                setAddBundle2(false);
+                updateBundle2(false);
               }
         }
         onMouseEnter={() => setHoverBundle1(true)}

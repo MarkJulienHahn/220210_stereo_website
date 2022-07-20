@@ -68,3 +68,56 @@
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
 }
+
+.controlsMobile {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .controls {
+    display: none;
+  }
+
+  .controlsMobile {
+    display: block;
+    position: sticky;
+    top: 0;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.8);
+    padding-top: var(--margin-M);
+    padding-bottom: 60px;
+    z-index: 150;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+  }
+
+  .controlsMobileWrapper {
+    transform: translateY(40px);
+  }
+
+  .waterfallRow {
+    padding: 35px 0;
+    flex-direction: column;
+  }
+
+  .waterfallElement {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .waterfallRow .waterfallElement:first-child {
+    padding-bottom: 70px;
+  }
+
+  .m {
+    font-size: 4vw;
+    line-height: 5vw;
+    letter-spacing: -0.12vw;
+  }
+
+  .xs, .s {
+    display: none;
+  }
+
+}

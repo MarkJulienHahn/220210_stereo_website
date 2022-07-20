@@ -47,7 +47,7 @@ const Checkout = ({
   const [showBuyProtest, setShowBuyProtest] = useState(true);
   const [showBuyGiallo, setShowBuyGiallo] = useState(false);
   const [buttonStateGiallo, setButtonStateGiallo] = useState("quaternary");
-  const [buttonStateProtest, setButtonStateProtest] = useState("secondary");
+  const [buttonStateProtest, setButtonStateProtest] = useState("secondaryMuted");
 
   const [showLicensing, setShowLicensing] = useState(false);
   const [Processing, setProcessing] = useState(false);
@@ -142,7 +142,7 @@ const Checkout = ({
   const showProtest = () => {
     setShowBuyProtest(true),
       setShowBuyGiallo(false),
-      setButtonStateProtest("secondary"),
+      setButtonStateProtest("secondaryMuted"),
       setButtonStateGiallo("quaternary");
   };
 
@@ -150,7 +150,7 @@ const Checkout = ({
     setShowBuyProtest(false),
       setShowBuyGiallo(true),
       setButtonStateProtest("quaternary"),
-      setButtonStateGiallo("secondary");
+      setButtonStateGiallo("secondaryMuted");
   };
 
   const updatePriceFactor1 = (fact1) => {
@@ -460,8 +460,6 @@ const Checkout = ({
       : (updateButtonContent(""), setAnimated(false));
   }, [loading]);
 
-  console.log(loading)
-
   return (
     <div>
       <div
@@ -490,6 +488,11 @@ const Checkout = ({
           <>
             <div className="buttonsRightWrapper">
               <Button
+                lable={"Empty Cart"}
+                onClick={() => refreshCart()}
+                subclass={cart.line_items.length ? "quaternary" : "quaternaryMuted"}
+              />
+              <Button
                 lable={"Continue to Checkout"}
                 onClick={
                   cart.line_items.length && checkoutToken && live
@@ -501,7 +504,7 @@ const Checkout = ({
                 subclass={
                   cart.line_items.length && checkoutToken && live
                     ? "primary"
-                    : "quaternary"
+                    : "quaternaryMuted"
                 }
               />
             </div>
@@ -787,9 +790,7 @@ const Checkout = ({
                     {showBuyProtest && (
                       <div
                         style={
-                          loading
-                            ? { pointerEvents: "none", opacity: 0.6 }
-                            : {  }
+                          loading ? { pointerEvents: "none", opacity: 0.4 } : {}
                         }
                       >
                         <BuyProtest

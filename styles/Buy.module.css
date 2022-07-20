@@ -106,12 +106,6 @@
 .buyTableButtons div {
     margin-right: 3px;
     margin-bottom: 3px;
-    cursor: pointer !important;
-}
-
-.buyTableButtons div:hover {
-    background: black !important;
-    color: white !important;
 }
 
 .buyTableContent {

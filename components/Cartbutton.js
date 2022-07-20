@@ -15,7 +15,7 @@ function Cartbutton({ cart, live, lable, subclass, setShowCheckout }) {
   };
 
   const hidden = {
-    transform: "translateX(27vw)",
+    transform: "translateX(30vw)",
   };
 
   const visible = {

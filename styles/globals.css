@@ -71,7 +71,7 @@ body {
   --pgSmallLetterSpacing: 1.2px;
   --pgSmallVariable: "wght" 116, "wdth" 0;
 
-  --gialoSmallSize: 10.5pt;
+  --gialloSmallSize: 10.5pt;
   --gialloSmallLineHeight: 16pt;
   --gialloSmallLetterSpacing: 1.5px;
 }
@@ -81,6 +81,14 @@ body {
     --margin-XL: 200px;
     --margin-M: 15px;
     --margin-S: 10px;
+
+    --pgSmallSize: 6.5pt;
+    --pgSmallLineHeight: 10pt;
+    --pgSmallLetterSpacing: 1.2px;
+
+    --gialloSmallSize: 8.5pt;
+    --gialloSmallLineHeight: 11pt;
+    --gialloSmallLetterSpacing: 1.5px;
   }
 }
 
@@ -209,7 +217,6 @@ li {
   display: flex;
   z-index: 50;
   height: 25px;
-  /* animation: fadeIn 0.5s linear; */
   z-index: 200;
 }
 
@@ -226,12 +233,29 @@ li {
   color: white;
 }
 
+#secondaryMuted {
+  background: black;
+  color: white;
+  cursor: default;
+}
+
 #tertiary {
   background: var(--tertiary);
 }
 
 #quaternary {
   background: var(--quaternary);
+  cursor: pointer;
+}
+
+#quaternary:hover {
+  background: var(--secondary);
+  color: white;
+}
+
+#quaternaryMuted {
+  background: var(--quaternary);
+  color: rgba(0, 0, 0, 0.4);
   cursor: default;
 }
 
@@ -276,12 +300,11 @@ li {
 
 @media only screen and (max-width: 600px) {
   .buttonsLeftWrapper {
-    height: auto;
-    display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: flex-end;
-    max-width: 70vw;
+    max-width: 0;
+    height: auto;
   }
   .buttonsRightWrapper {
     height: auto;
@@ -313,7 +336,7 @@ li {
 .typeface-single-inner p,
 .typefaceInfosection h1 {
   font-family: "Giallo-Mono";
-  font-size: var(--gialoSmallSize);
+  font-size: var(--gialloSmallSize);
   line-height: var(--gialloSmallLineHeight);
   letter-spacing: var(--gialloSmallLetterSpacing);
   font-weight: normal;
@@ -335,7 +358,7 @@ li {
 
 .typefaceInfosectionList h1 {
   font-family: "Giallo-Mono";
-  font-size: var(--gialoSmallSize);
+  font-size: var(--gialloSmallSize);
   line-height: var(--gialloSmallLineHeight);
   letter-spacing: var(--gialloSmallLetterSpacing);
   font-weight: normal;
@@ -458,10 +481,10 @@ li {
     font-variation-settings: "ital" 0, "wght" 40;
   }
   33% {
-    font-variation-settings: "ital" 0, "wght" 150;
+    font-variation-settings: "ital" 0, "wght" 250;
   }
   66% {
-    font-variation-settings: "ital" 100, "wght" 150;
+    font-variation-settings: "ital" 100, "wght" 250;
   }
   100% {
     font-variation-settings: "ital" 0, "wght" 40;
@@ -470,17 +493,31 @@ li {
 
 @media only screen and (max-width: 600px) {
   .typefaceWrapper {
-    height: 40vh;
+    height: 60vh;
+    padding-top: 55px;
   }
 
   .typefaceControl {
+    font-size: 20pt;
+    line-height: 25pt;
+    letter-spacing: -0.6px;
+    position: relative;
+    padding-bottom: 10vh;
+    z-index: 150;
+  }
+
+  .typefaceInfo p,
+  .typefaceControlButton {
     display: none;
   }
   .typefaceDisplay {
-    height: 40vh;
+    height: 50vh;
     font-size: 10vw;
     animation: changeStyle 5s ease 0s infinite alternate;
   }
+
+  
+
 }
 
 /* V A R I A B L E */
@@ -731,7 +768,6 @@ li {
 
 @media only screen and (max-width: 600px) {
   .typeface-single-header {
-    height: calc(100vh - 200px);
     min-height: unset;
   }
 
@@ -861,17 +897,19 @@ li {
   height: 100%;
   overflow: hidden;
   background: #dfdfff;
-  /* background-image: url("../public/images/image_05.png"); */
+  color: white;
+  width: 100vw;
+  height: 100vh;
 }
 
 .headerAnimationWrapper .row {
   display: flex;
   justify-content: center;
   animation: rowAnimation 30s linear infinite alternate-reverse;
+  width: 1000px;
 }
 
 .headerAnimationWrapper .row p {
-  color: white;
   font-family: "Protest";
   font-variation-settings: "";
   /* letter-spacing: -3.5vw; */
@@ -887,6 +925,7 @@ li {
   display: flex;
   justify-content: center;
   animation: rowAnimation 30s linear infinite alternate;
+  width: 1000px;
 }
 
 .headerAnimationWrapper .row2 p {
@@ -974,6 +1013,47 @@ li {
   }
 }
 
+@media only screen and (max-width: 600px) {
+  @keyframes typoAnimation {
+    0% {
+      transform: scale(0.6);
+      line-height: 45vw;
+    }
+    20% {
+      transform: scale(0.6);
+      line-height: 45vw;
+    }
+    25% {
+      transform: scale(0.75);
+      line-height: 55vw;
+    }
+    45% {
+      transform: scale(0.75);
+      line-height: 55vw;
+    }
+    50% {
+      transform: scale(1);
+      line-height: 70vw;
+    }
+    70% {
+      transform: scale(1);
+      line-height: 70vw;
+    }
+    75% {
+      transform: scale(0.75);
+      line-height: 55vw;
+    }
+    95% {
+      transform: scale(0.75);
+      line-height: 55vw;
+    }
+    100% {
+      transform: scale(0.6);
+      line-height: 45vw;
+    }
+  }
+}
+
 .PGMonoAnimationWrapper {
   background: ghostwhite;
   display: flex;
@@ -1027,15 +1107,15 @@ li {
   border-radius: 3px;
   position: fixed;
   top: var(--margin-M);
-  left: var(--margin-M);
+  right: var(--margin-M);
   padding: var(--margin-S);
   width: 30%;
   z-index: 200;
   font-family: "Giallo-Mono";
-  font-size: var(--gialoSmallSize);
+  font-size: var(--gialloSmallSize);
   letter-spacing: 1px;
   animation: fadeInCookie 2s ease;
-  transition: opacity 0.5s ease-out
+  transition: opacity 0.2s linear;
 }
 
 .cookieButtonWrapper {
@@ -1046,13 +1126,41 @@ li {
 }
 
 .cookieButtonWrapper * {
-  margin-left: 20px;
   width: 200px;
   margin-bottom: 0;
 }
 
+.cookieButtonWrapper div:first-child {
+  margin-right: var(--margin-S);
+}
+
 @keyframes fadeInCookie {
-  0% {transform: translateX(-50vw)}
-  80% {transform: translateX(-50vw)}
-  100% {transform: translateX(0vw)}
+  0% {
+    transform: translateX(50vw);
+  }
+  80% {
+    transform: translateX(50vw);
+  }
+  100% {
+    transform: translateX(0vw);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .cookieWrapper {
+    top: 55px;
+    width: calc(100% - 2 * var(--margin-M));
+  }
+
+  @keyframes fadeInCookie {
+    0% {
+      transform: translateX(100vw);
+    }
+    80% {
+      transform: translateX(100vw);
+    }
+    100% {
+      transform: translateX(0vw);
+    }
+  }
 }

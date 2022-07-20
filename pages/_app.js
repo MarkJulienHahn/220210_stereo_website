@@ -98,7 +98,7 @@ function MyApp({ Component, pageProps }) {
     localStorage.setItem("cookieSeen", "true");
   };
 
-  useEffect(async () => {
+  useEffect( () => {
     fetchProducts();
     fetchCart();
     refreshCart();
