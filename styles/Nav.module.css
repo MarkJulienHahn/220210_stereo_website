@@ -69,6 +69,8 @@
 
     .logoTypo {
         top: 16px;
+        width: 100%;
+        left: 0;
     }
 
     .menuTypo {

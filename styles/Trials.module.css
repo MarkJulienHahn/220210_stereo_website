@@ -185,6 +185,7 @@
 @media only screen and (max-width: 600px) {
   .form button {
     margin-top: 45px;
+    color: black;
   }
   .trialsWrapper {
     top: 0;

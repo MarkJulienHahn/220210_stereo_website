@@ -26,7 +26,7 @@ export default function Home(router) {
   return (
     <div className="storefrontWrapper">
       <Head>
-        <title>Stereo Typefaces</title>
+        <title>Stereo Typefaces&#x2122;</title>
         <meta name="keywords" content="web" />
       </Head>
 

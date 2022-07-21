@@ -37,7 +37,7 @@ const Projects = () => {
 
                 <Button 
                     lable={"Projects"}
-                    subclass={"quaternary"} 
+                    subclass={"quaternaryMuted"} 
                 />    
             </div> 
 

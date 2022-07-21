@@ -96,7 +96,7 @@ const Typefaces = ({
           </a>
         </Link>
 
-        <Button lable={"Typefaces"} subclass={"quaternary"} />
+        <Button lable={"Typefaces"} subclass={"quaternaryMuted"} />
 
         <div
           className={`${Styles.button} ${

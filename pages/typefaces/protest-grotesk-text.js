@@ -83,7 +83,7 @@ const ProtestGroteskText = ({
           </a>
         </Link>
 
-        <Button lable={"Protest Grotesk"} subclass={"quaternary"} />
+        <Button lable={"Protest Grotesk"} subclass={"quaternaryMuted"} />
       </div>
 
       <div className="buttonsRightWrapper">

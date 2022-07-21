@@ -66,7 +66,7 @@ const Information = ({ info }) => {
             </a>
           </Link>
 
-          <Button lable={"Information"} subclass={"quaternary"} />
+          <Button lable={"Information"} subclass={"quaternaryMuted"} />
         </div>
 
         <div className="buttonsRightWrapper">
