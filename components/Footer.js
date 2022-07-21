@@ -117,7 +117,7 @@ const Footer = () => {
             <div className={"footerInfo"}>
                 <div className={"accordion"}>
                   {data.map((item, i) => (
-                    <div className={"item"} onClick={() => toggle(i)}>
+                    <div className={"item"} onClick={() => toggle(i)} key={i}>
                       <div className={"title"} >
                         <p>{item.title}</p>
                       </div>
