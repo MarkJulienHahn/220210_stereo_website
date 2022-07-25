@@ -17,7 +17,7 @@ const CheckoutStep2 = ({
 }) => {
   return (
     <>
-      <div className="buttonsLeftWrapper">
+      <div className={styles.buttonsLeftWrapper}>
         <Button
           lable={"Back to Overview"}
           onClick={

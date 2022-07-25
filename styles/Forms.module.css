@@ -171,3 +171,14 @@
   width: calc(100% - 50px);
   flex-flow: wrap;
 }
+
+@media only screen and (max-width: 1000px) {
+  .inputLeftbound {
+    width: 100%;
+  }
+
+  .payButton {
+    width: calc(100vw - 2*var(--margin-M));
+    bottom: calc(var(--margin-M) + 13px);
+  }
+}
