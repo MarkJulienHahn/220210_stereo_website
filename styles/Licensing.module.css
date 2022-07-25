@@ -10,6 +10,7 @@
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   overflow: scroll;
+  animation: fadeIn 0.3s ease;
 }
 
 .licensingContent {
@@ -39,6 +40,11 @@
   letter-spacing: -0.7px;
   font-variation-settings: "wght" 300;
   margin-bottom: var(--margin-M);
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0}
+    100% {opacity: 1}
 }
 
 @media only screen and (max-width: 1000px) {

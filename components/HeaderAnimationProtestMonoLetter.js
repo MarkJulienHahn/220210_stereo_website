@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import styles from "../styles/HeaderAnimation.module.css";
 
 const HeaderAnimationProtestMonoLetter = (props) => {
   const [wght, setWeight] = useState("40");
@@ -15,7 +14,7 @@ const HeaderAnimationProtestMonoLetter = (props) => {
   return (
     <>
       <div
-        className={styles.PGMonoLetter}
+        className={"PGMonoLetter"}
         onMouseEnter={() => updateWeight("250")}
         style={style}
       >

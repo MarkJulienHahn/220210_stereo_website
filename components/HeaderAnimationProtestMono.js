@@ -1,12 +1,11 @@
 import React from "react";
-import styles from "../styles/HeaderAnimation.module.css";
 
 import HeaderAnimationProtestMonoLetter from "./HeaderAnimationProtestMonoLetter";
 
 const HeaderAnimationProtestMono = () => {
   return (
     <div>
-      <div className={styles.PGMonoAnimationWrapper}>
+      <div className={"PGMonoAnimationWrapper"}>
         <HeaderAnimationProtestMonoLetter glyph={"m"} />
         <HeaderAnimationProtestMonoLetter glyph={"o"} />
         <HeaderAnimationProtestMonoLetter glyph={"n"} />
