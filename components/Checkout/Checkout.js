@@ -469,7 +469,7 @@ const Checkout = ({
       ></div>
       <div className={styles.buyWrapper} style={fadeCheckout ? fade : notFade}>
         {!showCheckoutStep2 && !showCheckoutStep3 && !showCheckoutStep4 ? (
-          <div className="buttonsLeftWrapper">
+          <div className={styles.buttonsLeftWrapper}>
             <Button
               lable={"Continue Shopping"}
               subclass={"secondary"}
@@ -746,6 +746,13 @@ const Checkout = ({
                     Up to 1500 people
                   </li>
                 </ul>
+                <div className={styles.mobileLicensingButton}>
+                  <Button
+                    lable={"Licensing Terms"}
+                    subclass={"quaternary"}
+                    onClick={() => setShowLicensing(true)}
+                  />
+                </div>
               </div>
 
               <div className={styles.buyTable}>
@@ -882,24 +889,26 @@ const Checkout = ({
                   </div>
 
                   {cart.line_items.length | undefined ? (
-                    <div className={styles.total}>
-                      <span>Total (incl. Tax)</span>
-                      <span>EUR {cart.subtotal.formatted}</span>
-                    </div>
+                    <>
+                      <div className={styles.total}>
+                        <span>Total (incl. Tax)</span>
+                        <span>EUR {cart.subtotal.formatted}</span>
+                      </div>
+                      <Button
+                        lable={"Empty Cart"}
+                        onClick={() => refreshCart()}
+                        subclass={
+                          cart.line_items.length
+                            ? "quaternary"
+                            : "quaternaryMuted"
+                        }
+                      />
+                    </>
                   ) : (
                     ""
                   )}
 
                   <div className={styles.buttonsMobileWrapper}>
-                    <Button
-                      lable={"Empty Cart"}
-                      onClick={() => refreshCart()}
-                      subclass={
-                        cart.line_items.length
-                          ? "quaternary"
-                          : "quaternaryMuted"
-                      }
-                    />
                     <Button
                       lable={"Continue to Checkout"}
                       onClick={

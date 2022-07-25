@@ -129,6 +129,10 @@
   transition: opacity 0.1s linear;
 }
 
+.mobileLicensingButton {
+    display: none;
+}
+
 .buyTableButtons {
   position: fixed;
   display: flex;
@@ -152,10 +156,6 @@
 .buyHead {
   position: absolute;
   top: var(--margin-M);
-}
-
-.cartHead {
-  padding-top: var(--margin-M);
 }
 
 .changeLicenseButton {
@@ -296,6 +296,7 @@
   .buyConfigurationWrapper {
     position: relative;
     width: 100%;
+    flex-direction: column;
   }
 
   .buyTable {
@@ -304,17 +305,24 @@
 
   .buyHead {
     position: relative;
+    padding-bottom: 30px;
   }
 
   .buyTableButtons {
-    position: relative;
+    position: sticky;
     width: 100%;
-    top: 30px;
+    top: 0; 
+    z-index: 100;
   }
 
   .buyWrapper .buttonsRightWrapper {
     display: none;
   }
+
+  .mobileLicensingButton {
+    display: block;
+    padding-top: calc(2*var(--margin-M));
+}
 
   .cartHead {
     padding-top: var(--margin-L);
@@ -338,12 +346,15 @@
   .buttonsMobileWrapper {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    padding-top: var(--margin-L);
+    width: calc(100vw - 2*var(--margin-M));
+    position: fixed;
+    bottom: calc(2*var(--margin-M) + 13px);
+    z-index: 1000;
   }
 
   .total {
     flex-direction: column;
+    padding-bottom: var(--margin-S)
   }
 
   .productWrapper:hover .cartRemove {
@@ -365,6 +376,14 @@
     width: 100%;
   }
 
+  .overviewTable {
+    padding-top: var(--margin-M);
+  }
+
+  .buyTableContent {
+    margin-top: calc(2*var(--margin-M));
+  }
+
   .productWrapperOverview {
     flex-direction: column;
   }
@@ -376,11 +395,10 @@
     padding-bottom: var(--margin-L);
   }
   .buyTableContent {
-    margin-bottom: var(--margin-XL);
+    margin-bottom: var(--margin-L);
   }
 
   .buyWrapper .buttonsLeftWrapper div {
-    width: calc(100vw - 2*var(--margin-M));
-}
-
+    width: calc(100vw - 2 * var(--margin-M));
+  }
 }

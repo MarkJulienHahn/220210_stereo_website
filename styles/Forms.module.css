@@ -181,4 +181,8 @@
     width: calc(100vw - 2*var(--margin-M));
     bottom: calc(var(--margin-M) + 13px);
   }
+
+  .paymentHeader {
+    min-height: 27px
+  }
 }

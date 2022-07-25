@@ -107,7 +107,7 @@ const PaymentForm = ({
   const inactive = {
     height: "0px",
     opacity: "0",
-    padding: "0 20px 10px 20px",
+    padding: "0 20px 1px 20px",
   };
 
   const active = {
