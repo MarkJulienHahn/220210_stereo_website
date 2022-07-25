@@ -135,6 +135,11 @@
     right: inherit;
     max-width: inherit;
   }
+
+  .button:hover, .checkoutButton button:hover {
+    background: inherit;
+  }
+
 }
 
 .cartHead {

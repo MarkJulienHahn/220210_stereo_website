@@ -1,43 +1,56 @@
 .licensingWrapper {
-    width: 100vw;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    z-index: 1000;
-    -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px);
-    overflow: scroll;
+  width: 100vw;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  overflow: scroll;
 }
 
 .licensingContent {
-    width: 50vw;
-    height: 100%;
-    background: white;
-    opacity: 1;
-    /* transform: translateY(var(--margin-M)); */
-    border-radius: 5px;
-    padding: 60px;
-    opacity: 0.9;
-    overflow: scroll;
+  width: 50vw;
+  height: 100%;
+  background: white;
+  opacity: 1;
+  border-radius: 5px;
+  padding: 60px;
+  opacity: 0.9;
+  overflow: scroll;
 }
 
 .licensingContent h1 {
-    font-family: "Giallo";
-    font-size: 20pt;
-    line-height: 24pt;
-    letter-spacing: -0.5px;
-    font-variation-settings: 'wght' 200;
-    text-align: center;
+  font-family: "Giallo";
+  font-size: 20pt;
+  line-height: 24pt;
+  letter-spacing: -0.5px;
+  font-variation-settings: "wght" 200;
+  text-align: center;
 }
 
 .licensingContent p {
+  font-family: "Giallo";
+  font-size: 18pt;
+  line-height: 24pt;
+  letter-spacing: -0.7px;
+  font-variation-settings: "wght" 300;
+  margin-bottom: var(--margin-M);
+}
+
+@media only screen and (max-width: 1000px) {
+  .licensingContent {
+    width: 100vw;
+    padding: var(--margin-M)
+  }
+  .licensingContent p {
     font-family: "Giallo";
-    font-size: 18pt;
-    line-height: 24pt;
-    letter-spacing: -0.7px;
-    font-variation-settings: 'wght' 300;
-    margin-bottom: var(--margin-M)
+    font-size: 15pt;
+    line-height: 21pt;
+    letter-spacing: -0.2px;
+    word-spacing: -0.5px;
+  }
 }

@@ -1,254 +1,340 @@
 .buyBackground {
-    background: var(--tertiary);
-    height: 100vh;
-    width: 100vw;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 400;
-    -webkit-backdrop-filter: blur(40px);
-    backdrop-filter: blur(40px);
-    transition: opacity 0.3s ease-in;
-    animation: fadeIn 0.2s ease-in;
+  background: var(--tertiary);
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 400;
+  -webkit-backdrop-filter: blur(40px);
+  backdrop-filter: blur(40px);
+  transition: opacity 0.3s ease-in;
+  animation: fadeIn 0.2s ease-in;
 }
 
 .buyWrapper {
-    position: fixed;
-    overflow-y: scroll;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    z-index: 400;
-    animation: fadeIn 0.7s linear;
-    transition: opacity 0.2s ease-in;
-    padding: var(--margin-M);
-    letter-spacing: var(--pgSmallLetterSpacing);
-    font-size: var(--pgSmallSize);
-    line-height: var(--pgSmallLineHeight);
-    font-variation-settings: var(--pgSmallVariable);
+  position: fixed;
+  overflow-y: scroll;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 400;
+  animation: fadeIn 0.7s linear;
+  transition: opacity 0.2s ease-in;
+  padding: var(--margin-M);
+  letter-spacing: var(--pgSmallLetterSpacing);
+  font-size: var(--pgSmallSize);
+  line-height: var(--pgSmallLineHeight);
+  font-variation-settings: var(--pgSmallVariable);
 }
 
 .buyTableWrapper {
-    width: 100%;
-    display: flex;
+  width: 100%;
+  display: flex;
 }
 
 .buyTableWrapper div {
-    transition: opacity 0.2s linear;
+  transition: opacity 0.2s linear;
 }
 
 .buyConfigurationWrapper {
-    position: fixed;
-    width: 50%;
-    display: flex;
-    font-size: 20pt;
-    line-height: 25pt;
-    letter-spacing: -0px;
-    cursor: default;
-    font-variation-settings: var(--pgSmallVariable);
+  position: fixed;
+  width: 50%;
+  display: flex;
+  font-size: 20pt;
+  line-height: 25pt;
+  letter-spacing: -0px;
+  cursor: default;
+  font-variation-settings: var(--pgSmallVariable);
 }
 
 .buyConfigurationHead {
-    transition: font-variation-settings 0.1s linear;
-    letter-spacing: var(--pgSmallLetterSpacing);
-    font-size: var(--pgSmallSize);
-    line-height: var(--pgSmallLineHeight);
-    padding: 20px 0 15px;
-    text-transform: uppercase;
-    cursor: default;
-    pointer-events: none;
+  transition: font-variation-settings 0.1s linear;
+  letter-spacing: var(--pgSmallLetterSpacing);
+  font-size: var(--pgSmallSize);
+  line-height: var(--pgSmallLineHeight);
+  padding: 20px 0 15px;
+  text-transform: uppercase;
+  cursor: default;
+  pointer-events: none;
 }
 
 .buyConfiguration li {
-    transition: font-variation-settings 1s linear;
-    cursor: pointer;
+  transition: font-variation-settings 1s linear;
+  cursor: pointer;
 }
 
 .buyConfiguration li:hover {
-    color: var(--primary) !important;
-} 
+  color: var(--primary) !important;
+}
 
 .buyConfiguration :first-child {
-    padding-top: 0;
-
+  padding-top: 0;
 }
 
 .buyConfigurationCheckout {
-    opacity: 1;
+  opacity: 1;
 }
 
 .buyTable {
-    margin-left: 50vw;
-    transition: opacity 0.1s linear;
+  margin-left: 50vw;
+  transition: opacity 0.1s linear;
 }
 
 .overviewTable {
-    width: 50vw;
-    transition: opacity 0.1s linear;
-    padding-top: 105px;
+  width: 50vw;
+  transition: opacity 0.1s linear;
+  padding-top: 105px;
+}
+
+.buttonsRightWrapper {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: var(--margin-M);
+  display: flex;
+  justify-content: flex-end;
+  z-index: 50;
+  height: 25px;
+  animation: fadeIn 1s linear;
+  z-index: 351;
+}
+
+.buttonsRightWrapper div {
+  margin-left: 3px;
+}
+
+.buttonsMobileWrapper {
+  display: none;
 }
 
 .formTable {
-    width: 50vw;
-    transition: opacity 0.1s linear;
+  width: 50vw;
+  transition: opacity 0.1s linear;
 }
 
 .buyTableButtons {
-    position: fixed;
-    display: flex;
-    flex-wrap: wrap;
-    width: 45%;
-    z-index: 500;
-    top: 73px;
+  position: fixed;
+  display: flex;
+  flex-wrap: wrap;
+  width: 45%;
+  z-index: 500;
+  top: 73px;
 }
 
 .buyTableButtons div {
-    margin-right: 3px;
-    margin-bottom: 3px;
+  margin-right: 3px;
+  margin-bottom: 3px;
 }
 
 .buyTableContent {
-    margin-top: 105px;
-    cursor: default;
-    overflow: hidden;
+  margin-top: 105px;
+  cursor: default;
+  overflow: hidden;
 }
 
 .buyHead {
-    position: absolute;
-    top: var(--margin-M);
+  position: absolute;
+  top: var(--margin-M);
 }
 
 .cartHead {
-    padding-top: var(--margin-M)
+  padding-top: var(--margin-M);
 }
 
 .changeLicenseButton {
-    padding-top: 10px
+  padding-top: 10px;
 }
 
 .licenceType {
-    opacity: 0.3;
+  opacity: 0.3;
 }
-
 
 @keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
-.productWrapper, .productWrapperOverview {
-    width: calc(50vw - 2*var(--margin-M));
-    display: flex;
-    justify-content: space-between;
-    font-size: 20pt;
-    line-height: 25pt;
-    letter-spacing: -0px;
+.productWrapper,
+.productWrapperOverview {
+  width: calc(50vw - 2 * var(--margin-M));
+  display: flex;
+  justify-content: space-between;
+  font-size: 20pt;
+  line-height: 25pt;
+  letter-spacing: -0px;
 }
 
 .productWrapper {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .productPrice {
-    font-size: 10pt;
+  font-size: 10pt;
 }
 
 .totalWrapper {
-    width: calc(50vw - 2*var(--margin-M));
-    font-size: 20pt;
-    line-height: 25pt;
-    letter-spacing: -0px;
-    margin-top: var(--margin-M);
-    margin-bottom: calc(2*var(--margin-M));
+  width: calc(50vw - 2 * var(--margin-M));
+  font-size: 20pt;
+  line-height: 25pt;
+  letter-spacing: -0px;
+  margin-top: var(--margin-M);
+  margin-bottom: calc(2 * var(--margin-M));
 }
 
 .overviewWrapper {
-    width: calc(50vw - 2*var(--margin-M));
-    font-size: 20pt;
-    line-height: 25pt;
-    letter-spacing: -0px;
-    margin-bottom: calc(2*var(--margin-M));
-    cursor: default;
+  width: calc(50vw - 2 * var(--margin-M));
+  font-size: 20pt;
+  line-height: 25pt;
+  letter-spacing: -0px;
+  margin-bottom: calc(2 * var(--margin-M));
+  cursor: default;
 }
 
 .overviewItems {
-    padding-bottom: var(--margin-M)
+  padding-bottom: var(--margin-M);
 }
 
 .total {
-    display: flex;
-    justify-content: space-between;
-    width: 100%
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .totalDiscount {
-    color: var(--primary);
-    display: flex;
-    justify-content: space-between;
-    width: 100%
+  color: var(--primary);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .cartRemove {
-    position: absolute; 
-    opacity: 0;
-    right: var(--margin-M);
-    /* letter-spacing: var(--pgSmallLetterSpacing);
+  position: absolute;
+  opacity: 0;
+  right: var(--margin-M);
+  /* letter-spacing: var(--pgSmallLetterSpacing);
     font-size: var(--pgSmallSize);
     font-variation-settings: var(--pgSmallVariable);
     text-transform: uppercase; */
-    text-align: left;
-    color: var(--secondary)
+  text-align: left;
+  color: var(--secondary);
 }
 
-.productWrapper:hover .cartRemove{
-    opacity: 1 !important;
+.productWrapper:hover .cartRemove {
+  opacity: 1 !important;
 }
 
 .productWrapper:hover .productPrice {
-    opacity: 0;
+  opacity: 0;
 }
 
 .formsWrapper {
-    display: flex;
+  display: flex;
 }
 
 .mouseElement {
-    background: var(--primary);
-    height: 25px;
-    padding: 20px;
-    z-index: 1000;
-    pointer-events: none;
+  background: var(--primary);
+  height: 25px;
+  padding: 20px;
+  z-index: 1000;
+  pointer-events: none;
 }
 
 .hoverButton {
-    position: fixed;
-    top: 50vh;
-    left: 50vw;
-    z-index: 1000;
+  position: fixed;
+  top: 50vh;
+  left: 50vw;
+  z-index: 1000;
 }
 
 .fontPreview {
-    position: fixed;
-    width: 50vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    font-size: 10vw;
-    line-height: 10vw;
-    backdrop-filter: blur(20px);
-    animation: appear 0.5s ease-out
+  position: fixed;
+  width: 50vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  font-size: 10vw;
+  line-height: 10vw;
+  backdrop-filter: blur(20px);
+  animation: appear 0.5s ease-out;
 }
 
 @keyframes appear {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .buyTableWrapper {
+    display: block;
+  }
+
+  .buyConfigurationWrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  .buyTable {
+    margin: var(--margin-L) 0;
+  }
+
+  .buyHead {
+    position: relative;
+  }
+
+  .buyTableButtons {
+    position: relative;
+    width: 100%;
+    top: 30px;
+  }
+
+  .buyWrapper .buttonsRightWrapper {
+    display: none;
+  }
+
+  .cartHead {
+    padding-top: var(--margin-L);
+  }
+
+  .totalWrapper {
+    width: 100%;
+  }
+
+  .productWrapper {
+    width: 100%;
+    flex-direction: column;
+    margin-bottom: var(--margin-M)
+  }
+
+  .overviewItems {
+    padding-bottom: var(--margin-L);
+  }
+
+  .buttonsMobileWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-top: var(--margin-L);
+  }
+
+  .total {
+    flex-direction: column;
+  }
+
+  .productWrapper:hover .cartRemove {
+    opacity: 0 !important;
+  }
+
+  .productWrapper:hover .productPrice {
+    opacity: 1;
+  }
 }

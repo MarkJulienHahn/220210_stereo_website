@@ -47,7 +47,8 @@ const Checkout = ({
   const [showBuyProtest, setShowBuyProtest] = useState(true);
   const [showBuyGiallo, setShowBuyGiallo] = useState(false);
   const [buttonStateGiallo, setButtonStateGiallo] = useState("quaternary");
-  const [buttonStateProtest, setButtonStateProtest] = useState("secondaryMuted");
+  const [buttonStateProtest, setButtonStateProtest] =
+    useState("secondaryMuted");
 
   const [showLicensing, setShowLicensing] = useState(false);
   const [Processing, setProcessing] = useState(false);
@@ -486,11 +487,13 @@ const Checkout = ({
 
         {!showCheckoutStep2 && !showCheckoutStep3 && !showCheckoutStep4 ? (
           <>
-            <div className="buttonsRightWrapper">
+            <div className={styles.buttonsRightWrapper}>
               <Button
                 lable={"Empty Cart"}
                 onClick={() => refreshCart()}
-                subclass={cart.line_items.length ? "quaternary" : "quaternaryMuted"}
+                subclass={
+                  cart.line_items.length ? "quaternary" : "quaternaryMuted"
+                }
               />
               <Button
                 lable={"Continue to Checkout"}
@@ -886,6 +889,33 @@ const Checkout = ({
                   ) : (
                     ""
                   )}
+
+                  <div className={styles.buttonsMobileWrapper}>
+                    <Button
+                      lable={"Empty Cart"}
+                      onClick={() => refreshCart()}
+                      subclass={
+                        cart.line_items.length
+                          ? "quaternary"
+                          : "quaternaryMuted"
+                      }
+                    />
+                    <Button
+                      lable={"Continue to Checkout"}
+                      onClick={
+                        cart.line_items.length && checkoutToken && live
+                          ? () => {
+                              step2();
+                            }
+                          : () => {}
+                      }
+                      subclass={
+                        cart.line_items.length && checkoutToken && live
+                          ? "primary"
+                          : "quaternaryMuted"
+                      }
+                    />
+                  </div>
                 </div>
               </div>
             </div>

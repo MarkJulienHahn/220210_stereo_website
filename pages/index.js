@@ -31,7 +31,7 @@ export default function Home(router) {
       </Head>
 
       <div className="buttonsLeftWrapper">
-        <Button lable={"Home"} subclass={"quaternary"} />
+        <Button lable={"Home"} subclass={"quaternaryMuted"} />
         <Link href={linkCategory}>
           <a>
             <Button lable={category} />

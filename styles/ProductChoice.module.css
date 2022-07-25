@@ -1,50 +1,80 @@
 .productWrapper {
-    width: calc(50vw - 2*var(--margin-M));
-    display: flex;
-    justify-content: space-between;
-    font-size: 20pt;
-    line-height: 25pt;
-    letter-spacing: -0px;
+  width: calc(50vw - 2 * var(--margin-M));
+  display: flex;
+  justify-content: space-between;
+  font-size: 20pt;
+  line-height: 25pt;
+  letter-spacing: -0px;
 }
 
 .productWrapper:hover {
-    opacity: 1;
+  opacity: 1;
 }
 
 .productPrice {
-    font-size: 10pt;
+  font-size: 10pt;
 }
 
 .productDescription {
-    padding: 10px;
-    letter-spacing: var(--pgSmallLetterSpacing);
-    font-size: var(--pgSmallSize);
-    line-height: var(--pgSmallLineHeight);
-    font-variation-settings: var(--pgSmallVariable);
-    text-transform: uppercase;
+  padding: 10px;
+  letter-spacing: var(--pgSmallLetterSpacing);
+  font-size: var(--pgSmallSize);
+  line-height: var(--pgSmallLineHeight);
+  font-variation-settings: var(--pgSmallVariable);
+  text-transform: uppercase;
 }
 
-.notInCart:hover .productName, .inCart:hover .productName{
-    opacity: 0;
+.notInCart:hover .productName,
+.inCart:hover .productName {
+  opacity: 0;
 }
 
 .notInCart:hover:before {
-    position: absolute;
-    content: "→ Add to Cart";
-    font-size: 20pt;
-    line-height: 25pt;
-    letter-spacing: -0px;
-    color: var(--primary)
+  position: absolute;
+  content: "→ Add to Cart";
+  font-size: 20pt;
+  line-height: 25pt;
+  letter-spacing: -0px;
+  color: var(--primary);
 }
 
 .inCart:hover:before {
-    position: absolute;
-    content: "→ Remove from Cart";
-    font-size: 20pt;
-    line-height: 25pt;
-    letter-spacing: -0px;
+  position: absolute;
+  content: "→ Remove from Cart";
+  font-size: 20pt;
+  line-height: 25pt;
+  letter-spacing: -0px;
 }
 
-.inCart, .notInCart {
-    cursor: pointer
+.inCart,
+.notInCart {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1000px) {
+  .productWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-size: 17pt;
+    line-height: 17pt;
+    margin-bottom: var(--margin-M);
+  }
+
+  .notInCart:hover .productName,
+  .inCart:hover .productName {
+    opacity: 1;
+  }
+
+  .notInCart:hover:before {
+    display: none;
+  }
+
+  .inCart:hover:before {
+    display: none;
+  }
+
+  .productWrapper:hover .cartRemove {
+    opacity: 0 !important;
+    }
 }
