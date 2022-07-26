@@ -1,41 +1,68 @@
 .couponInput {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 5000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: black;
-    font-size: 100pt;
-    -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px);
-    font-size: 13vw;
-    line-height: 20vw;
-    letter-spacing: -1vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 5000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 100pt;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  font-size: 13vw;
+  line-height: 20vw;
+  letter-spacing: -1vw;
 }
 
 .couponInput input::selection {
-    background: var(--primary)
+  background: var(--primary);
 }
 
 .couponInput input {
-    font-family: 'Protest';
-    font-variation-settings: 'wdth' 50, 'wght' 120;
-    font-size: 13vw;
-    line-height: 20vw;
-    letter-spacing: -1vw;
-    white-space: nowrap;
-    background: none;
-    text-align: center;
-    border: 0;
-    outline: 0;
+  font-family: "Protest";
+  font-variation-settings: "wdth" 50, "wght" 120;
+  font-size: 13vw;
+  line-height: 20vw;
+  letter-spacing: -1vw;
+  white-space: nowrap;
+  background: none;
+  text-align: center;
+  border: 0;
+  outline: 0;
 }
 
-
 .couponInput input::placeholder {
-    color: black;
-    opacity: 0.5;
+  color: black;
+  opacity: 0.5;
+}
+
+.buttonsRightWrapper {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: var(--margin-M);
+  display: flex;
+  justify-content: flex-end;
+  z-index: 50;
+  height: 25px;
+  animation: fadeIn 1s linear;
+  z-index: 351;
+}
+
+.buttonsRightWrapper div {
+  margin-left: 3px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .buttonsRightWrapper {
+    flex-direction: column;
+    width: calc(100vw - 2 * var(--margin-M));
+  }
+
+  .buttonsRightWrapper div {
+    width: 100%;
+  }
 }

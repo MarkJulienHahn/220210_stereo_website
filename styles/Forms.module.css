@@ -178,11 +178,15 @@
   }
 
   .payButton {
-    width: calc(100vw - 2*var(--margin-M));
-    bottom: calc(var(--margin-M) + 13px);
+    width: calc(100vw - 2 * var(--margin-M));
+    bottom: 56px;
   }
 
   .paymentHeader {
-    min-height: 27px
+    min-height: 27px;
+  }
+
+  .billingHeader {
+    display: none;
   }
 }

@@ -471,7 +471,7 @@ const Checkout = ({
         {!showCheckoutStep2 && !showCheckoutStep3 && !showCheckoutStep4 ? (
           <div className={styles.buttonsLeftWrapper}>
             <Button
-              lable={"Continue Shopping"}
+              lable={"Back"}
               subclass={"secondary"}
               onClick={() => fadeOutCheckout(false)}
             />
@@ -944,6 +944,9 @@ const Checkout = ({
             handleUpdateCartQty={handleUpdateCartQty}
             setShowCheckoutStep2={setShowCheckoutStep2}
             setShowCheckoutStep1={setShowCheckoutStep1}
+            setShowCoupon={setShowCoupon}
+            showCoupon={showCoupon}
+            handleCouponCode={handleCouponCode}
             getLiveObject={getLiveObject}
             next={next}
           />

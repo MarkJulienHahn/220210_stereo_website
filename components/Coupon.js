@@ -33,8 +33,8 @@ const Coupon = ( { checkoutToken, setShowCoupon, handleCouponCode, getLiveObject
     <>
       <div className={styles.couponInput}>
 
-        <div className="buttonsRightWrapper">
-            <Button lable={"Continue Shopping"} subclass={"quaternary"} onClick={() => setShowCoupon(false)} />   
+        <div className={styles.buttonsRightWrapper}>
+            <Button lable={"Back"} subclass={"quaternary"} onClick={() => setShowCoupon(false)} />   
             <Button 
                 lable={"Submit"} 
                 subclass={!value ? "quaternary" : "primary"} 

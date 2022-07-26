@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import dynamic from "next/dynamic";
 
 import PaymentForm from "./PaymentForm";
@@ -37,9 +37,9 @@ const CheckoutStep3 = ({
         />
       )}
 
-      <div className="buttonsLeftWrapper">
+      <div className={styles.buttonsLeftWrapper}>
         <Button
-          lable={"Back to Overview"}
+          lable={"Back"}
           onClick={
             cart.line_items.length || ""
               ? () => {

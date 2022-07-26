@@ -1,11 +1,16 @@
 import React from "react";
+import dynamic from "next/dynamic";
 
 import AddressForm from "./AddressForm";
 import Button from "../Button";
 
 import styles from "../../styles/Buy.module.css";
+const Coupon = dynamic(() => import("../Coupon"));
 
 const CheckoutStep2 = ({
+  setShowCoupon,
+  showCoupon,
+  handleCouponCode,
   setShowCheckoutStep1,
   setShowCheckoutStep2,
   getLiveObject,
@@ -17,9 +22,17 @@ const CheckoutStep2 = ({
 }) => {
   return (
     <>
+      {showCoupon && live.discount.length == 0 && (
+        <Coupon
+          handleCouponCode={handleCouponCode}
+          checkoutToken={checkoutToken}
+          setShowCoupon={setShowCoupon}
+          getLiveObject={getLiveObject}
+        />
+      )}
       <div className={styles.buttonsLeftWrapper}>
         <Button
-          lable={"Back to Overview"}
+          lable={"Back"}
           onClick={
             cart.line_items.length || ""
               ? () => {
@@ -30,6 +43,13 @@ const CheckoutStep2 = ({
               : () => {}
           }
           subclass={"secondary"}
+        />
+        <Button
+          lable={"Coupon code"}
+          onClick={() => {
+            setShowCoupon(true);
+          }}
+          subclass={"quaternary"}
         />
       </div>
 
@@ -82,7 +102,7 @@ const CheckoutStep2 = ({
         <div className={styles.formTable}>
           <p className={styles.buyHead}> [ 4 ] BILLING INFORMATION</p>
 
-          <div className={styles.buyTableContent}>
+          <div className={styles.buyAdressContent}>
             <AddressForm checkoutToken={checkoutToken} next={next} />
           </div>
         </div>

@@ -130,7 +130,7 @@
 }
 
 .mobileLicensingButton {
-    display: none;
+  display: none;
 }
 
 .buyTableButtons {
@@ -148,6 +148,13 @@
 }
 
 .buyTableContent {
+  margin-top: 105px;
+  margin-bottom: var(--margin-M);
+  cursor: default;
+  overflow: hidden;
+}
+
+.buyAdressContent {
   margin-top: 105px;
   cursor: default;
   overflow: hidden;
@@ -311,7 +318,7 @@
   .buyTableButtons {
     position: sticky;
     width: 100%;
-    top: 0; 
+    top: 0;
     z-index: 100;
   }
 
@@ -321,8 +328,8 @@
 
   .mobileLicensingButton {
     display: block;
-    padding-top: calc(2*var(--margin-M));
-}
+    padding-top: calc(2 * var(--margin-M));
+  }
 
   .cartHead {
     padding-top: var(--margin-L);
@@ -346,15 +353,15 @@
   .buttonsMobileWrapper {
     display: flex;
     flex-direction: column;
-    width: calc(100vw - 2*var(--margin-M));
+    width: calc(100vw - 2 * var(--margin-M));
     position: fixed;
-    bottom: calc(2*var(--margin-M) + 13px);
+    bottom: calc(2 * var(--margin-M) + 13px);
     z-index: 1000;
   }
 
   .total {
     flex-direction: column;
-    padding-bottom: var(--margin-S)
+    padding-bottom: var(--margin-S);
   }
 
   .productWrapper:hover .cartRemove {
@@ -380,8 +387,9 @@
     padding-top: var(--margin-M);
   }
 
-  .buyTableContent {
-    margin-top: calc(2*var(--margin-M));
+  .buyTableContent,
+  .buyAdressContent {
+    margin-top: calc(2 * var(--margin-M));
   }
 
   .productWrapperOverview {
@@ -396,6 +404,14 @@
   }
   .buyTableContent {
     margin-bottom: var(--margin-L);
+  }
+  .buyAdressContent {
+    padding-bottom: var(--margin-XL);
+  }
+
+  .buttonsLeftWrapper {
+    flex-direction: column-reverse;
+    height: unset;
   }
 
   .buyWrapper .buttonsLeftWrapper div {

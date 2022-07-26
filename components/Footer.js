@@ -151,7 +151,7 @@ const data = [
           .&nbsp;We’ll reply within 24 hours.
         </p>
         <p className="footerInfoHead">Working Hours</p>
-        <p> Available Mon — Fri 9am — 6.00pm (CEST)</p>
+        <p> Available Mon — Fri 9.00am — 6.00pm (CEST)</p>
       </>
     ),
   },

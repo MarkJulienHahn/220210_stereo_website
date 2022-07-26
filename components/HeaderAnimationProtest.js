@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 
 const HeaderAnimationProtest = () => {
   const [index, setIndex] = useState(0);
-  const [color, setColor] = useState(0);
 
   const array = [
     "Following on from the house’s ‘Afterworld: The Age of Tomorrow’ videogame.",
@@ -15,29 +14,6 @@ const HeaderAnimationProtest = () => {
     "GroteskGroteskGroteskGroteskGroteskGroteskGroteskGroteskGroteskGroteskGroteskGroteskGroteskGroteskGroteskGroteskGroteskGrotesk"
   ];
 
-  const colorArray = [
-    // "lightblue",
-    // "whitesmoke",
-    "ghostwhite",
-    // "floralwhite",
-    // "navajowhite",
-    // "antiquewhite",
-    // "lightblue",
-    // "lightcoral",
-    // "lightcyan",
-    // "lightgoldenrodyellow",
-    // "lightgray",
-    // "lightgreen",
-    // "lightpink",
-    // "lightsalmon",
-    // "lightseagreen"
-  ];
-
-  const fontcolor = {
-    // color: colorArray[color],
-    color: "ghostwhite"
-  };
-
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex(Math.floor(Math.random() * array.length));
@@ -48,21 +24,21 @@ const HeaderAnimationProtest = () => {
   return (
     <>
       <div className={"headerAnimationWrapper"}>
-        <div>
+        <div className={"headerAnimationSubWrapper"}>
           <div className={"row"}>
-            <p style={fontcolor}>
+            <p>
               {array[index]}
               <br />
             </p>
           </div>
           <div className={"row2"}>
-            <p style={fontcolor}>
+            <p>
               {array[index]}
               <br />
             </p>
           </div>
           <div className={"row"}>
-            <p style={fontcolor}>
+            <p>
               {array[index]}
               <br />
             </p>
