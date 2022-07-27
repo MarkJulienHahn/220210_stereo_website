@@ -75,14 +75,6 @@ export default function Home(router) {
               delay: 5000,
               disableOnInteraction: true,
             }}
-            // effect={"cube"}
-            // cubeEffect={{
-            //   shadow: true,
-            //   slideShadows: true,
-            //   shadowOffset: 20,
-            //   shadowScale: 0.94,
-            // }}
-            // modules={[EffectCube]}
             modules={[Autoplay]}
           >
             <SwiperSlide>

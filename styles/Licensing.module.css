@@ -1,3 +1,9 @@
+@-moz-document url-prefix() {
+  .licensingWrapper {
+    background: var(--tertiary)
+  }
+}
+
 .licensingWrapper {
   width: 100vw;
   height: 100%;
@@ -6,9 +12,9 @@
   left: 0;
   display: flex;
   justify-content: center;
-  z-index: 1000;
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
+  z-index: 10000;
+  -webkit-backdrop-filter: blur(30px);
+  backdrop-filter: blur(30px);
   overflow: scroll;
   animation: fadeIn 0.3s ease;
 }
@@ -16,7 +22,7 @@
 .licensingContent {
   width: 50vw;
   height: 100%;
-  background: white;
+  /* background: white; */
   opacity: 1;
   border-radius: 5px;
   padding: 60px;
@@ -43,14 +49,18 @@
 }
 
 @keyframes fadeIn {
-    0% {opacity: 0}
-    100% {opacity: 1}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @media only screen and (max-width: 1000px) {
   .licensingContent {
     width: 100vw;
-    padding: var(--margin-M)
+    padding: var(--margin-M) var(--margin-M) var(--margin-L) var(--margin-M);
   }
   .licensingContent p {
     font-family: "Giallo";
@@ -58,5 +68,8 @@
     line-height: 21pt;
     letter-spacing: -0.2px;
     word-spacing: -0.5px;
+  }
+  .licensingContent div {
+    margin-top: var(--margin-L);
   }
 }

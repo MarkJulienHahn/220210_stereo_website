@@ -894,15 +894,17 @@ const Checkout = ({
                         <span>Total (incl. Tax)</span>
                         <span>EUR {cart.subtotal.formatted}</span>
                       </div>
-                      <Button
-                        lable={"Empty Cart"}
-                        onClick={() => refreshCart()}
-                        subclass={
-                          cart.line_items.length
-                            ? "quaternary"
-                            : "quaternaryMuted"
-                        }
-                      />
+                      <div className={styles.emptyCartMobile}>
+                        <Button
+                          lable={"Empty Cart"}
+                          onClick={() => refreshCart()}
+                          subclass={
+                            cart.line_items.length
+                              ? "quaternary"
+                              : "quaternaryMuted"
+                          }
+                        />
+                      </div>
                     </>
                   ) : (
                     ""

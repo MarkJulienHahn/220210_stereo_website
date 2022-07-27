@@ -64,7 +64,7 @@ const LicensingTerms = ({ setShowLicensing }) => {
           game. If you want to use them for another app or game you’ll need to
           buy another separate app/game license.
         </p>
-        <Button lable={"Go Back"} subclass={"secondary"} />
+        <Button lable={"Got it"} subclass={"secondary"} />
       </div>
 
     </div>

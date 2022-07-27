@@ -4,10 +4,7 @@ import { useEffect } from "react";
 import Image from "next/image";
 
 import styles from "../../styles/Storefront.module.css";
-
 import HeaderAnimationProtest from "../../components/HeaderAnimationProtest"
-
-import image from "../../public/images/image_05.png";
 
 const One = ({
   setCategory,

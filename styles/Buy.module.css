@@ -286,6 +286,10 @@
   animation: appear 0.5s ease-out;
 }
 
+.emptyCartMobile {
+  display: none;
+}
+
 @keyframes appear {
   0% {
     opacity: 0;
@@ -417,4 +421,9 @@
   .buyWrapper .buttonsLeftWrapper div {
     width: calc(100vw - 2 * var(--margin-M));
   }
+
+  .emptyCartMobile {
+    display: block;
+  }
+  
 }
