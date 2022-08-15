@@ -21,7 +21,7 @@ const Projects = () => {
     return (
         <main className={Styles.AppInner}>
             <Head>
-                <title>Projects</title>
+                <title>Projects | Stereo Typefaces&#x2122;</title>
             </Head>
 
             <div className="buttonsLeftWrapper" scroll={false}>

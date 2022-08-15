@@ -1,7 +1,6 @@
 import React from "react";
 import { useSwiperSlide, useSwiper } from "swiper/react";
 import { useEffect } from "react";
-import Image from "next/image";
 
 import styles from "../../styles/Storefront.module.css";
 import HeaderAnimationProtest from "../../components/HeaderAnimationProtest"

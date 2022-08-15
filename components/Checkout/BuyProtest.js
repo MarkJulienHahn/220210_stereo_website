@@ -33,27 +33,25 @@ const BuyProtest = ({
     ).licence = `${licence} / ${NumEmployees} Employees`;
   };
 
-  function isProtest(obj) {
-    return obj.categories[1].name === "Protest Grotesk";
-  }
+  const protest = products.filter((x) =>
+    x.categories.find((y) => y.name === "Protest Grotesk")
+  );
 
-  function isStyle(obj) {
-    return obj.categories[0].name === "Styles";
-  }
+  const protestStyles = protest.filter((x) =>
+    x.categories.find((y) => y.name === "Styles")
+  );
 
-  function isBundle(obj) {
-    return obj.categories[0].name === "Bundles";
-  }
-
-  const protest = products.filter(isProtest);
-  const protestStyles = protest.filter(isStyle);
-  const protestBundles = protest.filter(isBundle);
+  const protestBundles = protest.filter((x) =>
+    x.categories.find((y) => y.name === "Bundles")
+  );
 
   const priceFactor =
     (priceFactor1 + priceFactor2 + priceFactor3 + priceFactor5 + priceFactor6) *
     priceFactor4;
 
   const items = cart.line_items;
+
+  console.log(items)
 
   const clearBundle1 = () => {
     items.forEach((item) =>

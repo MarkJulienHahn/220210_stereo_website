@@ -53,7 +53,7 @@ const Information = ({ info }) => {
   return (
     <>
       <Head>
-        <title>Stereo Typefaces&#x2122; </title>
+        <title>About | Stereo Typefaces&#x2122;</title>
       </Head>
 
       <MouseButton lable={buttonContent} />

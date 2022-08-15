@@ -28,21 +28,17 @@ const BuyGiallo = ({
     ).licence = `${licence} / ${NumEmployees} Employees`;
   };
 
-  function isGiallo(obj) {
-    return obj.categories[1].name === "Giallo Roman";
-  }
+  const giallo = products.filter((x) =>
+  x.categories.find((y) => y.name === "Giallo Roman")
+);
 
-  function isStyle(obj) {
-    return obj.categories[0].name === "Styles";
-  }
+const gialloStyles = giallo.filter((x) =>
+  x.categories.find((y) => y.name === "Styles")
+);
 
-  function isBundle(obj) {
-    return obj.categories[0].name === "Bundles";
-  }
-
-  const giallo = products.filter(isGiallo);
-  const gialloStyles = giallo.filter(isStyle);
-  const gialloBundles = giallo.filter(isBundle);
+const gialloBundles = giallo.filter((x) =>
+  x.categories.find((y) => y.name === "Bundles")
+);
 
   const priceFactor =
     (priceFactor1 + priceFactor2 + priceFactor3 + priceFactor5 + priceFactor6) *

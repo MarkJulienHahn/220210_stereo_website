@@ -1092,7 +1092,8 @@ button {
     font-size: 6vw;
   }
 
-  .headerAnimationWrapper .row p, .headerAnimationWrapper .row2 p {
+  .headerAnimationWrapper .row p,
+  .headerAnimationWrapper .row2 p {
     font-size: 60vw;
     line-height: 60vw;
   }
@@ -1391,5 +1392,47 @@ button {
     padding: 0;
     margin: 0;
     padding-bottom: var(--margin-L);
+  }
+}
+
+/* SHOP */
+
+.shopWrapper {
+  margin: var(--margin-M);
+}
+
+.shopSubline {
+  font-family: "Giallo-Mono";
+  font-size: var(--gialloSmallSize);
+  line-height: var(--gialloSmallLineHeight);
+  letter-spacing: var(--gialloSmallLetterSpacing);
+}
+
+.shopDescription {
+  font-family: "Giallo";
+  font-size: 20pt;
+  letter-spacing: -1px;
+  line-height: 22pt;
+  margin-bottom: 50px;
+}
+
+.shopMainImageWrapper {
+  width: 100%;
+  display: flex;
+  cursor: pointer;
+}
+
+.shopMainImageWrapper div {
+  width: 48%
+}
+
+.shopMainImageWrapper div:first-child {
+  margin-right: 10px !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .shopWrapper {
+    margin-top: calc(5 * var(--margin-M));
+    overflow: hidden;
   }
 }

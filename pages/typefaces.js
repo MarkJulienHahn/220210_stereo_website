@@ -61,7 +61,7 @@ const Typefaces = ({
   return (
     <main className={Styles.AppInner}>
       <Head>
-        <title>Stereo Typefaces&#x2122; </title>
+        <title>Typefaces | Stereo Typefaces&#x2122;</title>
         <meta name="keywords" content="web" />
       </Head>
 
@@ -199,7 +199,7 @@ const Typefaces = ({
                   ["Heavy ", 220, 0],
                   ["Italic / ", 220, 100],
                   ["Black ", 250, 0],
-                  ["Italic / ", 250, 100],
+                  ["Italic", 250, 100],
                 ]}
                 content={[
                   "[ Tone ] Balance* MONO 102KHz 230MHz Kanal ",
@@ -221,7 +221,7 @@ const Typefaces = ({
               <TypefacePreview
                 key="002"
                 fontFamily="ProtestMono"
-                lable="Protest Mono"
+                lable="Protest Grotesk Mono"
                 weights={[
                   ["Thin / ", 40, 0, 1],
                   ["Light / ", 70, 0, 2],
@@ -230,7 +230,7 @@ const Typefaces = ({
                   ["Medium / ", 160, 0, 5],
                   ["Bold / ", 190, 0, 6],
                   ["Heavy / ", 220, 0, 7],
-                  ["Black ", 250, 0, 8]
+                  ["Black", 250, 0, 8]
                 ]}
                 content={[
                   "Graph OP—1™ [around 7°Kelvin] ",
@@ -248,7 +248,7 @@ const Typefaces = ({
           </Link>
 
           <Link href="/typefaces/giallo-roman" scroll={false}>
-            <div ref={protestMonoRef}>
+            <div ref={gialloRef}>
               <TypefacePreview
                 key="001"
                 fontFamily="Giallo"
@@ -260,7 +260,7 @@ const Typefaces = ({
                   ["Medium / ", 400, 0],
                   ["Bold / ", 500, 0],
                   ["Heavy / ", 600, 0],
-                  ["Black / ", 700, 0],
+                  ["Black", 700, 0],
                 ]}
                 content={[
                   "Graph Tak* (Around 7°Kelvin) ",

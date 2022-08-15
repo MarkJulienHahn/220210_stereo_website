@@ -33,7 +33,7 @@ const Nav = ( ) => {
                             </Link>
                         </li>
                         <li>
-                            <Link href="/projects" scroll={false}>
+                            <Link href="/products" scroll={false}>
                                 <h2 className={styles.menuTypo}>MERCHANDISE</h2>
                             </Link>
                         </li>

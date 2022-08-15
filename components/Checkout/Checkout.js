@@ -7,8 +7,8 @@ import { commerce } from "../../lib/commerce";
 import Button from "../Button";
 import MouseButton from "../MouseButton";
 
-const BuyProtest = dynamic(() => import("./BuyProtest"));
-const BuyGiallo = dynamic(() => import("./BuyGiallo"));
+import BuyGiallo from "./BuyGiallo";
+import BuyProtest from "./BuyProtest";
 
 const LicensingTerms = dynamic(() => import("./LicensingTerms"));
 
