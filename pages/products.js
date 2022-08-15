@@ -51,7 +51,7 @@ const Products = ({ products, cart, live }) => {
         >
           <div className="shopWrapper">
             {physical.map((product) => (
-              <div className="shopItem">
+              <div key={product.id} className="shopItem">
                 <p className="shopDescription">
                   {product.description.replace(/<\/?[^>]+(>|$)/g, "")}
                 </p>
