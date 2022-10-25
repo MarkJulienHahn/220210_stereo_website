@@ -77,6 +77,10 @@
   opacity: 1;
 }
 
+.buyConfigurationSection {
+  padding-top: var(--margin-M)
+}
+
 .buyTable {
   margin-left: 50vw;
   transition: opacity 0.1s linear;
@@ -425,5 +429,7 @@
   .emptyCartMobile {
     display: block;
   }
+
+  
   
 }

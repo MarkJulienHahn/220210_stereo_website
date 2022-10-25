@@ -25,9 +25,9 @@
 }
 
 .menuTypo {
-    font-size: 6vw;
+    font-size: 8vw;
     line-height: 0px;
-    letter-spacing: -0.4vw;
+    letter-spacing: -0.5vw;
     font-weight: 100;
     font-family: 'Skyline';
     font-variation-settings: 'wdth' 800;
@@ -40,7 +40,7 @@
 }
 
 .menuTypo:hover {
-    font-variation-settings: 'wdth' 650;
+    font-variation-settings: 'wdth' 500;
     transition: font-variation-settings 0.5s ease;
 }
 

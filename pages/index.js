@@ -68,14 +68,14 @@ export default function Home(router) {
         >
           <Swiper
             spaceBetween={0}
-            slidesPerView={1}
+            // slidesPerView={1}
             loop={true}
             speed={300}
-            autoplay={{
-              delay: 5000,
-              disableOnInteraction: true,
-            }}
-            modules={[Autoplay]}
+            // autoplay={{
+            //   delay: 5000,
+            //   disableOnInteraction: true,
+            // }}
+            // modules={[Autoplay]}
           >
             <SwiperSlide>
               <One

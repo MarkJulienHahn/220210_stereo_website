@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
 
 import styles from "../../styles/Buy.module.css";
@@ -67,6 +67,7 @@ const Checkout = ({
   const [priceFactor4, setPriceFactor4] = useState(0);
   const [priceFactor5, setPriceFactor5] = useState(0);
   const [priceFactor6, setPriceFactor6] = useState(0);
+  const [priceFactor7, setPriceFactor7] = useState(0);
 
   const [LicenceUser, setLicenceUser] = useState([]);
   const [DesktopLicence, setDesktopLicence] = useState([]);
@@ -74,12 +75,15 @@ const Checkout = ({
   const [InteractiveLicence, setInteractiveLicence] = useState("");
   const [SocialLicence, setSocialLicence] = useState("");
   const [LogoLicence, setLogoLicence] = useState("");
+  const [VideoLicence, setVideoLicence] = useState("");
   const [NumEmployees, setNumEmployees] = useState("");
+
+  const [licenceChoice, setLicenceChoice] = useState(false);
 
   const [animated, setAnimated] = useState(false);
 
   const Licence = [
-    `${DesktopLicence} ${WebLicence} ${InteractiveLicence} ${SocialLicence} ${LogoLicence}`,
+    `${DesktopLicence} ${WebLicence} ${InteractiveLicence} ${SocialLicence} ${LogoLicence} ${VideoLicence}`,
   ];
 
   const showCouponInput = () => {
@@ -105,17 +109,52 @@ const Checkout = ({
   const updateLogoLicence = (licence) => {
     setLogoLicence(licence);
   };
+  const updateVideoLicence = (licence) => {
+    setVideoLicence(licence);
+  };
   const updateNumEmployees = (num) => {
     setNumEmployees(num);
   };
 
   useEffect(() => {
-    if (priceFactor4 < 5) {
-      updatePriceFactor5(0),
-        updateSocialLicence(""),
+    if (priceFactor4 < 3) {
+      updateSocialLicence(""),
         updateLogoLicence(""),
-        updatePriceFactor6(0);
+        updateVideoLicence(""),
+        updatePriceFactor5(0),
+        updatePriceFactor6(0),
+        updatePriceFactor7(0);
     }
+  }, [priceFactor4]);
+
+  useEffect(() => {
+    if (LicenceUser == "Student") {
+      updateSocialLicence(""),
+        updateLogoLicence(""),
+        updateVideoLicence(""),
+        updatePriceFactor5(0),
+        updatePriceFactor6(0),
+        updatePriceFactor7(0);
+      updatePriceFactor4(1);
+      updateNumEmployees("Student License");
+    }
+  });
+
+  useEffect(() => {
+    if (
+      (priceFactor1 +
+        priceFactor2 +
+        priceFactor3 +
+        priceFactor5 +
+        priceFactor6 +
+        priceFactor7 &&
+        priceFactor4 &&
+        LicenceUser !== "") ||
+      (LicenceUser == "Student" &&
+        priceFactor1 + priceFactor2 + priceFactor3 !== 0)
+    )
+      setLicenceChoice(true);
+    else setLicenceChoice(false);
   });
 
   const updateButtonContent = (input1) => {
@@ -173,11 +212,26 @@ const Checkout = ({
     setPriceFactor6(fact6);
   };
 
-  const licenceChoice =
-    priceFactor1 + priceFactor2 + priceFactor3 + priceFactor5 + priceFactor6 &&
-    priceFactor4
-      ? true
-      : false;
+  const updatePriceFactor7 = (fact7) => {
+    setPriceFactor7(fact7);
+  };
+
+  const resetLicensing = () => {
+    updatePriceFactor1(0),
+      updatePriceFactor2(0),
+      updatePriceFactor3(0),
+      updatePriceFactor4(0),
+      updatePriceFactor5(0),
+      updatePriceFactor6(0),
+      updatePriceFactor7(0),
+      updateDesktopLicence(""),
+      updateWebLicence(""),
+      updateInteractiveLicence(""),
+      updateSocialLicence(""),
+      updateLogoLicence(""),
+      updateVideoLicence(""),
+      updateLicenceUser("");
+  };
 
   React.useEffect(() => {
     const data = localStorage.getItem("storage1");
@@ -246,6 +300,17 @@ const Checkout = ({
   });
 
   React.useEffect(() => {
+    const data = localStorage.getItem("storage7");
+    if (data) {
+      setPriceFactor7(JSON.parse(data));
+    }
+  }, []);
+
+  React.useEffect(() => {
+    localStorage.setItem("storage7", JSON.stringify(priceFactor7));
+  });
+
+  React.useEffect(() => {
     const data = localStorage.getItem("licenceUser");
     if (data) {
       setLicenceUser(JSON.parse(data));
@@ -292,7 +357,7 @@ const Checkout = ({
   React.useEffect(() => {
     const data = localStorage.getItem("licenceSocial");
     if (data) {
-      setInteractiveLicence(JSON.parse(data));
+      setSocialLicence(JSON.parse(data));
     }
   }, []);
 
@@ -303,12 +368,23 @@ const Checkout = ({
   React.useEffect(() => {
     const data = localStorage.getItem("licenceLogo");
     if (data) {
-      setInteractiveLicence(JSON.parse(data));
+      setLogoLicence(JSON.parse(data));
     }
   }, []);
 
   React.useEffect(() => {
     localStorage.setItem("licenceLogo", JSON.stringify(LogoLicence));
+  });
+
+  React.useEffect(() => {
+    const data = localStorage.getItem("licenceVideo");
+    if (data) {
+      setVideoLicence(JSON.parse(data));
+    }
+  }, []);
+
+  React.useEffect(() => {
+    localStorage.setItem("licenceVideo", JSON.stringify(VideoLicence));
   });
 
   React.useEffect(() => {
@@ -352,7 +428,7 @@ const Checkout = ({
   };
 
   const enabled = {
-    pointerEvents: "auto",
+    // pointerEvents: "auto",
     opacity: 1,
   };
 
@@ -455,6 +531,20 @@ const Checkout = ({
       }, 300);
   };
 
+  const checkoutOverview = useRef(null);
+
+  const scrollDown = () => {
+    setTimeout(
+      window.scrollTo({
+        top: "5000px",
+        behavior: "smooth",
+      }),
+      2000
+    );
+  };
+
+  console.log(checkoutOverview);
+
   useEffect(() => {
     loading
       ? (updateButtonContent("calculating"), setAnimated(true))
@@ -474,6 +564,11 @@ const Checkout = ({
               lable={"Back"}
               subclass={"secondary"}
               onClick={() => fadeOutCheckout(false)}
+            />
+            <Button
+              lable={"Reset Licensing"}
+              subclass={"quaternary"}
+              onClick={() => resetLicensing()}
             />
             <Button
               lable={"Licensing Terms"}
@@ -530,7 +625,6 @@ const Checkout = ({
               <div className={styles.buyConfigurationWrapper}>
                 <ul className={styles.buyConfiguration}>
                   <li className={styles.buyConfigurationHead}>
-                    {" "}
                     [ 1 ] LICENSE TYPE
                   </li>
                   <li className={styles.buyConfigurationHead}>
@@ -539,9 +633,9 @@ const Checkout = ({
                   <li
                     style={LicenceUser == "Designer" ? active : inactive}
                     onClick={
-                      LicenceUser !== "Designer"
-                        ? () => updateLicenceUser("Designer")
-                        : () => updateLicenceUser("")
+                      LicenceUser == "Designer"
+                        ? () => updateLicenceUser("")
+                        : () => updateLicenceUser("Designer")
                     }
                   >
                     Designer
@@ -556,195 +650,300 @@ const Checkout = ({
                   >
                     Client
                   </li>
-                  <li className={styles.buyConfigurationHead}>
-                    &#8594; License Type
-                  </li>
-
                   <li
-                    style={priceFactor1 === 7 ? active : inactive}
+                    style={LicenceUser == "Student" ? active : inactive}
                     onClick={
-                      priceFactor1 === 7
-                        ? () => {
-                            updatePriceFactor1(0), updateDesktopLicence("");
-                          }
-                        : () => {
-                            updatePriceFactor1(7),
-                              updateDesktopLicence("Desktop");
-                          }
+                      LicenceUser !== "Student"
+                        ? () => updateLicenceUser("Student")
+                        : () => updateLicenceUser("")
                     }
                   >
-                    Desktop Licence
-                  </li>
-
-                  <li
-                    style={priceFactor2 === 11 ? active : inactive}
-                    onClick={
-                      priceFactor2 === 11
-                        ? () => {
-                            updatePriceFactor2(0), updateWebLicence("");
-                          }
-                        : () => {
-                            updatePriceFactor2(11), updateWebLicence("Web");
-                          }
-                    }
-                  >
-                    Web Licence
-                  </li>
-
-                  <li
-                    style={priceFactor3 === 24 ? active : inactive}
-                    onClick={
-                      priceFactor3 === 24
-                        ? () => {
-                            updatePriceFactor3(0), updateInteractiveLicence("");
-                          }
-                        : () => {
-                            updatePriceFactor3(24),
-                              updateInteractiveLicence("Interactive");
-                          }
-                    }
-                  >
-                    Interactive Licence
+                    Student
                   </li>
 
                   <div
-                    onMouseEnter={
-                      priceFactor4 >= 5
-                        ? () => {}
-                        : () =>
-                            updateButtonContent(
-                              "Only for companies bigger than 10"
-                            )
-                    }
-                    onMouseLeave={
-                      priceFactor4 <= 5
-                        ? () => updateButtonContent("")
-                        : () => {}
+                    className={styles.buyConfigurationSection}
+                    style={
+                      !LicenceUser || LicenceUser == "Student"
+                        ? disabled
+                        : enabled
                     }
                   >
-                    <div style={priceFactor4 >= 5 ? enabled : disabled}>
-                      <li
-                        style={priceFactor5 === 24 ? active : none}
-                        onClick={
-                          priceFactor4 >= 5 && priceFactor5 === 24
-                            ? () => {
-                                updatePriceFactor5(0), updateSocialLicence("");
-                              }
-                            : () => {
-                                updatePriceFactor5(24),
-                                  updateSocialLicence("Social Media");
-                              }
-                        }
-                      >
-                        Social Media Licence
-                      </li>
+                    <li className={styles.buyConfigurationHead}>
+                      &#8594; Company Size
+                    </li>
 
-                      <li
-                        style={priceFactor6 === 24 ? active : inactive}
-                        onClick={
-                          priceFactor6 === 24
-                            ? () => {
-                                updatePriceFactor6(0), updateLogoLicence("");
-                              }
-                            : () => {
-                                updatePriceFactor6(24),
-                                  updateLogoLicence("Logo");
-                              }
-                        }
-                      >
-                        Logo Licence
-                      </li>
-                    </div>
+                    <li
+                      style={priceFactor4 === 2 ? active : inactive}
+                      onClick={
+                        priceFactor4 === 2
+                          ? () => {
+                              updatePriceFactor4(0);
+                            }
+                          : () => {
+                              updatePriceFactor4(2), updateNumEmployees(5);
+                            }
+                      }
+                    >
+                      Up to 5 people
+                    </li>
+                    <li
+                      style={priceFactor4 === 3 ? active : inactive}
+                      onClick={
+                        priceFactor4 === 3
+                          ? () => {
+                              updatePriceFactor4(0);
+                            }
+                          : () => {
+                              updatePriceFactor4(3), updateNumEmployees(10);
+                            }
+                      }
+                    >
+                      Up to 10 people
+                    </li>
+
+                    <li
+                      style={priceFactor4 === 4 ? active : inactive}
+                      onClick={
+                        priceFactor4 === 4
+                          ? () => {
+                              updatePriceFactor4(0);
+                            }
+                          : () => {
+                              updatePriceFactor4(4), updateNumEmployees(25);
+                            }
+                      }
+                    >
+                      Up to 25 people
+                    </li>
+                    <li
+                      style={priceFactor4 === 5 ? active : inactive}
+                      onClick={
+                        priceFactor4 === 5
+                          ? () => {
+                              updatePriceFactor4(0);
+                            }
+                          : () => {
+                              updatePriceFactor4(5), updateNumEmployees(50);
+                            }
+                      }
+                    >
+                      Up to 50 people
+                    </li>
+                    <li
+                      style={priceFactor4 === 6 ? active : inactive}
+                      onClick={
+                        priceFactor4 === 6
+                          ? () => {
+                              updatePriceFactor4(0);
+                            }
+                          : () => {
+                              updatePriceFactor4(6), updateNumEmployees(100);
+                            }
+                      }
+                    >
+                      Up to 100 people
+                    </li>
+                    <li
+                      style={priceFactor4 === 8 ? active : inactive}
+                      onClick={
+                        priceFactor4 === 8
+                          ? () => {
+                              updatePriceFactor4(0);
+                            }
+                          : () => {
+                              updatePriceFactor4(8), updateNumEmployees(150);
+                            }
+                      }
+                    >
+                      Up to 150 people
+                    </li>
+                    <li
+                      style={priceFactor4 === 11 ? active : inactive}
+                      onClick={
+                        priceFactor4 === 11
+                          ? () => {
+                              updatePriceFactor4(0);
+                            }
+                          : () => {
+                              updatePriceFactor4(11), updateNumEmployees(250);
+                            }
+                      }
+                    >
+                      Up to 250 people
+                    </li>
+                    <li
+                      style={priceFactor4 === 14 ? active : inactive}
+                      onClick={
+                        priceFactor4 === 14
+                          ? () => {
+                              updatePriceFactor4(0);
+                            }
+                          : () => {
+                              updatePriceFactor4(14), updateNumEmployees(500);
+                            }
+                      }
+                    >
+                      Up to 500 people
+                    </li>
+                    <li
+                      style={priceFactor4 === 24 ? active : inactive}
+                      onClick={
+                        priceFactor4 === 24
+                          ? () => {
+                              updatePriceFactor4(0);
+                            }
+                          : () => {
+                              updatePriceFactor4(24), updateNumEmployees(1000);
+                            }
+                      }
+                    >
+                      Up to 1000 people
+                    </li>
+                    <li
+                      style={priceFactor4 === 40 ? active : inactive}
+                      onClick={
+                        priceFactor4 === 40
+                          ? () => {
+                              updatePriceFactor4(0);
+                            }
+                          : () => {
+                              updatePriceFactor4(40), updateNumEmployees(1500);
+                            }
+                      }
+                    >
+                      Up to 1500 people
+                    </li>
                   </div>
 
-                  <li className={styles.buyConfigurationHead}>
-                    &#8594; Company Size
-                  </li>
+                  <div
+                    className={styles.buyConfigurationSection}
+                    style={
+                      (priceFactor4 > 1 && LicenceUser) || LicenceUser == "Student"
+                        ? enabled
+                        : disabled
+                    }
+                  >
+                    <li className={styles.buyConfigurationHead}>
+                      &#8594; License Type
+                    </li>
 
-                  <li
-                    style={priceFactor4 === 2 ? active : inactive}
-                    onClick={
-                      priceFactor4 === 2
-                        ? () => {
-                            updatePriceFactor4(0);
+                    <li
+                      style={priceFactor1 === 9 ? active : inactive}
+                      onClick={
+                        priceFactor1 === 9
+                          ? () => {
+                              updatePriceFactor1(0), updateDesktopLicence("");
+                            }
+                          : () => {
+                              updatePriceFactor1(9),
+                                updateDesktopLicence("Desktop");
+                            }
+                      }
+                    >
+                      Desktop License
+                    </li>
+
+                    <li
+                      style={priceFactor2 === 14 ? active : inactive}
+                      onClick={
+                        priceFactor2 === 14
+                          ? () => {
+                              updatePriceFactor2(0), updateWebLicence("");
+                            }
+                          : () => {
+                              updatePriceFactor2(14), updateWebLicence("Web");
+                            }
+                      }
+                    >
+                      Web License
+                    </li>
+
+                    <li
+                      style={priceFactor3 === 24 ? active : inactive}
+                      onClick={
+                        priceFactor3 === 24
+                          ? () => {
+                              updatePriceFactor3(0),
+                                updateInteractiveLicence("");
+                            }
+                          : () => {
+                              updatePriceFactor3(24),
+                                updateInteractiveLicence("Interactive");
+                            }
+                      }
+                    >
+                      App/Game License
+                    </li>
+
+                    <div
+                      onMouseEnter={
+                        priceFactor4 == 2
+                          ? () =>
+                              updateButtonContent(
+                                "Included in Desktop License 🙌"
+                              )
+                          : () => {}
+                      }
+                      onMouseLeave={() => updateButtonContent("")}
+                    >
+                      <div
+                        style={
+                          priceFactor4 == 2 || LicenceUser == "Student"
+                            ? disabled
+                            : enabled
+                        }
+                      >
+                        <li
+                          style={priceFactor5 === 8 ? active : none}
+                          onClick={
+                            priceFactor4 >= 3 && priceFactor5 === 8
+                              ? () => {
+                                  updatePriceFactor5(0),
+                                    updateSocialLicence("");
+                                }
+                              : () => {
+                                  updatePriceFactor5(8),
+                                    updateSocialLicence("Social Media");
+                                }
                           }
-                        : () => {
-                            updatePriceFactor4(2), updateNumEmployees(5);
+                        >
+                          Social Media License
+                        </li>
+
+                        <li
+                          style={priceFactor6 === 8 ? active : inactive}
+                          onClick={
+                            priceFactor6 === 8
+                              ? () => {
+                                  updatePriceFactor6(0), updateLogoLicence("");
+                                }
+                              : () => {
+                                  updatePriceFactor6(8),
+                                    updateLogoLicence("Logo");
+                                }
                           }
-                    }
-                  >
-                    Up to 5 people
-                  </li>
-                  <li
-                    style={priceFactor4 === 3 ? active : inactive}
-                    onClick={
-                      priceFactor4 === 3
-                        ? () => {
-                            updatePriceFactor4(0);
+                        >
+                          Logo License
+                        </li>
+                        <li
+                          style={priceFactor7 === 12 ? active : inactive}
+                          onClick={
+                            priceFactor7 === 12
+                              ? () => {
+                                  updatePriceFactor7(0), updateVideoLicence("");
+                                }
+                              : () => {
+                                  updatePriceFactor7(12),
+                                    updateVideoLicence("Video");
+                                }
                           }
-                        : () => {
-                            updatePriceFactor4(3), updateNumEmployees(10);
-                          }
-                    }
-                  >
-                    Up to 10 people
-                  </li>
-                  <li
-                    style={priceFactor4 === 5 ? active : inactive}
-                    onClick={
-                      priceFactor4 === 5
-                        ? () => {
-                            updatePriceFactor4(0);
-                          }
-                        : () => {
-                            updatePriceFactor4(5), updateNumEmployees(25);
-                          }
-                    }
-                  >
-                    Up to 25 people
-                  </li>
-                  <li
-                    style={priceFactor4 === 7 ? active : inactive}
-                    onClick={
-                      priceFactor4 === 7
-                        ? () => {
-                            updatePriceFactor4(0);
-                          }
-                        : () => {
-                            updatePriceFactor4(7), updateNumEmployees(100);
-                          }
-                    }
-                  >
-                    Up to 100 people
-                  </li>
-                  <li
-                    style={priceFactor4 === 14 ? active : inactive}
-                    onClick={
-                      priceFactor4 === 14
-                        ? () => {
-                            updatePriceFactor4(0);
-                          }
-                        : () => {
-                            updatePriceFactor4(14), updateNumEmployees(500);
-                          }
-                    }
-                  >
-                    Up to 500 people
-                  </li>
-                  <li
-                    style={priceFactor4 === 40 ? active : inactive}
-                    onClick={
-                      priceFactor4 === 40
-                        ? () => {
-                            updatePriceFactor4(0);
-                          }
-                        : () => {
-                            updatePriceFactor4(40), updateNumEmployees(1500);
-                          }
-                    }
-                  >
-                    Up to 1500 people
-                  </li>
+                        >
+                          Video License
+                        </li>
+                      </div>
+                    </div>
+                  </div>
                 </ul>
                 <div className={styles.mobileLicensingButton}>
                   <Button
@@ -793,7 +992,9 @@ const Checkout = ({
                 >
                   <div
                     style={
-                      !licenceChoice || !LicenceUser ? buyInactive : buyActive
+                      licenceChoice && priceFactor4 > 1 || LicenceUser == "Student" && licenceChoice
+                        ? buyActive
+                        : buyInactive
                     }
                     className={styles.buyTableContent}
                   >
@@ -817,15 +1018,16 @@ const Checkout = ({
                           priceFactor4={priceFactor4}
                           priceFactor5={priceFactor5}
                           priceFactor6={priceFactor6}
+                          priceFactor7={priceFactor7}
                           licenceChoice={licenceChoice}
                           LicenceUser={LicenceUser}
                           onUpdateCartPrice={handleUpdateCartPrice}
                           Licence={Licence}
                           NumEmployees={NumEmployees}
+                          scrollDown={scrollDown}
                         />
                       </div>
                     )}
-
                     {showBuyGiallo && (
                       <BuyGiallo
                         products={products}
@@ -841,6 +1043,7 @@ const Checkout = ({
                         priceFactor4={priceFactor4}
                         priceFactor5={priceFactor5}
                         priceFactor6={priceFactor6}
+                        priceFactor7={priceFactor7}
                         licenceChoice={licenceChoice}
                         LicenceUser={LicenceUser}
                         onUpdateCartPrice={handleUpdateCartPrice}
@@ -851,11 +1054,8 @@ const Checkout = ({
                   </div>
                 </div>
 
-                <p className={styles.cartHead}>
-                  {" "}
-                  {cart.line_items.length || ""
-                    ? "CART"
-                    : "YOUR CART IS EMPTY"}{" "}
+                <p className={styles.cartHead} ref={checkoutOverview}>
+                  {cart.line_items.length || "" ? "CART" : "YOUR CART IS EMPTY"}{" "}
                 </p>
 
                 <div className={styles.totalWrapper}>

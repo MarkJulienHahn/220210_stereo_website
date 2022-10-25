@@ -15,6 +15,7 @@ const BuyGiallo = ({
   priceFactor4,
   priceFactor5,
   priceFactor6,
+  priceFactor7,
   Licence,
   NumEmployees,
 }) => {
@@ -41,7 +42,7 @@ const gialloBundles = giallo.filter((x) =>
 );
 
   const priceFactor =
-    (priceFactor1 + priceFactor2 + priceFactor3 + priceFactor5 + priceFactor6) *
+    (priceFactor1 + priceFactor2 + priceFactor3 + priceFactor5 + priceFactor6 + priceFactor7) *
     priceFactor4;
 
   const items = cart.line_items;

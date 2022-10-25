@@ -386,9 +386,10 @@ button {
 }
 
 .typeface-single-header {
-  height: 100vh;
+  height: 165vh;
   min-height: 800px;
   overflow: hidden;
+  background-image: url("../public/images/bg.png");
 }
 
 .typeface-single-opener {
@@ -930,22 +931,21 @@ button {
 .headerAnimationWrapper {
   height: 100%;
   overflow: hidden;
-  /* background: #dfdfff; */
-  background: var(--quaternary);
-  color: rgba(0, 0, 0, 0.7);
   width: 100vw;
-  height: 100vh;
+  height: 165vh;
 }
 
 .headerAnimationSubWrapper {
-  animation: typoAnimation 10s ease infinite;
+  animation: typoAnimation 5s ease infinite;
+  color: #cccccc;
 }
 
 .headerAnimationWrapper .row {
   display: flex;
   justify-content: center;
-  animation: rowAnimation 30s linear infinite alternate-reverse;
-  width: 1000px;
+  /* animation: rowAnimation 120s ease infinite alternate-reverse; */
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 .headerAnimationWrapper .row p {
@@ -954,16 +954,18 @@ button {
   /* letter-spacing: -3.5vw; */
   animation: variableAnimation 2s ease infinite alternate;
   font-size: 20vw;
-  line-height: 20vw;
+  line-height: 23vw;
   letter-spacing: -1vw;
   white-space: nowrap;
+  text-align: center;
 }
 
 .headerAnimationWrapper .row2 {
   display: flex;
   justify-content: center;
-  animation: rowAnimation 30s linear infinite alternate;
-  width: 1000px;
+  /* animation: rowAnimation 120s ease infinite alternate; */
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 .headerAnimationWrapper .row2 p {
@@ -973,16 +975,16 @@ button {
   /* letter-spacing: -3.5vw; */
   animation: variableAnimation 2s ease infinite alternate-reverse;
   font-size: 20vw;
-  line-height: 20vw;
+  line-height: 23vw;
   letter-spacing: -1vw;
   height: 100%;
   white-space: nowrap;
-  text-align: right;
+  text-align: center;
 }
 
 @keyframes rowAnimation {
   0% {
-    transform: translateX(-200%);
+    transform: translateX(-100%);
   }
   100% {
     transform: translateX(0);
