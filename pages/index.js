@@ -8,11 +8,11 @@ import Button from "../components/Button";
 import Infobutton from "../components/Infobutton";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper";
 import "swiper/css";
 
 import One from "./storefront/one";
 import Two from "./storefront/two";
+import Trials from "./storefront/trials";
 
 export default function Home(router) {
   const location = useRouter();
@@ -38,20 +38,17 @@ export default function Home(router) {
           </a>
         </Link>
 
-        <Link href={linkPage}>
-          <a>
-            <Button lable={page} />
-          </a>
-        </Link>
+        {linkPage && (
+          <Link href={linkPage}>
+            <a>
+              <Button lable={page} />
+            </a>
+          </Link>
+        )}
       </div>
 
       <div className="buttonsRightWrapper">
-        <Infobutton
-          lable={"?"}
-          subclass={"secondary"}
-          content={description}
-        />
-
+        <Infobutton lable={"?"} subclass={"secondary"} content={description} />
       </div>
 
       <AnimatePresence
@@ -68,14 +65,8 @@ export default function Home(router) {
         >
           <Swiper
             spaceBetween={0}
-            // slidesPerView={1}
             loop={true}
             speed={300}
-            // autoplay={{
-            //   delay: 5000,
-            //   disableOnInteraction: true,
-            // }}
-            // modules={[Autoplay]}
           >
             <SwiperSlide>
               <One
@@ -106,6 +97,20 @@ export default function Home(router) {
                 linkPage={"/projects"}
                 description={
                   "Automat is a modular, grid-based variable typeface system available in three different styles. Influenced by the systematic work of Wim Crouwel and Karl Gerstner in the 1960s and 1970s as well as later digital reinterpretations in the 1990s, Automat complements them by adding the possibility to steplessly manipulate the typeface in a broad design frame. With two adjustable axes, unconsidered compositions can be generated, legibility can be dissolved and unpreditermined images can be developed. Access a free-to-use design tool, which helps generate unconventional images and aims to change the designers thought process by adding a factor of generative randomness and unpredictability to the creative approach. Automat is open-source and free to use — generate compositions in the browser application and instantly download them to your computer. Feel free to leave us feedback via Mail — Stereo Typefaces would appreciate being mentioned in the final design result."
+                }
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Trials
+                setCategory={setCategory}
+                setPage={setPage}
+                setLinkCategory={setLinkCategory}
+                setLinkPage={setLinkPage}
+                setDescription={setDescription}
+                category={"Typefaces"}
+                linkCategory={"/projects"}
+                description={
+                  "Get your free trials, now!!!!"
                 }
               />
             </SwiperSlide>

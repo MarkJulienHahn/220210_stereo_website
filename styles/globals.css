@@ -65,6 +65,7 @@ body {
   --secondary: rgba(0, 0, 0, 0.8);
   --tertiary: rgba(222, 211, 151, 0.55);
   --quaternary: rgba(220, 220, 220, 0.4);
+  --fifth: rgb(199, 177, 255, 0.3);
 
   --pgSmallSize: 7.5pt;
   --pgSmallLineHeight: 15pt;
@@ -100,11 +101,11 @@ body {
 }
 
 ::-moz-selection {
-  background: transparent;
+  background: var(--fifth);
   color: inherit;
 }
 ::selection {
-  background: transparent;
+  background: var(--fifth);
   color: inherit;
 }
 
