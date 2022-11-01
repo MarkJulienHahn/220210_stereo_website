@@ -12,7 +12,7 @@ import "swiper/css";
 
 import One from "./storefront/one";
 import Two from "./storefront/two";
-import Trials from "./storefront/trials";
+import TrialsPreview from "./storefront/TrialsPreview";
 
 export default function Home(router) {
   const location = useRouter();
@@ -48,7 +48,7 @@ export default function Home(router) {
       </div>
 
       <div className="buttonsRightWrapper">
-        <Infobutton lable={"?"} subclass={"secondary"} content={description} />
+        <Infobutton lable={"?"} subclass={"quaternary"} content={description} />
       </div>
 
       <AnimatePresence
@@ -101,7 +101,7 @@ export default function Home(router) {
               />
             </SwiperSlide>
             <SwiperSlide>
-              <Trials
+              <TrialsPreview
                 setCategory={setCategory}
                 setPage={setPage}
                 setLinkCategory={setLinkCategory}
@@ -110,7 +110,7 @@ export default function Home(router) {
                 category={"Typefaces"}
                 linkCategory={"/projects"}
                 description={
-                  "Get your free trials, now!!!!"
+                  "Trial or error!"
                 }
               />
             </SwiperSlide>

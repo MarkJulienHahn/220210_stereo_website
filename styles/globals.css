@@ -61,11 +61,12 @@ body {
   --margin-M: 30px;
   --margin-S: 12px;
 
-  --primary: rgb(0, 255, 0);
+  --primary: #00ff5a;
   --secondary: rgba(0, 0, 0, 0.8);
-  --tertiary: rgba(222, 211, 151, 0.55);
+  --tertiary: rgba(240, 233, 198, 0.6);
   --quaternary: rgba(220, 220, 220, 0.4);
   --fifth: rgb(199, 177, 255, 0.3);
+  --menuType: #737373;
 
   --pgSmallSize: 7.5pt;
   --pgSmallLineHeight: 15pt;
@@ -164,8 +165,8 @@ button {
 .menuLinkOpen {
   height: 20px;
   text-align: center;
-  color: #4a4a4a;
-  opacity: 0.8;
+  color: var(--menuType);
+  opacity: 0.4;
   transition: opacity 0.3s linear;
 }
 
@@ -390,7 +391,8 @@ button {
   height: 165vh;
   min-height: 800px;
   overflow: hidden;
-  background-image: url("../public/images/bg.png");
+  background-image: url("../public/images/bg_02.png");
+  /* background:  linear-gradient(0deg, #00046a 0%, rgb(19, 1, 65) 100%);; */
 }
 
 .typeface-single-opener {
@@ -1426,7 +1428,7 @@ button {
 }
 
 .shopMainImageWrapper div {
-  width: 48%
+  width: 48%;
 }
 
 .shopMainImageWrapper div:first-child {

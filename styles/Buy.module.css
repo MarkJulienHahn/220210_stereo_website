@@ -60,6 +60,18 @@
   pointer-events: none;
 }
 
+.buyConfiguration {
+  overflow: scroll;
+  height: 100vh;
+  padding-bottom: 120px;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.buyConfiguration::-webkit-scrollbar {
+  display: none;
+}
+
 .buyConfiguration li {
   transition: font-variation-settings 1s linear;
   cursor: pointer;
@@ -78,7 +90,7 @@
 }
 
 .buyConfigurationSection {
-  padding-top: var(--margin-M)
+  padding-top: var(--margin-M);
 }
 
 .buyTable {
@@ -429,7 +441,4 @@
   .emptyCartMobile {
     display: block;
   }
-
-  
-  
 }

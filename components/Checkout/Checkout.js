@@ -543,8 +543,6 @@ const Checkout = ({
     );
   };
 
-  console.log(checkoutOverview);
-
   useEffect(() => {
     loading
       ? (updateButtonContent("calculating"), setAnimated(true))
@@ -571,7 +569,7 @@ const Checkout = ({
               onClick={() => resetLicensing()}
             />
             <Button
-              lable={"Licensing Terms"}
+              lable={"Licensing Information"}
               subclass={"quaternary"}
               onClick={() => setShowLicensing(true)}
             />
@@ -814,12 +812,21 @@ const Checkout = ({
                     >
                       Up to 1500 people
                     </li>
+                    <li
+                      onMouseEnter={() => updateButtonContent("Custom Request")}
+                      onMouseLeave={() => updateButtonContent("")}
+                    >
+                      <a href="mailto:licensing@stereotypefaces.com">
+                        Over 1500 people
+                      </a>
+                    </li>
                   </div>
 
                   <div
                     className={styles.buyConfigurationSection}
                     style={
-                      (priceFactor4 > 1 && LicenceUser) || LicenceUser == "Student"
+                      (priceFactor4 > 1 && LicenceUser) ||
+                      LicenceUser == "Student"
                         ? enabled
                         : disabled
                     }
@@ -992,7 +999,8 @@ const Checkout = ({
                 >
                   <div
                     style={
-                      licenceChoice && priceFactor4 > 1 || LicenceUser == "Student" && licenceChoice
+                      (licenceChoice && priceFactor4 > 1) ||
+                      (LicenceUser == "Student" && licenceChoice)
                         ? buyActive
                         : buyInactive
                     }

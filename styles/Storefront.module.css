@@ -1,23 +1,51 @@
 .swiperNav {
-    height: 100vh;
-    width: 100vw;
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: space-between;
-    cursor: pointer;
-    z-index: 100000000000000000000;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  z-index: 100000000000000000000;
 }
 
 .swiperPrev {
-    width: 50vw;
-    height: 100vh;
-    cursor: w-resize;
+  width: 20vw;
+  height: 100vh;
+  cursor: w-resize;
 }
 
 .swiperNext {
-    width: 50vw;
-    height: 100vh;
-    cursor: e-resize;
+  width: 20vw;
+  height: 100vh;
+  cursor: e-resize;
+}
+
+.trialsWrapper {
+  width: 100vw;
+  height: 100vh;
+  color: black;
+  background: var(--primary);
+  font-size: 8vw;
+  font-variation-settings: "wght" 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: variation 5s ease alternate-reverse;
+  animation-iteration-count: infinite;
+}
+
+.trialsWrapper:hover {
+    color: var(--primary);
+    background: var(--fifth);
+    cursor: pointer;
+}
+
+@keyframes variation {
+  0% {
+    font-variation-settings: "wght" 40, "ital" 100;
+  }
+  100% {
+    font-variation-settings: "wght" 500, "ital" 0;
+  }
 }

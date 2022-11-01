@@ -35,6 +35,7 @@ const ProductChoice = (props) => {
 
   const inBundle1 = props.bundle ? props.bundle.includes("Bundle 2") : null;
   const inBundle2 = props.bundle ? props.bundle.includes("Bundle 1") : null;
+  const inBundle3 = props.bundle ? props.bundle.includes("Bundle 3") : null;
 
   const ItemNotInCart = () => (
     <>
@@ -44,8 +45,10 @@ const ProductChoice = (props) => {
           props.hoverFullFamily ||
           (inBundle1 && props.hoverBundle2) ||
           (inBundle2 && props.hoverBundle1) ||
+          (inBundle3 && props.hoverBundle3) ||
           (props.addBundle1 && inBundle1) ||
           (props.addBundle2 && inBundle2) ||
+          (props.addBundle3 && inBundle3) ||
           props.addFullFamily
             ? {pointerEvents: "none"}
             : normal
@@ -60,8 +63,10 @@ const ProductChoice = (props) => {
               props.hoverFullFamily ||
               (inBundle1 && props.hoverBundle2) ||
               (inBundle2 && props.hoverBundle1) ||
+              (inBundle3 && props.hoverBundle3) ||
               (props.addBundle1 && inBundle1) ||
               (props.addBundle2 && inBundle2) ||
+              (props.addBundle3 && inBundle3) ||
               props.addFullFamily
                 ? primary
                 : normal

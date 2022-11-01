@@ -2,8 +2,10 @@ import React from "react";
 import { useSwiperSlide, useSwiper } from "swiper/react";
 import { useEffect } from "react";
 
+import Link from "next/link";
+
 import styles from "../../styles/Storefront.module.css";
-import HeaderAnimationProtest from "../../components/HeaderAnimationProtest"
+import HeaderAnimationProtest from "../../components/HeaderAnimationProtest";
 
 const One = ({
   setCategory,
@@ -50,9 +52,13 @@ const One = ({
           onClick={() => swiper.slideNext()}
         ></div>
       </div>
-      <div className="typeface-single-header">
-        <HeaderAnimationProtest />
-      </div>
+      <Link href="/typefaces/protest-grotesk">
+        <a>
+        <div className="typeface-single-header">
+          <HeaderAnimationProtest />
+        </div>
+        </a>
+      </Link>
     </>
   );
 };

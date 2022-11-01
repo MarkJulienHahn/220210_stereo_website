@@ -24,10 +24,12 @@ const BuyProtest = ({
   const [hoverFullFamily, setHoverFullFamily] = useState(false);
   const [hoverBundle1, setHoverBundle1] = useState(false);
   const [hoverBundle2, setHoverBundle2] = useState(false);
+  const [hoverBundle3, setHoverBundle3] = useState(false);
 
   const [addFullFamily, setAddFullFamily] = useState(false);
   const [addBundle1, setAddBundle1] = useState(false);
   const [addBundle2, setAddBundle2] = useState(false);
+  const [addBundle3, setAddBundle3] = useState(false);
 
   const updateLicenceType = (name, licence) => {
     products.find((el) => el.name === name).licence =
@@ -58,6 +60,8 @@ const BuyProtest = ({
     priceFactor4;
 
   const items = cart.line_items;
+
+  console.log(protestBundles);
 
   const clearBundle1 = () => {
     items.forEach((item) =>
@@ -121,6 +125,11 @@ const BuyProtest = ({
         ? onRemoveFromCart(item.id)
         : () => {}
     );
+    items.forEach((item) => {
+      item.name.includes("Protest Grotesk Starter Pack")
+        ? onRemoveFromCart(item.id)
+        : () => {};
+    });
   };
 
   const clearBundle2 = () => {
@@ -167,6 +176,39 @@ const BuyProtest = ({
         ? onRemoveFromCart(item.id)
         : () => {}
     );
+    items.forEach((item) => {
+      item.name.includes("Protest Grotesk Starter Pack")
+        ? onRemoveFromCart(item.id)
+        : () => {};
+    });
+  };
+
+  const clearBundle3 = () => {
+    items.forEach((item) =>
+      item.name.icludes === "Protesk Grotesk Book"
+        ? onRemoveFromCart(item.id)
+        : () => {}
+    );
+    items.forEach((item) =>
+      item.name === "Protesk Grotesk Bold"
+        ? onRemoveFromCart(item.id)
+        : () => {}
+    );
+    items.forEach((item) => {
+      item.name.includes("Protest Grotesk Full Family")
+        ? onRemoveFromCart(item.id)
+        : () => {};
+    });
+    items.forEach((item) => {
+      item.name.includes("Protest Grotesk Deluxe Pack")
+        ? onRemoveFromCart(item.id)
+        : () => {};
+    });
+    items.forEach((item) => {
+      item.name.includes("Protest Grotesk Essential Pack")
+        ? onRemoveFromCart(item.id)
+        : () => {};
+    });
   };
 
   const clearFullFamily = () => {
@@ -190,6 +232,10 @@ const BuyProtest = ({
     setAddBundle2(i), localStorage.setItem("PGBundle2", JSON.stringify(i));
   };
 
+  const updateBundle3 = (i) => {
+    setAddBundle3(i), localStorage.setItem("PGBundle3", JSON.stringify(i));
+  };
+
   useEffect(() => {
     !items.some((item) => item.product_id === protestBundles[0].id)
       ? updateFullFamily(false)
@@ -200,16 +246,23 @@ const BuyProtest = ({
     !items.some((item) => item.product_id === protestBundles[2].id)
       ? updateBundle2(false)
       : "";
+    !items.some((item) => item.product_id === protestBundles[3].id)
+      ? updateBundle3(false)
+      : "";
   }, [cart]);
 
   useEffect(() => {
     const data = localStorage.getItem("PGfullFamily");
     setAddFullFamily(JSON.parse(data));
-    const data2 = localStorage.getItem("PGBundle1");
-    setAddBundle1(JSON.parse(data2));
-    const data3 = localStorage.getItem("PGBundle2");
-    setAddBundle2(JSON.parse(data3));
+    const data1 = localStorage.getItem("PGBundle1");
+    setAddBundle1(JSON.parse(data1));
+    const data2 = localStorage.getItem("PGBundle2");
+    setAddBundle2(JSON.parse(data2));
+    const data3 = localStorage.getItem("PGBundle3");
+    setAddBundle3(JSON.parse(data3));
   });
+
+  console.log(addBundle2, addBundle3);
 
   return (
     <div
@@ -217,6 +270,7 @@ const BuyProtest = ({
         setHoverFullFamily(false),
           setHoverBundle1(false),
           setHoverBundle2(false);
+        setHoverBundle3(false);
       }}
     >
       <p className={styles.buyConfigurationHead}>Bundles</p>
@@ -280,7 +334,7 @@ const BuyProtest = ({
                   NumEmployees
                 ),
                   onAddToCart(protestBundles[1].id, 1 * priceFactor);
-                  scrollDown();
+                scrollDown();
                 clearBundle1();
                 updateBundle1(true);
               }
@@ -325,7 +379,7 @@ const BuyProtest = ({
                 ),
                   clearBundle2(),
                   onAddToCart(protestBundles[2]?.id, 1 * priceFactor);
-                  scrollDown();
+                scrollDown();
                 updateBundle2(true);
               }
             : () => {
@@ -354,6 +408,51 @@ const BuyProtest = ({
         />
       </div>
 
+      {/* STARTER */}
+
+      <div
+        item
+        onClick={
+          licenceChoice &&
+          LicenceUser &&
+          !items.some((item) => item.product_id === protestBundles[3]?.id)
+            ? () => {
+                updateLicenceType(
+                  protestBundles[3]?.name,
+                  Licence,
+                  NumEmployees
+                ),
+                  clearBundle3(),
+                  onAddToCart(protestBundles[3]?.id, 1 * priceFactor);
+                scrollDown();
+                updateBundle3(true);
+              }
+            : () => {
+                onRemoveFromCart(
+                  items.find(
+                    (item) => item.product_id === protestBundles[3]?.id
+                  ).id
+                );
+                updateBundle3(false);
+              }
+        }
+        onMouseEnter={() => setHoverBundle3(true)}
+        onMouseLeave={() => setHoverBundle3(false)}
+      >
+        <ProductChoice
+          product={protestBundles[3]}
+          name={protestBundles[3]?.name}
+          price={
+            licenceChoice
+              ? `EUR  ${protestBundles[3]?.price.raw * priceFactor}`
+              : "Please choose a license Type"
+          }
+          id={protestBundles[3]?.id}
+          cart={cart}
+          licenceChoice={licenceChoice}
+        />
+      </div>
+
       <p className={styles.buyConfigurationHead}>Single Styles</p>
 
       {protestStyles.map((product) => (
@@ -367,7 +466,7 @@ const BuyProtest = ({
                 ? () => {
                     updateLicenceType(product.name, Licence, NumEmployees),
                       onAddToCart(product.id, 1 * priceFactor);
-                      scrollDown();
+                    scrollDown();
                   }
                 : () =>
                     onRemoveFromCart(
@@ -388,11 +487,13 @@ const BuyProtest = ({
               hoverFullFamily={hoverFullFamily}
               hoverBundle1={hoverBundle1}
               hoverBundle2={hoverBundle2}
+              hoverBundle3={hoverBundle3}
               bundle={product.extra_fields.map((a) => a.name)}
               related={product.related_products[0] || undefined}
               addFullFamily={addFullFamily}
-              addBundle2={addBundle2}
               addBundle1={addBundle1}
+              addBundle2={addBundle2}
+              addBundle3={addBundle3}
             />
           </div>
         </>
