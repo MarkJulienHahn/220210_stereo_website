@@ -105,7 +105,7 @@ const TrialsSingle = ({ setShowTrials }) => {
 
           <Button lable={"Trials"} subclass={"quaternaryMuted"} />
         </div>
-        <div className={styles.form} onClick={() => {}}>
+        <div className="formTrials" onClick={() => {}}>
           {!fulfilled ? (
             <>
               <h1>Trials</h1>
@@ -114,7 +114,7 @@ const TrialsSingle = ({ setShowTrials }) => {
                 className="formWrapper"
                 onSubmit={(e) => handleOnSubmit(e)}
               >
-                <div className={styles.formUpper}>
+                <div className="formTrialsUpper">
                   <p className="inputTrials">
                     <input
                       autoFocus="true"
@@ -163,7 +163,7 @@ const TrialsSingle = ({ setShowTrials }) => {
                     </p>
                   </div>
 
-                  <div className={styles.formLower}>
+                  <div className="formTrialsLower">
                     <p className={styles.disclaimer}>
                       Submit your email above to request free trials of all
                       Stereo Typefaces — perfect for trying out and

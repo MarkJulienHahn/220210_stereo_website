@@ -1174,12 +1174,12 @@ button {
   align-items: center;
 }
 
-.formWrapper {
+.formTrialsWrapper {
   width: 100vw;
   height: 100vh;
 }
 
-.form {
+.formTrials {
   width: 70vw;
   background: white;
   opacity: 0.8;
@@ -1189,7 +1189,7 @@ button {
   backdrop-filter: blur(30px);
 }
 
-.form h1 {
+.formTrials h1 {
   text-transform: uppercase;
   font-size: var(--pgSmallSize);
   letter-spacing: var(--pgSmallLetterSpacing);
@@ -1197,7 +1197,7 @@ button {
   font-variation-settings: "wght" 100, "wdth" 50;
 }
 
-.formWrapper {
+.formTrialsWrapper {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1206,15 +1206,15 @@ button {
   padding-top: var(--margin-M);
 }
 
-.formLower {
+.formTrialsLower {
   padding-top: 30px;
 }
 
-.formUpper {
+.formTrialsUpper {
   padding-bottom: var(--margin-M);
 }
 
-.form p {
+.formTrials p {
   font-family: "Giallo-Mono";
   color: black;
   opacity: 1;
@@ -1223,7 +1223,7 @@ button {
   letter-spacing: 1px;
 }
 
-.form button {
+.formTrials button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1246,7 +1246,7 @@ button {
   width: 100%;
 }
 
-.form button:hover {
+.formTrials button:hover {
   background: var(--quaternary);
 }
 
