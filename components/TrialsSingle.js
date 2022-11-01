@@ -1,5 +1,4 @@
 import { useState } from "react";
-import styles from "../styles/Trials.module.css";
 
 import Link from "next/link";
 
@@ -111,7 +110,7 @@ const TrialsSingle = ({ setShowTrials }) => {
               <h1>Trials</h1>
               <form
                 method="post"
-                className="formWrapper"
+                className="formTrialsWrapper"
                 onSubmit={(e) => handleOnSubmit(e)}
               >
                 <div className="formTrialsUpper">
@@ -137,9 +136,9 @@ const TrialsSingle = ({ setShowTrials }) => {
                 </div>
 
                 <div>
-                  <div className={styles.checkboxes}>
+                  <div className="trialsCheckboxes">
                     <span
-                      className={styles.checkbox}
+                      className="trialsCheckbox"
                       onClick={() => setCheckbox1(!checkbox1)}
                       style={checkbox1 ? clicked : unclicked}
                     ></span>
@@ -147,13 +146,13 @@ const TrialsSingle = ({ setShowTrials }) => {
                       style={!check ? unchecked : checked}
                       onClick={() => setCheckbox1(!checkbox1)}
                     >
-                      I agree to Stereo Typefaces’{" "}
+                      I agree to Stereo Typefaces’
                       <a href="">terms of service</a>
                     </p>
                   </div>
-                  <div className={styles.checkboxes}>
+                  <div className="trialsCheckboxes">
                     <span
-                      className={styles.checkbox}
+                      className="trialsCheckbox"
                       onClick={() => setCheckbox2(!checkbox2)}
                       style={checkbox2 ? clicked : unclicked}
                     ></span>
@@ -164,12 +163,12 @@ const TrialsSingle = ({ setShowTrials }) => {
                   </div>
 
                   <div className="formTrialsLower">
-                    <p className={styles.disclaimer}>
+                    <p className="trialsDisclaimer">
                       Submit your email above to request free trials of all
                       Stereo Typefaces — perfect for trying out and
                       experimenting before purchasing a full license.
                     </p>
-                    <div className={styles.buttonWrapper}>
+                    <div className="trialsButtonWrapper">
                       <button>Download Trials</button>
                     </div>
                   </div>
@@ -178,7 +177,7 @@ const TrialsSingle = ({ setShowTrials }) => {
             </>
           ) : (
             <>
-              <div className="confirmation">
+              <div className="trialsConfirmation">
                 <p>
                   Thank you for your Interest, <br />
                   {name}

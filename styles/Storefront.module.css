@@ -21,25 +21,7 @@
   cursor: e-resize;
 }
 
-.trialsWrapper {
-  width: 100vw;
-  height: 100vh;
-  color: black;
-  background: var(--primary);
-  font-size: 8vw;
-  font-variation-settings: "wght" 1000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation: variation 2s ease alternate-reverse;
-  animation-iteration-count: infinite;
-}
 
-.trialsWrapper:hover {
-    color: var(--primary);
-    background: var(--fifth);
-    cursor: pointer;
-}
 
 @keyframes variation {
   0% {
