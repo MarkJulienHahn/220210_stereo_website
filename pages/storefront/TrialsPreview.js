@@ -18,6 +18,7 @@ const TrialsPreview = ({
   description,
 }) => {
   const [indx, setIndx] = useState(0);
+  const [content, setContent] = useState("Trial Fonts");
 
   const swiper = useSwiper();
   const swiperSlide = useSwiperSlide();
@@ -62,15 +63,17 @@ const TrialsPreview = ({
             onClick={() => swiper.slideNext()}
           ></div>
         </div>
-        <Link href="/typefaces">
+        <Link href="/typefaces/trials">
           <div
             className={styles.trialsWrapper}
             style={{ fontFamily: array[indx], zIndex: "999999999999" }}
           >
             <p
-              style={{ zIndex: "999999999999" }}
+              style={{ zIndex: "999999999999", whiteSpace: "nowrap" }}
+              onMouseEnter={() => setContent("Trials or Error!")}
+              onMouseLeave={() => setContent("Trial Fonts")}
             >
-              Trial Fonts
+              {content}
             </p>
           </div>
         </Link>

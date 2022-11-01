@@ -110,7 +110,7 @@ export default function Home(router) {
                 category={"Typefaces"}
                 linkCategory={"/projects"}
                 description={
-                  "Trial or error!"
+                  "Trials or error!"
                 }
               />
             </SwiperSlide>

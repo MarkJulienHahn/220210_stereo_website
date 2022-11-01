@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import MouseButton from "./MouseButton";
+import Button from "./Button";
 
 const TypefacePreview = (props) => {
   const [wdth, updateWdth] = useState(props.default);
@@ -71,7 +72,7 @@ const TypefacePreview = (props) => {
     <div className="typefaceWrapper">
       <div className="typefaceControl">
         <span className="typefaceInfo">
-          → {props.lable} <p>{props.weights.length} Weights, from 70 EUR</p>
+          → {props.lable} <p>{props.weights.length} Weights, from 90 EUR</p>
         </span>
 
         {props.weights.map((item) => (
@@ -79,7 +80,12 @@ const TypefacePreview = (props) => {
             key={item}
             className="typefaceControlButton"
             onMouseEnter={() => setWdth([item[1], item[2]])}
-            style={(wdth[0] === item[1] && wdth[1] === item[2] || wdth[0] === item[1] && wdth[1] === 100 ? { opacity: "1" } : { opacity: "0.3" })}
+            style={
+              (wdth[0] === item[1] && wdth[1] === item[2]) ||
+              (wdth[0] === item[1] && wdth[1] === 100)
+                ? { opacity: "1" }
+                : { opacity: "0.3" }
+            }
           >
             {item[0]}
           </span>

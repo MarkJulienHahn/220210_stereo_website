@@ -31,7 +31,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: variation 5s ease alternate-reverse;
+  animation: variation 2s ease alternate-reverse;
   animation-iteration-count: infinite;
 }
 

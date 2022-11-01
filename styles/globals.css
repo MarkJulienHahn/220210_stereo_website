@@ -273,6 +273,10 @@ button {
   cursor: default;
 }
 
+#fifth {
+  background: var(--fifth);
+}
+
 #textbutton {
   width: 25vw;
   position: absolute;
@@ -391,8 +395,8 @@ button {
   height: 165vh;
   min-height: 800px;
   overflow: hidden;
-  background-image: url("../public/images/bg_02.png");
-  /* background:  linear-gradient(0deg, #00046a 0%, rgb(19, 1, 65) 100%);; */
+  /* background-image: url("../public/images/bg_02.png"); */
+  background: white;
 }
 
 .typeface-single-opener {
