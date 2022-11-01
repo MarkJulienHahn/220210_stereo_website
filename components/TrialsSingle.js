@@ -13,7 +13,7 @@ const TrialsSingle = ({ setShowTrials }) => {
   const [checkbox2, setCheckbox2] = useState(false);
   const [check, setCheck] = useState(true);
 
-  const [fadeTrials, setFadeTrials] = useState(false)
+  const [fadeTrials, setFadeTrials] = useState(false);
 
   async function handleOnSubmit(e) {
     e.preventDefault();
@@ -73,36 +73,38 @@ const TrialsSingle = ({ setShowTrials }) => {
   };
 
   const fade = {
-    opacity: 0
-  }
+    opacity: 0,
+  };
 
   const notFade = {
-    opacity: 1
-  }
+    opacity: 1,
+  };
 
   const fadeOutTrials = async () => {
     setFadeTrials(true),
-    await setTimeout(function(){ setShowTrials(false) }, 300)
-  }
+      await setTimeout(function () {
+        setShowTrials(false);
+      }, 300);
+  };
 
   return (
     <>
       <div className="trialsSingleWrapper" style={fadeTrials ? fade : notFade}>
-      <div className="buttonsLeftWrapper" scroll={false}>
-        <Link href="/" scroll={false}>
-          <a>
-            <Button lable={"Home"} subclass={"tertiary"} />
-          </a>
-        </Link>
+        <div className="buttonsLeftWrapper" scroll={false}>
+          <Link href="/" scroll={false}>
+            <a>
+              <Button lable={"Home"} subclass={"tertiary"} />
+            </a>
+          </Link>
 
-        <Link href="/typefaces" scroll={false}>
-          <a>
-            <Button lable={"Typefaces"} subclass={"tertiary"} />
-          </a>
-        </Link>
+          <Link href="/typefaces" scroll={false}>
+            <a>
+              <Button lable={"Typefaces"} subclass={"tertiary"} />
+            </a>
+          </Link>
 
-        <Button lable={"Trials"} subclass={"quaternaryMuted"} />
-      </div>
+          <Button lable={"Trials"} subclass={"quaternaryMuted"} />
+        </div>
         <div className={styles.form} onClick={() => {}}>
           {!fulfilled ? (
             <>
@@ -113,7 +115,7 @@ const TrialsSingle = ({ setShowTrials }) => {
                 onSubmit={(e) => handleOnSubmit(e)}
               >
                 <div className={styles.formUpper}>
-                  <p className={styles.input}>
+                  <p className="inputTrials">
                     <input
                       autoFocus="true"
                       placeholder="Name"
@@ -123,7 +125,7 @@ const TrialsSingle = ({ setShowTrials }) => {
                     />
                   </p>
                   <hr />
-                  <p className={styles.input}>
+                  <p className="inputTrials">
                     <input
                       placeholder="Email"
                       type="email"
@@ -176,7 +178,7 @@ const TrialsSingle = ({ setShowTrials }) => {
             </>
           ) : (
             <>
-              <div className={styles.confirmation}>
+              <div className="confirmation">
                 <p>
                   Thank you for your Interest, <br />
                   {name}
