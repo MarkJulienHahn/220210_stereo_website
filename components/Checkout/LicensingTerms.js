@@ -106,7 +106,7 @@ const LicensingTerms = ({ setShowLicensing }) => {
           while studying, but may not be used for commissioned work by clients.
           For example, fonts such as the desktop / print license can be used for
           design assignments within seminars / courses at university or a web
-          license for one's own online portfolio / website. However, upon
+          license for one’s own online portfolio / website. However, upon
           request by a customer for a website, the customer must purchase a
           separate license for that purpose. After graduation, fonts may
           continue to be used for personal projects that were started during the
