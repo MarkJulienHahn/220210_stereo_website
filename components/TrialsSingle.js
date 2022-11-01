@@ -30,9 +30,6 @@ const TrialsSingle = ({ setShowTrials }) => {
         body: JSON.stringify(formData),
       });
       setFulfilled(true);
-      setTimeout(function () {
-        setShowTrials(false);
-      }, 2500);
 
       if (checkbox2) {
         fetch("/api/newsletter", {
@@ -83,9 +80,14 @@ const TrialsSingle = ({ setShowTrials }) => {
     opacity: 1
   }
 
+  const fadeOutTrials = async () => {
+    setFadeTrials(true),
+    await setTimeout(function(){ setShowTrials(false) }, 300)
+  }
+
   return (
     <>
-      <div className={styles.trialsSingleWrapper} style={fadeTrials ? fade : notFade}>
+      <div className="trialsSingleWrapper" style={fadeTrials ? fade : notFade}>
       <div className="buttonsLeftWrapper" scroll={false}>
         <Link href="/" scroll={false}>
           <a>
@@ -107,7 +109,7 @@ const TrialsSingle = ({ setShowTrials }) => {
               <h1>Trials</h1>
               <form
                 method="post"
-                className={styles.formWrapper}
+                className="formWrapper"
                 onSubmit={(e) => handleOnSubmit(e)}
               >
                 <div className={styles.formUpper}>
