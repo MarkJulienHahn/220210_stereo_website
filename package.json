@@ -19,7 +19,7 @@
     "braintree-web": "^3.85.3",
     "contentful": "^9.1.31",
     "dotenv": "^16.0.0",
-    "framer-motion": "^6.2.3",
+    "framer-motion": "^6.5.1",
     "next": "^12.0.8",
     "pdfmake": "^0.2.5",
     "react": "^17.0.2",
