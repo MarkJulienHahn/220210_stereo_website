@@ -48,7 +48,6 @@ const Information = ({ info }) => {
 
   const location = useRouter();
 
-  console.log(info);
 
   return (
     <>

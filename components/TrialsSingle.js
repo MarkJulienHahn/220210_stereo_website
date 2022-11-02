@@ -182,7 +182,7 @@ const TrialsSingle = ({ setShowTrials }) => {
                   Thank you for your Interest, <br />
                   {name}
                   <br />
-                  ✌️
+                  🦄
                 </p>
               </div>
             </>

@@ -1686,3 +1686,41 @@ button {
     overflow: hidden;
   }
 }
+
+/* LEGALS */
+
+.legalsWrapper {
+  width: 100vw;
+  min-height: 100vh;
+  background: black;
+  color: white;
+  font-family: "Giallo-Mono";
+  font-size: var(--gialloSmallSize);
+  line-height: var(--gialloSmallLineHeight);
+  letter-spacing: var(--gialloSmallLetterSpacing);
+  padding: var(--margin-M)
+}
+
+.legalsWrapper h1 {
+  font-family: "Protest";
+  font-variation-settings: "wght" 120;
+  letter-spacing: -1px;
+  line-height: 34px;
+}
+
+.legalsWrapper p {
+  width: 50%
+}
+
+@media only screen and (max-width: 600px) {
+  .legalsWrapper {
+    padding-top: 60px;
+  }
+  .legalsWrapper h1 {
+    letter-spacing: -1px;
+    line-height: 24px;
+  }
+  .legalsWrapper p {
+    width: 100%
+  }
+}
