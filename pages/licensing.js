@@ -6,7 +6,7 @@ import Link from "next/link";
 
 import { AnimatePresence, motion } from "framer-motion";
 
-const generalTerms = () => {
+const Licensing = () => {
   const location = useRouter();
   return (
     <main className="licensingMain">
@@ -264,4 +264,4 @@ const generalTerms = () => {
   );
 };
 
-export default generalTerms;
+export default Licensing;

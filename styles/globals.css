@@ -1737,10 +1737,10 @@ button {
   width: 100vw;
   min-height: 100vh;
   font-family: "Giallo";
-  font-size: 16pt;
-  line-height: 21.5pt;
-  letter-spacing: -0.3px;
-  word-spacing: -1.8px;
+  font-size: 19pt;
+  line-height: 22.9pt;
+  letter-spacing: -0.6px;
+  word-spacing: -1.5px;
   font-variation-settings: "wght" 420;
   padding: var(--margin-M);
   transition: all 0.5s ease;

@@ -165,29 +165,29 @@ const data = [
         On top of that there are these use-specific licenses:
         <br />
         <br />
-        <a href="/licensing#desktop">DESKTOP LICENSE</a> &#8594; for example for a print
+        <Link href="/licensing#desktop">DESKTOP LICENSE</Link> &#8594; for example for a print
         product <br />
-        <a href="/licensing#web">WEB LICENSE</a> &#8594; for an embedded font on a
+        <Link href="/licensing#web">WEB LICENSE</Link> &#8594; for an embedded font on a
         website
         <br />
-        <a href="/licensing#app">APP/GAME LICENSE</a> &#8594; for an embedded font
+        <Link href="/licensing#app">APP/GAME LICENSE</Link> &#8594; for an embedded font
         in an interactive Game or Application
         <br />
         <br />
         For bigger projects there are more specific licenses:
         <br />
-        <a href="/licensing#social">SOCIAL MEDIA LICENSE</a> &#8594; for primary use in
+        <Link href="/licensing#social">SOCIAL MEDIA LICENSE</Link> &#8594; for primary use in
         a social network
         <br />
-        <a href="/licensing#logo">LOGO LICENSE</a> &#8594; for use as a main
+        <Link href="/licensing#logo">LOGO LICENSE</Link> &#8594; for use as a main
         logo-typeface
         <br />
-        <a href="/licensing#video">VIDEO LICENSE</a> &#8594; for use in a video, for
+        <Link href="/licensing#video">VIDEO LICENSE</Link> &#8594; for use in a video, for
         example movie-titles
         <br />
         <br />
         Click here for{" "}
-        <a href="/licensing">more specific licensing-information</a>
+        <Link href="/licensing">more specific licensing-information</Link>
       </p>
     ),
   },
