@@ -1180,7 +1180,7 @@ button {
 }
 
 .formTrials {
-  width: 70vw;
+  width: clamp(100px, 70vw, 1000px);
   background: white;
   opacity: 0.8;
   padding: var(--margin-M);
@@ -1383,9 +1383,9 @@ button {
 }
 
 .storefrontTrialsWrapper:hover {
-    color: var(--primary);
-    background: var(--fifth);
-    cursor: pointer;
+  color: var(--primary);
+  background: var(--fifth);
+  cursor: pointer;
 }
 
 /* COOKIE */
@@ -1532,7 +1532,7 @@ button {
   padding-bottom: var(--margin-M);
 }
 
-.accordion div:nth-child(4) {
+.accordion div:nth-child(3) {
   padding-bottom: var(--margin-M);
 }
 
@@ -1692,13 +1692,14 @@ button {
 .legalsWrapper {
   width: 100vw;
   min-height: 100vh;
-  background: black;
+  background: #08080a;
   color: white;
   font-family: "Giallo-Mono";
   font-size: var(--gialloSmallSize);
   line-height: var(--gialloSmallLineHeight);
   letter-spacing: var(--gialloSmallLetterSpacing);
-  padding: var(--margin-M)
+  padding: var(--margin-M);
+  animation: fadeIn 0.2s ease;
 }
 
 .legalsWrapper h1 {
@@ -1709,7 +1710,7 @@ button {
 }
 
 .legalsWrapper p {
-  width: 50%
+  width: 50%;
 }
 
 @media only screen and (max-width: 600px) {
@@ -1721,6 +1722,168 @@ button {
     line-height: 24px;
   }
   .legalsWrapper p {
+    width: 100%;
+  }
+}
+
+/* LICENSING */
+
+.licensingMain {
+  background: var(--fifth);
+  animation: fadeIn 0.5s ease;
+}
+
+.licensingWrapper {
+  width: 100vw;
+  min-height: 100vh;
+  font-family: "Giallo";
+  font-size: 16pt;
+  line-height: 21.5pt;
+  letter-spacing: -0.3px;
+  word-spacing: -1.8px;
+  font-variation-settings: "wght" 420;
+  padding: var(--margin-M);
+  transition: all 0.5s ease;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.licensingWrapper a {
+  color: white;
+}
+
+.licensingColumn {
+  width: 30%;
+  margin-right: var(--margin-M);
+}
+
+.licensingWrapper a:hover {
+  font-variation-settings: "wght" 800;
+}
+
+.licensingWrapper h1,
+.licensingCancellationForm {
+  font-family: "Giallo-Mono";
+  font-size: var(--gialloSmallSize);
+  line-height: var(--gialloSmallLineHeight);
+  letter-spacing: var(--gialloSmallLetterSpacing);
+  padding: var(--margin-M);
+  font-weight: 100;
+  max-width: 400px;
+  margin-left: calc(var(--margin-L) - var(--margin-M));
+}
+
+.licensingCancellationForm ul {
+  margin-top: var(--margin-M);
+}
+
+.licensingCancellationForm ul li {
+  list-style: square;
+}
+
+.licensingLink {
+  margin-left: calc(var(--margin-L) - var(--margin-M));
+}
+
+.massiveLogo {
+  font-family: "Skyline";
+  font-size: 13.85vw;
+  line-height: 15vw;
+  letter-spacing: -0.7vw;
+  font-variation-settings: "wdth" 1000;
+  cursor: default;
+  width: 100vw;
+  height: 12vw;
+  margin: var(--margin-XL) 0 50px 0;
+}
+
+@media only screen and (max-width: 600px) {
+  .licensingWrapper {
+    padding-top: 140px;
+    font-size: 14pt;
+    line-height: 18.5pt;
+    letter-spacing: -0.3px;
+    word-spacing: -1.8px;
+    display: block;
+    overflow: hidden;
+  }
+  .licensingColumn {
+    width: 100%;
+  }
+  .massiveLogo {
+    font-family: "Skyline";
+    font-size: 13.2vw;
+    line-height: 15vw;
+    letter-spacing: -0.7vw;
+    font-variation-settings: "wdth" 1000;
+    cursor: default;
+    width: 100vw;
+    height: 100vh;
+    margin-bottom: 0px;
+    display: flex;
+    align-items: center;
+  }
+  .licensingWrapper h1,
+  .licensingCancellationForm {
+    margin-left: 50px;
+  }
+}
+
+
+/* ERROR */
+
+.errorWrapper {
+  width: 100vw;
+  height: 100vh;
+  background: var(--fifth);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Giallo";
+  pointer-events: none;
+}
+
+.errorWrapper span {
+  position: absolute;
+  font-size: 55vw;
+  animation: wobble 3s ease infinite alternate-reverse;
+  height: 100vh;
+  overflow: hidden;
+  color: white;
+}
+
+.errorWrapper span:nth-child(1) {
+  transform: translateX(-31vw);
+
+}
+
+.errorWrapper span:nth-child(2) {
+  animation-delay: 0.25s;
+
+}
+
+.errorWrapper span:nth-child(3) {
+  transform: translateX(30.5vw);
+  animation-delay: 0.5s;
+
+}
+
+@keyframes wobble {
+  0% {font-variation-settings: "wght" 100}
+  /* 50% {font-variation-settings: "wght" 150} */
+  100% {font-variation-settings: "wght" 500}
+}
+
+/* LICENSING */
+
+.licensingSingleColumn {
+  width: 50%
+}
+
+@media only screen and (max-width: 600px) {
+  .licensingSingleColumn {
     width: 100%
   }
+  
 }

@@ -59,7 +59,8 @@ const LicensingTerms = ({ setShowLicensing }) => {
           Start-ups or other fast growing companies are required to check,
           whether it makes sense to already purchase a license which covers a
           higher company size in upcoming future. Also feel free to contact us
-          for such inquiries via: license@stereotypefaces.com
+          for such inquiries via:
+          <a href="license@stereotypefaces.com">license@stereotypefaces.com</a>
         </p>
 
         <h1>WHY’S YOUR LICENSING MODEL LIKE THAT?</h1>
@@ -77,7 +78,8 @@ const LicensingTerms = ({ setShowLicensing }) => {
           In our online shop we offer different license types for specific media
           applications. Make sure to buy the right one(s) for your own or your
           clients specific tasks. If you need help finding the right one, don’t
-          hesitate to contact us directly via: license@stereotypefaces.com
+          hesitate to contact us directly via:{" "}
+          <a href="license@stereotypefaces.com">license@stereotypefaces.com</a>
         </p>
 
         <h1>CORPORATE LICENSE</h1>
@@ -88,7 +90,7 @@ const LicensingTerms = ({ setShowLicensing }) => {
           web, apps / games, video). Thus, there is no limitation in terms of
           company size. Unlimited usage is not available in the retail store by
           configuration! Direct requests regarding this please mail to:
-          license@stereotypefaces.com
+          <a href="license@stereotypefaces.com">license@stereotypefaces.com</a>
         </p>
 
         <h1>TRIAL LICENSE</h1>
@@ -151,7 +153,8 @@ const LicensingTerms = ({ setShowLicensing }) => {
           must also be purchased. If there is any uncertainty regarding the
           acquisition of necessary licenses, we will be happy to assist you.
           Just let us know what kind of specific project you’re up to. Please
-          send your request to: license@stereotypefaces.com
+          send your request to:{" "}
+          <a href="license@stereotypefaces.com">license@stereotypefaces.com</a>
         </p>
 
         <h1>APP / GAME LICENSE</h1>
@@ -170,7 +173,7 @@ const LicensingTerms = ({ setShowLicensing }) => {
           web, apps / games, video). Thus, there is no limitation in terms of
           company size. Unlimited usage is not available in the retail store by
           configuration! Direct requests regarding this please mail to:
-          license@stereotypefaces.com
+          <a href="license@stereotypefaces.com">license@stereotypefaces.com</a>
         </p>
 
         <h1>VIDEO LICENSE</h1>
@@ -182,7 +185,7 @@ const LicensingTerms = ({ setShowLicensing }) => {
           video license and a social media license are required. If there are
           any uncertainties regarding the acquisition of necessary licenses, we
           will be happy to help. Please send your requests to:
-          license@stereotypefaces.com
+          <a href="license@stereotypefaces.com">license@stereotypefaces.com</a>
         </p>
 
         <h1>LICENSE FOR DIGITAL ARTS (e.g. NFTs)</h1>
@@ -190,12 +193,13 @@ const LicensingTerms = ({ setShowLicensing }) => {
           The use of our fonts in digital artworks, e.g. so-called Non-Fungible
           Tokens (NFTs), or similar projects is not permitted without our
           permission and not available in the retail-store. Send direct
-          inquiries regarding this to: license@stereotypefaces.com
+          inquiries regarding this to:{" "}
+          <a href="license@stereotypefaces.com">license@stereotypefaces.com</a>
         </p>
 
         <p>
           See also our{" "}
-          <Link href="/gtc">general Terms and Conditions (GTC)</Link>
+          <Link href="/generalTerms">general Terms and Conditions (GTC)</Link>
         </p>
 
         <Button lable={"Got it"} subclass={"secondary"} />
