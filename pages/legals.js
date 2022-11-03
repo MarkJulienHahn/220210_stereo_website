@@ -6,7 +6,7 @@ import Link from "next/link";
 
 import { AnimatePresence, motion } from "framer-motion";
 
-const legals = () => {
+const Legals = () => {
 
     const location = useRouter();
   return (
@@ -763,4 +763,4 @@ Contact & Legal
   );
 };
 
-export default legals;
+export default Legals;
