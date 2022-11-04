@@ -61,8 +61,6 @@ const BuyProtest = ({
 
   const items = cart.line_items;
 
-  console.log(protestBundles);
-
   const clearBundle1 = () => {
     items.forEach((item) =>
       item.product_id === "prod_ypbroE93pWo8n4"
@@ -291,7 +289,7 @@ const BuyProtest = ({
                 ),
                   clearFullFamily();
                 onAddToCart(protestBundles[0].id, 1 * priceFactor);
-                scrollDown();
+                setTimeout(scrollDown(), 1000);
                 updateFullFamily(true);
               }
             : () => {
@@ -334,7 +332,7 @@ const BuyProtest = ({
                   NumEmployees
                 ),
                   onAddToCart(protestBundles[1].id, 1 * priceFactor);
-                scrollDown();
+                  setTimeout(scrollDown(), 1000);
                 clearBundle1();
                 updateBundle1(true);
               }
@@ -379,7 +377,7 @@ const BuyProtest = ({
                 ),
                   clearBundle2(),
                   onAddToCart(protestBundles[2]?.id, 1 * priceFactor);
-                scrollDown();
+                  setTimeout(scrollDown(), 1000);
                 updateBundle2(true);
               }
             : () => {
@@ -424,7 +422,7 @@ const BuyProtest = ({
                 ),
                   clearBundle3(),
                   onAddToCart(protestBundles[3]?.id, 1 * priceFactor);
-                scrollDown();
+                  setTimeout(scrollDown(), 1000);
                 updateBundle3(true);
               }
             : () => {
@@ -466,7 +464,7 @@ const BuyProtest = ({
                 ? () => {
                     updateLicenceType(product.name, Licence, NumEmployees),
                       onAddToCart(product.id, 1 * priceFactor);
-                    scrollDown();
+                      setTimeout(scrollDown(), 1000);
                   }
                 : () =>
                     onRemoveFromCart(

@@ -9,6 +9,7 @@ body {
   font-variation-settings: "ital" 0;
   transition: font-variation-settings 3s ease;
   -webkit-font-smoothing: antialiased;
+
 }
 
 * {
@@ -275,6 +276,11 @@ button {
 
 #fifth {
   background: var(--fifth);
+}
+
+#fifth:hover {
+  background: var(--secondary);
+  color: white;
 }
 
 #textbutton {
@@ -945,6 +951,8 @@ button {
 .headerAnimationSubWrapper {
   animation: typoAnimation 5s ease infinite;
   color: #cccccc;
+  width: 100vw;
+  overflow: hidden;
 }
 
 .headerAnimationWrapper .row {
@@ -956,8 +964,6 @@ button {
 }
 
 .headerAnimationWrapper .row p {
-  font-family: "Protest";
-  font-variation-settings: "";
   /* letter-spacing: -3.5vw; */
   animation: variableAnimation 2s ease infinite alternate;
   font-size: 20vw;
@@ -970,16 +976,12 @@ button {
 .headerAnimationWrapper .row2 {
   display: flex;
   justify-content: center;
-  /* animation: rowAnimation 120s ease infinite alternate; */
+
   width: 100vw;
   overflow-x: hidden;
 }
 
 .headerAnimationWrapper .row2 p {
-  color: "ghostwhite";
-  font-family: "Protest";
-  font-variation-settings: "";
-  /* letter-spacing: -3.5vw; */
   animation: variableAnimation 2s ease infinite alternate-reverse;
   font-size: 20vw;
   line-height: 23vw;
@@ -1049,6 +1051,120 @@ button {
     font-variation-settings: "wght" 150;
   }
 }
+
+.headerAnimationWrapperPGMono {
+  height: 100%;
+  overflow: hidden;
+  width: 100vw;
+  height: 165vh;
+}
+
+.headerAnimationSubWrapperPGMono {
+  animation: typoAnimationPGMono 5s ease infinite;
+  color: #cccccc;
+}
+
+.headerAnimationWrapperPGMono .row {
+  display: flex;
+  justify-content: center;
+  /* animation: rowAnimation 120s ease infinite alternate-reverse; */
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.headerAnimationWrapperPGMono .row p {
+  /* letter-spacing: -3.5vw; */
+  animation: variableAnimationPGMono 2s ease infinite alternate;
+  font-size: 10vw;
+  line-height: 12vw;
+  letter-spacing: -1vw;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.headerAnimationWrapperPGMono .row2 {
+  display: flex;
+  justify-content: center;
+
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.headerAnimationWrapperPGMono .row2 p {
+  animation: variableAnimationPGMono 2s ease infinite alternate-reverse;
+  font-size: 10vw;
+  line-height: 12vw;
+  letter-spacing: -1vw;
+  height: 100%;
+  white-space: nowrap;
+  text-align: center;
+}
+
+@keyframes rowAnimationPGMono {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes typoAnimationPGMono {
+  0% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(2);
+  }
+  45% {
+    transform: scale(2);
+  }
+  50% {
+    transform: scale(3) translateY(50vh);
+  }
+  70% {
+    transform: scale(3) translateY(50vh);
+  }
+  75% {
+    transform: scale(2);
+  }
+  95% {
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes variableAnimationPGMono {
+  0% {
+    font-variation-settings: "wght" 40;
+    font-variation-settings: "ital" 100;
+  }
+  20% {
+    font-variation-settings: "ital" 0;
+    font-variation-settings: "wght" 40;
+  }
+  45% {
+    font-variation-settings: "ital" 100;
+    font-variation-settings: "wght" 250;
+  }
+  55% {
+    font-variation-settings: "ital" 100;
+    font-variation-settings: "wght" 40;
+  }
+  60% {
+    font-variation-settings: "ital" 0;
+    font-variation-settings: "wght" 60;
+  }
+  100% {
+    font-variation-settings: "wght" 250;
+  }
+}
+
 
 .PGMonoAnimationWrapper {
   background: ghostwhite;
@@ -1796,6 +1912,7 @@ button {
   width: 100vw;
   height: 12vw;
   margin: var(--margin-XL) 0 50px 0;
+  color: rgb(248,248,248);
 }
 
 @media only screen and (max-width: 600px) {

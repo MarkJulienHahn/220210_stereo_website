@@ -60,12 +60,16 @@
   pointer-events: none;
 }
 
+.buyConfigurationHead:first-child {
+  padding-top: 0
+}
+
 .buyConfiguration {
   overflow: scroll;
   height: 100vh;
-  padding-bottom: 120px;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  padding-bottom: 180px;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 .buyConfiguration::-webkit-scrollbar {
@@ -81,9 +85,9 @@
   color: var(--primary) !important;
 }
 
-.buyConfiguration :first-child {
+/* .buyConfiguration :first-child {
   padding-top: 0;
-}
+} */
 
 .buyConfigurationCheckout {
   opacity: 1;
@@ -96,6 +100,7 @@
 .buyTable {
   margin-left: 50vw;
   transition: opacity 0.1s linear;
+  scroll-behavior: smooth;
 }
 
 .overviewTable {
@@ -150,12 +155,12 @@
 }
 
 .buyTableButtons {
-  position: fixed;
+  position: sticky;
   display: flex;
   flex-wrap: wrap;
-  width: 45%;
+  /* width: 45%; */
   z-index: 500;
-  top: 73px;
+  top: 0px;
 }
 
 .buyTableButtons div {
@@ -164,7 +169,7 @@
 }
 
 .buyTableContent {
-  margin-top: 105px;
+  margin-top: 50px;
   margin-bottom: var(--margin-M);
   cursor: default;
   overflow: hidden;
@@ -177,8 +182,7 @@
 }
 
 .buyHead {
-  position: absolute;
-  top: var(--margin-M);
+  margin-bottom: var(--margin-M);
 }
 
 .changeLicenseButton {
@@ -248,7 +252,7 @@
   color: var(--primary);
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 100%; 
 }
 
 .cartRemove {

@@ -1,9 +1,3 @@
-@-moz-document url-prefix() {
-  .licensingWrapper {
-    background: var(--tertiary)
-  }
-}
-
 .licensingWrapper {
   width: 100vw;
   height: 100%;
@@ -17,17 +11,21 @@
   backdrop-filter: blur(30px);
   overflow: scroll;
   animation: fadeIn 0.3s ease;
+  background: var(--fifth);
+
 }
 
 .licensingContent {
   width: 50vw;
-  height: 100%;
+  /* height: 100%; */
   /* background: white; */
   opacity: 1;
   border-radius: 5px;
   padding: 60px;
   opacity: 0.9;
-  overflow: scroll;
+  /* overflow: scroll; */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 .licensingContent h1 {
@@ -41,11 +39,12 @@
 
 .licensingContent p {
   font-family: "Giallo";
-  font-size: 18pt;
-  line-height: 24pt;
-  letter-spacing: -0.7px;
-  font-variation-settings: "wght" 300;
-  margin-bottom: var(--margin-M);
+  font-size: 19pt;
+  line-height: 22.9pt;
+  letter-spacing: -0.6px;
+  word-spacing: -1.5px;
+  font-variation-settings: "wght" 420;
+  margin-bottom: calc(2*var(--margin-M));
 }
 
 @keyframes fadeIn {

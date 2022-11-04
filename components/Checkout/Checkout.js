@@ -6,6 +6,7 @@ import { commerce } from "../../lib/commerce";
 
 import Button from "../Button";
 import MouseButton from "../MouseButton";
+import BigMouseButton from "../BigMouseButton";
 
 import BuyGiallo from "./BuyGiallo";
 import BuyProtest from "./BuyProtest";
@@ -57,6 +58,7 @@ const Checkout = ({
   const [shippingData, setShippingData] = useState({});
 
   const [buttonContent, setButtonContent] = useState(null);
+  const [bigButtonContent, setBigButtonContent] = useState(null);
   const [showCoupon, setShowCoupon] = useState(false);
 
   const [errorMessage, setErrorMessage] = useState("");
@@ -159,6 +161,9 @@ const Checkout = ({
 
   const updateButtonContent = (input1) => {
     setButtonContent(input1);
+  };
+  const updateBigButtonContent = (input1) => {
+    setBigButtonContent(input1);
   };
 
   useEffect(() => {
@@ -534,13 +539,7 @@ const Checkout = ({
   const checkoutOverview = useRef(null);
 
   const scrollDown = () => {
-    setTimeout(
-      window.scrollTo({
-        top: "5000px",
-        behavior: "smooth",
-      }),
-      2000
-    );
+    checkoutOverview.current.scrollIntoView(true);
   };
 
   useEffect(() => {
@@ -569,7 +568,7 @@ const Checkout = ({
               onClick={() => resetLicensing()}
             />
             <Button
-              lable={"Licensing Information"}
+              lable={"Licensing Info"}
               subclass={"quaternary"}
               onClick={() => setShowLicensing(true)}
             />
@@ -618,6 +617,7 @@ const Checkout = ({
         {showCheckoutStep1 ? (
           <>
             <MouseButton lable={buttonContent} animated={animated} />
+            <BigMouseButton lable={bigButtonContent} />
 
             <div className={styles.buyTableWrapper}>
               <div className={styles.buyConfigurationWrapper}>
@@ -625,8 +625,28 @@ const Checkout = ({
                   <li className={styles.buyConfigurationHead}>
                     [ 1 ] LICENSE TYPE
                   </li>
-                  <li className={styles.buyConfigurationHead}>
-                    &#8594; License End User
+                  <div
+                    onMouseEnter={() =>
+                      updateBigButtonContent(
+                        "License owner is the business entity who commisions the design work. Only in case a designer or agency is using a license for her/his own identity, the license owner is the designer. The Student License is required to use fonts for personal projects while studying, but may not be used for commissioned work for clients."
+                      )
+                    }
+                    onMouseLeave={() => updateBigButtonContent("")}
+                    style={{paddingTop: "30px"}}
+                  >
+                    <li className={styles.buyConfigurationHead}>
+                      &#8594; License Owner
+                    </li>
+                  </div>
+                  <li
+                    style={LicenceUser == "Client" ? active : inactive}
+                    onClick={
+                      LicenceUser !== "Client"
+                        ? () => updateLicenceUser("Client")
+                        : () => updateLicenceUser("")
+                    }
+                  >
+                    Client
                   </li>
                   <li
                     style={LicenceUser == "Designer" ? active : inactive}
@@ -638,16 +658,7 @@ const Checkout = ({
                   >
                     Designer
                   </li>
-                  <li
-                    style={LicenceUser == "Client" ? active : inactive}
-                    onClick={
-                      LicenceUser !== "Client"
-                        ? () => updateLicenceUser("Client")
-                        : () => updateLicenceUser("")
-                    }
-                  >
-                    Client
-                  </li>
+
                   <li
                     style={LicenceUser == "Student" ? active : inactive}
                     onClick={
@@ -667,9 +678,18 @@ const Checkout = ({
                         : enabled
                     }
                   >
-                    <li className={styles.buyConfigurationHead}>
-                      &#8594; Company Size
-                    </li>
+                    <div
+                      onMouseEnter={() =>
+                        updateBigButtonContent(
+                          "The company size is definded by the total amount of people working for a specific company. If you are buying a license for a client, its the amount of people working for that entity and if you are buying the license for yourself it’s the number of people working for your design firm or agency."
+                        )
+                      }
+                      onMouseLeave={() => updateBigButtonContent("")}
+                    >
+                      <li className={styles.buyConfigurationHead}>
+                        &#8594; Company Size
+                      </li>
+                    </div>
 
                     <li
                       style={priceFactor4 === 2 ? active : inactive}
@@ -831,9 +851,18 @@ const Checkout = ({
                         : disabled
                     }
                   >
-                    <li className={styles.buyConfigurationHead}>
-                      &#8594; License Type
-                    </li>
+                    <div
+                      onMouseEnter={() =>
+                        updateBigButtonContent(
+                          "Pick the appropriate license for your specific media application(s). If the company size of your project is not bigger than 5, the Social Media, Logo and Video-licenses will be included in the Desktop license."
+                        )
+                      }
+                      onMouseLeave={() => updateBigButtonContent("")}
+                    >
+                      <li className={styles.buyConfigurationHead}>
+                        &#8594; License Type
+                      </li>
+                    </div>
 
                     <li
                       style={priceFactor1 === 9 ? active : inactive}
@@ -887,9 +916,7 @@ const Checkout = ({
                       onMouseEnter={
                         priceFactor4 == 2
                           ? () =>
-                              updateButtonContent(
-                                "Included in Desktop License 🙌"
-                              )
+                              updateButtonContent("Included in Desktop License")
                           : () => {}
                       }
                       onMouseLeave={() => updateButtonContent("")}

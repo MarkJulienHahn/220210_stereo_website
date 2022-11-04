@@ -48,6 +48,28 @@
   text-transform: uppercase;
 }
 
+.hoverBigButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  background: var(--primary);
+  color: black;
+  padding: 10px 20px;
+  font-variation-settings: "wght" 116, "wdth" 0;
+  z-index: 100;
+  font-size: var(--pgSmallSize);
+  letter-spacing: var(--pgSmallLetterSpacing);
+  border-radius: 3px;
+  transition: opacity 0.2s ease;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  pointer-events: none;
+  transform: translateX(20px);
+  font-family: "Protest";
+  text-transform: uppercase;
+}
+
 .hoverButton span {
   animation: fontAnimation 1s infinite ease-out alternate;
   font-variation-settings: "wght" 100;
