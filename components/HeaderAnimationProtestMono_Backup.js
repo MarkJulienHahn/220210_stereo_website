@@ -25,7 +25,7 @@ const HeaderAnimationProtestMono = () => {
   return (
     <div>
       {/* <div className={"PGMonoAnimationWrapper"}> */}
-      <HeaderAnimationProtestMonoLetter glyph={"m"} />
+      {/* <HeaderAnimationProtestMonoLetter glyph={"m"} />
       <HeaderAnimationProtestMonoLetter glyph={"o"} />
       <HeaderAnimationProtestMonoLetter glyph={"n"} />
       <HeaderAnimationProtestMonoLetter glyph={"o"} />
@@ -753,7 +753,7 @@ const HeaderAnimationProtestMono = () => {
       <HeaderAnimationProtestMonoLetter glyph={"r"} />
       <HeaderAnimationProtestMonoLetter glyph={"e"} />
       <HeaderAnimationProtestMonoLetter glyph={"o"} />
-      <HeaderAnimationProtestMonoLetter glyph={"/"} />
+      <HeaderAnimationProtestMonoLetter glyph={"/"} /> */}
       {/* </div> */}
       <div className={"headerAnimationWrapper"}>
         <div className={"headerAnimationSubWrapper"}>
