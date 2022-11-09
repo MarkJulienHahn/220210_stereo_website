@@ -976,7 +976,7 @@ button {
 }
 
 .headerAnimationWrapper {
-  background:var(--fifth);
+  background: var(--fifth);
 }
 
 .headerAnimationSubWrapper {
@@ -1132,6 +1132,7 @@ button {
 
 .headerAnimationSubWrapperPGMono {
   animation: typoAnimationPGMono 5s ease infinite;
+  color: #292b36;
 }
 
 .headerAnimationWrapperPGMono .row {
@@ -1606,7 +1607,6 @@ button {
 .storefrontLink:hover {
   font-variation-settings: "wght" 250;
 }
-
 
 .storefrontItalic {
   font-variation-settings: "wght" 150, "ital" 100;
