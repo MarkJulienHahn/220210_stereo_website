@@ -10,9 +10,10 @@ import Infobutton from "../components/Infobutton";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
-import One from "./storefront/one";
+import StorefrontProtest from "./storefront/storefrontProtest";
+import StorefrontProtestMono from "./storefront/storefrontProtestMono";
 import Two from "./storefront/two";
-import Ad from "./storefront/ad"
+import Ad from "./storefront/ad";
 import TrialsPreview from "./storefront/TrialsPreview";
 
 export default function Home(router) {
@@ -74,7 +75,7 @@ export default function Home(router) {
                 setDescription={setDescription}
                 category={"Typefaces"}
                 linkCategory={"/typefaces"}
-                page={"Protest Grotesk"}
+                page={""}
                 linkPage={"/typefaces/protest-grotesk-text"}
                 description={
                   "When the very first sans-serif Typefaces were introduced in the Mid 1880s they were regarded as ugly and an insult for the renewed graphic designer. The term »Grotesk« was meant to disqualify the typefaces. These typefaces were controversial, highly misregarded and bad reputed. They were seen as a protest against all ornamental and historically coloured typefaces. They were an uprising against conservative values. Protest Grotesk pays homage to these Typefaces. Nowadays quality can not only stem from formal design-descisions. A typeface has to rely on a strong technical foundation, in order to deliver an advantage to modern-day type users. Protest Grotesk is placed right into thes field of tension."
@@ -82,7 +83,7 @@ export default function Home(router) {
               ></Ad>
             </SwiperSlide>
             <SwiperSlide>
-              <One
+              <StorefrontProtest
                 setCategory={setCategory}
                 setPage={setPage}
                 setLinkCategory={setLinkCategory}
@@ -97,6 +98,7 @@ export default function Home(router) {
                 }
               />
             </SwiperSlide>
+
             <SwiperSlide>
               <Two
                 setCategory={setCategory}
@@ -123,6 +125,22 @@ export default function Home(router) {
                 category={"Typefaces"}
                 linkCategory={"/projects"}
                 description={"They are free!"}
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <StorefrontProtestMono
+                setCategory={setCategory}
+                setPage={setPage}
+                setLinkCategory={setLinkCategory}
+                setLinkPage={setLinkPage}
+                setDescription={setDescription}
+                category={"Typefaces"}
+                linkCategory={"/typefaces"}
+                page={"Protest Mono"}
+                linkPage={"/typefaces/protest-grotesk-mono"}
+                description={
+                  "When the very first sans-serif Typefaces were introduced in the Mid 1880s they were regarded as ugly and an insult for the renewed graphic designer. The term »Grotesk« was meant to disqualify the typefaces. These typefaces were controversial, highly misregarded and bad reputed. They were seen as a protest against all ornamental and historically coloured typefaces. They were an uprising against conservative values. Protest Grotesk pays homage to these Typefaces. Nowadays quality can not only stem from formal design-descisions. A typeface has to rely on a strong technical foundation, in order to deliver an advantage to modern-day type users. Protest Grotesk is placed right into thes field of tension."
+                }
               />
             </SwiperSlide>
           </Swiper>

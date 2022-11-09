@@ -24,7 +24,7 @@ const GeneralTerms = () => {
           </Link>
 
           <Button
-            lable={"General Terms and Service"}
+            lable={"General Terms and Conditions"}
             subclass={"quaternaryMuted"}
           />
         </div>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import MouseButton from "./MouseButton";
 
-const TypefacePreview = (props) => {
+const TypefacePreviewAutomat = (props) => {
   const [wdth, updateWdth] = useState(props.default);
   const [nmbr, updateNmbr] = useState(0);
 
@@ -62,7 +62,7 @@ const TypefacePreview = (props) => {
   });
 
   const style01 = {
-    fontVariationSettings: `'wght' ${wdth[0]}, 'ital' ${wdth[1]},'wdth' 50`,
+    fontVariationSettings: `'frst' ${wdth[0]}, 'scnd' ${wdth[1]}`,
     fontFamily: `${props.fontFamily}`,
     letterSpacing: props.configuration.letterSpacing,
   };
@@ -71,7 +71,10 @@ const TypefacePreview = (props) => {
     <div className="typefaceWrapper">
       <div className="typefaceControl">
         <span className="typefaceInfo">
-          → {props.lable} <p>{props.weights.length} Weights, from 90 EUR</p>
+          <div>
+          → {props.lable} <span style={{fontSize: "10pt", color: "var(--fifthSolid)"}}>Preview</span>
+          </div>
+          <p>Variable Font Concept</p>
         </span>
 
         {props.weights.map((item) => (
@@ -96,7 +99,7 @@ const TypefacePreview = (props) => {
       <div
         className="typefaceDisplay"
         style={style01}
-        onMouseEnter={() => updateButtonContent("SHOW SPECIMEN")}
+        onMouseEnter={() => updateButtonContent("COMING SOON!")}
         onMouseLeave={() => updateButtonContent("")}
       >
         <div>{props.content[nmbr]}</div>
@@ -105,4 +108,4 @@ const TypefacePreview = (props) => {
   );
 };
 
-export default TypefacePreview;
+export default TypefacePreviewAutomat;

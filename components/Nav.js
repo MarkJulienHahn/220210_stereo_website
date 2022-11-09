@@ -32,11 +32,11 @@ const Nav = ( ) => {
                                 <h2 className={styles.menuTypo}>PROJECTS</h2>
                             </Link>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link href="/products" scroll={false}>
                                 <h2 className={styles.menuTypo}>MERCHANDISE</h2>
                             </Link>
-                        </li>
+                        </li> */}
                         <li>
                             <Link href="/information" scroll={false}>
                                 <h2 className={styles.menuTypo}>ABOUT</h2>

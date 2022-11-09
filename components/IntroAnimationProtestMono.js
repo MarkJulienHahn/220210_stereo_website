@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from "react";
 
-// import HeaderAnimationProtestMonoLetter from "./HeaderAnimationProtestMonoLetter";
-
-const HeaderAnimationProtestMono = ({ scrollUp }) => {
+const IntroAnimationProtestMono = () => {
   const [index, setIndex] = useState(0);
-  const [scrollPosition, setScrollPosition] = useState("");
 
   const array = [
     "StereoStereoStereoStereo",
     "MonoMonoMonoMonoMonoMono",
     "MMMMMMMMMMMMMMMMMMMMMMMM",
     "ProProProProProProProPro",
-    "TestTestTestTestTestTest",
+    "TestTestTestTestTestTest"
   ];
 
   useEffect(() => {
@@ -20,41 +17,10 @@ const HeaderAnimationProtestMono = ({ scrollUp }) => {
     }, 700);
     return () => clearInterval(timer);
   }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollPosition(window.scrollY);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  });
-
-  const visible = { opacity: "1", pointerEvents: "auto" };
-  const invisible = { opacity: "0", pointerEvents: "none" };
-
   return (
     <div>
-      <div
-        className={"typeface-single-scrolldown"}
-        style={scrollPosition < 700 ? visible : invisible}
-      >
-        <div
-          className={"typeface-single-scrolldown-inner"}
-          onClick={() => scrollUp()}
-        >
-          <div>Scroll Down</div>
-          <div> &darr;</div>
-        </div>
-      </div>
-
-      <div
-        className={"headerAnimationWrapperPGMono"}
-        style={{ background: "var(--primary)" }}
-      >
-        <div
-          className={"headerAnimationSubWrapperPGMono"}
-          style={{ fontFamily: "ProtestMono"}}
-        >
+      <div className={"headerAnimationWrapperPGMono"} style={{background: "var(--secondary)"}}>
+        <div className={"headerAnimationSubWrapperPGMono"} style={{fontFamily: "ProtestMono"}}>
           <div className={"row"}>
             <p>
               {array[index]}
@@ -109,4 +75,4 @@ const HeaderAnimationProtestMono = ({ scrollUp }) => {
   );
 };
 
-export default HeaderAnimationProtestMono;
+export default IntroAnimationProtestMono;

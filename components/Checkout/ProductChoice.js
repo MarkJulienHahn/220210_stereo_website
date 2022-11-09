@@ -33,8 +33,8 @@ const ProductChoice = (props) => {
     color: "inherit",
   };
 
-  const inBundle1 = props.bundle ? props.bundle.includes("Bundle 2") : null;
-  const inBundle2 = props.bundle ? props.bundle.includes("Bundle 1") : null;
+  const inBundle1 = props.bundle ? props.bundle.includes("Bundle 1") : null;
+  const inBundle2 = props.bundle ? props.bundle.includes("Bundle 2") : null;
   const inBundle3 = props.bundle ? props.bundle.includes("Bundle 3") : null;
 
   const ItemNotInCart = () => (
@@ -43,8 +43,8 @@ const ProductChoice = (props) => {
         className={styles.notInCart}
         style={
           props.hoverFullFamily ||
-          (inBundle1 && props.hoverBundle2) ||
-          (inBundle2 && props.hoverBundle1) ||
+          (inBundle1 && props.hoverBundle1) ||
+          (inBundle2 && props.hoverBundle2) ||
           (inBundle3 && props.hoverBundle3) ||
           (props.addBundle1 && inBundle1) ||
           (props.addBundle2 && inBundle2) ||
@@ -61,8 +61,8 @@ const ProductChoice = (props) => {
           <span
             style={
               props.hoverFullFamily ||
-              (inBundle1 && props.hoverBundle2) ||
-              (inBundle2 && props.hoverBundle1) ||
+              (inBundle1 && props.hoverBundle1) ||
+              (inBundle2 && props.hoverBundle2) ||
               (inBundle3 && props.hoverBundle3) ||
               (props.addBundle1 && inBundle1) ||
               (props.addBundle2 && inBundle2) ||

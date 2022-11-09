@@ -5,9 +5,9 @@ import { useEffect } from "react";
 import Link from "next/link";
 
 import styles from "../../styles/Storefront.module.css";
-import HeaderAnimationProtest from "../../components/HeaderAnimationProtest";
+import IntroAnimationProtestMono from "../../components/IntroAnimationProtestMono";
 
-const One = ({
+const StorefrontProtestMono = ({
   setCategory,
   setPage,
   setLinkCategory,
@@ -52,15 +52,18 @@ const One = ({
           onClick={() => swiper.slideNext()}
         ></div>
       </div>
-      <Link href="/typefaces/protest-grotesk">
-        <a>
-        <div className="typeface-single-header">
-          <HeaderAnimationProtest />
-        </div>
-        </a>
-      </Link>
+      <div className={"storefrontLinkWrapper"}>
+        <Link href={linkPage}>
+        <div className={"storefrontLink"} style={{color: "var(--primary)"}}>
+          <a>Protest Mono® Family<br/>8 Weights</a>
+          </div>
+        </Link>
+      </div>
+      <div className="typeface-single-header">
+        <IntroAnimationProtestMono />
+      </div>
     </>
   );
 };
 
-export default One;
+export default StorefrontProtestMono;

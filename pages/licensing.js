@@ -243,7 +243,7 @@ const Licensing = () => {
                 The use of our fonts in digital artworks, e.g. so-called
                 Non-Fungible Tokens (NFTs), or similar projects is not permitted
                 without our permission and not available in the retail-store.
-                Send direct inquiries regarding this to:&nbsp;
+                Send inquiries regarding this to:&nbsp;
                 <a href="mailto:license@stereotypefaces.com">
                 &nbsp;license@stereotypefaces.com
                 </a>

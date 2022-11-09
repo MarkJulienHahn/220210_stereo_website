@@ -7,7 +7,7 @@ import Button from "./Button";
 
 function Typetester(props) {
   const [val, updateVal] = useState(200);
-  const [val2, updateVal2] = useState(-10);
+  const [val2, updateVal2] = useState(-7);
   const [val3, setVal3] = useState("ss00");
   const [val4, setVal4] = useState("ss00");
   const [ss01Color, setColor01] = useState("quaternary");
@@ -53,6 +53,7 @@ function Typetester(props) {
     fontFeatureSettings: `"${val3}", "${val4}"`,
   };
 
+  console.log(props.sample)
 
   return (
     <>
@@ -97,7 +98,7 @@ function Typetester(props) {
                 min={-20}
                 max={20}
                 step={0.1}
-                defaultValue={-10}
+                defaultValue={-7}
                 onChange={changeVal2}
               />
             </div>
@@ -118,15 +119,6 @@ function Typetester(props) {
             onClick={() => updateButtonContent("")}
           >
             {props.sample}
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-            et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
-            Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-            sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
-            et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-            accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-            no sea takimata sanctus est Lorem ipsum dolor sit amet.
           </div>
         </div>
       </div>

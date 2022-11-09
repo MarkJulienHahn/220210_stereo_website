@@ -10,6 +10,7 @@ import BigMouseButton from "../BigMouseButton";
 
 import BuyGiallo from "./BuyGiallo";
 import BuyProtest from "./BuyProtest";
+import BuyProtestMono from "./BuyProtestMono";
 
 const LicensingTerms = dynamic(() => import("./LicensingTerms"));
 
@@ -37,20 +38,14 @@ const Checkout = ({
   setOrder,
   order,
   error,
+  font,
 }) => {
   const [showCheckoutStep1, setShowCheckoutStep1] = useState(true);
   const [showCheckoutStep2, setShowCheckoutStep2] = useState(false);
   const [showCheckoutStep3, setShowCheckoutStep3] = useState(false);
   const [showCheckoutStep4, setShowCheckoutStep4] = useState(false);
-
   const [fadeCheckout, setFadeCheckout] = useState(false);
-
-  const [showBuyProtest, setShowBuyProtest] = useState(true);
-  const [showBuyGiallo, setShowBuyGiallo] = useState(false);
-  const [buttonStateGiallo, setButtonStateGiallo] = useState("quaternary");
-  const [buttonStateProtest, setButtonStateProtest] =
-    useState("secondaryMuted");
-
+  const [showBuy, setShowBuy] = useState(font);
   const [showLicensing, setShowLicensing] = useState(false);
   const [Processing, setProcessing] = useState(false);
 
@@ -87,10 +82,6 @@ const Checkout = ({
   const Licence = [
     `${DesktopLicence} ${WebLicence} ${InteractiveLicence} ${SocialLicence} ${LogoLicence} ${VideoLicence}`,
   ];
-
-  const showCouponInput = () => {
-    setShowCoupon(true);
-  };
 
   const updateLicenceUser = (user) => {
     setLicenceUser(user);
@@ -183,20 +174,6 @@ const Checkout = ({
       generateToken();
     }
   }, [cart]);
-
-  const showProtest = () => {
-    setShowBuyProtest(true),
-      setShowBuyGiallo(false),
-      setButtonStateProtest("secondaryMuted"),
-      setButtonStateGiallo("quaternary");
-  };
-
-  const showGiallo = () => {
-    setShowBuyProtest(false),
-      setShowBuyGiallo(true),
-      setButtonStateProtest("quaternary"),
-      setButtonStateGiallo("secondaryMuted");
-  };
 
   const updatePriceFactor1 = (fact1) => {
     setPriceFactor1(fact1);
@@ -537,9 +514,22 @@ const Checkout = ({
   };
 
   const checkoutOverview = useRef(null);
+  const checkoutList = useRef(null);
 
   const scrollDown = () => {
-    checkoutOverview.current.scrollIntoView(true);
+    setTimeout(function () {
+      checkoutOverview.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }, 2000);
+  };
+
+  const scrollUp = () => {
+    checkoutList.current.scrollIntoView({
+      behavior: "smooth",
+      block: "end",
+    });
   };
 
   useEffect(() => {
@@ -547,6 +537,10 @@ const Checkout = ({
       ? (updateButtonContent("calculating"), setAnimated(true))
       : (updateButtonContent(""), setAnimated(false));
   }, [loading]);
+
+  useEffect(() => {
+    scrollUp();
+  }, [showBuy]);
 
   return (
     <div>
@@ -628,11 +622,30 @@ const Checkout = ({
                   <div
                     onMouseEnter={() =>
                       updateBigButtonContent(
-                        "License owner is the business entity who commisions the design work. Only in case a designer or agency is using a license for her/his own identity, the license owner is the designer. The Student License is required to use fonts for personal projects while studying, but may not be used for commissioned work for clients."
+                        <div>
+                          <span style={{ fontVariationSettings: `"wght" 200` }}>
+                            Client:
+                          </span>{" "}
+                          Choose this if you’re buying a license for your
+                          client’s project.
+                          <br />
+                          <br />
+                          <span style={{ fontVariationSettings: `"wght" 200` }}>
+                            Designer:
+                          </span>{" "}
+                          Choose this for your own or your agency’s project.
+                          <br />
+                          <br />
+                          <span style={{ fontVariationSettings: `"wght" 200` }}>
+                            Student:
+                          </span>{" "}
+                          Choose this if you are a student and you want to use a
+                          font for your personal project.
+                        </div>
                       )
                     }
                     onMouseLeave={() => updateBigButtonContent("")}
-                    style={{paddingTop: "30px"}}
+                    style={{ paddingTop: "30px" }}
                   >
                     <li className={styles.buyConfigurationHead}>
                       &#8594; License Owner
@@ -854,7 +867,7 @@ const Checkout = ({
                     <div
                       onMouseEnter={() =>
                         updateBigButtonContent(
-                          "Pick the appropriate license for your specific media application(s). If the company size of your project is not bigger than 5, the Social Media, Logo and Video-licenses will be included in the Desktop license."
+                          "Pick the appropriate license for your specific media application(s). If the company size of your project is not bigger than five (5), the Social Media, Logo and Video-licenses will be included in the Desktop license."
                         )
                       }
                       onMouseLeave={() => updateBigButtonContent("")}
@@ -989,24 +1002,34 @@ const Checkout = ({
               </div>
 
               <div className={styles.buyTable}>
-                <p className={styles.buyHead}> [ 2 ] TYPEFACE</p>
+                <p className={styles.buyHead} ref={checkoutList}>
+                  [ 2 ] TYPEFACE
+                </p>
 
                 <div className={styles.buyTableButtons}>
                   <Button
                     lable={"Protest Grotesk"}
-                    subclass={buttonStateProtest}
-                    onClick={() => showProtest()}
+                    subclass={
+                      showBuy == "Protest" ? "secondaryMuted" : "quaternary"
+                    }
+                    onClick={() => setShowBuy("Protest")}
                   />
-                  <Button lable={"Protest Mono"} subclass={"quaternary"} />
+                  <Button
+                    lable={"Protest Grotesk Mono"}
+                    subclass={
+                      showBuy == "Protest Mono"
+                        ? "secondaryMuted"
+                        : "quaternary"
+                    }
+                    onClick={() => setShowBuy("Protest Mono")}
+                  />
                   <Button
                     lable={"Giallo Roman"}
-                    subclass={buttonStateGiallo}
-                    onClick={() => showGiallo()}
+                    subclass={
+                      showBuy == "Giallo" ? "secondaryMuted" : "quaternary"
+                    }
+                    onClick={() => setShowBuy("Giallo")}
                   />
-                  {/* <Button lable={"Giallo Semimono"} subclass={"quaternary"} />
-                  <Button lable={"Giallo Mono"} subclass={"quaternary"} />
-                  <Button lable={"Skyline"} subclass={"quaternary"} /> */}
-                  <Button lable={"Automat"} subclass={"quaternary"} />
                 </div>
 
                 <div
@@ -1033,7 +1056,7 @@ const Checkout = ({
                     }
                     className={styles.buyTableContent}
                   >
-                    {showBuyProtest && (
+                    {showBuy == "Protest" && (
                       <div
                         style={
                           loading ? { pointerEvents: "none", opacity: 0.4 } : {}
@@ -1063,7 +1086,37 @@ const Checkout = ({
                         />
                       </div>
                     )}
-                    {showBuyGiallo && (
+                    {showBuy == "Protest Mono" && (
+                      <div
+                        style={
+                          loading ? { pointerEvents: "none", opacity: 0.4 } : {}
+                        }
+                      >
+                        <BuyProtestMono
+                          products={products}
+                          onAddToCart={handleAddToCart}
+                          handleEmptyCart={handleEmptyCart}
+                          onRemoveFromCart={handleRemoveFromCart}
+                          onUpdateCartQty={handleUpdateCartQty}
+                          cart={cart}
+                          checkoutToken={checkoutToken}
+                          priceFactor1={priceFactor1}
+                          priceFactor2={priceFactor2}
+                          priceFactor3={priceFactor3}
+                          priceFactor4={priceFactor4}
+                          priceFactor5={priceFactor5}
+                          priceFactor6={priceFactor6}
+                          priceFactor7={priceFactor7}
+                          licenceChoice={licenceChoice}
+                          LicenceUser={LicenceUser}
+                          onUpdateCartPrice={handleUpdateCartPrice}
+                          Licence={Licence}
+                          NumEmployees={NumEmployees}
+                          scrollDown={scrollDown}
+                        />
+                      </div>
+                    )}
+                    {showBuy == "Giallo" && (
                       <BuyGiallo
                         products={products}
                         onAddToCart={handleAddToCart}
@@ -1084,16 +1137,17 @@ const Checkout = ({
                         onUpdateCartPrice={handleUpdateCartPrice}
                         Licence={Licence}
                         NumEmployees={NumEmployees}
+                        scrollDown={scrollDown}
                       />
                     )}
                   </div>
                 </div>
 
-                <p className={styles.cartHead} ref={checkoutOverview}>
+                <p className={styles.cartHead}>
                   {cart.line_items.length || "" ? "CART" : "YOUR CART IS EMPTY"}{" "}
                 </p>
 
-                <div className={styles.totalWrapper}>
+                <div className={styles.totalWrapper} ref={checkoutOverview}>
                   <div className={styles.overviewItems}>
                     {cart.line_items.map((item) => (
                       <>

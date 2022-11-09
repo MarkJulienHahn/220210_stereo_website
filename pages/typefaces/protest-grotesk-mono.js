@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import Link from "next/link";
@@ -12,7 +12,6 @@ import Typetester from "../../components/Typetester";
 import Button from "../../components/Button";
 import Cartbutton from "../../components/Cartbutton";
 import WaterfallProtestMono from "../../components/WaterfallProtestMono";
-import Variable from "../../components/Variable";
 import GlyphchartProtestMono from "../../components/GlyphchartProtestMono";
 import Footer from "../../components/Footer";
 
@@ -41,6 +40,15 @@ const ProtestGroteskMono = ({
   const [showTrials, setShowTrials] = useState(false);
   const location = useRouter();
 
+  const checkoutOverview = useRef(null);
+
+  const scrollUp = () => {
+    checkoutOverview.current.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
   return (
     <>
       <Head>
@@ -67,6 +75,7 @@ const ProtestGroteskMono = ({
           checkoutToken={checkoutToken}
           getPaypalPaymentId={getPaypalPaymentId}
           refreshCart={refreshCart}
+          font={"Protest Mono"}
         />
       )}
 
@@ -120,13 +129,13 @@ const ProtestGroteskMono = ({
           transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
         >
           <div className="typeface-single-header">
-            <HeaderAnimationProtestMono />
+            <HeaderAnimationProtestMono scrollUp={scrollUp}/>
           </div>
 
-          <main className="typeface-single-inner">
+          <main className="typeface-single-inner" ref={checkoutOverview}>
             <p>&#8594; FONT-WEIGHT OVERVIEW</p>
             <p>
-              Protest Grotesk is available in 7 Weights, including the according
+              Protest Grotesk is available in 8 Weights, including the according
               Italic figures
             </p>
 
@@ -171,7 +180,7 @@ const ProtestGroteskMono = ({
                     fontVariationSettings: "'wght' 160, 'wdth' 50, 'ital'  00",
                   }}
                 >
-                  Protest Mono Semibold
+                  Protest Mono Medium
                 </div>
                 {/* <div
                   style={{
@@ -185,7 +194,7 @@ const ProtestGroteskMono = ({
                     fontVariationSettings: "'wght' 130, 'wdth' 50, 'ital'  00",
                   }}
                 >
-                  Protest Mono Medium
+                  Protest Mono Book
                 </div>
                 {/* <div
                   style={{

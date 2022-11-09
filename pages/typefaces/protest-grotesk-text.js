@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import Link from "next/link";
@@ -7,6 +7,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 import HeaderAnimationProtest from "../../components/HeaderAnimationProtest";
+
 import Typetester from "../../components/Typetester";
 import Button from "../../components/Button";
 import Cartbutton from "../../components/Cartbutton";
@@ -39,6 +40,71 @@ const ProtestGroteskText = ({
   const [showTrials, setShowTrials] = useState(false);
   const location = useRouter();
 
+  const checkoutOverview = useRef(null);
+
+  const sampleText = [
+    "You basically can say anything to someone on an email or text as long as you put LOL at the end. ",
+    "I hate when I’m on a flight and I wake up with a water bottle next to me like oh great now I gotta be responsible for this water bottle. ",
+    "We’re going to move the entire music industry into the 21st Century. ",
+    "I’d like to meet with Tim Cook, I got some Ideas. ",
+    "My memories are from the future. ",
+    "Sometimes you have to get rid of everything.",
+    "I watch Bladerunner on repeat. ",
+    "People only get jealous when they care. ",
+    "I’m nice at ping pong. ",
+    "I make awesome decisions in bike stores!!! ",
+    "Manga all day. ",
+    "Who made up the term major label in the first place??? ",
+    "Ma$e is one of my favorite rappers and I based a lot of my flows off of him. ",
+    "I’ll say things that are serious and put them in a joke form so people can enjoy them. We laugh to keep from crying. ",
+    "My first pillar when I'm on the board of adidas will be an adidas Nike collaboration to support community growth. ",
+    "There’s so many lonely emojis man. ",
+    "Truth is my goal. Controversy is my gym. I'll do a hundred reps of controversy for a 6 pack of truth. ",
+    "You can’t look at a glass half full or empty if it's overflowing. ",
+    "Sometimes I push the door close button on people running towards the elevator. I just need my own elevator sometimes. My sanctuary. ",
+    "People always tell you »Be humble. Be humble.« When was the last time someone told you to be amazing? Be great! Be awesome! Be awesome! ",
+    "I really love my Tesla. I'm in the future. Thank you Elon. ",
+    "I leave my emojis bart Simpson color. ",
+    "Let’s be like Water. ",
+    "Fur pillows are hard to actually sleep on. ",
+    "I don’t expect to be understood at all. ",
+    "Burn that excel spread sheet. ",
+    "Style is genderless. ",
+    "My dad got me a drone for Christmas. ",
+    "Believe in your flyness...conquer your shyness. ",
+  ];
+
+  const sample = `${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+    sampleText[Math.floor(Math.random() * sampleText.length)]
+  }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+    sampleText[Math.floor(Math.random() * sampleText.length)]
+  }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+    sampleText[Math.floor(Math.random() * sampleText.length)]
+  }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+    sampleText[Math.floor(Math.random() * sampleText.length)]
+  }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+    sampleText[Math.floor(Math.random() * sampleText.length)]
+  }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+    sampleText[Math.floor(Math.random() * sampleText.length)]
+  }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+    sampleText[Math.floor(Math.random() * sampleText.length)]
+  }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+    sampleText[Math.floor(Math.random() * sampleText.length)]
+  }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+    sampleText[Math.floor(Math.random() * sampleText.length)]
+  }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+    sampleText[Math.floor(Math.random() * sampleText.length)]
+  }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+    sampleText[Math.floor(Math.random() * sampleText.length)]
+  }`;
+
+  const scrollUp = () => {
+    checkoutOverview.current.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
   return (
     <>
       <Head>
@@ -65,6 +131,7 @@ const ProtestGroteskText = ({
           checkoutToken={checkoutToken}
           getPaypalPaymentId={getPaypalPaymentId}
           refreshCart={refreshCart}
+          font={"Protest"}
         />
       )}
 
@@ -118,10 +185,10 @@ const ProtestGroteskText = ({
           transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
         >
           <div className="typeface-single-header">
-            <HeaderAnimationProtest />
+            <HeaderAnimationProtest scrollUp={scrollUp} />
           </div>
 
-          <main className="typeface-single-inner">
+          <main className="typeface-single-inner" ref={checkoutOverview}>
             <div className="typefaceInfosection">
               <h1>
                 <span className="highlight01">&#8594; 16 Weights</span> —
@@ -308,561 +375,444 @@ const ProtestGroteskText = ({
                 ital={0}
                 name={"Protest Grotesk Thin"}
                 fontFamily="Protest"
-                sample="These bitches want Nikes
-                They looking for a check
-                Tell 'em it ain't likely 
-                Said she need a ring like Carmelo 
-                Must be on that white like Othello 
-                All you want is Nikes
-                But the real ones just like you
-                Just like me
-                I don't play, I don't make time
-                But if you need dick I got you and I yam from the line
-                Pour up for A$AP
-                RIP Pimp C
-                RIP Trayvon, that nigga look just like me
-                Woo, fuckin' buzzin', woo!
-                That my lil cousin, he got a lil trade
-                His girl keep the scales, a lil mermaid
-                We out by the pool, some lil mermaids
-                Me and them gel
-                Like twigs with them bangs
-                Now that's a real mermaid
-                You been holding your breath
-                Weighted down
-                Punk madre, punk papa
-                He don't care for me
-                But he cares for me
-                And that's good enough
-                We don't talk much or nothin'
-                But when we talkin' about somethin'
-                We have good discussion
-                I met his friends last week, feels like they're up to somethin'
-                That's good for us"
+                sample={sample}
               />
+              {console.log(Math.floor(Math.random() * sampleText.length))}
               <Typetester
                 wght={40}
                 ital={100}
                 name={"Protest Grotesk Thin Italic"}
                 fontFamily="Protest"
-                sample="tches want Nikes
-                They looking for a check
-                Tell 'em it ain't likely 
-                Said she need a ring like Carmelo 
-                Must be on that white like Othello 
-                All you want is Nikes
-                But the real ones just like you
-                Just like me
-                I don't play, I don't make time
-                But if you need dick I got you and I yam from the line
-                Pour up for A$AP
-                RIP Pimp C
-                RIP Trayvon, that nigga look just like me
-                Woo, fuckin' buzzin', woo!
-                That my lil cousin, he got a lil trade
-                His girl keep the scales, a lil mermaid
-                We out by the pool, some lil mermaids
-                Me and them gel
-                Like twigs with them bangs
-                Now that's a real mermaid
-                You been holding your breath
-                Weighted down
-                Punk madre, punk papa
-                He don't care for me
-                But he cares for me
-                And that's good enough
-                We don't talk much or nothin'
-                But when we talkin' about somethin'
-                We have good discussion
-                I met his friends last week, feels like they're up to somethin'
-                That's good for us"
+                sample={`${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}`}
               />
               <Typetester
                 wght={70}
                 ital={0}
                 name={"Protest Grotesk Light"}
                 fontFamily="Protest"
-                sample="nt Nikes
-                They looking for a check
-                Tell 'em it ain't likely 
-                Said she need a ring like Carmelo 
-                Must be on that white like Othello 
-                All you want is Nikes
-                But the real ones just like you
-                Just like me
-                I don't play, I don't make time
-                But if you need dick I got you and I yam from the line
-                Pour up for A$AP
-                RIP Pimp C
-                RIP Trayvon, that nigga look just like me
-                Woo, fuckin' buzzin', woo!
-                That my lil cousin, he got a lil trade
-                His girl keep the scales, a lil mermaid
-                We out by the pool, some lil mermaids
-                Me and them gel
-                Like twigs with them bangs
-                Now that's a real mermaid
-                You been holding your breath
-                Weighted down
-                Punk madre, punk papa
-                He don't care for me
-                But he cares for me
-                And that's good enough
-                We don't talk much or nothin'
-                But when we talkin' about somethin'
-                We have good discussion
-                I met his friends last week, feels like they're up to somethin'
-                That's good for us"
+                sample={`${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}`}
               />
               <Typetester
                 wght={70}
                 ital={100}
                 name={"Protest Grotesk Light Italic"}
                 fontFamily="Protest"
-                sample="
-                They looking for a check
-                Tell 'em it ain't likely 
-                Said she need a ring like Carmelo 
-                Must be on that white like Othello 
-                All you want is Nikes
-                But the real ones just like you
-                Just like me
-                I don't play, I don't make time
-                But if you need dick I got you and I yam from the line
-                Pour up for A$AP
-                RIP Pimp C
-                RIP Trayvon, that nigga look just like me
-                Woo, fuckin' buzzin', woo!
-                That my lil cousin, he got a lil trade
-                His girl keep the scales, a lil mermaid
-                We out by the pool, some lil mermaids
-                Me and them gel
-                Like twigs with them bangs
-                Now that's a real mermaid
-                You been holding your breath
-                Weighted down
-                Punk madre, punk papa
-                He don't care for me
-                But he cares for me
-                And that's good enough
-                We don't talk much or nothin'
-                But when we talkin' about somethin'
-                We have good discussion
-                I met his friends last week, feels like they're up to somethin'
-                That's good for us"
+                sample={`${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}`}
               />
               <Typetester
                 wght={100}
                 ital={0}
                 name={"Protest Grotesk Regular"}
                 fontFamily="Protest"
-                sample="king for a check
-                Tell 'em it ain't likely 
-                Said she need a ring like Carmelo 
-                Must be on that white like Othello 
-                All you want is Nikes
-                But the real ones just like you
-                Just like me
-                I don't play, I don't make time
-                But if you need dick I got you and I yam from the line
-                Pour up for A$AP
-                RIP Pimp C
-                RIP Trayvon, that nigga look just like me
-                Woo, fuckin' buzzin', woo!
-                That my lil cousin, he got a lil trade
-                His girl keep the scales, a lil mermaid
-                We out by the pool, some lil mermaids
-                Me and them gel
-                Like twigs with them bangs
-                Now that's a real mermaid
-                You been holding your breath
-                Weighted down
-                Punk madre, punk papa
-                He don't care for me
-                But he cares for me
-                And that's good enough
-                We don't talk much or nothin'
-                But when we talkin' about somethin'
-                We have good discussion
-                I met his friends last week, feels like they're up to somethin'
-                That's good for us"
+                sample={`${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}`}
               />
               <Typetester
                 wght={100}
                 ital={100}
                 name={"Protest Grotesk Regular Italic"}
                 fontFamily="Protest"
-                sample="a check
-                Tell 'em it ain't likely 
-                Said she need a ring like Carmelo 
-                Must be on that white like Othello 
-                All you want is Nikes
-                But the real ones just like you
-                Just like me
-                I don't play, I don't make time
-                But if you need dick I got you and I yam from the line
-                Pour up for A$AP
-                RIP Pimp C
-                RIP Trayvon, that nigga look just like me
-                Woo, fuckin' buzzin', woo!
-                That my lil cousin, he got a lil trade
-                His girl keep the scales, a lil mermaid
-                We out by the pool, some lil mermaids
-                Me and them gel
-                Like twigs with them bangs
-                Now that's a real mermaid
-                You been holding your breath
-                Weighted down
-                Punk madre, punk papa
-                He don't care for me
-                But he cares for me
-                And that's good enough
-                We don't talk much or nothin'
-                But when we talkin' about somethin'
-                We have good discussion
-                I met his friends last week, feels like they're up to somethin'
-                That's good for us"
+                sample={`${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}`}
               />
-              ≈
+              
               <Typetester
                 wght={130}
+                ital={0}
+                name={"Protest Grotesk Book"}
+                fontFamily="Protest"
+                sample={`${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}`}
+              />
+              <Typetester
+                wght={130}
+                ital={100}
+                name={"Protest Grotesk Book Italic"}
+                fontFamily="Protest"
+                sample={`${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}`}
+              />
+              <Typetester
+                wght={160}
                 ital={0}
                 name={"Protest Grotesk Medium"}
                 fontFamily="Protest"
-                sample="Tell 'em it ain't likely 
-                Said she need a ring like Carmelo 
-                Must be on that white like Othello 
-                All you want is Nikes
-                But the real ones just like you
-                Just like me
-                I don't play, I don't make time
-                But if you need dick I got you and I yam from the line
-                Pour up for A$AP
-                RIP Pimp C
-                RIP Trayvon, that nigga look just like me
-                Woo, fuckin' buzzin', woo!
-                That my lil cousin, he got a lil trade
-                His girl keep the scales, a lil mermaid
-                We out by the pool, some lil mermaids
-                Me and them gel
-                Like twigs with them bangs
-                Now that's a real mermaid
-                You been holding your breath
-                Weighted down
-                Punk madre, punk papa
-                He don't care for me
-                But he cares for me
-                And that's good enough
-                We don't talk much or nothin'
-                But when we talkin' about somethin'
-                We have good discussion
-                I met his friends last week, feels like they're up to somethin'
-                That's good for us"
+                sample={`${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}`}
               />
               <Typetester
-                wght={130}
+                wght={160}
                 ital={100}
                 name={"Protest Grotesk Medium Italic"}
                 fontFamily="Protest"
-                sample="t ain't likely 
-                Said she need a ring like Carmelo 
-                Must be on that white like Othello 
-                All you want is Nikes
-                But the real ones just like you
-                Just like me
-                I don't play, I don't make time
-                But if you need dick I got you and I yam from the line
-                Pour up for A$AP
-                RIP Pimp C
-                RIP Trayvon, that nigga look just like me
-                Woo, fuckin' buzzin', woo!
-                That my lil cousin, he got a lil trade
-                His girl keep the scales, a lil mermaid
-                We out by the pool, some lil mermaids
-                Me and them gel
-                Like twigs with them bangs
-                Now that's a real mermaid
-                You been holding your breath
-                Weighted down
-                Punk madre, punk papa
-                He don't care for me
-                But he cares for me
-                And that's good enough
-                We don't talk much or nothin'
-                But when we talkin' about somethin'
-                We have good discussion
-                I met his friends last week, feels like they're up to somethin'
-                That's good for us"
-              />
-              <Typetester
-                wght={160}
-                ital={0}
-                name={"Protest Grotesk Semibold"}
-                fontFamily="Protest"
-                sample="ely 
-                Said she need a ring like Carmelo 
-                Must be on that white like Othello 
-                All you want is Nikes
-                But the real ones just like you
-                Just like me
-                I don't play, I don't make time
-                But if you need dick I got you and I yam from the line
-                Pour up for A$AP
-                RIP Pimp C
-                RIP Trayvon, that nigga look just like me
-                Woo, fuckin' buzzin', woo!
-                That my lil cousin, he got a lil trade
-                His girl keep the scales, a lil mermaid
-                We out by the pool, some lil mermaids
-                Me and them gel
-                Like twigs with them bangs
-                Now that's a real mermaid
-                You been holding your breath
-                Weighted down
-                Punk madre, punk papa
-                He don't care for me
-                But he cares for me
-                And that's good enough
-                We don't talk much or nothin'
-                But when we talkin' about somethin'
-                We have good discussion
-                I met his friends last week, feels like they're up to somethin'
-                That's good for us"
-              />
-              <Typetester
-                wght={160}
-                ital={100}
-                name={"Protest Grotesk Semibold Italic"}
-                fontFamily="Protest"
-                sample="she need a ring like Carmelo 
-                Must be on that white like Othello 
-                All you want is Nikes
-                But the real ones just like you
-                Just like me
-                I don't play, I don't make time
-                But if you need dick I got you and I yam from the line
-                Pour up for A$AP
-                RIP Pimp C
-                RIP Trayvon, that nigga look just like me
-                Woo, fuckin' buzzin', woo!
-                That my lil cousin, he got a lil trade
-                His girl keep the scales, a lil mermaid
-                We out by the pool, some lil mermaids
-                Me and them gel
-                Like twigs with them bangs
-                Now that's a real mermaid
-                You been holding your breath
-                Weighted down
-                Punk madre, punk papa
-                He don't care for me
-                But he cares for me
-                And that's good enough
-                We don't talk much or nothin'
-                But when we talkin' about somethin'
-                We have good discussion
-                I met his friends last week, feels like they're up to somethin'
-                That's good for us"
+                sample={`${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}`}
               />
               <Typetester
                 wght={190}
                 ital={0}
                 name={"Protest Grotesk Bold"}
                 fontFamily="Protest"
-                sample="d a ring like Carmelo 
-                Must be on that white like Othello 
-                All you want is Nikes
-                But the real ones just like you
-                Just like me
-                I don't play, I don't make time
-                But if you need dick I got you and I yam from the line
-                Pour up for A$AP
-                RIP Pimp C
-                RIP Trayvon, that nigga look just like me
-                Woo, fuckin' buzzin', woo!
-                That my lil cousin, he got a lil trade
-                His girl keep the scales, a lil mermaid
-                We out by the pool, some lil mermaids
-                Me and them gel
-                Like twigs with them bangs
-                Now that's a real mermaid
-                You been holding your breath
-                Weighted down
-                Punk madre, punk papa
-                He don't care for me
-                But he cares for me
-                And that's good enough
-                We don't talk much or nothin'
-                But when we talkin' about somethin'
-                We have good discussion
-                I met his friends last week, feels like they're up to somethin'
-                That's good for us"
+                sample={`${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}`}
               />
               <Typetester
                 wght={190}
                 ital={100}
                 name={"Protest Grotesk Bold Italic"}
                 fontFamily="Protest"
-                sample="ike Carmelo 
-                Must be on that white like Othello 
-                All you want is Nikes
-                But the real ones just like you
-                Just like me
-                I don't play, I don't make time
-                But if you need dick I got you and I yam from the line
-                Pour up for A$AP
-                RIP Pimp C
-                RIP Trayvon, that nigga look just like me
-                Woo, fuckin' buzzin', woo!
-                That my lil cousin, he got a lil trade
-                His girl keep the scales, a lil mermaid
-                We out by the pool, some lil mermaids
-                Me and them gel
-                Like twigs with them bangs
-                Now that's a real mermaid
-                You been holding your breath
-                Weighted down
-                Punk madre, punk papa
-                He don't care for me
-                But he cares for me
-                And that's good enough
-                We don't talk much or nothin'
-                But when we talkin' about somethin'
-                We have good discussion
-                I met his friends last week, feels like they're up to somethin'
-                That's good for us"
+                sample={`${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}`}
               />
               <Typetester
                 wght={220}
                 ital={0}
                 name={"Protest Grotesk Heavy"}
                 fontFamily="Protest"
-                sample="melo 
-                Must be on that white like Othello 
-                All you want is Nikes
-                But the real ones just like you
-                Just like me
-                I don't play, I don't make time
-                But if you need dick I got you and I yam from the line
-                Pour up for A$AP
-                RIP Pimp C
-                RIP Trayvon, that nigga look just like me
-                Woo, fuckin' buzzin', woo!
-                That my lil cousin, he got a lil trade
-                His girl keep the scales, a lil mermaid
-                We out by the pool, some lil mermaids
-                Me and them gel
-                Like twigs with them bangs
-                Now that's a real mermaid
-                You been holding your breath
-                Weighted down
-                Punk madre, punk papa
-                He don't care for me
-                But he cares for me
-                And that's good enough
-                We don't talk much or nothin'
-                But when we talkin' about somethin'
-                We have good discussion
-                I met his friends last week, feels like they're up to somethin'
-                That's good for us"
+                sample={`${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}`}
               />
               <Typetester
                 wght={220}
                 ital={100}
                 name={"Protest Grotesk Heavy Italic"}
                 fontFamily="Protest"
-                sample="ust be on that white like Othello 
-                All you want is Nikes
-                But the real ones just like you
-                Just like me
-                I don't play, I don't make time
-                But if you need dick I got you and I yam from the line
-                Pour up for A$AP
-                RIP Pimp C
-                RIP Trayvon, that nigga look just like me
-                Woo, fuckin' buzzin', woo!
-                That my lil cousin, he got a lil trade
-                His girl keep the scales, a lil mermaid
-                We out by the pool, some lil mermaids
-                Me and them gel
-                Like twigs with them bangs
-                Now that's a real mermaid
-                You been holding your breath
-                Weighted down
-                Punk madre, punk papa
-                He don't care for me
-                But he cares for me
-                And that's good enough
-                We don't talk much or nothin'
-                But when we talkin' about somethin'
-                We have good discussion
-                I met his friends last week, feels like they're up to somethin'
-                That's good for us"
+                sample={`${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}`}
               />
               <Typetester
                 wght={250}
                 ital={0}
                 name={"Protest Grotesk Black"}
                 fontFamily="Protest"
-                sample="  n that white like Othello 
-                All you want is Nikes
-                But the real ones just like you
-                Just like me
-                I don't play, I don't make time
-                But if you need dick I got you and I yam from the line
-                Pour up for A$AP
-                RIP Pimp C
-                RIP Trayvon, that nigga look just like me
-                Woo, fuckin' buzzin', woo!
-                That my lil cousin, he got a lil trade
-                His girl keep the scales, a lil mermaid
-                We out by the pool, some lil mermaids
-                Me and them gel
-                Like twigs with them bangs
-                Now that's a real mermaid
-                You been holding your breath
-                Weighted down
-                Punk madre, punk papa
-                He don't care for me
-                But he cares for me
-                And that's good enough
-                We don't talk much or nothin'
-                But when we talkin' about somethin'
-                We have good discussion
-                I met his friends last week, feels like they're up to somethin'
-                That's good for us"
+                sample={`${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}`}
               />
               <Typetester
                 wght={250}
                 ital={100}
                 name={"Protest Grotesk Black Italic"}
                 fontFamily="Protest"
-                sample="white like Othello 
-                All you want is Nikes
-                But the real ones just like you
-                Just like me
-                I don't play, I don't make time
-                But if you need dick I got you and I yam from the line
-                Pour up for A$AP
-                RIP Pimp C
-                RIP Trayvon, that nigga look just like me
-                Woo, fuckin' buzzin', woo!
-                That my lil cousin, he got a lil trade
-                His girl keep the scales, a lil mermaid
-                We out by the pool, some lil mermaids
-                Me and them gel
-                Like twigs with them bangs
-                Now that's a real mermaid
-                You been holding your breath
-                Weighted down
-                Punk madre, punk papa
-                He don't care for me
-                But he cares for me
-                And that's good enough
-                We don't talk much or nothin'
-                But when we talkin' about somethin'
-                We have good discussion
-                I met his friends last week, feels like they're up to somethin'
-                That's good for us"
+                sample={`${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
+                  sampleText[Math.floor(Math.random() * sampleText.length)]
+                }${sampleText[Math.floor(Math.random() * sampleText.length)]}`}
               />
             </div>
 
@@ -951,7 +901,9 @@ const ProtestGroteskText = ({
                   <br />
                 </p>
               </div>
-              <p>&#8594; Languages<br />
+              <p>
+                &#8594; Languages
+                <br />
                 Afrikaans Albanian Asu Basque Bemba Bena Breton Catalan Chiga
                 Colognian Cornish Croatian Czech Danish Dutch Embu English
                 Esperanto Estonian Faroese Filipino Finnish French Friulian

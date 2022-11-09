@@ -1,13 +1,13 @@
 import React from "react";
 import { useSwiperSlide, useSwiper } from "swiper/react";
 import { useEffect } from "react";
-import Image from "next/image";
+
+import Link from "next/link";
 
 import styles from "../../styles/Storefront.module.css";
+import IntroAnimationProtest from "../../components/IntroAnimationProtest";
 
-import image02 from "../../public/images/ad_test.png";
-
-const Ad = ({
+const StorefrontProtest = ({
   setCategory,
   setPage,
   setLinkCategory,
@@ -52,18 +52,22 @@ const Ad = ({
           onClick={() => swiper.slideNext()}
         ></div>
       </div>
-      <div style={{ width: "100vw", height: "100vh" }}>
-        <Image
-          object-fit="contain"
-          layout="fill"
-          src={image02}
-          placeholder="blur"
-          width={4000}
-          height={3000}
-        />
+      <div className={"storefrontLinkWrapper"}>
+        <Link href="/typefaces/protest-grotesk-text">
+          <div className={"storefrontLink"}>
+            <a>
+              Protest Grotesk® Family
+              <br />8 Weights{" "}
+              <span className={"storefrontItalic"}>+ Italics</span>
+            </a>
+          </div>
+        </Link>
+      </div>
+      <div className="typeface-single-header">
+        <IntroAnimationProtest />
       </div>
     </>
   );
 };
 
-export default Ad;
+export default StorefrontProtest;

@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import { motion, AnimatePresence } from "framer-motion";
 
 import TypefacePreview from "../components/TypefacePreview";
+import TypefacePreviewAutomat from "../components/TypefacePreviewAutomat";
 import Footer from "../components/Footer";
 import Button from "../components/Button";
 import Cartbutton from "../components/Cartbutton";
@@ -32,6 +33,7 @@ const Typefaces = ({
   getLiveObject,
   live,
   refreshCart,
+  getPaypalPaymentId,
 }) => {
   const { ref: gialloRef, inView: gialloIsVisible } = useInView({
     threshold: 0.5,
@@ -83,7 +85,9 @@ const Typefaces = ({
           showCheckout={showCheckout}
           loading={loading}
           checkoutToken={checkoutToken}
+          getPaypalPaymentId={getPaypalPaymentId}
           refreshCart={refreshCart}
+          font={"Protest"}
         />
       )}
 
@@ -178,7 +182,7 @@ const Typefaces = ({
           transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
         >
           <Link href="/typefaces/protest-grotesk-text" scroll={false}>
-            <div ref={protestRef}>
+            <div ref={protestRef} id="protest-grotesk">
               <TypefacePreview
                 key="001"
                 fontFamily="Protest"
@@ -230,7 +234,7 @@ const Typefaces = ({
                   ["Medium / ", 160, 0, 5],
                   ["Bold / ", 190, 0, 6],
                   ["Heavy / ", 220, 0, 7],
-                  ["Black", 250, 0, 8]
+                  ["Black", 250, 0, 8],
                 ]}
                 content={[
                   "Graph OP—1™ [around 7°Kelvin] ",
@@ -248,7 +252,7 @@ const Typefaces = ({
           </Link>
 
           <Link href="/typefaces/giallo-roman" scroll={false}>
-            <div ref={gialloRef}>
+            <div ref={gialloRef} id="giallo-roman">
               <TypefacePreview
                 key="001"
                 fontFamily="Giallo"
@@ -276,6 +280,64 @@ const Typefaces = ({
               />
             </div>
           </Link>
+
+          <div ref={gialloRef} id="automat-square">
+            <TypefacePreviewAutomat
+              key="004"
+              fontFamily="AutomatSquare"
+              lable="Automat Square"
+              weights={[
+                ["SQR 000—005 / ", 0, 5],
+                ["SQR 000—100 / ", 0, 101],
+                ["SQR 050—012 / ", 50, 12],
+                ["SQR 100—080 / ", 100, 80],
+                ["SQR 000—030 / ", 0, 30],
+                ["SQR 070—005 / ", 70, 5],
+                ["SQR 090—090 / ", 90, 90],
+                ["SQR 000—065   ", 0, 65],
+              ]}
+              content={[
+                "TOMPKIN SQUARE PARK ",
+                "RIVERSIDE DR. 108TH STREET",
+                "BROOKLYN BANKS, NYC",
+                "190 BOWERY NEW YORK, NY",
+                "RIVERSIDE DR. 108TH STREET",
+              ]}
+              configuration={{
+                letterSpacing: "20px",
+              }}
+              default={[90, 90]}
+            />
+          </div>
+
+          <div ref={gialloRef} id="giallo-roman">
+            <TypefacePreviewAutomat
+              key="004"
+              fontFamily="AutomatRound"
+              lable="Automat Round"
+              weights={[
+                ["RND 000—005 / ", 0, 5],
+                ["RND 000—100 / ", 0, 101],
+                ["RND 050—012 / ", 50, 12],
+                ["RND 100—080 / ", 100, 80],
+                ["RND 000—030 / ", 0, 30],
+                ["RND 090—002 / ", 90, 2],
+                ["RND 090—090 / ", 90, 90],
+                ["RND 000—065   ", 0, 65],
+              ]}
+              content={[
+                "BELMONT HIGH SCHOOL",
+                "HOLLYWOOD HIGH 12 OR 16",
+                "3RD AND ARMY",
+                "3700 WILSHIRE BLVD, LA",
+                "CLIPPER 12 STAIR HUBBA",
+              ]}
+              configuration={{
+                letterSpacing: "20px",
+              }}
+              default={[90, 2]}
+            />
+          </div>
 
           <Footer />
         </motion.div>

@@ -10,13 +10,13 @@
 }
 
 .swiperPrev {
-  width: 20vw;
+  width: 50vw;
   height: 100vh;
   cursor: w-resize;
 }
 
 .swiperNext {
-  width: 20vw;
+  width: 50vw;
   height: 100vh;
   cursor: e-resize;
 }

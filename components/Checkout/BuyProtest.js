@@ -62,67 +62,41 @@ const BuyProtest = ({
   const items = cart.line_items;
 
   const clearBundle1 = () => {
-    items.forEach((item) =>
-      item.product_id === "prod_ypbroE93pWo8n4"
+    items.forEach((item) => {
+      item.name.includes("Protest Grotesk Regular")
         ? onRemoveFromCart(item.id)
-        : () => {}
-    );
-    items.forEach((item) =>
-      item.product_id === "prod_Kvg9l61kNq51bB"
+        : () => {};
+    });
+    items.forEach((item) => {
+      item.name.includes("Protest Grotesk Book")
         ? onRemoveFromCart(item.id)
-        : () => {}
-    );
-    items.forEach((item) =>
-      item.product_id === "prod_NqKE50NeZDwdgB"
+        : () => {};
+    });
+    items.forEach((item) => {
+      item.name.includes("Protest Grotesk Medium")
         ? onRemoveFromCart(item.id)
-        : () => {}
-    );
-    items.forEach((item) =>
-      item.product_id === "prod_kpnNwA1JXrwmXB"
+        : () => {};
+    });
+    items.forEach((item) => {
+      item.name.includes("Protest Grotesk Bold")
         ? onRemoveFromCart(item.id)
-        : () => {}
-    );
-    items.forEach((item) =>
-      item.product_id === "prod_8XO3wpMOVxoYAz"
+        : () => {};
+    });
+    items.forEach((item) => {
+      item.name.includes("Protest Grotesk Heavy")
         ? onRemoveFromCart(item.id)
-        : () => {}
-    );
-    items.forEach((item) =>
-      item.product_id === "prod_bO6J5aBOnAlEjp"
+        : () => {};
+    });
+    items.forEach((item) => {
+      item.name.includes("Protest Grotesk Full Family")
         ? onRemoveFromCart(item.id)
-        : () => {}
-    );
-    items.forEach((item) =>
-      item.product_id === "prod_9BAmwJAqK4leXd"
+        : () => {};
+    });
+    items.forEach((item) => {
+      item.name.includes("Protest Grotesk Essential Pack")
         ? onRemoveFromCart(item.id)
-        : () => {}
-    );
-    items.forEach((item) =>
-      item.product_id === "prod_mOVKl4a0nYwprR"
-        ? onRemoveFromCart(item.id)
-        : () => {}
-    );
-    items.forEach((item) =>
-      item.product_id === "prod_eN1ql9KEg2oz3y"
-        ? onRemoveFromCart(item.id)
-        : () => {}
-    );
-    items.forEach((item) =>
-      item.product_id === "prod_gnZO5kr82vo7MN"
-        ? onRemoveFromCart(item.id)
-        : () => {}
-    );
-
-    items.forEach((item) =>
-      item.product_id === "prod_nPEVlN9q3z5a7d"
-        ? onRemoveFromCart(item.id)
-        : () => {}
-    );
-    items.forEach((item) =>
-      item.product_id === "prod_VKXmwDEmWVorgD"
-        ? onRemoveFromCart(item.id)
-        : () => {}
-    );
+        : () => {};
+    });
     items.forEach((item) => {
       item.name.includes("Protest Grotesk Starter Pack")
         ? onRemoveFromCart(item.id)
@@ -131,49 +105,31 @@ const BuyProtest = ({
   };
 
   const clearBundle2 = () => {
-    items.forEach((item) =>
-      item.product_id === "prod_ypbroE93pWo8n4"
+    items.forEach((item) => {
+      item.name.includes("Protest Grotesk Regular")
         ? onRemoveFromCart(item.id)
-        : () => {}
-    );
-    items.forEach((item) =>
-      item.product_id === "prod_Kvg9l61kNq51bB"
+        : () => {};
+    });
+    items.forEach((item) => {
+      item.name.includes("Protest Grotesk Medium")
         ? onRemoveFromCart(item.id)
-        : () => {}
-    );
-
-    items.forEach((item) =>
-      item.product_id === "prod_8XO3wpMOVxoYAz"
+        : () => {};
+    });
+    items.forEach((item) => {
+      item.name.includes("Protest Grotesk Heavy")
         ? onRemoveFromCart(item.id)
-        : () => {}
-    );
-    items.forEach((item) =>
-      item.product_id === "prod_bO6J5aBOnAlEjp"
+        : () => {};
+    });
+    items.forEach((item) => {
+      item.name.includes("Protest Grotesk Full Family")
         ? onRemoveFromCart(item.id)
-        : () => {}
-    );
-
-    items.forEach((item) =>
-      item.product_id === "prod_eN1ql9KEg2oz3y"
+        : () => {};
+    });
+    items.forEach((item) => {
+      item.name.includes("Protest Grotesk Deluxe Pack")
         ? onRemoveFromCart(item.id)
-        : () => {}
-    );
-    items.forEach((item) =>
-      item.product_id === "prod_gnZO5kr82vo7MN"
-        ? onRemoveFromCart(item.id)
-        : () => {}
-    );
-
-    items.forEach((item) =>
-      item.product_id === "prod_nPEVlN9q3z5a7d"
-        ? onRemoveFromCart(item.id)
-        : () => {}
-    );
-    items.forEach((item) =>
-      item.product_id === "prod_RqEv5xzLr9wZz4"
-        ? onRemoveFromCart(item.id)
-        : () => {}
-    );
+        : () => {};
+    });
     items.forEach((item) => {
       item.name.includes("Protest Grotesk Starter Pack")
         ? onRemoveFromCart(item.id)
@@ -182,16 +138,16 @@ const BuyProtest = ({
   };
 
   const clearBundle3 = () => {
-    items.forEach((item) =>
-      item.name.icludes === "Protesk Grotesk Book"
+    items.forEach((item) => {
+      item.name.includes("Protest Grotesk Book")
         ? onRemoveFromCart(item.id)
-        : () => {}
-    );
-    items.forEach((item) =>
-      item.name === "Protesk Grotesk Bold"
+        : () => {};
+    });
+    items.forEach((item) => {
+      item.name.includes("Protest Grotesk Bold")
         ? onRemoveFromCart(item.id)
-        : () => {}
-    );
+        : () => {};
+    });
     items.forEach((item) => {
       item.name.includes("Protest Grotesk Full Family")
         ? onRemoveFromCart(item.id)
@@ -259,8 +215,6 @@ const BuyProtest = ({
     const data3 = localStorage.getItem("PGBundle3");
     setAddBundle3(JSON.parse(data3));
   });
-
-  console.log(addBundle2, addBundle3);
 
   return (
     <div
@@ -344,8 +298,8 @@ const BuyProtest = ({
                 updateBundle1(false);
               }
         }
-        onMouseEnter={() => setHoverBundle2(true)}
-        onMouseLeave={() => setHoverBundle2(false)}
+        onMouseEnter={() => setHoverBundle1(true)}
+        onMouseLeave={() => setHoverBundle1(false)}
       >
         <ProductChoice
           product={protestBundles[1]}
@@ -389,8 +343,8 @@ const BuyProtest = ({
                 updateBundle2(false);
               }
         }
-        onMouseEnter={() => setHoverBundle1(true)}
-        onMouseLeave={() => setHoverBundle1(false)}
+        onMouseEnter={() => setHoverBundle2(true)}
+        onMouseLeave={() => setHoverBundle2(false)}
       >
         <ProductChoice
           product={protestBundles[2]}

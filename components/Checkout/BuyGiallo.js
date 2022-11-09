@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ProductChoice from "./ProductChoice";
 import styles from "../../styles/Buy.module.css";
 
@@ -18,131 +18,278 @@ const BuyGiallo = ({
   priceFactor7,
   Licence,
   NumEmployees,
+  scrollDown,
+  loading,
 }) => {
-  const [active, setActive] = useState(false);
-  const [activeBundle1, setActiveBundle1] = useState(false);
-  const [activeBundle2, setActiveBundle2] = useState(false);
+  const [hoverFullFamily, setHoverFullFamily] = useState(false);
+  const [hoverBundle1, setHoverBundle1] = useState(false);
+  const [hoverBundle2, setHoverBundle2] = useState(false);
+  const [hoverBundle3, setHoverBundle3] = useState(false);
+
+  const [addFullFamily, setAddFullFamily] = useState(false);
+  const [addBundle1, setAddBundle1] = useState(false);
+  const [addBundle2, setAddBundle2] = useState(false);
+  const [addBundle3, setAddBundle3] = useState(false);
 
   const updateLicenceType = (name, licence) => {
-    products.find(
-      (el) => el.name === name
-    ).licence = `${licence} / ${NumEmployees} Employees`;
+    products.find((el) => el.name === name).licence =
+      NumEmployees != "Student License"
+        ? `${licence} / ${NumEmployees} Employees`
+        : `${licence} / ${NumEmployees}`;
   };
 
   const giallo = products.filter((x) =>
-  x.categories.find((y) => y.name === "Giallo Roman")
-);
+    x.categories.find((y) => y.name === "Giallo Roman")
+  );
 
-const gialloStyles = giallo.filter((x) =>
-  x.categories.find((y) => y.name === "Styles")
-);
+  const gialloStyles = giallo.filter((x) =>
+    x.categories.find((y) => y.name === "Styles")
+  );
 
-const gialloBundles = giallo.filter((x) =>
-  x.categories.find((y) => y.name === "Bundles")
-);
+  const gialloBundles = giallo.filter((x) =>
+    x.categories.find((y) => y.name === "Bundles")
+  );
 
   const priceFactor =
-    (priceFactor1 + priceFactor2 + priceFactor3 + priceFactor5 + priceFactor6 + priceFactor7) *
+    (priceFactor1 +
+      priceFactor2 +
+      priceFactor3 +
+      priceFactor5 +
+      priceFactor6 +
+      priceFactor7) *
     priceFactor4;
 
   const items = cart.line_items;
 
-  console.log(giallo, gialloStyles, gialloBundles);
+  const clearBundle1 = () => {
+    items.forEach((item) => {
+      item.name.includes("Giallo Roman Light")
+        ? onRemoveFromCart(item.id)
+        : () => {};
+    });
+    items.forEach((item) => {
+      item.name.includes("Giallo Roman Book")
+        ? onRemoveFromCart(item.id)
+        : () => {};
+    });
+    items.forEach((item) => {
+      item.name.includes("Giallo Roman Bold")
+        ? onRemoveFromCart(item.id)
+        : () => {};
+    });
+    items.forEach((item) => {
+      item.name.includes("Giallo Roman Black")
+        ? onRemoveFromCart(item.id)
+        : () => {};
+    });
+    items.forEach((item) => {
+      item.name.includes("Giallo Roman Full Family")
+        ? onRemoveFromCart(item.id)
+        : () => {};
+    });
+    items.forEach((item) => {
+      item.name.includes("Giallo Roman Essential Pack")
+        ? onRemoveFromCart(item.id)
+        : () => {};
+    });
+    items.forEach((item) => {
+      item.name.includes("Giallo Roman Starter Pack")
+        ? onRemoveFromCart(item.id)
+        : () => {};
+    });
+  };
+
+  const clearBundle2 = () => {
+    items.forEach((item) => {
+      item.name.includes("Giallo Roman Regular")
+        ? onRemoveFromCart(item.id)
+        : () => {};
+    });
+    items.forEach((item) => {
+      item.name.includes("Giallo Roman Medium")
+        ? onRemoveFromCart(item.id)
+        : () => {};
+    });
+    items.forEach((item) => {
+      item.name.includes("Giallo Roman Heavy")
+        ? onRemoveFromCart(item.id)
+        : () => {};
+    });
+    items.forEach((item) => {
+      item.name.includes("Giallo Roman Full Family")
+        ? onRemoveFromCart(item.id)
+        : () => {};
+    });
+    items.forEach((item) => {
+      item.name.includes("Giallo Roman Deluxe Pack")
+        ? onRemoveFromCart(item.id)
+        : () => {};
+    });
+    items.forEach((item) => {
+      item.name.includes("Giallo Roman Starter Pack")
+        ? onRemoveFromCart(item.id)
+        : () => {};
+    });
+  };
+
+  const clearBundle3 = () => {
+    items.forEach((item) => {
+      item.name.includes("Giallo Roman Book")
+        ? onRemoveFromCart(item.id)
+        : () => {};
+    });
+
+    items.forEach((item) => {
+      item.name.includes("Giallo Roman Bold")
+        ? onRemoveFromCart(item.id)
+        : () => {};
+    });
+    items.forEach((item) => {
+      item.name.includes("Giallo Roman Full Family")
+        ? onRemoveFromCart(item.id)
+        : () => {};
+    });
+    items.forEach((item) => {
+      item.name.includes("Giallo Roman Deluxe Pack")
+        ? onRemoveFromCart(item.id)
+        : () => {};
+    });
+    items.forEach((item) => {
+      item.name.includes("Giallo Roman Essential Pack")
+        ? onRemoveFromCart(item.id)
+        : () => {};
+    });
+  };
+
+  const clearFullFamily = () => {
+    items.forEach((item) => {
+      item.name.includes("Giallo Roman") ? onRemoveFromCart(item.id) : () => {};
+    });
+  };
+
+  const updateFullFamily = (i) => {
+    setAddFullFamily(i),
+      localStorage.setItem("GialloFullFamily", JSON.stringify(i));
+  };
+
+  const updateBundle1 = (i) => {
+    setAddBundle1(i), localStorage.setItem("GialloBundle1", JSON.stringify(i));
+  };
+
+  const updateBundle2 = (i) => {
+    setAddBundle2(i), localStorage.setItem("GialloBundle2", JSON.stringify(i));
+  };
+
+  const updateBundle3 = (i) => {
+    setAddBundle3(i), localStorage.setItem("GialloBundle3", JSON.stringify(i));
+  };
+
+  useEffect(() => {
+    !items.some((item) => item.product_id === gialloBundles[0].id)
+      ? updateFullFamily(false)
+      : "";
+    !items.some((item) => item.product_id === gialloBundles[1].id)
+      ? updateBundle1(false)
+      : "";
+    !items.some((item) => item.product_id === gialloBundles[2].id)
+      ? updateBundle2(false)
+      : "";
+    !items.some((item) => item.product_id === gialloBundles[3].id)
+      ? updateBundle3(false)
+      : "";
+  }, [cart]);
+
+  useEffect(() => {
+    const data = localStorage.getItem("GialloFullFamily");
+    setAddFullFamily(JSON.parse(data));
+    const data1 = localStorage.getItem("GialloBundle1");
+    setAddBundle1(JSON.parse(data1));
+    const data2 = localStorage.getItem("GialloBundle2");
+    setAddBundle2(JSON.parse(data2));
+    const data3 = localStorage.getItem("GialloBundle3");
+    setAddBundle3(JSON.parse(data3));
+  });
 
   return (
     <div
       onMouseEnter={() => {
-        setActive(false), setActiveBundle1(false), setActiveBundle2(false);
+        setHoverFullFamily(false),
+          setHoverBundle1(false),
+          setHoverBundle2(false);
+        setHoverBundle3(false);
       }}
     >
       <p className={styles.buyConfigurationHead}>Bundles</p>
 
       {/* FULL FAMILY */}
-
+      
       <div
         item
         onClick={
           licenceChoice &&
           LicenceUser &&
           !items.some((item) => item.product_id === gialloBundles[0].id)
-            ? () => {
+            ? async () => {
                 updateLicenceType(gialloBundles[0].name, Licence, NumEmployees),
-                  onAddToCart(gialloBundles[0].id, 1 * priceFactor);
+                  clearFullFamily();
+                onAddToCart(gialloBundles[0].id, 1 * priceFactor);
+                setTimeout(scrollDown(), 1000);
+                updateFullFamily(true);
               }
-            : () =>
+            : () => {
                 onRemoveFromCart(
                   items.find((item) => item.product_id === gialloBundles[0].id)
                     .id
-                )
+                );
+                updateFullFamily(false);
+              }
         }
-        onMouseEnter={() => setActive(true)}
-        onMouseLeave={() => setActive(false)}
+        onMouseEnter={() => setHoverFullFamily(true)}
+        onMouseLeave={() => setHoverFullFamily(false)}
       >
         <ProductChoice
           product={gialloBundles[0]}
-          name={gialloBundles[0].name}
+          name={gialloBundles[0]?.name}
           price={
             licenceChoice
-              ? `EUR  ${gialloBundles[0].price.raw * priceFactor}`
+              ? `EUR  ${gialloBundles[0]?.price.raw * priceFactor}`
               : "Please choose a license Type"
           }
-          id={gialloBundles[0].id}
+          id={gialloBundles[0]?.id}
           cart={cart}
           licenceChoice={licenceChoice}
         />
       </div>
 
-      <div
-        item
-        onClick={
-          licenceChoice &&
-          LicenceUser &&
-          !items.some((item) => item.product_id === gialloBundles[2].id)
-            ? () => {
-                updateLicenceType(gialloBundles[2].name, Licence, NumEmployees),
-                  onAddToCart(gialloBundles[2].id, 1 * priceFactor);
-              }
-            : () =>
-                onRemoveFromCart(
-                  items.find((item) => item.product_id === gialloBundles[2].id)
-                    .id
-                )
-        }
-        onMouseEnter={() => setActiveBundle1(true)}
-        onMouseLeave={() => setActiveBundle1(false)}
-      >
-      <ProductChoice
-          product={gialloBundles[2]}
-          name={gialloBundles[2].name}
-          price={
-            licenceChoice
-              ? `EUR  ${gialloBundles[2].price.raw * priceFactor}`
-              : "Please choose a license Type"
-          }
-          id={gialloBundles[2].id}
-          cart={cart}
-          licenceChoice={licenceChoice}
-        /> 
-      </div>
+      {/* DELUXE */}
 
       <div
         item
         onClick={
           licenceChoice &&
           LicenceUser &&
-          !items.some((item) => item.product_id === gialloBundles[1].id)
+          !items.some((item) => item.product_id === gialloBundles[1]?.id)
             ? () => {
-                updateLicenceType(gialloBundles[1].name, Licence, NumEmployees),
-                  onAddToCart(gialloBundles[1].id, 1 * priceFactor);
+                updateLicenceType(
+                  gialloBundles[1]?.name,
+                  Licence,
+                  NumEmployees
+                ),
+                  clearBundle1(),
+                  onAddToCart(gialloBundles[1]?.id, 1 * priceFactor);
+                setTimeout(scrollDown(), 1000);
+                updateBundle1(true);
               }
-            : () =>
+            : () => {
                 onRemoveFromCart(
-                  items.find((item) => item.product_id === gialloBundles[1].id)
+                  items.find((item) => item.product_id === gialloBundles[1]?.id)
                     .id
-                )
+                );
+                updateBundle1(false);
+              }
         }
-        onMouseEnter={() => setActiveBundle2(true)}
-        onMouseLeave={() => setActiveBundle2(false)}
+        onMouseEnter={() => setHoverBundle1(true)}
+        onMouseLeave={() => setHoverBundle1(false)}
       >
         <ProductChoice
           product={gialloBundles[1]}
@@ -153,6 +300,94 @@ const gialloBundles = giallo.filter((x) =>
               : "Please choose a license Type"
           }
           id={gialloBundles[1].id}
+          cart={cart}
+          licenceChoice={licenceChoice}
+        />
+      </div>
+
+      {/* ESSENTIAL */}
+
+      <div
+        item
+        onClick={
+          licenceChoice &&
+          LicenceUser &&
+          !items.some((item) => item.product_id === gialloBundles[2]?.id)
+            ? () => {
+                updateLicenceType(
+                  gialloBundles[2]?.name,
+                  Licence,
+                  NumEmployees
+                ),
+                  clearBundle2(),
+                  onAddToCart(gialloBundles[2]?.id, 1 * priceFactor);
+                setTimeout(scrollDown(), 1000);
+                updateBundle2(true);
+              }
+            : () => {
+                onRemoveFromCart(
+                  items.find((item) => item.product_id === gialloBundles[2]?.id)
+                    .id
+                );
+                updateBundle2(false);
+              }
+        }
+        onMouseEnter={() => setHoverBundle2(true)}
+        onMouseLeave={() => setHoverBundle2(false)}
+      >
+        <ProductChoice
+          product={gialloBundles[2]}
+          name={gialloBundles[2].name}
+          price={
+            licenceChoice
+              ? `EUR  ${gialloBundles[2].price.raw * priceFactor}`
+              : "Please choose a license Type"
+          }
+          id={gialloBundles[2].id}
+          cart={cart}
+          licenceChoice={licenceChoice}
+        />
+      </div>
+
+      {/* STARTER */}
+
+      <div
+        item
+        onClick={
+          licenceChoice &&
+          LicenceUser &&
+          !items.some((item) => item.product_id === gialloBundles[3]?.id)
+            ? () => {
+                updateLicenceType(
+                  gialloBundles[3]?.name,
+                  Licence,
+                  NumEmployees
+                ),
+                  clearBundle3(),
+                  onAddToCart(gialloBundles[3]?.id, 1 * priceFactor);
+                setTimeout(scrollDown(), 1000);
+                updateBundle3(true);
+              }
+            : () => {
+                onRemoveFromCart(
+                  items.find((item) => item.product_id === gialloBundles[3]?.id)
+                    .id
+                );
+                updateBundle3(false);
+              }
+        }
+        onMouseEnter={() => setHoverBundle3(true)}
+        onMouseLeave={() => setHoverBundle3(false)}
+      >
+        <ProductChoice
+          product={gialloBundles[3]}
+          name={gialloBundles[3]?.name}
+          price={
+            licenceChoice
+              ? `EUR  ${gialloBundles[3]?.price.raw * priceFactor}`
+              : "Please choose a license Type"
+          }
+          id={gialloBundles[3]?.id}
           cart={cart}
           licenceChoice={licenceChoice}
         />
@@ -171,6 +406,7 @@ const gialloBundles = giallo.filter((x) =>
                 ? () => {
                     updateLicenceType(product.name, Licence, NumEmployees),
                       onAddToCart(product.id, 1 * priceFactor);
+                    setTimeout(scrollDown(), 1000);
                   }
                 : () =>
                     onRemoveFromCart(
@@ -186,13 +422,18 @@ const gialloBundles = giallo.filter((x) =>
                   ? `EUR  ${product.price.raw * priceFactor}`
                   : "Please choose a license Type"
               }
-              id={product.id}
+              items={items}
               cart={cart}
-              active={active}
-              activeBundle1={activeBundle1}
-              activeBundle2={activeBundle2}
-              // bundle={product.extra_fields[0].name || undefined}
+              hoverFullFamily={hoverFullFamily}
+              hoverBundle1={hoverBundle1}
+              hoverBundle2={hoverBundle2}
+              hoverBundle3={hoverBundle3}
+              bundle={product.extra_fields.map((a) => a.name)}
               related={product.related_products[0] || undefined}
+              addFullFamily={addFullFamily}
+              addBundle1={addBundle1}
+              addBundle2={addBundle2}
+              addBundle3={addBundle3}
             />
           </div>
         </>

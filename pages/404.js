@@ -19,7 +19,7 @@ export default function FourOhFour() {
             </a>
           </Link>
           <Button
-            lable={"Damn, somethin went wrong!"}
+            lable={"Damn, son! Where’d you find this?!"}
             subclass={"quaternaryMuted"}
           />
         </div>

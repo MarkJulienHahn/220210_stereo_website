@@ -20,16 +20,23 @@ const Checkout = dynamic(() => import("../../components/Checkout/Checkout"));
 const GialloRoman = ({
   products,
   cart,
+  checkoutToken,
   handleAddToCart,
   handleEmptyCart,
   handleUpdateCartQty,
   handleRemoveFromCart,
   handleUpdateCartPrice,
+  onCaptureCheckout,
+  setCart,
+  handleCouponCode,
+  loading,
+  getLiveObject,
+  live,
+  getPaypalPaymentId,
+  refreshCart,
 }) => {
   const [showCheckout, setShowCheckout] = useState(false);
   const location = useRouter();
-
-  console.log(cart);
 
   return (
     <>
@@ -39,15 +46,25 @@ const GialloRoman = ({
 
       {showCheckout && (
         <Checkout
-          products={products}
-          cart={cart}
-          handleAddToCart={handleAddToCart}
-          handleRemoveFromCart={handleRemoveFromCart}
-          handleEmptyCart={handleEmptyCart}
-          handleUpdateCartQty={handleUpdateCartQty}
-          handleUpdateCartPrice={handleUpdateCartPrice}
-          setShowCheckout={setShowCheckout}
-          showCheckout={showCheckout}
+        products={products}
+        cart={cart}
+        live={live}
+        handleAddToCart={handleAddToCart}
+        handleRemoveFromCart={handleRemoveFromCart}
+        handleEmptyCart={handleEmptyCart}
+        handleUpdateCartQty={handleUpdateCartQty}
+        handleUpdateCartPrice={handleUpdateCartPrice}
+        onCaptureCheckout={onCaptureCheckout}
+        handleCouponCode={handleCouponCode}
+        getLiveObject={getLiveObject}
+        setCart={setCart}
+        setShowCheckout={setShowCheckout}
+        showCheckout={showCheckout}
+        loading={loading}
+        checkoutToken={checkoutToken}
+        getPaypalPaymentId={getPaypalPaymentId}
+        refreshCart={refreshCart}
+        font={"Giallo"}
         />
       )}
 
@@ -96,7 +113,7 @@ const GialloRoman = ({
           <main className="typeface-single-inner typeface-single-giallo">
             <p>&#8594; FONT-WEIGHT OVERVIEW</p>
             <p>
-              Giallo Roman is available in 7 Weights, including the according
+              Giallo Roman is available in 8 Weights, including the according
               Oblique figures
             </p>
 
