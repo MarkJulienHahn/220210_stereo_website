@@ -53,7 +53,7 @@ const StorefrontProtestMono = ({
         ></div>
       </div>
       <div className={"storefrontLinkWrapper"}>
-        <Link href={linkPage}>
+        <Link href="/typefaces/protest-grotesk-mono">
         <div className={"storefrontLink"} style={{color: "var(--primary)"}}>
           <a>Protest Mono® Family<br/>8 Weights</a>
           </div>
