@@ -38,7 +38,7 @@ const Nav = ( ) => {
                             </Link>
                         </li> */}
                         <li>
-                            <Link href="/information" scroll={false}>
+                            <Link href="/about" scroll={false}>
                                 <h2 className={styles.menuTypo}>ABOUT</h2>
                             </Link>
                         </li>

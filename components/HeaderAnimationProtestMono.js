@@ -53,7 +53,7 @@ const HeaderAnimationProtestMono = ({ scrollUp }) => {
       >
         <div
           className={"headerAnimationSubWrapperPGMono"}
-          style={{ fontFamily: "ProtestMono"}}
+          style={{ fontFamily: "ProtestMono", color: "#292b36" }}
         >
           <div className={"row"}>
             <p>

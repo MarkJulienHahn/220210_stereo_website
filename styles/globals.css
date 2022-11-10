@@ -1132,7 +1132,7 @@ button {
 
 .headerAnimationSubWrapperPGMono {
   animation: typoAnimationPGMono 5s ease infinite;
-  color: #292b36;
+  color: #cccccc;
 }
 
 .headerAnimationWrapperPGMono .row {
@@ -1871,6 +1871,73 @@ button {
     padding: 0;
     margin: 0;
     padding-bottom: var(--margin-L);
+  }
+}
+
+/* INFO */
+
+.infoWrapper {
+  margin: var(--margin-M);
+}
+
+.infoText {
+  padding: var(--margin-L);
+  padding-bottom: calc(2 * var(--margin-L));
+}
+
+.infoText a {
+  transition: all 0.2s ease;
+  font-variation-settings: "wght" 400;
+}
+
+.infoText a:hover {
+  font-variation-settings: "wght" 600;
+}
+
+.infoText:nth-child(3) {
+  padding-bottom: 0 !important;
+}
+
+.infoText p {
+  font-family: "Giallo";
+  font-size: 25pt;
+  line-height: 29.5pt;
+  letter-spacing: -0.8px;
+  word-spacing: -2px;
+}
+
+.infoVar1 {
+  background: var(--tertiary);
+}
+
+.infoVar2 {
+  background: var(--fifth);
+}
+
+.infoVar3 {
+  background: var(--primary);
+}
+
+.infoHeader {
+  font-family: "Skyline";
+  font-variation-settings: "wdth" 800;
+  text-transform: uppercase;
+}
+
+.infoSubheader {
+  font-variation-settings: "wght" 150;
+}
+
+@media only screen and (max-width: 600px) {
+  .infoText {
+    padding: var(--margin-L) 0;
+  }
+  .infoText p {
+    font-family: "Giallo";
+    font-size: 20pt;
+    line-height: 24.5pt;
+    letter-spacing: -0.8px;
+    word-spacing: -1.5px;
   }
 }
 
