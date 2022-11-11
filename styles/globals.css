@@ -2261,7 +2261,7 @@ button {
 }
 
 .automatAlertWrapper {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
@@ -2319,6 +2319,19 @@ button {
   .automatButtonsRow {
     flex-wrap: wrap;
     height: auto;
+  }
+  .automatAlertInner {
+    height: 200px;
+    width: 350px;
+    background: white;
+    padding: var(--margin-M) var(--margin-M) 0 var(--margin-M);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 3px;
+  }
+  .automatAlertButton {
+    width: 155px;
   }
   #automatButtonsRowDesktop {
     display: none;
