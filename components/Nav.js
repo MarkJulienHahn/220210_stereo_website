@@ -28,8 +28,8 @@ const Nav = ( ) => {
                             </Link>
                         </li>
                         <li>
-                            <Link href="/projects" scroll={false}>
-                                <h2 className={styles.menuTypo}>PROJECTS</h2>
+                            <Link href="/research" scroll={false}>
+                                <h2 className={styles.menuTypo}>RESEARCH</h2>
                             </Link>
                         </li>
                         {/* <li>

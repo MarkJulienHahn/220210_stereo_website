@@ -10,11 +10,11 @@ import Infobutton from "../components/Infobutton";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
-import StorefrontProtest from "./storefront/storefrontProtest";
-import StorefrontProtestMono from "./storefront/storefrontProtestMono";
-import Two from "./storefront/two";
-import Ad from "./storefront/ad";
-import TrialsPreview from "./storefront/TrialsPreview";
+import StorefrontProtest from "../components/Storefront/StorefrontProtest";
+import StorefrontProtestMono from "../components/Storefront/StorefrontProtestMono";
+import Two from "../components/Storefront/Two";
+import Ad from "../components/Storefront/Ad";
+import TrialsPreview from "../components/Storefront/TrialsPreview";
 
 export default function Home(router) {
   const location = useRouter();

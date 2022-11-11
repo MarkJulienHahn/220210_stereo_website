@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import Link from "next/link";
 
 import styles from "../../styles/Storefront.module.css";
-import IntroAnimationProtestMono from "../../components/IntroAnimationProtestMono";
+import IntroAnimationProtestMono from "../IntroAnimationProtestMono";
 
 const StorefrontProtestMono = ({
   setCategory,

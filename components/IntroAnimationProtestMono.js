@@ -19,7 +19,7 @@ const IntroAnimationProtestMono = () => {
   }, []);
   return (
     <div>
-      <div className={"headerAnimationWrapperPGMono"} style={{background: "var(--secondary)"}}>
+      <div className={"headerAnimationWrapperPGMono"} style={{background: "rgb(30, 30, 30)"}}>
         <div className={"headerAnimationSubWrapperPGMono"} style={{fontFamily: "ProtestMono"}}>
           <div className={"row"}>
             <p>

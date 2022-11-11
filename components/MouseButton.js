@@ -22,6 +22,7 @@ const MouseButton = (props) => {
     top: y,
     left: x,
     visibility: props.lable ? "visible" : "hidden",
+    background: props.background ? props.background : "var(--tertiary)"
   };
 
   const mouseElementAnimated = {

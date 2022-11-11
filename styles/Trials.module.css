@@ -31,11 +31,8 @@
 .form {
   width: 70vw;
   background: white;
-  opacity: 0.8;
   padding: var(--margin-M);
   border-radius: 3px;
-  -webkit-backdrop-filter: blur(30px);
-  backdrop-filter: blur(30px);
 }
 
 

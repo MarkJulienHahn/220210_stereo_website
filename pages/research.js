@@ -21,7 +21,7 @@ const Projects = () => {
     return (
         <main className={Styles.AppInner}>
             <Head>
-                <title>Projects | Stereo Typefaces&#x2122;</title>
+                <title>Research | Stereo Typefaces&#x2122;</title>
             </Head>
 
             <div className="buttonsLeftWrapper" scroll={false}>
@@ -36,7 +36,7 @@ const Projects = () => {
                 </Link>
 
                 <Button 
-                    lable={"Projects"}
+                    lable={"Research"}
                     subclass={"quaternaryMuted"} 
                 />    
             </div> 
@@ -57,15 +57,8 @@ const Projects = () => {
 
 
                     <Project 
-                        header={"Automat is a modular, grid-based variable typeface system available in three different styles. Influenced by the systematic work of Wim Crouwel and Karl Gerstner in the 1960s and 1970s as well as later digital reinterpretations in the 1990s, Automat complements them by adding the possibility to steplessly manipulate the typeface in a broad design frame."}
-                    />
-
-                    <div>
-                        <AutomatTypeface 
-                            fontFamily= 'AutomatSquare'
-                            lable='Automat Square Concept'
-                            content={['UBER', 'ÖMALLA', 'TOMPKIN', 'AMARILLO', 'BOBBY']}/>  
-                    </div>       
+                        header={"Automat is a composition-synthesizer. A modular, grid-based variable typeface system  is the basis of the application. Influenced by the systematic work of Wim Crouwel and Karl Gerstner in the 1960s and 1970s as well as later digital reinterpretations in the 1990s, Automat complements them by adding the possibility to steplessly manipulate the typeface in a broad design frame."}
+                    />     
 
                     <Footer />    
 

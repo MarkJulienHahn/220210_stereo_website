@@ -610,7 +610,10 @@ const Checkout = ({
 
         {showCheckoutStep1 ? (
           <>
-            <MouseButton lable={buttonContent} animated={animated} />
+            <MouseButton
+              lable={buttonContent}
+              animated={animated}
+            />
             <BigMouseButton lable={bigButtonContent} />
 
             <div className={styles.buyTableWrapper}>
@@ -1030,6 +1033,24 @@ const Checkout = ({
                     }
                     onClick={() => setShowBuy("Giallo")}
                   />
+                  <div
+                    style={{ opacity: "0.6" }}
+                    onMouseEnter={() => updateButtonContent("Coming Soon!")}
+                    onMouseLeave={() => updateButtonContent("")}
+                  >
+                    <Button
+                      lable={"Giallo Roman Mono"}
+                      subclass={"quaternaryMuted"}
+                    />
+                  </div>
+
+                  <div
+                    style={{ opacity: "0.6" }}
+                    onMouseEnter={() => updateButtonContent("Coming Soon!")}
+                    onMouseLeave={() => updateButtonContent("")}
+                  >
+                    <Button lable={"Automat"} subclass={"quaternaryMuted"} />
+                  </div>
                 </div>
 
                 <div

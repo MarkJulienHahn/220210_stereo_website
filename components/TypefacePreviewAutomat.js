@@ -5,6 +5,7 @@ import MouseButton from "./MouseButton";
 const TypefacePreviewAutomat = (props) => {
   const [wdth, updateWdth] = useState(props.default);
   const [nmbr, updateNmbr] = useState(0);
+  const [font, updateFont] = useState("AutomatSquare")
 
   const [buttonContent, setButtonContent] = useState(null);
 
@@ -63,7 +64,7 @@ const TypefacePreviewAutomat = (props) => {
 
   const style01 = {
     fontVariationSettings: `'frst' ${wdth[0]}, 'scnd' ${wdth[1]}`,
-    fontFamily: `${props.fontFamily}`,
+    fontFamily: font,
     letterSpacing: props.configuration.letterSpacing,
   };
 
@@ -72,29 +73,48 @@ const TypefacePreviewAutomat = (props) => {
       <div className="typefaceControl">
         <span className="typefaceInfo">
           <div>
-          → {props.lable} <span style={{fontSize: "10pt", color: "var(--fifthSolid)"}}>Preview</span>
+            → {props.lable}{" "}
+            <span style={{ fontSize: "10pt", color: "var(--fifthSolid)" }}>
+              Preview
+            </span>
           </div>
           <p>Variable Font Concept</p>
         </span>
-
-        {props.weights.map((item) => (
-          <span
-            key={item}
-            className="typefaceControlButton"
-            onMouseEnter={() => setWdth([item[1], item[2]])}
-            style={
-              (wdth[0] === item[1] && wdth[1] === item[2]) ||
-              (wdth[0] === item[1] && wdth[1] === 100)
-                ? { opacity: "1" }
-                : { opacity: "0.3" }
-            }
-          >
-            {item[0]}
-          </span>
-        ))}
+        <div onMouseEnter={() => updateFont("AutomatSquare")}>
+          {props.weightsSQR.map((item) => (
+            <span
+              key={item}
+              className="typefaceControlButton"
+              onMouseEnter={() => setWdth([item[1], item[2]])}
+              style={
+                (wdth[0] === item[1] && wdth[1] === item[2]) && font == "AutomatSquare"
+                  ? { opacity: "1" }
+                  : { opacity: "0.3" }
+              }
+            >
+              {item[0]}
+            </span>
+          ))}
+        </div>
+        <div onMouseEnter={() => updateFont("AutomatRound")}>
+          {props.weightsRND.map((item) => (
+            <span
+              key={item}
+              className="typefaceControlButton"
+              onMouseEnter={() => setWdth([item[1], item[2]])}
+              style={
+                (wdth[0] === item[1] && wdth[1] === item[2]) && font == "AutomatRound"
+                  ? { opacity: "1" }
+                  : { opacity: "0.3" }
+              }
+            >
+              {item[0]}
+            </span>
+          ))}
+        </div>
       </div>
 
-      <MouseButton lable={buttonContent} />
+      <MouseButton lable={buttonContent} background={"var(--fifth)"}/>
 
       <div
         className="typefaceDisplay"

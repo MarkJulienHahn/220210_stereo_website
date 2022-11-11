@@ -285,10 +285,20 @@ const Typefaces = ({
             <TypefacePreviewAutomat
               key="004"
               fontFamily="AutomatSquare"
-              lable="Automat Square"
-              weights={[
+              lable="Automat"
+              weightsSQR={[
                 ["SQR 000—005 / ", 0, 5],
-                ["SQR 000—100 / ", 0, 101],
+                ["SQR 000—100 / ", 0, 100],
+                ["SQR 050—012 / ", 50, 12],
+                ["SQR 100—080 / ", 100, 80],
+                ["SQR 000—030 / ", 0, 30],
+                ["SQR 070—005 / ", 70, 5],
+                ["SQR 090—090 / ", 90, 90],
+                ["SQR 000—065   ", 0, 65],
+              ]}
+              weightsRND={[
+                ["SQR 000—005 / ", 0, 5],
+                ["SQR 000—100 / ", 0, 100],
                 ["SQR 050—012 / ", 50, 12],
                 ["SQR 100—080 / ", 100, 80],
                 ["SQR 000—030 / ", 0, 30],
@@ -310,11 +320,11 @@ const Typefaces = ({
             />
           </div>
 
-          <div ref={gialloRef} id="giallo-roman">
+          {/* <div ref={gialloRef} id="giallo-roman">
             <TypefacePreviewAutomat
               key="004"
               fontFamily="AutomatRound"
-              lable="Automat Round"
+              lable="Automat"
               weights={[
                 ["RND 000—005 / ", 0, 5],
                 ["RND 000—100 / ", 0, 101],
@@ -337,7 +347,7 @@ const Typefaces = ({
               }}
               default={[90, 2]}
             />
-          </div>
+          </div> */}
 
           <Footer />
         </motion.div>

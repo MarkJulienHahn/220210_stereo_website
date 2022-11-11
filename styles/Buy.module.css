@@ -158,8 +158,6 @@
   position: sticky;
   display: flex;
   flex-wrap: wrap;
-  /* width: 45%; */
-  z-index: 500;
   top: 0px;
 }
 

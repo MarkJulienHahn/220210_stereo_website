@@ -60,6 +60,12 @@ body {
   src: url(../public/fonts/Automat_RoundGX.ttf) format("opentype");
 }
 
+@font-face {
+  font-family: "AutomatSpike";
+  font-style: normal;
+  src: url(../public/fonts/Automat_SpikeGX.woff2) format("opentype");
+}
+
 /* VARIABLES */
 
 :root {
@@ -1564,7 +1570,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: variation 2s ease alternate-reverse;
+  animation: variationAnimation 1s ease alternate-reverse;
   animation-iteration-count: infinite;
 }
 
@@ -1572,6 +1578,25 @@ button {
   color: var(--primary);
   background: var(--fifth);
   cursor: pointer;
+}
+
+.storefrontTrialsHoverImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+@keyframes variationAnimation {
+  0% {
+    font-variation-settings: "wght" 0, "ital" 100;
+  }
+  100% {
+    font-variation-settings: "wght" 300, "ital" 0;
+  }
 }
 
 /* STOREFRONT */
@@ -2181,5 +2206,124 @@ button {
 @media only screen and (max-width: 600px) {
   .licensingSingleColumn {
     width: 100%;
+  }
+}
+
+/* AUTOMAT */
+
+.automatToolWrapper {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 100px;
+}
+
+.automatButtonsWrapper {
+  position: fixed;
+  padding: var(--margin-M);
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.automatToolContent_01 p,
+.automatToolContent_02 p {
+  -webkit-text-stroke-width: 0.5px;
+  text-stroke: 0.5px;
+  transition: font-variation-settings 0.5s ease, font-size 0.5s ease,
+    transform 0.5s ease;
+}
+
+.automatButtonsRow {
+  display: flex;
+  justify-content: flex-start;
+  height: 30px;
+}
+
+.automatButtonsRow div {
+  margin-left: 3px;
+}
+
+.automatToolContainerhf {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f1ec;
+  height: 80vh;
+  width: calc(80vh * 0.707);
+  box-shadow: 10px 10px 50px 0px rgba(0, 0, 0, 0.3);
+}
+
+.automatAlertWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.automatAlertInner {
+  height: 200px;
+  width: 400px;
+  background: white;
+  padding: var(--margin-M) var(--margin-M) 0 var(--margin-M);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 3px;
+}
+
+.automatAlertInner p {
+  font-family: "Giallo";
+  font-size: 14pt;
+}
+
+.automatAlertButtonWrapper {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.automatAlertButton {
+  width: 160px;
+}
+
+#automatButtonsRowMobile {
+  display: none;
+}
+
+@media only screen and (max-width: 1000px) {
+  .automatToolContainerhf {
+    margin-top: 150px;
+    height: 70vh;
+    width: calc(70vh * 0.707);
+    margin-bottom: 60px;
+  }
+  .automatButtonsWrapper {
+    position: absolute;
+    top: 40px;
+    flex-direction: column;
+    /* z-index: 500; */
+  }
+  .automatButtonsRow {
+    flex-wrap: wrap;
+    height: auto;
+  }
+  #automatButtonsRowDesktop {
+    display: none;
+  }
+  #automatButtonsRowMobile {
+    display: block;
   }
 }
