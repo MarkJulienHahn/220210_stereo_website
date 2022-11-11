@@ -2306,15 +2306,14 @@ button {
 @media only screen and (max-width: 1000px) {
   .automatToolContainerhf {
     margin-top: 150px;
-    height: 70vh;
-    width: calc(70vh * 0.707);
+    height: 100vw;
+    width: calc(100vw * 0.707);
     margin-bottom: 60px;
   }
   .automatButtonsWrapper {
     position: absolute;
     top: 40px;
     flex-direction: column;
-    /* z-index: 500; */
   }
   .automatButtonsRow {
     flex-wrap: wrap;
