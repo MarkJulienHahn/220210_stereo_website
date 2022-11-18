@@ -26,6 +26,8 @@ const CheckoutStep3 = ({
   Processing
 }) => {
 
+
+
   return (
     <>
       {showCoupon && live.discount.length == 0 && (

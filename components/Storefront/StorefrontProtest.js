@@ -1,4 +1,4 @@
-import React from "react";
+
 import { useSwiperSlide, useSwiper } from "swiper/react";
 import { useEffect } from "react";
 
@@ -23,21 +23,11 @@ const StorefrontProtest = ({
   const swiperSlide = useSwiperSlide();
 
   useEffect(() => {
-    {
-      swiperSlide.isActive ? setCategory(category) : "";
-    }
-    {
-      swiperSlide.isActive ? setPage(page) : "";
-    }
-    {
-      swiperSlide.isActive ? setLinkCategory(linkCategory) : "";
-    }
-    {
-      swiperSlide.isActive ? setLinkPage(linkPage) : "";
-    }
-    {
-      swiperSlide.isActive ? setDescription(description) : "";
-    }
+    swiperSlide.isActive ? setCategory(category) : "";
+    swiperSlide.isActive ? setPage(page) : "";
+    swiperSlide.isActive ? setLinkCategory(linkCategory) : "";
+    swiperSlide.isActive ? setLinkPage(linkPage) : "";
+    swiperSlide.isActive ? setDescription(description) : "";
   });
 
   return (
@@ -52,7 +42,7 @@ const StorefrontProtest = ({
           onClick={() => swiper.slideNext()}
         ></div>
       </div>
-      <div className={"storefrontLinkWrapper"}>
+      {/* <div className={"storefrontLinkWrapper"}>
         <Link href="/typefaces/protest-grotesk-text">
           <div className={"storefrontLink"}>
             <a>
@@ -62,9 +52,9 @@ const StorefrontProtest = ({
             </a>
           </div>
         </Link>
-      </div>
+      </div> */}
       <div className="typeface-single-header">
-        <IntroAnimationProtest />
+      <IntroAnimationProtest />
       </div>
     </>
   );

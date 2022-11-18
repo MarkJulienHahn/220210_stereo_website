@@ -5,7 +5,7 @@ import Image from "next/image";
 
 import styles from "../../styles/Storefront.module.css";
 
-import image02 from "../../public/images/ad_test.png";
+import image02 from "../../public/images/ad_platzhalter.png";
 
 const Ad = ({
   setCategory,
@@ -52,15 +52,24 @@ const Ad = ({
           onClick={() => swiper.slideNext()}
         ></div>
       </div>
-      <div style={{ width: "100vw", height: "100vh" }}>
-        <Image
-          object-fit="contain"
-          layout="fill"
-          src={image02}
-          placeholder="blur"
-          width={4000}
-          height={3000}
-        />
+      <div
+        style={{
+          // width: "50vw",
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <div style={{ height: "100vh", width: `${1170/1600*100}vh`}}>
+          <Image
+            // layout="fill"
+            object-fit="contain"
+            src={image02}
+            placeholder="blur"
+            width={1170}
+            height={1600}
+          />
+        </div>
       </div>
     </>
   );

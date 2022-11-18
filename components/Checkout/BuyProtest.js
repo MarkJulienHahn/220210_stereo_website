@@ -34,8 +34,8 @@ const BuyProtest = ({
   const updateLicenceType = (name, licence) => {
     products.find((el) => el.name === name).licence =
       NumEmployees != "Student License"
-        ? `${licence} / ${NumEmployees} Employees`
-        : `${licence} / ${NumEmployees}`;
+        ? `${licence} ${NumEmployees} Employees`
+        : `${licence} ${NumEmployees}`;
   };
 
   const protest = products.filter((x) =>

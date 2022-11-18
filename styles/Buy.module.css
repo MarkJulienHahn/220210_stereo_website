@@ -216,6 +216,8 @@
 
 .productPrice {
   font-size: 10pt;
+  width: 200px;
+  text-align: right;
 }
 
 .totalWrapper {

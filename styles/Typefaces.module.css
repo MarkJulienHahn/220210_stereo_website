@@ -1,5 +1,5 @@
 .AppInner {
-    margin: 0 var(--margin-M) var(--margin-M) var(--margin-M);
+    padding: 0 var(--margin-M) var(--margin-M) var(--margin-M);
 }
 
 .button {

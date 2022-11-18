@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
-import HeaderAnimationProtest from "../../components/HeaderAnimationProtest";
+import HeaderAnimation from "../../components/HeaderAnimation";
 
 import Typetester from "../../components/Typetester";
 import Button from "../../components/Button";
@@ -14,6 +14,7 @@ import Cartbutton from "../../components/Cartbutton";
 import WaterfallProtest from "../../components/WaterfallProtest";
 import GlyphchartProtestGrotesk from "../../components/GlyphchartProtestGrotesk";
 import Footer from "../../components/Footer";
+import { withTheme } from "@material-ui/core";
 
 const Checkout = dynamic(() => import("../../components/Checkout/Checkout"));
 const Trials = dynamic(() => import("../../components/Trials"));
@@ -38,6 +39,7 @@ const ProtestGroteskText = ({
 }) => {
   const [showCheckout, setShowCheckout] = useState(false);
   const [showTrials, setShowTrials] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
   const location = useRouter();
 
   const checkoutOverview = useRef(null);
@@ -105,6 +107,11 @@ const ProtestGroteskText = ({
     });
   };
 
+  const dark = {
+    color: "white",
+    background: "black",
+  };
+
   return (
     <>
       <Head>
@@ -154,6 +161,18 @@ const ProtestGroteskText = ({
       </div>
 
       <div className="buttonsRightWrapper">
+        <div
+          className="lightBulb"
+          style={{
+            fontSize: "17pt",
+            paddingRight: "10px",
+            cursor: "pointer",
+            opacity: darkMode ? 0.5 : 1,
+          }}
+          onClick={() => setDarkMode(!darkMode)}
+        >
+          💡
+        </div>
         <Button
           lable={"Trials"}
           subclass={"tertiary"}
@@ -185,10 +204,25 @@ const ProtestGroteskText = ({
           transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
         >
           <div className="typeface-single-header">
-            <HeaderAnimationProtest scrollUp={scrollUp} />
+            <HeaderAnimation
+              scrollUp={scrollUp}
+              name={"Protest Grotesk"}
+              size={"23vw"}
+              lineHeight={"20vw"}
+              font={"Protest Grotesk"}
+              wghtMin={40}
+              wghtMax={251}
+              italic={true}
+              color={"#EBEBEB"}
+              background={"var(--fifth)"}
+            />
           </div>
 
-          <main className="typeface-single-inner" ref={checkoutOverview}>
+          <main
+            className="typeface-single-inner"
+            ref={checkoutOverview}
+            style={darkMode ? dark : {}}
+          >
             <div className="typefaceInfosection">
               <h1>
                 <span className="highlight01">&#8594; 16 Weights</span> —
@@ -207,108 +241,108 @@ const ProtestGroteskText = ({
             <div className="typeface-single-opener">
               <div className="fontOpener">
                 <div style={{ fontVariationSettings: "'wght' 250, 'wdth' 50" }}>
-                  Protest Grotesk Black
+                  Protest Grotesk Black²⁵⁰
                 </div>
                 <div
                   style={{
                     fontVariationSettings: "'wght' 250, 'wdth' 50, 'ital' 100",
                   }}
                 >
-                  Protest Grotesk Black Italic
+                  Protest Grotesk Black Italic²⁵⁰
                 </div>
                 <div style={{ fontVariationSettings: "'wght' 220, 'wdth' 50" }}>
-                  Protest Grotesk Heavy
+                  Protest Grotesk Heavy²²⁰
                 </div>
                 <div
                   style={{
                     fontVariationSettings: "'wght' 220, 'wdth' 50, 'ital' 100",
                   }}
                 >
-                  Protest Grotesk Heavy Italic
+                  Protest Grotesk Heavy Italic²²⁰
                 </div>
                 <div
                   style={{
                     fontVariationSettings: "'wght' 190, 'wdth' 50, 'ital'  00",
                   }}
                 >
-                  Protest Grotesk Bold
+                  Protest Grotesk Bold¹⁹⁰
                 </div>
                 <div
                   style={{
                     fontVariationSettings: "'wght' 190, 'wdth' 50, 'ital' 100",
                   }}
                 >
-                  Protest Grotesk Bold Italic
+                  Protest Grotesk Bold Italic¹⁹⁰
                 </div>
                 <div
                   style={{
                     fontVariationSettings: "'wght' 160, 'wdth' 50, 'ital'  00",
                   }}
                 >
-                  Protest Grotesk Semibold
+                  Protest Grotesk Semibold¹⁶⁰
                 </div>
                 <div
                   style={{
                     fontVariationSettings: "'wght' 160, 'wdth' 50, 'ital' 100",
                   }}
                 >
-                  Protest Grotesk Semibold Italic
+                  Protest Grotesk Semibold Italic¹⁶⁰
                 </div>
                 <div
                   style={{
                     fontVariationSettings: "'wght' 130, 'wdth' 50, 'ital'  00",
                   }}
                 >
-                  Protest Grotesk Medium
+                  Protest Grotesk Medium¹³⁰
                 </div>
                 <div
                   style={{
                     fontVariationSettings: "'wght' 130, 'wdth' 50, 'ital' 100",
                   }}
                 >
-                  Protest Grotesk Medium Italic
+                  Protest Grotesk Medium Italic¹³⁰
                 </div>
                 <div
                   style={{
                     fontVariationSettings: "'wght'  100, 'wdth' 50, 'ital'  00",
                   }}
                 >
-                  Protest Grotesk Regular
+                  Protest Grotesk Regular¹⁰⁰
                 </div>
                 <div
                   style={{
                     fontVariationSettings: "'wght'  100, 'wdth' 50, 'ital' 100",
                   }}
                 >
-                  Protest Grotesk Regular Italic
+                  Protest Grotesk Regular Italic¹⁰⁰
                 </div>
                 <div
                   style={{
                     fontVariationSettings: "'wght'  70, 'wdth' 50, 'ital'  00",
                   }}
                 >
-                  Protest Grotesk Light
+                  Protest Grotesk Light⁰⁷⁰
                 </div>
                 <div
                   style={{
                     fontVariationSettings: "'wght'  70, 'wdth' 50, 'ital' 100",
                   }}
                 >
-                  Protest Grotesk Light Italic
+                  Protest Grotesk Light Italic⁰⁷⁰
                 </div>
                 <div
                   style={{
                     fontVariationSettings: "'wght'  40, 'wdth' 50, 'ital'  00",
                   }}
                 >
-                  Protest Grotesk Thin
+                  Protest Grotesk Thin⁰⁴⁰
                 </div>
                 <div
                   style={{
                     fontVariationSettings: "'wght'  40, 'wdth' 50, 'ital' 100",
                   }}
                 >
-                  Protest Grotesk Thin Italic
+                  Protest Grotesk Thin Italic⁰⁴⁰
                 </div>
               </div>
             </div>
@@ -377,7 +411,7 @@ const ProtestGroteskText = ({
                 fontFamily="Protest"
                 sample={sample}
               />
-              {console.log(Math.floor(Math.random() * sampleText.length))}
+
               <Typetester
                 wght={40}
                 ital={100}
@@ -523,7 +557,7 @@ const ProtestGroteskText = ({
                   sampleText[Math.floor(Math.random() * sampleText.length)]
                 }${sampleText[Math.floor(Math.random() * sampleText.length)]}`}
               />
-              
+
               <Typetester
                 wght={130}
                 ital={0}

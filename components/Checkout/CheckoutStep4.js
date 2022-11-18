@@ -15,7 +15,6 @@ const CheckoutStep4 = ({ refreshCart, setShowCheckout, shippingData }) => {
       </div>
 
       <div className="buttonsRightWrapper">
-        {" "}
         <Button
           lable={"Back to the Shop"}
           subclass={"primary"}

@@ -1445,7 +1445,7 @@ function GlyphchartProtestMono (props) {
               lable={"⅞"}
               changeGlyph={(glyph) => setGlyph(glyph)}
             />
-            <Glyphchartletter
+            {/* <Glyphchartletter
               lable={"Ⅰ"}
               changeGlyph={(glyph) => setGlyph(glyph)}
             />
@@ -1500,7 +1500,7 @@ function GlyphchartProtestMono (props) {
             <Glyphchartletter
               lable={"Ⅿ"}
               changeGlyph={(glyph) => setGlyph(glyph)}
-            />
+            /> */}
           </div>
           <p className="glyphchartHeading">&#8594; Punctuation</p>
           <div className="glyphchartLetterWrapper">
@@ -1782,10 +1782,10 @@ function GlyphchartProtestMono (props) {
               lable={"%"}
               changeGlyph={(glyph) => setGlyph(glyph)}
             />
-            <Glyphchartletter
+            {/* <Glyphchartletter
               lable={"‰"}
               changeGlyph={(glyph) => setGlyph(glyph)}
-            />
+            /> */}
             <Glyphchartletter
               lable={"●"}
               changeGlyph={(glyph) => setGlyph(glyph)}

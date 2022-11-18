@@ -27,6 +27,7 @@ const PaymentForm = ({
   const [AccCreditCard, setAccCreditCard] = useState(false);
   const [AccPayPal, setAccPayPal] = useState(false);
 
+
   const handleSubmit = async (event, elements, stripe) => {
     event.preventDefault();
     if (!stripe || !elements) return;
@@ -103,6 +104,9 @@ const PaymentForm = ({
 
     onCaptureCheckout(checkoutToken.id, orderData);
   };
+
+
+
 
   const inactive = {
     height: "0px",

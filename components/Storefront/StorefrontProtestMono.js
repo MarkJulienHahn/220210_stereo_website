@@ -52,13 +52,13 @@ const StorefrontProtestMono = ({
           onClick={() => swiper.slideNext()}
         ></div>
       </div>
-      <div className={"storefrontLinkWrapper"}>
+      {/* <div className={"storefrontLinkWrapper"}>
         <Link href="/typefaces/protest-grotesk-mono">
         <div className={"storefrontLink"} style={{color: "var(--primary)"}}>
           <a>Protest Mono® Family<br/>8 Weights</a>
           </div>
         </Link>
-      </div>
+      </div> */}
       <div className="typeface-single-header">
         <IntroAnimationProtestMono />
       </div>

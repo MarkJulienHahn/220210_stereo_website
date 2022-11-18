@@ -1,13 +1,11 @@
 import { Client } from "@sendgrid/client";
-import pdfMake from "pdfmake/build/pdfmake";
-import pdfFonts from "pdfmake/build/vfs_fonts";
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
-const sgMail = require("@sendgrid/mail");
+const sgMail = require("@sendgrid/mail"); 
 
 sgMail.setClient(new Client());
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 export default async function handler(req, res) {
+
   const body = JSON.parse(req.body);
 
   const message = `
@@ -22,18 +20,9 @@ export default async function handler(req, res) {
     Total: ${body.total}\r\n
     Tax: ${body.tax}\r\n
     Link: ${body.link}\r\n
-    Payment: ${body.pasmentMethod}\r\n
+    Payment: ${body.paymentMethod}\r\n
     Invoice-Number: ${body.id}
   `;
-
-  // const docDefinition = { content: 'This is an sample PDF printed with pdfMake' };
-
-  // const pdfDocGenerator = pdfMake.createPdf(docDefinition);
-  // const pdfAttachment = pdfDocGenerator.getBase64((pdf) => {
-  //   console.log(pdf)
-  // });
-
-  
 
   const data = {
     to: body.email,
@@ -59,21 +48,20 @@ export default async function handler(req, res) {
       id: body.id,
       licensing: body.licensing,
     },
-    // attachments: [
-    //   {
-    //     content: pdfAttachment,
-    //     filename: 'some-attachment.txt',
-    //     type: 'plain/text',
-    //     disposition: 'attachment',
-    //     content_id: 'mytext'
-    //   },
-    // ],
+    attachments: [
+      {
+        content: body.attachment,
+        filename: `STRTYPFCS-${body.id}.pdf`,
+        type: "application/pdf",
+        disposition: "attachment",
+        content_id: "mytext",
+      },
+    ],
   };
 
-
-
-  console.log(data);
-  // console.log(data, pdfAttachment);
+  console.log("attachment:", body.attachment, body.licensing);
+  // console.log(data);
+  // console.log(pdfAttachment);
 
   return sgMail
     .send(data)

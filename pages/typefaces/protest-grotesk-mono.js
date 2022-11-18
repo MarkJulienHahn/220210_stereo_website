@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
-import HeaderAnimationProtestMono from "../../components/HeaderAnimationProtestMono";
+import HeaderAnimation from "../../components/HeaderAnimation";
 
 import Typetester from "../../components/Typetester";
 import Button from "../../components/Button";
@@ -38,6 +38,7 @@ const ProtestGroteskMono = ({
 }) => {
   const [showCheckout, setShowCheckout] = useState(false);
   const [showTrials, setShowTrials] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
   const location = useRouter();
 
   const checkoutOverview = useRef(null);
@@ -47,6 +48,11 @@ const ProtestGroteskMono = ({
       behavior: "smooth",
       block: "start",
     });
+  };
+
+  const dark = {
+    color: "white",
+    background: "black",
   };
 
   return (
@@ -98,6 +104,18 @@ const ProtestGroteskMono = ({
       </div>
 
       <div className="buttonsRightWrapper">
+        <div
+          className="lightBulb"
+          style={{
+            fontSize: "17pt",
+            paddingRight: "10px",
+            cursor: "pointer",
+            opacity: darkMode ? 0.5 : 1,
+          }}
+          onClick={() => setDarkMode(!darkMode)}
+        >
+          💡
+        </div>
         <Button
           lable={"Trials"}
           subclass={"tertiary"}
@@ -129,10 +147,25 @@ const ProtestGroteskMono = ({
           transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
         >
           <div className="typeface-single-header">
-            <HeaderAnimationProtestMono scrollUp={scrollUp}/>
+            <HeaderAnimation
+              scrollUp={scrollUp}
+              name={"Protest Mono"}
+              size={"18vw"}
+              lineHeight={"17vw"}
+              font={"ProtestMono"}
+              italic={false}
+              wghtMin={40}
+              wghtMax={250}
+              color={"#292B36"}
+              background={"var(--primary)"}
+            />
           </div>
 
-          <main className="typeface-single-inner" ref={checkoutOverview}>
+          <main
+            className="typeface-single-inner"
+            style={darkMode ? dark : {}}
+            ref={checkoutOverview}
+          >
             <p>&#8594; FONT-WEIGHT OVERVIEW</p>
             <p>
               Protest Grotesk is available in 8 Weights, including the according
@@ -142,7 +175,7 @@ const ProtestGroteskMono = ({
             <div className="typeface-single-opener">
               <div className="fontOpenerProtestMono">
                 <div style={{ fontVariationSettings: "'wght' 250, 'wdth' 50" }}>
-                  Protest Mono Black
+                  Protest Mono Black²⁵⁰
                 </div>
                 {/* <div
                   style={{
@@ -152,7 +185,7 @@ const ProtestGroteskMono = ({
                   Protest Grotesk Black Italic
                 </div> */}
                 <div style={{ fontVariationSettings: "'wght' 220, 'wdth' 50" }}>
-                  Protest Mono Heavy
+                  Protest Mono Heavy²²⁰
                 </div>
                 {/* <div
                   style={{
@@ -166,7 +199,7 @@ const ProtestGroteskMono = ({
                     fontVariationSettings: "'wght' 190, 'wdth' 50, 'ital'  00",
                   }}
                 >
-                  Protest Mono Bold
+                  Protest Mono Bold¹⁹⁰
                 </div>
                 {/* <div
                   style={{
@@ -180,7 +213,7 @@ const ProtestGroteskMono = ({
                     fontVariationSettings: "'wght' 160, 'wdth' 50, 'ital'  00",
                   }}
                 >
-                  Protest Mono Medium
+                  Protest Mono Medium¹⁶⁰
                 </div>
                 {/* <div
                   style={{
@@ -194,7 +227,7 @@ const ProtestGroteskMono = ({
                     fontVariationSettings: "'wght' 130, 'wdth' 50, 'ital'  00",
                   }}
                 >
-                  Protest Mono Book
+                  Protest Mono Book¹³⁰
                 </div>
                 {/* <div
                   style={{
@@ -208,7 +241,7 @@ const ProtestGroteskMono = ({
                     fontVariationSettings: "'wght'  100, 'wdth' 50, 'ital'  00",
                   }}
                 >
-                  Protest Mono Regular
+                  Protest Mono Regular¹⁰⁰
                 </div>
                 {/* <div
                   style={{
@@ -222,7 +255,7 @@ const ProtestGroteskMono = ({
                     fontVariationSettings: "'wght'  70, 'wdth' 50, 'ital'  00",
                   }}
                 >
-                  Protest Mono Light
+                  Protest Mono Light⁰⁷⁰
                 </div>
                 {/* <div
                   style={{
@@ -236,7 +269,7 @@ const ProtestGroteskMono = ({
                     fontVariationSettings: "'wght'  40, 'wdth' 50, 'ital'  00",
                   }}
                 >
-                  Protest Mono Thin
+                  Protest Mono Thin⁰⁴⁰
                 </div>
                 {/* <div
                   style={{

@@ -61,10 +61,14 @@
   top: 0;
   height: 60px;
   width: 100;
-  background: rgba(255, 255, 255, 0.8);
   padding-top: var(--margin-M);
   padding-bottom: 60px;
   z-index: 150;
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(30px);
+  backdrop-filter: blur(30px);
+  width: 100vw;
+  padding-left: 60px;
+  padding-right: 60px;
+  transform: translateX(-30px);
+  background: rgba(255,255,255,0.25)
 }

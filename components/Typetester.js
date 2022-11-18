@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Slider } from "@material-ui/core";
 import styles from "../styles/Typetester.module.css";
 
-import MouseButton from "./MouseButton";
 import Button from "./Button";
 
 function Typetester(props) {
@@ -52,8 +51,6 @@ function Typetester(props) {
     fontVariationSettings: `'wght' ${props.wght}, 'ital' ${props.ital}, 'wdth' 50`,
     fontFeatureSettings: `"${val3}", "${val4}"`,
   };
-
-  console.log(props.sample)
 
   return (
     <>
@@ -123,7 +120,7 @@ function Typetester(props) {
         </div>
       </div>
 
-      <MouseButton lable={buttonContent} />
+      {/* <MouseButton lable={buttonContent} /> */}
     </>
   );
 }

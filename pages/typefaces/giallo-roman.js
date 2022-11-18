@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import Link from "next/link";
@@ -8,10 +8,10 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import image01 from "../../public/images/image_01.png";
 
-import HeaderAnimationGiallo from "../../components/HeaderAnimationGiallo";
+import HeaderAnimation from "../../components/HeaderAnimation";
 import Typetester from "../../components/Typetester";
 import Button from "../../components/Button";
-import WaterfallGialloRoman from "../../components/WaterfallGialloRoman"
+import WaterfallGialloRoman from "../../components/WaterfallGialloRoman";
 import Glyphchart from "../../components/GlyphchartProtestGrotesk";
 import Footer from "../../components/Footer";
 
@@ -36,7 +36,23 @@ const GialloRoman = ({
   refreshCart,
 }) => {
   const [showCheckout, setShowCheckout] = useState(false);
+  const [showTrials, setShowTrials] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
   const location = useRouter();
+
+  const checkoutOverview = useRef(null);
+
+  const scrollUp = () => {
+    checkoutOverview.current.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
+  const dark = {
+    color: "white",
+    background: "black",
+  };
 
   return (
     <>
@@ -46,25 +62,25 @@ const GialloRoman = ({
 
       {showCheckout && (
         <Checkout
-        products={products}
-        cart={cart}
-        live={live}
-        handleAddToCart={handleAddToCart}
-        handleRemoveFromCart={handleRemoveFromCart}
-        handleEmptyCart={handleEmptyCart}
-        handleUpdateCartQty={handleUpdateCartQty}
-        handleUpdateCartPrice={handleUpdateCartPrice}
-        onCaptureCheckout={onCaptureCheckout}
-        handleCouponCode={handleCouponCode}
-        getLiveObject={getLiveObject}
-        setCart={setCart}
-        setShowCheckout={setShowCheckout}
-        showCheckout={showCheckout}
-        loading={loading}
-        checkoutToken={checkoutToken}
-        getPaypalPaymentId={getPaypalPaymentId}
-        refreshCart={refreshCart}
-        font={"Giallo"}
+          products={products}
+          cart={cart}
+          live={live}
+          handleAddToCart={handleAddToCart}
+          handleRemoveFromCart={handleRemoveFromCart}
+          handleEmptyCart={handleEmptyCart}
+          handleUpdateCartQty={handleUpdateCartQty}
+          handleUpdateCartPrice={handleUpdateCartPrice}
+          onCaptureCheckout={onCaptureCheckout}
+          handleCouponCode={handleCouponCode}
+          getLiveObject={getLiveObject}
+          setCart={setCart}
+          setShowCheckout={setShowCheckout}
+          showCheckout={showCheckout}
+          loading={loading}
+          checkoutToken={checkoutToken}
+          getPaypalPaymentId={getPaypalPaymentId}
+          refreshCart={refreshCart}
+          font={"Giallo"}
         />
       )}
 
@@ -85,6 +101,18 @@ const GialloRoman = ({
       </div>
 
       <div className="buttonsRightWrapper">
+        <div
+          className="lightBulb"
+          style={{
+            fontSize: "17pt",
+            paddingRight: "10px",
+            cursor: "pointer",
+            opacity: darkMode ? 0.5 : 1,
+          }}
+          onClick={() => setDarkMode(!darkMode)}
+        >
+          💡
+        </div>
         <Button lable={"Trials"} subclass={"tertiary"} />
         <Button
           lable={"Buy"}
@@ -107,10 +135,25 @@ const GialloRoman = ({
           transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
         >
           <div className="typeface-single-header">
-            <HeaderAnimationGiallo />
+            <HeaderAnimation
+              scrollUp={scrollUp}
+              name={"Giallo Roman"}
+              size={"25vw"}
+              lineHeight={"20vw"}
+              font={"Giallo"}
+              wghtMin={100}
+              wghtMax={800}
+              italic={true}
+              color={"#D7DCE0"}
+              background={"#FFFDF7"}
+            />
           </div>
 
-          <main className="typeface-single-inner typeface-single-giallo">
+          <main
+            className="typeface-single-inner typeface-single-giallo"
+            style={darkMode ? dark : {}}
+            ref={checkoutOverview}
+          >
             <p>&#8594; FONT-WEIGHT OVERVIEW</p>
             <p>
               Giallo Roman is available in 8 Weights, including the according

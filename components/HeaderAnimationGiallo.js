@@ -1,86 +1,103 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-import HeaderAnimationGialloWord from "./HeaderAnimationGialloWord";
+const HeaderAnimationProtest = ({ scrollUp }) => {
+  const [index, setIndex] = useState(0);
+  const [index2, setIndex2] = useState(0);
+  const [scrollPosition, setScrollPosition] = useState("");
 
-const HeaderAnimationGiallo = () => {
+  const array = [
+    "Black²⁵⁰ Heavy²²⁰ Bold¹⁹⁰ Semibold¹⁶⁰",
+    "Medium¹³⁰ Regular¹⁰⁰ Light⁷⁰ Thin⁴⁰",
+    "Roman Roman Roman Roman",
+    "Giallo Roman® Giallo Roman«",
+    "Yellow Yellow Yellow Yellow Yellow Yellow Yellow",
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex(Math.floor(Math.random() * array.length));
+      setIndex2(Math.floor(Math.random() * array.length));
+    }, 500);
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  });
+
+  const visible = { opacity: "1", pointerEvents: "auto" };
+  const invisible = { opacity: "0", pointerEvents: "none" };
+
   return (
-    <div>
-      <div className={"GialloAnimationWrapper"}>
-        <HeaderAnimationGialloWord word={"Desideria:"} />
-        <HeaderAnimationGialloWord word={"la"} />
-        <HeaderAnimationGialloWord word={"vita"} />
-        <HeaderAnimationGialloWord word={"interiore"} />
-        <HeaderAnimationGialloWord word={"(1980)"} />
-        <HeaderAnimationGialloWord word={" di"} />
-        <HeaderAnimationGialloWord word={"Gianni"} />
-        <HeaderAnimationGialloWord word={"Barcelloni"} />
-        <HeaderAnimationGialloWord word={"Corte"} />
-        <HeaderAnimationGialloWord word={"Desideria:"} />
-        <HeaderAnimationGialloWord word={"la"} />
-        <HeaderAnimationGialloWord word={"vita"} />
-        <HeaderAnimationGialloWord word={"interiore"} />
-        <HeaderAnimationGialloWord word={"(1980)"} />
-        <HeaderAnimationGialloWord word={" di"} />
-        <HeaderAnimationGialloWord word={"Gianni"} />
-        <HeaderAnimationGialloWord word={"Barcelloni"} />
-        <HeaderAnimationGialloWord word={"Corte"} />
-        <HeaderAnimationGialloWord word={"Desideria:"} />
-        <HeaderAnimationGialloWord word={"la"} />
-        <HeaderAnimationGialloWord word={"vita"} />
-        <HeaderAnimationGialloWord word={"interiore"} />
-        <HeaderAnimationGialloWord word={"(1980)"} />
-        <HeaderAnimationGialloWord word={" di"} />
-        <HeaderAnimationGialloWord word={"Gianni"} />
-        <HeaderAnimationGialloWord word={"Barcelloni"} />
-        <HeaderAnimationGialloWord word={"Corte"} />
-        <HeaderAnimationGialloWord word={"Desideria:"} />
-        <HeaderAnimationGialloWord word={"la"} />
-        <HeaderAnimationGialloWord word={"vita"} />
-        <HeaderAnimationGialloWord word={"interiore"} />
-        <HeaderAnimationGialloWord word={"(1980)"} />
-        <HeaderAnimationGialloWord word={" di"} />
-        <HeaderAnimationGialloWord word={"Gianni"} />
-        <HeaderAnimationGialloWord word={"Barcelloni"} />
-        <HeaderAnimationGialloWord word={"Corte"} />
-        <HeaderAnimationGialloWord word={"Desideria:"} />
-        <HeaderAnimationGialloWord word={"la"} />
-        <HeaderAnimationGialloWord word={"vita"} />
-        <HeaderAnimationGialloWord word={"interiore"} />
-        <HeaderAnimationGialloWord word={"(1980)"} />
-        <HeaderAnimationGialloWord word={" di"} />
-        <HeaderAnimationGialloWord word={"Gianni"} />
-        <HeaderAnimationGialloWord word={"Barcelloni"} />
-        <HeaderAnimationGialloWord word={"Corte"} />
-        <HeaderAnimationGialloWord word={"Desideria:"} />
-        <HeaderAnimationGialloWord word={"la"} />
-        <HeaderAnimationGialloWord word={"vita"} />
-        <HeaderAnimationGialloWord word={"interiore"} />
-        <HeaderAnimationGialloWord word={"(1980)"} />
-        <HeaderAnimationGialloWord word={" di"} />
-        <HeaderAnimationGialloWord word={"Gianni"} />
-        <HeaderAnimationGialloWord word={"Barcelloni"} />
-        <HeaderAnimationGialloWord word={"Corte"} />
-        <HeaderAnimationGialloWord word={"Desideria:"} />
-        <HeaderAnimationGialloWord word={"la"} />
-        <HeaderAnimationGialloWord word={"vita"} />
-        <HeaderAnimationGialloWord word={"interiore"} />
-        <HeaderAnimationGialloWord word={"(1980)"} />
-        <HeaderAnimationGialloWord word={" di"} />
-        <HeaderAnimationGialloWord word={"Gianni"} />
-        <HeaderAnimationGialloWord word={"Barcelloni"} />
-        <HeaderAnimationGialloWord word={"Corte"} />
-        <HeaderAnimationGialloWord word={"Desideria:"} />
-        <HeaderAnimationGialloWord word={"la"} />
-        <HeaderAnimationGialloWord word={"vita"} />
-        <HeaderAnimationGialloWord word={"interiore"} />
-        <HeaderAnimationGialloWord word={"(1980)"} />
-        <HeaderAnimationGialloWord word={" di"} />
-        <HeaderAnimationGialloWord word={"Gianni"} />
-        <HeaderAnimationGialloWord word={"Barcelloni"} />
-        <HeaderAnimationGialloWord word={"Corte"} />
+    <>
+      <div className={"headerAnimationWrapperGiallo"}>
+        <div
+          className={"typeface-single-scrolldown"}
+          style={scrollPosition < 700 ? visible : invisible}
+        >
+          <div className={"typeface-single-scrolldown-inner"} onClick={() => scrollUp()}>
+            <div>Scroll Down</div>
+            <div> &darr;</div>
+          </div>
+        </div>
+
+        <div className={"headerAnimationSubWrapperGiallo"} style={{fontFamily: "Giallo"}}>
+          <div className={"row"}>
+            <p>
+              {array[index]}
+              <br />
+            </p>
+          </div>
+          <div className={"row2"}>
+            <p>
+              {array[index2]}
+              <br />
+            </p>
+          </div>
+          <div className={"row"}>
+            <p>
+              {array[index]}
+              <br />
+            </p>
+          </div>
+          <div className={"row2"}>
+            <p>
+              {array[index2]}
+              <br />
+            </p>
+          </div>
+          <div className={"row"}>
+            <p>
+              {array[index]}
+              <br />
+            </p>
+          </div>
+          <div className={"row2"}>
+            <p>
+              {array[index2]}
+              <br />
+            </p>
+          </div>
+          <div className={"row"}>
+            <p>
+              {array[index]}
+              <br />
+            </p>
+          </div>
+          <div className={"row2"}>
+            <p>
+              {array[index2]}
+              <br />
+            </p>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
-export default HeaderAnimationGiallo;
+export default HeaderAnimationProtest;

@@ -50,18 +50,16 @@ const Typefaces = ({
 
   const [showCheckout, setShowCheckout] = useState(false);
   const [showTrials, setShowTrials] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
   const location = useRouter();
 
-  const hide = {
-    display: "none",
-  };
-
-  const show = {
-    display: "auto",
+  const dark = {
+    color: "white",
+    background: "black",
   };
 
   return (
-    <main className={Styles.AppInner}>
+    <>
       <Head>
         <title>Typefaces | Stereo Typefaces&#x2122;</title>
         <meta name="keywords" content="web" />
@@ -152,6 +150,18 @@ const Typefaces = ({
       </div>
 
       <div className="buttonsRightWrapper">
+        <div
+          className="lightBulb"
+          style={{
+            fontSize: "17pt",
+            paddingRight: "10px",
+            cursor: "pointer",
+            opacity: darkMode ? 0.5 : 1,
+          }}
+          onClick={() => setDarkMode(!darkMode)}
+        >
+          💡
+        </div>
         <Button
           lable={"Trials"}
           subclass={"tertiary"}
@@ -181,146 +191,223 @@ const Typefaces = ({
           exit={{ y: -300, opacity: 0 }}
           transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
         >
-          <Link href="/typefaces/protest-grotesk-text" scroll={false}>
-            <div ref={protestRef} id="protest-grotesk">
-              <TypefacePreview
-                key="001"
-                fontFamily="Protest"
-                lable="Protest Grotesk"
-                weights={[
-                  ["Thin ", 40, 0],
-                  ["Italic / ", 40, 100],
-                  ["Light ", 70, 0],
-                  ["Italic / ", 70, 100],
-                  ["Regular ", 100, 0],
-                  ["Italic / ", 100, 100],
-                  ["Book ", 130, 0],
-                  ["Italic / ", 130, 100],
-                  ["Medium ", 160, 0],
-                  ["Italic / ", 160, 100],
-                  ["Bold ", 190, 0],
-                  ["Italic / ", 190, 100],
-                  ["Heavy ", 220, 0],
-                  ["Italic / ", 220, 100],
-                  ["Black ", 250, 0],
-                  ["Italic", 250, 100],
+          {" "}
+          <main className={Styles.AppInner} style={darkMode ? dark : {}}>
+            <Link href="/typefaces/protest-grotesk-text" scroll={false}>
+              <div ref={protestRef} id="protest-grotesk">
+                <TypefacePreview
+                  key="001"
+                  fontFamily="Protest"
+                  lable="Protest Grotesk"
+                  weights={[
+                    ["Thin ", 40, 0],
+                    ["Italic / ", 40, 100],
+                    ["Light ", 70, 0],
+                    ["Italic / ", 70, 100],
+                    ["Regular ", 100, 0],
+                    ["Italic / ", 100, 100],
+                    ["Book ", 130, 0],
+                    ["Italic / ", 130, 100],
+                    ["Medium ", 160, 0],
+                    ["Italic / ", 160, 100],
+                    ["Bold ", 190, 0],
+                    ["Italic / ", 190, 100],
+                    ["Heavy ", 220, 0],
+                    ["Italic / ", 220, 100],
+                    ["Black ", 250, 0],
+                    ["Italic", 250, 100],
+                  ]}
+                  content={[
+                    <>
+                      [ Tone ] Balance*
+                      <br />
+                      MONO 102KHz
+                      <br />
+                      230MHz Kanal
+                    </>,
+                    <>
+                      Model №507 <br />
+                      (Source) AC475
+                      <br /> ⇆Emergency
+                    </>,
+                    <>
+                      ↱Pagina LP1 <br />
+                      EN 49:2001+A⁷⁴
+                      <br /> ¶Mail &#123;Narrow&#125;
+                    </>,
+                    <>
+                      Ŋeo: Wilson () <br /> 475‰"FLARED"
+                      <br /> ↗nexus Inserg
+                    </>,
+                    <>
+                      Inspired by Ⅷ <br /> &#123;Abloh’s&#125; Original
+                      <br /> ⑨Meteor Shower{" "}
+                    </>,
+                  ]}
+                  configuration={{
+                    letterSpacing: "-0.7vw",
+                  }}
+                  default={[160, 0]}
+                />
+              </div>
+            </Link>
+
+            <Link href="/typefaces/protest-grotesk-mono" scroll={false}>
+              <div ref={protestMonoRef}>
+                <TypefacePreview
+                  key="002"
+                  fontFamily="ProtestMono"
+                  lable="Protest Grotesk Mono"
+                  weights={[
+                    ["Thin / ", 40, 0, 1],
+                    ["Light / ", 70, 0, 2],
+                    ["Regular / ", 100, 0, 3],
+                    ["Book / ", 130, 0, 4],
+                    ["Medium / ", 160, 0, 5],
+                    ["Bold / ", 190, 0, 6],
+                    ["Heavy / ", 220, 0, 7],
+                    ["Black", 250, 0, 8],
+                  ]}
+                  content={[
+                    <>
+                      Graph OP—1™
+                      <br /> [around
+                      <br /> 7°Kelvin]
+                    </>,
+                    <>
+                      Compiled
+                      <br /> Successful
+                      <br /> in 178 ms²
+                    </>,
+                    <>
+                      [up to 2.4
+                      <br /> GHz] Record
+                      <br /> KeyBoard
+                    </>,
+                    <>
+                      Filament ↲<br /> Function 82
+                      <br /> (Focus)
+                    </>,
+                    <>
+                      Stadelĳk’s
+                      <br /> SpezSound
+                      <br /> Color ®
+                    </>,
+                  ]}
+                  configuration={{
+                    letterSpacing: "-0.9vw",
+                  }}
+                  default={[40, 0]}
+                />
+              </div>
+            </Link>
+
+            <Link href="/typefaces/giallo-roman" scroll={false}>
+              <div ref={gialloRef} id="giallo-roman">
+                <TypefacePreview
+                  key="001"
+                  fontFamily="Giallo"
+                  lable="Giallo Roman"
+                  weights={[
+                    ["Light / ", 100, 0],
+                    ["Regular / ", 200, 0],
+                    ["Book / ", 300, 0],
+                    ["Medium / ", 400, 0],
+                    ["Bold / ", 500, 0],
+                    ["Heavy / ", 600, 0],
+                    ["Black", 700, 0],
+                  ]}
+                  content={[
+                    <>
+                      Graph OP—1™
+                      <br /> [around
+                      <br /> 7°Kelvin]
+                    </>,
+                    <>
+                      Compiled
+                      <br /> Successful
+                      <br /> in 178 ms²
+                    </>,
+                    <>
+                      [up to 2.4
+                      <br /> GHz] Record
+                      <br /> KeyBoard
+                    </>,
+                    <>
+                      Filament ↲<br /> Function 82
+                      <br /> (Focus)
+                    </>,
+                    <>
+                      Stadelĳk’s
+                      <br /> SpezSound
+                      <br /> Color ®
+                    </>,
+                  ]}
+                  configuration={{
+                    letterSpacing: "0",
+                  }}
+                  default={[300, 0]}
+                />
+              </div>
+            </Link>
+
+            <div ref={gialloRef} id="automat-square">
+              <TypefacePreviewAutomat
+                key="004"
+                fontFamily="AutomatSquare"
+                lable="Automat"
+                weightsSQR={[
+                  ["SQR 000—005 / ", 0, 5],
+                  ["SQR 000—100 / ", 0, 100],
+                  ["SQR 050—012 / ", 50, 12],
+                  ["SQR 100—080 / ", 100, 80],
+                  ["SQR 000—030 / ", 0, 30],
+                  ["SQR 070—005 / ", 70, 5],
+                  ["SQR 090—090 / ", 90, 90],
+                  ["SQR 000—065   ", 0, 65],
+                ]}
+                weightsRND={[
+                  ["SQR 000—005 / ", 0, 5],
+                  ["SQR 000—100 / ", 0, 100],
+                  ["SQR 050—012 / ", 50, 12],
+                  ["SQR 100—080 / ", 100, 80],
+                  ["SQR 000—030 / ", 0, 30],
+                  ["SQR 070—005 / ", 70, 5],
+                  ["SQR 090—090 / ", 90, 90],
+                  ["SQR 000—065   ", 0, 65],
                 ]}
                 content={[
-                  "[ Tone ] Balance* MONO 102KHz 230MHz Kanal ",
-                  "Model №507 (Source) AC475 ⇆Emergency",
-                  "↱Pagina LP1 EN 49:2001+A⁷⁴ ¶Mail {Narrow} REAL",
-                  'Ŋeo: Wilson () { 475‰"FLARED" ↗nexus Inserg',
-                  "Inspired by Ⅷ {Abloh’s} Original ⑨Meteor Shower ",
+                  <>
+                    TOMPKIN
+                    <br /> SQUARE PARK{" "}
+                  </>,
+                  <>
+                    RIVERSIDE
+                    <br /> DR. 107TH
+                    <br /> STREET
+                  </>,
+                  <>
+                    BROOKLYN
+                    <br /> BANKS, NYC
+                  </>,
+                  <>
+                    190 BOWERY
+                    <br /> NEW YORK, NY
+                  </>,
+                  <>
+                    RIVERSIDE
+                    <br /> DR. 108TH
+                    <br /> STREET
+                  </>,
                 ]}
                 configuration={{
-                  letterSpacing: "-0.7vw",
+                  letterSpacing: "20px",
                 }}
-                default={[160, 0]}
+                default={[90, 90]}
               />
             </div>
-          </Link>
 
-          <Link href="/typefaces/protest-grotesk-mono" scroll={false}>
-            <div ref={protestMonoRef}>
-              <TypefacePreview
-                key="002"
-                fontFamily="ProtestMono"
-                lable="Protest Grotesk Mono"
-                weights={[
-                  ["Thin / ", 40, 0, 1],
-                  ["Light / ", 70, 0, 2],
-                  ["Regular / ", 100, 0, 3],
-                  ["Book / ", 130, 0, 4],
-                  ["Medium / ", 160, 0, 5],
-                  ["Bold / ", 190, 0, 6],
-                  ["Heavy / ", 220, 0, 7],
-                  ["Black", 250, 0, 8],
-                ]}
-                content={[
-                  "Graph OP—1™ [around 7°Kelvin] ",
-                  "Compiled Successful in 178 ms² ",
-                  "[up to 2.4 GHz] Record  KeyBoard",
-                  "Filament ↲ Function 82 (Focus)",
-                  "Stadelĳk’s SpezSound Color ®",
-                ]}
-                configuration={{
-                  letterSpacing: "-0.9vw",
-                }}
-                default={[40, 0]}
-              />
-            </div>
-          </Link>
-
-          <Link href="/typefaces/giallo-roman" scroll={false}>
-            <div ref={gialloRef} id="giallo-roman">
-              <TypefacePreview
-                key="001"
-                fontFamily="Giallo"
-                lable="Giallo Roman"
-                weights={[
-                  ["Light / ", 100, 0],
-                  ["Regular / ", 200, 0],
-                  ["Book / ", 300, 0],
-                  ["Medium / ", 400, 0],
-                  ["Bold / ", 500, 0],
-                  ["Heavy / ", 600, 0],
-                  ["Black", 700, 0],
-                ]}
-                content={[
-                  "Graph Tak* (Around 7°Kelvin) ",
-                  "Compiled Successful in 178 ms ",
-                  "[950 hp Modules] Sopra",
-                  "Filament ↗ Function (Focus)",
-                  "Stadelĳk’s CENTRAAL Color",
-                ]}
-                configuration={{
-                  letterSpacing: "0",
-                }}
-                default={[300, 0]}
-              />
-            </div>
-          </Link>
-
-          <div ref={gialloRef} id="automat-square">
-            <TypefacePreviewAutomat
-              key="004"
-              fontFamily="AutomatSquare"
-              lable="Automat"
-              weightsSQR={[
-                ["SQR 000—005 / ", 0, 5],
-                ["SQR 000—100 / ", 0, 100],
-                ["SQR 050—012 / ", 50, 12],
-                ["SQR 100—080 / ", 100, 80],
-                ["SQR 000—030 / ", 0, 30],
-                ["SQR 070—005 / ", 70, 5],
-                ["SQR 090—090 / ", 90, 90],
-                ["SQR 000—065   ", 0, 65],
-              ]}
-              weightsRND={[
-                ["SQR 000—005 / ", 0, 5],
-                ["SQR 000—100 / ", 0, 100],
-                ["SQR 050—012 / ", 50, 12],
-                ["SQR 100—080 / ", 100, 80],
-                ["SQR 000—030 / ", 0, 30],
-                ["SQR 070—005 / ", 70, 5],
-                ["SQR 090—090 / ", 90, 90],
-                ["SQR 000—065   ", 0, 65],
-              ]}
-              content={[
-                "TOMPKIN SQUARE PARK ",
-                "RIVERSIDE DR. 108TH STREET",
-                "BROOKLYN BANKS, NYC",
-                "190 BOWERY NEW YORK, NY",
-                "RIVERSIDE DR. 108TH STREET",
-              ]}
-              configuration={{
-                letterSpacing: "20px",
-              }}
-              default={[90, 90]}
-            />
-          </div>
-
-          {/* <div ref={gialloRef} id="giallo-roman">
+            {/* <div ref={gialloRef} id="giallo-roman">
             <TypefacePreviewAutomat
               key="004"
               fontFamily="AutomatRound"
@@ -349,10 +436,11 @@ const Typefaces = ({
             />
           </div> */}
 
-          <Footer />
+            <Footer />
+          </main>
         </motion.div>
       </AnimatePresence>
-    </main>
+    </>
   );
 };
 

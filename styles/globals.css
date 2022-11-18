@@ -79,7 +79,7 @@ body {
   --tertiary: rgba(240, 233, 198, 0.6);
   --quaternary: rgba(220, 220, 220, 0.4);
   --fifth: rgb(199, 177, 255, 0.5);
-  --fifthSolid: rgb(199, 177, 255, 0.9);
+  --fifthSolid: rgb(199, 177, 255, 1);
   --menuType: #737373;
 
   --pgSmallSize: 7.5pt;
@@ -116,11 +116,13 @@ body {
 }
 
 ::-moz-selection {
-  background: var(--fifth);
+  background: var(--fifthSolid);
+  opacity: 1;
   color: inherit;
 }
 ::selection {
-  background: var(--fifth);
+  background: var(--fifthSolid);
+  opacity: 1;
   color: inherit;
 }
 
@@ -383,7 +385,7 @@ button {
 }
 
 .typeface-single-inner {
-  margin: var(--margin-M);
+  padding: var(--margin-M);
   width: calc(100%-60px);
   height: 100%;
 }
@@ -432,7 +434,7 @@ button {
 }
 
 .typeface-single-header {
-  height: 165vh;
+  height: 100vh;
   min-height: 800px;
   overflow: hidden;
   /* background-image: url("../public/images/bg_02.png"); */
@@ -446,9 +448,9 @@ button {
 .fontOpener {
   font-family: "Protest";
   font-variation-settings: "wdth" 50, "wght" 40;
-  font-size: 6.6vw;
-  line-height: 7vw;
-  letter-spacing: -0.3vw;
+  font-size: 5.8vw;
+  line-height: 6.38vw;
+  letter-spacing: -0.35vw;
 }
 
 .fontOpenerGiallo {
@@ -462,8 +464,8 @@ button {
 .fontOpenerProtestMono {
   font-family: "ProtestMono";
   font-variation-settings: "wdth" 50, "wght" 40;
-  font-size: 5.8vw;
-  line-height: 7.5vw;
+  font-size: 5.2vw;
+  line-height: 7vw;
   letter-spacing: -0.3vw;
 }
 
@@ -488,12 +490,16 @@ button {
   font-variation-settings: var(--pgSmallVariable);
   position: sticky;
   top: 0;
-  background: rgba(255, 255, 255, 0.8);
-  padding-top: var(--margin-M);
+  left: 0;
+  /* background: rgba(255, 255, 255, 0.8); */
+  padding: var(--margin-M) var(--margin-M) 0 var(--margin-M);
   padding-bottom: 10px;
   z-index: 150;
   -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(40px);
+  width: 100vw;
+  transform: translateX(-30px);
+
 }
 
 .typefaceInfo {
@@ -517,6 +523,7 @@ button {
   border: none;
   cursor: pointer;
   transform: translateY(-10vh);
+  white-space: nowrap;
 }
 
 .typefaceControlButton {
@@ -532,6 +539,16 @@ button {
 .swiper {
   height: 100vh;
 }
+
+/* .swiper-slide {
+  width:100vw !important;
+  transition: all 1s ease;
+}
+
+.swiper-slide-active {
+  opacity: 1;
+  filter: blur(0)
+} */
 
 @keyframes changeStyle {
   0% {
@@ -745,6 +762,15 @@ button {
 .ssButtons span div:hover {
   background: var(--secondary) !important;
   color: white !important;
+}
+
+.lightBulb {
+  transform: translateY(-3px);
+  transition: all 0.2s ease
+}
+
+.lightBulb:hover {
+transform: scale(110%)
 }
 
 @media only screen and (max-width: 600px) {
@@ -985,11 +1011,29 @@ button {
   background: var(--fifth);
 }
 
+.headerAnimationWrapperGiallo {
+  background: rgb(74, 74, 0);
+}
+
+.introAnimationWrapperGiallo {
+  background: rgb(233, 255, 67);
+}
+
 .headerAnimationSubWrapper {
   animation: typoAnimation 3s ease infinite;
   color: #cccccc;
   /* width: 100vw; */
-  /* overflow: hidden; */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+}
+
+.headerAnimationSubWrapperGiallo {
+  animation: typoAnimation 6s ease infinite;
+  color: rgb(233, 255, 67);
+  /* width: 100vw; */
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: space-between;
@@ -997,7 +1041,14 @@ button {
 
 .introAnimationSubWrapper {
   animation: typoAnimation02 5s ease infinite;
+  width: 100vw;
   color: #cccccc;
+  overflow: hidden;
+}
+
+.introAnimationSubWrapperGiallo {
+  animation: typoAnimation02 5s ease infinite;
+  color: rgb(74, 74, 0);
   width: 100vw;
   overflow: hidden;
 }
@@ -1005,7 +1056,11 @@ button {
 .headerAnimationWrapper .row,
 .headerAnimationWrapper .row2,
 .introAnimationWrapper .row,
-.introAnimationWrapper .row2 {
+.introAnimationWrapper .row2,
+.headerAnimationWrapperGiallo .row,
+.headerAnimationWrapperGiallo .row2,
+.introAnimationWrapperGiallo .row,
+.introAnimationWrapperGiallo .row2 {
   display: flex;
   justify-content: center;
   /* width: 100vw; */
@@ -1027,7 +1082,20 @@ button {
   line-height: 12vw;
   letter-spacing: -0.8vw;
   white-space: nowrap;
-  /* text-align: center; */
+}
+
+.headerAnimationWrapperGiallo .row p,
+.headerAnimationWrapperGiallo .row2 p {
+  font-size: 10vw;
+  line-height: 12vw;
+  white-space: nowrap;
+}
+
+.introAnimationWrapperGiallo .row p,
+.introAnimationWrapperGiallo .row2 p {
+  font-size: 10vw;
+  line-height: 12vw;
+  white-space: nowrap;
 }
 
 .headerAnimationWrapper .row p {
@@ -1037,6 +1105,17 @@ button {
 
 .headerAnimationWrapper .row2 p {
   animation: variableAnimation 2s ease infinite alternate-reverse;
+}
+
+.headerAnimationWrapperGiallo .row p,
+.introAnimationWrapperGiallo .row p {
+  animation: variableAnimationGiallo 4s ease infinite alternate;
+  text-align: right;
+}
+
+.headerAnimationWrapperGiallo .row2 p,
+.introAnimationWrapperGiallo .row2 p {
+  animation: variableAnimationGiallo 4s ease infinite alternate-reverse;
 }
 
 .introAnimationWrapper .row p {
@@ -1129,16 +1208,39 @@ button {
   }
 }
 
+@keyframes variableAnimationGiallo {
+  0% {
+    font-variation-settings: "wght" 100;
+    font-variation-settings: "ital" 100;
+  }
+  40% {
+    font-variation-settings: "ital" 0;
+    font-variation-settings: "wght" 100;
+  }
+  50% {
+    font-variation-settings: "ital" 100;
+    font-variation-settings: "wght" 800;
+  }
+  60% {
+    font-variation-settings: "ital" 0;
+    font-variation-settings: "wght" 800;
+  }
+  100% {
+    font-variation-settings: "wght" 500;
+  }
+}
+
 .headerAnimationWrapperPGMono {
   height: 100%;
   overflow: hidden;
   width: 100vw;
   height: 165vh;
+  background: rgb(24, 24, 24);
+  color: #dddddd;
 }
 
 .headerAnimationSubWrapperPGMono {
   animation: typoAnimationPGMono 5s ease infinite;
-  color: #cccccc;
 }
 
 .headerAnimationWrapperPGMono .row {
@@ -1337,6 +1439,44 @@ button {
       line-height: 45vw;
     }
   }
+}
+
+.headerMouseAnimation {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  text-align: center;
+  letter-spacing: -1.5vw;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  transition: all 0.5 ease;
+}
+
+.headerMouseAnimation div {
+  pointer-events: none;
+}
+
+.headerMouseAnimation div span::selection {
+  color: inherit;
+  background: inherit;
+}
+
+.headerMouseIndex {
+  font-size: 7vw;
+  line-height: 10vw;
+  letter-spacing: 1.5vw;
+  font-variant-numeric: tabular-nums;
+}
+
+.smallR {
+  position: absolute;
+  font-size: 2vw;
+  font-variation-settings: "wght" 100;
+  transform: translate(2vw,4.8vw)
 }
 
 /* TRIALS */
@@ -2157,7 +2297,7 @@ button {
 .errorWrapper {
   width: 100vw;
   height: 100vh;
-  background: var(--fifth);
+  color: var(--quaternary);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2171,7 +2311,6 @@ button {
   animation: wobble 3s ease infinite alternate-reverse;
   height: 100vh;
   overflow: hidden;
-  color: white;
 }
 
 .errorWrapper span:nth-child(1) {

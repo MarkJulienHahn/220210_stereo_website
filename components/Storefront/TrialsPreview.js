@@ -66,7 +66,11 @@ const TrialsPreview = ({
         <Link href="/typefaces/trials">
           <div
             className="storefrontTrialsWrapper"
-            style={{ fontFamily: array[indx], zIndex: "999999999999" }}
+            style={{
+              fontFamily: array[indx],
+              zIndex: "999999999999",
+              // width: "90vw",
+            }}
           >
             <p
               style={{ zIndex: "999999999999", whiteSpace: "nowrap" }}
