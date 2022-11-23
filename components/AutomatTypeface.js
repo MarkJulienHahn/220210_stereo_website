@@ -27,7 +27,7 @@ const AutomatTypeface = (props) => {
 
   return (
     <section className="typefaceWrapper">
-      <Link href="/typefaces/protest-grotesk-text" scroll={false}>
+      <Link href="/typefaces/protest-grotesk" scroll={false}>
         <a>
           <div className="typefaceControl">
             <span

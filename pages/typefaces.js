@@ -105,7 +105,7 @@ const Typefaces = ({
             protestIsVisible ? Styles.buttonShow : ""
           }  `}
         >
-          <Link href="/typefaces/protest-grotesk-text" scroll={false}>
+          <Link href="/typefaces/protest-grotesk" scroll={false}>
             <a>
               <Button lable={"Protest Grotesk"} subclass={"tertiary"} />
             </a>
@@ -117,7 +117,7 @@ const Typefaces = ({
             gialloIsVisible ? Styles.buttonShow : ""
           }  `}
         >
-          <Link href="/typefaces/protest-grotesk-text" scroll={false}>
+          <Link href="/typefaces/protest-grotesk" scroll={false}>
             <a>
               <Button lable={"Giallo Roman"} subclass={"tertiary"} />
             </a>
@@ -129,7 +129,7 @@ const Typefaces = ({
             protestMonoIsVisible ? Styles.buttonShow : ""
           }  `}
         >
-          <Link href="/typefaces/protest-grotesk-text" scroll={false}>
+          <Link href="/typefaces/protest-grotesk" scroll={false}>
             <a>
               <Button lable={"Protest Grotesk Mono"} subclass={"tertiary"} />
             </a>
@@ -141,7 +141,7 @@ const Typefaces = ({
             gialloMonoIsVisible ? Styles.buttonShow : ""
           }  `}
         >
-          <Link href="/typefaces/protest-grotesk-text" scroll={false}>
+          <Link href="/typefaces/protest-grotesk" scroll={false}>
             <a>
               <Button lable={"Giallo Mono"} subclass={"tertiary"} />
             </a>
@@ -193,66 +193,65 @@ const Typefaces = ({
         >
           {" "}
           <main className={Styles.AppInner} style={darkMode ? dark : {}}>
-            <Link href="/typefaces/protest-grotesk-text" scroll={false}>
-              <div ref={protestRef} id="protest-grotesk">
-                <TypefacePreview
-                  key="001"
-                  fontFamily="Protest"
-                  lable="Protest Grotesk"
-                  weights={[
-                    ["Thin ", 40, 0],
-                    ["Italic / ", 40, 100],
-                    ["Light ", 70, 0],
-                    ["Italic / ", 70, 100],
-                    ["Regular ", 100, 0],
-                    ["Italic / ", 100, 100],
-                    ["Book ", 130, 0],
-                    ["Italic / ", 130, 100],
-                    ["Medium ", 160, 0],
-                    ["Italic / ", 160, 100],
-                    ["Bold ", 190, 0],
-                    ["Italic / ", 190, 100],
-                    ["Heavy ", 220, 0],
-                    ["Italic / ", 220, 100],
-                    ["Black ", 250, 0],
-                    ["Italic", 250, 100],
-                  ]}
-                  content={[
-                    <>
-                      [ Tone ] Balance*
-                      <br />
-                      MONO 102KHz
-                      <br />
-                      230MHz Kanal
-                    </>,
-                    <>
-                      Model №507 <br />
-                      (Source) AC475
-                      <br /> ⇆Emergency
-                    </>,
-                    <>
-                      ↱Pagina LP1 <br />
-                      EN 49:2001+A⁷⁴
-                      <br /> ¶Mail &#123;Narrow&#125;
-                    </>,
-                    <>
-                      Ŋeo: Wilson () <br /> 475‰"FLARED"
-                      <br /> ↗nexus Inserg
-                    </>,
-                    <>
-                      Inspired by Ⅷ <br /> &#123;Abloh’s&#125; Original
-                      <br /> ⑨Meteor Shower{" "}
-                    </>,
-                  ]}
-                  configuration={{
-                    letterSpacing: "-0.7vw",
-                  }}
-                  default={[160, 0]}
-                />
-              </div>
-            </Link>
+            <div ref={protestRef} id="protest-grotesk">
+              <TypefacePreview
+                key="001"
+                fontFamily="Protest"
+                lable="Protest Grotesk"
+                weights={[
+                  ["Thin ", 40, 0],
+                  ["Italic / ", 40, 100],
+                  ["Light ", 70, 0],
+                  ["Italic / ", 70, 100],
+                  ["Regular ", 100, 0],
+                  ["Italic / ", 100, 100],
+                  ["Book ", 130, 0],
+                  ["Italic / ", 130, 100],
+                  ["Medium ", 160, 0],
+                  ["Italic / ", 160, 100],
+                  ["Bold ", 190, 0],
+                  ["Italic / ", 190, 100],
+                  ["Heavy ", 220, 0],
+                  ["Italic / ", 220, 100],
+                  ["Black ", 250, 0],
+                  ["Italic", 250, 100],
+                ]}
+                content={[
+                  <>
+                    [ Tone ] Balance*
+                    <br />
+                    MONO 102KHz
+                    <br />
+                    230MHz Kanal
+                  </>,
+                  <>
+                    Model №507 <br />
+                    (Source) AC475
+                    <br /> ⇆Emergency
+                  </>,
+                  <>
+                    ↱Pagina LP1 <br />
+                    EN 49:2001+A⁷⁴
+                    <br /> ¶Mail &#123;Narrow&#125;
+                  </>,
+                  <>
+                    Ŋeo: Wilson () <br /> 475‰&quot;FLARED&quot;
+                    <br /> ↗nexus Inserg
+                  </>,
+                  <>
+                    Inspired by Ⅷ <br /> &#123;Abloh’s&#125; Original
+                    <br /> ⑨Meteor Shower{" "}
+                  </>,
+                ]}
+                configuration={{
+                  letterSpacing: "-0.7vw",
+                }}
+                default={[160, 0]}
+                slug={"protest-grotesk"}
+              />
+            </div>
 
-            <Link href="/typefaces/protest-grotesk-mono" scroll={false}>
+
               <div ref={protestMonoRef}>
                 <TypefacePreview
                   key="002"
@@ -298,11 +297,12 @@ const Typefaces = ({
                     letterSpacing: "-0.9vw",
                   }}
                   default={[40, 0]}
+                  slug={"protest-grotesk-mono"}
                 />
               </div>
-            </Link>
 
-            <Link href="/typefaces/giallo-roman" scroll={false}>
+
+
               <div ref={gialloRef} id="giallo-roman">
                 <TypefacePreview
                   key="001"
@@ -347,9 +347,10 @@ const Typefaces = ({
                     letterSpacing: "0",
                   }}
                   default={[300, 0]}
+                  slug={"giallo-roman"}
                 />
               </div>
-            </Link>
+
 
             <div ref={gialloRef} id="automat-square">
               <TypefacePreviewAutomat

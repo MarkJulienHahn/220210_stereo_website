@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import Link from "next/link";
 import MouseButton from "./MouseButton";
 
 const TypefacePreview = (props) => {
@@ -71,7 +71,10 @@ const TypefacePreview = (props) => {
     <div className="typefaceWrapper">
       <div className="typefaceControl">
         <span className="typefaceInfo">
-          → {props.lable} <p>{props.weights.length} Weights, from 90 EUR</p>
+          <Link href={`/typefaces/${props.slug}`} scroll={false}>
+            <a>→ {props.lable}</a>
+          </Link>{" "}
+          <p>{props.weights.length} Weights, from 90 EUR</p>
         </span>
 
         {props.weights.map((item) => (
@@ -92,15 +95,16 @@ const TypefacePreview = (props) => {
       </div>
 
       <MouseButton lable={buttonContent} />
-
-      <div
-        className="typefaceDisplay"
-        style={style01}
-        onMouseEnter={() => updateButtonContent("SHOW SPECIMEN")}
-        onMouseLeave={() => updateButtonContent("")}
-      >
-        <div>{props.content[nmbr]}</div>
-      </div>
+      <Link href={`/typefaces/${props.slug}`} scroll={false}>
+        <div
+          className="typefaceDisplay"
+          style={style01}
+          onMouseEnter={() => updateButtonContent("SHOW SPECIMEN")}
+          onMouseLeave={() => updateButtonContent("")}
+        >
+          <div>{props.content[nmbr]}</div>
+        </div>
+      </Link>
     </div>
   );
 };

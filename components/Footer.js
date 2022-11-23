@@ -67,7 +67,7 @@ const Footer = () => {
               </div>
 
               <p className={"copyright"}>
-                © {new Date().getFullYear()} Stereo Typefaces™ <br />
+                © {new Date().getFullYear()} Stereo Typefaces® <br />
                 All rights reserved.
               </p>
             </div>
@@ -138,7 +138,7 @@ const data = [
         </p>
         <p className="footerInfoHead">Call Berlin</p>
         <p>
-          <a href="">+49 152 03 56 93 05</a>
+          +49 152 03 56 93 05
         </p>
         <p className="footerInfoHead">Email</p>
         <p>
@@ -167,21 +167,23 @@ const data = [
         <br />
         <Link href="/licensing#desktop">DESKTOP LICENSE</Link> &#8594; for print
         products, signage and so on <br />
-        <Link href="/licensing#web">WEB LICENSE</Link> &#8594; for an embedded font on a
-        website
+        <Link href="/licensing#web">WEB LICENSE</Link> &#8594; for an embedded
+        font on a website
         <br />
-        <Link href="/licensing#app">APP/GAME LICENSE</Link> &#8594; for an embedded font
-        in an interactive game or application
+        <Link href="/licensing#app">APP/GAME LICENSE</Link> &#8594; for an
+        embedded font in an interactive game or application
         <br />
         <br />
         For bigger projects there are more specific licenses:
         <br />
-        <Link href="/licensing#social">SOCIAL MEDIA LICENSE</Link> &#8594; for use in
-        a social network
+        <Link href="/licensing#social">SOCIAL MEDIA LICENSE</Link> &#8594; for
+        use in a social network
         <br />
-        <Link href="/licensing#logo">LOGO LICENSE</Link> &#8594; for use as a brand logo or wordmark
+        <Link href="/licensing#logo">LOGO LICENSE</Link> &#8594; for use as a
+        brand logo or wordmark
         <br />
-        <Link href="/licensing#video">VIDEO LICENSE</Link> &#8594; for use in a movie, streaming platform or video billboard
+        <Link href="/licensing#video">VIDEO LICENSE</Link> &#8594; for use in a
+        movie, streaming platform or video billboard
         <br />
         <br />
         Click here for&nbsp;
@@ -229,7 +231,9 @@ const data = [
       <>
         <p>
           We offer a detailed general terms ans conditions (GTC) for for our
-          webshop. <br/><br/>Click here for{" "}
+          webshop. <br />
+          <br />
+          Click here for{" "}
           <Link href="/generalTerms">
             THE CURRENT VERSION (1.0 / OCTOBER 22)
           </Link>
@@ -239,7 +243,7 @@ const data = [
     ),
   },
   {
-    title: "Legal Notice",
+    title: "Legal Notice / Privacy Policy",
     content: (
       <>
         <p>
@@ -250,11 +254,12 @@ const data = [
           <Link href="/legals">Show Full Legal Notice</Link>
         </p>
 
-        <p className="footerInfoHead">© 2022 Stereo Typefaces™</p>
+        <p className="footerInfoHead">
+          © {new Date().getFullYear()} Stereo Typefaces®
+        </p>
       </>
     ),
   },
-
 ];
 
 export default Footer;

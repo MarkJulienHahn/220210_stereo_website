@@ -43,7 +43,7 @@ const StorefrontProtest = ({
         ></div>
       </div>
       {/* <div className={"storefrontLinkWrapper"}>
-        <Link href="/typefaces/protest-grotesk-text">
+        <Link href="/typefaces/protest-grotesk">
           <div className={"storefrontLink"}>
             <a>
               Protest Grotesk® Family

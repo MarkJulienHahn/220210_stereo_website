@@ -505,7 +505,7 @@ const Checkout = ({
               BIC SOBK DEB2 XXX
               Solarisbank AG
               
-              TAX-NBR..     23/327/00964`,
+              VAT-NR.: DE350313597`,
               style: "footer",
             },
             {

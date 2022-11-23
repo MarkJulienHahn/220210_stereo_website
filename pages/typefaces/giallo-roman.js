@@ -3,10 +3,7 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-
-import image01 from "../../public/images/image_01.png";
 
 import HeaderAnimation from "../../components/HeaderAnimation";
 import Typetester from "../../components/Typetester";
@@ -14,8 +11,10 @@ import Button from "../../components/Button";
 import WaterfallGialloRoman from "../../components/WaterfallGialloRoman";
 import Glyphchart from "../../components/GlyphchartProtestGrotesk";
 import Footer from "../../components/Footer";
+import FontPreview from "../../components/FontPreview";
 
 const Checkout = dynamic(() => import("../../components/Checkout/Checkout"));
+const Trials = dynamic(() => import("../../components/Trials"));
 
 const GialloRoman = ({
   products,
@@ -368,6 +367,20 @@ const GialloRoman = ({
             </p>
 
             <Glyphchart fontFamily="Giallo" fontWeight={100} fontWidth={50} />
+
+            <FontPreview
+              fonts={[
+                {
+                  name: "Protest Grotesk",
+                  font: "Protest",
+                  slug: "protest-grotesk",
+                  animation: "protest-animation",
+                  reversed: true,
+                  styles: 8,
+                  italic: true,
+                },
+              ]}
+            />
 
             <Footer />
           </main>

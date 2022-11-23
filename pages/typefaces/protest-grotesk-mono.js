@@ -3,7 +3,6 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 import HeaderAnimation from "../../components/HeaderAnimation";
@@ -14,6 +13,7 @@ import Cartbutton from "../../components/Cartbutton";
 import WaterfallProtestMono from "../../components/WaterfallProtestMono";
 import GlyphchartProtestMono from "../../components/GlyphchartProtestMono";
 import Footer from "../../components/Footer";
+import FontPreview from "../../components/FontPreview";
 
 const Checkout = dynamic(() => import("../../components/Checkout/Checkout"));
 const Trials = dynamic(() => import("../../components/Trials"));
@@ -580,29 +580,27 @@ const ProtestGroteskMono = ({
               fontWidth={50}
             />
 
-            {/* <div class="features-wrapper">
-                        <Features 
-                            state1={"alternative"}
-                            state2={"alternative"}
-                            wght={100} 
-                            ital={0} 
-                            style="ss01"
-                        />   
-                        <Features 
-                            state1={"g"}
-                            state2={"g"}
-                            wght={100} 
-                            ital={0} 
-                            style="ss02"
-                        />    
-                        <Features 
-                            state1={"g"}
-                            state2={"g"}
-                            wght={100} 
-                            ital={0} 
-                            style="ss02"
-                        />  
-                    </div> */}
+            <FontPreview
+              fonts={[
+                {
+                  name: "Protest Grotesk",
+                  font: "Protest",
+                  slug: "protest-grotesk",
+                  animation: "protest-animation",
+                  reversed: true,
+                  styles: 8,
+                  italic: true,
+                },
+                {
+                  name: "Giallo Roman",
+                  font: "Giallo",
+                  slug: "giallo-roman",
+                  animation: "giallo-animation",
+                  styles: 7,
+                  oblique: true,
+                },
+              ]}
+            />
 
             <Footer />
           </main>
