@@ -192,7 +192,7 @@ const Legals = () => {
                       personal data consisting of the use of personal data to
                       evaluate certain personal aspects relating to a natural
                       person, in particular to analyse or predict aspects
-                      concerning that natural person's performance at work,
+                      concerning that natural person&apos;s performance at work,
                       economic situation, health, personal preferences,
                       interests, reliability, behaviour, location or movements.{" "}
                     </p>
@@ -262,7 +262,7 @@ const Legals = () => {
                     <h2>k)    Consent</h2>
                     <p>
                       Consent of the data subject is any freely given, specific,
-                      informed and unambiguous indication of the data subject's
+                      informed and unambiguous indication of the data subject&apos;s
                       wishes by which he or she, by a statement or by a clear
                       affirmative action, signifies agreement to the processing
                       of personal data relating to him or her.{" "}
@@ -315,7 +315,7 @@ const Legals = () => {
                   to utilize our website. The website user that uses cookies,
                   e.g. does not have to enter access data each time the website
                   is accessed, because this is taken over by the website, and
-                  the cookie is thus stored on the user's computer system.
+                  the cookie is thus stored on the user&apos;s computer system.
                   Another example is the cookie of a shopping cart in an online
                   shop. The online store remembers the articles that a customer
                   has placed in the virtual shopping cart via a cookie.
@@ -415,14 +415,14 @@ const Legals = () => {
                 <p>
                   On the website of the Stereo Typefaces Hahn und Obst GbR,
                   users are given the opportunity to subscribe to our
-                  enterprise's newsletter. The input mask used for this purpose
+                  enterprise&apos;s newsletter. The input mask used for this purpose
                   determines what personal data are transmitted, as well as when
                   the newsletter is ordered from the controller.
                 </p>
                 <p>
                   The Stereo Typefaces Hahn und Obst GbR informs its customers
                   and business partners regularly by means of a newsletter about
-                  enterprise offers. The enterprise's newsletter may only be
+                  enterprise offers. The enterprise&apos;s newsletter may only be
                   received by the data subject if (1) the data subject has a
                   valid e-mail address and (2) the data subject registers for
                   the newsletter shipping. A confirmation e-mail will be sent to
@@ -812,18 +812,18 @@ const Legals = () => {
                       data controller, or (2) is not authorised by Union or
                       Member State law to which the controller is subject and
                       which also lays down suitable measures to safeguard the
-                      data subject's rights and freedoms and legitimate
-                      interests, or (3) is not based on the data subject's
+                      data subject&apos;s rights and freedoms and legitimate
+                      interests, or (3) is not based on the data subject&apos;s
                       explicit consent.
                     </p>
 
                     <p>
                       If the decision (1) is necessary for entering into, or the
                       performance of, a contract between the data subject and a
-                      data controller, or (2) it is based on the data subject's
+                      data controller, or (2) it is based on the data subject&apos;s
                       explicit consent, the Stereo Typefaces Hahn und Obst GbR
                       shall implement suitable measures to safeguard the data
-                      subject's rights and freedoms and legitimate interests, at
+                      subject&apos;s rights and freedoms and legitimate interests, at
                       least the right to obtain human intervention on the part
                       of the controller, to express his or her point of view and
                       contest the decision.

@@ -37,22 +37,7 @@ const HeaderAnimation = ({
 
   // WINDOWBREITE HERAUSFINDEN + MAUSPOSITION HERAUSFINDEN
 
-  if (typeof window !== "undefined") {
-    const { windowHeight, windowWidth } = useWindowDimensions();
 
-    const updateWght = (i) => {
-      setWght(Math.floor(i * (wghtMax - wghtMin)) + wghtMin);
-    };
-
-    const updateItal = (i) => {
-      setItal(Math.floor(i * 101));
-    };
-
-    useEffect(() => {
-      updateItal(x / windowWidth);
-      updateWght(y / windowHeight);
-    }, [x, y]);
-  }
 
   useEffect(() => {
     const update = (e) => {
@@ -87,7 +72,22 @@ const HeaderAnimation = ({
     return i < 10 ? `00${i}` : i < 100 ? `0${i}` : i;
   };
 
-  console.log(x, y);
+  if (typeof window !== "undefined") {
+    const { windowHeight, windowWidth } = useWindowDimensions();
+
+    const updateWght = (i) => {
+      setWght(Math.floor(i * (wghtMax - wghtMin)) + wghtMin);
+    };
+
+    const updateItal = (i) => {
+      setItal(Math.floor(i * 101));
+    };
+
+    useEffect(() => {
+      updateItal(x / windowWidth);
+      updateWght(y / windowHeight);
+    }, [x, y]);
+  }
 
   return (
     <>
