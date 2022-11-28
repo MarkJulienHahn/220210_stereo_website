@@ -15,7 +15,7 @@
     pointer-events: auto;
     position: fixed;
     bottom: 0;
-    background: var(--quaternary);
+    background: rgba(220, 220, 220, 0.7);;
     margin-bottom: var(--margin-M);
     border-radius: 3px;
     transition: width 0.3s cubic-bezier(0.19, 1, 0.22, 1), height 0.3s cubic-bezier(0.19, 1, 0.22, 1);
@@ -35,7 +35,7 @@
     height: 0px;
     list-style: none;
     transform: translateY(-7px);
-    opacity: 0.7;
+    opacity: 0.6;
     transition: font-variation-settings .5s ease;
 }
 
@@ -59,7 +59,7 @@
     z-index: 101;
     font-size: 28px;
     color: var(--menuType);
-    opacity: 0.5;
+    opacity: 0.3;
 }
 
 @media only screen and (max-width: 1300px) {

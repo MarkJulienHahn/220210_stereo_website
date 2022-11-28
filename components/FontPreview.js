@@ -7,7 +7,7 @@ export default function FontPreview({ fonts }) {
   return (
     <div className={"fontPreviewWrapper"} ref={ref1}>
       <h2>
-        → Similar Typefaces
+        → Check out more Typefaces
         <br />
       </h2>
       <div className={"fontPreviewContainer"}>

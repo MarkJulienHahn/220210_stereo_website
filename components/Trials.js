@@ -138,8 +138,7 @@ const Trials = ({ setShowTrials }) => {
                       style={!check ? unchecked : checked}
                       onClick={() => setCheckbox1(!checkbox1)}
                     >
-                      I agree to Stereo Typefaces’{" "}
-                      <a href="">terms of service</a>
+                      I agree to Stereo Typefaces’ <a href="">terms of service</a>
                     </p>
                   </div>
                   <div className={styles.checkboxes}>

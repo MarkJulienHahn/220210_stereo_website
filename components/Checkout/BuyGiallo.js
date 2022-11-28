@@ -20,6 +20,7 @@ const BuyGiallo = ({
   NumEmployees,
   scrollDown,
   loading,
+  setFontPreview,
 }) => {
   const [hoverFullFamily, setHoverFullFamily] = useState(false);
   const [hoverBundle1, setHoverBundle1] = useState(false);
@@ -210,6 +211,33 @@ const BuyGiallo = ({
     setAddBundle3(JSON.parse(data3));
   });
 
+  const varObject = [
+    { fontFamily: "Giallo", lable: "Giallo Roman Light", wght: 100 },
+    { fontFamily: "Giallo", lable: "Giallo Roman Light", wght: 100, obli: 100 },
+    { fontFamily: "Giallo", lable: "Giallo Roman Regular", wght: 200 },
+    {
+      fontFamily: "Giallo",
+      lable: "Giallo Roman Regular",
+      wght: 200,
+      obli: 100,
+    },
+    { fontFamily: "Giallo", lable: "Giallo Roman Book", wght: 300 },
+    { fontFamily: "Giallo", lable: "Giallo Roman Book", wght: 300, obli: 100 },
+    { fontFamily: "Giallo", lable: "Giallo Roman Medium", wght: 400 },
+    {
+      fontFamily: "Giallo",
+      lable: "Giallo Roman Medium",
+      wght: 400,
+      obli: 100,
+    },
+    { fontFamily: "Giallo", lable: "Giallo Roman Bold", wght: 500 },
+    { fontFamily: "Giallo", lable: "Giallo Roman Bold", wght: 500, obli: 100 },
+    { fontFamily: "Giallo", lable: "Giallo Roman Heavy", wght: 600 },
+    { fontFamily: "Giallo", lable: "Giallo Roman Heavy", wght: 600, obli: 100 },
+    { fontFamily: "Giallo", lable: "Giallo Roman Black", wght: 700 },
+    { fontFamily: "Giallo", lable: "Giallo Roman Black", wght: 700, obli: 100 },
+  ];
+
   return (
     <div
       onMouseEnter={() => {
@@ -222,7 +250,7 @@ const BuyGiallo = ({
       <p className={styles.buyConfigurationHead}>Bundles</p>
 
       {/* FULL FAMILY */}
-      
+
       <div
         item
         onClick={
@@ -395,8 +423,16 @@ const BuyGiallo = ({
 
       <p className={styles.buyConfigurationHead}>Single Styles</p>
 
-      {gialloStyles.map((product) => (
-        <>
+      {gialloStyles.map((product, i) => (
+        <div key={i} className={styles.choiceWrapper}>
+          <div
+            className={styles.varValues}
+            onClick={() => {
+              setFontPreview(varObject[i]);
+            }}
+          >
+            SHOW
+          </div>
           <div
             item
             onClick={
@@ -436,7 +472,7 @@ const BuyGiallo = ({
               addBundle3={addBundle3}
             />
           </div>
-        </>
+        </div>
       ))}
     </div>
   );

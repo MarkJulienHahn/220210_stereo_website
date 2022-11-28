@@ -131,7 +131,7 @@ const Typefaces = ({
         >
           <Link href="/typefaces/protest-grotesk" scroll={false}>
             <a>
-              <Button lable={"Protest Grotesk Mono"} subclass={"tertiary"} />
+              <Button lable={"Protest Mono"} subclass={"tertiary"} />
             </a>
           </Link>
         </div>
@@ -352,7 +352,7 @@ const Typefaces = ({
               </div>
 
 
-            <div ref={gialloRef} id="automat-square">
+            <div id="automat-square">
               <TypefacePreviewAutomat
                 key="004"
                 fontFamily="AutomatSquare"

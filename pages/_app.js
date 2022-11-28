@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import { Analytics } from "@vercel/analytics/react";
 import { AnimatePresence, motion } from "framer-motion";
 import { commerce } from "../lib/commerce";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
@@ -98,7 +99,7 @@ function MyApp({ Component, pageProps }) {
     localStorage.setItem("cookieSeen", "true");
   };
 
-  useEffect( () => {
+  useEffect(() => {
     fetchProducts();
     fetchCart();
     refreshCart();
@@ -118,7 +119,10 @@ function MyApp({ Component, pageProps }) {
       />
 
       {!cookieSeen ? (
-        <div className="cookieWrapper" style={fadeCookie ? { opacity: 0 } : { opacity: 1 }}>
+        <div
+          className="cookieWrapper"
+          style={fadeCookie ? { opacity: 0 } : { opacity: 1 }}
+        >
           <Cookie acceptCookie={acceptCookie} />
         </div>
       ) : (
@@ -157,6 +161,7 @@ function MyApp({ Component, pageProps }) {
               setOrder={setOrder}
               refreshCart={refreshCart}
             />
+            <Analytics />
           </Layout>
         </motion.div>
       </AnimatePresence>

@@ -20,6 +20,7 @@ const BuyProtest = ({
   NumEmployees,
   scrollDown,
   loading,
+  setFontPreview,
 }) => {
   const [hoverFullFamily, setHoverFullFamily] = useState(false);
   const [hoverBundle1, setHoverBundle1] = useState(false);
@@ -216,7 +217,16 @@ const BuyProtest = ({
     setAddBundle3(JSON.parse(data3));
   });
 
-console.log(protestBundles)
+  const varObject = [
+    { fontFamily: "ProtestMono", lable: "Protest Mono Thin", wght: 40 },
+    { fontFamily: "ProtestMono", lable: "Protest Mono Light", wght: 70 },
+    { fontFamily: "ProtestMono", lable: "Protest Mono Regular", wght: 100 },
+    { fontFamily: "ProtestMono", lable: "Protest Mono Book", wght: 130 },
+    { fontFamily: "ProtestMono", lable: "Protest Mono Medium", wght: 160 },
+    { fontFamily: "ProtestMono", lable: "Protest Mono Bold", wght: 190 },
+    { fontFamily: "ProtestMono", lable: "Protest Mono Heavy", wght: 220 },
+    { fontFamily: "ProtestMono", lable: "Protest Mono Black", wght: 250 },
+  ];
 
   return (
     <div
@@ -409,8 +419,16 @@ console.log(protestBundles)
 
       <p className={styles.buyConfigurationHead}>Single Styles</p>
 
-      {protestStyles.map((product) => (
-        <>
+      {protestStyles.map((product, i) => (
+        <div key={i} className={styles.choiceWrapper}>
+        <div
+          className={styles.varValues}
+          onClick={() => {
+            setFontPreview(varObject[i]);
+          }}
+        >
+          SHOW
+        </div>
           <div
             item
             onClick={
@@ -450,7 +468,7 @@ console.log(protestBundles)
               addBundle3={addBundle3}
             />
           </div>
-        </>
+        </div>
       ))}
     </div>
   );

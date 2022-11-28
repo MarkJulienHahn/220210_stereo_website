@@ -15,6 +15,7 @@
     "@sendgrid/mail": "^7.6.2",
     "@stripe/react-stripe-js": "^1.7.0",
     "@stripe/stripe-js": "^1.25.0",
+    "@vercel/analytics": "^0.1.5",
     "axios": "^0.26.1",
     "braintree-web": "^3.85.3",
     "contentful": "^9.1.31",

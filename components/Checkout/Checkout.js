@@ -12,6 +12,8 @@ import BuyGiallo from "./BuyGiallo";
 import BuyProtest from "./BuyProtest";
 import BuyProtestMono from "./BuyProtestMono";
 
+import CheckoutFontPreview from "./CheckoutFontPreview";
+
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "../../public/fonts/vfs_fonts";
 
@@ -83,6 +85,8 @@ const Checkout = ({
   const [licenceChoice, setLicenceChoice] = useState(false);
 
   const [animated, setAnimated] = useState(false);
+
+  const [fontPreview, setFontPreview] = useState(null);
 
   const Licence = [
     `${DesktopLicence && `${DesktopLicence},`} ${
@@ -1281,6 +1285,64 @@ const Checkout = ({
                 </div>
               </div>
 
+              <CheckoutFontPreview
+                fontPreview={fontPreview}
+                setFontPreview={setFontPreview}
+              />
+
+              {/* <CheckoutFontPreview
+                content={[
+                  {
+                    font: "Protest",
+                    lable: "Protest Grotesk Thin",
+                    wght: 40,
+                    italic: true,
+                  },
+                  {
+                    font: "Protest",
+                    lable: "Protest Grotesk Light",
+                    wght: 70,
+                    italic: true,
+                  },
+                  {
+                    font: "Protest",
+                    lable: "Protest Grotesk Regular",
+                    wght: 100,
+                    italic: true,
+                  },
+                  {
+                    font: "Protest",
+                    lable: "Protest Grotesk Book",
+                    wght: 130,
+                    italic: true,
+                  },
+                  {
+                    font: "Protest",
+                    lable: "Protest Grotesk Medium",
+                    wght: 160,
+                    italic: true,
+                  },
+                  {
+                    font: "Protest",
+                    lable: "Protest Grotesk Bold",
+                    wght: 190,
+                    italic: true,
+                  },
+                  {
+                    font: "Protest",
+                    lable: "Protest Grotesk Heavy",
+                    wght: 220,
+                    italic: true,
+                  },
+                  {
+                    font: "Protest",
+                    lable: "Protest Grotesk Black",
+                    wght: 250,
+                    italic: true,
+                  },
+                ]}
+              /> */}
+
               <div className={styles.buyTable}>
                 <p className={styles.buyHead} ref={checkoutList}>
                   [ 2 ] TYPEFACE
@@ -1381,6 +1443,7 @@ const Checkout = ({
                           Licence={Licence}
                           NumEmployees={NumEmployees}
                           scrollDown={scrollDown}
+                          setFontPreview={setFontPreview}
                         />
                       </div>
                     )}
@@ -1411,6 +1474,7 @@ const Checkout = ({
                           Licence={Licence}
                           NumEmployees={NumEmployees}
                           scrollDown={scrollDown}
+                          setFontPreview={setFontPreview}
                         />
                       </div>
                     )}
@@ -1436,6 +1500,7 @@ const Checkout = ({
                         Licence={Licence}
                         NumEmployees={NumEmployees}
                         scrollDown={scrollDown}
+                        setFontPreview={setFontPreview}
                       />
                     )}
                   </div>

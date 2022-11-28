@@ -2,6 +2,7 @@ import React from "react";
 import styles from "../../styles/ProductChoice.module.css";
 
 const ProductChoice = (props) => {
+
   let inCart = false;
 
   const items = props.cart.line_items;
@@ -50,7 +51,7 @@ const ProductChoice = (props) => {
           (props.addBundle2 && inBundle2) ||
           (props.addBundle3 && inBundle3) ||
           props.addFullFamily
-            ? {pointerEvents: "none"}
+            ? { pointerEvents: "none" }
             : normal
         }
       >
@@ -74,7 +75,6 @@ const ProductChoice = (props) => {
             className={styles.productName}
           >
             {props.name}
-            <span className={styles.productDescription}></span>
           </span>
           <span style={normal} className={styles.productPrice}>
             {inCart ? "ADDED" : props.price}
@@ -90,7 +90,6 @@ const ProductChoice = (props) => {
         <div style={added} className={styles.productWrapper}>
           <span className={styles.productName}>
             {props.name}
-            <span className={styles.productDescription}></span>
           </span>
           <span style={primary} className={styles.productPrice}>
             {inCart ? "ADDED" : props.price}

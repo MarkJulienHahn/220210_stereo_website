@@ -61,7 +61,7 @@
 }
 
 .buyConfigurationHead:first-child {
-  padding-top: 0
+  padding-top: 0;
 }
 
 .buyConfiguration {
@@ -252,7 +252,7 @@
   color: var(--primary);
   display: flex;
   justify-content: space-between;
-  width: 100%; 
+  width: 100%;
 }
 
 .cartRemove {
@@ -308,6 +308,44 @@
 
 .emptyCartMobile {
   display: none;
+}
+
+.fontPreviewWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  padding: var(--margin-M);
+  font-size: 4vw;
+  line-height: 4vw;
+  letter-spacing: -0.15vw;
+  border-radius: 10px;
+  cursor: pointer;
+  animation: appear 0.5s ease-out;
+}
+
+
+.choiceWrapper:hover .varValues {
+  display: block
+}
+
+.varValues {
+  position: absolute;
+  right: 120px;
+  display: none;
+  font-size: 9pt;
+  line-height: 25pt;
+  cursor: pointer;
+}
+
+.varValues:hover {
+  color: var(--primary)
 }
 
 @keyframes appear {

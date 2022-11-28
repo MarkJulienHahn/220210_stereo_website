@@ -1,10 +1,15 @@
-const Layout = ({children}) => {
+import { AnalyticsWrapper } from './Analytics.js';
+
+export default function RootLayout({ children }) {
   return (
-      <>     
-
-            {children}
-      </>
-  )
-}  
-
-export default Layout;
+    <html lang="en">
+      <head>
+        <title>Stereo Typefaces®</title>
+      </head>
+      <body>
+        {children}
+        <AnalyticsWrapper />
+      </body>
+    </html>
+  );
+}

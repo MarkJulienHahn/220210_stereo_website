@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 export default function useWindowDimensions() {
+// FALLBACK FOR SSR IN NEXT.JS
   function getWindowDimensions() {
     if (typeof window !== "undefined") {
       const { innerWidth: windowWidth, innerHeight: windowHeight } = window;

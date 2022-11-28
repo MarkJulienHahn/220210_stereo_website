@@ -20,6 +20,7 @@ const BuyProtest = ({
   NumEmployees,
   scrollDown,
   loading,
+  setFontPreview,
 }) => {
   const [hoverFullFamily, setHoverFullFamily] = useState(false);
   const [hoverBundle1, setHoverBundle1] = useState(false);
@@ -216,6 +217,25 @@ const BuyProtest = ({
     setAddBundle3(JSON.parse(data3));
   });
 
+  const varObject = [
+    { fontFamily: "Protest", lable: "Protest Grotesk Thin", wght: 40 },
+    { fontFamily: "Protest", lable: "Protest Grotesk Thin", wght: 40, ital: 100 },
+    { fontFamily: "Protest", lable: "Protest Grotesk Light", wght: 70 },
+    { fontFamily: "Protest", lable: "Protest Grotesk Light", wght: 70, ital: 100 },
+    { fontFamily: "Protest", lable: "Protest Grotesk Regular", wght: 100 },
+    { fontFamily: "Protest", lable: "Protest Grotesk Regular", wght: 100, ital: 100 },
+    { fontFamily: "Protest", lable: "Protest Grotesk Book", wght: 130 },
+    { fontFamily: "Protest", lable: "Protest Grotesk Book", wght: 130, ital: 100 },
+    { fontFamily: "Protest", lable: "Protest Grotesk Medium", wght: 160 },
+    { fontFamily: "Protest", lable: "Protest Grotesk Medium", wght: 160, ital: 100 },
+    { fontFamily: "Protest", lable: "Protest Grotesk Bold", wght: 190 },
+    { fontFamily: "Protest", lable: "Protest Grotesk Bold", wght: 190, ital: 100 },
+    { fontFamily: "Protest", lable: "Protest Grotesk Heavy", wght: 220 },
+    { fontFamily: "Protest", lable: "Protest Grotesk Heavy", wght: 220, ital: 100 },
+    { fontFamily: "Protest", lable: "Protest Grotesk Black", wght: 250 },
+    { fontFamily: "Protest", lable: "Protest Grotesk Black", wght: 250, ital: 100 },
+  ];
+
   return (
     <div
       onMouseEnter={() => {
@@ -286,7 +306,7 @@ const BuyProtest = ({
                   NumEmployees
                 ),
                   onAddToCart(protestBundles[1].id, 1 * priceFactor);
-                  setTimeout(scrollDown(), 1000);
+                setTimeout(scrollDown(), 1000);
                 clearBundle1();
                 updateBundle1(true);
               }
@@ -331,7 +351,7 @@ const BuyProtest = ({
                 ),
                   clearBundle2(),
                   onAddToCart(protestBundles[2]?.id, 1 * priceFactor);
-                  setTimeout(scrollDown(), 1000);
+                setTimeout(scrollDown(), 1000);
                 updateBundle2(true);
               }
             : () => {
@@ -376,7 +396,7 @@ const BuyProtest = ({
                 ),
                   clearBundle3(),
                   onAddToCart(protestBundles[3]?.id, 1 * priceFactor);
-                  setTimeout(scrollDown(), 1000);
+                setTimeout(scrollDown(), 1000);
                 updateBundle3(true);
               }
             : () => {
@@ -407,8 +427,16 @@ const BuyProtest = ({
 
       <p className={styles.buyConfigurationHead}>Single Styles</p>
 
-      {protestStyles.map((product) => (
-        <>
+      {protestStyles.map((product, i) => (
+        <div key={i} className={styles.choiceWrapper}>
+          <div
+            className={styles.varValues}
+            onClick={() => {
+              setFontPreview(varObject[i]);
+            }}
+          >
+            SHOW
+          </div>
           <div
             item
             onClick={
@@ -418,7 +446,7 @@ const BuyProtest = ({
                 ? () => {
                     updateLicenceType(product.name, Licence, NumEmployees),
                       onAddToCart(product.id, 1 * priceFactor);
-                      setTimeout(scrollDown(), 1000);
+                    setTimeout(scrollDown(), 1000);
                   }
                 : () =>
                     onRemoveFromCart(
@@ -448,7 +476,7 @@ const BuyProtest = ({
               addBundle3={addBundle3}
             />
           </div>
-        </>
+        </div>
       ))}
     </div>
   );
