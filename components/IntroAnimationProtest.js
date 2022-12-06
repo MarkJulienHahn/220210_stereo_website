@@ -3,7 +3,8 @@ import React, { useState, useEffect } from "react";
 const IntroAnimationProtest = () => {
   const [index, setIndex] = useState(0);
 
-  const array = ["Original } Or", "Range 102KHz", "Model №507", "Tone/Bal*"];
+  // const array = ["Original } Or", "Range 102KHz", "Model №507", "Tone/Bal*"];
+  const array = ["FFFFFFFFFFFF", "AAAAAAAAAAAAAA", "Variable", "Fonts", "stepless", "Multi", `"Axis"`]
 
   useEffect(() => {
     const timer = setInterval(() => {
