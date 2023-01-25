@@ -13,11 +13,9 @@ import Cartbutton from "../components/Cartbutton";
 
 const Projects = ({
   cart,
-  live,
   showCheckout,
   setShowCheckout,
   products,
-  cart,
   checkoutToken,
   handleAddToCart,
   handleEmptyCart,
