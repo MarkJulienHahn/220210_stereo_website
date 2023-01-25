@@ -387,7 +387,8 @@ const Home = ({
                 content={[
                   <>
                     TOMPKIN
-                    <br /> SQUARE PARK{" "}
+                    <br /> SQUARE PARK
+                    <br /> 142B
                   </>,
                   <>
                     RIVERSIDE
@@ -397,10 +398,12 @@ const Home = ({
                   <>
                     BROOKLYN
                     <br /> BANKS, NYC
+                    <br /> US OF A
                   </>,
                   <>
                     190 BOWERY
                     <br /> NEW YORK, NY
+                    <br /> STEREO
                   </>,
                   <>
                     RIVERSIDE

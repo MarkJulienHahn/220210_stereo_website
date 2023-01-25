@@ -18,8 +18,6 @@ const Features = ( name ) => {
     }
 
 
-    console.log(name[Object.keys(name)[1]])
-
     const featureStyleBefore = {
         fontVariationSettings: `'wght' ${name[Object.keys(name)[2]]}, 'wdth' 50`,
       }

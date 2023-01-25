@@ -35,8 +35,6 @@ function Glyphchart(props) {
     updateStyleset((prevValue) => styleset);
   }
 
-  console.log(props.darkMode, props.dark)
-
   return (
     <div >
       <div className="glyphchartWrapper" style={glyphStyle}>

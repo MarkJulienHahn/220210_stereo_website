@@ -457,15 +457,15 @@ button {
 .fontOpenerGiallo {
   font-family: "Giallo";
   font-variation-settings: "wdth" 50, "wght" 40;
-  font-size: 7.2vw;
+  font-size: 6.45vw;
   line-height: 7.5vw;
-  letter-spacing: -0.3vw;
+  letter-spacing: -0vw;
 }
 
 .fontOpenerProtestMono {
   font-family: "ProtestMono";
   font-variation-settings: "wdth" 50, "wght" 40;
-  font-size: 5.2vw;
+  font-size: 5.8vw;
   line-height: 7vw;
   letter-spacing: -0.3vw;
 }

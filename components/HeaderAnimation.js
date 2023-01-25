@@ -15,6 +15,7 @@ const HeaderAnimation = ({
   size,
   italic,
   lineHeight,
+letterSpacing
 }) => {
   const { ref: ref1, inView: isVisible } = useInView();
 
@@ -73,6 +74,7 @@ const HeaderAnimation = ({
   const headerStyle = {
     fontSize: size,
     lineHeight: lineHeight,
+    letterSpacing: letterSpacing,
     marginTop: "2vw",
     fontVariationSettings: `"wght" ${wght}
     , "ital" ${ital}`,

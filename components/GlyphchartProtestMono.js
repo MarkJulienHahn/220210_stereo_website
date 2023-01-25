@@ -18,6 +18,8 @@ function GlyphchartProtestMono(props) {
   const glyphDisplay = {
     fontFeatureSettings: `${styleset}`,
     fontVariationSettings: `'wght' ${wght}, 'wdth' ${props.fontWidth}, 'ital' ${ital}`,
+    background: props.darkMode && props.dark.background,
+    color: props.darkMode && props.dark.color
   };
 
   function changeWght(e, wght) {
@@ -68,7 +70,7 @@ function GlyphchartProtestMono(props) {
           <div className="glyphchartDisplayMobile" style={glyphDisplay}>
             {glyph}
 
-            <div className="glyphchartSliderMobile">
+            <div className="glyphchartSliderMobile"  style={glyphDisplay}>
               <div className="glyphchartSliderSingle">
                 <p>&#8594; Weight</p>
                 <Slider

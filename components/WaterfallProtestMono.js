@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "../styles/WaterfallProtestMono.module.css";
 import { Slider } from "@material-ui/core";
 
-const WaterfallProtestMono = () => {
+const WaterfallProtestMono = ({darkMode}) => {
   const [wdth, setWdth] = useState(Math.floor(Math.random()*8)*30+40);
 
   const changeWdth = (e, val) => {
@@ -49,6 +49,9 @@ const WaterfallProtestMono = () => {
     },
   ];
 
+  const dark = {background: "rgba(0,0,0,0.6)", color: "white"}
+  const light = {background: "rgba(255,255,255,0.6)", color: "white"}
+
   return (
     <div style={fontWeightStyle} className={`${styles.waterfallWrapper}`}>
       <div className={styles.controls}>
@@ -62,11 +65,23 @@ const WaterfallProtestMono = () => {
           marks={marks}
         />
       </div>
+      <div className={styles.controlsMobile} style={darkMode ? dark : light}>
+        <div className={styles.controlsMobileWrapper}>
+          <Slider
+            className={styles.slider}
+            min={40}
+            max={250}
+            step={0.1}
+            defaultValue={wdth}
+            onChange={changeWdth}
+          />
+        </div>
+      </div>
       <div className={styles.waterfallRow}>
         <div className={`${styles.waterfallSingle} ${styles.xxl}`}>
           Person
           <br />
-          [Sale]
+          stall*
         </div>
       </div>
       <div className={styles.waterfallRow}>

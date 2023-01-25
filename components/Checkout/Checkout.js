@@ -1372,24 +1372,26 @@ const Checkout = ({
                     }
                     onClick={() => setShowBuy("Giallo")}
                   />
-                  <div
-                    style={{ opacity: "0.6" }}
-                    onMouseEnter={() => updateButtonContent("Coming Soon!")}
-                    onMouseLeave={() => updateButtonContent("")}
-                  >
-                    <Button
-                      lable={"Giallo Roman Mono"}
-                      subclass={"quaternaryMuted"}
-                    />
-                  </div>
+                  <span className={styles.buyComingSoon}>
+                    <div
+                      style={{ opacity: "0.6" }}
+                      onMouseEnter={() => updateButtonContent("Coming Soon!")}
+                      onMouseLeave={() => updateButtonContent("")}
+                    >
+                      <Button
+                        lable={"Giallo Roman Mono"}
+                        subclass={"quaternaryMuted"}
+                      />
+                    </div>
 
-                  <div
-                    style={{ opacity: "0.6" }}
-                    onMouseEnter={() => updateButtonContent("Coming Soon!")}
-                    onMouseLeave={() => updateButtonContent("")}
-                  >
-                    <Button lable={"Automat"} subclass={"quaternaryMuted"} />
-                  </div>
+                    <div
+                      style={{ opacity: "0.6" }}
+                      onMouseEnter={() => updateButtonContent("Coming Soon!")}
+                      onMouseLeave={() => updateButtonContent("")}
+                    >
+                      <Button lable={"Automat"} subclass={"quaternaryMuted"} />
+                    </div>
+                  </span>
                 </div>
 
                 <div

@@ -33,9 +33,9 @@ const GialloRoman = ({
   live,
   getPaypalPaymentId,
   refreshCart,
-  darkMode, 
+  darkMode,
   setDarkMode,
-  dark
+  dark,
 }) => {
   const [showCheckout, setShowCheckout] = useState(false);
   const [showTrials, setShowTrials] = useState(false);
@@ -139,9 +139,10 @@ const GialloRoman = ({
               font={"Giallo"}
               wghtMin={100}
               wghtMax={800}
+              letterSpacing={"1px"}
               italic={true}
-              color={"#D7DCE0"}
-              background={"#FFFDF7"}
+              color={!darkMode ? "#D7DCE0" : "#FFFDF7"}
+              background={darkMode ? "black" : "#FFFDF7"}
             />
           </div>
 
@@ -244,7 +245,7 @@ const GialloRoman = ({
               users. Giallo Roman is placed right into thes field of tension.
             </p>
 
-            <WaterfallGialloRoman />
+            <WaterfallGialloRoman darkMode={darkMode} />
 
             <p>&#8594; INFORMATION</p>
             <p>
@@ -267,84 +268,124 @@ const GialloRoman = ({
                 ital={0}
                 name={"Giallo Roman Thin"}
                 fontFamily="Protest"
+                sample="85 packages are looking for funding run `npm fund` for detailsDetected  Next.js version: 12.0.8Running »npm run build«"
               />
               <Typetester
                 wght={100}
                 ital={100}
                 name={"Giallo Roman Thin Oblique"}
                 fontFamily="Protest"
+                sample="Attention: Next.js now collects completely anonymous telemetry regarding usage. This information is used to shape Next.js' roadmap and prioritize features.
+                You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+                https://nextjs.org/telemetry"
               />
               <Typetester
                 wght={200}
                 ital={0}
                 name={"Giallo Roman Light"}
                 fontFamily="Protest"
+                sample={
+                  "69:6  Warning: React Hook useEffect has a missing dependency: 'checkoutToken?.id'. Either inc"
+                }
               />
               <Typetester
                 wght={200}
                 ital={100}
                 name={"Giallo Roman Light Oblique"}
                 fontFamily="Protest"
+                sample={
+                  "203:3  Warning: React Hook useEffect contains a call to 'setAddFullFamily'. Without a list of dependencies, this can lead to an infinite chain of updates. To fix this, pass [] as a second argument to the useEffect Hook.  react-hooks/exhaustive-deps"
+                }
               />
               <Typetester
                 wght={300}
                 ital={0}
                 name={"Giallo Roman Regular"}
                 fontFamily="Protest"
+                sample="Attention: Next.js now collects completely anonymous telemetry regarding usage. This information is used to shape Next.js' roadmap and prioritize features.
+                You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+                https://nextjs.org/telemetry"
               />
               <Typetester
                 wght={300}
                 ital={100}
                 name={"Giallo Roman Regular Oblique"}
                 fontFamily="Protest"
+                sample={
+                  "69:6  Warning: React Hook useEffect has a missing dependency: 'checkoutToken?.id'. Either inc"
+                }
               />
               <Typetester
                 wght={400}
                 ital={0}
                 name={"Giallo Roman Book"}
                 fontFamily="Protest"
+                sample={
+                  "203:3  Warning: React Hook useEffect contains a call to 'setAddFullFamily'. Without a list of dependencies, this can lead to an infinite chain of updates. To fix this, pass [] as a second argument to the useEffect Hook.  react-hooks/exhaustive-deps"
+                }
               />
               <Typetester
                 wght={400}
                 ital={100}
                 name={"Giallo Roman Book Oblique"}
                 fontFamily="Protest"
+                sample={
+                  "69:6  Warning: React Hook useEffect has a missing dependency: 'checkoutToken?.id'. Either inc"
+                }
               />
               <Typetester
                 wght={500}
                 ital={0}
                 name={"Giallo Roman Medium"}
                 fontFamily="Protest"
+                sample={
+                  "69:6  Warning: React Hook useEffect has a missing dependency: 'checkoutToken?.id'. Either inc"
+                }
               />
               <Typetester
                 wght={500}
                 ital={100}
                 name={"Giallo Roman Medium Oblique"}
                 fontFamily="Protest"
+                sample={
+                  "203:3  Warning: React Hook useEffect contains a call to 'setAddFullFamily'. Without a list of dependencies, this can lead to an infinite chain of updates. To fix this, pass [] as a second argument to the useEffect Hook.  react-hooks/exhaustive-deps"
+                }
               />
               <Typetester
                 wght={600}
                 ital={0}
                 name={"Giallo Roman Bold"}
                 fontFamily="Protest"
+                sample={
+                  "203:3  Warning: React Hook useEffect contains a call to 'setAddFullFamily'. Without a list of dependencies, this can lead to an infinite chain of updates. To fix this, pass [] as a second argument to the useEffect Hook.  react-hooks/exhaustive-deps"
+                }
               />
               <Typetester
                 wght={600}
                 ital={100}
                 name={"Giallo Roman Bold Oblique"}
                 fontFamily="Protest"
+                sample={
+                  "69:6  Warning: React Hook useEffect has a missing dependency: 'checkoutToken?.id'. Either inc"
+                }
               />
               <Typetester
                 wght={700}
                 ital={0}
                 name={"Giallo Roman Black"}
                 fontFamily="Protest"
+                sample={
+                  "203:3  Warning: React Hook useEffect contains a call to 'setAddFullFamily'. Without a list of dependencies, this can lead to an infinite chain of updates. To fix this, pass [] as a second argument to the useEffect Hook.  react-hooks/exhaustive-deps"
+                }
               />
               <Typetester
                 wght={700}
                 ital={100}
                 name={"Giallo Roman Black Oblique"}
                 fontFamily="Protest"
+                sample={
+                  "69:6  Warning: React Hook useEffect has a missing dependency: 'checkoutToken?.id'. Either inc"
+                }
               />
             </div>
 
@@ -363,7 +404,13 @@ const GialloRoman = ({
               users. Giallo Roman is placed right into thes field of tension.
             </p>
 
-            <Glyphchart fontFamily="Giallo" fontWeight={100} fontWidth={50} />
+            <Glyphchart
+              fontFamily="Giallo"
+              fontWeight={100}
+              fontWidth={50}
+              darkMode={darkMode}
+              dark={dark}
+            />
 
             <FontPreview
               fonts={[
@@ -375,7 +422,7 @@ const GialloRoman = ({
                   reversed: true,
                   styles: 8,
                   italic: true,
-                  letter: "Gg"
+                  letter: "Gg",
                 },
                 {
                   name: "Protest Mono",
@@ -384,7 +431,7 @@ const GialloRoman = ({
                   animation: "protest-animation",
                   reversed: false,
                   styles: 8,
-                  letter: "Rr"
+                  letter: "Rr",
                 },
               ]}
             />

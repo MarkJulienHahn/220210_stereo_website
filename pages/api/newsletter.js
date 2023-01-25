@@ -22,8 +22,6 @@ export default async function handler(req, res) {
     }
   };
 
-  console.log(data);
-
   return sgMail
     .send(data)
     .then((response) => console.log("Email sent..."))

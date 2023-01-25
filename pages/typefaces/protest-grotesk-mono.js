@@ -35,9 +35,9 @@ const ProtestGroteskMono = ({
   live,
   getPaypalPaymentId,
   refreshCart,
-  darkMode, 
+  darkMode,
   setDarkMode,
-  dark
+  dark,
 }) => {
   const [showCheckout, setShowCheckout] = useState(false);
   const [showTrials, setShowTrials] = useState(false);
@@ -51,7 +51,6 @@ const ProtestGroteskMono = ({
       block: "start",
     });
   };
-
 
   return (
     <>
@@ -154,8 +153,8 @@ const ProtestGroteskMono = ({
               italic={false}
               wghtMin={40}
               wghtMax={250}
-              color={"#292B36"}
-              background={"var(--primary)"}
+              color={!darkMode ? "#292B36" : "var(--primary)"}
+              background={darkMode ? "#292B36" : "var(--primary)"}
             />
           </div>
 
@@ -294,7 +293,7 @@ const ProtestGroteskMono = ({
               users. Protest Grotesk is placed right into thes field of tension.
             </p>
 
-            <WaterfallProtestMono />
+            <WaterfallProtestMono darkMode={darkMode} />
 
             <p>&#8594; INFORMATION</p>
             <p>
@@ -576,6 +575,8 @@ const ProtestGroteskMono = ({
               fontFamily="ProtestMono"
               fontWeight={100}
               fontWidth={50}
+              darkMode={darkMode}
+              dark={dark}
             />
 
             <FontPreview
@@ -588,7 +589,7 @@ const ProtestGroteskMono = ({
                   reversed: true,
                   styles: 8,
                   italic: true,
-                  letter: "Gg"
+                  letter: "Gg",
                 },
                 {
                   name: "Giallo Roman",
@@ -597,7 +598,7 @@ const ProtestGroteskMono = ({
                   animation: "giallo-animation",
                   styles: 7,
                   oblique: true,
-                  letter: "Aa"
+                  letter: "Aa",
                 },
               ]}
             />

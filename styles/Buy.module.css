@@ -191,6 +191,10 @@
   opacity: 0.3;
 }
 
+.buyComingSoon {
+  display: flex;
+}
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -368,6 +372,11 @@
     flex-direction: column;
   }
 
+  .buyConfiguration {
+    height: 100%;
+    padding-bottom: 0;
+  }
+
   .buyTable {
     margin: var(--margin-L) 0;
   }
@@ -388,9 +397,12 @@
     display: none;
   }
 
+  .buyComingSoon {
+    display: none;
+  }
+
   .mobileLicensingButton {
-    display: block;
-    padding-top: calc(2 * var(--margin-M));
+    display: none;
   }
 
   .cartHead {

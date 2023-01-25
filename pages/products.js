@@ -18,8 +18,6 @@ const Products = ({ products, cart, live }) => {
     x.categories.find((y) => y.name === "Physical")
   );
 
-  console.log(physical);
-
   return (
     <main className="AppInner">
       <Head>

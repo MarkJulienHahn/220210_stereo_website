@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import styles from "../styles/WaterfallGialloRoman.module.css";
 import { Slider } from "@material-ui/core";
 
-const WaterfallGialloRoman = () => {
-  const [wdth, setWdth] = useState(Math.floor(Math.random()*7)*100+100);
+const WaterfallGialloRoman = ({ darkMode }) => {
+  const [wdth, setWdth] = useState(Math.floor(Math.random() * 7) * 100 + 100);
 
   const changeWdth = (e, val) => {
     setWdth(val);
@@ -44,6 +44,9 @@ const WaterfallGialloRoman = () => {
     },
   ];
 
+  const dark = { background: "rgba(0,0,0,0.6)", color: "white" };
+  const light = { background: "rgba(255,255,255,0.6)", color: "white" };
+
   return (
     <div style={fontWeightStyle} className={`${styles.waterfallWrapper}`}>
       <div className={styles.controls}>
@@ -57,9 +60,22 @@ const WaterfallGialloRoman = () => {
           marks={marks}
         />
       </div>
+      <div className={styles.controlsMobile} style={darkMode ? dark : light}>
+        <div className={styles.controlsMobileWrapper}>
+          <Slider
+            className={styles.slider}
+            min={100}
+            max={700}
+            step={0.1}
+            defaultValue={wdth}
+            onChange={changeWdth}
+          />
+        </div>
+      </div>
       <div className={styles.waterfallRow}>
         <div className={`${styles.waterfallSingle} ${styles.xxl}`}>
-          “H2Odio” —2006
+          “H2Odio”
+          <br /> —2006
         </div>
       </div>
       <div className={styles.waterfallRow}>
@@ -68,13 +84,13 @@ const WaterfallGialloRoman = () => {
         </div>
         <div className={`${styles.waterfallElement} ${styles.l}`}>
           Il thrilling assunse una connotazione sempre più violenta ed erotica,
-          specializzandosi soprattutto nella descrizione della figura
+          soprattutto nella descrizione della figura
           dell’assassino
         </div>
       </div>
       <div className={styles.waterfallRow}>
         <div className={`${styles.waterfallSingle} ${styles.xxl}`}>
-        L’uomo dagli occhi di ghiaccio
+          L’uomo dagli occhi di ghiaccio
         </div>
       </div>
       <div className={styles.waterfallRow}>

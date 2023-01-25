@@ -205,12 +205,12 @@ const ProtestGroteskText = ({
               name={"Protest Grotesk"}
               size={"23vw"}
               lineHeight={"20vw"}
-              font={"Protest Grotesk"}
+              font={"Protest"}
               wghtMin={40}
               wghtMax={251}
               italic={true}
-              color={"#EBEBEB"}
-              background={"var(--fifth)"}
+              color={!darkMode ? "#EBEBEB": "var(--fifth)"}
+              background={darkMode ? "black": "var(--fifth)"}
             />
           </div>
 

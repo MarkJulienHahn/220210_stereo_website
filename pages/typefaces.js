@@ -61,8 +61,6 @@ const Typefaces = ({
     background: "black",
   };
 
-  console.log(automatIsVisible)
-
   return (
     <>
       <Head>
