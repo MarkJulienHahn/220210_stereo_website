@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import useWindowDimensions from "../Hooks/useWindowDimensions";
 import dynamic from "next/dynamic";
 
 import styles from "../../styles/Buy.module.css";
@@ -85,6 +86,8 @@ const Checkout = ({
   const [licenceChoice, setLicenceChoice] = useState(false);
 
   const [animated, setAnimated] = useState(false);
+
+  const { windowWidth } = useWindowDimensions();
 
   const [fontPreview, setFontPreview] = useState(null);
 
@@ -801,7 +804,7 @@ const Checkout = ({
   const checkoutList = useRef(null);
 
   const scrollDown = () => {
-    setTimeout(function () {
+    windowWidth > 1000 && setTimeout(function () {
       checkoutOverview.current.scrollIntoView({
         behavior: "smooth",
         block: "start",
@@ -810,7 +813,7 @@ const Checkout = ({
   };
 
   const scrollUp = () => {
-    checkoutList.current.scrollIntoView({
+    windowWidth > 1000 && checkoutList.current.scrollIntoView({
       behavior: "smooth",
       block: "end",
     });
@@ -900,7 +903,9 @@ const Checkout = ({
             <div className={styles.buyTableWrapper}>
               <div className={styles.buyConfigurationWrapper}>
                 <ul className={styles.buyConfiguration}>
-                  <li className={`${styles.buyConfigurationHead} ${styles.buyConfigurationHeadMain}`}>
+                  <li
+                    className={`${styles.buyConfigurationHead} ${styles.buyConfigurationHeadMain}`}
+                  >
                     [ 1 ] LICENSE TYPE
                   </li>
                   <div
@@ -1344,7 +1349,10 @@ const Checkout = ({
               /> */}
 
               <div className={styles.buyTable}>
-                <p className={`${styles.buyHead} ${styles.buyConfigurationHeadMain}`} ref={checkoutList}>
+                <p
+                  className={`${styles.buyHead} ${styles.buyConfigurationHeadMain}`}
+                  ref={checkoutList}
+                >
                   [ 2 ] TYPEFACE
                 </p>
 

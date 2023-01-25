@@ -155,7 +155,7 @@ const ProtestGroteskText = ({
           </a>
         </Link> */}
 
-        <Button lable={"Protest Grotesk"} subclass={"quaternaryMuted"} />
+        <Button lable={"Protest Grotesk"} subclass={"quaternaryActive"} />
       </div>
 
       <div className="buttonsRightWrapper">

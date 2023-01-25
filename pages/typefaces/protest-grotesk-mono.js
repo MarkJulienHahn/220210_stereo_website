@@ -97,7 +97,7 @@ const ProtestGroteskMono = ({
           </a>
         </Link> */}
 
-        <Button lable={"Protest Mono"} subclass={"quaternaryMuted"} />
+        <Button lable={"Protest Mono"} subclass={"quaternaryActive"} />
       </div>
 
       <div className="buttonsRightWrapper">

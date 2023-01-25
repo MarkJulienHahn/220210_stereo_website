@@ -334,9 +334,8 @@
   animation: appear 0.5s ease-out;
 }
 
-
 .choiceWrapper:hover .varValues {
-  display: block
+  display: block;
 }
 
 .varValues {
@@ -349,7 +348,7 @@
 }
 
 .varValues:hover {
-  color: var(--primary)
+  color: var(--primary);
 }
 
 @keyframes appear {
@@ -358,6 +357,24 @@
   }
   100% {
     opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .buyTableButtons {
+    top: 25px;
+  }
+  .buttonsMobileWrapper {
+    bottom: calc(2 * var(--margin-M) + 13px);
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1000px) {
+  .buyTableButtons {
+    top: 25px;
+  }
+  .buttonsMobileWrapper {
+    bottom: calc(58px);
   }
 }
 
@@ -378,8 +395,6 @@
     padding-top: 75px;
   }
 
-
-
   .buyConfigurationHeadMain {
     text-align: center;
   }
@@ -387,7 +402,6 @@
   .buyConfiguration li:hover {
     color: unset;
   }
-  
 
   .buyTable {
     margin: var(--margin-L) 0;
@@ -401,8 +415,11 @@
   .buyTableButtons {
     position: sticky;
     width: 100%;
-    top: 26px;
     z-index: 100;
+  }
+
+  .buyTableButtons div {
+    margin-bottom: 0;
   }
 
   .buyWrapper .buttonsRightWrapper {
@@ -437,7 +454,7 @@
     flex-direction: column;
     width: calc(100vw - 2 * var(--margin-M));
     position: fixed;
-    bottom: calc(2 * var(--margin-M) + 13px);
+
     z-index: 1000;
   }
 
@@ -504,6 +521,10 @@
     margin-top: var(--margin-M);
     position: fixed;
     top: 0;
+  }
+
+  .buttonsLeftWrapper div:nth-child(3) {
+    display: none;
   }
 
   .buyWrapper .buttonsLeftWrapper div {

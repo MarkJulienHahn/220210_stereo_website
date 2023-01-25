@@ -133,7 +133,7 @@ const Home = ({
       <div className="buttonsLeftWrapper">
         <Link href="/" scroll={false}>
           <a>
-            <Button lable={"Home"} subclass={"quaternaryMuted"} />
+            <Button lable={"Home"} subclass={"quaternaryActive"} />
           </a>
         </Link>
 

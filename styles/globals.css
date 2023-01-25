@@ -278,6 +278,12 @@ button {
 }
 
 #quaternaryMuted {
+  color: rgba(0,0,0,0.5);
+  background: var(--quaternary);
+  cursor: default;
+}
+
+#quaternaryActive {
   background: var(--quaternary);
   cursor: default;
 }
@@ -562,6 +568,12 @@ button {
   }
   100% {
     font-variation-settings: "ital" 0, "wght" 40;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1000px) {
+  .typefaceControl {
+    padding-top: 70px;
   }
 }
 

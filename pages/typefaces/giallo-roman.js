@@ -93,7 +93,7 @@ const GialloRoman = ({
           </a>
         </Link> */}
 
-        <Button lable={"Giallo Roman"} subclass={"quaternaryMuted"} />
+        <Button lable={"Giallo Roman"} subclass={"quaternaryActive"} />
       </div>
 
       <div className="buttonsRightWrapper">
