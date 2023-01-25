@@ -11,7 +11,7 @@ import TrialsPreviewSingle from "../components/Storefront/TrialsPreviewSingle";
 import TrialsSingle from "../components/TrialsSingle";
 
 
-const trials = ({ cart, setShowCheckout, live }) => {
+const Trials = ({ cart, setShowCheckout, live }) => {
   const [showTrials, setShowTrials] = useState(false);
   const location = useRouter();
   return (
@@ -48,4 +48,4 @@ const trials = ({ cart, setShowCheckout, live }) => {
   );
 };
 
-export default trials;
+export default Trials;
