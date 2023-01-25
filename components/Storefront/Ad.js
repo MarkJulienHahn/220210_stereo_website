@@ -1,11 +1,12 @@
 import React from "react";
 import { useSwiperSlide, useSwiper } from "swiper/react";
 import { useEffect } from "react";
-import Image from "next/image";
+import Image from "next/image"
+import Link from "next/link"
 
 import styles from "../../styles/Storefront.module.css";
 
-import image02 from "../../public/images/ad_platzhalter.png";
+import image02 from "../../public/images/stereo-typefaces_protest-grotesk_overview_02.gif";
 
 const Ad = ({
   setCategory,
@@ -52,6 +53,17 @@ const Ad = ({
           onClick={() => swiper.slideNext()}
         ></div>
       </div>
+      {/* <div className={"storefrontLinkWrapper"}>
+        <Link href="/typefaces/protest-grotesk">
+          <div className={"storefrontLink"}>
+            <a>
+              Protest Grotesk® Family
+              <br />8 Weights{" "}
+              <span className={"storefrontItalic"}>+ Italics</span>
+            </a>
+          </div>
+        </Link>
+      </div> */}
       <div
         style={{
           // width: "50vw",
@@ -60,15 +72,16 @@ const Ad = ({
           justifyContent: "center",
         }}
       >
-        <div style={{ height: "100vh", width: `${1170/1600*100}vh`}}>
-          <Image
+        <div style={{ height: "100vh" }}>
+          {/* <Image
             // layout="fill"
             object-fit="contain"
             src={image02}
             placeholder="blur"
-            width={1170}
-            height={1600}
-          />
+            width={10000}
+            height={10000}
+          /> */}
+                    <Image src={image02} layout="fill" objectFit="cover" />
         </div>
       </div>
     </>

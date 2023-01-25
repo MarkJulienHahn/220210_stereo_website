@@ -19,6 +19,7 @@
   backdrop-filter: blur(12px);
   font-family: "Protest";
   text-transform: uppercase;
+  color: black;
 }
 
 .button:hover {

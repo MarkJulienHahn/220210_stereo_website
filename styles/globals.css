@@ -80,7 +80,7 @@ body {
   --quaternary: rgba(220, 220, 220, 0.4);
   --fifth: rgb(199, 177, 255, 0.5);
   --fifthSolid: rgb(199, 177, 255, 1);
-  --menuType: #737373;
+  --menuType: rgb(255,255,255);
 
   --pgSmallSize: 7.5pt;
   --pgSmallLineHeight: 15pt;
@@ -182,7 +182,7 @@ button {
   height: 20px;
   text-align: center;
   color: var(--menuType);
-  opacity: 0.4;
+  opacity: 0.8;
   transition: opacity 0.3s linear;
 }
 
@@ -439,8 +439,7 @@ button {
   height: 100vh;
   min-height: 800px;
   overflow: hidden;
-  /* background-image: url("../public/images/bg_02.png"); */
-  background: white;
+  cursor: pointer;
 }
 
 .typeface-single-opener {
@@ -568,27 +567,30 @@ button {
 
 @media only screen and (max-width: 600px) {
   .typefaceWrapper {
-    height: 60vh;
-    padding-top: 55px;
+    letter-spacing: 1.5px;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+    height: inherit
   }
 
   .typefaceControl {
-    font-size: 20pt;
-    line-height: 25pt;
-    letter-spacing: -0.6px;
+    font-size: 14pt;
+    line-height: 20pt;
+    letter-spacing: -0.2px;
     position: relative;
-    padding-bottom: 10vh;
+    margin-left: 16px;
     z-index: 150;
   }
 
-  .typefaceInfo p,
-  .typefaceControlButton {
-    display: none;
-  }
   .typefaceDisplay {
-    height: 50vh;
-    font-size: 10vw;
-    animation: changeStyle 5s ease 0s infinite alternate;
+    font-size: 12vw;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    position: relative;
+    padding-top: 122px;
+    /* animation: changeStyle 5s ease 0s infinite alternate; */
   }
 
   .typefaceInfosectionList {
@@ -602,6 +604,9 @@ button {
 
   .typefaceInfosection {
     padding-bottom: var(--margin-XL);
+  }
+  .typefaceSpecs {
+    display: none;
   }
 }
 
@@ -1498,9 +1503,11 @@ button {
 }
 
 .trialsSingleWrapper {
+  position: fixed;
+  top: 0;
   height: 100vh;
   width: 100vw;
-  background: var(--primary);
+  /* background: var(--primary); */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1509,12 +1516,13 @@ button {
 .formTrialsWrapper {
   width: 100vw;
   height: 100vh;
+  /* -webkit-backdrop-filter: blur(30px);
+  backdrop-filter: blur(30px); */
 }
 
 .formTrials {
   width: clamp(100px, 70vw, 1000px);
-  background: white;
-  opacity: 0.8;
+  background: rgba(255,255,255,0.6);
   padding: var(--margin-M);
   border-radius: 3px;
   -webkit-backdrop-filter: blur(30px);
@@ -1714,9 +1722,7 @@ button {
   animation-iteration-count: infinite;
 }
 
-.storefrontTrialsWrapper:hover {
-  color: var(--primary);
-  background: var(--fifth);
+.storefrontTrialsWrapper p {
   cursor: pointer;
 }
 
@@ -1754,7 +1760,8 @@ button {
   width: 100vw;
   height: 100vh;
   z-index: 999999999999;
-  color: var(--fifthSolid);
+  color: white;
+  /* opacity: 0.95; */
   font-size: 23pt;
   line-height: 22pt;
   font-variation-settings: "wght" 150;
@@ -1767,6 +1774,10 @@ button {
 .storefrontLink {
   pointer-events: auto;
   cursor: pointer;
+  background: var(--fifth);
+  padding: 20px 20px 14px;
+  border-radius: 5px;
+  backdrop-filter: blur(9px);
 }
 
 .storefrontLink:hover {
@@ -2042,7 +2053,7 @@ button {
 /* INFO */
 
 .infoWrapper {
-  margin: var(--margin-M);
+  padding: var(--margin-M);
 }
 
 .infoText {
@@ -2412,8 +2423,14 @@ button {
   justify-content: space-between;
 }
 
+.automatToolContent_01, 
+.automatToolContent_02 {
+  position: absolute;
+}
+
 .automatToolContent_01 p,
 .automatToolContent_02 p {
+
   -webkit-text-stroke-width: 0.5px;
   text-stroke: 0.5px;
   transition: font-variation-settings 0.5s ease, font-size 0.5s ease,

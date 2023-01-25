@@ -35,7 +35,7 @@ export default function FontPreview({ fonts }) {
                     : "",
                 }}
               >
-                Gg
+                {font.letter}
               </div>
             </Link>
           </div>

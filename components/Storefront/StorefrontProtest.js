@@ -1,4 +1,3 @@
-
 import { useSwiperSlide, useSwiper } from "swiper/react";
 import { useEffect } from "react";
 
@@ -54,7 +53,7 @@ const StorefrontProtest = ({
         </Link>
       </div> */}
       <div className="typeface-single-header">
-      <IntroAnimationProtest />
+        <IntroAnimationProtest />
       </div>
     </>
   );

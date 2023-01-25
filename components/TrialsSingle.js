@@ -89,21 +89,21 @@ const TrialsSingle = ({ setShowTrials }) => {
   return (
     <>
       <div className="trialsSingleWrapper" style={fadeTrials ? fade : notFade}>
-        <div className="buttonsLeftWrapper" scroll={false}>
+        {/* <div className="buttonsLeftWrapper" scroll={false}>
           <Link href="/" scroll={false}>
             <a>
               <Button lable={"Home"} subclass={"tertiary"} />
             </a>
           </Link>
 
-          <Link href="/typefaces" scroll={false}>
+          {/* <Link href="/typefaces" scroll={false}>
             <a>
               <Button lable={"Typefaces"} subclass={"tertiary"} />
             </a>
-          </Link>
+          </Link> 
 
           <Button lable={"Trials"} subclass={"quaternaryMuted"} />
-        </div>
+        </div> */}
         <div className="formTrials" onClick={() => {}}>
           {!fulfilled ? (
             <>

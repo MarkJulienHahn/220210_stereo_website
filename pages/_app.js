@@ -24,6 +24,13 @@ function MyApp({ Component, pageProps }) {
 
   const [loading, setLoading] = useState(false);
 
+  const [darkMode, setDarkMode] = useState(false);
+
+  const dark = {
+    color: "white",
+    background: "rgba(0,0,0,0.9",
+  };
+
   const fetchProducts = async () => {
     const { data } = await commerce.products.list({ limit: 1000 });
 
@@ -110,7 +117,7 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   return (
-    <>
+    <div style={darkMode ? {dark} : {}}>
       <PayPalScriptProvider
         options={{
           "client-id": process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID,
@@ -129,7 +136,7 @@ function MyApp({ Component, pageProps }) {
         ""
       )}
 
-      <Nav />
+      <Nav darkMode={darkMode}/>
 
       <AnimatePresence
         exitBeforeEnter
@@ -160,12 +167,15 @@ function MyApp({ Component, pageProps }) {
               loading={loading}
               setOrder={setOrder}
               refreshCart={refreshCart}
+              darkMode={darkMode}
+              setDarkMode={setDarkMode}
+              dark={dark}
             />
             <Analytics />
           </Layout>
         </motion.div>
       </AnimatePresence>
-    </>
+    </div>
   );
 }
 

@@ -33,10 +33,12 @@ const GialloRoman = ({
   live,
   getPaypalPaymentId,
   refreshCart,
+  darkMode, 
+  setDarkMode,
+  dark
 }) => {
   const [showCheckout, setShowCheckout] = useState(false);
   const [showTrials, setShowTrials] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
   const location = useRouter();
 
   const checkoutOverview = useRef(null);
@@ -46,11 +48,6 @@ const GialloRoman = ({
       behavior: "smooth",
       block: "start",
     });
-  };
-
-  const dark = {
-    color: "white",
-    background: "black",
   };
 
   return (
@@ -90,11 +87,11 @@ const GialloRoman = ({
           </a>
         </Link>
 
-        <Link href="/typefaces" scroll={false}>
+        {/* <Link href="/typefaces" scroll={false}>
           <a>
             <Button lable={"Typefaces"} subclass={"tertiary"} />
           </a>
-        </Link>
+        </Link> */}
 
         <Button lable={"Giallo Roman"} subclass={"quaternaryMuted"} />
       </div>
@@ -378,6 +375,16 @@ const GialloRoman = ({
                   reversed: true,
                   styles: 8,
                   italic: true,
+                  letter: "Gg"
+                },
+                {
+                  name: "Protest Mono",
+                  font: "ProtestMono",
+                  slug: "protest-grotesk-mono",
+                  animation: "protest-animation",
+                  reversed: false,
+                  styles: 8,
+                  letter: "Rr"
                 },
               ]}
             />

@@ -1,12 +1,11 @@
 .AppInner {
-    margin: var(--margin-M)
+    padding: var(--margin-M);
 }
 
 .projectHeader {
     font-family: 'Giallo';
     font-size: 20pt;
-    letter-spacing: -1px;
-    line-height: 22pt;
+    line-height: 23pt;
     top: var(--margin-M);
     margin-bottom: 50px;
 }
@@ -34,7 +33,7 @@
 
 @media only screen and (max-width: 600px) {
     .AppInner {
-        margin-top: calc(5*var(--margin-M));
+        padding-top: calc(5*var(--margin-M));
         overflow: hidden;
     }
     .imageRow {

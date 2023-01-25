@@ -35,10 +35,12 @@ const ProtestGroteskText = ({
   live,
   getPaypalPaymentId,
   refreshCart,
+  darkMode,
+  setDarkMode,
+  dark,
 }) => {
   const [showCheckout, setShowCheckout] = useState(false);
   const [showTrials, setShowTrials] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
   const location = useRouter();
 
   const checkoutOverview = useRef(null);
@@ -106,11 +108,6 @@ const ProtestGroteskText = ({
     });
   };
 
-  const dark = {
-    color: "white",
-    background: "black",
-  };
-
   return (
     <>
       <Head>
@@ -150,11 +147,11 @@ const ProtestGroteskText = ({
           </a>
         </Link>
 
-        <Link href="/typefaces" scroll={false}>
+        {/* <Link href="/typefaces" scroll={false}>
           <a>
             <Button lable={"Typefaces"} subclass={"tertiary"} />
           </a>
-        </Link>
+        </Link> */}
 
         <Button lable={"Protest Grotesk"} subclass={"quaternaryMuted"} />
       </div>
@@ -978,6 +975,7 @@ const ProtestGroteskText = ({
                   animation: "protest-animation",
                   reversed: true,
                   styles: 8,
+                  letter: "Rr",
                 },
                 {
                   name: "Giallo Roman",
@@ -985,7 +983,8 @@ const ProtestGroteskText = ({
                   slug: "giallo-roman",
                   animation: "giallo-animation",
                   styles: 7,
-                  oblique: true
+                  oblique: true,
+                  letter: "Aa",
                 },
               ]}
             />

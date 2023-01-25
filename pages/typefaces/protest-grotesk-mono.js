@@ -35,10 +35,12 @@ const ProtestGroteskMono = ({
   live,
   getPaypalPaymentId,
   refreshCart,
+  darkMode, 
+  setDarkMode,
+  dark
 }) => {
   const [showCheckout, setShowCheckout] = useState(false);
   const [showTrials, setShowTrials] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
   const location = useRouter();
 
   const checkoutOverview = useRef(null);
@@ -50,10 +52,6 @@ const ProtestGroteskMono = ({
     });
   };
 
-  const dark = {
-    color: "white",
-    background: "black",
-  };
 
   return (
     <>
@@ -94,11 +92,11 @@ const ProtestGroteskMono = ({
           </a>
         </Link>
 
-        <Link href="/typefaces" scroll={false}>
+        {/* <Link href="/typefaces" scroll={false}>
           <a>
             <Button lable={"Typefaces"} subclass={"tertiary"} />
           </a>
-        </Link>
+        </Link> */}
 
         <Button lable={"Protest Mono"} subclass={"quaternaryMuted"} />
       </div>
@@ -590,6 +588,7 @@ const ProtestGroteskMono = ({
                   reversed: true,
                   styles: 8,
                   italic: true,
+                  letter: "Gg"
                 },
                 {
                   name: "Giallo Roman",
@@ -598,6 +597,7 @@ const ProtestGroteskMono = ({
                   animation: "giallo-animation",
                   styles: 7,
                   oblique: true,
+                  letter: "Aa"
                 },
               ]}
             />

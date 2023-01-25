@@ -9,3 +9,9 @@
 .buttonShow {
     display: block !important;
 }
+
+@media only screen and (max-width: 600px) {
+    .AppInner {
+      padding: 65px 0 var(--margin-M) var(--margin-M);
+    }
+  }

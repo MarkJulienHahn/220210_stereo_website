@@ -39,12 +39,8 @@ import MouseButton from "../components/MouseButton";
 //   return obj.fields.category[0] === "Stereo";
 // }
 
-const About = ({ info }) => {
+const About = ({ info, darkMode, setDarkMode, dark }) => {
   const [buttonContent, setButtonContent] = useState(null);
-
-  // const fonts = info.filter(isFonts);
-  // const licensing = info.filter(isLicensing);
-  // const stereo = info.filter(isStereo);
 
   const location = useRouter();
 
@@ -68,6 +64,18 @@ const About = ({ info }) => {
         </div>
 
         <div className="buttonsRightWrapper">
+          <div
+            className="lightBulb"
+            style={{
+              fontSize: "17pt",
+              paddingRight: "10px",
+              cursor: "pointer",
+              opacity: darkMode ? 0.5 : 1,
+            }}
+            onClick={() => setDarkMode(!darkMode)}
+          >
+            💡
+          </div>
           <Button lable={"Cart (0)"} subclass={"tertiary"} />
         </div>
 
@@ -79,11 +87,12 @@ const About = ({ info }) => {
           exit={{ y: -300, opacity: 0 }}
           transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
         >
-          <main className={"infoWrapper"}>
+          <main className={"infoWrapper"} style={darkMode ? dark : {}}>
             <div className={"infoText"}>
               <p>
                 <span className="infoVar">
-                  <span className="infoHeader">STEREO</span> <span className="infoSubheader">Typefaces®</span>
+                  <span className="infoHeader">STEREO</span>{" "}
+                  <span className="infoSubheader">Typefaces®</span>
                 </span>{" "}
                 is a type design agency offering{" "}
                 <span className="infoVar1">
@@ -155,11 +164,11 @@ const About = ({ info }) => {
                 </span>
                 <br />
                 <br />
-                Or you can give us a call and talk to us personally. We are available from Monday — Friday from 9.00am — 6.00pm (CEST): &ensp;
+                Or you can give us a call and talk to us personally. We are
+                available from Monday — Friday from 9.00am — 6.00pm (CEST):
+                &ensp;
                 <span className="infoVar3">
-
-                    +49&nbsp;152&nbsp;03&nbsp;56&nbsp;93&nbsp;05 
-
+                  +49&nbsp;152&nbsp;03&nbsp;56&nbsp;93&nbsp;05
                 </span>
                 <br />
                 <br />

@@ -74,7 +74,7 @@ const TypefacePreview = (props) => {
           <Link href={`/typefaces/${props.slug}`} scroll={false}>
             <a>→ {props.lable}</a>
           </Link>{" "}
-          <p>{props.weights.length} Weights, from 90 EUR</p>
+          <p className="typefaceSpecs">{props.weights.length} Weights, from 90 EUR</p>
         </span>
 
         {props.weights.map((item) => (

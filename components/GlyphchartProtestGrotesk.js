@@ -1910,6 +1910,18 @@ function Glyphchart(props) {
               lable={"№"}
               changeGlyph={(glyph) => setGlyph(glyph)}
             />
+            <Glyphchartletter
+              lable={"℅"}
+              changeGlyph={(glyph) => setGlyph(glyph)}
+            />
+            <Glyphchartletter
+              lable={"🙂"}
+              changeGlyph={(glyph) => setGlyph(glyph)}
+            />
+            <Glyphchartletter
+              lable={"🙁"}
+              changeGlyph={(glyph) => setGlyph(glyph)}
+            />
           </div>
           <p className="glyphchartHeading">&#8594; Arrows</p>
           <div className="glyphchartLetterWrapper">

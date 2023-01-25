@@ -15,7 +15,7 @@ const Project = (props) => {
         <div className={Styles.imageRow}>
           <div className={Styles.w6}>
             <p>Automat Composition Generator</p>
-            <Link href="/research/automat">
+            <Link href="/projects/automat">
               <a>
                 <Image src={image02} placeholder="blur" />
               </a>
@@ -23,7 +23,7 @@ const Project = (props) => {
           </div>
           <div className={Styles.w6}>
             <p>Automat Composition Generator</p>
-            <Link href="/research/automat">
+            <Link href="/projects/automat">
               <a>
                 <Image src={image04} />
               </a>

@@ -4,7 +4,7 @@ import { Slider } from "@material-ui/core";
 import styles from "../styles/Glyphchart.module.css";
 import Glyphchartletter from "./Glyphchartletter";
 
-function GlyphchartProtestMono (props) {
+function GlyphchartProtestMono(props) {
   const [glyph, setGlyph] = useState("A");
   const [wght, updateWght] = useState(100);
   const [ital, updateItal] = useState(0);
@@ -1852,6 +1852,18 @@ function GlyphchartProtestMono (props) {
             />
             <Glyphchartletter
               lable={"№"}
+              changeGlyph={(glyph) => setGlyph(glyph)}
+            />
+            <Glyphchartletter
+              lable={"℅"}
+              changeGlyph={(glyph) => setGlyph(glyph)}
+            />
+            <Glyphchartletter
+              lable={"🙂"}
+              changeGlyph={(glyph) => setGlyph(glyph)}
+            />
+            <Glyphchartletter
+              lable={"🙁"}
               changeGlyph={(glyph) => setGlyph(glyph)}
             />
           </div>

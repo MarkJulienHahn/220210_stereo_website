@@ -2,30 +2,37 @@ import Link from "next/link";
 import styles from "../styles/Nav.module.css";
 import React, { useState } from "react";
 
-const Nav = () => {
+const Nav = ({ darkMode }) => {
   const [isActive, setActive] = useState("false");
 
   const ToggleClass = () => {
     setActive(!isActive);
   };
 
+  const darkBG = {
+    background: "rgba(255,255,255,0.8)",
+  };
+  const dark = {
+    color: "black"
+  }
+
   return (
     <nav className={styles.menuContainer}>
-      <div className={styles.logoTypo}>
+      <div className={styles.logoTypo} style={darkMode ? dark : {}}>
         {isActive ? (
-          <>
+          <div style={{ transform: "translateX(5px)" }}>
             STEREO
             <span
               style={{
                 fontFamily: "Protest",
                 fontSize: "15px",
                 fontVariationSettings: `"wght" 150`,
-                transform: "translateY(-50px)"
+                transform: "translateY(-50px)",
               }}
             >
               ®
             </span>
-          </>
+          </div>
         ) : (
           "CLOSE"
         )}
@@ -34,22 +41,31 @@ const Nav = () => {
         id={styles.menuBar}
         className={isActive ? "menuBarClosed" : "menuBarOpen"}
         onClick={ToggleClass}
+        style={darkMode ? darkBG : {}}
       >
-        <div className={isActive ? "menuLinkClosed" : "menuLinkOpen"}>
+        <div
+          className={isActive ? "menuLinkClosed" : "menuLinkOpen"}
+          style={darkMode ? dark : {}}
+        >
           <ul>
-            <li>
+            {/* <li>
               <Link href="/" scroll={false}>
                 <h2 className={styles.menuTypo}>STOREFRONT</h2>
               </Link>
-            </li>
+            </li> */}
             <li>
-              <Link href="/typefaces" scroll={false}>
+              <Link href="/" scroll={false}>
                 <h2 className={styles.menuTypo}>TYPEFACES</h2>
               </Link>
             </li>
             <li>
-              <Link href="/research" scroll={false}>
-                <h2 className={styles.menuTypo}>RESEARCH</h2>
+              <Link href="/trials" scroll={false}>
+                <h2 className={styles.menuTypo}>TRIALS</h2>
+              </Link>
+            </li>
+            <li>
+              <Link href="/projects" scroll={false}>
+                <h2 className={styles.menuTypo}>PROJECTS</h2>
               </Link>
             </li>
             {/* <li>

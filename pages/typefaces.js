@@ -47,6 +47,9 @@ const Typefaces = ({
   const { ref: protestMonoRef, inView: protestMonoIsVisible } = useInView({
     threshold: 0.5,
   });
+  const { ref: automatRef, inView: automatIsVisible } = useInView({
+    threshold: 0.5,
+  });
 
   const [showCheckout, setShowCheckout] = useState(false);
   const [showTrials, setShowTrials] = useState(false);
@@ -57,6 +60,8 @@ const Typefaces = ({
     color: "white",
     background: "black",
   };
+
+  console.log(automatIsVisible)
 
   return (
     <>
@@ -147,6 +152,17 @@ const Typefaces = ({
             </a>
           </Link>
         </div>
+
+        <div
+          className={`${Styles.button} ${
+            automatIsVisible ? Styles.buttonShow : ""
+          }  `}
+        >
+            <a>
+              <Button lable={"Automat"} subclass={"tertiary"} />
+            </a>
+        </div>
+
       </div>
 
       <div className="buttonsRightWrapper">
@@ -352,7 +368,7 @@ const Typefaces = ({
               </div>
 
 
-            <div id="automat-square">
+            <div id="automat-square" ref={automatRef}>
               <TypefacePreviewAutomat
                 key="004"
                 fontFamily="AutomatSquare"
