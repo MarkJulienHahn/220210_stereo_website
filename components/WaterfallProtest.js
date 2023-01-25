@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "../styles/Waterfall.module.css";
 import { Slider } from "@material-ui/core";
 
-const WaterfallProtest = () => {
+const WaterfallProtest = ({darkMode}) => {
   const [wdth, setWdth] = useState(Math.floor(Math.random() * 8) * 30 + 40);
 
   const changeWdth = (e, val) => {
@@ -48,9 +48,12 @@ const WaterfallProtest = () => {
     },
   ];
 
+  const dark = {background: "rgba(0,0,0,0.6)", color: "white"}
+  const light = {background: "rgba(255,255,255,0.6)", color: "white"}
+
   return (
     <div style={fontWeightStyle} className={`${styles.waterfallWrapper}`}>
-      <div className={styles.controls}>
+      <div className={styles.controls} style={darkMode ? dark : light}>
         <Slider
           className={styles.slider}
           min={40}
@@ -61,7 +64,7 @@ const WaterfallProtest = () => {
           marks={marks}
         />
       </div>
-      <div className={styles.controlsMobile}>
+      <div className={styles.controlsMobile} style={darkMode ? dark : light}>
         <div className={styles.controlsMobileWrapper}>
           <Slider
             className={styles.slider}
@@ -84,10 +87,12 @@ const WaterfallProtest = () => {
         <div className={`${styles.waterfallElement} ${styles.xl}`}>
           NoWay
           <br />
-          Okolon baSillg
+          Okolon <br /> baSillg
         </div>
         <div className={`${styles.waterfallElement} ${styles.l}`}>
-          Just a sped up Sample, of the Chronic 2000 <br />
+          Just a sped up <br />
+          Sample, of the <br />
+          Chronic 2000 <br />
           &#8594; IntroSpec
           <br /> Level set to <br />
           [32—oh] mono
@@ -97,7 +102,7 @@ const WaterfallProtest = () => {
         <div className={`${styles.waterfallSingle} ${styles.xxl}`}>
           Didn’t
           <br />
-          Tape-1 m_ms
+          Tape2 m_ms
         </div>
       </div>
       <div className={styles.waterfallRow}>

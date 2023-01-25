@@ -248,108 +248,108 @@ const ProtestGroteskText = ({
             <div className="typeface-single-opener">
               <div className="fontOpener">
                 <div style={{ fontVariationSettings: "'wght' 250, 'wdth' 50" }}>
-                  Protest Grotesk Black²⁵⁰
+                  Protest Grotesk Black
                 </div>
                 <div
                   style={{
                     fontVariationSettings: "'wght' 250, 'wdth' 50, 'ital' 100",
                   }}
                 >
-                  Protest Grotesk Black Italic²⁵⁰
+                  Protest Grotesk Black Italic
                 </div>
                 <div style={{ fontVariationSettings: "'wght' 220, 'wdth' 50" }}>
-                  Protest Grotesk Heavy²²⁰
+                  Protest Grotesk Heavy
                 </div>
                 <div
                   style={{
                     fontVariationSettings: "'wght' 220, 'wdth' 50, 'ital' 100",
                   }}
                 >
-                  Protest Grotesk Heavy Italic²²⁰
+                  Protest Grotesk Heavy Italic
                 </div>
                 <div
                   style={{
                     fontVariationSettings: "'wght' 190, 'wdth' 50, 'ital'  00",
                   }}
                 >
-                  Protest Grotesk Bold¹⁹⁰
+                  Protest Grotesk Bold
                 </div>
                 <div
                   style={{
                     fontVariationSettings: "'wght' 190, 'wdth' 50, 'ital' 100",
                   }}
                 >
-                  Protest Grotesk Bold Italic¹⁹⁰
+                  Protest Grotesk Bold Italic
                 </div>
                 <div
                   style={{
                     fontVariationSettings: "'wght' 160, 'wdth' 50, 'ital'  00",
                   }}
                 >
-                  Protest Grotesk Semibold¹⁶⁰
+                  Protest Grotesk Semibold
                 </div>
                 <div
                   style={{
                     fontVariationSettings: "'wght' 160, 'wdth' 50, 'ital' 100",
                   }}
                 >
-                  Protest Grotesk Semibold Italic¹⁶⁰
+                  Protest Grotesk Semibold Italic
                 </div>
                 <div
                   style={{
                     fontVariationSettings: "'wght' 130, 'wdth' 50, 'ital'  00",
                   }}
                 >
-                  Protest Grotesk Medium¹³⁰
+                  Protest Grotesk Medium
                 </div>
                 <div
                   style={{
                     fontVariationSettings: "'wght' 130, 'wdth' 50, 'ital' 100",
                   }}
                 >
-                  Protest Grotesk Medium Italic¹³⁰
+                  Protest Grotesk Medium Italic
                 </div>
                 <div
                   style={{
                     fontVariationSettings: "'wght'  100, 'wdth' 50, 'ital'  00",
                   }}
                 >
-                  Protest Grotesk Regular¹⁰⁰
+                  Protest Grotesk Regular
                 </div>
                 <div
                   style={{
                     fontVariationSettings: "'wght'  100, 'wdth' 50, 'ital' 100",
                   }}
                 >
-                  Protest Grotesk Regular Italic¹⁰⁰
+                  Protest Grotesk Regular Italic
                 </div>
                 <div
                   style={{
                     fontVariationSettings: "'wght'  70, 'wdth' 50, 'ital'  00",
                   }}
                 >
-                  Protest Grotesk Light⁰⁷⁰
+                  Protest Grotesk Light
                 </div>
                 <div
                   style={{
                     fontVariationSettings: "'wght'  70, 'wdth' 50, 'ital' 100",
                   }}
                 >
-                  Protest Grotesk Light Italic⁰⁷⁰
+                  Protest Grotesk Light Italic
                 </div>
                 <div
                   style={{
                     fontVariationSettings: "'wght'  40, 'wdth' 50, 'ital'  00",
                   }}
                 >
-                  Protest Grotesk Thin⁰⁴⁰
+                  Protest Grotesk Thin
                 </div>
                 <div
                   style={{
                     fontVariationSettings: "'wght'  40, 'wdth' 50, 'ital' 100",
                   }}
                 >
-                  Protest Grotesk Thin Italic⁰⁴⁰
+                  Protest Grotesk Thin Italic
                 </div>
               </div>
             </div>
@@ -380,7 +380,7 @@ const ProtestGroteskText = ({
               </p>
             </div>
 
-            <WaterfallProtest />
+            <WaterfallProtest darkMode={darkMode}/>
 
             <div className="typefaceInfosection">
               <h1>
@@ -892,6 +892,8 @@ const ProtestGroteskText = ({
               fontFamily="Protest"
               fontWeight={100}
               fontWidth={50}
+              darkMode={darkMode}
+              dark={dark}
             />
 
             <div className="typefaceInfosection">

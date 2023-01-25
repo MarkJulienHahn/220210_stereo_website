@@ -208,7 +208,7 @@ const Typefaces = ({
           transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
         >
           {" "}
-          <main className={Styles.AppInner} style={darkMode ? dark : {}}>
+          <main className={Styles.TypefacesInner} style={darkMode ? dark : {}}>
             <div ref={protestRef} id="protest-grotesk">
               <TypefacePreview
                 key="001"

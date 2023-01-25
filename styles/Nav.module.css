@@ -69,7 +69,8 @@
     }
 
     .logoTypo {
-        top: 14.7px;
+        transform: translateY(14.7px);
+        top: 0;
         width: 100%;
         left: 0;
     }

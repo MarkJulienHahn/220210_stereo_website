@@ -80,7 +80,7 @@ body {
   --quaternary: rgba(220, 220, 220, 0.4);
   --fifth: rgb(199, 177, 255, 0.5);
   --fifthSolid: rgb(199, 177, 255, 1);
-  --menuType: rgb(255,255,255);
+  --menuType: rgb(255, 255, 255);
 
   --pgSmallSize: 7.5pt;
   --pgSmallLineHeight: 15pt;
@@ -571,16 +571,17 @@ button {
     width: 100vw;
     overflow: hidden;
     position: relative;
-    height: inherit
+    height: inherit;
   }
 
   .typefaceControl {
-    font-size: 14pt;
-    line-height: 20pt;
-    letter-spacing: -0.2px;
+    font-size: 10pt;
+    line-height: 15pt;
+    letter-spacing: 0px;
     position: relative;
     margin-left: 16px;
     z-index: 150;
+    margin-left: 30px;
   }
 
   .typefaceDisplay {
@@ -589,7 +590,7 @@ button {
     top: 0;
     left: 0;
     position: relative;
-    padding-top: 122px;
+    padding: 170px 0 50px;
     /* animation: changeStyle 5s ease 0s infinite alternate; */
   }
 
@@ -607,6 +608,9 @@ button {
   }
   .typefaceSpecs {
     display: none;
+  }
+  .typefaceFooterWrapper {
+    padding: var(--margin-M);
   }
 }
 
@@ -875,7 +879,9 @@ button {
   }
 
   .fontOpener {
-    letter-spacing: -2px;
+    font-size: 6.2vw;
+    line-height: 7vw;
+    letter-spacing: -1px;
     white-space: nowrap;
   }
 
@@ -963,12 +969,25 @@ button {
 /* W A T E R F A L L  */
 
 .MuiSlider-markLabel {
-  opacity: 0.5 !important;
+  opacity: 1 !important;
   font-family: "Giallo-Mono" !important;
+  color: white !important;
 }
 
 .MuiSlider-markLabel:hover {
   opacity: 1 !important;
+}
+
+.MuiSlider-thumb, .MuiSlider-track, .MuiSlider-rail {
+  color: white !important;
+}
+
+.MuiSlider-root {
+  mix-blend-mode: difference !important;
+}
+
+.MuiSlider-thumb::after {
+  right: -8px !important;
 }
 
 /* P R O D U C T */
@@ -1522,7 +1541,7 @@ button {
 
 .formTrials {
   width: clamp(100px, 70vw, 1000px);
-  background: rgba(255,255,255,0.6);
+  background: rgba(255, 255, 255, 0.6);
   padding: var(--margin-M);
   border-radius: 3px;
   -webkit-backdrop-filter: blur(30px);
@@ -1972,6 +1991,7 @@ button {
   font-variation-settings: "wght" 116, "wdth" 0;
   text-transform: uppercase;
   z-index: 100;
+  color: black;
   font-size: var(--pgSmallSize);
   letter-spacing: var(--pgSmallLetterSpacing);
   border-radius: 3px;
@@ -2001,11 +2021,14 @@ button {
   font-size: 40px;
   line-height: 16px;
   letter-spacing: 1px;
+  background: none;
+  color: white;
+  mix-blend-mode: difference;
 }
 
 .input input::placeholder {
   font-family: "Giallo-Mono";
-  color: black;
+  color: white;
   opacity: 1;
   font-size: var(--gialloSmallSize);
   line-height: var(--gialloSmallLineHeight);
@@ -2185,7 +2208,7 @@ button {
 }
 
 .legalsWrapper:nth-child(2) {
-  margin-left: 50%
+  margin-left: 50%;
 }
 
 .legalsWrapper li {
@@ -2235,9 +2258,9 @@ button {
   .legalsWrapper:first-child {
     position: inherit;
   }
-  
+
   .legalsWrapper:nth-child(2) {
-    margin-left: 0
+    margin-left: 0;
   }
 }
 
@@ -2423,14 +2446,13 @@ button {
   justify-content: space-between;
 }
 
-.automatToolContent_01, 
+.automatToolContent_01,
 .automatToolContent_02 {
   position: absolute;
 }
 
 .automatToolContent_01 p,
 .automatToolContent_02 p {
-
   -webkit-text-stroke-width: 0.5px;
   text-stroke: 0.5px;
   transition: font-variation-settings 0.5s ease, font-size 0.5s ease,

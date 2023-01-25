@@ -34,9 +34,9 @@ const Home = ({
   live,
   refreshCart,
   getPaypalPaymentId,
-  darkMode, 
+  darkMode,
   setDarkMode,
-  dark
+  dark,
 }) => {
   const { ref: gialloRef, inView: gialloIsVisible } = useInView({
     threshold: 0.5,
@@ -61,208 +61,206 @@ const Home = ({
 
   return (
     <>
-    <Head>
-      <title>Stereo Typefaces&#x2122;</title>
-      <meta name="keywords" content="web" />
-    </Head>
+      <Head>
+        <title>Stereo Typefaces&#x2122;</title>
+        <meta name="keywords" content="web" />
+      </Head>
 
-    {showCheckout && (
-      <Checkout
-        products={products}
-        cart={cart}
-        live={live}
-        handleAddToCart={handleAddToCart}
-        handleRemoveFromCart={handleRemoveFromCart}
-        handleEmptyCart={handleEmptyCart}
-        handleUpdateCartQty={handleUpdateCartQty}
-        handleUpdateCartPrice={handleUpdateCartPrice}
-        onCaptureCheckout={onCaptureCheckout}
-        handleCouponCode={handleCouponCode}
-        getLiveObject={getLiveObject}
-        setCart={setCart}
-        setShowCheckout={setShowCheckout}
-        showCheckout={showCheckout}
-        loading={loading}
-        checkoutToken={checkoutToken}
-        getPaypalPaymentId={getPaypalPaymentId}
-        refreshCart={refreshCart}
-        font={"Protest"}
-      />
-    )}
+      {showCheckout && (
+        <Checkout
+          products={products}
+          cart={cart}
+          live={live}
+          handleAddToCart={handleAddToCart}
+          handleRemoveFromCart={handleRemoveFromCart}
+          handleEmptyCart={handleEmptyCart}
+          handleUpdateCartQty={handleUpdateCartQty}
+          handleUpdateCartPrice={handleUpdateCartPrice}
+          onCaptureCheckout={onCaptureCheckout}
+          handleCouponCode={handleCouponCode}
+          getLiveObject={getLiveObject}
+          setCart={setCart}
+          setShowCheckout={setShowCheckout}
+          showCheckout={showCheckout}
+          loading={loading}
+          checkoutToken={checkoutToken}
+          getPaypalPaymentId={getPaypalPaymentId}
+          refreshCart={refreshCart}
+          font={"Protest"}
+        />
+      )}
 
-    {showTrials && <Trials setShowTrials={setShowTrials} />}
+      {showTrials && <Trials setShowTrials={setShowTrials} />}
 
-    <div className="buttonsLeftWrapper">
-      <Link href="/" scroll={false}>
-        <a>
-          <Button lable={"Home"}subclass={"quaternaryMuted"} />
-        </a>
-      </Link>
-
-      {/* <Button lable={"Typefaces"} subclass={"quaternaryMuted"} /> */}
-
-      <div
-        className={`${Styles.button} ${
-          protestIsVisible ? Styles.buttonShow : ""
-        }  `}
-      >
-        <Link href="/typefaces/protest-grotesk" scroll={false}>
+      <div className="buttonsLeftWrapper">
+        <Link href="/" scroll={false}>
           <a>
-            <Button lable={"Protest Grotesk"} subclass={"tertiary"} />
+            <Button lable={"Home"} subclass={"quaternaryMuted"} />
           </a>
         </Link>
-      </div>
 
-      <div
-        className={`${Styles.button} ${
-          gialloIsVisible ? Styles.buttonShow : ""
-        }  `}
-      >
-        <Link href="/typefaces/protest-grotesk" scroll={false}>
-          <a>
-            <Button lable={"Giallo Roman"} subclass={"tertiary"} />
-          </a>
-        </Link>
-      </div>
+        {/* <Button lable={"Typefaces"} subclass={"quaternaryMuted"} /> */}
 
-      <div
-        className={`${Styles.button} ${
-          protestMonoIsVisible ? Styles.buttonShow : ""
-        }  `}
-      >
-        <Link href="/typefaces/protest-grotesk" scroll={false}>
-          <a>
-            <Button lable={"Protest Mono"} subclass={"tertiary"} />
-          </a>
-        </Link>
-      </div>
+        <div
+          className={`${Styles.button} ${
+            protestIsVisible ? Styles.buttonShow : ""
+          }  `}
+        >
+          <Link href="/typefaces/protest-grotesk" scroll={false}>
+            <a>
+              <Button lable={"Protest Grotesk"} subclass={"tertiary"} />
+            </a>
+          </Link>
+        </div>
 
-      <div
-        className={`${Styles.button} ${
-          gialloMonoIsVisible ? Styles.buttonShow : ""
-        }  `}
-      >
-        <Link href="/typefaces/protest-grotesk" scroll={false}>
-          <a>
-            <Button lable={"Giallo Mono"} subclass={"tertiary"} />
-          </a>
-        </Link>
-      </div>
+        <div
+          className={`${Styles.button} ${
+            gialloIsVisible ? Styles.buttonShow : ""
+          }  `}
+        >
+          <Link href="/typefaces/protest-grotesk" scroll={false}>
+            <a>
+              <Button lable={"Giallo Roman"} subclass={"tertiary"} />
+            </a>
+          </Link>
+        </div>
 
-      <div
+        <div
+          className={`${Styles.button} ${
+            protestMonoIsVisible ? Styles.buttonShow : ""
+          }  `}
+        >
+          <Link href="/typefaces/protest-grotesk" scroll={false}>
+            <a>
+              <Button lable={"Protest Mono"} subclass={"tertiary"} />
+            </a>
+          </Link>
+        </div>
+
+        <div
+          className={`${Styles.button} ${
+            gialloMonoIsVisible ? Styles.buttonShow : ""
+          }  `}
+        >
+          <Link href="/typefaces/protest-grotesk" scroll={false}>
+            <a>
+              <Button lable={"Giallo Mono"} subclass={"tertiary"} />
+            </a>
+          </Link>
+        </div>
+
+        <div
           className={`${Styles.button} ${
             automatIsVisible ? Styles.buttonShow : ""
           }  `}
         >
-            <a>
-              <Button lable={"Automat"} subclass={"quaternaryMuted"} />
-            </a>
+          <a>
+            <Button lable={"Automat"} subclass={"quaternaryMuted"} />
+          </a>
         </div>
-
-    </div>
-
-    <div className="buttonsRightWrapper">
-      <div
-        className="lightBulb"
-        style={{
-          fontSize: "17pt",
-          paddingRight: "10px",
-          cursor: "pointer",
-          opacity: darkMode ? 0.5 : 1,
-        }}
-        onClick={() => setDarkMode(!darkMode)}
-      >
-        💡
       </div>
-      <Button
-        lable={"Trials"}
-        subclass={"tertiary"}
-        onClick={() => setShowTrials(true)}
-      />
-      <Button
-        lable={"Buy"}
-        subclass={"primary"}
-        onClick={cart.line_items ? () => setShowCheckout(true) : () => {}}
-      />
-      <Cartbutton
-        lable={
-          cart.line_items ? `Cart [${cart.total_unique_items}]` : `Cart [0]`
-        }
-        subclass={"tertiary"}
-        setShowCheckout={setShowCheckout}
-        live={live}
-        cart={cart}
-      />
-    </div>
-    <AnimatePresence exitBeforeEnter>
-      <motion.div
-        location={location}
-        key={location.pathname}
-        initial={{ y: 0, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        exit={{ y: -300, opacity: 0 }}
-        transition={{ duration: 3, ease: [0.19, 1, 0.22, 1] }}
-      >
-        {" "}
-        <main className={Styles.AppInner} style={darkMode ? dark : {}}>
-          <div ref={protestRef} id="protest-grotesk">
-            <TypefacePreview
-              key="001"
-              fontFamily="Protest"
-              lable="Protest Grotesk"
-              weights={[
-                ["Thin ", 40, 0],
-                ["Italic / ", 40, 100],
-                ["Light ", 70, 0],
-                ["Italic / ", 70, 100],
-                ["Regular ", 100, 0],
-                ["Italic / ", 100, 100],
-                ["Book ", 130, 0],
-                ["Italic / ", 130, 100],
-                ["Medium ", 160, 0],
-                ["Italic / ", 160, 100],
-                ["Bold ", 190, 0],
-                ["Italic / ", 190, 100],
-                ["Heavy ", 220, 0],
-                ["Italic / ", 220, 100],
-                ["Black ", 250, 0],
-                ["Italic", 250, 100],
-              ]}
-              content={[
-                <>
-                  [ Tone ] Balance*
-                  <br />
-                  MONO 102KHz
-                  <br />
-                  230MHz Kanal
-                </>,
-                <>
-                  Model №507 <br />
-                  (Source) AC475
-                  <br /> ⇆Emergency
-                </>,
-                <>
-                  ↱Pagina LP1 <br />
-                  EN 49:2001+A⁷⁴
-                  <br /> ¶Mail &#123;Narrow&#125;
-                </>,
-                <>
-                  Ŋeo: Wilson () <br /> 475‰&quot;FLARED&quot;
-                  <br /> ↗nexus Inserg
-                </>,
-                <>
-                  Inspired by Ⅷ <br /> &#123;Abloh’s&#125; Original
-                  <br /> ⑨Meteor Shower{" "}
-                </>,
-              ]}
-              configuration={{
-                letterSpacing: "-0.7vw",
-              }}
-              default={[160, 0]}
-              slug={"protest-grotesk"}
-            />
-          </div>
 
+      <div className="buttonsRightWrapper">
+        <div
+          className="lightBulb"
+          style={{
+            fontSize: "17pt",
+            paddingRight: "10px",
+            cursor: "pointer",
+            opacity: darkMode ? 0.5 : 1,
+          }}
+          onClick={() => setDarkMode(!darkMode)}
+        >
+          💡
+        </div>
+        <Button
+          lable={"Trials"}
+          subclass={"tertiary"}
+          onClick={() => setShowTrials(true)}
+        />
+        <Button
+          lable={"Buy"}
+          subclass={"primary"}
+          onClick={cart.line_items ? () => setShowCheckout(true) : () => {}}
+        />
+        <Cartbutton
+          lable={
+            cart.line_items ? `Cart [${cart.total_unique_items}]` : `Cart [0]`
+          }
+          subclass={"tertiary"}
+          setShowCheckout={setShowCheckout}
+          live={live}
+          cart={cart}
+        />
+      </div>
+      <AnimatePresence exitBeforeEnter>
+        <motion.div
+          location={location}
+          key={location.pathname}
+          initial={{ y: 0, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: -300, opacity: 0 }}
+          transition={{ duration: 3, ease: [0.19, 1, 0.22, 1] }}
+        >
+          {" "}
+          <main className={Styles.TypefacesInner} style={darkMode ? dark : {}}>
+            <div ref={protestRef} id="protest-grotesk">
+              <TypefacePreview
+                key="001"
+                fontFamily="Protest"
+                lable="Protest Grotesk"
+                weights={[
+                  ["Thin ", 40, 0],
+                  ["Italic / ", 40, 100],
+                  ["Light ", 70, 0],
+                  ["Italic / ", 70, 100],
+                  ["Regular ", 100, 0],
+                  ["Italic / ", 100, 100],
+                  ["Book ", 130, 0],
+                  ["Italic / ", 130, 100],
+                  ["Medium ", 160, 0],
+                  ["Italic / ", 160, 100],
+                  ["Bold ", 190, 0],
+                  ["Italic / ", 190, 100],
+                  ["Heavy ", 220, 0],
+                  ["Italic / ", 220, 100],
+                  ["Black ", 250, 0],
+                  ["Italic", 250, 100],
+                ]}
+                content={[
+                  <>
+                    [ Tone ] Balance*
+                    <br />
+                    MONO 102KHz
+                    <br />
+                    230MHz Kanal
+                  </>,
+                  <>
+                    Model №507 <br />
+                    (Source) AC475
+                    <br /> ⇆Emergency
+                  </>,
+                  <>
+                    ↱Pagina LP1 <br />
+                    EN 49:2001+A⁷⁴
+                    <br /> ¶Mail &#123;Narrow&#125;
+                  </>,
+                  <>
+                    Ŋeo: Wilson () <br /> 475‰&quot;FLARED&quot;
+                    <br /> ↗nexus Inserg
+                  </>,
+                  <>
+                    Inspired by Ⅷ <br /> &#123;Abloh’s&#125; Original
+                    <br /> ⑨Meteor Shower{" "}
+                  </>,
+                ]}
+                configuration={{
+                  letterSpacing: "-0.7vw",
+                }}
+                default={[160, 0]}
+                slug={"protest-grotesk"}
+              />
+            </div>
 
             <div ref={protestMonoRef}>
               <TypefacePreview
@@ -313,8 +311,6 @@ const Home = ({
               />
             </div>
 
-
-
             <div ref={gialloRef} id="giallo-roman">
               <TypefacePreview
                 key="001"
@@ -363,64 +359,63 @@ const Home = ({
               />
             </div>
 
+            <div id="automat-square" ref={automatRef}>
+              <TypefacePreviewAutomat
+                key="004"
+                fontFamily="AutomatSquare"
+                lable="Automat"
+                weightsSQR={[
+                  ["SQR 000—005 / ", 0, 5],
+                  ["SQR 000—100 / ", 0, 100],
+                  ["SQR 050—012 / ", 50, 12],
+                  ["SQR 100—080 / ", 100, 80],
+                  ["SQR 000—030 / ", 0, 30],
+                  ["SQR 070—005 / ", 70, 5],
+                  ["SQR 090—090 / ", 90, 90],
+                  ["SQR 000—065   ", 0, 65],
+                ]}
+                weightsRND={[
+                  ["SQR 000—005 / ", 0, 5],
+                  ["SQR 000—100 / ", 0, 100],
+                  ["SQR 050—012 / ", 50, 12],
+                  ["SQR 100—080 / ", 100, 80],
+                  ["SQR 000—030 / ", 0, 30],
+                  ["SQR 070—005 / ", 70, 5],
+                  ["SQR 090—090 / ", 90, 90],
+                  ["SQR 000—065   ", 0, 65],
+                ]}
+                content={[
+                  <>
+                    TOMPKIN
+                    <br /> SQUARE PARK{" "}
+                  </>,
+                  <>
+                    RIVERSIDE
+                    <br /> DR. 107TH
+                    <br /> STREET
+                  </>,
+                  <>
+                    BROOKLYN
+                    <br /> BANKS, NYC
+                  </>,
+                  <>
+                    190 BOWERY
+                    <br /> NEW YORK, NY
+                  </>,
+                  <>
+                    RIVERSIDE
+                    <br /> DR. 108TH
+                    <br /> STREET
+                  </>,
+                ]}
+                configuration={{
+                  letterSpacing: "20px",
+                }}
+                default={[90, 90]}
+              />
+            </div>
 
-          <div id="automat-square" ref={automatRef}>
-            <TypefacePreviewAutomat
-              key="004"
-              fontFamily="AutomatSquare"
-              lable="Automat"
-              weightsSQR={[
-                ["SQR 000—005 / ", 0, 5],
-                ["SQR 000—100 / ", 0, 100],
-                ["SQR 050—012 / ", 50, 12],
-                ["SQR 100—080 / ", 100, 80],
-                ["SQR 000—030 / ", 0, 30],
-                ["SQR 070—005 / ", 70, 5],
-                ["SQR 090—090 / ", 90, 90],
-                ["SQR 000—065   ", 0, 65],
-              ]}
-              weightsRND={[
-                ["SQR 000—005 / ", 0, 5],
-                ["SQR 000—100 / ", 0, 100],
-                ["SQR 050—012 / ", 50, 12],
-                ["SQR 100—080 / ", 100, 80],
-                ["SQR 000—030 / ", 0, 30],
-                ["SQR 070—005 / ", 70, 5],
-                ["SQR 090—090 / ", 90, 90],
-                ["SQR 000—065   ", 0, 65],
-              ]}
-              content={[
-                <>
-                  TOMPKIN
-                  <br /> SQUARE PARK{" "}
-                </>,
-                <>
-                  RIVERSIDE
-                  <br /> DR. 107TH
-                  <br /> STREET
-                </>,
-                <>
-                  BROOKLYN
-                  <br /> BANKS, NYC
-                </>,
-                <>
-                  190 BOWERY
-                  <br /> NEW YORK, NY
-                </>,
-                <>
-                  RIVERSIDE
-                  <br /> DR. 108TH
-                  <br /> STREET
-                </>,
-              ]}
-              configuration={{
-                letterSpacing: "20px",
-              }}
-              default={[90, 90]}
-            />
-          </div>
-
-          {/* <div ref={gialloRef} id="giallo-roman">
+            {/* <div ref={gialloRef} id="giallo-roman">
           <TypefacePreviewAutomat
             key="004"
             fontFamily="AutomatRound"
@@ -448,13 +443,14 @@ const Home = ({
             default={[90, 2]}
           />
         </div> */}
-
-          <Footer />
-        </main>
-      </motion.div>
-    </AnimatePresence>
-  </>
+            <div className="typefaceFooterWrapper">
+              <Footer />
+            </div>
+          </main>
+        </motion.div>
+      </AnimatePresence>
+    </>
   );
-}
+};
 
 export default Home;

@@ -46,7 +46,7 @@ function Typetester(props) {
   const testerStyle = {
     fontSize: `calc(0.1*${val}vw)`,
     lineHeight: `calc(0.12*${val}vw)`,
-    height: `clamp(300px, calc(0.115*${val}vw), calc(0.115*${val}vw))`,
+    height: `clamp(280px, calc(0.115*${val}vw), calc(0.115*${val}vw))`,
     letterSpacing: `${(val2 * val) / 1500}vw`,
     fontVariationSettings: `'wght' ${props.wght}, 'ital' ${props.ital}, 'wdth' 50`,
     fontFeatureSettings: `"${val3}", "${val4}"`,

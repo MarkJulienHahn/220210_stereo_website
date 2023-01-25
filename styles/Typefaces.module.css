@@ -1,17 +1,19 @@
-.AppInner {
-    padding: 0 var(--margin-M) var(--margin-M) var(--margin-M);
+.TypefacesInner {
+  padding: 0 var(--margin-M) var(--margin-M) var(--margin-M);
 }
 
 .button {
-    display: none;
+  display: none;
 }
 
 .buttonShow {
-    display: block !important;
+  display: block !important;
 }
 
 @media only screen and (max-width: 600px) {
-    .AppInner {
-      padding: 65px 0 var(--margin-M) var(--margin-M);
-    }
+  .TypefacesInner {
+    padding: 0;
+    padding-top: 45px;
   }
+
+}

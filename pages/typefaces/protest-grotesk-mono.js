@@ -173,7 +173,7 @@ const ProtestGroteskMono = ({
             <div className="typeface-single-opener">
               <div className="fontOpenerProtestMono">
                 <div style={{ fontVariationSettings: "'wght' 250, 'wdth' 50" }}>
-                  Protest Mono Black²⁵⁰
+                  Protest Mono Black
                 </div>
                 {/* <div
                   style={{
@@ -183,7 +183,7 @@ const ProtestGroteskMono = ({
                   Protest Grotesk Black Italic
                 </div> */}
                 <div style={{ fontVariationSettings: "'wght' 220, 'wdth' 50" }}>
-                  Protest Mono Heavy²²⁰
+                  Protest Mono Heavy
                 </div>
                 {/* <div
                   style={{
@@ -197,7 +197,7 @@ const ProtestGroteskMono = ({
                     fontVariationSettings: "'wght' 190, 'wdth' 50, 'ital'  00",
                   }}
                 >
-                  Protest Mono Bold¹⁹⁰
+                  Protest Mono Bold
                 </div>
                 {/* <div
                   style={{
@@ -211,7 +211,7 @@ const ProtestGroteskMono = ({
                     fontVariationSettings: "'wght' 160, 'wdth' 50, 'ital'  00",
                   }}
                 >
-                  Protest Mono Medium¹⁶⁰
+                  Protest Mono Medium
                 </div>
                 {/* <div
                   style={{
@@ -225,7 +225,7 @@ const ProtestGroteskMono = ({
                     fontVariationSettings: "'wght' 130, 'wdth' 50, 'ital'  00",
                   }}
                 >
-                  Protest Mono Book¹³⁰
+                  Protest Mono Book
                 </div>
                 {/* <div
                   style={{
@@ -239,7 +239,7 @@ const ProtestGroteskMono = ({
                     fontVariationSettings: "'wght'  100, 'wdth' 50, 'ital'  00",
                   }}
                 >
-                  Protest Mono Regular¹⁰⁰
+                  Protest Mono Regular
                 </div>
                 {/* <div
                   style={{
@@ -253,7 +253,7 @@ const ProtestGroteskMono = ({
                     fontVariationSettings: "'wght'  70, 'wdth' 50, 'ital'  00",
                   }}
                 >
-                  Protest Mono Light⁰⁷⁰
+                  Protest Mono Light
                 </div>
                 {/* <div
                   style={{
@@ -267,7 +267,7 @@ const ProtestGroteskMono = ({
                     fontVariationSettings: "'wght'  40, 'wdth' 50, 'ital'  00",
                   }}
                 >
-                  Protest Mono Thin⁰⁴⁰
+                  Protest Mono Thin
                 </div>
                 {/* <div
                   style={{

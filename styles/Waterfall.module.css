@@ -86,10 +86,12 @@
     display: block;
     position: sticky;
     top: 0;
+    left: 0;
+    transform: translateX(-30px);
     height: 100px;
-    background: rgba(255, 255, 255, 0.8);
-    padding-top: var(--margin-M);
-    padding-bottom: 60px;
+    width: calc(100vw + 14px);
+    background: rgba(255, 255, 255, 0.1);
+    padding: var(--margin-M) 20px 60px 30px;
     z-index: 150;
     -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
@@ -97,6 +99,11 @@
 
   .controlsMobileWrapper {
     transform: translateY(40px);
+    mix-blend-mode: difference !important
+  }
+
+  .waterfallWrapper {
+    width: 100%;
   }
 
   .waterfallRow {
@@ -106,7 +113,7 @@
 
   .waterfallElement {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
   }
 
@@ -114,14 +121,43 @@
     padding-bottom: 70px;
   }
 
+  .xxl {
+    font-size: 30.5vw;
+    line-height: 26vw;
+    letter-spacing: -2.3vw;
+    text-align: center;
+  }
+  
+  .xl {
+    font-size: 23vw;
+    line-height: 21vw;
+    letter-spacing: -1.2vw;
+    text-align: center;
+  }
+  
+  .l {
+    font-size: 12.5vw;
+    line-height: 14vw;
+    letter-spacing: -0.7vw;
+    text-align: center;
+  }
+  
   .m {
-    font-size: 4vw;
-    line-height: 5vw;
-    letter-spacing: -0.12vw;
+    font-size: 7vw;
+    line-height: 7.75vw;
+    letter-spacing: -0.2vw;
   }
 
-  .xs, .s {
+  .s {
+    font-size: 4.5vw;
+    line-height: 5.2vw;
+    letter-spacing: -0.05vw;
+  }
+
+  .xs {
     display: none;
   }
+
+
 
 }

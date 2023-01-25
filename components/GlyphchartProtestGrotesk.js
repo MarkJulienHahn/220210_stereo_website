@@ -3,6 +3,7 @@ import { Slider } from "@material-ui/core";
 
 import styles from "../styles/Glyphchart.module.css";
 import Glyphchartletter from "./Glyphchartletter";
+import { red } from "@material-ui/core/colors";
 
 function Glyphchart(props) {
   const [glyph, setGlyph] = useState("A");
@@ -18,6 +19,8 @@ function Glyphchart(props) {
   const glyphDisplay = {
     fontFeatureSettings: `${styleset}`,
     fontVariationSettings: `'wght' ${wght}, 'wdth' ${props.fontWidth}, 'ital' ${ital}`,
+    background: props.darkMode && props.dark.background,
+    color: props.darkMode && props.dark.color
   };
 
   function changeWght(e, wght) {
@@ -32,12 +35,14 @@ function Glyphchart(props) {
     updateStyleset((prevValue) => styleset);
   }
 
+  console.log(props.darkMode, props.dark)
+
   return (
-    <div>
+    <div >
       <div className="glyphchartWrapper" style={glyphStyle}>
-        <div className="glyphchartDisplayWrapper">
+        <div className="glyphchartDisplayWrapper" >
           <div className="glyphchartSlider">
-            <div>
+            <div >
               <p>&#8594; Weight</p>
               <Slider
                 className="glyphchartSlider"
@@ -68,7 +73,7 @@ function Glyphchart(props) {
           <div className="glyphchartDisplayMobile" style={glyphDisplay}>
             {glyph}
 
-            <div className="glyphchartSliderMobile">
+            <div className="glyphchartSliderMobile" style={glyphDisplay}>
               <div className="glyphchartSliderSingle">
                 <p>&#8594; Weight</p>
                 <Slider

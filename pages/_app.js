@@ -28,7 +28,7 @@ function MyApp({ Component, pageProps }) {
 
   const dark = {
     color: "white",
-    background: "rgba(0,0,0,0.9",
+    background: "#0A0A0A",
   };
 
   const fetchProducts = async () => {
