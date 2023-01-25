@@ -2,44 +2,39 @@ import { useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import Styles from "../styles/Information.module.css";
+import dynamic from "next/dynamic";
 import { AnimatePresence, motion } from "framer-motion";
 
-import Infocontainer from "../components/Infocontainer";
 import Footer from "../components/Footer";
 import Button from "../components/Button";
 import MouseButton from "../components/MouseButton";
 
-// import { createClient } from "contentful";
+const Checkout = dynamic(() => import("../components/Checkout/Checkout"));
+const Trials = dynamic(() => import("../components/Trials"));
 
-// export async function getStaticProps() {
-//   const client = createClient({
-//     space: process.env.CONTENTFUL_SPACE_ID,
-//     accessToken: process.env.CONTENTFUL_ACCESS_KEY,
-//   });
-
-//   const res = await client.getEntries({ content_type: "info" });
-
-//   return {
-//     props: {
-//       info: res.items,
-//     },
-//   };
-// }
-
-// function isFonts(obj) {
-//   return obj.fields.category[0] === "Fonts";
-// }
-
-// function isLicensing(obj) {
-//   return obj.fields.category[0] === "Licensing";
-// }
-
-// function isStereo(obj) {
-//   return obj.fields.category[0] === "Stereo";
-// }
-
-const About = ({ info, darkMode, setDarkMode, dark }) => {
+const About = ({
+  cart,
+  showCheckout,
+  setShowCheckout,
+  products,
+  checkoutToken,
+  handleAddToCart,
+  handleEmptyCart,
+  handleUpdateCartQty,
+  handleRemoveFromCart,
+  handleUpdateCartPrice,
+  onCaptureCheckout,
+  setCart,
+  handleCouponCode,
+  loading,
+  getLiveObject,
+  live,
+  getPaypalPaymentId,
+  refreshCart,
+  darkMode,
+  setDarkMode,
+  dark,
+}) => {
   const [buttonContent, setButtonContent] = useState(null);
 
   const location = useRouter();
@@ -51,6 +46,30 @@ const About = ({ info, darkMode, setDarkMode, dark }) => {
       </Head>
 
       <MouseButton lable={buttonContent} />
+
+      {showCheckout && (
+        <Checkout
+          products={products}
+          cart={cart}
+          live={live}
+          handleAddToCart={handleAddToCart}
+          handleRemoveFromCart={handleRemoveFromCart}
+          handleEmptyCart={handleEmptyCart}
+          handleUpdateCartQty={handleUpdateCartQty}
+          handleUpdateCartPrice={handleUpdateCartPrice}
+          onCaptureCheckout={onCaptureCheckout}
+          handleCouponCode={handleCouponCode}
+          getLiveObject={getLiveObject}
+          setCart={setCart}
+          setShowCheckout={setShowCheckout}
+          showCheckout={showCheckout}
+          loading={loading}
+          checkoutToken={checkoutToken}
+          getPaypalPaymentId={getPaypalPaymentId}
+          refreshCart={refreshCart}
+          font={"Giallo"}
+        />
+      )}
 
       <AnimatePresence exitBeforeEnter>
         <div className="buttonsLeftWrapper">

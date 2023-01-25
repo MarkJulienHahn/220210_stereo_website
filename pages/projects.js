@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import dynamic from "next/dynamic";
 import { motion, AnimatePresence } from "framer-motion";
 
 import Styles from "../styles/Projects.module.css";
@@ -10,6 +11,9 @@ import AutomatTypeface from "../components/AutomatTypeface";
 import Footer from "../components/Footer";
 import Button from "../components/Button";
 import Cartbutton from "../components/Cartbutton";
+
+const Checkout = dynamic(() => import("../components/Checkout/Checkout"));
+const Trials = dynamic(() => import("../components/Trials"));
 
 const Projects = ({
   cart,
