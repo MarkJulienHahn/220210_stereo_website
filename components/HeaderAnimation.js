@@ -3,6 +3,7 @@ import useWindowDimensions from "./Hooks/useWindowDimensions";
 import { useInView } from "react-intersection-observer";
 
 import { motion } from "framer-motion";
+import { use100vh } from 'react-div-100vh'
 
 const HeaderAnimation = ({
   scrollUp,
@@ -27,6 +28,8 @@ const HeaderAnimation = ({
   const [x, setX] = useState(0);
   const [y, setY] = useState(0);
 
+  const height = use100vh()
+
   useEffect(() => {
     const handleScroll = () => {
       setScrollPosition(window.scrollY);
@@ -49,7 +52,7 @@ const HeaderAnimation = ({
   };
 
   const mobileEffect = () => {
-    windowWidth < 600 && scrollPosition < 565 && setWght(Math.floor((scrollPosition / windowHeight * 250)+40))
+    windowWidth < 600 && scrollPosition < 565 && setWght(Math.floor((scrollPosition / windowHeight * wghtMax)+wghtMin))
   }
 
   useEffect(() => {
@@ -96,14 +99,11 @@ const HeaderAnimation = ({
   };
 
 
-
-  console.log(scrollPosition)
-
   return (
     <>
       <div
         className={"headerAnimationWrapperMobile"}
-        style={{ background: background, color: color }}
+        style={{ background: background, color: color, height: height }}
         onClick={() => scrollUp()}
         ref={ref1}
       >

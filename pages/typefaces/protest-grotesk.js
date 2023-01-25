@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { motion, AnimatePresence } from "framer-motion";
 
+
 import HeaderAnimation from "../../components/HeaderAnimation";
 
 import Typetester from "../../components/Typetester";
@@ -42,6 +43,7 @@ const ProtestGroteskText = ({
   const [showCheckout, setShowCheckout] = useState(false);
   const [showTrials, setShowTrials] = useState(false);
   const location = useRouter();
+
 
   const checkoutOverview = useRef(null);
 
