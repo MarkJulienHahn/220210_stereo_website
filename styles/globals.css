@@ -437,7 +437,6 @@ button {
 
 .typeface-single-header {
   height: 100vh;
-  min-height: 800px;
   overflow: hidden;
   cursor: pointer;
 }
@@ -572,6 +571,20 @@ button {
     overflow: hidden;
     position: relative;
     height: inherit;
+  }
+
+  .typeface-single-header {
+    height: 200vh;
+    cursor: pointer;
+    overflow: visible;
+  }
+
+  .headerAnimationWrapperMobile {
+    display: none;
+    position: sticky;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
   }
 
   .typefaceControl {
@@ -978,7 +991,9 @@ button {
   opacity: 1 !important;
 }
 
-.MuiSlider-thumb, .MuiSlider-track, .MuiSlider-rail {
+.MuiSlider-thumb,
+.MuiSlider-track,
+.MuiSlider-rail {
   color: white !important;
 }
 
@@ -1030,6 +1045,10 @@ button {
   height: 100%;
   width: 100vw;
   height: 165vh;
+}
+
+.headerAnimationWrapperMobile {
+  display: none;
 }
 
 .headerAnimationWrapper {
@@ -1418,6 +1437,13 @@ button {
   .PGMonoLetter {
     width: 6vw;
     font-size: 6vw;
+  }
+  .headerAnimationWrapper {
+    display: none;
+  }
+
+  .headerAnimationWrapperMobile {
+    display: block;
   }
 
   .headerAnimationWrapper .row p,

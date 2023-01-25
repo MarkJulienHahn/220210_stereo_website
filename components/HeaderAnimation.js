@@ -15,7 +15,7 @@ const HeaderAnimation = ({
   size,
   italic,
   lineHeight,
-letterSpacing
+  letterSpacing,
 }) => {
   const { ref: ref1, inView: isVisible } = useInView();
 
@@ -48,6 +48,10 @@ letterSpacing
     setItal(Math.floor(i * 101));
   };
 
+  const mobileEffect = () => {
+    windowWidth < 600 && scrollPosition < 565 && setWght(Math.floor((scrollPosition / windowHeight * 250)+40))
+  }
+
   useEffect(() => {
     updateItal(x / windowWidth);
     updateWght(y / windowHeight);
@@ -71,6 +75,10 @@ letterSpacing
     };
   }, [isVisible]);
 
+  useEffect(() => {
+    mobileEffect()
+  }, [scrollPosition])
+
   const headerStyle = {
     fontSize: size,
     lineHeight: lineHeight,
@@ -87,8 +95,44 @@ letterSpacing
     return i < 10 ? `00${i}` : i < 100 ? `0${i}` : i;
   };
 
+
+
+  console.log(scrollPosition)
+
   return (
     <>
+      <div
+        className={"headerAnimationWrapperMobile"}
+        style={{ background: background, color: color }}
+        onClick={() => scrollUp()}
+        ref={ref1}
+      >
+        <div
+          className={"headerMouseAnimation"}
+          style={{ fontFamily: font, pointerEvents: "none" }}
+        >
+          <motion.div
+            className="container"
+            initial={{ y: -3000 }}
+            animate={{ y: 0 }}
+            transition={{
+              delay: 0.2,
+              type: "spring",
+              bounce: 0.15,
+            }}
+          >
+            <div>
+              <span style={headerStyle}>{name}</span>
+              <span className={"smallR"}>®</span>
+            </div>
+          </motion.div>
+          <div style={headerIndexStyle} className={"headerMouseIndex"}>
+            <span>
+              {threeDigits(wght)}
+            </span>
+          </div>
+        </div>
+      </div>
       <div
         className={"headerAnimationWrapper"}
         style={{ background: background, color: color }}
