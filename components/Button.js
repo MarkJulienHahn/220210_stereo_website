@@ -1,13 +1,17 @@
-import React from 'react';
-import styles from '../styles/Button.module.css';
+import React from "react";
+import styles from "../styles/Button.module.css";
 
-function Button ( props ) {
-
-
+function Button(props) {
   return (
-  <div id={props.subclass} className={styles.button} onClick={props.onClick} >
-      {props.lable}
-  </div>
+    props.lable ? (
+      <div
+        id={props.subclass}
+        className={styles.button}
+        onClick={props.onClick}
+      >
+        {props.lable}
+      </div>
+    ) : ""
   );
 }
 

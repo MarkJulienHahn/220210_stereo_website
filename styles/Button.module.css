@@ -261,4 +261,8 @@
     flex-direction: column;
     justify-content: space-between;
   }
+
+  .hoverBigButton {
+    display: none;
+  }
 }

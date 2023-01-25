@@ -23,8 +23,8 @@ const HeaderAnimation = ({
   // SCROLL FÜR »SCROLL DOWN«
 
   const [scrollPosition, setScrollPosition] = useState("");
-  const [wght, setWght] = useState(40);
-  const [ital, setItal] = useState(100);
+  const [wght, setWght] = useState(wghtMax/2);
+  const [ital, setItal] = useState(italic/2);
   const [x, setX] = useState(0);
   const [y, setY] = useState(0);
 

@@ -328,6 +328,7 @@ button {
   .buttonsLeftWrapper {
     flex-wrap: wrap;
     justify-content: flex-start;
+    flex-flow:wrap-reverse;
     align-items: flex-end;
     max-width: 0;
     height: auto;

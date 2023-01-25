@@ -900,7 +900,7 @@ const Checkout = ({
             <div className={styles.buyTableWrapper}>
               <div className={styles.buyConfigurationWrapper}>
                 <ul className={styles.buyConfiguration}>
-                  <li className={styles.buyConfigurationHead}>
+                  <li className={`${styles.buyConfigurationHead} ${styles.buyConfigurationHeadMain}`}>
                     [ 1 ] LICENSE TYPE
                   </li>
                   <div
@@ -1344,7 +1344,7 @@ const Checkout = ({
               /> */}
 
               <div className={styles.buyTable}>
-                <p className={styles.buyHead} ref={checkoutList}>
+                <p className={`${styles.buyHead} ${styles.buyConfigurationHeadMain}`} ref={checkoutList}>
                   [ 2 ] TYPEFACE
                 </p>
 

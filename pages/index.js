@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import Head from "next/head";
 import dynamic from "next/dynamic";
@@ -56,8 +56,46 @@ const Home = ({
 
   const [showCheckout, setShowCheckout] = useState(false);
   const [showTrials, setShowTrials] = useState(false);
+  const [buttonContent, setButtonContent] = useState("");
 
   const location = useRouter();
+
+  useEffect(() => {
+    protestIsVisible &&
+      setButtonContent({
+        name: "Protest Grotesk",
+        slug: "protest-grotesk",
+        available: true,
+      });
+    // !protestIsVisible && setButtonContent("")
+    protestMonoIsVisible &&
+      setButtonContent({
+        name: "Protest Mono",
+        slug: "protest-grotesk-mono",
+        available: true,
+      });
+    // !protestMonoIsVisible && setButtonContent("")
+    gialloIsVisible &&
+      setButtonContent({
+        name: "Giallo Roman",
+        slug: "giallo-roman",
+        available: true,
+      });
+    automatIsVisible &&
+      setButtonContent({ name: "Automat", slug: "", available: false });
+    !automatIsVisible &&
+      !gialloIsVisible &&
+      !protestMonoIsVisible &&
+      !protestIsVisible &&
+      setButtonContent({ name: "", slug: "", available: false });
+  }, [
+    protestIsVisible,
+    protestMonoIsVisible,
+    gialloIsVisible,
+    automatIsVisible,
+  ]);
+
+  console.log();
 
   return (
     <>
@@ -99,33 +137,27 @@ const Home = ({
           </a>
         </Link>
 
-        {/* <Button lable={"Typefaces"} subclass={"quaternaryMuted"} /> */}
-
         <div
-          className={`${Styles.button} ${
-            protestIsVisible ? Styles.buttonShow : ""
-          }  `}
+          className={`${Styles.button} ${Styles.buttonShow}  `}
+          style={
+            !buttonContent.available
+              ? { pointerEvents: "none" }
+              : { pointerEvents: "auto" }
+          }
         >
-          <Link href="/typefaces/protest-grotesk" scroll={false}>
+          <Link href={`/typefaces/${buttonContent.slug}`} scroll={false}>
             <a>
-              <Button lable={"Protest Grotesk"} subclass={"tertiary"} />
+              <Button
+                lable={buttonContent.name}
+                subclass={
+                  buttonContent.available ? "tertiary" : "quaternaryMuted"
+                }
+              />
             </a>
           </Link>
         </div>
 
-        <div
-          className={`${Styles.button} ${
-            gialloIsVisible ? Styles.buttonShow : ""
-          }  `}
-        >
-          <Link href="/typefaces/protest-grotesk" scroll={false}>
-            <a>
-              <Button lable={"Giallo Roman"} subclass={"tertiary"} />
-            </a>
-          </Link>
-        </div>
-
-        <div
+        {/* <div
           className={`${Styles.button} ${
             protestMonoIsVisible ? Styles.buttonShow : ""
           }  `}
@@ -157,7 +189,7 @@ const Home = ({
           <a>
             <Button lable={"Automat"} subclass={"quaternaryMuted"} />
           </a>
-        </div>
+        </div> */}
       </div>
 
       <div className="buttonsRightWrapper">

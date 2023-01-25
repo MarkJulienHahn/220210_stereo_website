@@ -375,7 +375,19 @@
   .buyConfiguration {
     height: 100%;
     padding-bottom: 0;
+    padding-top: 75px;
   }
+
+
+
+  .buyConfigurationHeadMain {
+    text-align: center;
+  }
+
+  .buyConfiguration li:hover {
+    color: unset;
+  }
+  
 
   .buyTable {
     margin: var(--margin-L) 0;
@@ -389,7 +401,7 @@
   .buyTableButtons {
     position: sticky;
     width: 100%;
-    top: 0;
+    top: 26px;
     z-index: 100;
   }
 
@@ -405,13 +417,9 @@
     display: none;
   }
 
-  .cartHead {
-    padding-top: var(--margin-L);
-  }
-
   .totalWrapper {
     width: 100%;
-    margin-bottom: calc(2 * var(--margin-L));
+    margin-bottom: var(--margin-L);
   }
 
   .productWrapper {
@@ -444,6 +452,10 @@
 
   .productWrapper:hover .productPrice {
     opacity: 1;
+  }
+
+  .productPrice {
+    text-align: left;
   }
 
   .formsWrapper {
@@ -486,6 +498,12 @@
   .buttonsLeftWrapper {
     flex-direction: column-reverse;
     height: unset;
+  }
+
+  .buttonsLeftWrapper div:first-child {
+    margin-top: var(--margin-M);
+    position: fixed;
+    top: 0;
   }
 
   .buyWrapper .buttonsLeftWrapper div {
