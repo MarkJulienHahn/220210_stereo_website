@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { motion, AnimatePresence } from "framer-motion";
 
-
 import HeaderAnimation from "../../components/HeaderAnimation";
 
 import Typetester from "../../components/Typetester";
@@ -43,7 +42,6 @@ const ProtestGroteskText = ({
   const [showCheckout, setShowCheckout] = useState(false);
   const [showTrials, setShowTrials] = useState(false);
   const location = useRouter();
-
 
   const checkoutOverview = useRef(null);
 
@@ -159,18 +157,11 @@ const ProtestGroteskText = ({
       </div>
 
       <div className="buttonsRightWrapper">
-        <div
-          className="lightBulb"
-          style={{
-            fontSize: "17pt",
-            paddingRight: "10px",
-            cursor: "pointer",
-            opacity: darkMode ? 0.5 : 1,
-          }}
+        <Button
+          lable={darkMode ? "Light" : "Dark"}
+          subclass={!darkMode ? "secondary" : "quaternary"}
           onClick={() => setDarkMode(!darkMode)}
-        >
-          💡
-        </div>
+        />
         <Button
           lable={"Trials"}
           subclass={"tertiary"}
@@ -211,8 +202,8 @@ const ProtestGroteskText = ({
               wghtMin={40}
               wghtMax={251}
               italic={true}
-              color={!darkMode ? "#EBEBEB": "var(--fifth)"}
-              background={darkMode ? "black": "var(--fifth)"}
+              color={!darkMode ? "#EBEBEB" : "var(--fifth)"}
+              background={darkMode ? "black" : "var(--fifth)"}
             />
           </div>
 
@@ -382,7 +373,7 @@ const ProtestGroteskText = ({
               </p>
             </div>
 
-            <WaterfallProtest darkMode={darkMode}/>
+            <WaterfallProtest darkMode={darkMode} />
 
             <div className="typefaceInfosection">
               <h1>

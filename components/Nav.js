@@ -10,7 +10,7 @@ const Nav = ({ darkMode }) => {
   };
 
   const darkBG = {
-    background: "rgba(255,255,255,0.8)",
+    background: "rgba(255,255,255,0.5)",
   };
   const dark = {
     color: "black"

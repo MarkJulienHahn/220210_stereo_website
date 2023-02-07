@@ -67,14 +67,25 @@ const TypefacePreview = (props) => {
     letterSpacing: props.configuration.letterSpacing,
   };
 
+
+
   return (
     <div className="typefaceWrapper">
-      <div className="typefaceControl">
+      <div
+        className="typefaceControl"
+        style={
+          props.darkMode
+            ? { background: "rgba(0,0,0,0.6)" }
+            : { background: "rgba(255,255,255,0.4)" }
+        }
+      >
         <span className="typefaceInfo">
           <Link href={`/typefaces/${props.slug}`} scroll={false}>
             <a>→ {props.lable}</a>
           </Link>{" "}
-          <p className="typefaceSpecs">{props.weights.length} Weights, from 90 EUR</p>
+          <p className="typefaceSpecs">
+            {props.weights.length} Weights, from 90 EUR
+          </p>
         </span>
 
         {props.weights.map((item) => (

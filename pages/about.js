@@ -83,7 +83,7 @@ const About = ({
         </div>
 
         <div className="buttonsRightWrapper">
-          <div
+          {/* <div
             className="lightBulb"
             style={{
               fontSize: "17pt",
@@ -94,7 +94,12 @@ const About = ({
             onClick={() => setDarkMode(!darkMode)}
           >
             💡
-          </div>
+          </div> */}
+          <Button
+          lable={darkMode ? "Light" : "Dark"}
+          subclass={!darkMode ? "secondary" : "quaternary"}
+          onClick={() => setDarkMode(!darkMode)}
+        />
           <Button lable={"Cart (0)"} subclass={"tertiary"} />
         </div>
 

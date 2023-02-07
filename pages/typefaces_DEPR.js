@@ -164,7 +164,7 @@ const Typefaces = ({
       </div>
 
       <div className="buttonsRightWrapper">
-        <div
+        {/* <div
           className="lightBulb"
           style={{
             fontSize: "17pt",
@@ -175,7 +175,12 @@ const Typefaces = ({
           onClick={() => setDarkMode(!darkMode)}
         >
           💡
-        </div>
+        </div> */}
+        <Button
+          lable={darkMode ? "Light" : "Dark"}
+          subclass={!darkMode ? "secondary" : "quaternary"}
+          onClick={() => setDarkMode(!darkMode)}
+        />
         <Button
           lable={"Trials"}
           subclass={"tertiary"}
@@ -323,7 +328,8 @@ const Typefaces = ({
                   fontFamily="Giallo"
                   lable="Giallo Roman"
                   weights={[
-                    ["Light / ", 100, 0],
+                    ["Light", 100, 0],
+                    ["Oblique / ", 100, 100],
                     ["Regular / ", 200, 0],
                     ["Book / ", 300, 0],
                     ["Medium / ", 400, 0],

@@ -81,7 +81,7 @@ const Projects = ({
       </div>
 
       <div className="buttonsRightWrapper">
-        <div
+        {/* <div
           className="lightBulb"
           style={{
             fontSize: "17pt",
@@ -92,7 +92,12 @@ const Projects = ({
           onClick={() => setDarkMode(!darkMode)}
         >
           💡
-        </div>
+        </div> */}
+        <Button
+          lable={darkMode ? "Light" : "Dark"}
+          subclass={!darkMode ? "secondary" : "quaternary"}
+          onClick={() => setDarkMode(!darkMode)}
+        />
         <Cartbutton
           lable={
             cart.line_items ? `Cart [${cart.total_unique_items}]` : `Cart [0]`

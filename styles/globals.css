@@ -502,8 +502,8 @@ button {
   padding: var(--margin-M) var(--margin-M) 0 var(--margin-M);
   padding-bottom: 10px;
   z-index: 150;
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(30px);
+  backdrop-filter: blur(30px);
   width: 100vw;
   transform: translateX(-30px);
 }
@@ -893,6 +893,7 @@ button {
   margin-right: 60px !important;
   opacity: 0;
   transition: opacity 0.5s ease;
+  z-index: 100;
 }
 
 .glyphchartWrapper:hover .glyphchartSlider {
@@ -2468,11 +2469,11 @@ button {
 
 .automatToolWrapper {
   width: 100%;
-  min-height: 100%;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 100px;
+  padding-top: 50px;
 }
 
 .automatButtonsWrapper {
@@ -2537,6 +2538,7 @@ button {
   height: 200px;
   width: 400px;
   background: white;
+  color: black;
   padding: var(--margin-M) var(--margin-M) 0 var(--margin-M);
   display: flex;
   flex-direction: column;
@@ -2628,7 +2630,7 @@ button {
 }
 
 .fontPreviewInner:hover {
-  background: var(--quaternary);
+  background: rgba(200, 200, 200, 0.2);
 }
 
 .fontPreviewInner {

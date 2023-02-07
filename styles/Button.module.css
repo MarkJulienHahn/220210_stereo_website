@@ -47,6 +47,7 @@
   transform: translateX(10%);
   font-family: "Protest";
   text-transform: uppercase;
+  color: black;
 }
 
 .hoverBigButton {
@@ -134,6 +135,7 @@
   transition: opacity 0.2s ease, height 0.2s ease;
   -webkit-backdrop-filter: blur(23px);
   backdrop-filter: blur(23px);
+  color: black;
 }
 
 @keyframes fontAnimation {

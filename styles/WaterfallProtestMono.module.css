@@ -73,6 +73,10 @@
   background: rgba(255, 255, 255, 0.25);
 }
 
+.controlsMobile {
+  display: none;
+}
+
 @media only screen and (max-width: 600px) {
   .controls {
     display: none;

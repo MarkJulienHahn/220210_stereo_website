@@ -49,7 +49,7 @@ const WaterfallGialloRoman = ({ darkMode }) => {
 
   return (
     <div style={fontWeightStyle} className={`${styles.waterfallWrapper}`}>
-      <div className={styles.controls}>
+      <div className={styles.controls} style={darkMode ? dark : light}>
         <Slider
           className={styles.slider}
           min={100}

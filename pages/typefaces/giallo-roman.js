@@ -97,7 +97,7 @@ const GialloRoman = ({
       </div>
 
       <div className="buttonsRightWrapper">
-        <div
+        {/* <div
           className="lightBulb"
           style={{
             fontSize: "17pt",
@@ -108,7 +108,12 @@ const GialloRoman = ({
           onClick={() => setDarkMode(!darkMode)}
         >
           💡
-        </div>
+        </div> */}
+        <Button
+          lable={darkMode ? "Light" : "Dark"}
+          subclass={!darkMode ? "secondary" : "quaternary"}
+          onClick={() => setDarkMode(!darkMode)}
+        />
         <Button lable={"Trials"} subclass={"tertiary"} />
         <Button
           lable={"Buy"}

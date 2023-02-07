@@ -46,7 +46,7 @@ const elements = [
   "0",
 ];
 
-const Projects = () => {
+const Projects = ({ darkMode, dark, setDarkMode }) => {
   const location = useRouter();
 
   const [alert, showAlert] = useState(false);
@@ -157,7 +157,7 @@ const Projects = () => {
   };
 
   return (
-    <main>
+    <main style={darkMode ? dark : {}}>
       <Head>
         <title>Automat | Stereo Typefaces&#x2122;</title>
       </Head>
@@ -167,6 +167,26 @@ const Projects = () => {
           lable={"Leave Automat"}
           subclass={"tertiary"}
           onClick={showAlert}
+        />
+      </div>
+
+      <div className="buttonsRightWrapper">
+        {/* <div
+          className="lightBulb"
+          style={{
+            fontSize: "17pt",
+            paddingRight: "10px",
+            cursor: "pointer",
+            opacity: darkMode ? 0.5 : 1,
+          }}
+          onClick={() => setDarkMode(!darkMode)}
+        >
+          💡
+        </div>        */}
+        <Button
+          lable={darkMode ? "Light" : "Dark"}
+          subclass={!darkMode ? "secondary" : "quaternary"}
+          onClick={() => setDarkMode(!darkMode)}
         />
       </div>
 

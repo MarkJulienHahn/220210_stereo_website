@@ -193,7 +193,7 @@ const Home = ({
       </div>
 
       <div className="buttonsRightWrapper">
-        <div
+        {/* <div
           className="lightBulb"
           style={{
             fontSize: "17pt",
@@ -204,7 +204,12 @@ const Home = ({
           onClick={() => setDarkMode(!darkMode)}
         >
           💡
-        </div>
+        </div> */}
+        <Button
+          lable={darkMode ? "Light" : "Dark"}
+          subclass={!darkMode ? "secondary" : "quaternary"}
+          onClick={() => setDarkMode(!darkMode)}
+        />
         <Button
           lable={"Trials"}
           subclass={"tertiary"}
@@ -291,6 +296,7 @@ const Home = ({
                 }}
                 default={[160, 0]}
                 slug={"protest-grotesk"}
+                darkMode={darkMode}
               />
             </div>
 
@@ -340,6 +346,7 @@ const Home = ({
                 }}
                 default={[40, 0]}
                 slug={"protest-grotesk-mono"}
+                darkMode={darkMode}
               />
             </div>
 
@@ -349,13 +356,20 @@ const Home = ({
                 fontFamily="Giallo"
                 lable="Giallo Roman"
                 weights={[
-                  ["Light / ", 100, 0],
-                  ["Regular / ", 200, 0],
-                  ["Book / ", 300, 0],
-                  ["Medium / ", 400, 0],
-                  ["Bold / ", 500, 0],
-                  ["Heavy / ", 600, 0],
-                  ["Black", 700, 0],
+                  ["Light ", 100, 0],
+                  ["Oblique / ", 100, 100],
+                  ["Regular ", 200, 0],
+                  ["Oblique / ", 200, 100],
+                  ["Book ", 300, 0],
+                  ["Oblique / ", 300, 100],
+                  ["Medium ", 400, 0],
+                  ["Oblique / ", 400, 100],
+                  ["Bold ", 500, 0],
+                  ["Oblique / ", 500, 100],
+                  ["Heavy ", 600, 0],
+                  ["Oblique / ", 600, 100],
+                  ["Black ", 700, 0],
+                  ["Oblique", 700, 100],
                 ]}
                 content={[
                   <>
@@ -388,6 +402,7 @@ const Home = ({
                 }}
                 default={[300, 0]}
                 slug={"giallo-roman"}
+                darkMode={darkMode}
               />
             </div>
 
@@ -447,6 +462,7 @@ const Home = ({
                   letterSpacing: "20px",
                 }}
                 default={[90, 90]}
+                darkMode={darkMode}
               />
             </div>
 

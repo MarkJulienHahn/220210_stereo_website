@@ -5,7 +5,7 @@ import MouseButton from "./MouseButton";
 const TypefacePreviewAutomat = (props) => {
   const [wdth, updateWdth] = useState(props.default);
   const [nmbr, updateNmbr] = useState(0);
-  const [font, updateFont] = useState("AutomatSquare")
+  const [font, updateFont] = useState("AutomatSquare");
 
   const [buttonContent, setButtonContent] = useState(null);
 
@@ -70,7 +70,14 @@ const TypefacePreviewAutomat = (props) => {
 
   return (
     <div className="typefaceWrapper">
-      <div className="typefaceControl">
+      <div
+        className="typefaceControl"
+        style={
+          props.darkMode
+            ? { background: "rgba(0,0,0,0.7)" }
+            : { background: "rgba(255,255,255,0.6)" }
+        }
+      >
         <span className="typefaceInfo">
           <div>
             → {props.lable}{" "}
@@ -87,7 +94,9 @@ const TypefacePreviewAutomat = (props) => {
               className="typefaceControlButton"
               onMouseEnter={() => setWdth([item[1], item[2]])}
               style={
-                (wdth[0] === item[1] && wdth[1] === item[2]) && font == "AutomatSquare"
+                wdth[0] === item[1] &&
+                wdth[1] === item[2] &&
+                font == "AutomatSquare"
                   ? { opacity: "1" }
                   : { opacity: "0.3" }
               }
@@ -103,7 +112,9 @@ const TypefacePreviewAutomat = (props) => {
               className="typefaceControlButton"
               onMouseEnter={() => setWdth([item[1], item[2]])}
               style={
-                (wdth[0] === item[1] && wdth[1] === item[2]) && font == "AutomatRound"
+                wdth[0] === item[1] &&
+                wdth[1] === item[2] &&
+                font == "AutomatRound"
                   ? { opacity: "1" }
                   : { opacity: "0.3" }
               }
@@ -114,7 +125,7 @@ const TypefacePreviewAutomat = (props) => {
         </div>
       </div>
 
-      <MouseButton lable={buttonContent} background={"var(--fifth)"}/>
+      <MouseButton lable={buttonContent} background={"var(--fifth)"} />
 
       <div
         className="typefaceDisplay"
