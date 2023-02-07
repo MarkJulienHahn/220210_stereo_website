@@ -146,8 +146,8 @@ const GialloRoman = ({
               wghtMax={800}
               letterSpacing={"1px"}
               italic={true}
-              color={!darkMode ? "#D7DCE0" : "#FFFDF7"}
-              background={darkMode ? "black" : "#FFFDF7"}
+              color={!darkMode ? "#D7DCE0" : "rgb(252,244,221)"}
+              background={darkMode ? "#1d1d1d" : "#FFFDF7"}
             />
           </div>
 

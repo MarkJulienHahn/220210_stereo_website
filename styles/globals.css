@@ -772,8 +772,9 @@ button {
 }
 
 .MuiSlider-root {
-  color: black !important;
+  color: white !important;
   opacity: 0.8;
+  mix-blend-mode: difference !important;
 }
 
 .MuiSlider-thumb.MuiSlider-active {
@@ -894,6 +895,8 @@ button {
   opacity: 0;
   transition: opacity 0.5s ease;
   z-index: 100;
+  mix-blend-mode: difference;
+  color: white;
 }
 
 .glyphchartWrapper:hover .glyphchartSlider {
