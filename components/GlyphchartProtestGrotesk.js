@@ -823,7 +823,7 @@ function Glyphchart(props) {
           </div>
 
           {glyphs.map((category, i) => (
-            <>
+            <div key={i}>
               <p className="glyphchartHeading">&#8594; {category.lable}</p>
               <div className="glyphchartLetterWrapper">
                 {category.glyphs.map((glyph, i) => (
@@ -835,7 +835,7 @@ function Glyphchart(props) {
                   />
                 ))}
               </div>
-            </>
+            </div>
           ))}
         </div>
       </div>
