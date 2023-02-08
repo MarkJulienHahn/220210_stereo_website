@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { Slider } from "@material-ui/core";
 
+import styles from "../styles/Glyphchart.module.css";
 import Glyphchartletter from "./Glyphchartletter";
+import { red } from "@material-ui/core/colors";
 
 function Glyphchart(props) {
   const [glyph, setGlyph] = useState("A");
-  const [wght, updateWght] = useState(400);
+  const [wght, updateWght] = useState(100);
   const [ital, updateItal] = useState(0);
   const [styleset, updateStyleset] = useState("normal");
 
@@ -506,6 +508,24 @@ function Glyphchart(props) {
         "Ⅽ",
         "Ⅾ",
         "Ⅿ",
+        "❶",
+        "❷",
+        "❸",
+        "❹",
+        "❺",
+        "❻",
+        "❼",
+        "❽",
+        "❾",
+        "①",
+        "②",
+        "③",
+        "④",
+        "⑤",
+        "⑥",
+        "⑦",
+        "⑧",
+        "⑨",
       ],
       styleset: "ss02",
     },
@@ -563,6 +583,7 @@ function Glyphchart(props) {
         "˘",
         "˚",
         "˜",
+        "¯",
         ",",
         "¯",
         "¸",
@@ -747,18 +768,18 @@ function Glyphchart(props) {
         <div className="glyphchartDisplayWrapper">
           <div className="glyphchartSlider">
             <div>
-              <p>&#8594; Weight </p>
+              <p>&#8594; Weight</p>
               <Slider
                 className="glyphchartSlider"
-                min={100}
-                max={800}
-                step={1}
-                defaultValue={400}
+                min={40}
+                max={250}
+                step={0.1}
+                defaultValue={100}
                 onChange={changeWght}
               />
             </div>
             <div>
-              <p>&#8594; Oblique</p>
+              <p>&#8594; Italic</p>
               <Slider
                 className="glyphchartSlider"
                 min={0}
@@ -781,10 +802,10 @@ function Glyphchart(props) {
               <div className="glyphchartSliderSingle">
                 <p>&#8594; Weight</p>
                 <Slider
-                  min={100}
-                  max={800}
-                  step={1}
-                  defaultValue={400}
+                  min={40}
+                  max={250}
+                  step={0.1}
+                  defaultValue={100}
                   onChange={changeWght}
                 />
               </div>
@@ -810,14 +831,14 @@ function Glyphchart(props) {
                     key={i}
                     lable={letter}
                     changeGlyph={(glyph) => setGlyph(glyph)}
-                    wght={400}
+                    wght={120}
                     ss={category.styleset}
                   />
                 ))}
               </div>
             </div>
           ))}
-          
+
         </div>
       </div>
     </div>
