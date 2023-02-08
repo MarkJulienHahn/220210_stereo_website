@@ -45,7 +45,7 @@ body {
 @font-face {
   font-family: "Giallo";
   font-style: normal;
-  src: url(../public/fonts/GialloRoman_VF.ttf) format("woff2");
+  src: url(../public/fonts/GialloRomanVF.ttf) format("woff2");
 }
 
 @font-face {

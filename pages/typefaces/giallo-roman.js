@@ -9,7 +9,7 @@ import HeaderAnimation from "../../components/HeaderAnimation";
 import Typetester from "../../components/Typetester";
 import Button from "../../components/Button";
 import WaterfallGialloRoman from "../../components/WaterfallGialloRoman";
-import Glyphchart from "../../components/GlyphchartGialloRoman";
+import GlyphchartGialloRoman from "../../components/GlyphchartGialloRoman";
 import Footer from "../../components/Footer";
 import FontPreview from "../../components/FontPreview";
 
@@ -409,7 +409,7 @@ const GialloRoman = ({
               users. Giallo Roman is placed right into thes field of tension.
             </p>
 
-            <Glyphchart
+            <GlyphchartGialloRoman
               fontFamily="Giallo"
               fontWeight={100}
               fontWidth={50}

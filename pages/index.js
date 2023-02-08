@@ -300,56 +300,6 @@ const Home = ({
               />
             </div>
 
-            <div ref={protestMonoRef}>
-              <TypefacePreview
-                key="002"
-                fontFamily="ProtestMono"
-                lable="Protest Grotesk Mono"
-                weights={[
-                  ["Thin / ", 40, 0, 1],
-                  ["Light / ", 70, 0, 2],
-                  ["Regular / ", 100, 0, 3],
-                  ["Book / ", 130, 0, 4],
-                  ["Medium / ", 160, 0, 5],
-                  ["Bold / ", 190, 0, 6],
-                  ["Heavy / ", 220, 0, 7],
-                  ["Black", 250, 0, 8],
-                ]}
-                content={[
-                  <>
-                    Graph OP—1™
-                    <br /> [around
-                    <br /> 7°Kelvin]
-                  </>,
-                  <>
-                    Compiled
-                    <br /> Successful
-                    <br /> in 178 ms²
-                  </>,
-                  <>
-                    [up to 2.4
-                    <br /> GHz] Record
-                    <br /> KeyBoard
-                  </>,
-                  <>
-                    Filament ↲<br /> Function 82
-                    <br /> (Focus)
-                  </>,
-                  <>
-                    Stadelĳk’s
-                    <br /> SpezSound
-                    <br /> Color ®
-                  </>,
-                ]}
-                configuration={{
-                  letterSpacing: "-0.9vw",
-                }}
-                default={[40, 0]}
-                slug={"protest-grotesk-mono"}
-                darkMode={darkMode}
-              />
-            </div>
-
             <div ref={gialloRef} id="giallo-roman">
               <TypefacePreview
                 key="001"
@@ -400,8 +350,58 @@ const Home = ({
                 configuration={{
                   letterSpacing: "0",
                 }}
-                default={[300, 0]}
+                default={[400, 0]}
                 slug={"giallo-roman"}
+                darkMode={darkMode}
+              />
+            </div>
+
+            <div ref={protestMonoRef}>
+              <TypefacePreview
+                key="002"
+                fontFamily="ProtestMono"
+                lable="Protest Grotesk Mono"
+                weights={[
+                  ["Thin / ", 40, 0, 1],
+                  ["Light / ", 70, 0, 2],
+                  ["Regular / ", 100, 0, 3],
+                  ["Book / ", 130, 0, 4],
+                  ["Medium / ", 160, 0, 5],
+                  ["Bold / ", 190, 0, 6],
+                  ["Heavy / ", 220, 0, 7],
+                  ["Black", 250, 0, 8],
+                ]}
+                content={[
+                  <>
+                    Graph OP—1™
+                    <br /> [around
+                    <br /> 7°Kelvin]
+                  </>,
+                  <>
+                    Compiled
+                    <br /> Successful
+                    <br /> in 178 ms²
+                  </>,
+                  <>
+                    [up to 2.4
+                    <br /> GHz] Record
+                    <br /> KeyBoard
+                  </>,
+                  <>
+                    Filament ↲<br /> Function 82
+                    <br /> (Focus)
+                  </>,
+                  <>
+                    Stadelĳk’s
+                    <br /> SpezSound
+                    <br /> Color ®
+                  </>,
+                ]}
+                configuration={{
+                  letterSpacing: "-0.9vw",
+                }}
+                default={[40, 0]}
+                slug={"protest-grotesk-mono"}
                 darkMode={darkMode}
               />
             </div>

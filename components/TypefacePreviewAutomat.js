@@ -82,7 +82,7 @@ const TypefacePreviewAutomat = (props) => {
           <div>
             → {props.lable}{" "}
             <span style={{ fontSize: "10pt", color: "var(--fifthSolid)" }}>
-              Preview
+              Beta
             </span>
           </div>
           <p>Variable Font Concept</p>

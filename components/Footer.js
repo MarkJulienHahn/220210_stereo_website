@@ -143,7 +143,7 @@ const data = [
         <p className="footerInfoHead">Email</p>
         <p>
           Send us a message via&nbsp;
-          <a href="mailto://info@stereotypefaces.com">
+          <a href="mailto:info@stereotypefaces.com">
             info@stereotypefaces.com
           </a>
           .&nbsp;We’ll reply within 24 hours.
