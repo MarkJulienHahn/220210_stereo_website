@@ -9,7 +9,7 @@ import HeaderAnimation from "../../components/HeaderAnimation";
 import Typetester from "../../components/Typetester";
 import Button from "../../components/Button";
 import WaterfallGialloRoman from "../../components/WaterfallGialloRoman";
-import GlyphchartGialloRoman from "../../components/GlyphchartGialloRoman";
+// import GlyphchartGialloRoman from "../../components/GlyphchartGialloRoman";
 import Footer from "../../components/Footer";
 import FontPreview from "../../components/FontPreview";
 
