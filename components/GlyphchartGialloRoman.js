@@ -805,15 +805,15 @@ function Glyphchart(props) {
             <div key={i}>
               <p className="glyphchartHeading">&#8594; {category.lable}</p>
               <div className="glyphchartLetterWrapper">
-                {/* {category.glyphs.map((glyph, i) => (
+                {category.glyphs.map((letter, i) => (
                   <Glyphchartletter
                     key={i}
-                    lable={glyph}
+                    lable={letter}
                     changeGlyph={(glyph) => setGlyph(glyph)}
                     wght={400}
                     ss={category.styleset}
                   />
-                ))} */}
+                ))}
               </div>
             </div>
           ))}
