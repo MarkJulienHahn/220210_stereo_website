@@ -583,6 +583,7 @@ function Glyphchart(props) {
         "˘",
         "˚",
         "˜",
+        "¯",
         ",",
         "¯",
         "¸",
