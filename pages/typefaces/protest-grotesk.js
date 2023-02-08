@@ -881,13 +881,13 @@ const ProtestGroteskText = ({
               </p>
             </div>
 
-            <GlyphchartProtestGrotesk
+            {/* <GlyphchartProtestGrotesk
               fontFamily="Protest"
               fontWeight={100}
               fontWidth={50}
               darkMode={darkMode}
               dark={dark}
-            />
+            /> */}
 
             <div className="typefaceInfosection">
               <h1>

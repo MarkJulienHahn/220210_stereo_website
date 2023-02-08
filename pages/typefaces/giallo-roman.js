@@ -409,13 +409,13 @@ const GialloRoman = ({
               users. Giallo Roman is placed right into thes field of tension.
             </p>
 
-            <GlyphchartGialloRoman
+            {/* <GlyphchartGialloRoman
               fontFamily="Giallo"
               fontWeight={100}
               fontWidth={50}
               darkMode={darkMode}
               dark={dark}
-            />
+            /> */}
 
             <FontPreview
               fonts={[
