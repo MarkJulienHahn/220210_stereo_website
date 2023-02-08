@@ -801,11 +801,11 @@ function Glyphchart(props) {
             </div>
           </div>
 
-          {/* {glyphs.map((category, i) => (
+          {glyphs.map((category, i) => (
             <div key={i}>
               <p className="glyphchartHeading">&#8594; {category.lable}</p>
               <div className="glyphchartLetterWrapper">
-                {category.glyphs.map((glyph, i) => (
+                {/* {category.glyphs.map((glyph, i) => (
                   <Glyphchartletter
                     key={i}
                     lable={glyph}
@@ -813,10 +813,10 @@ function Glyphchart(props) {
                     wght={400}
                     ss={category.styleset}
                   />
-                ))}
+                ))} */}
               </div>
             </div>
-          ))} */}
+          ))}
         </div>
       </div>
     </div>
