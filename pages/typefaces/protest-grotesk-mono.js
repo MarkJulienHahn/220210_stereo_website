@@ -55,7 +55,7 @@ const ProtestGroteskMono = ({
   return (
     <>
       <Head>
-        <title>Protest Grotesk | Stereo Typefaces&#x2122; </title>
+        <title>Protest Grotesk | Stereo Typefaces® </title>
       </Head>
 
       {showCheckout && (

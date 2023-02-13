@@ -100,7 +100,7 @@ const Home = ({
   return (
     <>
       <Head>
-        <title>Stereo Typefaces&#x2122;</title>
+        <title>Stereo Typefaces®</title>
         <meta name="keywords" content="web" />
       </Head>
 

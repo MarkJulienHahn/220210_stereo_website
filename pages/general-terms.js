@@ -11,7 +11,7 @@ const GeneralTerms = () => {
   return (
     <main className="licensingMain">
       <Head>
-        <title>Typefaces | Stereo Typefaces&#x2122;</title>
+        <title>Typefaces | Stereo Typefaces®</title>
         <meta name="keywords" content="web" />
       </Head>
 

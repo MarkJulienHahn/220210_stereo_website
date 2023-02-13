@@ -53,7 +53,7 @@ const GialloRoman = ({
   return (
     <>
       <Head>
-        <title>Giallo Roman | Stereo Typefaces&#x2122; </title>
+        <title>Giallo Roman | Stereo Typefaces® </title>
       </Head>
 
       {showCheckout && (
@@ -87,28 +87,11 @@ const GialloRoman = ({
           </a>
         </Link>
 
-        {/* <Link href="/typefaces" scroll={false}>
-          <a>
-            <Button lable={"Typefaces"} subclass={"tertiary"} />
-          </a>
-        </Link> */}
 
         <Button lable={"Giallo Roman"} subclass={"quaternaryActive"} />
       </div>
 
       <div className="buttonsRightWrapper">
-        {/* <div
-          className="lightBulb"
-          style={{
-            fontSize: "17pt",
-            paddingRight: "10px",
-            cursor: "pointer",
-            opacity: darkMode ? 0.5 : 1,
-          }}
-          onClick={() => setDarkMode(!darkMode)}
-        >
-          💡
-        </div> */}
         <Button
           lable={darkMode ? "Light" : "Dark"}
           subclass={!darkMode ? "secondary" : "quaternary"}
@@ -139,8 +122,8 @@ const GialloRoman = ({
             <HeaderAnimation
               scrollUp={scrollUp}
               name={"Giallo Roman"}
-              size={"25vw"}
-              lineHeight={"20vw"}
+              size={"clamp(20pt, 40vh, 25vw)"}
+              lineHeight={"clamp(20pt, 32vh, 18vw)"}
               font={"Giallo"}
               wghtMin={100}
               wghtMax={800}

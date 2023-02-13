@@ -159,7 +159,7 @@ const Projects = ({ darkMode, dark, setDarkMode }) => {
   return (
     <main style={darkMode ? dark : {}}>
       <Head>
-        <title>Automat | Stereo Typefaces&#x2122;</title>
+        <title>Automat | Stereo Typefaces®</title>
       </Head>
 
       <div className="buttonsLeftWrapper" scroll={false}>

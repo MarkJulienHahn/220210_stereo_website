@@ -11,7 +11,7 @@ import Typetester from "../../components/Typetester";
 import Button from "../../components/Button";
 import Cartbutton from "../../components/Cartbutton";
 import WaterfallProtest from "../../components/WaterfallProtest";
-// import GlyphchartProtestGrotesk from "../../components/GlyphchartProtestGrotesk";
+import GlyphchartProtestGrotesk from "../../components/GlyphchartProtestGrotesk";
 import Footer from "../../components/Footer";
 import FontPreview from "../../components/FontPreview";
 
@@ -111,7 +111,7 @@ const ProtestGroteskText = ({
   return (
     <>
       <Head>
-        <title>Protest Grotesk | Stereo Typefaces&#x2122; </title>
+        <title>Protest Grotesk | Stereo Typefaces® </title>
       </Head>
 
       {showCheckout && (
@@ -196,8 +196,8 @@ const ProtestGroteskText = ({
             <HeaderAnimation
               scrollUp={scrollUp}
               name={"Protest Grotesk"}
-              size={"23vw"}
-              lineHeight={"20vw"}
+              size={"clamp(20pt, 40vh, 25vw)"}
+              lineHeight={"clamp(20pt, 35vh, 20vw)"}
               font={"Protest"}
               wghtMin={40}
               wghtMax={251}

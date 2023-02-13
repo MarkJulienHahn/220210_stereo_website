@@ -17,7 +17,7 @@ const Trials = ({ cart, setShowCheckout, live }) => {
   return (
     <div>
       <Head>
-        <title>Trials | Stereo Typefaces&#x2122; </title>
+        <title>Trials | Stereo Typefaces® </title>
       </Head>
 
       <div className="buttonsLeftWrapper" scroll={false}>

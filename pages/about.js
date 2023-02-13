@@ -42,7 +42,7 @@ const About = ({
   return (
     <>
       <Head>
-        <title>About | Stereo Typefaces&#x2122;</title>
+        <title>About | Stereo Typefaces®</title>
       </Head>
 
       <MouseButton lable={buttonContent} />

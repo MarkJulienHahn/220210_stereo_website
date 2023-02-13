@@ -21,7 +21,7 @@ const Products = ({ products, cart, live }) => {
   return (
     <main className="AppInner">
       <Head>
-        <title>Merchandise | Stereo Typefaces&#x2122;</title>
+        <title>Merchandise | Stereo Typefaces®</title>
       </Head>
 
       <div className="buttonsLeftWrapper" scroll={false}>

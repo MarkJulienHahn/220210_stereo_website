@@ -43,7 +43,7 @@ const Projects = ({
   return (
     <main className={Styles.AppInner} style={darkMode ? dark : {}}>
       <Head>
-        <title>Projects | Stereo Typefaces&#x2122;</title>
+        <title>Projects | Stereo Typefaces®</title>
       </Head>
 
       {showCheckout && (
