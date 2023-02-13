@@ -279,28 +279,28 @@ const ProtestGroteskText = ({
                     fontVariationSettings: "'wght' 160, 'wdth' 50, 'ital'  00",
                   }}
                 >
-                  Protest Grotesk Semibold
+                  Protest Grotesk Medium
                 </div>
                 <div
                   style={{
                     fontVariationSettings: "'wght' 160, 'wdth' 50, 'ital' 100",
                   }}
                 >
-                  Protest Grotesk Semibold Italic
+                  Protest Grotesk Medium Italic
                 </div>
                 <div
                   style={{
                     fontVariationSettings: "'wght' 130, 'wdth' 50, 'ital'  00",
                   }}
                 >
-                  Protest Grotesk Medium
+                  Protest Grotesk Book
                 </div>
                 <div
                   style={{
                     fontVariationSettings: "'wght' 130, 'wdth' 50, 'ital' 100",
                   }}
                 >
-                  Protest Grotesk Medium Italic
+                  Protest Grotesk Book Italic
                 </div>
                 <div
                   style={{
