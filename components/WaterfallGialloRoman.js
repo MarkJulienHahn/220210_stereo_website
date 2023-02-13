@@ -36,7 +36,7 @@ const WaterfallGialloRoman = ({ darkMode }) => {
     },
     {
       value: 600,
-      label: "Extrabold",
+      label: "Heavy",
     },
     {
       value: 700,

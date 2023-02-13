@@ -942,22 +942,9 @@ const ProtestGroteskText = ({
                 </p>
               </div>
               <p>
-                &#8594; Languages
+                &#8594; 213 languages supported:
                 <br />
-                Afrikaans Albanian Asu Basque Bemba Bena Breton Catalan Chiga
-                Colognian Cornish Croatian Czech Danish Dutch Embu English
-                Esperanto Estonian Faroese Filipino Finnish French Friulian
-                Galician Ganda German Gusii Hungarian Icelandic Inari Sami
-                Indonesian Irish Italian Jola-Fonyi Kabuverdianu Kalaallisut
-                Kalenjin Kamba Kikuyu Kinyarwanda Latvian Lithuanian Lower
-                Sorbian Luo Luxembourgish Luyia Machame Makhuwa-Meetto Makonde
-                Malagasy Maltese Manx Meru Morisyen North Ndebele Northern Sami
-                Norwegian Bokmål Norwegian Nynorsk Nyankole Oromo Polish
-                Portuguese Quechua Romanian Romansh Rombo Rundi Rwa Samburu
-                Sango Sangu Scottish Gaelic Sena Serbian Shambala Shona Slovak
-                Slovenian Soga Somali Spanish Swahili Swedish Swiss German Taita
-                Teso Turkish Upper Sorbian Uzbek Volapük Vunjo Walser Welsh
-                Western Frisian Zulu
+                Abenaki, Afaan Oromo, Afar, Afrikaans, Albanian, Alsatian, Amis, Anuta, Aragonese, Aranese, Aromanian, Arrernte, Arvanitic, Asturian, Atayal, Aymara, Azerbaijani, Bashkir, Basque, Belarusian, Bemba, Bikol, Bislama, Bosnian, Breton, Bulgarian Romanization, Cape Verdean, Catalan, Cebuano, Chamorro, Chavacano, Chichewa, Chickasaw, Cimbrian, Cofan, Corsican, Creek, Crimean Tatar, Croatian, Czech, Danish, Dawan, Delaware, Dholuo, Drehu, Dutch, English, Esperanto, Estonian, Faroese, Fijian, Filipino, Finnish, Folkspraak, French, Frisian, Friulian, Gagauz, Galician, Ganda, Genoese, German, Gikuyu, Gooniyandi, Greenlandic, Guadeloupean, Gwichin, Haitian Creole, Han, Hawaiian, Hiligaynon, Hopi, Hotcak, Hungarian, Icelandic, Ido, Ilocano, Indonesian, Interglossa, Interlingua, Irish, Istroromanian, Italian, Jamaican, Javanese, Jerriais, Kaingang, Kala Lagaw Ya, Kapampangan, Kaqchikel, Karakalpak, Karelian, Kashubian, Kikongo, Kinyarwanda, Kiribati, Kirundi, Klingon, Kurdish, Ladin, Latin, Latino Sine, Latvian, Lithuanian, Lojban, Lombard, Low Saxon, Luxembourgish, Maasai, Makhuwa, Malay, Maltese, Manx, Maori, Marquesan, Meglenoromanian, Meriam Mir, Mirandese, Mohawk, Moldovan, Montagnais, Montenegrin, Murrinhpatha, Nagamese Creole, Ndebele, Neapolitan, Ngiyambaa, Niuean, Noongar, Norwegian, Novial, Occidental, Occitan, Oshiwambo, Ossetian, Palauan, Papiamento, Piedmontese, Polish, Portuguese, Potawatomi, Qeqchi, Quechua, Rarotongan, Romanian, Romansh, Rotokas, Sami Inari, Sami Lule, Sami Northern, Sami Southern, Samoan, Sango, Saramaccan, Sardinian, Scottish Gaelic, Serbian, Seri, Seychellois, Shawnee, Shona, Sicilian, Silesian, Slovak, Slovenian, Slovio, Somali, Sorbian Lower, Sorbian Upper, Sotho Northern, Sotho Southern, Spanish, Sranan, Sundanese, Swahili, Swazi, Swedish, Tagalog, Tahitian, Tetum, Tok Pisin, Tokelauan, Tongan, Tshiluba, Tsonga, Tswana, Tumbuka, Turkish, Turkmen, Tuvaluan, Tzotzil, Ukrainian, Uzbek, Venetian, Vepsian, Volapuk, Voro, Wallisian, Walloon, Waraywaray, Warlpiri, Wayuu, Welsh, Wikmungkan, Wiradjuri, Wolof, Xavante, Xhosa, Yapese, Yindjibarndi, Zapotec, Zulu, Zuni
               </p>
             </div>
 
