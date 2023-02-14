@@ -410,6 +410,10 @@ button {
   font-weight: normal;
 }
 
+.typefaceInfosection div {
+  padding: 30px 0;
+}
+
 .highlight01 {
   background: var(--primary);
   color: black;
@@ -840,16 +844,15 @@ button {
   width: 100%;
   font-size: 40vw;
   line-height: 60vw;
-  display: flex;
-  justify-content: center;
   pointer-events: none;
+  text-align: center;
 }
 
-.glyphchartDisplay div {
+/* .glyphchartDisplay div {
   width: 100%;
   display: flex;
   justify-content: center;
-}
+} */
 
 .glyphchartDisplayMobile {
   display: none;

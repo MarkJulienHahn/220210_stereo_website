@@ -234,10 +234,10 @@ const Home = ({
         <motion.div
           location={location}
           key={location.pathname}
-          initial={{ y: 0, opacity: 0 }}
+          initial={{ y: 0, opacity: 1 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -300, opacity: 0 }}
-          transition={{ duration: 3, ease: [0.19, 1, 0.22, 1] }}
+          transition={{ duration: 0.5, ease: [0.19, 1, 0.22, 1] }}
         >
           {" "}
           <main className={Styles.TypefacesInner} style={darkMode ? dark : {}}>
@@ -393,8 +393,8 @@ const Home = ({
                   </>,
                   <>
                     Stadelĳk’s
-                    <br /> SpezSound
-                    <br /> Color ®
+                    <br /> ŒvréeArgue
+                    <br /> Couleur ®
                   </>,
                 ]}
                 configuration={{

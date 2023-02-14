@@ -96,10 +96,10 @@ const About = ({
             💡
           </div> */}
           <Button
-          lable={darkMode ? "Light" : "Dark"}
-          subclass={!darkMode ? "secondary" : "quaternary"}
-          onClick={() => setDarkMode(!darkMode)}
-        />
+            lable={darkMode ? "Light" : "Dark"}
+            subclass={!darkMode ? "secondary" : "quaternary"}
+            onClick={() => setDarkMode(!darkMode)}
+          />
           <Button lable={"Cart (0)"} subclass={"tertiary"} />
         </div>
 
@@ -118,17 +118,12 @@ const About = ({
                   <span className="infoHeader">STEREO</span>{" "}
                   <span className="infoSubheader">Typefaces®</span>
                 </span>{" "}
-                is a type design agency offering{" "}
+                is a type design practice offering{" "}
                 <span className="infoVar1">
-                  retail and bespoke typefaces, design software, research, and
-                  consultancy
+                  retail typefaces, custom fonts and typography-related services
                 </span>
-                . Founded in Berlin and Stuttgart, we operate via a network of
-                satellite members across the globe, oscillating between
-                commercial and cultural projects of varying scales. The current
-                version of the store was set-up in 2023. Something about
-                variable-fonts typographic animations and our approach to
-                font-design maybe. I don’t know.
+                . Inspired by modern-day culture, as well as traditional graphic design, we produce high quality
+                typefaces with designers’ demands in mind. From local designers to international agencies we are happy work on all sorts of typography-related tasks and support designers all over the world.
               </p>
             </div>
 
@@ -147,7 +142,7 @@ const About = ({
                 <br />
                 <br />
                 <span>
-                  —&emsp;Custom Typefaces
+                  —&emsp;Custom typefaces
                   <br />
                 </span>
                 <span>
@@ -155,19 +150,15 @@ const About = ({
                   <br />
                 </span>
                 <span>
-                  —&emsp;Digital Typographic Applications
+                  —&emsp;Typographic Animations
                   <br />
                 </span>
                 <span>
-                  —&emsp;Logo and word mark consultancy
+                  —&emsp;(Typographic) logo design
                   <br />
                 </span>
                 <span>
-                  —&emsp;Type design tools and plugins
-                  <br />
-                </span>
-                <span>
-                  —&emsp;Typographic Development
+                  —&emsp;Typographic development
                   <br />
                 </span>
                 <span>

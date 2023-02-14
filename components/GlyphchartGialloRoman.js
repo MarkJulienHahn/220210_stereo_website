@@ -8,6 +8,7 @@ function Glyphchart(props) {
   const [wght, updateWght] = useState(400);
   const [ital, updateItal] = useState(0);
   const [styleset, updateStyleset] = useState("normal");
+  const [smallCaps, updateSmallCaps] = useState(false);
 
   const glyphStyle = {
     fontFamily: props.fontFamily,
@@ -19,6 +20,7 @@ function Glyphchart(props) {
     fontVariationSettings: `'wght' ${wght}, 'wdth' ${props.fontWidth}, 'ital' ${ital}`,
     background: props.darkMode && props.dark.background,
     color: props.darkMode && props.dark.color,
+    fontVariant: smallCaps && "small-caps",
   };
 
   function changeWght(e, wght) {
@@ -539,8 +541,63 @@ function Glyphchart(props) {
       glyphs: ["ğ", "ĝ", "ģ", "ġ", "ḡ", "ǥ", "ǧ"],
       styleset: "ss02",
     },
-    { lable: "Ligatures", glyphs: ["ﬀ", "ﬁ", "ﬂ", "ﬃ", "ﬄ"] },
-
+    { lable: "Standard Ligatures", glyphs: ["ff", "fi", "fl", "ffi", "ffl"] },
+    {
+      lable: "Discretionary Ligatures",
+      glyphs: [
+        "fb",
+        "fh",
+        "fj",
+        "fk",
+        "ft",
+        "fä",
+        "fö",
+        "fü",
+        "tt",
+        "ffb",
+        "fff",
+        "ffh",
+        "ffk",
+        "fft",
+        "Th",
+        "Tk",
+        "Tl",
+        "AA",
+        "TT",
+      ],
+    },
+    {
+      lable: "Small Caps",
+      glyphs: [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f",
+        "g",
+        "h",
+        "i",
+        "j",
+        "k",
+        "l",
+        "m",
+        "n",
+        "o",
+        "p",
+        "q",
+        "r",
+        "s",
+        "t",
+        "u",
+        "v",
+        "w",
+        "x",
+        "y",
+        "z",
+      ],
+      smallCaps: true,
+    },
     {
       lable: "Figures",
       glyphs: [
@@ -554,6 +611,8 @@ function Glyphchart(props) {
         "7",
         "8",
         "9",
+        // [{ textFigures: true, figure: "0" }],
+        "1",
         "₀",
         "₁",
         "₂",
@@ -608,16 +667,16 @@ function Glyphchart(props) {
         "⑦",
         "⑧",
         "⑨",
-        "⁄",
-        "½",
-        "⅓",
-        "¼",
-        "¾",
-        "⅕",
-        "⅛",
-        "⅜",
-        "⅝",
-        "⅞",
+        // "⁄",
+        // "½",
+        // "⅓",
+        // "¼",
+        // "¾",
+        // "⅕",
+        // "⅛",
+        // "⅜",
+        // "⅝",
+        // "⅞",
       ],
       styleset: "ss02",
     },
@@ -689,28 +748,37 @@ function Glyphchart(props) {
     {
       lable: "Currency Symbols",
       glyphs: [
-        "₡",
-        "₤",
-        "₥",
-        "₦",
-        "₨",
-        "₩",
-        "₪",
-        "₫",
+        "£",
         "€",
-        "₭",
-        "₮",
-        "₱",
-        "₲",
-        "₴",
-        "₵",
-        "₸",
-        "₹",
-        "₺",
-        "₼",
-        "₽",
-        "₾",
+        "$",
+        "¢",
+        "¥",
         "₿",
+        "¤",
+        "ƒ",
+        // "₡",
+        // "₤",
+        // "$",
+        // "¢",
+        // "₥",
+        // "₦",
+        // "₨",
+        // "₩",
+        // "₪",
+        // "₫",
+        // "€",
+        // "₭",
+        // "₮",
+        // "₱",
+        // "₲",
+        // "₴",
+        // "₵",
+        // "₸",
+        // "₹",
+        // "₺",
+        // "₼",
+        // "₽",
+        // "₾",
       ],
     },
     {
@@ -810,7 +878,7 @@ function Glyphchart(props) {
         "♹",
         "♺",
         "♻",
-        "♾",
+        // "♾",
         "⚀",
         "⚁",
         "⚂",
@@ -820,7 +888,7 @@ function Glyphchart(props) {
         "⚠",
         "⚰",
         "⚱",
-        "⛔",
+        // "⛔",
         "✓",
         "✕",
         "@",
@@ -830,7 +898,7 @@ function Glyphchart(props) {
         "©",
         "®",
         "℗",
-        "℅",
+        // "℅",
         "°",
         "⌀",
         "|",
@@ -839,20 +907,22 @@ function Glyphchart(props) {
         "ℓ",
         "‡",
         "℮",
-        "№",
-        "℆",
-        "℻",
+        // "№",
+        // "℆",
+        // "℻",
         "⌫",
         "⌦",
         "⏏",
         "⏎",
-        "℠",
-        "℡",
+        // "℠",
+        // "℡",
         "🙁",
         "🙂",
       ],
     },
   ];
+
+  console.log("smallCaps:", smallCaps, "ss", styleset);
 
   return (
     <div>
@@ -917,7 +987,15 @@ function Glyphchart(props) {
           {glyphs.map((category, i) => (
             <div key={i}>
               <p className="glyphchartHeading">&#8594; {category.lable}</p>
-              <div className="glyphchartLetterWrapper">
+              <div
+                className="glyphchartLetterWrapper"
+                onMouseEnter={() => {
+                  changeStyleset(
+                    category.styleset ? `"${category.styleset}"` : "normal"
+                  ),
+                    updateSmallCaps(category.smallCaps ? true : false);
+                }}
+              >
                 {category.glyphs.map((letter, i) => (
                   <Glyphchartletter
                     key={i}
@@ -925,6 +1003,7 @@ function Glyphchart(props) {
                     changeGlyph={(glyph) => setGlyph(glyph)}
                     wght={400}
                     ss={category.styleset}
+                    smallCaps={category.smallCaps}
                   />
                 ))}
               </div>

@@ -333,7 +333,7 @@ function Glyphchart(props) {
 
         "Ļ",
         "Ḷ",
-        "Ḹ",
+        // "Ḹ",
         // "Ḻ",
         "Ḽ",
 
@@ -358,7 +358,7 @@ function Glyphchart(props) {
         // "Ŗ",
         // "Ɍ",
         // "Ṟ",
-        "Ṝ",
+        // "Ṝ",
 
         "Ș",
 
@@ -426,7 +426,7 @@ function Glyphchart(props) {
 
         // "ɥ",
 
-        "ǐ",
+        // "ǐ",
         // "ɨ",
 
         "ȷ",
@@ -804,7 +804,7 @@ function Glyphchart(props) {
         // "⚱",
         // "⛔",
         // "✓",
-        "✕",
+        // "✕",
         "@",
         "&",
         "¶",
@@ -912,7 +912,7 @@ function Glyphchart(props) {
                     key={i}
                     lable={letter}
                     changeGlyph={(glyph) => setGlyph(glyph)}
-                    wght={120}
+                    wght={90}
                     ss={category.styleset}
                   />
                 ))}

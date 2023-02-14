@@ -14,6 +14,7 @@ import WaterfallProtest from "../../components/WaterfallProtest";
 import GlyphchartProtestGrotesk from "../../components/GlyphchartProtestGrotesk";
 import Footer from "../../components/Footer";
 import FontPreview from "../../components/FontPreview";
+import FontInfo from "../../components/FontInfo";
 
 const Checkout = dynamic(() => import("../../components/Checkout/Checkout"));
 const Trials = dynamic(() => import("../../components/Trials"));
@@ -883,70 +884,70 @@ const ProtestGroteskText = ({
 
             <GlyphchartProtestGrotesk
               fontFamily="Protest"
-              fontWeight={100}
+              fontWeight={80}
               fontWidth={50}
               darkMode={darkMode}
               dark={dark}
             />
 
-            <div className="typefaceInfosection">
-              <h1>
-                &#8594; Character Set
-                <br />
-                <br />
-              </h1>
-
-              <div className="typefaceInfosectionList">
-                <p>
-                  &#8594; Adobe
-                  <br />
-                  Adobe Latin-1
-                  <br />
-                </p>
-                <p>
-                  &#8594; Apple Macintosh
-                  <br />
-                  MacOS Roman (Standard Latin)
-                  <br />
-                  MacOS Central European Latin
-                  <br />
-                  MacOS Croatian
-                  <br />
-                  MacOS Iceland
-                  <br />
-                  MacOS Romanian
-                  <br />
-                  MacOS Turkish
-                </p>
-                <p>
-                  &#8594; Microsoft Windows
-                  <br />
-                  MS Windows 1250 Central European Latin <br />
-                  MS Windows 1252 Western (Standard Latin) <br />
-                  MS Windows 1254 Turkish Latin <br />
-                  MS Windows 1257 Baltic Latin
-                </p>
-                <p>
-                  &#8594; ISO 8859
-                  <br />
-                  8859-1 Latin-1 Western European <br />
-                  8859-2 Latin-2 Central European <br />
-                  8859-3 Latin-3 South European <br />
-                  8859-4 Latin-4 North European <br />
-                  8859-9 Latin-5 Turkish <br />
-                  8859-13 Latin-7 Baltic Rim <br />
-                  8859-15 Latin-9 <br />
-                  8859-16 Latin-10 South-Eastern European
-                  <br />
-                  <br />
-                </p>
-              </div>
-              <p>
-                &#8594; 213 languages supported:
-                <br />
-                Abenaki, Afaan Oromo, Afar, Afrikaans, Albanian, Alsatian, Amis, Anuta, Aragonese, Aranese, Aromanian, Arrernte, Arvanitic, Asturian, Atayal, Aymara, Azerbaijani, Bashkir, Basque, Belarusian, Bemba, Bikol, Bislama, Bosnian, Breton, Bulgarian Romanization, Cape Verdean, Catalan, Cebuano, Chamorro, Chavacano, Chichewa, Chickasaw, Cimbrian, Cofan, Corsican, Creek, Crimean Tatar, Croatian, Czech, Danish, Dawan, Delaware, Dholuo, Drehu, Dutch, English, Esperanto, Estonian, Faroese, Fijian, Filipino, Finnish, Folkspraak, French, Frisian, Friulian, Gagauz, Galician, Ganda, Genoese, German, Gikuyu, Gooniyandi, Greenlandic, Guadeloupean, Gwichin, Haitian Creole, Han, Hawaiian, Hiligaynon, Hopi, Hotcak, Hungarian, Icelandic, Ido, Ilocano, Indonesian, Interglossa, Interlingua, Irish, Istroromanian, Italian, Jamaican, Javanese, Jerriais, Kaingang, Kala Lagaw Ya, Kapampangan, Kaqchikel, Karakalpak, Karelian, Kashubian, Kikongo, Kinyarwanda, Kiribati, Kirundi, Klingon, Kurdish, Ladin, Latin, Latino Sine, Latvian, Lithuanian, Lojban, Lombard, Low Saxon, Luxembourgish, Maasai, Makhuwa, Malay, Maltese, Manx, Maori, Marquesan, Meglenoromanian, Meriam Mir, Mirandese, Mohawk, Moldovan, Montagnais, Montenegrin, Murrinhpatha, Nagamese Creole, Ndebele, Neapolitan, Ngiyambaa, Niuean, Noongar, Norwegian, Novial, Occidental, Occitan, Oshiwambo, Ossetian, Palauan, Papiamento, Piedmontese, Polish, Portuguese, Potawatomi, Qeqchi, Quechua, Rarotongan, Romanian, Romansh, Rotokas, Sami Inari, Sami Lule, Sami Northern, Sami Southern, Samoan, Sango, Saramaccan, Sardinian, Scottish Gaelic, Serbian, Seri, Seychellois, Shawnee, Shona, Sicilian, Silesian, Slovak, Slovenian, Slovio, Somali, Sorbian Lower, Sorbian Upper, Sotho Northern, Sotho Southern, Spanish, Sranan, Sundanese, Swahili, Swazi, Swedish, Tagalog, Tahitian, Tetum, Tok Pisin, Tokelauan, Tongan, Tshiluba, Tsonga, Tswana, Tumbuka, Turkish, Turkmen, Tuvaluan, Tzotzil, Ukrainian, Uzbek, Venetian, Vepsian, Volapuk, Voro, Wallisian, Walloon, Waraywaray, Warlpiri, Wayuu, Welsh, Wikmungkan, Wiradjuri, Wolof, Xavante, Xhosa, Yapese, Yindjibarndi, Zapotec, Zulu, Zuni
-              </p>
-            </div>
+            <FontInfo
+              info={{
+                name: "Protest Grotesk",
+                year: "2023",
+                design: "Mark Julien Hahn",
+                mastering: "Stereo Typefaces",
+                characters: 685,
+                styles: 16,
+                variable: "2 Axes (Weight & Italic)",
+              }}
+              opentype={[
+                "aalt (Access All Alternates)",
+                "ss01 (Alternative a)",
+                "ss02 (Alternative g)",
+                "ss03 (Alternative ® and ©)",
+                "subs (Subscript)",
+                "sinf (Scientific Inferiors)",
+                "sups (Superscript)",
+                "frac (Fractions)",
+                "ordn (Ordinals)",
+                "pnum (Proportional Figures)",
+                "tnum (Tabular Figures)",
+                "liga (Standard Ligatures)",
+                "zero (Slashed Zero)",
+                "calt (Contextual Alternates)",
+                "dnom (Denominators)",
+                "case (Case-Sensitive Forms)",
+              ]}
+              languages={{
+                count: 213,
+                list: "Abenaki, Afaan Oromo, Afar, Afrikaans, Albanian, Alsatian, Amis, Anuta, Aragonese, Aranese, Aromanian, Arrernte, Arvanitic, Asturian, Atayal, Aymara, Azerbaijani, Bashkir, Basque, Belarusian, Bemba, Bikol, Bislama, Bosnian, Breton, Bulgarian Romanization, Cape Verdean, Catalan, Cebuano, Chamorro, Chavacano, Chichewa, Chickasaw, Cimbrian, Cofan, Corsican, Creek, Crimean Tatar, Croatian, Czech, Danish, Dawan, Delaware, Dholuo, Drehu, Dutch, English, Esperanto, Estonian, Faroese, Fijian, Filipino, Finnish, Folkspraak, French, Frisian, Friulian, Gagauz, Galician, Ganda, Genoese, German, Gikuyu, Gooniyandi, Greenlandic, Guadeloupean, Gwichin, Haitian Creole, Han, Hawaiian, Hiligaynon, Hopi, Hotcak, Hungarian, Icelandic, Ido, Ilocano, Indonesian, Interglossa, Interlingua, Irish, Istroromanian, Italian, Jamaican, Javanese, Jerriais, Kaingang, Kala Lagaw Ya, Kapampangan, Kaqchikel, Karakalpak, Karelian, Kashubian, Kikongo, Kinyarwanda, Kiribati, Kirundi, Klingon, Kurdish, Ladin, Latin, Latino Sine, Latvian, Lithuanian, Lojban, Lombard, Low Saxon, Luxembourgish, Maasai, Makhuwa, Malay, Maltese, Manx, Maori, Marquesan, Meglenoromanian, Meriam Mir, Mirandese, Mohawk, Moldovan, Montagnais, Montenegrin, Murrinhpatha, Nagamese Creole, Ndebele, Neapolitan, Ngiyambaa, Niuean, Noongar, Norwegian, Novial, Occidental, Occitan, Oshiwambo, Ossetian, Palauan, Papiamento, Piedmontese, Polish, Portuguese, Potawatomi, Qeqchi, Quechua, Rarotongan, Romanian, Romansh, Rotokas, Sami Inari, Sami Lule, Sami Northern, Sami Southern, Samoan, Sango, Saramaccan, Sardinian, Scottish Gaelic, Serbian, Seri, Seychellois, Shawnee, Shona, Sicilian, Silesian, Slovak, Slovenian, Slovio, Somali, Sorbian Lower, Sorbian Upper, Sotho Northern, Sotho Southern, Spanish, Sranan, Sundanese, Swahili, Swazi, Swedish, Tagalog, Tahitian, Tetum, Tok Pisin, Tokelauan, Tongan, Tshiluba, Tsonga, Tswana, Tumbuka, Turkish, Turkmen, Tuvaluan, Tzotzil, Ukrainian, Uzbek, Venetian, Vepsian, Volapuk, Voro, Wallisian, Walloon, Waraywaray, Warlpiri, Wayuu, Welsh, Wikmungkan, Wiradjuri, Wolof, Xavante, Xhosa, Yapese, Yindjibarndi, Zapotec, Zulu, Zuni",
+              }}
+              adobe={["Adobe Latin-1"]}
+              appleMacintosh={[
+                "MacOS Roman (Standard Latin)",
+                "MacOS Central European Latin",
+                "MacOS Croatian",
+                "MacOS Iceland",
+                "MacOS Romanian",
+                "MacOS Turkish",
+              ]}
+              microsoftWindows={[
+                "MS Windows 1250 Central European Latin",
+                "MS Windows 1252 Western (Standard Latin)",
+                "MS Windows 1254 Turkish Latin",
+                "MS Windows 1257 Baltic Latin",
+              ]}
+              iso8859={[
+                "8859-1 Latin-1 Western European",
+                "8859-2 Latin-2 Central European",
+                "8859-3 Latin-3 South European",
+                "8859-4 Latin-4 North European",
+                "8859-9 Latin-5 Turkish",
+                "8859-13 Latin-7 Baltic Rim",
+                "8859-15 Latin-9",
+                "8859-16 Latin-10 South-Eastern European",
+              ]}
+            />
 
             <FontPreview
               fonts={[

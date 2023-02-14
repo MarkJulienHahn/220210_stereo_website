@@ -1,10 +1,8 @@
-import React, { useState } from "react";
-import styles from "../styles/Glyphchart.module.css";
-
 function Glyphchartletter(props) {
   const glyphstyle = {
     fontVariationSettings: `"wght" ${props.wght}`,
     fontFeatureSettings: `"${props.ss}"`,
+    fontVariant: props.smallCaps && "small-caps"
   };
 
   return (
