@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useState} from "react";
 
 const FontInfo = ({
   info,
@@ -9,11 +9,12 @@ const FontInfo = ({
   microsoftWindows,
   iso8859,
 }) => {
+
   return (
     <div className="typefaceInfosection">
       <div className="typefaceInfosectionList">
         <p>
-          <span class="highlight01">Information</span>
+          &#8594; <span class="highlight01">Information</span>
           <br />
           Name: {info.name}
           <br />
@@ -30,7 +31,7 @@ const FontInfo = ({
           Variable: {info.variable}
         </p>
         <p>
-          <span class="highlight01">OpenType</span>
+          &#8594; <span class="highlight01">OpenType</span>
           <br />
           {opentype.map((entry, i) => (
             <span key={i}>
@@ -39,7 +40,8 @@ const FontInfo = ({
           ))}
         </p>
       </div>
-      <p>
+      {/* <p>
+        &#8594;
         <span class="highlight02">{languages.count} Languages supported</span>
         <br />
         {languages.list}
@@ -47,7 +49,7 @@ const FontInfo = ({
 
       <div className="typefaceInfosectionList">
         <p>
-          <span class="highlight02">Adobe</span>
+          &#8594; <span class="highlight02">Adobe</span>
           <br />
           {adobe.map((entry, i) => (
             <div key={i}>
@@ -56,7 +58,7 @@ const FontInfo = ({
           ))}
         </p>
         <p>
-          <span class="highlight02">Apple Macintosh</span>
+          &#8594; <span class="highlight02">Apple Macintosh</span>
           <br />
           {appleMacintosh.map((entry, i) => (
             <span key={i}>
@@ -65,7 +67,7 @@ const FontInfo = ({
           ))}
         </p>
         <p>
-          <span class="highlight02">Microsoft Windows</span>
+          &#8594; <span class="highlight02">Microsoft Windows</span>
           <br />
           {microsoftWindows.map((entry, i) => (
             <span key={i}>
@@ -74,15 +76,15 @@ const FontInfo = ({
           ))}
         </p>
         <p>
-          <span class="highlight02">ISO 8859</span>
+          &#8594; <span class="highlight02">ISO 8859</span>
           <br />
           {iso8859.map((entry, i) => (
             <span key={i}>
               {entry} <br />
             </span>
           ))}
-        </p>
-      </div>
+        </p> 
+      </div>*/}
     </div>
   );
 };
