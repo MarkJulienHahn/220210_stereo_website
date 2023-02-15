@@ -1,13 +1,6 @@
 import {useState} from "react";
 
-const FontInfo = ({
-  info,
-  opentype,
-  languages,
-  appleMacintosh,
-  microsoftWindows,
-  iso8859,
-}) => {
+const FontInfo = ( props ) => {
 
   // const [info, setInfo] = useState(props.info)
   const [adobe, setInfo] = useState(props.adobe)
@@ -15,7 +8,7 @@ const FontInfo = ({
   return (
     <div className="typefaceInfosection">
       <div className="typefaceInfosectionList">
-        <p>
+        {/* <p>
           &#8594; <span class="highlight01">Information</span>
           <br />
           Name: {info.name}
@@ -31,7 +24,7 @@ const FontInfo = ({
           Styles: {info.styles}
           <br />
           Variable: {info.variable}
-        </p>
+        </p> */}
         <p>
           &#8594; <span class="highlight01">OpenType</span>
           <br />
@@ -42,12 +35,12 @@ const FontInfo = ({
           ))} */}
         </p>
       </div>
-      <p>
+      {/* <p>
         &#8594;
         <span class="highlight02">{languages.count} Languages supported</span>
         <br />
         {languages.list}
-      </p>
+      </p> */}
 
       <div className="typefaceInfosectionList">
         <p>
