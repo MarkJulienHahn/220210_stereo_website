@@ -1,6 +1,5 @@
-import {useState} from "react";
-
-const FontInfo = ({
+const FontInfo = (
+  {
   info,
   opentype,
   languages,
@@ -8,7 +7,8 @@ const FontInfo = ({
   appleMacintosh,
   microsoftWindows,
   iso8859,
-}) => {
+}
+) => {
 
   return (
     <div className="typefaceInfosection">
@@ -49,7 +49,7 @@ const FontInfo = ({
 
       <div className="typefaceInfosectionList">
         <p>
-          &#8594; <span class="highlight02">Adobe</span>
+          &#8594; <span className="highlight02">Adobe</span>
           <br />
           {/* {adobe.map((entry, i) => (
             <div key={i}>
