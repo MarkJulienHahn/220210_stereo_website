@@ -7,6 +7,8 @@ const FontInfo = ({
   microsoftWindows,
   iso8859,
 }) => {
+  console.log(opentype);
+
   return (
     <div className="typefaceInfosection">
       <div className="typefaceInfosectionList">
@@ -30,21 +32,21 @@ const FontInfo = ({
         <p>
           &#8594; <span class="highlight01">OpenType</span>
           <br />
-          {opentype.map((entry, i) => (
+          {/* {opentype.map((entry, i) => (
             <span key={i}>
-              {/* {entry} <br /> */}
+              {entry} <br />
             </span>
-          ))}
+          ))} */}
         </p>
       </div>
       <p>
-        &#8594;{" "}
+        &#8594;
         <span class="highlight02">{languages.count} Languages supported</span>
         <br />
         {languages.list}
       </p>
 
-      {/* <div className="typefaceInfosectionList">
+      <div className="typefaceInfosectionList">
         <p>
           &#8594; <span class="highlight02">Adobe</span>
           <br />
@@ -54,7 +56,7 @@ const FontInfo = ({
             </span>
           ))}
         </p>
-        <p>
+        {/* <p>
           &#8594; <span class="highlight02">Apple Macintosh</span>
           <br />
           {appleMacintosh.map((entry, i) => (
@@ -80,8 +82,8 @@ const FontInfo = ({
               {entry} <br />
             </span>
           ))}
-        </p>
-      </div> */}
+        </p> */}
+      </div>
     </div>
   );
 };
