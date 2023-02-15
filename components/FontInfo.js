@@ -9,7 +9,7 @@ const FontInfo = ({
 }) => {
   return (
     <div className="typefaceInfosection">
-      {/* <div className="typefaceInfosectionList">
+      <div className="typefaceInfosectionList">
         <p>
           &#8594; <span class="highlight01">Information</span>
           <br />
@@ -44,7 +44,7 @@ const FontInfo = ({
         {languages.list}
       </p>
 
-      <div className="typefaceInfosectionList">
+      {/* <div className="typefaceInfosectionList">
         <p>
           &#8594; <span class="highlight02">Adobe</span>
           <br />
