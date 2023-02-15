@@ -1,15 +1,16 @@
-import React from "react";
+import {useState} from "react";
 
 const FontInfo = ({
   info,
   opentype,
   languages,
-  adobe,
   appleMacintosh,
   microsoftWindows,
   iso8859,
 }) => {
-  console.log(opentype);
+
+  // const [info, setInfo] = useState(props.info)
+  const [adobe, setInfo] = useState(props.adobe)
 
   return (
     <div className="typefaceInfosection">
