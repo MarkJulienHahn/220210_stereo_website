@@ -13,7 +13,7 @@ const FontInfo = ({
   return (
     <div className="typefaceInfosection">
       <div className="typefaceInfosectionList">
-        <p>
+        {/* <p>
           &#8594; <span className="highlight01">Information</span>
           <br />
           Name: {info.name}
@@ -29,7 +29,7 @@ const FontInfo = ({
           Styles: {info.styles}
           <br />
           Variable: {info.variable}
-        </p>
+        </p> */}
         <p>
           &#8594; <span className="highlight01">OpenType</span>
           <br />
