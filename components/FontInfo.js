@@ -1,15 +1,19 @@
-import {useState} from "react";
+import { useState } from "react";
 
-const FontInfo = (  ) => {
-
-  // const [info, setInfo] = useState(props.info)
-  // const [adobe, setInfo] = useState(props.adobe)
-
+const FontInfo = ({
+  info,
+  opentype,
+  languages,
+  adobe,
+  appleMacintosh,
+  microsoftWindows,
+  iso8859,
+}) => {
   return (
     <div className="typefaceInfosection">
-      {/* <div className="typefaceInfosectionList">
+      <div className="typefaceInfosectionList">
         <p>
-          &#8594; <span class="highlight01">Information</span>
+          <span class="highlight01">Information</span>
           <br />
           Name: {info.name}
           <br />
@@ -26,7 +30,7 @@ const FontInfo = (  ) => {
           Variable: {info.variable}
         </p>
         <p>
-          &#8594; <span class="highlight01">OpenType</span>
+          <span class="highlight01">OpenType</span>
           <br />
           {opentype.map((entry, i) => (
             <span key={i}>
@@ -36,7 +40,6 @@ const FontInfo = (  ) => {
         </p>
       </div>
       <p>
-        &#8594;
         <span class="highlight02">{languages.count} Languages supported</span>
         <br />
         {languages.list}
@@ -44,7 +47,7 @@ const FontInfo = (  ) => {
 
       <div className="typefaceInfosectionList">
         <p>
-          &#8594; <span class="highlight02">Adobe</span>
+          <span class="highlight02">Adobe</span>
           <br />
           {adobe.map((entry, i) => (
             <div key={i}>
@@ -53,7 +56,7 @@ const FontInfo = (  ) => {
           ))}
         </p>
         <p>
-          &#8594; <span class="highlight02">Apple Macintosh</span>
+          <span class="highlight02">Apple Macintosh</span>
           <br />
           {appleMacintosh.map((entry, i) => (
             <span key={i}>
@@ -62,7 +65,7 @@ const FontInfo = (  ) => {
           ))}
         </p>
         <p>
-          &#8594; <span class="highlight02">Microsoft Windows</span>
+          <span class="highlight02">Microsoft Windows</span>
           <br />
           {microsoftWindows.map((entry, i) => (
             <span key={i}>
@@ -71,7 +74,7 @@ const FontInfo = (  ) => {
           ))}
         </p>
         <p>
-          &#8594; <span class="highlight02">ISO 8859</span>
+          <span class="highlight02">ISO 8859</span>
           <br />
           {iso8859.map((entry, i) => (
             <span key={i}>
@@ -79,7 +82,7 @@ const FontInfo = (  ) => {
             </span>
           ))}
         </p>
-      </div> */}
+      </div>
     </div>
   );
 };
