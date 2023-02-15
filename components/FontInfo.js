@@ -1,14 +1,14 @@
 import {useState} from "react";
 
-const FontInfo = ( props ) => {
+const FontInfo = (  ) => {
 
   // const [info, setInfo] = useState(props.info)
   // const [adobe, setInfo] = useState(props.adobe)
 
   return (
     <div className="typefaceInfosection">
-      <div className="typefaceInfosectionList">
-        {/* <p>
+      {/* <div className="typefaceInfosectionList">
+        <p>
           &#8594; <span class="highlight01">Information</span>
           <br />
           Name: {info.name}
@@ -24,35 +24,35 @@ const FontInfo = ( props ) => {
           Styles: {info.styles}
           <br />
           Variable: {info.variable}
-        </p> */}
+        </p>
         <p>
           &#8594; <span class="highlight01">OpenType</span>
           <br />
-          {/* {opentype.map((entry, i) => (
+          {opentype.map((entry, i) => (
             <span key={i}>
               {entry} <br />
             </span>
-          ))} */}
+          ))}
         </p>
       </div>
-      {/* <p>
+      <p>
         &#8594;
         <span class="highlight02">{languages.count} Languages supported</span>
         <br />
         {languages.list}
-      </p> */}
+      </p>
 
       <div className="typefaceInfosectionList">
         <p>
           &#8594; <span class="highlight02">Adobe</span>
           <br />
-          {/* {adobe.map((entry, i) => (
+          {adobe.map((entry, i) => (
             <div key={i}>
               {entry} <br />
             </div>
-          ))} */}
+          ))}
         </p>
-        {/* <p>
+        <p>
           &#8594; <span class="highlight02">Apple Macintosh</span>
           <br />
           {appleMacintosh.map((entry, i) => (
@@ -78,8 +78,8 @@ const FontInfo = ( props ) => {
               {entry} <br />
             </span>
           ))}
-        </p> */}
-      </div>
+        </p>
+      </div> */}
     </div>
   );
 };
