@@ -1,3 +1,5 @@
+import React from "react";
+
 const FontInfo = ({
   info,
   opentype,
@@ -51,9 +53,9 @@ const FontInfo = ({
           &#8594; <span class="highlight02">Adobe</span>
           <br />
           {adobe.map((entry, i) => (
-            <span key={i}>
+            <div key={i}>
               {entry} <br />
-            </span>
+            </div>
           ))}
         </p>
         {/* <p>

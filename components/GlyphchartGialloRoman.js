@@ -927,8 +927,6 @@ function Glyphchart(props) {
     },
   ];
 
-  console.log("smallCaps:", smallCaps, "ss", styleset);
-
   return (
     <div>
       <div className="glyphchartWrapper" style={glyphStyle}>
