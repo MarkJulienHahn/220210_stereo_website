@@ -46,11 +46,11 @@ const FontInfo = ( props ) => {
         <p>
           &#8594; <span class="highlight02">Adobe</span>
           <br />
-          {adobe.map((entry, i) => (
+          {/* {adobe.map((entry, i) => (
             <div key={i}>
               {entry} <br />
             </div>
-          ))}
+          ))} */}
         </p>
         {/* <p>
           &#8594; <span class="highlight02">Apple Macintosh</span>
