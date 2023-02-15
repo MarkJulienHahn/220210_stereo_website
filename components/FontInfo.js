@@ -30,8 +30,8 @@ const FontInfo = ({
         <p>
           &#8594; <span class="highlight01">OpenType</span>
           <br />
-          {opentype.map((entry, i) => (
-            <span key={i}>
+          {opentype.map((entry) => (
+            <span>
               {entry} <br />
             </span>
           ))}
