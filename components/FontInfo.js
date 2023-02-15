@@ -14,7 +14,7 @@ const FontInfo = ({
     <div className="typefaceInfosection">
       <div className="typefaceInfosectionList">
         <p>
-          &#8594; <span class="highlight01">Information</span>
+          &#8594; <span className="highlight01">Information</span>
           <br />
           Name: {info.name}
           <br />
