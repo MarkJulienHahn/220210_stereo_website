@@ -123,7 +123,7 @@ const About = ({
                   retail typefaces, custom fonts and typography-related services
                 </span>
                 . Inspired by modern-day culture, as well as traditional graphic design, we produce high quality
-                typefaces with designers’ demands in mind. From local designers to international agencies we are happy work on all sorts of typography-related tasks and support designers all over the world.
+                typefaces with designers’ demands in mind. From local designers to international agencies we are happy work on all sorts of type-related tasks and support designers all over the world.
               </p>
             </div>
 
