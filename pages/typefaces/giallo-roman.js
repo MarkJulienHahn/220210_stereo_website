@@ -147,10 +147,29 @@ const GialloRoman = ({
             style={darkMode ? dark : {}}
             ref={checkoutOverview}
           >
-            <p>&#8594; FONT-WEIGHT OVERVIEW</p>
             <p>
-              Giallo Roman is available in 8 Weights, including the according
-              Oblique figures
+              &#8594; <span className="highlight01">A versatile hybrid</span>
+            </p>
+            <p>
+              In 2020 we started off Giallo’s® original design as
+              non-proportional monospace font, which step by step grew into a
+              fully packed Roman style text version. Its features reach out to
+              16th century Italian old style serif fonts such as works by Robert
+              Granjon (et al. Gros Cicero). Giallo® combines this calligraphic
+              warmth with a digital vector look and a modern approach to the
+              letter construction as well as proportions. The wide range of
+              weights shape different characteristics especially when
+              contrasting between Giallo’s® Light and Black extremes and make
+              the typeface pretty handy for representative display purposes as
+              well as a workhorse for text based applications without the cuts
+              loosing its relation to each other. During the design process and
+              due to Giallo's detailed vector look, there has been constant
+              exploration of how to break traditional type design methods and
+              create characters that would normally not be possible using
+              traditional tools (at least on how you normally would use them ;).
+              On the other hand, care was taken to preserve the appearance of an
+              Antiqua style font as much as possible.This mix can be
+              particularly been seen e. g. in Giallo’s® numerals.
             </p>
 
             <div className="typeface-single-opener">
@@ -226,24 +245,33 @@ const GialloRoman = ({
               </div>
             </div>
 
-            <p>&#8594; INFORMATION</p>
             <p>
-              When the very first sans-serif Typefaces were introduced in the
-              Mid 1880s they were regarded as ugly and an insult for the renewed
-              graphic designer. The term »Grotesk« was meant to disqualify the
-              typefaces. These typefaces were controversial, highly misregarded
-              and bad reputed. They were seen as a protest against all
-              ornamental and historically coloured typefaces. They were an
-              uprising against conservative values. Giallo Roman pays homage to
-              these Typefaces. Nowadays quality can not only stem from formal
-              design-descisions. A typeface has to rely on a strong technical
-              foundation, in order to deliver an advantage to modern-day type
-              users. Giallo Roman is placed right into thes field of tension.
+              &#8594; <span className="highlight01">7 Weights</span> + Obliques
+            </p>
+            <p>
+              Due to Giallo’s® design approach also being a functional variable
+              font especially in the field of static and moving digital
+              purposes, we designed a rather atypical »Oblique« axis for
+              Antiquas, which allows stepless interpolation to Giallo's®
+              original cuts. Unlike Sans Serif fonts, however, the difference in
+              line width allowed hybridization into the traditional italic
+              style. Especially with certain characters that don't deviate too
+              much from regular styles to italics. Reducing the character width
+              also enabled a higher contrast. Both, Giallo® Roman and Giallo®
+              Oblique, can be seamlessly adjusted as variable font in their
+              weights (100 — 700) and oblique axis (000 — 100). Use the sliders
+              down below to check that out! If you would like to use a weight,
+              which is not defined you can make a special request via{" "}
+              <a href="mailto:request@stereotypefaces.com">mail.</a>
             </p>
 
             <WaterfallGialloRoman darkMode={darkMode} />
 
-            <p>&#8594; INFORMATION</p>
+            <p>
+              &#8594;{" "}
+              <span className="highlight01">Why that italian name?</span> Why’s
+              that font named »Yellow«?
+            </p>
             <p>
               When the very first sans-serif Typefaces were introduced in the
               Mid 1880s they were regarded as ugly and an insult for the renewed
@@ -385,19 +413,10 @@ const GialloRoman = ({
               />
             </div>
 
-            <p>&#8594; INFORMATION</p>
+            <p>&#8594; <span className="highlight02">803 characters</span></p>
             <p>
-              When the very first sans-serif Typefaces were introduced in the
-              Mid 1880s they were regarded as ugly and an insult for the renewed
-              graphic designer. The term »Grotesk« was meant to disqualify the
-              typefaces. These typefaces were controversial, highly misregarded
-              and bad reputed. They were seen as a protest against all
-              ornamental and historically coloured typefaces. They were an
-              uprising against conservative values. Giallo Roman pays homage to
-              these Typefaces. Nowadays quality can not only stem from formal
-              design-descisions. A typeface has to rely on a strong technical
-              foundation, in order to deliver an advantage to modern-day type
-              users. Giallo Roman is placed right into thes field of tension.
+            Right now the  <span className="highlight01">Latin Extended Character Set</span> of Giallo® includes an extended set of punctuations, symbols, arrows as well as special ligatures beside the regular ones. There are <span className="highlight01">four stylistic alternative-sets included</span>. <span className="highlight02">Set 01 provides a single-storey lowercase »a«</span>, <span className="highlight02">Set 02 single-storey lowercase »g«, Set 03 an alternative »7« for all kind of numerals and Set 04 an alternative »®«</span>. We are currently working on monospace and italic extensions, which will be added soon. Future updates on Giallo Roman are of course for free, if you already purchased a license. If you want to stay up to date, you can register to our newsletter.
+
             </p>
 
             <GlyphchartGialloRoman
