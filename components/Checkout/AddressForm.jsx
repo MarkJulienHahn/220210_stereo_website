@@ -1,11 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect} from "react";
 import { commerce } from "../../lib/commerce";
 import { Grid } from "@material-ui/core";
 import { useForm, FormProvider } from "react-hook-form";
 
 import styles2 from "../../styles/Forms.module.css";
-
-import Button from "../../components/Button";
 
 import FormInput from "./CustomTextField";
 
@@ -19,8 +17,6 @@ const AddressForm = ({ checkoutToken, next, WebLicence }) => {
   const [shippingOption, setShippingOption] = useState("");
   const [licenseInfo, setLicenseInfo] = useState(false);
   const methods = useForm();
-
-  const ref = useRef();
 
   const countries = Object.entries(shippingCountries).map(([code, name]) => ({
     id: code,
