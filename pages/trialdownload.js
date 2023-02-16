@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Button from "../components/Button";
 import { useRouter } from "next/router";
 
-const trialdownload = () => {
+const Trialdownload = () => {
   const location = useRouter();
   return (
     <div>
@@ -42,4 +42,4 @@ const trialdownload = () => {
   );
 };
 
-export default trialdownload;
+export default Trialdownload;
