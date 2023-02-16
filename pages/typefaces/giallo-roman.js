@@ -163,7 +163,7 @@ const GialloRoman = ({
               the typeface pretty handy for representative display purposes as
               well as a workhorse for text based applications without the cuts
               loosing its relation to each other. During the design process and
-              due to Giallo's detailed vector look, there has been constant
+              due to Giallo&apos;s detailed vector look, there has been constant
               exploration of how to break traditional type design methods and
               create characters that would normally not be possible using
               traditional tools (at least on how you normally would use them ;).
@@ -249,13 +249,13 @@ const GialloRoman = ({
               &#8594; <span className="highlight01">7 Weights</span> + Obliques
             </p>
             <p>
-              Due to Giallo’s® design approach also being a functional variable
+              Due to Giallo&apos;s® design approach also being a functional variable
               font especially in the field of static and moving digital
               purposes, we designed a rather atypical »Oblique« axis for
-              Antiquas, which allows stepless interpolation to Giallo's®
+              Antiquas, which allows stepless interpolation to Giallo&apos;s®
               original cuts. Unlike Sans Serif fonts, however, the difference in
               line width allowed hybridization into the traditional italic
-              style. Especially with certain characters that don't deviate too
+              style. Especially with certain characters that don&apos;t deviate too
               much from regular styles to italics. Reducing the character width
               also enabled a higher contrast. Both, Giallo® Roman and Giallo®
               Oblique, can be seamlessly adjusted as variable font in their
@@ -269,7 +269,7 @@ const GialloRoman = ({
 
             <p>
               &#8594;{" "}
-              <span className="highlight01">Why that italian name?</span> Why’s
+              <span className="highlight01">Why that italian name?</span> Why&apos;s
               that font named »Yellow«?
             </p>
             <p>
