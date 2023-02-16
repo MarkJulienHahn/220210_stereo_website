@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { commerce } from "../../lib/commerce";
 import { Grid } from "@material-ui/core";
 import { useForm, FormProvider } from "react-hook-form";
@@ -9,7 +9,7 @@ import Button from "../../components/Button";
 
 import FormInput from "./CustomTextField";
 
-const AddressForm = ({ checkoutToken, next, cart }) => {
+const AddressForm = ({ checkoutToken, next, WebLicence }) => {
   const [shippingCountries, setShippingCountries] = useState([]);
   const [shippingCountry, setShippingCountry] = useState("");
   const [licenseCountry, setLicenseCountry] = useState("");
@@ -19,6 +19,8 @@ const AddressForm = ({ checkoutToken, next, cart }) => {
   const [shippingOption, setShippingOption] = useState("");
   const [licenseInfo, setLicenseInfo] = useState(false);
   const methods = useForm();
+
+  const ref = useRef();
 
   const countries = Object.entries(shippingCountries).map(([code, name]) => ({
     id: code,
@@ -92,18 +94,27 @@ const AddressForm = ({ checkoutToken, next, cart }) => {
               shippingCountry,
               shippingSubdivision,
               shippingOption,
+              licenseCountry,
             })
           )}
         >
           <Grid container spacing={3}>
-            <FormInput name="firstName" label="First name" />
-            <FormInput name="lastName" label="Last name" />
-            <FormInput name="company" label="Company" />
-            <FormInput name="email" label="Email" />
-            <FormInput name="address1" label="Streetname, Nr." />
-            <FormInput name="city" label="City" />
+            <FormInput name="firstName" label="First name*" required={true} />
+            <FormInput name="lastName" label="Last name*" required={true} />
+            <FormInput name="company" label="Company*" required={true} />
+            <FormInput name="email" label="Email*" required={true} />
+            <FormInput
+              name="address1"
+              label="Streetname, Nr.*"
+              required={true}
+            />
+            <FormInput name="city" label="City*" required={true} />
             <div className={styles2.inputLeftbound}>
-              <FormInput name="zip" label="ZIP / Postal code" />
+              <FormInput
+                name="zip"
+                label="ZIP / Postal code*"
+                required={true}
+              />
             </div>
             <Grid item xs={12} sm={6}>
               <div className={styles2.inputHeader}>Country</div>
@@ -115,7 +126,7 @@ const AddressForm = ({ checkoutToken, next, cart }) => {
               >
                 {countries.map((country) => (
                   <option key={country.id} value={country.id}>
-                    {country.label}
+                    {country.label}*
                   </option>
                 ))}
               </select>
@@ -130,7 +141,7 @@ const AddressForm = ({ checkoutToken, next, cart }) => {
               >
                 {subdivisions.map((subdivision) => (
                   <option key={subdivision.id} value={subdivision.id}>
-                    {subdivision.label}
+                    {subdivision.label}*
                   </option>
                 ))}
               </select>
@@ -151,10 +162,10 @@ const AddressForm = ({ checkoutToken, next, cart }) => {
               </button>
             </div>
           )}
-        </form>
+          </form>
 
-        <div className={styles2.licenseHeader}>License Information</div>
-        <form
+          <div className={styles2.licenseHeader}>License Information</div>
+          <form
           onSubmit={methods.handleSubmit((data) =>
             next({
               ...data,
@@ -166,10 +177,39 @@ const AddressForm = ({ checkoutToken, next, cart }) => {
           )}
         >
           <Grid container spacing={3}>
-            <FormInput name="companyLicense" label="Company / User" />
-            <FormInput name="website" label="Website" />
-            <FormInput name="cityLicense" label="City" />
-            <FormInput name="zipLicense" label="ZIP / Postal code" />
+            <FormInput
+              name="companyLicense"
+              label="Company / User*"
+              required={true}
+            />
+            {WebLicence == "Web" ? (
+              <FormInput
+                name="website"
+                label={WebLicence == "Web" ? "Website*" : "Website"}
+                required={WebLicence == "Web" ? true : false}
+              />
+            ) : (
+              ""
+            )}
+
+            <FormInput name="cityLicense" label="City*" required={true} />
+
+            {WebLicence == "Web" ? (
+              <FormInput
+                name="zipLicense"
+                label="ZIP / Postal code*"
+                required={true}
+              />
+            ) : (
+              <div className={styles2.inputLeftbound}>
+                <FormInput
+                  name="zip"
+                  label="ZIP / Postal code*"
+                  required={true}
+                />
+              </div>
+            )}
+
             <Grid item xs={12} sm={6}>
               <div className={styles2.inputHeader}>Country</div>
               <select
@@ -180,7 +220,7 @@ const AddressForm = ({ checkoutToken, next, cart }) => {
               >
                 {countries.map((country) => (
                   <option key={country.id} value={country.id}>
-                    {country.label}
+                    {country.label}*
                   </option>
                 ))}
               </select>

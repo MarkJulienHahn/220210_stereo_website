@@ -159,8 +159,8 @@ const ProtestGroteskMono = ({
               italic={false}
               wghtMin={40}
               wghtMax={250}
-              color={!darkMode ? "#292B36" : "var(--primary)"}
-              background={darkMode ? "#292B36" : "var(--primary)"}
+              color={darkMode ? "rgb(220,220,220)" : "#292B36"}
+              background={darkMode ? "rgb(20,20,20)" : "var(--primary)"}
             />
           </div>
 
@@ -169,11 +169,31 @@ const ProtestGroteskMono = ({
             style={darkMode ? dark : {}}
             ref={checkoutOverview}
           >
-            <p>&#8594; FONT-WEIGHT OVERVIEW</p>
-            <p>
-              Protest Grotesk is available in 8 Weights, including the according
-              Italic figures
-            </p>
+            <div className="typefaceInfosection">
+              <h1>
+                &#8594;{" "}
+                <span className="highlight01">A geometric Workhorse</span>
+              </h1>
+              <p>
+                When we first started designing Protest Grotesk in 2015, the
+                intention was to{" "}
+                <span className="highlight02">
+                  build the font upon a geometrical skeleton
+                </span>
+                , that referred strongly to designs from pre-war Germany, such
+                as Futura (Paul Renner, 1928) or Kabel (Rudolf Koch, 1929). We
+                soon realised, that such strict formal restrictions didn’t fit{" "}
+                <span className="highlight01">modern use-cases</span>, so we
+                modified Protest Grotesk® in a formally more balanced fashion,
+                and built a{" "}
+                <span className="highlight02">well-rounded typeface</span>,{" "}
+                <span className="highlight01">
+                  optimized for small running-text applications
+                </span>
+                , still keeping special characteristics of the afore mentioned
+                constructivist era.
+              </p>
+            </div>
 
             <div className="typeface-single-opener">
               <div className="fontOpenerProtestMono">
@@ -284,37 +304,62 @@ const ProtestGroteskMono = ({
               </div>
             </div>
 
-            <p>&#8594; INFORMATION</p>
-            <p>
-              When the very first sans-serif Typefaces were introduced in the
-              Mid 1880s they were regarded as ugly and an insult for the renewed
-              graphic designer. The term »Grotesk« was meant to disqualify the
-              typefaces. These typefaces were controversial, highly misregarded
-              and bad reputed. They were seen as a protest against all
-              ornamental and historically coloured typefaces. They were an
-              uprising against conservative values. Protest Grotesk pays homage
-              to these Typefaces. Nowadays quality can not only stem from formal
-              design-descisions. A typeface has to rely on a strong technical
-              foundation, in order to deliver an advantage to modern-day type
-              users. Protest Grotesk is placed right into thes field of tension.
-            </p>
+            <div className="typefaceInfosection">
+              <h1>
+                &#8594; <span className="highlight01">8 Weights</span>
+              </h1>
+              <p>
+                Protest Grotesk® is designed within a broad design-frame which
+                consists of one variable-font axis (»Weight« 040—250). A{" "}
+                <span className="highlight01">
+                  variable-font-file is available when purchasing the full
+                  family.
+                </span>{" "}
+                Providing the possibility to{" "}
+                <span className="highlight02">
+                  steplessly interpolate between weights
+                </span>
+                , variable fonts are especially useful in digital applications
+                or if you have to precisely adjust a typeface, without having to
+                rely on predefinded weights. Adjust the slider below in order to
+                determine which weight fits your purpose best. If you would like
+                to use a weight, which is not defined you can make a special
+                request via{" "}
+                <a href="mailto:request@stereotypefaces.com">mail.</a>
+              </p>
+            </div>
 
             <WaterfallProtestMono darkMode={darkMode} />
 
-            <p>&#8594; INFORMATION</p>
-            <p>
-              When the very first sans-serif Typefaces were introduced in the
-              Mid 1880s they were regarded as ugly and an insult for the renewed
-              graphic designer. The term »Grotesk« was meant to disqualify the
-              typefaces. These typefaces were controversial, highly misregarded
-              and bad reputed. They were seen as a protest against all
-              ornamental and historically coloured typefaces. They were an
-              uprising against conservative values. Protest Grotesk pays homage
-              to these Typefaces. Nowadays quality can not only stem from formal
-              design-descisions. A typeface has to rely on a strong technical
-              foundation, in order to deliver an advantage to modern-day type
-              users. Protest Grotesk is placed right into thes field of tension.
-            </p>
+
+            <div className="typefaceInfosection">
+              <h1>
+                &#8594; <span className="highlight01">A »Grotesk«</span> Protest
+              </h1>
+              <p>
+                When the very first sans-serif Typefaces were introduced in the
+                Mid 1880s they were regarded as{" "}
+                <span className="highlight02">
+                  ugly and an insult for the renewed graphic designer.
+                </span>{" "}
+                The term »Grotesk« was meant to disqualify the typefaces. These
+                typefaces were{" "}
+                <span className="highlight01">
+                  controversial, highly misregarded and bad reputed.
+                </span>{" "}
+                They were seen as a{" "}
+                <span className="highlight02">
+                  protest against all ornamental and historically coloured
+                  typefaces.
+                </span>{" "}
+                They were an uprising against conservative values. Protest
+                Grotesk pays homage to these Typefaces. Nowadays quality can not
+                only stem from formal design-descisions. A typeface has to rely
+                on a strong technical foundation, in order to deliver an
+                advantage to modern-day type users. Protest Grotesk is placed
+                right into thes field of tension.
+              </p>
+            </div>
 
             <div className="typeface-single-tester-wrap pgMono">
               <Typetester
@@ -562,20 +607,35 @@ const ProtestGroteskMono = ({
               /> */}
             </div>
 
-            <p>&#8594; INFORMATION</p>
-            <p>
-              When the very first sans-serif Typefaces were introduced in the
-              Mid 1880s they were regarded as ugly and an insult for the renewed
-              graphic designer. The term »Grotesk« was meant to disqualify the
-              typefaces. These typefaces were controversial, highly misregarded
-              and bad reputed. They were seen as a protest against all
-              ornamental and historically coloured typefaces. They were an
-              uprising against conservative values. Protest Grotesk pays homage
-              to these Typefaces. Nowadays quality can not only stem from formal
-              design-descisions. A typeface has to rely on a strong technical
-              foundation, in order to deliver an advantage to modern-day type
-              users. Protest Grotesk is placed right into thes field of tension.
-            </p>
+            <div className="typefaceInfosection">
+              <h1>
+                &#8594; <span className="highlight02">599 characters</span>
+              </h1>
+              <p>
+                Right now the{" "}
+                <span className="highlight01">
+                  Latin Extended Character Set
+                </span>{" "}
+                of Protest Grotesk®, including an extended set of punctuations,
+                symbols and arrows is available. There are{" "}
+                <span className="highlight01">
+                  two stylistic alternative-sets included
+                </span>
+                .
+                <span className="highlight02">
+                  Set 01 provides a single-storey lowercase »a«
+                </span>{" "}
+                and{" "}
+                <span className="highlight02">
+                  Set 02 has a double-storey lowercase »g«
+                </span>
+                . We are currently working on a{" "}
+                <span className="highlight02">cyrillic extension</span>, which
+                will be added soon. You will of course get an updated version
+                for free, if you purchase a license now. If you want to stay up
+                to date, you can register to our newsletter.
+              </p>
+            </div>
 
             <GlyphchartProtestMono
               fontFamily="ProtestMono"

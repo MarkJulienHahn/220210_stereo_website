@@ -203,8 +203,8 @@ const ProtestGroteskText = ({
               wghtMin={40}
               wghtMax={251}
               italic={true}
-              color={!darkMode ? "#EBEBEB" : "var(--fifth)"}
-              background={darkMode ? "black" : "var(--fifth)"}
+              color={"rgb(220,220,220)"}
+              background={darkMode ? "rgb(20,20,20)" : "var(--fifthSolid)"}
             />
           </div>
 
@@ -854,7 +854,7 @@ const ProtestGroteskText = ({
 
             <div className="typefaceInfosection">
               <h1>
-                &#8594; <span className="highlight02">573 characters</span>
+                &#8594; <span className="highlight02">685 characters</span>
               </h1>
               <p>
                 Right now the{" "}

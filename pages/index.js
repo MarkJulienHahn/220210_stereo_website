@@ -95,8 +95,6 @@ const Home = ({
     automatIsVisible,
   ]);
 
-  console.log();
-
   return (
     <>
       <Head>
@@ -193,18 +191,6 @@ const Home = ({
       </div>
 
       <div className="buttonsRightWrapper">
-        {/* <div
-          className="lightBulb"
-          style={{
-            fontSize: "17pt",
-            paddingRight: "10px",
-            cursor: "pointer",
-            opacity: darkMode ? 0.5 : 1,
-          }}
-          onClick={() => setDarkMode(!darkMode)}
-        >
-          💡
-        </div> */}
         <Button
           lable={darkMode ? "Light" : "Dark"}
           subclass={!darkMode ? "secondary" : "quaternary"}
@@ -234,10 +220,10 @@ const Home = ({
         <motion.div
           location={location}
           key={location.pathname}
-          initial={{ y: 0, opacity: 1 }}
+          initial={{ y: 300, opacity: 1 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -300, opacity: 0 }}
-          transition={{ duration: 0.5, ease: [0.19, 1, 0.22, 1] }}
+          transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
         >
           {" "}
           <main className={Styles.TypefacesInner} style={darkMode ? dark : {}}>
@@ -268,27 +254,31 @@ const Home = ({
                   <>
                     [ Tone ] Balance*
                     <br />
-                    MONO 102KHz
+                    MONO ↩ 102KHz
                     <br />
                     230MHz Kanal
                   </>,
                   <>
                     Model №507 <br />
-                    (Source) AC475
+                    (Source) AV 475
                     <br /> ⇆Emergency
                   </>,
                   <>
-                    ↱Pagina LP1 <br />
-                    EN 49:2001+A⁷⁴
-                    <br /> ¶Mail &#123;Narrow&#125;
+                    ↱Pagina LCD <br />
+                    (EN 49:2001) +ÆL
+                    <br /> Mail &#123;Narrow&#125;
                   </>,
                   <>
-                    Ŋeo: Wilson () <br /> 475‰&quot;FLARED&quot;
-                    <br /> ↗nexus Inserg
+                    Ŋeo: Wilson™ <br /> remain &quot;GIPSER&quot;
+                    <br />{" "}
+                    <span style={{ fontFeatureSettings: "ss03" }}>
+                      Jackson®
+                    </span>{" "}
+                    Type–1
                   </>,
                   <>
                     Inspired by Ⅷ <br /> &#123;Abloh’s&#125; Original
-                    <br /> ⑨Meteor Shower{" "}
+                    <br /> ©Meteor Show
                   </>,
                 ]}
                 configuration={{
@@ -297,6 +287,9 @@ const Home = ({
                 default={[160, 0]}
                 slug={"protest-grotesk"}
                 darkMode={darkMode}
+                fontSize="11.3vw"
+                lineHeight="10.9vw"
+                letterSpacing="-0.8vw"
               />
             </div>
 
@@ -323,28 +316,31 @@ const Home = ({
                 ]}
                 content={[
                   <>
-                    Graph OP—1™
-                    <br /> [around
-                    <br /> 7°Kelvin]
+                    [ Sound ] Trebel*
+                    <br />
+                    STÉRÈO ↻ KHz
+                    <br />
+                    a–Buck50 onOne
                   </>,
                   <>
-                    Compiled
-                    <br /> Successful
-                    <br /> in 178 ms²
+                    Modus $399,–
+                    <br /> (coPressión) 36˚C
+                    <br /> ♳ inBetween
                   </>,
                   <>
-                    [up to 2.4
-                    <br /> GHz] Record
-                    <br /> KeyBoard
+                    Tertiãra TdI ×3
+                    <br /> (K8/G48)⬚EJC
+                    <br /> Marģot &#123;Class–5&#125;
                   </>,
                   <>
-                    Filament ↲<br /> Function 82
-                    <br /> (Focus)
+                    Řobiɲ: E–ﬁles⁴⁴
+                    <br /> Re–cal "MOLTO"
+                    <br /> Parliement® STF
                   </>,
                   <>
-                    Stadelĳk’s
-                    <br /> SpezSound
-                    <br /> Color ®
+                    “H2Odio”—2006
+                    <br /> &#123;Perotti’s&#125; ELT,
+                    <br /> ©ColorTheory
                   </>,
                 ]}
                 configuration={{
@@ -353,6 +349,9 @@ const Home = ({
                 default={[400, 0]}
                 slug={"giallo-roman"}
                 darkMode={darkMode}
+                fontSize="11.3vw"
+                lineHeight="11.5vw"
+                letterSpacing="-0.1vw"
               />
             </div>
 
@@ -373,28 +372,29 @@ const Home = ({
                 ]}
                 content={[
                   <>
-                    Graph OP—1™
-                    <br /> [around
-                    <br /> 7°Kelvin]
+                    Graph OP—1
+                    <br /> »bec« 1/e
+                    <br /> ↲ BERALD
                   </>,
                   <>
-                    Compiled
-                    <br /> Successful
-                    <br /> in 178 ms²
+                    MVP N400
+                    <br /> (Ty)ayanté
+                    <br /> emerg–To
                   </>,
                   <>
-                    [up to 2.4
-                    <br /> GHz] Record
-                    <br /> KeyBoard
+                    ↱BLUR TFT
+                    <br /> (GB£) +ÆG
+                    <br /> Post &#123;Naw&#125;
                   </>,
                   <>
-                    Filament ↲<br /> Function 82
-                    <br /> (Focus)
+                    FõlD:Dubs™
+<br /> Demain®
+                    <br /> " Brong " 
                   </>,
                   <>
-                    Stadelĳk’s
-                    <br /> ŒvréeArgue
-                    <br /> Couleur ®
+                    inSPORT ↙
+                    <br /> &#123;dasPinćh&#125;
+                    <br /> RN_hallo
                   </>,
                 ]}
                 configuration={{
@@ -422,14 +422,14 @@ const Home = ({
                   ["SQR 000—065   ", 0, 65],
                 ]}
                 weightsRND={[
-                  ["SQR 000—005 / ", 0, 5],
-                  ["SQR 000—100 / ", 0, 100],
-                  ["SQR 050—012 / ", 50, 12],
-                  ["SQR 100—080 / ", 100, 80],
-                  ["SQR 000—030 / ", 0, 30],
-                  ["SQR 070—005 / ", 70, 5],
-                  ["SQR 090—090 / ", 90, 90],
-                  ["SQR 000—065   ", 0, 65],
+                  ["RND 000—005 / ", 0, 5],
+                  ["RND 000—100 / ", 0, 100],
+                  ["RND 050—012 / ", 50, 12],
+                  ["RND 100—080 / ", 100, 80],
+                  ["RND 000—030 / ", 0, 30],
+                  ["RND 070—005 / ", 70, 5],
+                  ["RND 090—090 / ", 90, 90],
+                  ["RND 000—065   ", 0, 65],
                 ]}
                 content={[
                   <>

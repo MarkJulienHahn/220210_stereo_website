@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ProductChoice from "./ProductChoice";
 import styles from "../../styles/Buy.module.css";
 
-const BuyProtest = ({
+const BuyProtestMono = ({
   licenceChoice,
   LicenceUser,
   products,
@@ -201,9 +201,9 @@ const BuyProtest = ({
     !items.some((item) => item.product_id === protestBundles[2].id)
       ? updateBundle2(false)
       : "";
-    !items.some((item) => item.product_id === protestBundles[3].id)
-      ? updateBundle3(false)
-      : "";
+    // !items.some((item) => item.product_id === protestBundles[3].id)
+    //   ? updateBundle3(false)
+    //   : "";
   }, [cart]);
 
   useEffect(() => {
@@ -227,6 +227,8 @@ const BuyProtest = ({
     { fontFamily: "ProtestMono", lable: "Protest Mono Heavy", wght: 220 },
     { fontFamily: "ProtestMono", lable: "Protest Mono Black", wght: 250 },
   ];
+
+  console.log(protestBundles)
 
   return (
     <div
@@ -374,7 +376,7 @@ const BuyProtest = ({
 
       {/* STARTER */}
 
-      <div
+      {/* <div
         item
         onClick={
           licenceChoice &&
@@ -415,7 +417,7 @@ const BuyProtest = ({
           cart={cart}
           licenceChoice={licenceChoice}
         />
-      </div>
+      </div> */}
 
       <p className={styles.buyConfigurationHead}>Single Styles</p>
 
@@ -474,4 +476,4 @@ const BuyProtest = ({
   );
 };
 
-export default BuyProtest;
+export default BuyProtestMono;

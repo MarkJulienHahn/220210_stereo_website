@@ -51,9 +51,7 @@ const FontInfo = ({
           &#8594; <span className="highlight02">Adobe</span>
           <br />
           {adobe.map((entry, i) => (
-            <div key={i}>
-              {entry} <br />
-            </div>
+            <span key={i}>{entry}</span>
           ))}
         </p>
         <p>

@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import HeaderAnimation from "../../components/HeaderAnimation";
 import Typetester from "../../components/Typetester";
 import Button from "../../components/Button";
+import Cartbutton from "../../components/Cartbutton";
 import WaterfallGialloRoman from "../../components/WaterfallGialloRoman";
 import GlyphchartGialloRoman from "../../components/GlyphchartGialloRoman";
 import Footer from "../../components/Footer";
@@ -103,9 +104,14 @@ const GialloRoman = ({
           subclass={"primary"}
           onClick={() => setShowCheckout(true)}
         />
-        <Button
-          lable={`Cart [${cart.total_unique_items}]`}
+        <Cartbutton
+          lable={
+            cart.line_items ? `Cart [${cart.total_unique_items}]` : `Cart [0]`
+          }
           subclass={"tertiary"}
+          setShowCheckout={setShowCheckout}
+          live={live}
+          cart={cart}
         />
       </div>
 
@@ -129,8 +135,10 @@ const GialloRoman = ({
               wghtMax={800}
               letterSpacing={"1px"}
               italic={true}
-              color={!darkMode ? "#D7DCE0" : "rgb(252,244,221)"}
-              background={darkMode ? "#1d1d1d" : "#FFFDF7"}
+              // color={!darkMode ? "#D7DCE0" : "rgb(252,244,221)"}
+              // background={darkMode ? "#1d1d1d" : "#FFFDF7"}
+              color={darkMode ? "rgb(10,10,10)" : "#FFFDF7"}
+              background={darkMode ? "#1d1d1d" : "rgb(220,220,220)"}
             />
           </div>
 
@@ -406,7 +414,7 @@ const GialloRoman = ({
                 year: "2023",
                 design: "Jan Robert Obst",
                 mastering: "Stereo Typefaces",
-                characters: 728,
+                characters: 856,
                 styles: 14,
                 variable: "2 Axes (Weight & Oblique)",
               }}

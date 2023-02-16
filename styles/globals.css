@@ -27,7 +27,9 @@ body {
 @font-face {
   font-family: "ProtestMono";
   font-style: normal;
-  src: url(../public/fonts/ProtestGroteskMono.ttf) format("truetype");
+  src: url(../public/fonts/ProtestGroteskMono.ttf) format("truetype"),
+    url(../public/fonts/ProtestGroteskMono.woff) format("woff"),
+    url(../public/fonts/ProtestGroteskMono.woff2) format("woff2");
 }
 
 @font-face {
@@ -39,13 +41,15 @@ body {
 @font-face {
   font-family: "Giallo-Mono";
   font-style: normal;
-  src: url(../public/fonts/GialloGX_trial.ttf) format("woff2");
+  src: url(../public/fonts/GialloRomanMono.ttf) format("woff2");
 }
 
 @font-face {
   font-family: "Giallo";
   font-style: normal;
-  src: url(../public/fonts/GialloRomanVF.ttf) format("woff2");
+  src: url(../public/fonts/GialloRoman.ttf) format("truetype"),
+    url(../public/fonts/GialloRoman.woff) format("woff"),
+    url(../public/fonts/GialloRoman.woff2) format("woff2");
 }
 
 @font-face {
@@ -79,7 +83,7 @@ body {
   --tertiary: rgba(240, 233, 198, 0.6);
   --quaternary: rgba(220, 220, 220, 0.4);
   --fifth: rgb(199, 177, 255, 0.5);
-  --fifthSolid: rgb(199, 177, 255, 1);
+  --fifthSolid: #c8c5ff;
   --menuType: rgb(255, 255, 255);
 
   --pgSmallSize: 7.5pt;
@@ -831,6 +835,7 @@ button {
   flex-direction: row;
   margin-top: var(--margin-XL);
   margin-bottom: var(--margin-XL);
+  font-variant-ligatures: discretionary-ligatures;
 }
 
 .glyphchartDisplayWrapper {

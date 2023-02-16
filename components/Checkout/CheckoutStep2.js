@@ -1,4 +1,4 @@
-import React from "react";
+
 import dynamic from "next/dynamic";
 
 import AddressForm from "./AddressForm";
@@ -19,6 +19,7 @@ const CheckoutStep2 = ({
   cart,
   next,
   live,
+  WebLicence
 }) => {
   return (
     <>
@@ -55,7 +56,6 @@ const CheckoutStep2 = ({
 
       <div className={styles.formsWrapper}>
         <div>
-
           <p className={styles.buyHead}> [ 3 ] ORDER REVIEW</p>
           <div className={styles.overviewTable}>
             <div className={styles.overviewWrapper}>
@@ -105,7 +105,11 @@ const CheckoutStep2 = ({
           <p className={styles.buyHead}> [ 4 ] BILLING INFORMATION</p>
 
           <div className={styles.buyAdressContent}>
-            <AddressForm checkoutToken={checkoutToken} next={next} />
+            <AddressForm
+              checkoutToken={checkoutToken}
+              WebLicence={  WebLicence}
+              next={next}
+            />
           </div>
         </div>
       </div>

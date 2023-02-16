@@ -568,7 +568,7 @@ const Checkout = ({
             ${shippingData.zipLicense} ${shippingData.cityLicense}
             ${shippingData.licenseCountry}
 
-            ${shippingData.website}
+            ${shippingData.website ? shippingData.website : ""}
             `,
                 style: "infoStyle",
               },
@@ -780,7 +780,7 @@ const Checkout = ({
     } catch (error) {
       setErrorMessage("An Error occured");
       alert(
-        "Oops... This payment method is currently unavailable. Please contact support, sorry!"
+        "Uhh damn, something went wrong 😵‍💫 Please contact support, sorry for that!"
       );
     }
   };
@@ -804,19 +804,21 @@ const Checkout = ({
   const checkoutList = useRef(null);
 
   const scrollDown = () => {
-    windowWidth > 1000 && setTimeout(function () {
-      checkoutOverview.current.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }, 2000);
+    windowWidth > 1000 &&
+      setTimeout(function () {
+        checkoutOverview.current.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }, 2000);
   };
 
   const scrollUp = () => {
-    windowWidth > 1000 && checkoutList.current.scrollIntoView({
-      behavior: "smooth",
-      block: "end",
-    });
+    windowWidth > 1000 &&
+      checkoutList.current.scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+      });
   };
 
   useEffect(() => {
@@ -1489,29 +1491,35 @@ const Checkout = ({
                       </div>
                     )}
                     {showBuy == "Giallo" && (
-                      <BuyGiallo
-                        products={products}
-                        onAddToCart={handleAddToCart}
-                        handleEmptyCart={handleEmptyCart}
-                        onRemoveFromCart={handleRemoveFromCart}
-                        onUpdateCartQty={handleUpdateCartQty}
-                        cart={cart}
-                        checkoutToken={checkoutToken}
-                        priceFactor1={priceFactor1}
-                        priceFactor2={priceFactor2}
-                        priceFactor3={priceFactor3}
-                        priceFactor4={priceFactor4}
-                        priceFactor5={priceFactor5}
-                        priceFactor6={priceFactor6}
-                        priceFactor7={priceFactor7}
-                        licenceChoice={licenceChoice}
-                        LicenceUser={LicenceUser}
-                        onUpdateCartPrice={handleUpdateCartPrice}
-                        Licence={Licence}
-                        NumEmployees={NumEmployees}
-                        scrollDown={scrollDown}
-                        setFontPreview={setFontPreview}
-                      />
+                      <div
+                        style={
+                          loading ? { pointerEvents: "none", opacity: 0.4 } : {}
+                        }
+                      >
+                        <BuyGiallo
+                          products={products}
+                          onAddToCart={handleAddToCart}
+                          handleEmptyCart={handleEmptyCart}
+                          onRemoveFromCart={handleRemoveFromCart}
+                          onUpdateCartQty={handleUpdateCartQty}
+                          cart={cart}
+                          checkoutToken={checkoutToken}
+                          priceFactor1={priceFactor1}
+                          priceFactor2={priceFactor2}
+                          priceFactor3={priceFactor3}
+                          priceFactor4={priceFactor4}
+                          priceFactor5={priceFactor5}
+                          priceFactor6={priceFactor6}
+                          priceFactor7={priceFactor7}
+                          licenceChoice={licenceChoice}
+                          LicenceUser={LicenceUser}
+                          onUpdateCartPrice={handleUpdateCartPrice}
+                          Licence={Licence}
+                          NumEmployees={NumEmployees}
+                          scrollDown={scrollDown}
+                          setFontPreview={setFontPreview}
+                        />
+                      </div>
                     )}
                   </div>
                 </div>
@@ -1613,6 +1621,7 @@ const Checkout = ({
             handleCouponCode={handleCouponCode}
             getLiveObject={getLiveObject}
             next={next}
+            WebLicence={WebLicence}
           />
         )}
 

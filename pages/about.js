@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import Footer from "../components/Footer";
 import Button from "../components/Button";
+import Cartbutton from "../components/Cartbutton";
 import MouseButton from "../components/MouseButton";
 
 const Checkout = dynamic(() => import("../components/Checkout/Checkout"));
@@ -36,7 +37,8 @@ const About = ({
   dark,
 }) => {
   const [buttonContent, setButtonContent] = useState(null);
-
+  const [showCheckout, setShowCheckout] = useState(false);
+  
   const location = useRouter();
 
   return (
@@ -44,6 +46,30 @@ const About = ({
       <Head>
         <title>About | Stereo Typefaces®</title>
       </Head>
+
+      {showCheckout && (
+        <Checkout
+          products={products}
+          cart={cart}
+          live={live}
+          handleAddToCart={handleAddToCart}
+          handleRemoveFromCart={handleRemoveFromCart}
+          handleEmptyCart={handleEmptyCart}
+          handleUpdateCartQty={handleUpdateCartQty}
+          handleUpdateCartPrice={handleUpdateCartPrice}
+          onCaptureCheckout={onCaptureCheckout}
+          handleCouponCode={handleCouponCode}
+          getLiveObject={getLiveObject}
+          setCart={setCart}
+          setShowCheckout={setShowCheckout}
+          showCheckout={showCheckout}
+          loading={loading}
+          checkoutToken={checkoutToken}
+          getPaypalPaymentId={getPaypalPaymentId}
+          refreshCart={refreshCart}
+          font={"Protest"}
+        />
+      )}
 
       <MouseButton lable={buttonContent} />
 
@@ -100,7 +126,15 @@ const About = ({
             subclass={!darkMode ? "secondary" : "quaternary"}
             onClick={() => setDarkMode(!darkMode)}
           />
-          <Button lable={"Cart (0)"} subclass={"tertiary"} />
+        <Cartbutton
+          lable={
+            cart.line_items ? `Cart [${cart.total_unique_items}]` : `Cart [0]`
+          }
+          subclass={"tertiary"}
+          setShowCheckout={setShowCheckout}
+          live={live}
+          cart={cart}
+        />
         </div>
 
         <motion.div

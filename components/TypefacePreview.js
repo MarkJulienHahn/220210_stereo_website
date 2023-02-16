@@ -65,6 +65,9 @@ const TypefacePreview = (props) => {
     fontVariationSettings: `'wght' ${wdth[0]}, 'ital' ${wdth[1]},'wdth' 50`,
     fontFamily: `${props.fontFamily}`,
     letterSpacing: props.configuration.letterSpacing,
+    fontSize: props.fontSize,
+    lineHeight: props.lineHeight,
+    letterSpacing: props.letterSpacing
   };
 
 

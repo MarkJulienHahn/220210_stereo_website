@@ -546,6 +546,11 @@ function Glyphchart(props) {
       glyphs: ["7", "₇", "⁷", "⅞"],
       styleset: "ss03",
     },
+    {
+      lable: "Stylistic Set 4",
+      glyphs: ["®"],
+      styleset: "ss04",
+    },
     { lable: "Standard Ligatures", glyphs: ["ff", "fi", "fl", "ffi", "ffl"] },
     {
       lable: "Discretionary Ligatures",
@@ -683,7 +688,6 @@ function Glyphchart(props) {
         "⅝",
         "⅞",
       ],
-      styleset: "ss02",
     },
     {
       lable: "Punctuation",
