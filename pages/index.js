@@ -270,10 +270,8 @@ const Home = ({
                   </>,
                   <>
                     Ŋeo: Wilson™ <br /> remain &quot;GIPSER&quot;
-                    <br />{" "}
-                    <span style={{ fontFeatureSettings: "ss03" }}>
+                    <br />
                       Jackson®
-                    </span>{" "}
                     Type–1
                   </>,
                   <>
