@@ -334,7 +334,7 @@ const Home = ({
                   </>,
                   <>
                     Řobiɲ: E–ﬁles⁴⁴
-                    <br /> Re–cal "MOLTO"
+                    <br /> Re–cal &quot;MOLTO&quot;
                     <br /> Parliement® STF
                   </>,
                   <>
@@ -389,7 +389,7 @@ const Home = ({
                   <>
                     FõlD:Dubs™
 <br /> Demain®
-                    <br /> " Brong " 
+                    <br /> &quot; Brong &quot; 
                   </>,
                   <>
                     inSPORT ↙
