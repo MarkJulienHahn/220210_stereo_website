@@ -15,7 +15,6 @@ const Trials = dynamic(() => import("../components/Trials"));
 
 const About = ({
   cart,
-  setShowCheckout,
   products,
   checkoutToken,
   handleAddToCart,
