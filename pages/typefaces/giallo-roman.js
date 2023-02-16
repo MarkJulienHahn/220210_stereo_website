@@ -151,7 +151,7 @@ const GialloRoman = ({
               &#8594; <span className="highlight01">A versatile hybrid</span>
             </p>
             <p>
-              In 2020 we started off Giallo’s® original design as
+              In 2020 we started off Giallo&apos;s® original design as
               non-proportional monospace font, which step by step grew into a
               fully packed Roman style text version. Its features reach out to
               16th century Italian old style serif fonts such as works by Robert
@@ -159,7 +159,7 @@ const GialloRoman = ({
               warmth with a digital vector look and a modern approach to the
               letter construction as well as proportions. The wide range of
               weights shape different characteristics especially when
-              contrasting between Giallo’s® Light and Black extremes and make
+              contrasting between Giallo&apos;s® Light and Black extremes and make
               the typeface pretty handy for representative display purposes as
               well as a workhorse for text based applications without the cuts
               loosing its relation to each other. During the design process and
@@ -169,7 +169,7 @@ const GialloRoman = ({
               traditional tools (at least on how you normally would use them ;).
               On the other hand, care was taken to preserve the appearance of an
               Antiqua style font as much as possible.This mix can be
-              particularly been seen e. g. in Giallo’s® numerals.
+              particularly been seen e. g. in Giallo&apos;s® numerals.
             </p>
 
             <div className="typeface-single-opener">
