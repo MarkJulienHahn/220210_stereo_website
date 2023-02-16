@@ -282,7 +282,7 @@ button {
 }
 
 #quaternaryMuted {
-  color: rgba(0,0,0,0.5);
+  color: rgba(0, 0, 0, 0.5);
   background: var(--quaternary);
   cursor: default;
 }
@@ -338,7 +338,7 @@ button {
   .buttonsLeftWrapper {
     flex-wrap: wrap;
     justify-content: flex-start;
-    flex-flow:wrap-reverse;
+    flex-flow: wrap-reverse;
     align-items: flex-end;
     max-width: 0;
     height: auto;
@@ -538,6 +538,12 @@ button {
   cursor: pointer;
   transform: translateY(-10vh);
   white-space: nowrap;
+}
+
+.typefaceDisplay div {
+  height: 100vh;
+  display: flex;
+  align-items: center;
 }
 
 .typefaceControlButton {
