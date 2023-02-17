@@ -30,7 +30,6 @@ const MouseButton = (props) => {
     top: y,
     left: x,
     visibility: props.lable ? "visible" : "hidden",
-    // animation: "fontAnimation 0.3s infinite alternate",
     background: "var(--primary)",
 
   };
