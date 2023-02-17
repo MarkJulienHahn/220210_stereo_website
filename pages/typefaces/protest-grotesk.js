@@ -198,6 +198,7 @@ const ProtestGroteskText = ({
               scrollUp={scrollUp}
               name={"Protest Grotesk"}
               size={"clamp(20pt, 40vh, 25vw)"}
+              sizeMobile={"clamp(20pt, 30vh, 23vw)"}
               lineHeight={"clamp(20pt, 35vh, 20vw)"}
               font={"Protest"}
               wghtMin={40}

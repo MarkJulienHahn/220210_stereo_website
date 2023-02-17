@@ -14,6 +14,7 @@ const HeaderAnimation = ({
   background,
   color,
   size,
+  sizeMobile,
   italic,
   lineHeight,
   letterSpacing,
@@ -90,6 +91,14 @@ const HeaderAnimation = ({
     fontVariationSettings: `"wght" ${wght}
     , "ital" ${ital}`,
   };
+  const headerStyleMobile = {
+    fontSize: sizeMobile,
+    lineHeight: lineHeight,
+    letterSpacing: letterSpacing,
+    marginTop: "2vw",
+    fontVariationSettings: `"wght" ${wght}
+    , "ital" ${ital}`,
+  };
   const headerIndexStyle = {
     fontVariationSettings: `"wght" ${wght}, "ital" ${ital}`,
   };
@@ -103,7 +112,7 @@ const HeaderAnimation = ({
     <>
       <div
         className={"headerAnimationWrapperMobile"}
-        style={{ background: background, color: color, height: height }}
+        style={{ background: background, color: color, height: height}}
         onClick={() => scrollUp()}
         ref={ref1}
       >
@@ -122,7 +131,7 @@ const HeaderAnimation = ({
             }}
           >
             <div>
-              <span style={headerStyle}>{name}</span>
+              <span style={headerStyleMobile}>{name}</span>
               <span className={"smallR"}>®</span>
             </div>
           </motion.div>

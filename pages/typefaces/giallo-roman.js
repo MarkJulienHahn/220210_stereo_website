@@ -129,6 +129,7 @@ const GialloRoman = ({
               scrollUp={scrollUp}
               name={"Giallo Roman"}
               size={"clamp(20pt, 40vh, 25vw)"}
+              sizeMobile={"clamp(20pt, 30vh, 23vw)"}
               lineHeight={"clamp(20pt, 32vh, 18vw)"}
               font={"Giallo"}
               wghtMin={100}
@@ -442,14 +443,20 @@ const GialloRoman = ({
                 "ss01 (Alternative a)",
                 "ss02 (Alternative g)",
                 "ss03 (Alternative 7)",
+                "ss04 (Alternative ®)",
                 "subs (Subscript)",
                 "sinf (Scientific Inferiors)",
                 "sups (Superscript)",
-                "c2sc (Small Capitals From Capitals)",
-                "liga (Standard Ligatures)",
+                "frac (Fractions)",
+                "ordn (Ordinals",
+                "liga (Standard Ligatures",
                 "dlig (Discretionary Ligatures)",
                 "zero (Slashed Zero)",
                 "calt (Contextual Alternates)",
+                "case (Case-Sensitive Forms)",
+                "ccmp (Glyph Composition / Decomposition)",
+                "locl (Localized Forms)",
+                "c2sc (Small Capitals From Capitals)",
               ]}
               languages={{
                 count: 220,

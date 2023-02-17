@@ -271,8 +271,7 @@ const Home = ({
                   <>
                     Ŋeo: Wilson™ <br /> remain &quot;GIPSER&quot;
                     <br />
-                      Jackson®
-                    Type–1
+                    Jackson® Type–1
                   </>,
                   <>
                     Inspired by Ⅷ <br /> &#123;Abloh’s&#125; Original
@@ -333,7 +332,7 @@ const Home = ({
                   <>
                     Řobiɲ: E–ﬁles⁴⁴
                     <br /> Re–cal &quot;MOLTO&quot;
-                    <br /> Parliement® STF
+                    <br /> Parļiměnt® STF
                   </>,
                   <>
                     “H2Odio”—2006
@@ -386,8 +385,8 @@ const Home = ({
                   </>,
                   <>
                     FõlD:Dubs™
-<br /> Demain®
-                    <br /> &quot; Brong &quot; 
+                    <br /> Demain®
+                    <br /> &quot; Brong &quot;
                   </>,
                   <>
                     inSPORT ↙
@@ -446,8 +445,8 @@ const Home = ({
                     <br /> US OF A
                   </>,
                   <>
-                    190 BOWERY
-                    <br /> NEW YORK, NY
+                    190 BOVERY
+                    <br /> NEW YRK, NY
                     <br /> STEREO
                   </>,
                   <>
@@ -459,7 +458,7 @@ const Home = ({
                 configuration={{
                   letterSpacing: "20px",
                 }}
-                default={[90, 90]}
+                default={[0, 30]}
                 darkMode={darkMode}
               />
             </div>

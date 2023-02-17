@@ -159,6 +159,7 @@
   display: flex;
   flex-wrap: wrap;
   top: 0px;
+  z-index: 1000;
 }
 
 .buyTableButtons div {

@@ -154,6 +154,7 @@ const ProtestGroteskMono = ({
               scrollUp={scrollUp}
               name={"Protest Mono"}
               size={"18vw"}
+              sizeMobile={"17vw"}
               lineHeight={"17vw"}
               font={"ProtestMono"}
               italic={false}

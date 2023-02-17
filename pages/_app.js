@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { Analytics } from "@vercel/analytics/react";
+import Script from "next/script";
+import * as gtag from "../lib/gtag";
+
 import { AnimatePresence, motion } from "framer-motion";
 import { commerce } from "../lib/commerce";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
@@ -116,8 +119,36 @@ function MyApp({ Component, pageProps }) {
     }
   }, []);
 
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      gtag.pageview(url);
+    };
+    location.events.on("routeChangeComplete", handleRouteChange);
+    return () => {
+      location.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [location.events]);
+
   return (
-    <div style={darkMode ? {dark} : {}}>
+    <div style={darkMode ? { dark } : {}}>
+      {/* Global Site Tag (gtag.js) - Google Analytics */}
+      <Script
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
+      />
+      <Script
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${gtag.GA_TRACKING_ID}', {
+              page_path: window.location.pathname,
+            });
+          `,
+        }}
+      />
       <PayPalScriptProvider
         options={{
           "client-id": process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID,
@@ -136,7 +167,7 @@ function MyApp({ Component, pageProps }) {
         ""
       )}
 
-      <Nav darkMode={darkMode}/>
+      <Nav darkMode={darkMode} />
 
       <AnimatePresence
         exitBeforeEnter
