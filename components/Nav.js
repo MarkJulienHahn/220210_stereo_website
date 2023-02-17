@@ -107,6 +107,27 @@ const Nav = ({ darkMode }) => {
             </li>
 
             <li>
+              {router.pathname == "/licensing" ? (
+                <h2
+                  className={styles.menuTypo}
+                  onClick={() =>
+                    window.scrollTo({
+                      top: 0,
+                      left: 0,
+                      behavior: "smooth",
+                    })
+                  }
+                >
+                  LICENSING
+                </h2>
+              ) : (
+                <Link href="/licensing" scroll={false}>
+                  <h2 className={styles.menuTypo}>LICENSING</h2>
+                </Link>
+              )}
+            </li>
+
+            <li>
               {router.pathname == "/about" ? (
                 <h2
                   className={styles.menuTypo}
