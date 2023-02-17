@@ -78,6 +78,18 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .controlsMobile {
+    height: 100px;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1300px) {
+  .controlsMobile {
+    height: 130px;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
   .controls {
     display: none;
   }

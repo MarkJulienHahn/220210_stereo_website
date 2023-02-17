@@ -53,7 +53,7 @@ const HeaderAnimation = ({
   };
 
   const mobileEffect = () => {
-    windowWidth < 600 && scrollPosition < 565 && setWght(Math.floor((scrollPosition / windowHeight * wghtMax)+wghtMin))
+    windowWidth < 1000 && scrollPosition < 1000 && setWght(Math.floor((scrollPosition / windowHeight * wghtMax)+wghtMin))
   }
 
   useEffect(() => {

@@ -323,10 +323,7 @@ const ProtestGroteskMono = ({
                 , variable fonts are especially useful in digital applications
                 or if you have to precisely adjust a typeface, without having to
                 rely on predefinded weights. Adjust the slider below in order to
-                determine which weight fits your purpose best. If you would like
-                to use a weight, which is not defined you can make a special
-                request via{" "}
-                <a href="mailto:request@stereotypefaces.com">mail.</a>
+                determine which weight fits your purpose best.
               </p>
             </div>
 

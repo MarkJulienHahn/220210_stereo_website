@@ -138,8 +138,8 @@ const GialloRoman = ({
               italic={true}
               // color={!darkMode ? "#D7DCE0" : "rgb(252,244,221)"}
               // background={darkMode ? "#1d1d1d" : "#FFFDF7"}
-              color={darkMode ? "rgb(10,10,10)" : "#FFFDF7"}
-              background={darkMode ? "#1d1d1d" : "rgb(220,220,220)"}
+              color={!darkMode ? "rgb(10,10,10)" :  "rgb(255,255,255)"}
+              background={!darkMode ? "rgb(255,255,255)" : "rgb(30,30,30)"}
             />
           </div>
 
@@ -152,25 +152,7 @@ const GialloRoman = ({
               &#8594; <span className="highlight01">A versatile hybrid</span>
             </p>
             <p>
-              In 2020 we started off Giallo&apos;s® original design as
-              non-proportional monospace font, which step by step grew into a
-              fully packed Roman style text version. Its features reach out to
-              16th century Italian old style serif fonts such as works by Robert
-              Granjon (et al. Gros Cicero). Giallo® combines this calligraphic
-              warmth with a digital vector look and a modern approach to the
-              letter construction as well as proportions. The wide range of
-              weights shape different characteristics especially when
-              contrasting between Giallo&apos;s® Light and Black extremes and make
-              the typeface pretty handy for representative display purposes as
-              well as a workhorse for text based applications without the cuts
-              loosing its relation to each other. During the design process and
-              due to Giallo&apos;s detailed vector look, there has been constant
-              exploration of how to break traditional type design methods and
-              create characters that would normally not be possible using
-              traditional tools (at least on how you normally would use them ;).
-              On the other hand, care was taken to preserve the appearance of an
-              Antiqua style font as much as possible.This mix can be
-              particularly been seen e. g. in Giallo&apos;s® numerals.
+              In 2020 we started off Giallo&#700;s original design as non-proportional monospace font, which step by step grew into a fully packed Roman type text version. Its features reach out to 16th century Italian old style serif fonts such as works by Robert Granjon (et al. Gros Cicero). Giallo® combines this <span className="highlight02">calligraphic warmth</span> with a <span className="highlight02">digital vector look</span> and a  <span className="highlight01">modern approach to the letter construction</span> as well as proportions. The <span className="highlight02">wide range of weights shape different characteristics</span> especially when contrasting between Giallo&#700;s Light and Black extremes and make the typeface pretty handy for representative display purposes as well as a workhorse for text based applications. The high grade of details in the letters really shine when used in big sizes. During the design process and due to Giallo&#700;s vector shaped look, there has been constant exploration of how to <span className="highlight01">break traditional type design methods</span> and to create characters that would normally not be possible or thought of, when using traditional tools in regular ways to design or cut a typeface. At the same time going this direction, care was taken to preserve the appearance of its Roman type roots as much as possible to make Giallo® a <span className="highlight02">versatile and functional hybrid typeface</span>.
             </p>
 
             <div className="typeface-single-opener">
@@ -250,20 +232,7 @@ const GialloRoman = ({
               &#8594; <span className="highlight01">7 Weights</span> + Obliques
             </p>
             <p>
-              Due to Giallo&apos;s® design approach also being a functional variable
-              font especially in the field of static and moving digital
-              purposes, we designed a rather atypical »Oblique« axis for
-              Antiquas, which allows stepless interpolation to Giallo&apos;s®
-              original cuts. Unlike Sans Serif fonts, however, the difference in
-              line width allowed hybridization into the traditional italic
-              style. Especially with certain characters that don&apos;t deviate too
-              much from regular styles to italics. Reducing the character width
-              also enabled a higher contrast. Both, Giallo® Roman and Giallo®
-              Oblique, can be seamlessly adjusted as variable font in their
-              weights (100 — 700) and oblique axis (000 — 100). Use the sliders
-              down below to check that out! If you would like to use a weight,
-              which is not defined you can make a special request via{" "}
-              <a href="mailto:request@stereotypefaces.com">mail.</a>
+            Due to Giallo&#700;s design approach also to be a functional variable font (incl. in our »Full Family Bundle«), especially in the digital field of static and moving image use cases, we designed a »Oblique« axis, which is rather atypical in comparison to other Roman type fonts. This comes in handy for steplessly interpolation to Giallo&#700;s original straight cuts. Unlike sans-serif fonts, however, the difference in line width allowed us a slight hybridization into the italic style. Especially with certain (lower case) characters that don&#700;t deviate too much from regular styles to italics. Reducing the character width also enables a higher contrast to the straight cuts. Both, Giallo® Roman and Giallo® Roman Oblique, can be seamlessly adjusted as variable font in their weights (100 — 700) and their direct connection via the oblique axis (000 — 100). Use the sliders down below to check that out.
             </p>
 
             <WaterfallGialloRoman darkMode={darkMode} />
@@ -274,17 +243,7 @@ const GialloRoman = ({
               that font named »Yellow«?
             </p>
             <p>
-              When the very first sans-serif Typefaces were introduced in the
-              Mid 1880s they were regarded as ugly and an insult for the renewed
-              graphic designer. The term »Grotesk« was meant to disqualify the
-              typefaces. These typefaces were controversial, highly misregarded
-              and bad reputed. They were seen as a protest against all
-              ornamental and historically coloured typefaces. They were an
-              uprising against conservative values. Protest Grotesk pays homage
-              to these Typefaces. Nowadays quality can not only stem from formal
-              design-descisions. A typeface has to rely on a strong technical
-              foundation, in order to deliver an advantage to modern-day type
-              users. Protest Grotesk is placed right into thes field of tension.
+            We already named some of Giallo&#700;s stylistic influences above and if you&#700;re able to understand or even speak Italian or you&#700;re just a smartass, you might already guessed it, why we somehow might came up with that name. But what you might not have known is that the term »Giallo« also refers to a literature genre, coming up in the first half of last century in Italy, as well as a movie genre, which first appeared in the 60&#700;s right after the so called »Neorealismo« (Italian neorealism). Giallo movies can be described as mystery and crime fictions which shifted more and more into the psychological thriller and horror genre. During it&#700;s heydays in the 70s and 80s directors like Mario Bava or Dario Argento did unique movies, which heavily influenced later American slashers (take this as advice: There&#700;s still a lot of trash [also fun to watch] during that period, but if you wanna dig some, check out movies from that specific era). Most Giallo movies can be seen as cheap amusement, but there are some masterpieces like »Suspiria« (1977), which oscillate between that simple entertainment and an artistic, scenographically fetishizing type of film work, still being worth watched today.
             </p>
 
             <div className="typeface-single-tester-wrap">
@@ -411,13 +370,13 @@ const GialloRoman = ({
                 sample={
                   "69:6  Warning: React Hook useEffect has a missing dependency: 'checkoutToken?.id'. Either inc"
                 }
+                spacing={1}
               />
             </div>
 
             <p>&#8594; <span className="highlight02">803 characters</span></p>
             <p>
-            Right now the  <span className="highlight01">Latin Extended Character Set</span> of Giallo® includes an extended set of punctuations, symbols, arrows as well as special ligatures beside the regular ones. There are <span className="highlight01">four stylistic alternative-sets included</span>. <span className="highlight02">Set 01 provides a single-storey lowercase »a«</span>, <span className="highlight02">Set 02 single-storey lowercase »g«, Set 03 an alternative »7« for all kind of numerals and Set 04 an alternative »®«</span>. We are currently working on monospace and italic extensions, which will be added soon. Future updates on Giallo Roman are of course for free, if you already purchased a license. If you want to stay up to date, you can register to our newsletter.
-
+            Right now the Latin Extended Character Set of Giallo® contains plenty of punctuations, symbols, arrows as well as special ligatures beside the regular ones. Four alternative stylistic sets are included. Set 01 provides a single-storey lowercase »a«, Set 02 a single-storey lowercase »g«, Set 03 an alternative »7« for all kind of numerals and Set 04 an alternative »®«. Check down below for a complete listing of all Open Type features, which have been so far implemented to Giallo®. We are currently working on monospace and italic extensions, which will be added as soon as possible. Future updates of Giallo Roman are of course for free, if you already purchased a license. If you want to stay up to date, you can register to our newsletter.
             </p>
 
             <GlyphchartGialloRoman

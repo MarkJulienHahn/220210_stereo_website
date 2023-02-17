@@ -30,33 +30,33 @@
 .xl {
   font-size: 13.7vw;
   line-height: 13.5vw;
-  letter-spacing: -0.5vw;
+  letter-spacing: -0.3vw;
   text-align: center;
 }
 
 .l {
   font-size: 5.8vw;
   line-height: 6.245vw;
-  letter-spacing: -0.2vw;
+  letter-spacing: -0.1vw;
   text-align: center;
 }
 
 .m {
   font-size: 3vw;
   line-height: 3.5vw;
-  letter-spacing: -0.09vw;
+  letter-spacing: -0.05vw;
 }
 
 .s {
   font-size: 1.5vw;
   line-height: 1.95vw;
-  letter-spacing: -0.02vw;
+  letter-spacing: -0.0vw;
 }
 
 .xs {
   font-size: 1vw;
   line-height: 1.35vw;
-  letter-spacing: -0vw;
+  letter-spacing: 0.02vw;
 }
 
 .controls {
@@ -81,6 +81,18 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .controlsMobile {
+    height: 100px;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1300px) {
+  .controlsMobile {
+    height: 130px;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
   .controls {
     display: none;
   }

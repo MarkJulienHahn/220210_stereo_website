@@ -84,8 +84,7 @@ const Footer = () => {
               <>
                 <p>
                   Sign up to our newsletter to receive information regarding
-                  exclusive font previews, new releases, special events, and
-                  seasonal sale offers.
+                  exclusive font previews, new releases and special events.
                 </p>
 
                 <form
@@ -136,7 +135,7 @@ const data = [
           order and preorder payment, custom inquiries or collaborations.
           <br />
         </p>
-        <p className="footerInfoHead">Call Berlin</p>
+        <p className="footerInfoHead">Phone</p>
         <p>
           +49 152 03 56 93 05
         </p>
@@ -149,7 +148,7 @@ const data = [
           .&nbsp;We’ll reply within 24 hours.
         </p>
         <p className="footerInfoHead">Working Hours</p>
-        <p> Available Mon — Fri 9.00am — 6.00pm (CEST)</p>
+        <p> Available Mon — Fri 10 am — 6 pm (CEST)</p>
       </>
     ),
   },
@@ -166,7 +165,7 @@ const data = [
         <br />
         <br />
         <Link href="/licensing#desktop">DESKTOP LICENSE</Link> &#8594; for print
-        products, signage and so on <br />
+        products and signage<br />
         <Link href="/licensing#web">WEB LICENSE</Link> &#8594; for an embedded
         font on a website
         <br />
@@ -234,7 +233,7 @@ const data = [
           webshop. <br />
           <br />
           Click here for{" "}
-          <Link href="/generalTerms">
+          <Link href="/general-terms">
             THE CURRENT VERSION (1.0 / OCTOBER 22)
           </Link>
           .
@@ -250,7 +249,7 @@ const data = [
           The content of this website is protected by copyright. All rights are
           reserved to Stereo Typefaces GbR or its partner companies (suppliers,
           providers, manufacturers, etc.). Any use of the content of this site
-          is only permitted with the express permission of Stereo Typefaces Gbr.{" "}
+          is only permitted with the express permission of Stereo Typefaces GbR.{" "}
           <Link href="/legals">Show Full Legal Notice</Link>
         </p>
 

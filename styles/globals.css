@@ -96,6 +96,12 @@ body {
   --gialloSmallLetterSpacing: 1.5px;
 }
 
+@media only screen and (max-width: 1000px) {
+  :root {
+    --margin-XL: 300px;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   :root {
     --margin-XL: 200px;
@@ -593,6 +599,28 @@ button {
   .typefaceControl {
     padding-top: 70px;
   }
+  .typeface-single-header {
+    height: 200vh;
+    cursor: pointer;
+    overflow: visible;
+  }
+  .headerAnimationWrapperMobile {
+    display: none;
+    position: sticky;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .typefaceInfosectionList {
+    flex-wrap: wrap;
+  }
+  .typefaceInfosectionList p {
+    width: 50%;
+    padding-bottom: var(--margin-M);
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -603,8 +631,6 @@ button {
     position: relative;
     height: inherit;
   }
-
-
 
   .typeface-single-header {
     height: 200vh;
@@ -640,9 +666,21 @@ button {
     /* animation: changeStyle 5s ease 0s infinite alternate; */
   }
 
-.typefaceDisplay div {
-  height: unset;
-}
+  .typefaceDisplay div {
+    height: unset;
+  }
+
+  .typefaceInfosection div {
+    padding: 0px;
+  }
+
+  .typefaceInfosection {
+    padding: 0;
+  }
+
+    .typefaceInfosection p {
+    padding-bottom: 15px;
+  }
 
   .typefaceInfosectionList {
     flex-direction: column;
@@ -653,9 +691,9 @@ button {
     padding-bottom: var(--margin-M);
   }
 
-  .typefaceInfosection {
+  /* .typefaceInfosection {
     padding-bottom: var(--margin-XL);
-  }
+  } */
   .typefaceSpecs {
     display: none;
   }
@@ -795,6 +833,10 @@ button {
   padding: 6px;
 }
 
+.column02Wrapper p {
+  white-space: nowrap;
+}
+
 .MuiSlider-root {
   color: white !important;
   opacity: 0.8;
@@ -927,6 +969,53 @@ button {
   opacity: 1;
 }
 
+@media only screen and (max-width: 1300px) {
+  .glyphchartTable {
+    width: 100%;
+    height: auto;
+  }
+
+  .glyphchartDisplayMobile {
+    width: 100%;
+    height: 50vh;
+    font-size: clamp(0vw, 50vw, 500pt);
+    padding-top: 70px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .glyphchartLetter {
+    width: 17.5vw;
+    height: 18.4vw;
+  }
+
+  .glyphchartDisplayWrapper {
+    display: none;
+  }
+
+  .glyphchartSliderMobile {
+    opacity: 1;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background: white;
+  }
+  .glyphchartSliderSingle {
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    width: 46%;
+    pointer-events: auto;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .typeface-single-header {
     min-height: unset;
@@ -972,51 +1061,6 @@ button {
     justify-content: space-between;
     width: 100%;
     padding-top: 23px;
-  }
-
-  .glyphchartTable {
-    width: 100%;
-    height: auto;
-  }
-
-  .glyphchartDisplayMobile {
-    width: 100%;
-    height: 50vh;
-    font-size: clamp(0vw, 50vw, 140pt);
-    padding-top: 70px;
-    background: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    pointer-events: none;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-
-  .glyphchartLetter {
-    width: 17.5vw;
-    height: 18.4vw;
-  }
-
-  .glyphchartDisplayWrapper {
-    display: none;
-  }
-
-  .glyphchartSliderMobile {
-    opacity: 1;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    background: white;
-  }
-  .glyphchartSliderSingle {
-    opacity: 1;
-    display: flex;
-    flex-direction: column;
-    width: 46%;
-    pointer-events: auto;
   }
 }
 
@@ -2334,7 +2378,7 @@ button {
 /* LICENSING */
 
 .licensingMain {
-  background: var(--fifth);
+  background: var(--fifthSolid);
   animation: fadeIn 0.5s ease;
 }
 
@@ -2364,7 +2408,7 @@ button {
 }
 
 .licensingWrapper a:hover {
-  font-variation-settings: "wght" 800;
+  text-decoration: underline;
 }
 
 .licensingWrapper h1,
@@ -2486,7 +2530,7 @@ button {
   width: 50%;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1000px) {
   .licensingSingleColumn {
     width: 100%;
   }

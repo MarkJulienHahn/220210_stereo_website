@@ -205,7 +205,7 @@ const LicensingTerms = ({ setShowLicensing }) => {
 
         <p>
           See also our{" "}
-          <Link href="/generalTerms">general Terms and Conditions (GTC)</Link>
+          <Link href="/general-terms">general Terms and Conditions (GTC)</Link>
         </p>
       </div>
     </>

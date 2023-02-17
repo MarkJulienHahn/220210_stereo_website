@@ -251,7 +251,7 @@ const Licensing = () => {
 
               <p>
                 See also our{" "}
-                <Link href="/generalTerms">
+                <Link href="/general-terms">
                 &nbsp;general Terms and Conditions (GTC)
                 </Link>
               </p>

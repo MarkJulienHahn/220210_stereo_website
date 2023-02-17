@@ -66,7 +66,7 @@ const Legals = () => {
                   rights are reserved to Stereo Typefaces GbR or its partner
                   companies (suppliers, providers, manufacturers, etc.). Any use
                   of the content of this site is only permitted with the express
-                  permission of Stereo Typefaces Gbr.
+                  permission of Stereo Typefaces GbR.
                 </p>
                 <p>
                   {" "}

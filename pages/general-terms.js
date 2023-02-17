@@ -135,7 +135,7 @@ const GeneralTerms = () => {
                 exercise your right of withdrawal, you must inform us, Stereo
                 Typefaces GbR, Groninger Straße 48, 13347 Berlin, phone: <br />
                 0049 152 03 56 93 05, e-mail:{" "}
-                <a href="info@stereotypefaces.com">info@stereotypefaces.com</a>,
+                <a href="mailto:info@stereotypefaces.com">info@stereotypefaces.com</a>,
                 by means of a clear declaration (e.g. a letter sent by post or
                 an e-mail) of your decision to withdraw from this contract. You
                 can use the attached sample withdrawal form for this purpose,
@@ -168,7 +168,7 @@ const GeneralTerms = () => {
                     <li>
                       To Stereo Typefaces GbR, Groninger Straße 48, 13347
                       Berlin, e-mail:{" "}
-                      <a href="info@stereotypefaces.com">
+                      <a href="mailto:info@stereotypefaces.com">
                         info@stereotypefaces.com
                       </a>
                     </li>
@@ -657,7 +657,7 @@ const GeneralTerms = () => {
                 Widerrufsrecht auszuüben, müssen Sie uns, der Stereo Typefaces
                 GbR, Groninger Str. 48, 13347 Berlin, Telefon: 0049 15203569305,
                 E-Mail:{" "}
-                <a href="info@stereotypefaces.com">info@stereotypefaces.com</a>,
+                <a href="mailto:info@stereotypefaces.com">info@stereotypefaces.com</a>,
                 mittels einer eindeutigen Erklärung (z.B. ein mit der Post
                 versandter Brief oder eine E-Mail) über Ihren Entschluss, diesen
                 Vertrag zu widerrufen, informieren. Sie können dafür das
@@ -694,7 +694,7 @@ const GeneralTerms = () => {
                     <li>
                       An Stereo Typefaces GbR, Groninger Straße 48, 13347
                       Berlin, E-Mail:{" "}
-                      <a href="info@stereotypefaces.com">
+                      <a href="mailto:info@stereotypefaces.com">
                         info@stereotypefaces.com
                       </a>
                     </li>
