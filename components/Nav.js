@@ -1,4 +1,6 @@
 import { useState } from "react";
+import useWindowDimensions from "./Hooks/useWindowDimensions";
+
 import Link from "next/link";
 import styles from "../styles/Nav.module.css";
 
@@ -6,11 +8,14 @@ import { useRouter } from "next/router";
 
 const Nav = ({ darkMode }) => {
   const [isActive, setActive] = useState("false");
+  const [hover, setHover] = useState(false);
   const router = useRouter();
 
   const ToggleClass = () => {
     setActive(!isActive);
   };
+
+  const { windowWidth } = useWindowDimensions();
 
   const darkBG = {
     background: "rgba(255,255,255,0.5)",
@@ -19,14 +24,17 @@ const Nav = ({ darkMode }) => {
     color: "black",
   };
 
-  console.log(router);
-
   return (
-    <nav className={styles.menuContainer}>
+    <nav
+      className={styles.menuContainer}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+    >
       <div className={styles.logoTypo} style={darkMode ? dark : {}}>
         {isActive ? (
           <div style={{ transform: "translateX(5px)" }}>
-            STEREO
+            {windowWidth > 1000 ? (hover ? "MENU" : "STEREO") : "MENU"}
+
             <span
               style={{
                 fontFamily: "Protest",
@@ -35,7 +43,7 @@ const Nav = ({ darkMode }) => {
                 transform: "translateY(-50px)",
               }}
             >
-              ®
+               {windowWidth > 1000 ? (hover ? "" : "®") : ""}
             </span>
           </div>
         ) : (

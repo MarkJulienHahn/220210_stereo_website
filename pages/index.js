@@ -15,7 +15,6 @@ import Cartbutton from "../components/Cartbutton";
 import Styles from "../styles/Typefaces.module.css";
 
 const Checkout = dynamic(() => import("../components/Checkout/Checkout"));
-const Trials = dynamic(() => import("../components/Trials"));
 
 const Home = ({
   products,
@@ -44,9 +43,6 @@ const Home = ({
   const { ref: protestRef, inView: protestIsVisible } = useInView({
     threshold: 0.5,
   });
-  const { ref: gialloMonoRef, inView: gialloMonoIsVisible } = useInView({
-    threshold: 0.5,
-  });
   const { ref: protestMonoRef, inView: protestMonoIsVisible } = useInView({
     threshold: 0.5,
   });
@@ -55,7 +51,6 @@ const Home = ({
   });
 
   const [showCheckout, setShowCheckout] = useState(false);
-  const [showTrials, setShowTrials] = useState(false);
   const [buttonContent, setButtonContent] = useState("");
 
   const location = useRouter();
@@ -67,14 +62,12 @@ const Home = ({
         slug: "protest-grotesk",
         available: true,
       });
-    // !protestIsVisible && setButtonContent("")
     protestMonoIsVisible &&
       setButtonContent({
         name: "Protest Mono",
         slug: "protest-grotesk-mono",
         available: true,
       });
-    // !protestMonoIsVisible && setButtonContent("")
     gialloIsVisible &&
       setButtonContent({
         name: "Giallo Roman",
@@ -126,8 +119,6 @@ const Home = ({
         />
       )}
 
-      {showTrials && <Trials setShowTrials={setShowTrials} />}
-
       <div className="buttonsLeftWrapper">
         <Link href="/" scroll={false}>
           <a>
@@ -155,39 +146,6 @@ const Home = ({
           </Link>
         </div>
 
-        {/* <div
-          className={`${Styles.button} ${
-            protestMonoIsVisible ? Styles.buttonShow : ""
-          }  `}
-        >
-          <Link href="/typefaces/protest-grotesk" scroll={false}>
-            <a>
-              <Button lable={"Protest Mono"} subclass={"tertiary"} />
-            </a>
-          </Link>
-        </div>
-
-        <div
-          className={`${Styles.button} ${
-            gialloMonoIsVisible ? Styles.buttonShow : ""
-          }  `}
-        >
-          <Link href="/typefaces/protest-grotesk" scroll={false}>
-            <a>
-              <Button lable={"Giallo Mono"} subclass={"tertiary"} />
-            </a>
-          </Link>
-        </div>
-
-        <div
-          className={`${Styles.button} ${
-            automatIsVisible ? Styles.buttonShow : ""
-          }  `}
-        >
-          <a>
-            <Button lable={"Automat"} subclass={"quaternaryMuted"} />
-          </a>
-        </div> */}
       </div>
 
       <div className="buttonsRightWrapper">
@@ -195,11 +153,6 @@ const Home = ({
           lable={darkMode ? "Light" : "Dark"}
           subclass={!darkMode ? "secondary" : "quaternary"}
           onClick={() => setDarkMode(!darkMode)}
-        />
-        <Button
-          lable={"Trials"}
-          subclass={"tertiary"}
-          onClick={() => setShowTrials(true)}
         />
         <Button
           lable={"Buy"}
@@ -330,7 +283,7 @@ const Home = ({
                     <br /> Marģot &#123;Class–5&#125;
                   </>,
                   <>
-                    Řobiɲ: E–ﬁles⁴⁴
+                    Robiɲ: E–ﬁles⁴⁴
                     <br /> Re–cal &quot;MOLTO&quot;
                     <br /> Parļiměnt® STF
                   </>,

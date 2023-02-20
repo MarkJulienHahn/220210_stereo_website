@@ -31,15 +31,6 @@ const HeaderAnimation = ({
 
   const height = use100vh()
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollPosition(window.scrollY);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  });
-
   // WINDOWBREITE HERAUSFINDEN + MAUSPOSITION HERAUSFINDEN
 
   const { windowHeight, windowWidth } = useWindowDimensions();
@@ -106,6 +97,15 @@ const HeaderAnimation = ({
   const threeDigits = (i) => {
     return i < 10 ? `00${i}` : i < 100 ? `0${i}` : i;
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  });
 
 
   return (

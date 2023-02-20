@@ -56,7 +56,7 @@ const ProtestGroteskMono = ({
   return (
     <>
       <Head>
-        <title>Protest Grotesk | Stereo Typefaces® </title>
+        <title>Protest Grotesk Mono | Stereo Typefaces® </title>
       </Head>
 
       {showCheckout && (
@@ -83,7 +83,7 @@ const ProtestGroteskMono = ({
         />
       )}
 
-      {showTrials && <Trials setShowTrials={setShowTrials} />}
+      {/* {showTrials && <Trials setShowTrials={setShowTrials} />} */}
 
       <div className="buttonsLeftWrapper" scroll={false}>
         <Link href="/" scroll={false}>
@@ -119,11 +119,11 @@ const ProtestGroteskMono = ({
           subclass={!darkMode ? "secondary" : "quaternary"}
           onClick={() => setDarkMode(!darkMode)}
         />
-        <Button
+        {/* <Button
           lable={"Trials"}
           subclass={"tertiary"}
           onClick={() => setShowTrials(true)}
-        />
+        /> */}
         <Button
           lable={"Buy"}
           subclass={"primary"}
@@ -363,6 +363,7 @@ const ProtestGroteskMono = ({
               <Typetester
                 wght={40}
                 ital={0}
+                lineHeight={0}
                 name={"Protest Mono Thin"}
                 fontFamily="Protest"
                 sample="Affect"
@@ -422,6 +423,7 @@ const ProtestGroteskMono = ({
               <Typetester
                 wght={70}
                 ital={0}
+                lineHeight={0}
                 name={"Protest Mono Light"}
                 fontFamily="Protest"
                 sample="Belong"
@@ -481,6 +483,7 @@ const ProtestGroteskMono = ({
               <Typetester
                 wght={100}
                 ital={0}
+                lineHeight={0}
                 name={"Protest Mono Regular"}
                 fontFamily="Protest"
                 sample="Conseq"
@@ -541,6 +544,7 @@ const ProtestGroteskMono = ({
               <Typetester
                 wght={130}
                 ital={0}
+                lineHeight={0}
                 name={"Protest Mono Medium"}
                 fontFamily="Protest"
                 sample="Delink"
@@ -554,6 +558,7 @@ const ProtestGroteskMono = ({
               <Typetester
                 wght={160}
                 ital={0}
+                lineHeight={0}
                 name={"Protest Mono Semibold"}
                 fontFamily="Protest"
                 sample="Enable"
@@ -567,6 +572,7 @@ const ProtestGroteskMono = ({
               <Typetester
                 wght={190}
                 ital={0}
+                lineHeight={0}
                 name={"Protest Mono Bold"}
                 fontFamily="Protest"
                 sample="Fugues"
@@ -580,6 +586,7 @@ const ProtestGroteskMono = ({
               <Typetester
                 wght={220}
                 ital={0}
+                lineHeight={0}
                 name={"Protest Mono Heavy"}
                 fontFamily="Protest"
                 sample="Gnarly"
@@ -593,6 +600,7 @@ const ProtestGroteskMono = ({
               <Typetester
                 wght={250}
                 ital={0}
+                lineHeight={0}
                 name={"Protest Mono Black"}
                 fontFamily="Protest"
                 sample="Hazled"

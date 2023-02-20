@@ -98,7 +98,7 @@ const GialloRoman = ({
           subclass={!darkMode ? "secondary" : "quaternary"}
           onClick={() => setDarkMode(!darkMode)}
         />
-        <Button lable={"Trials"} subclass={"tertiary"} />
+        {/* <Button lable={"Trials"} subclass={"tertiary"} /> */}
         <Button
           lable={"Buy"}
           subclass={"primary"}
@@ -250,13 +250,15 @@ const GialloRoman = ({
               <Typetester
                 wght={100}
                 ital={0}
+                lineHeight={0.002}
                 name={"Giallo Roman Thin"}
                 fontFamily="Protest"
-                sample="85 packages are looking for funding run `npm fund` for detailsDetected  Next.js version: 12.0.8Running »npm run build«"
+                sample="Looking for funding run `npm fund` for detailsDetected  Next.js version: 12.0.8Running »npm run build«"
               />
               <Typetester
                 wght={100}
                 ital={100}
+                lineHeight={0}
                 name={"Giallo Roman Thin Oblique"}
                 fontFamily="Protest"
                 sample="Attention: Next.js now collects completely anonymous telemetry regarding usage. This information is used to shape Next.js' roadmap and prioritize features.
@@ -266,24 +268,27 @@ const GialloRoman = ({
               <Typetester
                 wght={200}
                 ital={0}
+                lineHeight={0.001}
                 name={"Giallo Roman Light"}
                 fontFamily="Protest"
                 sample={
-                  "69:6  Warning: React Hook useEffect has a missing dependency: 'checkoutToken?.id'. Either inc"
+                  "Hook useEffect has a missing dependency: 'checkoutToken?.id'. Either inc"
                 }
               />
               <Typetester
                 wght={200}
                 ital={100}
+                lineHeight={0.003}
                 name={"Giallo Roman Light Oblique"}
                 fontFamily="Protest"
                 sample={
-                  "203:3  Warning: React Hook useEffect contains a call to 'setAddFullFamily'. Without a list of dependencies, this can lead to an infinite chain of updates. To fix this, pass [] as a second argument to the useEffect Hook.  react-hooks/exhaustive-deps"
+                  "This can lead to an infinite chain of updates. To fix this, pass [] as a second argument to the useEffect Hook.  react-hooks/exhaustive-deps"
                 }
               />
               <Typetester
                 wght={300}
                 ital={0}
+                lineHeight={0.002}
                 name={"Giallo Roman Regular"}
                 fontFamily="Protest"
                 sample="Attention: Next.js now collects completely anonymous telemetry regarding usage. This information is used to shape Next.js' roadmap and prioritize features.
@@ -293,82 +298,91 @@ const GialloRoman = ({
               <Typetester
                 wght={300}
                 ital={100}
+                lineHeight={0.003}
                 name={"Giallo Roman Regular Oblique"}
                 fontFamily="Protest"
                 sample={
-                  "69:6  Warning: React Hook useEffect has a missing dependency: 'checkoutToken?.id'. Either inc"
+                  "Effect has a missing dependency: 'checkoutToken?.id'. Either inc"
                 }
               />
               <Typetester
                 wght={400}
                 ital={0}
+                lineHeight={0.002}
                 name={"Giallo Roman Book"}
                 fontFamily="Protest"
                 sample={
-                  "203:3  Warning: React Hook useEffect contains a call to 'setAddFullFamily'. Without a list of dependencies, this can lead to an infinite chain of updates. To fix this, pass [] as a second argument to the useEffect Hook.  react-hooks/exhaustive-deps"
+                  "List of dependencies, this can lead to an infinite chain of updates. To fix this, pass [] as a second argument to the useEffect Hook.  react-hooks/exhaustive-deps"
                 }
               />
               <Typetester
                 wght={400}
                 ital={100}
+                lineHeight={0.003}
                 name={"Giallo Roman Book Oblique"}
                 fontFamily="Protest"
                 sample={
-                  "69:6  Warning: React Hook useEffect has a missing dependency: 'checkoutToken?.id'. Either inc"
+                  "Warning: React Hook useEffect has a missing dependency: 'checkoutToken?.id'. Either inc"
                 }
               />
               <Typetester
                 wght={500}
                 ital={0}
+                lineHeight={0.002}
                 name={"Giallo Roman Medium"}
                 fontFamily="Protest"
                 sample={
-                  "69:6  Warning: React Hook useEffect has a missing dependency: 'checkoutToken?.id'. Either inc"
+                  "Warning: React Hook useEffect has a missing dependency: 'checkoutToken?.id'. Either inc"
                 }
               />
               <Typetester
                 wght={500}
                 ital={100}
+                lineHeight={0.003}
                 name={"Giallo Roman Medium Oblique"}
                 fontFamily="Protest"
                 sample={
-                  "203:3  Warning: React Hook useEffect contains a call to 'setAddFullFamily'. Without a list of dependencies, this can lead to an infinite chain of updates. To fix this, pass [] as a second argument to the useEffect Hook.  react-hooks/exhaustive-deps"
+                  "Warning: React Hook useEffect contains a call to 'setAddFullFamily'. Without a list of dependencies, this can lead to an infinite chain of updates. To fix this, pass [] as a second argument to the useEffect Hook.  react-hooks/exhaustive-deps"
                 }
               />
               <Typetester
                 wght={600}
                 ital={0}
+                lineHeight={0.001}
                 name={"Giallo Roman Bold"}
                 fontFamily="Protest"
                 sample={
-                  "203:3  Warning: React Hook useEffect contains a call to 'setAddFullFamily'. Without a list of dependencies, this can lead to an infinite chain of updates. To fix this, pass [] as a second argument to the useEffect Hook.  react-hooks/exhaustive-deps"
+                  "useEffect contains a call to 'setAddFullFamily'. Without a list of dependencies, this can lead to an infinite chain of updates. To fix this, pass [] as a second argument to the useEffect Hook.  react-hooks/exhaustive-deps"
                 }
               />
               <Typetester
                 wght={600}
                 ital={100}
+                lineHeight={0.0025}
                 name={"Giallo Roman Bold Oblique"}
                 fontFamily="Protest"
                 sample={
-                  "69:6  Warning: React Hook useEffect has a missing dependency: 'checkoutToken?.id'. Either inc"
+                  "missing dependency: 'checkoutToken?.id'. Either inc"
                 }
               />
               <Typetester
                 wght={700}
                 ital={0}
+                lineHeight={0.002}
                 name={"Giallo Roman Black"}
                 fontFamily="Protest"
                 sample={
-                  "203:3  Warning: React Hook useEffect contains a call to 'setAddFullFamily'. Without a list of dependencies, this can lead to an infinite chain of updates. To fix this, pass [] as a second argument to the useEffect Hook.  react-hooks/exhaustive-deps"
+                  "Without a list of dependencies, this can lead to an infinite chain of updates. To fix this, pass [] as a second argument to the useEffect Hook.  react-hooks/exhaustive-deps"
                 }
               />
               <Typetester
                 wght={700}
                 ital={100}
+                lineHeight={0.002}
                 name={"Giallo Roman Black Oblique"}
                 fontFamily="Protest"
                 sample={
-                  "69:6  Warning: React Hook useEffect has a missing dependency: 'checkoutToken?.id'. Either inc"
+                  "CheckoutToken?.id'. Either inc"
                 }
                 spacing={1}
               />

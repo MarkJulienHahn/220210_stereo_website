@@ -1,8 +1,9 @@
-import React, { useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useInView } from "react-intersection-observer";
 import { motion, AnimatePresence } from "framer-motion";
 
 import HeaderAnimation from "../../components/HeaderAnimation";
@@ -17,7 +18,6 @@ import FontPreview from "../../components/FontPreview";
 import FontInfo from "../../components/FontInfo";
 
 const Checkout = dynamic(() => import("../../components/Checkout/Checkout"));
-const Trials = dynamic(() => import("../../components/Trials"));
 
 const ProtestGroteskText = ({
   products,
@@ -41,10 +41,40 @@ const ProtestGroteskText = ({
   dark,
 }) => {
   const [showCheckout, setShowCheckout] = useState(false);
-  const [showTrials, setShowTrials] = useState(false);
+  const [showQuicklinks, setShowQuicklinks] = useState(false);
+  const [buttonContent, setButtonContent] = useState("...");
+  const [offset, setOffset] = useState(0);
+
   const location = useRouter();
 
+  const { ref: headerRef, inView: headerIsVisible } = useInView({
+    threshold: 0,
+  });
+  const { ref: weightsRef, inView: weightsIsVisible } = useInView({
+    threshold: 0,
+  });
+  const { ref: samplesRef, inView: samplesIsVisible } = useInView({
+    threshold: 0,
+  });
+  const { ref: testerRef, inView: testerIsVisible } = useInView({
+    threshold: 0,
+  });
+  const { ref: glyphsRef, inView: glyphsIsVisible } = useInView({
+    threshold: 0,
+  });
+  const { ref: technicalRef, inView: technicalIsVisible } = useInView({
+    threshold: 0,
+  });
+  const { ref: bottomRef, inView: bottomIsVisible } = useInView({
+    threshold: 0,
+  });
+
   const checkoutOverview = useRef(null);
+  const weightsScroll = useRef(null);
+  const samplesScroll = useRef(null);
+  const testerScroll = useRef(null);
+  const glyphsScroll = useRef(null);
+  const technicalScroll = useRef(null);
 
   const sampleText = [
     "You basically can say anything to someone on an email or text as long as you put LOL at the end. ",
@@ -102,12 +132,49 @@ const ProtestGroteskText = ({
     sampleText[Math.floor(Math.random() * sampleText.length)]
   }`;
 
+  const hideQuicklinks = () => setShowQuicklinks(false);
+  const fadeOutQuicklinks = () => setTimeout(hideQuicklinks, 2000);
+
+
   const scrollUp = () => {
     checkoutOverview.current.scrollIntoView({
       behavior: "smooth",
       block: "start",
     });
   };
+
+  const scrollTo = (dest) =>
+    dest.current.scrollIntoView({ behavior: "smooth" });
+
+  useEffect(() => {
+    headerIsVisible && setButtonContent("...");
+    weightsIsVisible && setButtonContent("Weights");
+    samplesIsVisible && setButtonContent("Samples");
+    testerIsVisible && setButtonContent("Tester");
+    glyphsIsVisible && setButtonContent("Glyphs");
+    technicalIsVisible && setButtonContent("Technical");
+    bottomIsVisible && setButtonContent("...");
+  }, [
+    weightsIsVisible,
+    samplesIsVisible,
+    testerIsVisible,
+    glyphsIsVisible,
+    technicalIsVisible,
+    bottomIsVisible,
+  ]);
+
+  // useEffect(() => {
+  //   const onScroll = () => setOffset(window.pageYOffset);
+  //   // clean up code
+  //   window.removeEventListener("scroll", onScroll);
+  //   window.addEventListener("scroll", onScroll, { passive: true });
+  //   return () => window.removeEventListener("scroll", onScroll);
+  // }, []);
+
+  // useEffect(() => {
+  //   () => hideQuicklinks();
+  // }, [offset]);
+
 
   return (
     <>
@@ -139,7 +206,40 @@ const ProtestGroteskText = ({
         />
       )}
 
-      {showTrials && <Trials setShowTrials={setShowTrials} />}
+      <div
+        className="shortcutButtonsWrapper"
+        style={
+          showQuicklinks
+            ? { transform: "translateX(0)" }
+            : { transform: "translateX(-600px)" }
+        }
+      >
+        <Button
+          lable="Weights"
+          subclass={weightsIsVisible ? "quaternaryMuted" : "tertiary"}
+          onClick={() => scrollTo(weightsScroll)}
+        />
+        <Button
+          lable="Samples"
+          subclass={samplesIsVisible ? "quaternaryMuted" : "tertiary"}
+          onClick={() => scrollTo(samplesScroll)}
+        />
+        <Button
+          lable="Tester"
+          subclass={testerIsVisible ? "quaternaryMuted" : "tertiary"}
+          onClick={() => scrollTo(testerScroll)}
+        />
+        <Button
+          lable="Glyphs"
+          subclass={glyphsIsVisible ? "quaternaryMuted" : "tertiary"}
+          onClick={() => scrollTo(glyphsScroll)}
+        />
+        <Button
+          lable="Technical"
+          subclass={technicalIsVisible ? "quaternaryMuted" : "tertiary"}
+          onClick={() => scrollTo(technicalScroll)}
+        />
+      </div>
 
       <div className="buttonsLeftWrapper" scroll={false}>
         <Link href="/" scroll={false}>
@@ -148,13 +248,12 @@ const ProtestGroteskText = ({
           </a>
         </Link>
 
-        {/* <Link href="/typefaces" scroll={false}>
-          <a>
-            <Button lable={"Typefaces"} subclass={"tertiary"} />
-          </a>
-        </Link> */}
-
         <Button lable={"Protest Grotesk"} subclass={"quaternaryActive"} />
+        <Button
+          lable={buttonContent}
+          subclass={"tertiary"}
+          onClick={() => setShowQuicklinks(!showQuicklinks)}
+        />
       </div>
 
       <div className="buttonsRightWrapper">
@@ -162,11 +261,6 @@ const ProtestGroteskText = ({
           lable={darkMode ? "Light" : "Dark"}
           subclass={!darkMode ? "secondary" : "quaternary"}
           onClick={() => setDarkMode(!darkMode)}
-        />
-        <Button
-          lable={"Trials"}
-          subclass={"tertiary"}
-          onClick={() => setShowTrials(true)}
         />
         <Button
           lable={"Buy"}
@@ -193,7 +287,7 @@ const ProtestGroteskText = ({
           exit={{ y: -300, opacity: 0 }}
           transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
         >
-          <div className="typeface-single-header">
+          <div className="typeface-single-header" ref={headerRef}>
             <HeaderAnimation
               scrollUp={scrollUp}
               name={"Protest Grotesk"}
@@ -216,12 +310,12 @@ const ProtestGroteskText = ({
           >
             <div className="typefaceInfosection">
               <h1>
-                &#8594;{" "}
+                &#8594;
                 <span className="highlight01">A geometric Workhorse</span>
               </h1>
               <p>
                 When we first started designing Protest Grotesk in 2015, the
-                intention was to{" "}
+                intention was to
                 <span className="highlight02">
                   build the font upon a geometrical skeleton
                 </span>
@@ -239,9 +333,8 @@ const ProtestGroteskText = ({
                 constructivist era.
               </p>
             </div>
-
-            <div className="typeface-single-opener">
-              <div className="fontOpener">
+            <div className="typeface-single-opener" ref={weightsRef}>
+              <div className="fontOpener" ref={weightsScroll}>
                 <div style={{ fontVariationSettings: "'wght' 250, 'wdth' 50" }}>
                   Protest Grotesk Black
                 </div>
@@ -348,7 +441,6 @@ const ProtestGroteskText = ({
                 </div>
               </div>
             </div>
-
             <div className="typefaceInfosection">
               <h1>
                 &#8594; <span className="highlight01">8 Weights</span> + Italics
@@ -372,7 +464,10 @@ const ProtestGroteskText = ({
               </p>
             </div>
 
-            <WaterfallProtest darkMode={darkMode} />
+            <div ref={samplesRef}>
+              <div ref={samplesScroll}></div>
+              <WaterfallProtest darkMode={darkMode} />
+            </div>
 
             <div className="typefaceInfosection">
               <h1>
@@ -402,11 +497,12 @@ const ProtestGroteskText = ({
                 right into thes field of tension.
               </p>
             </div>
-
-            <div className="typeface-single-tester-wrap">
+            <div className="typeface-single-tester-wrap" ref={testerRef}>
+              <div ref={testerScroll}></div>
               <Typetester
                 wght={40}
                 ital={0}
+                lineHeight={0}
                 name={"Protest Grotesk Thin"}
                 fontFamily="Protest"
                 sample={sample}
@@ -415,6 +511,7 @@ const ProtestGroteskText = ({
               <Typetester
                 wght={40}
                 ital={100}
+                lineHeight={0}
                 name={"Protest Grotesk Thin Italic"}
                 fontFamily="Protest"
                 sample={`${
@@ -444,6 +541,7 @@ const ProtestGroteskText = ({
               <Typetester
                 wght={70}
                 ital={0}
+                lineHeight={0}
                 name={"Protest Grotesk Light"}
                 fontFamily="Protest"
                 sample={`${
@@ -473,6 +571,7 @@ const ProtestGroteskText = ({
               <Typetester
                 wght={70}
                 ital={100}
+                lineHeight={0}
                 name={"Protest Grotesk Light Italic"}
                 fontFamily="Protest"
                 sample={`${
@@ -502,6 +601,7 @@ const ProtestGroteskText = ({
               <Typetester
                 wght={100}
                 ital={0}
+                lineHeight={0}
                 name={"Protest Grotesk Regular"}
                 fontFamily="Protest"
                 sample={`${
@@ -531,6 +631,7 @@ const ProtestGroteskText = ({
               <Typetester
                 wght={100}
                 ital={100}
+                lineHeight={0}
                 name={"Protest Grotesk Regular Italic"}
                 fontFamily="Protest"
                 sample={`${
@@ -561,6 +662,7 @@ const ProtestGroteskText = ({
               <Typetester
                 wght={130}
                 ital={0}
+                lineHeight={0}
                 name={"Protest Grotesk Book"}
                 fontFamily="Protest"
                 sample={`${
@@ -590,6 +692,7 @@ const ProtestGroteskText = ({
               <Typetester
                 wght={130}
                 ital={100}
+                lineHeight={0}
                 name={"Protest Grotesk Book Italic"}
                 fontFamily="Protest"
                 sample={`${
@@ -619,6 +722,7 @@ const ProtestGroteskText = ({
               <Typetester
                 wght={160}
                 ital={0}
+                lineHeight={0}
                 name={"Protest Grotesk Medium"}
                 fontFamily="Protest"
                 sample={`${
@@ -648,6 +752,7 @@ const ProtestGroteskText = ({
               <Typetester
                 wght={160}
                 ital={100}
+                lineHeight={0}
                 name={"Protest Grotesk Medium Italic"}
                 fontFamily="Protest"
                 sample={`${
@@ -677,6 +782,7 @@ const ProtestGroteskText = ({
               <Typetester
                 wght={190}
                 ital={0}
+                lineHeight={0}
                 name={"Protest Grotesk Bold"}
                 fontFamily="Protest"
                 sample={`${
@@ -706,6 +812,7 @@ const ProtestGroteskText = ({
               <Typetester
                 wght={190}
                 ital={100}
+                lineHeight={0}
                 name={"Protest Grotesk Bold Italic"}
                 fontFamily="Protest"
                 sample={`${
@@ -735,6 +842,7 @@ const ProtestGroteskText = ({
               <Typetester
                 wght={220}
                 ital={0}
+                lineHeight={0}
                 name={"Protest Grotesk Heavy"}
                 fontFamily="Protest"
                 sample={`${
@@ -764,6 +872,7 @@ const ProtestGroteskText = ({
               <Typetester
                 wght={220}
                 ital={100}
+                lineHeight={0}
                 name={"Protest Grotesk Heavy Italic"}
                 fontFamily="Protest"
                 sample={`${
@@ -793,6 +902,7 @@ const ProtestGroteskText = ({
               <Typetester
                 wght={250}
                 ital={0}
+                lineHeight={0}
                 name={"Protest Grotesk Black"}
                 fontFamily="Protest"
                 sample={`${
@@ -822,6 +932,7 @@ const ProtestGroteskText = ({
               <Typetester
                 wght={250}
                 ital={100}
+                lineHeight={0}
                 name={"Protest Grotesk Black Italic"}
                 fontFamily="Protest"
                 sample={`${
@@ -849,7 +960,6 @@ const ProtestGroteskText = ({
                 }${sampleText[Math.floor(Math.random() * sampleText.length)]}`}
               />
             </div>
-
             <div className="typefaceInfosection">
               <h1>
                 &#8594; <span className="highlight02">685 characters</span>
@@ -880,96 +990,102 @@ const ProtestGroteskText = ({
               </p>
             </div>
 
-            <GlyphchartProtestGrotesk
-              fontFamily="Protest"
-              fontWeight={80}
-              fontWidth={50}
-              darkMode={darkMode}
-              dark={dark}
-            />
+            <div ref={glyphsRef}>
+              <div ref={glyphsScroll}></div>
+              <GlyphchartProtestGrotesk
+                fontFamily="Protest"
+                fontWeight={80}
+                fontWidth={50}
+                darkMode={darkMode}
+                dark={dark}
+              />
+            </div>
 
-            <FontInfo
-              info={{
-                name: "Protest Grotesk",
-                year: "2023",
-                design: "Mark Julien Hahn",
-                mastering: "Stereo Typefaces",
-                characters: 685,
-                styles: 16,
-                variable: "2 Axes (Weight & Italic)",
-              }}
-              opentype={[
-                "aalt (Access All Alternates)",
-                "ss01 (Alternative a)",
-                "ss02 (Alternative g)",
-                "ss03 (Alternative ® and ©)",
-                "subs (Subscript)",
-                "sinf (Scientific Inferiors)",
-                "sups (Superscript)",
-                "frac (Fractions)",
-                "ordn (Ordinals)",
-                "pnum (Proportional Figures)",
-                "tnum (Tabular Figures)",
-                "liga (Standard Ligatures)",
-                "zero (Slashed Zero)",
-                "calt (Contextual Alternates)",
-                "dnom (Denominators)",
-                "case (Case-Sensitive Forms)",
-              ]}
-              languages={{
-                count: 213,
-                list: "Abenaki, Afaan Oromo, Afar, Afrikaans, Albanian, Alsatian, Amis, Anuta, Aragonese, Aranese, Aromanian, Arrernte, Arvanitic, Asturian, Atayal, Aymara, Azerbaijani, Bashkir, Basque, Belarusian, Bemba, Bikol, Bislama, Bosnian, Breton, Bulgarian Romanization, Cape Verdean, Catalan, Cebuano, Chamorro, Chavacano, Chichewa, Chickasaw, Cimbrian, Cofan, Corsican, Creek, Crimean Tatar, Croatian, Czech, Danish, Dawan, Delaware, Dholuo, Drehu, Dutch, English, Esperanto, Estonian, Faroese, Fijian, Filipino, Finnish, Folkspraak, French, Frisian, Friulian, Gagauz, Galician, Ganda, Genoese, German, Gikuyu, Gooniyandi, Greenlandic, Guadeloupean, Gwichin, Haitian Creole, Han, Hawaiian, Hiligaynon, Hopi, Hotcak, Hungarian, Icelandic, Ido, Ilocano, Indonesian, Interglossa, Interlingua, Irish, Istroromanian, Italian, Jamaican, Javanese, Jerriais, Kaingang, Kala Lagaw Ya, Kapampangan, Kaqchikel, Karakalpak, Karelian, Kashubian, Kikongo, Kinyarwanda, Kiribati, Kirundi, Klingon, Kurdish, Ladin, Latin, Latino Sine, Latvian, Lithuanian, Lojban, Lombard, Low Saxon, Luxembourgish, Maasai, Makhuwa, Malay, Maltese, Manx, Maori, Marquesan, Meglenoromanian, Meriam Mir, Mirandese, Mohawk, Moldovan, Montagnais, Montenegrin, Murrinhpatha, Nagamese Creole, Ndebele, Neapolitan, Ngiyambaa, Niuean, Noongar, Norwegian, Novial, Occidental, Occitan, Oshiwambo, Ossetian, Palauan, Papiamento, Piedmontese, Polish, Portuguese, Potawatomi, Qeqchi, Quechua, Rarotongan, Romanian, Romansh, Rotokas, Sami Inari, Sami Lule, Sami Northern, Sami Southern, Samoan, Sango, Saramaccan, Sardinian, Scottish Gaelic, Serbian, Seri, Seychellois, Shawnee, Shona, Sicilian, Silesian, Slovak, Slovenian, Slovio, Somali, Sorbian Lower, Sorbian Upper, Sotho Northern, Sotho Southern, Spanish, Sranan, Sundanese, Swahili, Swazi, Swedish, Tagalog, Tahitian, Tetum, Tok Pisin, Tokelauan, Tongan, Tshiluba, Tsonga, Tswana, Tumbuka, Turkish, Turkmen, Tuvaluan, Tzotzil, Ukrainian, Uzbek, Venetian, Vepsian, Volapuk, Voro, Wallisian, Walloon, Waraywaray, Warlpiri, Wayuu, Welsh, Wikmungkan, Wiradjuri, Wolof, Xavante, Xhosa, Yapese, Yindjibarndi, Zapotec, Zulu, Zuni",
-              }}
-              adobe={["Adobe Latin-1"]}
-              appleMacintosh={[
-                "MacOS Roman (Standard Latin)",
-                "MacOS Central European Latin",
-                "MacOS Croatian",
-                "MacOS Iceland",
-                "MacOS Romanian",
-                "MacOS Turkish",
-              ]}
-              microsoftWindows={[
-                "MS Windows 1250 Central European Latin",
-                "MS Windows 1252 Western (Standard Latin)",
-                "MS Windows 1254 Turkish Latin",
-                "MS Windows 1257 Baltic Latin",
-              ]}
-              iso8859={[
-                "8859-1 Latin-1 Western European",
-                "8859-2 Latin-2 Central European",
-                "8859-3 Latin-3 South European",
-                "8859-4 Latin-4 North European",
-                "8859-9 Latin-5 Turkish",
-                "8859-13 Latin-7 Baltic Rim",
-                "8859-15 Latin-9",
-                "8859-16 Latin-10 South-Eastern European",
-              ]}
-            />
-
-            <FontPreview
-              fonts={[
-                {
-                  name: "Protest Mono",
-                  font: "ProtestMono",
-                  slug: "protest-grotesk-mono",
-                  animation: "protest-animation",
-                  reversed: true,
-                  styles: 8,
-                  letter: "Rr",
-                },
-                {
-                  name: "Giallo Roman",
-                  font: "Giallo",
-                  slug: "giallo-roman",
-                  animation: "giallo-animation",
-                  styles: 7,
-                  oblique: true,
-                  letter: "Aa",
-                },
-              ]}
-            />
-
+            <div ref={technicalRef}>
+              <div ref={technicalScroll}></div>
+              <FontInfo
+                info={{
+                  name: "Protest Grotesk",
+                  year: "2023",
+                  design: "Mark Julien Hahn",
+                  mastering: "Stereo Typefaces",
+                  characters: 685,
+                  styles: 16,
+                  variable: "2 Axes (Weight & Italic)",
+                }}
+                opentype={[
+                  "aalt (Access All Alternates)",
+                  "ss01 (Alternative a)",
+                  "ss02 (Alternative g)",
+                  "ss03 (Alternative ® and ©)",
+                  "subs (Subscript)",
+                  "sinf (Scientific Inferiors)",
+                  "sups (Superscript)",
+                  "frac (Fractions)",
+                  "ordn (Ordinals)",
+                  "pnum (Proportional Figures)",
+                  "tnum (Tabular Figures)",
+                  "liga (Standard Ligatures)",
+                  "zero (Slashed Zero)",
+                  "calt (Contextual Alternates)",
+                  "dnom (Denominators)",
+                  "case (Case-Sensitive Forms)",
+                ]}
+                languages={{
+                  count: 213,
+                  list: "Abenaki, Afaan Oromo, Afar, Afrikaans, Albanian, Alsatian, Amis, Anuta, Aragonese, Aranese, Aromanian, Arrernte, Arvanitic, Asturian, Atayal, Aymara, Azerbaijani, Bashkir, Basque, Belarusian, Bemba, Bikol, Bislama, Bosnian, Breton, Bulgarian Romanization, Cape Verdean, Catalan, Cebuano, Chamorro, Chavacano, Chichewa, Chickasaw, Cimbrian, Cofan, Corsican, Creek, Crimean Tatar, Croatian, Czech, Danish, Dawan, Delaware, Dholuo, Drehu, Dutch, English, Esperanto, Estonian, Faroese, Fijian, Filipino, Finnish, Folkspraak, French, Frisian, Friulian, Gagauz, Galician, Ganda, Genoese, German, Gikuyu, Gooniyandi, Greenlandic, Guadeloupean, Gwichin, Haitian Creole, Han, Hawaiian, Hiligaynon, Hopi, Hotcak, Hungarian, Icelandic, Ido, Ilocano, Indonesian, Interglossa, Interlingua, Irish, Istroromanian, Italian, Jamaican, Javanese, Jerriais, Kaingang, Kala Lagaw Ya, Kapampangan, Kaqchikel, Karakalpak, Karelian, Kashubian, Kikongo, Kinyarwanda, Kiribati, Kirundi, Klingon, Kurdish, Ladin, Latin, Latino Sine, Latvian, Lithuanian, Lojban, Lombard, Low Saxon, Luxembourgish, Maasai, Makhuwa, Malay, Maltese, Manx, Maori, Marquesan, Meglenoromanian, Meriam Mir, Mirandese, Mohawk, Moldovan, Montagnais, Montenegrin, Murrinhpatha, Nagamese Creole, Ndebele, Neapolitan, Ngiyambaa, Niuean, Noongar, Norwegian, Novial, Occidental, Occitan, Oshiwambo, Ossetian, Palauan, Papiamento, Piedmontese, Polish, Portuguese, Potawatomi, Qeqchi, Quechua, Rarotongan, Romanian, Romansh, Rotokas, Sami Inari, Sami Lule, Sami Northern, Sami Southern, Samoan, Sango, Saramaccan, Sardinian, Scottish Gaelic, Serbian, Seri, Seychellois, Shawnee, Shona, Sicilian, Silesian, Slovak, Slovenian, Slovio, Somali, Sorbian Lower, Sorbian Upper, Sotho Northern, Sotho Southern, Spanish, Sranan, Sundanese, Swahili, Swazi, Swedish, Tagalog, Tahitian, Tetum, Tok Pisin, Tokelauan, Tongan, Tshiluba, Tsonga, Tswana, Tumbuka, Turkish, Turkmen, Tuvaluan, Tzotzil, Ukrainian, Uzbek, Venetian, Vepsian, Volapuk, Voro, Wallisian, Walloon, Waraywaray, Warlpiri, Wayuu, Welsh, Wikmungkan, Wiradjuri, Wolof, Xavante, Xhosa, Yapese, Yindjibarndi, Zapotec, Zulu, Zuni",
+                }}
+                adobe={["Adobe Latin-1"]}
+                appleMacintosh={[
+                  "MacOS Roman (Standard Latin)",
+                  "MacOS Central European Latin",
+                  "MacOS Croatian",
+                  "MacOS Iceland",
+                  "MacOS Romanian",
+                  "MacOS Turkish",
+                ]}
+                microsoftWindows={[
+                  "MS Windows 1250 Central European Latin",
+                  "MS Windows 1252 Western (Standard Latin)",
+                  "MS Windows 1254 Turkish Latin",
+                  "MS Windows 1257 Baltic Latin",
+                ]}
+                iso8859={[
+                  "8859-1 Latin-1 Western European",
+                  "8859-2 Latin-2 Central European",
+                  "8859-3 Latin-3 South European",
+                  "8859-4 Latin-4 North European",
+                  "8859-9 Latin-5 Turkish",
+                  "8859-13 Latin-7 Baltic Rim",
+                  "8859-15 Latin-9",
+                  "8859-16 Latin-10 South-Eastern European",
+                ]}
+              />
+            </div>
+            <div ref={bottomRef}>
+              <FontPreview
+                fonts={[
+                  {
+                    name: "Protest Mono",
+                    font: "ProtestMono",
+                    slug: "protest-grotesk-mono",
+                    animation: "protest-animation",
+                    reversed: true,
+                    styles: 8,
+                    letter: "Rr",
+                  },
+                  {
+                    name: "Giallo Roman",
+                    font: "Giallo",
+                    slug: "giallo-roman",
+                    animation: "giallo-animation",
+                    styles: 7,
+                    oblique: true,
+                    letter: "Aa",
+                  },
+                ]}
+              />
+            </div>
             <Footer />
           </main>
         </motion.div>

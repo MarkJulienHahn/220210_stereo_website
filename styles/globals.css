@@ -340,7 +340,29 @@ button {
   color: black;
 }
 
+.shortcutButtonsWrapper {
+  margin: var(--margin-M);
+  height: var(--margin-M);
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 23px;
+  transition: transform 0.5s ease;
+  z-index: 100
+}
+
+.shortcutButtonsWrapper div{
+margin-right: 3px
+}
+
+@media only screen and (max-width: 1300px) {
+  .shortcutButtonsWrapper {
+    display: none
+  }
+}
+
 @media only screen and (max-width: 600px) {
+
   .buttonsLeftWrapper {
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -2389,7 +2411,7 @@ button {
   font-size: 19pt;
   line-height: 22.9pt;
   letter-spacing: -0.6px;
-  word-spacing: -1.5px;
+  word-spacing: -0px;
   font-variation-settings: "wght" 420;
   padding: var(--margin-M);
   transition: all 0.5s ease;
@@ -2453,8 +2475,8 @@ button {
     padding-top: 140px;
     font-size: 14pt;
     line-height: 18.5pt;
-    letter-spacing: -0.3px;
-    word-spacing: -1.8px;
+    letter-spacing: -0.2px;
+    word-spacing: -0.8px;
     display: block;
     overflow: hidden;
   }
