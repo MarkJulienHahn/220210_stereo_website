@@ -965,7 +965,7 @@ function Glyphchart(props) {
         </div>
         <div className="glyphchartTable">
           <div className="glyphchartDisplayMobile" style={glyphDisplay}>
-            {glyph}
+            <span>{glyph}</span>
 
             <div className="glyphchartSliderMobile" style={glyphDisplay}>
               <div className="glyphchartSliderSingle">

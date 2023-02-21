@@ -536,9 +536,14 @@ function GlyphchartProtestMono(props) {
       glyphs: ["ğ", "ĝ", "ģ", "ġ", "ḡ", "ǧ"],
       styleset: "ss02",
     },
-    { lable: "Ligatures", glyphs: ["fl", "fi", 
-    // "ff", "ffi", "ffl"
-  ] },
+    {
+      lable: "Ligatures",
+      glyphs: [
+        "fl",
+        "fi",
+        // "ff", "ffi", "ffl"
+      ],
+    },
 
     {
       lable: "Figures",
@@ -871,7 +876,7 @@ function GlyphchartProtestMono(props) {
         </div>
         <div className="glyphchartTable">
           <div className="glyphchartDisplayMobile" style={glyphDisplay}>
-            {glyph}
+            <span>{glyph}</span>
 
             <div className="glyphchartSliderMobile" style={glyphDisplay}>
               <div className="glyphchartSliderSingle">
