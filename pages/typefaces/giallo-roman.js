@@ -429,7 +429,7 @@ const GialloRoman = ({
               <Typetester
                 wght={100}
                 ital={0}
-                lineHeight={0.002}
+                letterSpacing={0.002}
                 name={"Giallo Roman Thin"}
                 fontFamily="Protest"
                 sample="Black-gloved assassins, a writer impotently trapped in Rome, perverse chromosomal make-up, the something-not-quite-right, flashback — combined with flair of outrageous set pieces and jaw-dropping gore. Light and dark, sanity and insanity, fact and fiction, real and unreal, guilt and innocence, life and death. The impulse had become irresistible. There was only one answer to the fury that tortured him. And so he committed his first act of murder. He had broken the most deep-rooted taboo and found not guilt, not anxiety or fear, but freedom. Every humiliation which stood in his way could be swept aside by him simple act of annihilation: Murder."
@@ -437,7 +437,7 @@ const GialloRoman = ({
               <Typetester
                 wght={100}
                 ital={100}
-                lineHeight={0}
+                letterSpacing={0}
                 name={"Giallo Roman Thin Oblique"}
                 fontFamily="Protest"
                 sample="The idea behind the video nasties list in the first place was that the public had to be protected against the corrupting influences of sexually explicit or graphically violent films. Even today, horror films may be decried as pandering to the worst in human nature, and even blamed for creating real-life murderers. However horror films can be as conservative and reactionary as any Mary Whitehouse figure. Think of, for example, the Catholic Church’s active contribution to the filming of »The Exorcist« (William Friedkin, 1973). It goes down a different route. Like any genre of film – why should it be different here — there are good Gialli and bad Gialli. "
@@ -445,7 +445,7 @@ const GialloRoman = ({
               <Typetester
                 wght={200}
                 ital={0}
-                lineHeight={0.001}
+                letterSpacing={0.001}
                 name={"Giallo Roman Light"}
                 fontFamily="Protest"
                 sample={
@@ -455,7 +455,7 @@ const GialloRoman = ({
               <Typetester
                 wght={200}
                 ital={100}
-                lineHeight={0.003}
+                letterSpacing={0.003}
                 name={"Giallo Roman Light Oblique"}
                 fontFamily="Protest"
                 sample={
@@ -465,7 +465,7 @@ const GialloRoman = ({
               <Typetester
                 wght={300}
                 ital={0}
-                lineHeight={0.002}
+                letterSpacing={0.002}
                 name={"Giallo Roman Regular"}
                 fontFamily="Protest"
                 sample="There’s telepathic communication and — further — telepathic communication with insects. There are both a psychopathic killer and a mutated monster, conflated into one all-purpose bogeyman. There is the academy full of vicious schoolgirls and the terminally weird staff: Mrs Bruckner — who was raped by a deformed lunatic and bore his dreadful child — and the chic headmistress, who is improbably convinced that Jennifer’s sleepwalking is a sign of incipient insanity or demonic possession, a chamber of horrors and a policeman in chains, a lunatic asylum located somewhere in the ninth circle of hell and a boarding school in the »Swiss Transylvania«."
@@ -473,7 +473,7 @@ const GialloRoman = ({
               <Typetester
                 wght={300}
                 ital={100}
-                lineHeight={0.003}
+                letterSpacing={0.003}
                 name={"Giallo Roman Regular Oblique"}
                 fontFamily="Protest"
                 sample={
@@ -483,7 +483,7 @@ const GialloRoman = ({
               <Typetester
                 wght={400}
                 ital={0}
-                lineHeight={0.002}
+                letterSpacing={0.002}
                 name={"Giallo Roman Book"}
                 fontFamily="Protest"
                 sample={
@@ -493,7 +493,7 @@ const GialloRoman = ({
               <Typetester
                 wght={400}
                 ital={100}
-                lineHeight={0.003}
+                letterSpacing={0.003}
                 name={"Giallo Roman Book Oblique"}
                 fontFamily="Protest"
                 sample={
@@ -503,7 +503,7 @@ const GialloRoman = ({
               <Typetester
                 wght={500}
                 ital={0}
-                lineHeight={0.002}
+                letterSpacing={0.002}
                 name={"Giallo Roman Medium"}
                 fontFamily="Protest"
                 sample={
@@ -513,7 +513,7 @@ const GialloRoman = ({
               <Typetester
                 wght={500}
                 ital={100}
-                lineHeight={0.003}
+                letterSpacing={0.003}
                 name={"Giallo Roman Medium Oblique"}
                 fontFamily="Protest"
                 sample={
@@ -523,7 +523,7 @@ const GialloRoman = ({
               <Typetester
                 wght={600}
                 ital={0}
-                lineHeight={0.001}
+                letterSpacing={0.001}
                 name={"Giallo Roman Bold"}
                 fontFamily="Protest"
                 sample={
@@ -533,7 +533,7 @@ const GialloRoman = ({
               <Typetester
                 wght={600}
                 ital={100}
-                lineHeight={0.0025}
+                letterSpacing={0.0025}
                 name={"Giallo Roman Bold Oblique"}
                 fontFamily="Protest"
                 sample={
@@ -543,7 +543,7 @@ const GialloRoman = ({
               <Typetester
                 wght={700}
                 ital={0}
-                lineHeight={0.002}
+                letterSpacing={0.002}
                 name={"Giallo Roman Black"}
                 fontFamily="Protest"
                 sample={
@@ -553,7 +553,7 @@ const GialloRoman = ({
               <Typetester
                 wght={700}
                 ital={100}
-                lineHeight={0.002}
+                letterSpacing={0.002}
                 name={"Giallo Roman Black Oblique"}
                 fontFamily="Protest"
                 sample={

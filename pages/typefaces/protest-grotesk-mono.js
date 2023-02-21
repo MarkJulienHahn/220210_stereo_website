@@ -437,7 +437,7 @@ const ProtestGroteskMono = ({
               <Typetester
                 wght={40}
                 ital={0}
-                lineHeight={0}
+                letterSpacing={-0.004}
                 name={"Protest Mono Thin"}
                 fontFamily="Protest"
                 sample="Affect was the key to unlocking the mysteries of human behavior, or so I believed. As a writer, I was fascinated by the power of emotions to shape our perceptions of the world, and I spent countless hours observing the subtle shifts in mood and tone that accompanied every interaction.
@@ -455,7 +455,7 @@ const ProtestGroteskMono = ({
               <Typetester
                 wght={70}
                 ital={0}
-                lineHeight={0}
+                      letterSpacing={-0.004}
                 name={"Protest Mono Light"}
                 fontFamily="Protest"
                 sample="Belong That's all anyone really wants, isn't it? To feel like we fit in somewhere, like we have a place in this crazy world. But sometimes it feels like we're just wandering around, searching for that elusive sense of belonging.
@@ -476,7 +476,7 @@ const ProtestGroteskMono = ({
               <Typetester
                 wght={100}
                 ital={0}
-                lineHeight={0}
+                      letterSpacing={-0.004}
                 name={"Protest Mono Regular"}
                 fontFamily="Protest"
                 sample="Consequence. The weight of our actions often goes unnoticed until it's too late. We move through life like we're invincible, like our choices don't have an impact on the world around us. But consequences have a way of catching up to us, of making us pay for the mistakes we've made.
@@ -497,7 +497,7 @@ const ProtestGroteskMono = ({
               <Typetester
                 wght={130}
                 ital={0}
-                lineHeight={0}
+                      letterSpacing={-0.004}
                 name={"Protest Mono Medium"}
                 fontFamily="Protest"
                 sample="Delink I whispered to myself as I closed my eyes and let the sound of the word linger in my mind. Delinking, the act of disconnecting, of breaking free from the shackles that bind us to our devices and our online identities. It's a word that resonates deeply with me, one that reminds me of the importance of taking a step back and re-evaluating the role that technology plays in our lives.
@@ -514,7 +514,7 @@ const ProtestGroteskMono = ({
               <Typetester
                 wght={160}
                 ital={0}
-                lineHeight={0}
+                      letterSpacing={-0.004}
                 name={"Protest Mono Semibold"}
                 fontFamily="Protest"
                 sample="Enable me to go wild for a second, because I got something to say. If you're living your life without being true to yourself, then you're living a lie. I know it's tough to break out of that shell and be who you really are, but it's worth it. Trust me.
@@ -537,7 +537,7 @@ const ProtestGroteskMono = ({
               <Typetester
                 wght={190}
                 ital={0}
-                lineHeight={0}
+                      letterSpacing={-0.004}
                 name={"Protest Mono Bold"}
                 fontFamily="Protest"
                 sample="Fugues those elusive musical compositions that meander and repeat, evoke a sense of disorientation and confusion in my mind. They are like the labyrinthine passages of my own thoughts, twisting and turning in a never-ending cycle of uncertainty.
@@ -558,7 +558,7 @@ const ProtestGroteskMono = ({
               <Typetester
                 wght={220}
                 ital={0}
-                lineHeight={0}
+                      letterSpacing={-0.004}
                 name={"Protest Mono Heavy"}
                 fontFamily="Protest"
                 sample="Gnarly was the situation that presented itself before me, like an intricate labyrinth that had no escape. The gnarled branches of the trees in the forest seemed to mirror the twisted and contorted path I was on. I couldn't seem to find my way out, no matter how hard I tried.
@@ -583,12 +583,12 @@ const ProtestGroteskMono = ({
               <Typetester
                 wght={250}
                 ital={0}
-                lineHeight={0}
+                      letterSpacing={-0.004}
                 name={"Protest Mono Black"}
                 fontFamily="Protest"
                 sample="Hazled by the limelight, I shine so bright,
                 My talent, my drive, it's all in sight,
-                I'm a master of the craft, no need to fight,
+                I'm a master of the craft, no need to fight,¸
                 My words hit hard like a bolt of lightning.
                 
                 My heart beats fast like a drum,

@@ -436,7 +436,7 @@ const ProtestGroteskText = ({
               <Typetester
                 wght={40}
                 ital={0}
-                lineHeight={0}
+                letterSpacing={0}
                 name={"Protest Grotesk Thin"}
                 fontFamily="Protest"
                 sample={
@@ -447,7 +447,7 @@ const ProtestGroteskText = ({
               <Typetester
                 wght={40}
                 ital={100}
-                lineHeight={-0.002}
+                letterSpacing={-0.002}
                 name={"Protest Grotesk Thin Italic"}
                 fontFamily="Protest"
                 sample={
@@ -457,7 +457,7 @@ const ProtestGroteskText = ({
               <Typetester
                 wght={70}
                 ital={0}
-                lineHeight={-0.002}
+                letterSpacing={-0.002}
                 name={"Protest Grotesk Light"}
                 fontFamily="Protest"
                 sample={
@@ -467,7 +467,7 @@ const ProtestGroteskText = ({
               <Typetester
                 wght={70}
                 ital={100}
-                lineHeight={0}
+                letterSpacing={0}
                 name={"Protest Grotesk Light Italic"}
                 fontFamily="Protest"
                 sample={
@@ -477,7 +477,7 @@ const ProtestGroteskText = ({
               <Typetester
                 wght={100}
                 ital={0}
-                lineHeight={-0.0}
+                letterSpacing={-0.0}
                 name={"Protest Grotesk Regular"}
                 fontFamily="Protest"
                 sample={
@@ -487,7 +487,7 @@ const ProtestGroteskText = ({
               <Typetester
                 wght={100}
                 ital={100}
-                lineHeight={-0.002}
+                letterSpacing={-0.002}
                 name={"Protest Grotesk Regular Italic"}
                 fontFamily="Protest"
                 sample={
@@ -498,7 +498,7 @@ const ProtestGroteskText = ({
               <Typetester
                 wght={130}
                 ital={0}
-                lineHeight={0}
+                letterSpacing={0}
                 name={"Protest Grotesk Book"}
                 fontFamily="Protest"
                 sample={
@@ -508,7 +508,7 @@ const ProtestGroteskText = ({
               <Typetester
                 wght={130}
                 ital={100}
-                lineHeight={0}
+                letterSpacing={0}
                 name={"Protest Grotesk Book Italic"}
                 fontFamily="Protest"
                 sample={
@@ -518,7 +518,7 @@ const ProtestGroteskText = ({
               <Typetester
                 wght={160}
                 ital={0}
-                lineHeight={0}
+                letterSpacing={0}
                 name={"Protest Grotesk Medium"}
                 fontFamily="Protest"
                 sample={
@@ -528,7 +528,7 @@ const ProtestGroteskText = ({
               <Typetester
                 wght={160}
                 ital={100}
-                lineHeight={0}
+                letterSpacing={0}
                 name={"Protest Grotesk Medium Italic"}
                 fontFamily="Protest"
                 sample={
@@ -538,7 +538,7 @@ const ProtestGroteskText = ({
               <Typetester
                 wght={190}
                 ital={0}
-                lineHeight={0}
+                letterSpacing={0}
                 name={"Protest Grotesk Bold"}
                 fontFamily="Protest"
                 sample={
@@ -548,7 +548,7 @@ const ProtestGroteskText = ({
               <Typetester
                 wght={190}
                 ital={100}
-                lineHeight={-0.002}
+                letterSpacing={-0.002}
                 name={"Protest Grotesk Bold Italic"}
                 fontFamily="Protest"
                 sample={
@@ -558,7 +558,7 @@ const ProtestGroteskText = ({
               <Typetester
                 wght={220}
                 ital={0}
-                lineHeight={-0.001}
+                letterSpacing={-0.001}
                 name={"Protest Grotesk Heavy"}
                 fontFamily="Protest"
                 sample={
@@ -568,7 +568,7 @@ const ProtestGroteskText = ({
               <Typetester
                 wght={220}
                 ital={100}
-                lineHeight={-0.001}
+                letterSpacing={-0.001}
                 name={"Protest Grotesk Heavy Italic"}
                 fontFamily="Protest"
                 sample={
@@ -578,7 +578,7 @@ const ProtestGroteskText = ({
               <Typetester
                 wght={250}
                 ital={0}
-                lineHeight={0}
+                letterSpacing={0}
                 name={"Protest Grotesk Black"}
                 fontFamily="Protest"
                 sample={
@@ -588,7 +588,7 @@ const ProtestGroteskText = ({
               <Typetester
                 wght={250}
                 ital={100}
-                lineHeight={-0.0024}
+                letterSpacing={-0.0024}
                 name={"Protest Grotesk Black Italic"}
                 fontFamily="Protest"
                 sample={

@@ -3,7 +3,7 @@ import useWindowDimensions from "./Hooks/useWindowDimensions";
 import { useInView } from "react-intersection-observer";
 
 import { motion } from "framer-motion";
-import { use100vh } from 'react-div-100vh'
+import { use100vh } from "react-div-100vh";
 
 const HeaderAnimation = ({
   scrollUp,
@@ -24,12 +24,12 @@ const HeaderAnimation = ({
   // SCROLL FÜR »SCROLL DOWN«
 
   const [scrollPosition, setScrollPosition] = useState("");
-  const [wght, setWght] = useState(wghtMax/2);
-  const [ital, setItal] = useState(italic/2);
+  const [wght, setWght] = useState(wghtMax / 2);
+  const [ital, setItal] = useState(italic / 2);
   const [x, setX] = useState(0);
   const [y, setY] = useState(0);
 
-  const height = use100vh()
+  const height = use100vh();
 
   // WINDOWBREITE HERAUSFINDEN + MAUSPOSITION HERAUSFINDEN
 
@@ -44,8 +44,10 @@ const HeaderAnimation = ({
   };
 
   const mobileEffect = () => {
-    windowWidth < 1000 && scrollPosition < 1000 && setWght(Math.floor((scrollPosition / windowHeight * wghtMax)+wghtMin))
-  }
+    windowWidth < 1000 &&
+      scrollPosition < 1000 &&
+      setWght(Math.floor((scrollPosition / windowHeight) * wghtMax + wghtMin));
+  };
 
   useEffect(() => {
     updateItal(x / windowWidth);
@@ -71,8 +73,8 @@ const HeaderAnimation = ({
   }, [isVisible]);
 
   useEffect(() => {
-    mobileEffect()
-  }, [scrollPosition])
+    mobileEffect();
+  }, [scrollPosition]);
 
   const headerStyle = {
     fontSize: size,
@@ -107,12 +109,11 @@ const HeaderAnimation = ({
     return () => window.removeEventListener("scroll", handleScroll);
   });
 
-
   return (
     <>
       <div
         className={"headerAnimationWrapperMobile"}
-        style={{ background: background, color: color, height: height}}
+        style={{ background: background, color: color, height: height }}
         onClick={() => scrollUp()}
         ref={ref1}
       >
@@ -136,9 +137,7 @@ const HeaderAnimation = ({
             </div>
           </motion.div>
           <div style={headerIndexStyle} className={"headerMouseIndex"}>
-            <span>
-              {threeDigits(wght)}
-            </span>
+            <span>{wght <= wghtMax ? threeDigits(wght) : wghtMax-1}</span>
           </div>
         </div>
       </div>
