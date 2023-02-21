@@ -1,8 +1,10 @@
-import React, { useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
+import useWindowDimensions from "../../components/Hooks/useWindowDimensions";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useInView } from "react-intersection-observer";
 import { motion, AnimatePresence } from "framer-motion";
 
 import HeaderAnimation from "../../components/HeaderAnimation";
@@ -17,7 +19,6 @@ import FontPreview from "../../components/FontPreview";
 import FontInfo from "../../components/FontInfo";
 
 const Checkout = dynamic(() => import("../../components/Checkout/Checkout"));
-const Trials = dynamic(() => import("../../components/Trials"));
 
 const ProtestGroteskMono = ({
   products,
@@ -41,10 +42,44 @@ const ProtestGroteskMono = ({
   dark,
 }) => {
   const [showCheckout, setShowCheckout] = useState(false);
-  const [showTrials, setShowTrials] = useState(false);
+  const [showQuicklinks, setShowQuicklinks] = useState(false);
+  const [buttonContent, setButtonContent] = useState("...");
+
   const location = useRouter();
 
+  const { windowWidth } = useWindowDimensions();
+
+  const { ref: headerRef, inView: headerIsVisible } = useInView({
+    threshold: 0,
+  });
+  const { ref: weightsRef, inView: weightsIsVisible } = useInView({
+    threshold: 0,
+  });
+  const { ref: samplesRef, inView: samplesIsVisible } = useInView({
+    threshold: 0,
+  });
+  const { ref: testerRef, inView: testerIsVisible } = useInView({
+    threshold: 0,
+  });
+  const { ref: glyphsRef, inView: glyphsIsVisible } = useInView({
+    threshold: 0,
+  });
+  const { ref: technicalRef, inView: technicalIsVisible } = useInView({
+    threshold: 0,
+  });
+  const { ref: bottomRef, inView: bottomIsVisible } = useInView({
+    threshold: 0,
+  });
+
   const checkoutOverview = useRef(null);
+  const weightsScroll = useRef(null);
+  const samplesScroll = useRef(null);
+  const testerScroll = useRef(null);
+  const glyphsScroll = useRef(null);
+  const technicalScroll = useRef(null);
+
+  const hideQuicklinks = () => setShowQuicklinks(false);
+  const fadeOutQuicklinks = () => setTimeout(hideQuicklinks, 2000);
 
   const scrollUp = () => {
     checkoutOverview.current.scrollIntoView({
@@ -52,6 +87,26 @@ const ProtestGroteskMono = ({
       block: "start",
     });
   };
+
+  const scrollTo = (dest) =>
+    dest.current.scrollIntoView({ behavior: "smooth" });
+
+  useEffect(() => {
+    headerIsVisible && setButtonContent("...");
+    weightsIsVisible && setButtonContent("Weights");
+    samplesIsVisible && setButtonContent("Samples");
+    testerIsVisible && setButtonContent("Tester");
+    glyphsIsVisible && setButtonContent("Glyphs");
+    technicalIsVisible && setButtonContent("Technical");
+    bottomIsVisible && setButtonContent("...");
+  }, [
+    weightsIsVisible,
+    samplesIsVisible,
+    testerIsVisible,
+    glyphsIsVisible,
+    technicalIsVisible,
+    bottomIsVisible,
+  ]);
 
   return (
     <>
@@ -83,7 +138,40 @@ const ProtestGroteskMono = ({
         />
       )}
 
-      {/* {showTrials && <Trials setShowTrials={setShowTrials} />} */}
+      <div
+        className="shortcutButtonsWrapper"
+        style={
+          showQuicklinks
+            ? { transform: "translateX(0)" }
+            : { transform: "translateX(-600px)" }
+        }
+      >
+        <Button
+          lable="Weights"
+          subclass={weightsIsVisible ? "quaternaryMuted" : "tertiary"}
+          onClick={() => scrollTo(weightsScroll)}
+        />
+        <Button
+          lable="Samples"
+          subclass={samplesIsVisible ? "quaternaryMuted" : "tertiary"}
+          onClick={() => scrollTo(samplesScroll)}
+        />
+        <Button
+          lable="Tester"
+          subclass={testerIsVisible ? "quaternaryMuted" : "tertiary"}
+          onClick={() => scrollTo(testerScroll)}
+        />
+        <Button
+          lable="Glyphs"
+          subclass={glyphsIsVisible ? "quaternaryMuted" : "tertiary"}
+          onClick={() => scrollTo(glyphsScroll)}
+        />
+        <Button
+          lable="Technical"
+          subclass={technicalIsVisible ? "quaternaryMuted" : "tertiary"}
+          onClick={() => scrollTo(technicalScroll)}
+        />
+      </div>
 
       <div className="buttonsLeftWrapper" scroll={false}>
         <Link href="/" scroll={false}>
@@ -92,38 +180,22 @@ const ProtestGroteskMono = ({
           </a>
         </Link>
 
-        {/* <Link href="/typefaces" scroll={false}>
-          <a>
-            <Button lable={"Typefaces"} subclass={"tertiary"} />
-          </a>
-        </Link> */}
-
         <Button lable={"Protest Mono"} subclass={"quaternaryActive"} />
+        {windowWidth > 1000 && (
+          <Button
+            lable={buttonContent}
+            subclass={"tertiary"}
+            onClick={() => setShowQuicklinks(!showQuicklinks)}
+          />
+        )}
       </div>
 
       <div className="buttonsRightWrapper">
-        {/* <div
-          className="lightBulb"
-          style={{
-            fontSize: "17pt",
-            paddingRight: "10px",
-            cursor: "pointer",
-            opacity: darkMode ? 0.5 : 1,
-          }}
-          onClick={() => setDarkMode(!darkMode)}
-        >
-          💡
-        </div> */}
         <Button
           lable={darkMode ? "Light" : "Dark"}
           subclass={!darkMode ? "secondary" : "quaternary"}
           onClick={() => setDarkMode(!darkMode)}
         />
-        {/* <Button
-          lable={"Trials"}
-          subclass={"tertiary"}
-          onClick={() => setShowTrials(true)}
-        /> */}
         <Button
           lable={"Buy"}
           subclass={"primary"}
@@ -149,7 +221,7 @@ const ProtestGroteskMono = ({
           exit={{ y: -300, opacity: 0 }}
           transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
         >
-          <div className="typeface-single-header">
+          <div className="typeface-single-header" ref={headerRef}>
             <HeaderAnimation
               scrollUp={scrollUp}
               name={"Protest Mono"}
@@ -196,8 +268,8 @@ const ProtestGroteskMono = ({
               </p>
             </div>
 
-            <div className="typeface-single-opener">
-              <div className="fontOpenerProtestMono">
+            <div className="typeface-single-opener" ref={weightsRef}>
+              <div className="fontOpenerProtestMono" ref={weightsScroll}>
                 <div style={{ fontVariationSettings: "'wght' 250, 'wdth' 50" }}>
                   Protest Mono Black
                 </div>
@@ -326,9 +398,10 @@ const ProtestGroteskMono = ({
                 determine which weight fits your purpose best.
               </p>
             </div>
-
-            <WaterfallProtestMono darkMode={darkMode} />
-
+            <div ref={samplesRef}>
+              <div ref={samplesScroll}></div>
+              <WaterfallProtestMono darkMode={darkMode} />
+            </div>
 
             <div className="typefaceInfosection">
               <h1>
@@ -359,187 +432,67 @@ const ProtestGroteskMono = ({
               </p>
             </div>
 
-            <div className="typeface-single-tester-wrap pgMono">
+            <div className="typeface-single-tester-wrap pgMono" ref={testerRef}>
+              <div ref={testerScroll}></div>
               <Typetester
                 wght={40}
                 ital={0}
                 lineHeight={0}
                 name={"Protest Mono Thin"}
                 fontFamily="Protest"
-                sample="Affect"
+                sample="Affect was the key to unlocking the mysteries of human behavior, or so I believed. As a writer, I was fascinated by the power of emotions to shape our perceptions of the world, and I spent countless hours observing the subtle shifts in mood and tone that accompanied every interaction.
+
+                One day, I met a man who seemed to embody this idea in its purest form. He was a psychologist, a specialist in the field of affective neuroscience, and he spoke with a kind of detached curiosity about the intricacies of the human brain.
+                
+                As we talked, I became increasingly aware of the profound impact that our emotions can have on our ability to reason and think logically. The more we feel, the less we are able to make rational decisions, and the more susceptible we become to the influence of our own biases and prejudices.
+                
+                It was a sobering realization, one that challenged many of the assumptions I had made about the nature of consciousness and the limits of human knowledge. But it was also a profoundly liberating one, for it suggested that there was still much to be learned about the mysteries of the mind.
+                
+                In the years that followed, I delved deeper into the science of affect, exploring the latest research in fields as diverse as psychology, neuroscience, and philosophy. And with each new discovery, I felt myself growing more and more fascinated by the power of emotions to shape our lives in ways that we can barely comprehend.
+                
+                For some, this might have been a cause for despair or confusion. But for me, it was a source of endless fascination and wonder, a reminder that there is always something new to learn, and always something more to discover about the strange and wondrous world in which we live."
               />
-              {/* <Typetester
-                wght={40}
-                ital={100}
-                name={"Protest Mono Thin Italic"}
-                fontFamily="Protest"
-                sample="e a towel, I'm dirty dancing by myself
-                Gone off tabs of that acid
-                Form me a circle, watch my Jagger
-                Might lose my jacket and hit a solo
-                One time
-                We too loud in public then police turned down the function
-                Now we outside and the timing's perfect
-                Forgot to tell you, gotta tell you how much I vibe with you
-                And we don't gotta be solo
-                Now stay away from highways
-                My eyes like them red lights
-                Right now I prefer yellow
-                Redbone, so mellow
-                Fuck 'round, be cutting you
-                Think we were better off solo
-                I got that act right in the Windy city that night
-                No trees to blow through
-                But blow me and I owe you
-                Two grams when the sun rise
-                Smoking good, rolling solo
-                Solo (solo)
-                Solo (solo)
-                S-solo (solo)
-                S-solo (solo)
-                It's hell on Earth and the city's on fire
-                Inhale, in hell there's heaven
-                There's a bull and a matador dueling in the sky
-                Inhale, in hell there's heaven
-                Oh, oh, oh, oh
-                Oh, oh, oh, oh
-                Solo, solo
-                Solo, solo
-                I'm skipping showers and switching socks, sleeping good and long
-                Bones feeling dense as fuck, wish a nigga would cross
-                And catch a solo, on time
-                White leaf on my boxers, green leaf turn to vapors for the low
-                And that mean cheap, cause ain't shit free and I know it
-                Even love ain't, 'cause this nut cost, that clinic killed my soul
-                But you gotta hit the pussy raw though
-                Now your baby momma ain't so vicious, all she want is her picket fence
-                And you protest and you picket sign, but them courts won't side with you
-                Won't let you fly solo
-                I wanted that act right in Colorado that night
-                I brought trees to blow through, but it's just me and no you
-                Stayed up 'til my phone died
-                Smoking big, rolling solo"
-              /> */}
               <Typetester
                 wght={70}
                 ital={0}
                 lineHeight={0}
                 name={"Protest Mono Light"}
                 fontFamily="Protest"
-                sample="Belong"
+                sample="Belong That's all anyone really wants, isn't it? To feel like we fit in somewhere, like we have a place in this crazy world. But sometimes it feels like we're just wandering around, searching for that elusive sense of belonging.
+
+                And you know what? That's okay. It's okay to feel lost sometimes. It's okay to feel like you don't quite fit in. Because the truth is, none of us really do. We're all just trying to figure it out as we go along.
+                
+                But here's the thing: you don't have to do it alone. You don't have to keep searching for your place in this world all by yourself. Because the truth is, there are people out there who want to help you find your way.
+                
+                Maybe it's your family, maybe it's your friends, maybe it's a mentor or a coach. Maybe it's me. Yeah, that's right, I said it. Kanye West wants to help you find your place in this world.
+                
+                Because here's what I know: we all have a purpose. We all have something we're meant to do, something that only we can do. And when we find that thing, when we find our purpose, that's when we truly belong.
+                
+                So don't give up. Keep searching. Keep pushing. And know that you're not alone. Because we're all in this together, trying to figure out where we belong. And when we finally find it, it's going to be glorious. It's going to be everything we've ever dreamed of.
+                
+                So keep going. Keep striving. And remember: you belong here. You belong in this world, doing the things that only you can do. So go out there and make it happen. The world is waiting for you.long"
               />
-              {/* <Typetester
-                wght={70}
-                ital={100}
-                name={"Protest Mono Light Italic"}
-                fontFamily="Protest"
-                sample="'m dirty dancing by myself
-                Gone off tabs of that acid
-                Form me a circle, watch my Jagger
-                Might lose my jacket and hit a solo
-                One time
-                We too loud in public then police turned down the function
-                Now we outside and the timing's perfect
-                Forgot to tell you, gotta tell you how much I vibe with you
-                And we don't gotta be solo
-                Now stay away from highways
-                My eyes like them red lights
-                Right now I prefer yellow
-                Redbone, so mellow
-                Fuck 'round, be cutting you
-                Think we were better off solo
-                I got that act right in the Windy city that night
-                No trees to blow through
-                But blow me and I owe you
-                Two grams when the sun rise
-                Smoking good, rolling solo
-                Solo (solo)
-                Solo (solo)
-                S-solo (solo)
-                S-solo (solo)
-                It's hell on Earth and the city's on fire
-                Inhale, in hell there's heaven
-                There's a bull and a matador dueling in the sky
-                Inhale, in hell there's heaven
-                Oh, oh, oh, oh
-                Oh, oh, oh, oh
-                Solo, solo
-                Solo, solo
-                I'm skipping showers and switching socks, sleeping good and long
-                Bones feeling dense as fuck, wish a nigga would cross
-                And catch a solo, on time
-                White leaf on my boxers, green leaf turn to vapors for the low
-                And that mean cheap, cause ain't shit free and I know it
-                Even love ain't, 'cause this nut cost, that clinic killed my soul
-                But you gotta hit the pussy raw though
-                Now your baby momma ain't so vicious, all she want is her picket fence
-                And you protest and you picket sign, but them courts won't side with you
-                Won't let you fly solo
-                I wanted that act right in Colorado that night
-                I brought trees to blow through, but it's just me and no you
-                Stayed up 'til my phone died
-                Smoking big, rolling solo"
-              /> */}
+
               <Typetester
                 wght={100}
                 ital={0}
                 lineHeight={0}
                 name={"Protest Mono Regular"}
                 fontFamily="Protest"
-                sample="Conseq"
+                sample="Consequence. The weight of our actions often goes unnoticed until it's too late. We move through life like we're invincible, like our choices don't have an impact on the world around us. But consequences have a way of catching up to us, of making us pay for the mistakes we've made.
+
+                I've seen it happen time and time again. People making decisions without considering the potential outcomes, without thinking about how their actions will affect those around them. They act on impulse, on emotion, without stopping to think about the bigger picture.
+                
+                And then, when the consequences finally catch up to them, they're left reeling. They're left to deal with the fallout, to pick up the pieces of their shattered lives.
+                
+                It's a hard lesson to learn, but one that we all must face at some point. We must learn to be more mindful, more intentional, in everything that we do. We must think before we act, consider the potential outcomes, and choose our actions wisely.
+                
+                But even with the best of intentions, sometimes things still go wrong. Sometimes we still make mistakes, still cause harm, still leave behind a trail of consequences that we must face.
+                
+                And yet, even in the midst of our darkest moments, there is still hope. There is still the possibility of redemption, of growth, of learning from our mistakes and becoming better people as a result.
+                
+                So let us not be afraid of the consequences that come our way. Let us face them head on, with courage and grace, knowing that even in our darkest moments, there is still a chance for light to shine through."
               />
-              {/* <Typetester
-                wght={100}
-                ital={100}
-                name={"Protest Mono Regular Italic"}
-                fontFamily="Protest"
-                sample="cing by myself
-                Gone off tabs of that acid
-                Form me a circle, watch my Jagger
-                Might lose my jacket and hit a solo
-                One time
-                We too loud in public then police turned down the function
-                Now we outside and the timing's perfect
-                Forgot to tell you, gotta tell you how much I vibe with you
-                And we don't gotta be solo
-                Now stay away from highways
-                My eyes like them red lights
-                Right now I prefer yellow
-                Redbone, so mellow
-                Fuck 'round, be cutting you
-                Think we were better off solo
-                I got that act right in the Windy city that night
-                No trees to blow through
-                But blow me and I owe you
-                Two grams when the sun rise
-                Smoking good, rolling solo
-                Solo (solo)
-                Solo (solo)
-                S-solo (solo)
-                S-solo (solo)
-                It's hell on Earth and the city's on fire
-                Inhale, in hell there's heaven
-                There's a bull and a matador dueling in the sky
-                Inhale, in hell there's heaven
-                Oh, oh, oh, oh
-                Oh, oh, oh, oh
-                Solo, solo
-                Solo, solo
-                I'm skipping showers and switching socks, sleeping good and long
-                Bones feeling dense as fuck, wish a nigga would cross
-                And catch a solo, on time
-                White leaf on my boxers, green leaf turn to vapors for the low
-                And that mean cheap, cause ain't shit free and I know it
-                Even love ain't, 'cause this nut cost, that clinic killed my soul
-                But you gotta hit the pussy raw though
-                Now your baby momma ain't so vicious, all she want is her picket fence
-                And you protest and you picket sign, but them courts won't side with you
-                Won't let you fly solo
-                I wanted that act right in Colorado that night
-                I brought trees to blow through, but it's just me and no you
-                Stayed up 'til my phone died
-                Smoking big, rolling solo"
-              /> */}
 
               <Typetester
                 wght={130}
@@ -547,70 +500,122 @@ const ProtestGroteskMono = ({
                 lineHeight={0}
                 name={"Protest Mono Medium"}
                 fontFamily="Protest"
-                sample="Delink"
+                sample="Delink I whispered to myself as I closed my eyes and let the sound of the word linger in my mind. Delinking, the act of disconnecting, of breaking free from the shackles that bind us to our devices and our online identities. It's a word that resonates deeply with me, one that reminds me of the importance of taking a step back and re-evaluating the role that technology plays in our lives.
+
+                In a world that's constantly connected, it's easy to forget the value of disconnecting, of taking a break from the constant stream of information that bombards us every day. Delinking is a reminder that we are more than just our online selves, that there's a whole world waiting for us beyond the screens of our devices.
+                
+                But delinking isn't just about disconnecting from technology, it's about disconnecting from the toxic patterns of thought and behavior that can emerge from being constantly connected. It's about recognizing the importance of mindfulness and taking the time to truly be present in the moment.
+                
+                For me, delinking means taking a step back and focusing on the things that truly matter. It means spending time with loved ones, exploring the world around me, and taking care of my mental and physical health. It means setting boundaries and being intentional about how I use technology, so that it serves me rather than the other way around.
+                
+                In a world that's constantly telling us to be connected, to be available 24/7, delinking is an act of rebellion. It's a reminder that we are in control of our own lives, that we have the power to shape our own experiences. So the next time you feel overwhelmed by the constant stream of information and notifications, remember to take a step back and delink. You might be surprised at what you discover."
               />
-              {/* <Typetester
-                wght={130}
-                ital={100}
-                name={"Protest Mono Medium Italic"}
-                fontFamily="Protest"
-              /> */}
+
               <Typetester
                 wght={160}
                 ital={0}
                 lineHeight={0}
                 name={"Protest Mono Semibold"}
                 fontFamily="Protest"
-                sample="Enable"
+                sample="Enable me to go wild for a second, because I got something to say. If you're living your life without being true to yourself, then you're living a lie. I know it's tough to break out of that shell and be who you really are, but it's worth it. Trust me.
+
+                Enable yourself to take a step back and reflect on your life. Are you doing things because you want to or because society tells you to? Are you truly happy with where you are in life? These are the questions you need to ask yourself.
+                
+                Enable yourself to be vulnerable. I know it's scary, but it's the only way to grow. If you're always hiding behind a mask, you'll never be able to truly connect with people. Take off that mask and show the world who you really are.
+                
+                Enable yourself to take risks. Life is short, and you don't want to look back and regret not doing something. Whether it's pursuing your dream career or asking that special someone out, take a chance and see where it leads you.
+                
+                Enable yourself to be kind. We live in a world where kindness is often overlooked, but it's the most important thing we can do. A simple smile or compliment can brighten someone's day, so spread that positivity wherever you go.
+                
+                Enable yourself to learn. Never stop growing and never stop learning. The world is constantly changing, and if you're not adapting, you'll be left behind. Read, travel, and explore new things.
+                
+                Enable yourself to be grateful. It's easy to focus on what we don't have, but it's important to be thankful for what we do have. Take a moment each day to appreciate the good things in your life.
+                
+                In conclusion, enable yourself to live a life that you're proud of. Don't be afraid to be who you are, take risks, be kind, learn, and be grateful. Life is too short to live any other way."
               />
-              {/* <Typetester
-                wght={160}
-                ital={100}
-                name={"Protest Mono Semibold Italic"}
-                fontFamily="Protest"
-              /> */}
+
               <Typetester
                 wght={190}
                 ital={0}
                 lineHeight={0}
                 name={"Protest Mono Bold"}
                 fontFamily="Protest"
-                sample="Fugues"
+                sample="Fugues those elusive musical compositions that meander and repeat, evoke a sense of disorientation and confusion in my mind. They are like the labyrinthine passages of my own thoughts, twisting and turning in a never-ending cycle of uncertainty.
+
+                I find myself trapped in a fugue-like state, unable to break free from the monotony of my routine. Each day seems to blend into the next, a never-ending cycle of work, sleep, and more work. The familiar rhythms of my existence have become suffocating, leaving me yearning for something more.
+                
+                I am like the protagonist in one of Kafka's stories, a man trapped in a world that he cannot comprehend. Each day brings new challenges, new obstacles to overcome, yet I cannot seem to find a way out. I am lost in a sea of bureaucracy, drowning in a flood of paperwork and red tape.
+                
+                The people around me are like characters in a Kafkaesque drama, speaking in riddles and half-truths, their motives hidden behind a veil of secrecy. I feel as though I am living in a dream, unable to distinguish reality from fantasy.
+                
+                And yet, in the midst of this chaos, I find solace in the beauty of the fugue. Its intricate melodies and harmonies offer a glimmer of hope in an otherwise bleak existence. It is a reminder that, even in the darkest of times, there is still beauty to be found.
+                
+                Perhaps, like the fugue, my own life is simply a series of repetitions and variations, each one building upon the last. And just as a fugue reaches a point of resolution, so too may I someday find my own sense of closure and completion.
+                
+                Until then, I will continue to wander through the labyrinth of my thoughts, searching for the way out, and listening for the faint strains of the fugue that guide me forward."
               />
-              {/* <Typetester
-                wght={190}
-                ital={100}
-                name={"Protest Mono Bold Italic"}
-                fontFamily="Protest"
-              /> */}
+
               <Typetester
                 wght={220}
                 ital={0}
                 lineHeight={0}
                 name={"Protest Mono Heavy"}
                 fontFamily="Protest"
-                sample="Gnarly"
+                sample="Gnarly was the situation that presented itself before me, like an intricate labyrinth that had no escape. The gnarled branches of the trees in the forest seemed to mirror the twisted and contorted path I was on. I couldn't seem to find my way out, no matter how hard I tried.
+
+                As I stumbled through the woods, the gnarled roots of the trees tripped me up, causing me to fall to the ground. I felt the weight of the earth pressing down on me, as if it were trying to smother me. I struggled to get up, but my limbs were heavy and uncooperative.
+                
+                The gnarly forest seemed to stretch on endlessly, with no end in sight. I wandered aimlessly, lost in a sea of gnarled branches and twisted trunks. The sky overhead was dark and foreboding, as if a storm was brewing just beyond the horizon.
+                
+                I stumbled upon a clearing in the gnarled forest, and in the center stood a towering tree, its trunk gnarled and twisted beyond recognition. It seemed to beckon to me, to call out to me in a language I couldn't understand.
+                
+                I approached the gnarled tree cautiously, unsure of what it wanted from me. As I drew closer, I noticed a small door carved into the trunk, barely visible among the gnarled bark.
+                
+                Without thinking, I pushed open the gnarly door and stepped inside. The darkness inside was palpable, like a thick fog that hung in the air. But as my eyes adjusted, I saw a faint light in the distance, and I followed it.
+                
+                As I approached the light, I realized that it was emanating from a small room at the end of a narrow tunnel. Inside the room sat a gnarled old man, his face twisted and contorted like the trees in the forest.
+                
+                He beckoned to me, and I approached him cautiously. He handed me a gnarled piece of paper, on which was written a message in a language I couldn't understand.
+                
+                I left the gnarled forest with more questions than answers, unsure of what had just transpired. But one thing was certain – the gnarly forest was not to be taken lightly, and its secrets were not for the faint of heart."
               />
-              {/* <Typetester
-                wght={220}
-                ital={100}
-                name={"Protest Mono Heavy Italic"}
-                fontFamily="Protest"
-              /> */}
+
               <Typetester
                 wght={250}
                 ital={0}
                 lineHeight={0}
                 name={"Protest Mono Black"}
                 fontFamily="Protest"
-                sample="Hazled"
+                sample="Hazled by the limelight, I shine so bright,
+                My talent, my drive, it's all in sight,
+                I'm a master of the craft, no need to fight,
+                My words hit hard like a bolt of lightning.
+                
+                My heart beats fast like a drum,
+                As I pour my soul out in every song,
+                My words, they cut deep like a sharpened knife,
+                I paint a picture, my canvas is life.
+                
+                I've faced my demons, I've been to hell,
+                I've seen the worst, but I refuse to dwell,
+                I rise above, I soar so high,
+                My music's the wings that take me to the sky.
+                
+                I'm a visionary, a true artist,
+                My passion burns like a flame, never to be missed,
+                I create magic, I'm a wizard,
+                My rhymes so sick, they'll make you shiver.
+                
+                I spit fire, my words, they ignite,
+                My beats, they hit hard, they'll keep you up all night,
+                I'm unstoppable, I'm on a mission,
+                My dreams, my goals, they're my ammunition.
+                
+                I'm Hazled, but I never falter,
+                I stand tall, my voice, it's like thunder,
+                I'll never back down, I'll never surrender,
+                I'll keep pushing forward, until the very end."
               />
-              {/* <Typetester
-                wght={250}
-                ital={100}
-                name={"Protest Mono Black Italic"}
-                fontFamily="Protest"
-              /> */}
             </div>
 
             <div className="typefaceInfosection">
@@ -643,94 +648,101 @@ const ProtestGroteskMono = ({
               </p>
             </div>
 
-            <GlyphchartProtestMono
-              fontFamily="ProtestMono"
-              fontWeight={100}
-              fontWidth={50}
-              darkMode={darkMode}
-              dark={dark}
-            />
+            <div ref={glyphsRef}>
+              <div ref={glyphsScroll}></div>
+              <GlyphchartProtestMono
+                fontFamily="ProtestMono"
+                fontWeight={100}
+                fontWidth={50}
+                darkMode={darkMode}
+                dark={dark}
+              />
+            </div>
 
-            <FontInfo
-              info={{
-                name: "Protest Grotesk Mono",
-                year: "2023",
-                design: "Mark Julien Hahn",
-                mastering: "Stereo Typefaces",
-                characters: 599,
-                styles: 7,
-                variable: "1 Axis (Weight)",
-              }}
-              opentype={[
-                "aalt (Access All Alternates)",
-                "ss01 (Alternative a)",
-                "ss02 (Alternative g)",
-                "ss03 (Alternative ® and ©)",
-                "subs (Subscript)",
-                "sinf (Scientific Inferiors)",
-                "sups (Superscript)",
-                "frac (Fractions)",
-                "ordn (Ordinals)",
-                "liga (Standard Ligatures)",
-                "zero (Slashed Zero)",
-                "calt (Contextual Alternates)",
-                "dnom (Denominators)",
-                "case (Case-Sensitive Forms)",
-              ]}
-              languages={{
-                count: 208,
-                list: "Abenaki, Afaan Oromo, Afar, Afrikaans, Albanian, Alsatian, Amis, Anuta, Aragonese, Aranese, Aromanian, Arrernte, Arvanitic, Asturian, Atayal, Aymara, Azerbaijani, Bashkir, Basque, Belarusian, Bemba, Bikol, Bislama, Bosnian, Breton, Bulgarian Romanization, Cape Verdean, Catalan, Cebuano, Chamorro, Chavacano, Chichewa, Chickasaw, Cimbrian, Cofan, Corsican, Creek, Crimean Tatar, Croatian, Czech, Danish, Dawan, Delaware, Dholuo, Drehu, Dutch, English, Esperanto, Estonian, Faroese, Fijian, Filipino, Finnish, Folkspraak, French, Frisian, Friulian, Gagauz, Galician, Ganda, Genoese, German, Gikuyu, Gooniyandi, Greenlandic, Guadeloupean, Gwichin, Haitian Creole, Han, Hawaiian, Hiligaynon, Hopi, Hotcak, Hungarian, Icelandic, Ido, Ilocano, Indonesian, Interglossa, Interlingua, Irish, Istroromanian, Italian, Jamaican, Javanese, Jerriais, Kaingang, Kala Lagaw Ya, Kapampangan, Kaqchikel, Karakalpak, Karelian, Kikongo, Kinyarwanda, Kiribati, Kirundi, Klingon, Kurdish, Ladin, Latin, Latino Sine, Latvian, Lojban, Lombard, Low Saxon, Luxembourgish, Maasai, Makhuwa, Malay, Manx, Maori, Marquesan, Meglenoromanian, Meriam Mir, Mirandese, Mohawk, Moldovan, Montagnais, Montenegrin, Murrinhpatha, Nagamese Creole, Ndebele, Neapolitan, Ngiyambaa, Niuean, Noongar, Norwegian, Novial, Occidental, Occitan, Oshiwambo, Ossetian, Palauan, Papiamento, Piedmontese, Portuguese, Potawatomi, Qeqchi, Quechua, Rarotongan, Romanian, Romansh, Rotokas, Sami Inari, Sami Lule, Sami Northern, Sami Southern, Samoan, Sango, Saramaccan, Sardinian, Scottish Gaelic, Serbian, Seri, Seychellois, Shawnee, Shona, Sicilian, Slovak, Slovenian, Slovio, Somali, Sorbian Lower, Sorbian Upper, Sotho Northern, Sotho Southern, Spanish, Sranan, Sundanese, Swahili, Swazi, Swedish, Tagalog, Tahitian, Tetum, Tok Pisin, Tokelauan, Tongan, Tshiluba, Tsonga, Tswana, Tumbuka, Turkish, Turkmen, Tuvaluan, Tzotzil, Ukrainian, Uzbek, Venetian, Vepsian, Volapuk, Voro, Wallisian, Walloon, Waraywaray, Warlpiri, Wayuu, Welsh, Wikmungkan, Wiradjuri, Wolof, Xavante, Xhosa, Yapese, Yindjibarndi, Zapotec, Zulu, Zuni",
-              }}
-              adobe={["Adobe Latin-1"]}
-              appleMacintosh={[
-                "MacOS Roman (Standard Latin)",
-                "MacOS Central European Latin",
-                "MacOS Croatian",
-                "MacOS Iceland",
-                "MacOS Romanian",
-                "MacOS Turkish",
-              ]}
-              microsoftWindows={[
-                "MS Windows 1250 Central European Latin",
-                "MS Windows 1252 Western (Standard Latin)",
-                "MS Windows 1254 Turkish Latin",
-                "MS Windows 1257 Baltic Latin",
-              ]}
-              iso8859={[
-                "8859-1 Latin-1 Western European",
-                "8859-2 Latin-2 Central European",
-                "8859-3 Latin-3 South European",
-                "8859-4 Latin-4 North European",
-                "8859-9 Latin-5 Turkish",
-                "8859-13 Latin-7 Baltic Rim",
-                "8859-15 Latin-9",
-                "8859-16 Latin-10 South-Eastern European",
-              ]}
-            />
-
-            <FontPreview
-              fonts={[
-                {
-                  name: "Protest Grotesk",
-                  font: "Protest",
-                  slug: "protest-grotesk",
-                  animation: "protest-animation",
-                  reversed: true,
-                  styles: 8,
-                  italic: true,
-                  letter: "Gg",
-                },
-                {
-                  name: "Giallo Roman",
-                  font: "Giallo",
-                  slug: "giallo-roman",
-                  animation: "giallo-animation",
+            <div ref={technicalRef}>
+              <div ref={technicalScroll}></div>
+              <FontInfo
+                info={{
+                  name: "Protest Grotesk Mono",
+                  year: "2023",
+                  design: "Mark Julien Hahn",
+                  mastering: "Stereo Typefaces",
+                  characters: 599,
                   styles: 7,
-                  oblique: true,
-                  letter: "Aa",
-                },
-              ]}
-            />
+                  variable: "1 Axis (Weight)",
+                }}
+                opentype={[
+                  "aalt (Access All Alternates)",
+                  "ss01 (Alternative a)",
+                  "ss02 (Alternative g)",
+                  "ss03 (Alternative ® and ©)",
+                  "subs (Subscript)",
+                  "sinf (Scientific Inferiors)",
+                  "sups (Superscript)",
+                  "frac (Fractions)",
+                  "ordn (Ordinals)",
+                  "liga (Standard Ligatures)",
+                  "zero (Slashed Zero)",
+                  "calt (Contextual Alternates)",
+                  "dnom (Denominators)",
+                  "case (Case-Sensitive Forms)",
+                ]}
+                languages={{
+                  count: 208,
+                  list: "Abenaki, Afaan Oromo, Afar, Afrikaans, Albanian, Alsatian, Amis, Anuta, Aragonese, Aranese, Aromanian, Arrernte, Arvanitic, Asturian, Atayal, Aymara, Azerbaijani, Bashkir, Basque, Belarusian, Bemba, Bikol, Bislama, Bosnian, Breton, Bulgarian Romanization, Cape Verdean, Catalan, Cebuano, Chamorro, Chavacano, Chichewa, Chickasaw, Cimbrian, Cofan, Corsican, Creek, Crimean Tatar, Croatian, Czech, Danish, Dawan, Delaware, Dholuo, Drehu, Dutch, English, Esperanto, Estonian, Faroese, Fijian, Filipino, Finnish, Folkspraak, French, Frisian, Friulian, Gagauz, Galician, Ganda, Genoese, German, Gikuyu, Gooniyandi, Greenlandic, Guadeloupean, Gwichin, Haitian Creole, Han, Hawaiian, Hiligaynon, Hopi, Hotcak, Hungarian, Icelandic, Ido, Ilocano, Indonesian, Interglossa, Interlingua, Irish, Istroromanian, Italian, Jamaican, Javanese, Jerriais, Kaingang, Kala Lagaw Ya, Kapampangan, Kaqchikel, Karakalpak, Karelian, Kikongo, Kinyarwanda, Kiribati, Kirundi, Klingon, Kurdish, Ladin, Latin, Latino Sine, Latvian, Lojban, Lombard, Low Saxon, Luxembourgish, Maasai, Makhuwa, Malay, Manx, Maori, Marquesan, Meglenoromanian, Meriam Mir, Mirandese, Mohawk, Moldovan, Montagnais, Montenegrin, Murrinhpatha, Nagamese Creole, Ndebele, Neapolitan, Ngiyambaa, Niuean, Noongar, Norwegian, Novial, Occidental, Occitan, Oshiwambo, Ossetian, Palauan, Papiamento, Piedmontese, Portuguese, Potawatomi, Qeqchi, Quechua, Rarotongan, Romanian, Romansh, Rotokas, Sami Inari, Sami Lule, Sami Northern, Sami Southern, Samoan, Sango, Saramaccan, Sardinian, Scottish Gaelic, Serbian, Seri, Seychellois, Shawnee, Shona, Sicilian, Slovak, Slovenian, Slovio, Somali, Sorbian Lower, Sorbian Upper, Sotho Northern, Sotho Southern, Spanish, Sranan, Sundanese, Swahili, Swazi, Swedish, Tagalog, Tahitian, Tetum, Tok Pisin, Tokelauan, Tongan, Tshiluba, Tsonga, Tswana, Tumbuka, Turkish, Turkmen, Tuvaluan, Tzotzil, Ukrainian, Uzbek, Venetian, Vepsian, Volapuk, Voro, Wallisian, Walloon, Waraywaray, Warlpiri, Wayuu, Welsh, Wikmungkan, Wiradjuri, Wolof, Xavante, Xhosa, Yapese, Yindjibarndi, Zapotec, Zulu, Zuni",
+                }}
+                adobe={["Adobe Latin-1"]}
+                appleMacintosh={[
+                  "MacOS Roman (Standard Latin)",
+                  "MacOS Central European Latin",
+                  "MacOS Croatian",
+                  "MacOS Iceland",
+                  "MacOS Romanian",
+                  "MacOS Turkish",
+                ]}
+                microsoftWindows={[
+                  "MS Windows 1250 Central European Latin",
+                  "MS Windows 1252 Western (Standard Latin)",
+                  "MS Windows 1254 Turkish Latin",
+                  "MS Windows 1257 Baltic Latin",
+                ]}
+                iso8859={[
+                  "8859-1 Latin-1 Western European",
+                  "8859-2 Latin-2 Central European",
+                  "8859-3 Latin-3 South European",
+                  "8859-4 Latin-4 North European",
+                  "8859-9 Latin-5 Turkish",
+                  "8859-13 Latin-7 Baltic Rim",
+                  "8859-15 Latin-9",
+                  "8859-16 Latin-10 South-Eastern European",
+                ]}
+              />
+            </div>
+            <div ref={bottomRef}>
+              <FontPreview
+                fonts={[
+                  {
+                    name: "Protest Grotesk",
+                    font: "Protest",
+                    slug: "protest-grotesk",
+                    animation: "protest-animation",
+                    reversed: true,
+                    styles: 8,
+                    italic: true,
+                    letter: "Gg",
+                  },
+                  {
+                    name: "Giallo Roman",
+                    font: "Giallo",
+                    slug: "giallo-roman",
+                    animation: "giallo-animation",
+                    styles: 7,
+                    oblique: true,
+                    letter: "Aa",
+                  },
+                ]}
+              />
+            </div>
 
             <Footer />
           </main>

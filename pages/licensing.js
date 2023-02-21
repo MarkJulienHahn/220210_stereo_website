@@ -85,7 +85,7 @@ const Licensing = () => {
                 possible to manage by yourself or your client in our online shop
                 and has to be taken care of by directly contacting us via:&nbsp;
                 <a href="mailto:license@stereotypefaces.com">
-                &nbsp;license@stereotypefaces.com
+                  &nbsp;license@stereotypefaces.com
                 </a>
                 <br />
                 Start-ups or other fast growing companies are required to check,
@@ -93,7 +93,7 @@ const Licensing = () => {
                 covers a higher company size in upcoming future. Also feel free
                 to contact us for such inquiries via:&nbsp;
                 <a href="mailto:license@stereotypefaces.com">
-                &nbsp;license@stereotypefaces.com
+                  &nbsp;license@stereotypefaces.com
                 </a>
               </p>
 
@@ -115,7 +115,7 @@ const Licensing = () => {
                 own or your clients specific tasks. If you need help finding the
                 right one, don’t hesitate to contact us directly via:&nbsp;
                 <a href="mailto:license@stereotypefaces.com">
-                &nbsp;license@stereotypefaces.com
+                  &nbsp;license@stereotypefaces.com
                 </a>
               </p>
 
@@ -129,7 +129,7 @@ const Licensing = () => {
                 available in the retail store by configuration! Direct requests
                 regarding this please mail to:&nbsp;
                 <a href="mailto:license@stereotypefaces.com">
-                &nbsp;license@stereotypefaces.com
+                  &nbsp;license@stereotypefaces.com
                 </a>
               </p>
 
@@ -195,9 +195,10 @@ const Licensing = () => {
                 a video license must also be purchased. If there is any
                 uncertainty regarding the acquisition of necessary licenses, we
                 will be happy to assist you. Just let us know what kind of
-                specific project you’re up to. Please send your request to:&nbsp;
+                specific project you’re up to. Please send your request
+                to:&nbsp;
                 <a href="mailto:license@stereotypefaces.com">
-                &nbsp;license@stereotypefaces.com
+                  &nbsp;license@stereotypefaces.com
                 </a>
               </p>
 
@@ -211,16 +212,11 @@ const Licensing = () => {
 
               <h1 id="video">LOGO / WORDMARK LICENSE</h1>
               <p>
-                The corporate license is valid for unlimited usage, which covers
-                all offered licenses on stereotypefaces.com regarding all types
-                of usage for various media (desktop / print, logo / wordmark,
-                social media, web, apps / games, video). Thus, there is no
-                limitation in terms of company size. Unlimited usage is not
-                available in the retail store by configuration! Direct requests
-                regarding this please mail to:&nbsp;
-                <a href="mailto:license@stereotypefaces.com">
-                &nbsp;license@stereotypefaces.com
-                </a>
+                With a logo / wordmark license, fonts can be used to create a
+                logo or wordmark for a company. An extra license is required for
+                the creation of different trademarks. To create logos, the font
+                may be converted into outlines or vectors for further editing.
+                This does not include a modification of the provided font file.
               </p>
 
               <h1>VIDEO LICENSE</h1>
@@ -234,7 +230,7 @@ const Licensing = () => {
                 acquisition of necessary licenses, we will be happy to help.
                 Please send your requests to:&nbsp;
                 <a href="mailto:license@stereotypefaces.com">
-                &nbsp;license@stereotypefaces.com
+                  &nbsp;license@stereotypefaces.com
                 </a>
               </p>
 
@@ -245,14 +241,14 @@ const Licensing = () => {
                 without our permission and not available in the retail-store.
                 Send inquiries regarding this to:&nbsp;
                 <a href="mailto:license@stereotypefaces.com">
-                &nbsp;license@stereotypefaces.com
+                  &nbsp;license@stereotypefaces.com
                 </a>
               </p>
 
               <p>
                 See also our{" "}
                 <Link href="/general-terms">
-                &nbsp;general Terms and Conditions (GTC)
+                  &nbsp;general Terms and Conditions (GTC)
                 </Link>
               </p>
             </div>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import useWindowDimensions from "../../components/Hooks/useWindowDimensions";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import Link from "next/link";
@@ -43,9 +44,10 @@ const ProtestGroteskText = ({
   const [showCheckout, setShowCheckout] = useState(false);
   const [showQuicklinks, setShowQuicklinks] = useState(false);
   const [buttonContent, setButtonContent] = useState("...");
-  const [offset, setOffset] = useState(0);
 
   const location = useRouter();
+
+  const { windowWidth } = useWindowDimensions();
 
   const { ref: headerRef, inView: headerIsVisible } = useInView({
     threshold: 0,
@@ -76,65 +78,8 @@ const ProtestGroteskText = ({
   const glyphsScroll = useRef(null);
   const technicalScroll = useRef(null);
 
-  const sampleText = [
-    "You basically can say anything to someone on an email or text as long as you put LOL at the end. ",
-    "I hate when I’m on a flight and I wake up with a water bottle next to me like oh great now I gotta be responsible for this water bottle. ",
-    "We’re going to move the entire music industry into the 21st Century. ",
-    "I’d like to meet with Tim Cook, I got some Ideas. ",
-    "My memories are from the future. ",
-    "Sometimes you have to get rid of everything.",
-    "I watch Bladerunner on repeat. ",
-    "People only get jealous when they care. ",
-    "I’m nice at ping pong. ",
-    "I make awesome decisions in bike stores!!! ",
-    "Manga all day. ",
-    "Who made up the term major label in the first place??? ",
-    "Ma$e is one of my favorite rappers and I based a lot of my flows off of him. ",
-    "I’ll say things that are serious and put them in a joke form so people can enjoy them. We laugh to keep from crying. ",
-    "My first pillar when I'm on the board of adidas will be an adidas Nike collaboration to support community growth. ",
-    "There’s so many lonely emojis man. ",
-    "Truth is my goal. Controversy is my gym. I'll do a hundred reps of controversy for a 6 pack of truth. ",
-    "You can’t look at a glass half full or empty if it's overflowing. ",
-    "Sometimes I push the door close button on people running towards the elevator. I just need my own elevator sometimes. My sanctuary. ",
-    "People always tell you »Be humble. Be humble.« When was the last time someone told you to be amazing? Be great! Be awesome! Be awesome! ",
-    "I really love my Tesla. I'm in the future. Thank you Elon. ",
-    "I leave my emojis bart Simpson color. ",
-    "Let’s be like Water. ",
-    "Fur pillows are hard to actually sleep on. ",
-    "I don’t expect to be understood at all. ",
-    "Burn that excel spread sheet. ",
-    "Style is genderless. ",
-    "My dad got me a drone for Christmas. ",
-    "Believe in your flyness...conquer your shyness. ",
-  ];
-
-  const sample = `${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-    sampleText[Math.floor(Math.random() * sampleText.length)]
-  }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-    sampleText[Math.floor(Math.random() * sampleText.length)]
-  }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-    sampleText[Math.floor(Math.random() * sampleText.length)]
-  }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-    sampleText[Math.floor(Math.random() * sampleText.length)]
-  }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-    sampleText[Math.floor(Math.random() * sampleText.length)]
-  }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-    sampleText[Math.floor(Math.random() * sampleText.length)]
-  }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-    sampleText[Math.floor(Math.random() * sampleText.length)]
-  }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-    sampleText[Math.floor(Math.random() * sampleText.length)]
-  }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-    sampleText[Math.floor(Math.random() * sampleText.length)]
-  }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-    sampleText[Math.floor(Math.random() * sampleText.length)]
-  }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-    sampleText[Math.floor(Math.random() * sampleText.length)]
-  }`;
-
   const hideQuicklinks = () => setShowQuicklinks(false);
   const fadeOutQuicklinks = () => setTimeout(hideQuicklinks, 2000);
-
 
   const scrollUp = () => {
     checkoutOverview.current.scrollIntoView({
@@ -162,19 +107,6 @@ const ProtestGroteskText = ({
     technicalIsVisible,
     bottomIsVisible,
   ]);
-
-  // useEffect(() => {
-  //   const onScroll = () => setOffset(window.pageYOffset);
-  //   // clean up code
-  //   window.removeEventListener("scroll", onScroll);
-  //   window.addEventListener("scroll", onScroll, { passive: true });
-  //   return () => window.removeEventListener("scroll", onScroll);
-  // }, []);
-
-  // useEffect(() => {
-  //   () => hideQuicklinks();
-  // }, [offset]);
-
 
   return (
     <>
@@ -249,11 +181,13 @@ const ProtestGroteskText = ({
         </Link>
 
         <Button lable={"Protest Grotesk"} subclass={"quaternaryActive"} />
-        <Button
-          lable={buttonContent}
-          subclass={"tertiary"}
-          onClick={() => setShowQuicklinks(!showQuicklinks)}
-        />
+        {windowWidth > 1000 && (
+          <Button
+            lable={buttonContent}
+            subclass={"tertiary"}
+            onClick={() => setShowQuicklinks(!showQuicklinks)}
+          />
+        )}
       </div>
 
       <div className="buttonsRightWrapper">
@@ -505,68 +439,30 @@ const ProtestGroteskText = ({
                 lineHeight={0}
                 name={"Protest Grotesk Thin"}
                 fontFamily="Protest"
-                sample={sample}
+                sample={
+                  "You basically can say anything to someone on an email or text as long as you put LOL at the end. I hate when I’m on a flight and I wake up with a water bottle next to me like oh great now I gotta be responsible for this water bottle. We’re going to move the entire music industry into the 21st Century. I’d like to meet with Tim Cook, I got some Ideas. My memories are from the future. Sometimes you have to get rid of everything. I watch Bladerunner on repeat. People only get jealous when they care. I’m nice at ping pong. I make awesome decisions in bike stores!!! Manga all day. Who made up the term major label in the first place??? Ma$e is one of my favorite rappers and I based a lot of my flows off of him. I’ll say things that are serious and put them in a joke form so people can enjoy them. We laugh to keep from crying. My first pillar when I'm on the board of adidas will be an adidas Nike collaboration to support community growth. There’s so many lonely emojis man. Truth is my goal. Controversy is my gym. I'll do a hundred reps of controversy for a 6 pack of truth. You can’t look at a glass half full or empty if it's overflowing. Sometimes I push the door close button on people running towards the elevator. I just need my own elevator sometimes. My sanctuary. People always tell you »Be humble. Be humble.« When was the last time someone told you to be amazing? Be great! Be awesome! Be awesome! I really love my Tesla. I'm in the future. Thank you Elon. I leave my emojis bart Simpson color. Let’s be like Water. Fur pillows are hard to actually sleep on. I don’t expect to be understood at all. Burn that excel spread sheet. Style is genderless. My dad got me a drone for Christmas. Believe in your flyness...conquer your shyness."
+                }
               />
 
               <Typetester
                 wght={40}
                 ital={100}
-                lineHeight={0}
+                lineHeight={-0.002}
                 name={"Protest Grotesk Thin Italic"}
                 fontFamily="Protest"
-                sample={`${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}`}
+                sample={
+                  "My first pillar when I'm on the board of adidas will be an adidas Nike collaboration to support community growth. There’s so many lonely emojis man. Truth is my goal. Controversy is my gym. I'll do a hundred reps of controversy for a 6 pack of truth. You can’t look at a glass half full or empty if it's overflowing. Sometimes I push the door close button on people running towards the elevator. I just need my own elevator sometimes. My sanctuary. People always tell you »Be humble. Be humble.« When was the last time someone told you to be amazing? Be great! Be awesome! Be awesome! I really love my Tesla. I'm in the future. Thank you Elon. I leave my emojis bart Simpson color. Let’s be like Water. Fur pillows are hard to actually sleep on. I don’t expect to be understood at all. Burn that excel spread sheet. Style is genderless. My dad got me a drone for Christmas. Believe in your flyness...conquer your shyness. You basically can say anything to someone on an email or text as long as you put LOL at the end. I hate when I’m on a flight and I wake up with a water bottle next to me like oh great now I gotta be responsible for this water bottle. We’re going to move the entire music industry into the 21st Century. I’d like to meet with Tim Cook, I got some Ideas. My memories are from the future. Sometimes you have to get rid of everything. I watch Bladerunner on repeat. People only get jealous when they care. I’m nice at ping pong. I make awesome decisions in bike stores!!! Manga all day. Who made up the term major label in the first place??? Ma$e is one of my favorite rappers and I based a lot of my flows off of him. I’ll say things that are serious and put them in a joke form so people can enjoy them. We laugh to keep from crying. "
+                }
               />
               <Typetester
                 wght={70}
                 ital={0}
-                lineHeight={0}
+                lineHeight={-0.002}
                 name={"Protest Grotesk Light"}
                 fontFamily="Protest"
-                sample={`${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}`}
+                sample={
+                  "Manga all day. Who made up the term major label in the first place??? Ma$e is one of my favorite rappers and I based a lot of my flows off of him. I’ll say things that are serious and put them in a joke form so people can enjoy them. We laugh to keep from crying. My first pillar when I'm on the board of adidas will be an adidas Nike collaboration to support community growth. There’s so many lonely emojis man. Truth is my goal. Controversy is my gym. I'll do a hundred reps of controversy for a 6 pack of truth. You can’t look at a glass half full or empty if it's overflowing. Sometimes I push the door close button on people running towards the elevator. I just need my own elevator sometimes. My sanctuary. People always tell you »Be humble. Be humble.« When was the last time someone told you to be amazing? Be great! Be awesome! Be awesome! I really love my Tesla. I'm in the future. Thank you Elon. I leave my emojis bart Simpson color. Let’s be like Water. Fur pillows are hard to actually sleep on. I don’t expect to be understood at all. Burn that excel spread sheet. Style is genderless. My dad got me a drone for Christmas. Believe in your flyness...conquer your shyness. You basically can say anything to someone on an email or text as long as you put LOL at the end. I hate when I’m on a flight and I wake up with a water bottle next to me like oh great now I gotta be responsible for this water bottle. We’re going to move the entire music industry into the 21st Century. I’d like to meet with Tim Cook, I got some Ideas. My memories are from the future. Sometimes you have to get rid of everything. I watch Bladerunner on repeat. People only get jealous when they care. I’m nice at ping pong. I make awesome decisions in bike stores!!! "
+                }
               />
               <Typetester
                 wght={70}
@@ -574,89 +470,29 @@ const ProtestGroteskText = ({
                 lineHeight={0}
                 name={"Protest Grotesk Light Italic"}
                 fontFamily="Protest"
-                sample={`${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}`}
+                sample={
+                  "There’s so many lonely emojis man. Truth is my goal. Controversy is my gym. I'll do a hundred reps of controversy for a 6 pack of truth. You can’t look at a glass half full or empty if it's overflowing. Sometimes I push the door close button on people running towards the elevator. I just need my own elevator sometimes. My sanctuary. People always tell you »Be humble. Be humble.« When was the last time someone told you to be amazing? Be great! Be awesome! Be awesome! I really love my Tesla. I'm in the future. Thank you Elon. I leave my emojis bart Simpson color. Let’s be like Water. Fur pillows are hard to actually sleep on. I don’t expect to be understood at all. Burn that excel spread sheet. Style is genderless. My dad got me a drone for Christmas. Believe in your flyness...conquer your shyness. You basically can say anything to someone on an email or text as long as you put LOL at the end. I hate when I’m on a flight and I wake up with a water bottle next to me like oh great now I gotta be responsible for this water bottle. We’re going to move the entire music industry into the 21st Century. I’d like to meet with Tim Cook, I got some Ideas. My memories are from the future. Sometimes you have to get rid of everything. I watch Bladerunner on repeat. People only get jealous when they care. I’m nice at ping pong. I make awesome decisions in bike stores!!! Manga all day. Who made up the term major label in the first place??? Ma$e is one of my favorite rappers and I based a lot of my flows off of him. I’ll say things that are serious and put them in a joke form so people can enjoy them. We laugh to keep from crying. My first pillar when I'm on the board of adidas will be an adidas Nike collaboration to support community growth. "
+                }
               />
               <Typetester
                 wght={100}
                 ital={0}
-                lineHeight={0}
+                lineHeight={-0.00}
                 name={"Protest Grotesk Regular"}
                 fontFamily="Protest"
-                sample={`${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}`}
+                sample={
+                  "I watch Bladerunner on repeat. People only get jealous when they care. I’m nice at ping pong. I make awesome decisions in bike stores!!! Manga all day. Who made up the term major label in the first place??? Ma$e is one of my favorite rappers and I based a lot of my flows off of him. I’ll say things that are serious and put them in a joke form so people can enjoy them. We laugh to keep from crying. My first pillar when I'm on the board of adidas will be an adidas Nike collaboration to support community growth. There’s so many lonely emojis man. Truth is my goal. Controversy is my gym. I'll do a hundred reps of controversy for a 6 pack of truth. You can’t look at a glass half full or empty if it's overflowing. Sometimes I push the door close button on people running towards the elevator. I just need my own elevator sometimes. My sanctuary. People always tell you »Be humble. Be humble.« When was the last time someone told you to be amazing? Be great! Be awesome! Be awesome! I really love my Tesla. I'm in the future. Thank you Elon. I leave my emojis bart Simpson color. Let’s be like Water. Fur pillows are hard to actually sleep on. I don’t expect to be understood at all. Burn that excel spread sheet. Style is genderless. My dad got me a drone for Christmas. Believe in your flyness...conquer your shyness. You basically can say anything to someone on an email or text as long as you put LOL at the end. I hate when I’m on a flight and I wake up with a water bottle next to me like oh great now I gotta be responsible for this water bottle. We’re going to move the entire music industry into the 21st Century. I’d like to meet with Tim Cook, I got some Ideas. My memories are from the future. Sometimes you have to get rid of everything. "
+                }
               />
               <Typetester
                 wght={100}
                 ital={100}
-                lineHeight={0}
+                lineHeight={-0.002}
                 name={"Protest Grotesk Regular Italic"}
                 fontFamily="Protest"
-                sample={`${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}`}
+                sample={
+                  "We’re going to move the entire music industry into the 21st Century. I’d like to meet with Tim Cook, I got some Ideas. My memories are from the future. Sometimes you have to get rid of everything. I watch Bladerunner on repeat. People only get jealous when they care. I’m nice at ping pong. I make awesome decisions in bike stores!!! Manga all day. Who made up the term major label in the first place??? Ma$e is one of my favorite rappers and I based a lot of my flows off of him. I’ll say things that are serious and put them in a joke form so people can enjoy them. We laugh to keep from crying. My first pillar when I'm on the board of adidas will be an adidas Nike collaboration to support community growth. There’s so many lonely emojis man. Truth is my goal. Controversy is my gym. I'll do a hundred reps of controversy for a 6 pack of truth. You can’t look at a glass half full or empty if it's overflowing. Sometimes I push the door close button on people running towards the elevator. I just need my own elevator sometimes. My sanctuary. People always tell you »Be humble. Be humble.« When was the last time someone told you to be amazing? Be great! Be awesome! Be awesome! I really love my Tesla. I'm in the future. Thank you Elon. I leave my emojis bart Simpson color. Let’s be like Water. Fur pillows are hard to actually sleep on. I don’t expect to be understood at all. Burn that excel spread sheet. Style is genderless. My dad got me a drone for Christmas. Believe in your flyness...conquer your shyness. You basically can say anything to someone on an email or text as long as you put LOL at the end. I hate when I’m on a flight and I wake up with a water bottle next to me like oh great now I gotta be responsible for this water bottle. "
+                }
               />
 
               <Typetester
@@ -665,29 +501,9 @@ const ProtestGroteskText = ({
                 lineHeight={0}
                 name={"Protest Grotesk Book"}
                 fontFamily="Protest"
-                sample={`${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}`}
+                sample={
+                  "You basically can say anything to someone on an email or text as long as you put LOL at the end. I hate when I’m on a flight and I wake up with a water bottle next to me like oh great now I gotta be responsible for this water bottle. We’re going to move the entire music industry into the 21st Century. I’d like to meet with Tim Cook, I got some Ideas. My memories are from the future. Sometimes you have to get rid of everything. I watch Bladerunner on repeat. People only get jealous when they care. I’m nice at ping pong. I make awesome decisions in bike stores!!! Manga all day. Who made up the term major label in the first place??? Ma$e is one of my favorite rappers and I based a lot of my flows off of him. I’ll say things that are serious and put them in a joke form so people can enjoy them. We laugh to keep from crying. My first pillar when I'm on the board of adidas will be an adidas Nike collaboration to support community growth. There’s so many lonely emojis man. Truth is my goal. Controversy is my gym. I'll do a hundred reps of controversy for a 6 pack of truth. You can’t look at a glass half full or empty if it's overflowing. Sometimes I push the door close button on people running towards the elevator. I just need my own elevator sometimes. My sanctuary. People always tell you »Be humble. Be humble.« When was the last time someone told you to be amazing? Be great! Be awesome! Be awesome! I really love my Tesla. I'm in the future. Thank you Elon. I leave my emojis bart Simpson color. Let’s be like Water. Fur pillows are hard to actually sleep on. I don’t expect to be understood at all. Burn that excel spread sheet. Style is genderless. My dad got me a drone for Christmas. Believe in your flyness...conquer your shyness."
+                }
               />
               <Typetester
                 wght={130}
@@ -695,29 +511,9 @@ const ProtestGroteskText = ({
                 lineHeight={0}
                 name={"Protest Grotesk Book Italic"}
                 fontFamily="Protest"
-                sample={`${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}`}
+                sample={
+                  "People always tell you »Be humble. Be humble.« When was the last time someone told you to be amazing? Be great! Be awesome! Be awesome! I really love my Tesla. I'm in the future. Thank you Elon. I leave my emojis bart Simpson color. Let’s be like Water. Fur pillows are hard to actually sleep on. I don’t expect to be understood at all. Burn that excel spread sheet. Style is genderless. My dad got me a drone for Christmas. Believe in your flyness...conquer your shyness. You basically can say anything to someone on an email or text as long as you put LOL at the end. I hate when I’m on a flight and I wake up with a water bottle next to me like oh great now I gotta be responsible for this water bottle. We’re going to move the entire music industry into the 21st Century. I’d like to meet with Tim Cook, I got some Ideas. My memories are from the future. Sometimes you have to get rid of everything. I watch Bladerunner on repeat. People only get jealous when they care. I’m nice at ping pong. I make awesome decisions in bike stores!!! Manga all day. Who made up the term major label in the first place??? Ma$e is one of my favorite rappers and I based a lot of my flows off of him. I’ll say things that are serious and put them in a joke form so people can enjoy them. We laugh to keep from crying. My first pillar when I'm on the board of adidas will be an adidas Nike collaboration to support community growth. There’s so many lonely emojis man. Truth is my goal. Controversy is my gym. I'll do a hundred reps of controversy for a 6 pack of truth. You can’t look at a glass half full or empty if it's overflowing. Sometimes I push the door close button on people running towards the elevator. I just need my own elevator sometimes. My sanctuary. "
+                }
               />
               <Typetester
                 wght={160}
@@ -725,29 +521,9 @@ const ProtestGroteskText = ({
                 lineHeight={0}
                 name={"Protest Grotesk Medium"}
                 fontFamily="Protest"
-                sample={`${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}`}
+                sample={
+                  "I’m nice at ping pong. I make awesome decisions in bike stores!!! Manga all day. Who made up the term major label in the first place??? Ma$e is one of my favorite rappers and I based a lot of my flows off of him. I’ll say things that are serious and put them in a joke form so people can enjoy them. We laugh to keep from crying. My first pillar when I'm on the board of adidas will be an adidas Nike collaboration to support community growth. There’s so many lonely emojis man. Truth is my goal. Controversy is my gym. I'll do a hundred reps of controversy for a 6 pack of truth. You can’t look at a glass half full or empty if it's overflowing. Sometimes I push the door close button on people running towards the elevator. I just need my own elevator sometimes. My sanctuary. People always tell you »Be humble. Be humble.« When was the last time someone told you to be amazing? Be great! Be awesome! Be awesome! I really love my Tesla. I'm in the future. Thank you Elon. I leave my emojis bart Simpson color. Let’s be like Water. Fur pillows are hard to actually sleep on. I don’t expect to be understood at all. Burn that excel spread sheet. Style is genderless. My dad got me a drone for Christmas. Believe in your flyness...conquer your shyness. You basically can say anything to someone on an email or text as long as you put LOL at the end. I hate when I’m on a flight and I wake up with a water bottle next to me like oh great now I gotta be responsible for this water bottle. We’re going to move the entire music industry into the 21st Century. I’d like to meet with Tim Cook, I got some Ideas. My memories are from the future. Sometimes you have to get rid of everything. I watch Bladerunner on repeat. People only get jealous when they care. "
+                }
               />
               <Typetester
                 wght={160}
@@ -755,29 +531,9 @@ const ProtestGroteskText = ({
                 lineHeight={0}
                 name={"Protest Grotesk Medium Italic"}
                 fontFamily="Protest"
-                sample={`${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}`}
+                sample={
+                  "Sometimes you have to get rid of everything. I watch Bladerunner on repeat. People only get jealous when they care. I’m nice at ping pong. I make awesome decisions in bike stores!!! Manga all day. Who made up the term major label in the first place??? Ma$e is one of my favorite rappers and I based a lot of my flows off of him. I’ll say things that are serious and put them in a joke form so people can enjoy them. We laugh to keep from crying. My first pillar when I'm on the board of adidas will be an adidas Nike collaboration to support community growth. There’s so many lonely emojis man. Truth is my goal. Controversy is my gym. I'll do a hundred reps of controversy for a 6 pack of truth. You can’t look at a glass half full or empty if it's overflowing. Sometimes I push the door close button on people running towards the elevator. I just need my own elevator sometimes. My sanctuary. People always tell you »Be humble. Be humble.« When was the last time someone told you to be amazing? Be great! Be awesome! Be awesome! I really love my Tesla. I'm in the future. Thank you Elon. I leave my emojis bart Simpson color. Let’s be like Water. Fur pillows are hard to actually sleep on. I don’t expect to be understood at all. Burn that excel spread sheet. Style is genderless. My dad got me a drone for Christmas. Believe in your flyness...conquer your shyness. You basically can say anything to someone on an email or text as long as you put LOL at the end. I hate when I’m on a flight and I wake up with a water bottle next to me like oh great now I gotta be responsible for this water bottle. We’re going to move the entire music industry into the 21st Century. I’d like to meet with Tim Cook, I got some Ideas. My memories are from the future. "
+                }
               />
               <Typetester
                 wght={190}
@@ -785,119 +541,37 @@ const ProtestGroteskText = ({
                 lineHeight={0}
                 name={"Protest Grotesk Bold"}
                 fontFamily="Protest"
-                sample={`${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}`}
+                sample={
+                  "Who made up the term major label in the first place??? Ma$e is one of my favorite rappers and I based a lot of my flows off of him. I’ll say things that are serious and put them in a joke form so people can enjoy them. We laugh to keep from crying. My first pillar when I'm on the board of adidas will be an adidas Nike collaboration to support community growth. There’s so many lonely emojis man. Truth is my goal. Controversy is my gym. I'll do a hundred reps of controversy for a 6 pack of truth. You can’t look at a glass half full or empty if it's overflowing. Sometimes I push the door close button on people running towards the elevator. I just need my own elevator sometimes. My sanctuary. People always tell you »Be humble. Be humble.« When was the last time someone told you to be amazing? Be great! Be awesome! Be awesome! I really love my Tesla. I'm in the future. Thank you Elon. I leave my emojis bart Simpson color. Let’s be like Water. Fur pillows are hard to actually sleep on. I don’t expect to be understood at all. Burn that excel spread sheet. Style is genderless. My dad got me a drone for Christmas. Believe in your flyness...conquer your shyness. You basically can say anything to someone on an email or text as long as you put LOL at the end. I hate when I’m on a flight and I wake up with a water bottle next to me like oh great now I gotta be responsible for this water bottle. We’re going to move the entire music industry into the 21st Century. I’d like to meet with Tim Cook, I got some Ideas. My memories are from the future. Sometimes you have to get rid of everything. I watch Bladerunner on repeat. People only get jealous when they care. I’m nice at ping pong. I make awesome decisions in bike stores!!! Manga all day. "
+                }
               />
               <Typetester
                 wght={190}
                 ital={100}
-                lineHeight={0}
+                lineHeight={-0.002}
                 name={"Protest Grotesk Bold Italic"}
                 fontFamily="Protest"
-                sample={`${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}`}
+                sample={
+                  "Let’s be like Water. Fur pillows are hard to actually sleep on. I don’t expect to be understood at all. Burn that excel spread sheet. Style is genderless. My dad got me a drone for Christmas. Believe in your flyness...conquer your shyness. You basically can say anything to someone on an email or text as long as you put LOL at the end. I hate when I’m on a flight and I wake up with a water bottle next to me like oh great now I gotta be responsible for this water bottle. We’re going to move the entire music industry into the 21st Century. I’d like to meet with Tim Cook, I got some Ideas. My memories are from the future. Sometimes you have to get rid of everything. I watch Bladerunner on repeat. People only get jealous when they care. I’m nice at ping pong. I make awesome decisions in bike stores!!! Manga all day. Who made up the term major label in the first place??? Ma$e is one of my favorite rappers and I based a lot of my flows off of him. I’ll say things that are serious and put them in a joke form so people can enjoy them. We laugh to keep from crying. My first pillar when I'm on the board of adidas will be an adidas Nike collaboration to support community growth. There’s so many lonely emojis man. Truth is my goal. Controversy is my gym. I'll do a hundred reps of controversy for a 6 pack of truth. You can’t look at a glass half full or empty if it's overflowing. Sometimes I push the door close button on people running towards the elevator. I just need my own elevator sometimes. My sanctuary. People always tell you »Be humble. Be humble.« When was the last time someone told you to be amazing? Be great! Be awesome! Be awesome! I really love my Tesla. I'm in the future. Thank you Elon. I leave my emojis bart Simpson color. "
+                }
               />
               <Typetester
                 wght={220}
                 ital={0}
-                lineHeight={0}
+                lineHeight={-0.001}
                 name={"Protest Grotesk Heavy"}
                 fontFamily="Protest"
-                sample={`${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}`}
+                sample={
+                  "Fur pillows are hard to actually sleep on. I don’t expect to be understood at all. Burn that excel spread sheet. Style is genderless. My dad got me a drone for Christmas. Believe in your flyness...conquer your shyness. You basically can say anything to someone on an email or text as long as you put LOL at the end. I hate when I’m on a flight and I wake up with a water bottle next to me like oh great now I gotta be responsible for this water bottle. We’re going to move the entire music industry into the 21st Century. I’d like to meet with Tim Cook, I got some Ideas. My memories are from the future. Sometimes you have to get rid of everything. I watch Bladerunner on repeat. People only get jealous when they care. I’m nice at ping pong. I make awesome decisions in bike stores!!! Manga all day. Who made up the term major label in the first place??? Ma$e is one of my favorite rappers and I based a lot of my flows off of him. I’ll say things that are serious and put them in a joke form so people can enjoy them. We laugh to keep from crying. My first pillar when I'm on the board of adidas will be an adidas Nike collaboration to support community growth. There’s so many lonely emojis man. Truth is my goal. Controversy is my gym. I'll do a hundred reps of controversy for a 6 pack of truth. You can’t look at a glass half full or empty if it's overflowing. Sometimes I push the door close button on people running towards the elevator. I just need my own elevator sometimes. My sanctuary. People always tell you »Be humble. Be humble.« When was the last time someone told you to be amazing? Be great! Be awesome! Be awesome! I really love my Tesla. I'm in the future. Thank you Elon. I leave my emojis bart Simpson color. Let’s be like Water. "
+                }
               />
               <Typetester
                 wght={220}
                 ital={100}
-                lineHeight={0}
+                lineHeight={-0.001}
                 name={"Protest Grotesk Heavy Italic"}
                 fontFamily="Protest"
-                sample={`${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}`}
+                sample={"You can’t look at a glass half full or empty if it's overflowing. Sometimes I push the door close button on people running towards the elevator. I just need my own elevator sometimes. My sanctuary. People always tell you »Be humble. Be humble.« When was the last time someone told you to be amazing? Be great! Be awesome! Be awesome! I really love my Tesla. I'm in the future. Thank you Elon. I leave my emojis bart Simpson color. Let’s be like Water. Fur pillows are hard to actually sleep on. I don’t expect to be understood at all. Burn that excel spread sheet. Style is genderless. My dad got me a drone for Christmas. Believe in your flyness...conquer your shyness. You basically can say anything to someone on an email or text as long as you put LOL at the end. I hate when I’m on a flight and I wake up with a water bottle next to me like oh great now I gotta be responsible for this water bottle. We’re going to move the entire music industry into the 21st Century. I’d like to meet with Tim Cook, I got some Ideas. My memories are from the future. Sometimes you have to get rid of everything. I watch Bladerunner on repeat. People only get jealous when they care. I’m nice at ping pong. I make awesome decisions in bike stores!!! Manga all day. Who made up the term major label in the first place??? Ma$e is one of my favorite rappers and I based a lot of my flows off of him. I’ll say things that are serious and put them in a joke form so people can enjoy them. We laugh to keep from crying. My first pillar when I'm on the board of adidas will be an adidas Nike collaboration to support community growth. There’s so many lonely emojis man. Truth is my goal. Controversy is my gym. I'll do a hundred reps of controversy for a 6 pack of truth. "}
               />
               <Typetester
                 wght={250}
@@ -905,59 +579,15 @@ const ProtestGroteskText = ({
                 lineHeight={0}
                 name={"Protest Grotesk Black"}
                 fontFamily="Protest"
-                sample={`${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}`}
+                sample={"Awesome decisions in bike stores!!! Manga all day. Who made up the term major label in the first place??? Ma$e is one of my favorite rappers and I based a lot of my flows off of him. I’ll say things that are serious and put them in a joke form so people can enjoy them. We laugh to keep from crying. My first pillar when I'm on the board of adidas will be an adidas Nike collaboration to support community growth. There’s so many lonely emojis man. Truth is my goal. Controversy is my gym. I'll do a hundred reps of controversy for a 6 pack of truth. You can’t look at a glass half full or empty if it's overflowing. Sometimes I push the door close button on people running towards the elevator. I just need my own elevator sometimes. My sanctuary. People always tell you »Be humble. Be humble.« When was the last time someone told you to be amazing? Be great! Be awesome! Be awesome! I really love my Tesla. I'm in the future. Thank you Elon. I leave my emojis bart Simpson color. Let’s be like Water. Fur pillows are hard to actually sleep on. I don’t expect to be understood at all. Burn that excel spread sheet. Style is genderless. My dad got me a drone for Christmas. Believe in your flyness...conquer your shyness. You basically can say anything to someone on an email or text as long as you put LOL at the end. I hate when I’m on a flight and I wake up with a water bottle next to me like oh great now I gotta be responsible for this water bottle. We’re going to move the entire music industry into the 21st Century. I’d like to meet with Tim Cook, I got some Ideas. My memories are from the future. Sometimes you have to get rid of everything. I watch Bladerunner on repeat. People only get jealous when they care. I’m nice at ping pong. "}
               />
               <Typetester
                 wght={250}
                 ital={100}
-                lineHeight={0}
+                lineHeight={-0.0024}
                 name={"Protest Grotesk Black Italic"}
                 fontFamily="Protest"
-                sample={`${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}${
-                  sampleText[Math.floor(Math.random() * sampleText.length)]
-                }${sampleText[Math.floor(Math.random() * sampleText.length)]}`}
+                sample={"Believe in your flyness...conquer your shyness. You basically can say anything to someone on an email or text as long as you put LOL at the end. I hate when I’m on a flight and I wake up with a water bottle next to me like oh great now I gotta be responsible for this water bottle. We’re going to move the entire music industry into the 21st Century. I’d like to meet with Tim Cook, I got some Ideas. My memories are from the future. Sometimes you have to get rid of everything. I watch Bladerunner on repeat. People only get jealous when they care. I’m nice at ping pong. I make awesome decisions in bike stores!!! Manga all day. Who made up the term major label in the first place??? Ma$e is one of my favorite rappers and I based a lot of my flows off of him. I’ll say things that are serious and put them in a joke form so people can enjoy them. We laugh to keep from crying. My first pillar when I'm on the board of adidas will be an adidas Nike collaboration to support community growth. There’s so many lonely emojis man. Truth is my goal. Controversy is my gym. I'll do a hundred reps of controversy for a 6 pack of truth. You can’t look at a glass half full or empty if it's overflowing. Sometimes I push the door close button on people running towards the elevator. I just need my own elevator sometimes. My sanctuary. People always tell you »Be humble. Be humble.« When was the last time someone told you to be amazing? Be great! Be awesome! Be awesome! I really love my Tesla. I'm in the future. Thank you Elon. I leave my emojis bart Simpson color. Let’s be like Water. Fur pillows are hard to actually sleep on. I don’t expect to be understood at all. Burn that excel spread sheet. Style is genderless. My dad got me a drone for Christmas. "}
               />
             </div>
             <div className="typefaceInfosection">

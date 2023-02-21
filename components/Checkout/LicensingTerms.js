@@ -6,7 +6,7 @@ const LicensingTerms = ({ setShowLicensing }) => {
   return (
     <>
       <div
-        className={styles.buttonsLeftWrapper}
+        className={styles.buttonWrapper}
         style={{ zIndex: "100000", position: "fixed", bottom: "0" }}
       >
         <Button
@@ -61,13 +61,14 @@ const LicensingTerms = ({ setShowLicensing }) => {
           license(s) purchased before will be calculated as discount on the
           price for the new license(s). This is not possible to manage by
           yourself or your client in our online shop and has to be taken care of
-          by directly contacting us via: license@stereotypefaces.com
+          by directly contacting us via:&nbsp;
+          <a href="mailto:license@stereotypefaces.com">license@stereotypefaces.com</a>
           <br />
           Start-ups or other fast growing companies are required to check,
           whether it makes sense to already purchase a license which covers a
           higher company size in upcoming future. Also feel free to contact us
-          for such inquiries via:
-          <a href="license@stereotypefaces.com">license@stereotypefaces.com</a>
+          for such inquiries via:&nbsp;
+          <a href="mailto:license@stereotypefaces.com">license@stereotypefaces.com</a>
         </p>
 
         <h1>WHY’S YOUR LICENSING MODEL LIKE THAT?</h1>
@@ -85,8 +86,8 @@ const LicensingTerms = ({ setShowLicensing }) => {
           In our online shop we offer different license types for specific media
           applications. Make sure to buy the right one(s) for your own or your
           clients specific tasks. If you need help finding the right one, don’t
-          hesitate to contact us directly via:{" "}
-          <a href="license@stereotypefaces.com">license@stereotypefaces.com</a>
+          hesitate to contact us directly via:&nbsp;
+          <a href="mailto:license@stereotypefaces.com">license@stereotypefaces.com</a>
         </p>
 
         <h1>CORPORATE LICENSE</h1>
@@ -97,7 +98,8 @@ const LicensingTerms = ({ setShowLicensing }) => {
           web, apps / games, video). Thus, there is no limitation in terms of
           company size. Unlimited usage is not available in the retail store by
           configuration! Direct requests regarding this please mail to:
-          <a href="license@stereotypefaces.com">license@stereotypefaces.com</a>
+          &nbsp;
+          <a href="mailto:license@stereotypefaces.com">license@stereotypefaces.com</a>
         </p>
 
         <h1>TRIAL LICENSE</h1>
@@ -160,8 +162,8 @@ const LicensingTerms = ({ setShowLicensing }) => {
           must also be purchased. If there is any uncertainty regarding the
           acquisition of necessary licenses, we will be happy to assist you.
           Just let us know what kind of specific project you’re up to. Please
-          send your request to:{" "}
-          <a href="license@stereotypefaces.com">license@stereotypefaces.com</a>
+          send your request to:&nbsp;
+          <a href="mailto:license@stereotypefaces.com">license@stereotypefaces.com</a>
         </p>
 
         <h1>APP / GAME LICENSE</h1>
@@ -174,13 +176,11 @@ const LicensingTerms = ({ setShowLicensing }) => {
 
         <h1>LOGO / WORDMARK LICENSE</h1>
         <p>
-          The corporate license is valid for unlimited usage, which covers all
-          offered licenses on stereotypefaces.com regarding all types of usage
-          for various media (desktop / print, logo / wordmark, social media,
-          web, apps / games, video). Thus, there is no limitation in terms of
-          company size. Unlimited usage is not available in the retail store by
-          configuration! Direct requests regarding this please mail to:
-          <a href="license@stereotypefaces.com">license@stereotypefaces.com</a>
+          With a logo / wordmark license, fonts can be used to create a logo or
+          wordmark for a company. An extra license is required for the creation
+          of different trademarks. To create logos, the font may be converted
+          into outlines or vectors for further editing. This does not include a
+          modification of the provided font file.
         </p>
 
         <h1>VIDEO LICENSE</h1>
@@ -191,20 +191,21 @@ const LicensingTerms = ({ setShowLicensing }) => {
           Apple TV+, etc. If video content is created for social media, both a
           video license and a social media license are required. If there are
           any uncertainties regarding the acquisition of necessary licenses, we
-          will be happy to help. Please send your requests to:
-          <a href="license@stereotypefaces.com">license@stereotypefaces.com</a>
+          will be happy to help. Please send your requests to:&nbsp;
+          <a href="mailto:license@stereotypefaces.com">license@stereotypefaces.com</a>
         </p>
 
         <h1>LICENSE FOR DIGITAL ARTS (e.g. NFTs)</h1>
         <p>
           The use of our fonts in digital artworks, e.g. so-called Non-Fungible
           Tokens (NFTs), or similar projects is not permitted without our
-          permission and not available in the retail-store. Send inquiries regarding this to:{" "}
-          <a href="license@stereotypefaces.com">license@stereotypefaces.com</a>
+          permission and not available in the retail-store. Send inquiries
+          regarding this to:&nbsp;
+          <a href="mailto:license@stereotypefaces.com">license@stereotypefaces.com</a>
         </p>
 
         <p>
-          See also our{" "}
+          See also our&nbsp;
           <Link href="/general-terms">general Terms and Conditions (GTC)</Link>
         </p>
       </div>
