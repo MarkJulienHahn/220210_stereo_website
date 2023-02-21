@@ -365,14 +365,23 @@ const GialloRoman = ({
               to other Roman type fonts. This comes in handy for steplessly
               interpolation to Giallo&#700;s original straight cuts. Unlike
               sans-serif fonts, however, the difference in line width allowed us
-              a slight hybridization into the italic style. Especially with
-              certain (lower case) characters that don&#700;t deviate too much
-              from regular styles to italics. Reducing the character width also
-              enables a higher contrast to the straight cuts. Both, Giallo®
-              Roman and Giallo® Roman Oblique, can be seamlessly adjusted as
-              variable font in their weights (100 — 700) and their direct
-              connection via the oblique axis (000 — 100). Use the sliders down
-              below to check that out.
+              a{" "}
+              <span className="highlight01">
+                slight hybridization into the italic style
+              </span>
+              . Especially with certain (lower case) characters that don&#700;t
+              deviate too much from regular styles to italics. Reducing the
+              character width also enables a higher contrast to the straight
+              cuts. Both, Giallo® Roman and Giallo® Roman Oblique, can be{" "}
+              <span className="highlight02">
+                seamlessly adjusted as variable font in their weights (100 —
+                700)
+              </span>{" "}
+              and their{" "}
+              <span className="highlight02">
+                direct connection via the oblique axis (000 — 100)
+              </span>
+              . Use the sliders down below to check that out.
             </p>
 
             <div ref={samplesRef}>
@@ -394,17 +403,25 @@ const GialloRoman = ({
               coming up in the first half of last century in Italy, as well as a
               movie genre, which first appeared in the 60&#700;s right after the
               so called »Neorealismo« (Italian neorealism). Giallo movies can be
-              described as mystery and crime fictions which shifted more and
-              more into the psychological thriller and horror genre. During
-              it&#700;s heydays in the 70s and 80s directors like Mario Bava or
-              Dario Argento did unique movies, which heavily influenced later
-              American slashers (take this as advice: There&#700;s still a lot
-              of trash [also fun to watch] during that period, but if you wanna
-              dig some, check out movies from that specific era). Most Giallo
-              movies can be seen as cheap amusement, but there are some
-              masterpieces like »Suspiria« (1977), which oscillate between that
-              simple entertainment and an artistic, scenographically fetishizing
-              type of film work, still being worth watched today.
+              described as mystery and crime fictions which{" "}
+              <span className="highlight02">
+                shifted more and more into the psychological thriller and horror
+                genre
+              </span>
+              . During it&#700;s heydays in the 70s and 80s directors like Mario
+              Bava or Dario Argento did unique movies, which{" "}
+              <span className="highlight02">
+                heavily influenced later American slashers
+              </span>{" "}
+              (take this as advice: There&#700;s still a lot of trash [also fun
+              to watch] during that period, but if you wanna dig some, check out
+              movies from that specific era). Most Giallo movies can be seen as
+              cheap amusement, but there are some masterpieces like »Suspiria«
+              (1977), which oscillate between that simple entertainment and an{" "}
+              <span className="highlight01">
+                artistic, scenographically fetishizing type of film work
+              </span>
+              , still being worth watched today.
             </p>
 
             <div className="typeface-single-tester-wrap" ref={testerRef}>
@@ -550,18 +567,32 @@ const GialloRoman = ({
               &#8594; <span className="highlight02">803 characters</span>
             </p>
             <p>
-              Right now the Latin Extended Character Set of Giallo® contains
-              plenty of punctuations, symbols, arrows as well as special
-              ligatures beside the regular ones. Four alternative stylistic sets
-              are included. Set 01 provides a single-storey lowercase »a«, Set
-              02 a single-storey lowercase »g«, Set 03 an alternative »7« for
-              all kind of numerals and Set 04 an alternative »®«. Check down
-              below for a complete listing of all Open Type features, which have
-              been so far implemented to Giallo®. We are currently working on
-              monospace and italic extensions, which will be added as soon as
-              possible. Future updates of Giallo Roman are of course for free,
-              if you already purchased a license. If you want to stay up to
-              date, you can register to our newsletter.
+              Right now the{" "}
+              <span className="highlight01">Latin Extended Character Set</span>{" "}
+              of Giallo® contains plenty of punctuations, symbols, arrows as
+              well as special ligatures beside the regular ones.{" "}
+              <span className="highlight01">
+                Four alternative stylistic sets are included
+              </span>
+              .{" "}
+              <span className="highlight02">
+                Set 01 provides a single-storey lowercase »a«
+              </span>
+              ,{" "}
+              <span className="highlight02">
+                Set 02 a single-storey lowercase »g«
+              </span>
+              , <span className="highlight02">Set 03 an alternative »7«</span>{" "}
+              for all kind of numerals and{" "}
+              <span className="highlight02">Set 04 an alternative »®«</span>.
+              Check down below for a complete listing of all Open Type features,
+              which have been so far implemented to Giallo®. We are currently
+              working on <span className="highlight02">
+                monospace and italic extensions
+              </span>
+              , which will be added as soon as possible. Future updates of
+              Giallo Roman are of course for free, if you already purchased a
+              license.
             </p>
 
             <div ref={glyphsRef}>

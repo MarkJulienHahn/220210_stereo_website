@@ -381,7 +381,7 @@ const ProtestGroteskText = ({
               </h1>
               <p>
                 Protest Grotesk® is designed within a broad design-frame which
-                consists of two variable-font axes (»Weight« 040—250 and
+                consists of two variable font axes (»Weight« 040—250 and
                 »Italic« 000—100). A{" "}
                 <span className="highlight01">
                   variable-font-file is available when purchasing the full
@@ -389,11 +389,11 @@ const ProtestGroteskText = ({
                 </span>{" "}
                 Providing the possibility to{" "}
                 <span className="highlight02">
-                  steplessly interpolate between weights and italic-angles
+                  steplessly interpolate between weights and italic angles
                 </span>
                 , variable fonts are especially useful in digital applications
                 or if you have to precisely adjust a typeface, without having to
-                rely on predefinded weights. Adjust the slider below in order to
+                rely on predefined weights. Adjust the slider below in order to
                 determine which weight fits your purpose best.
               </p>
             </div>
@@ -425,10 +425,10 @@ const ProtestGroteskText = ({
                 </span>{" "}
                 They were an uprising against conservative values. Protest
                 Grotesk pays homage to these Typefaces. Nowadays quality can not
-                only stem from formal design-descisions. A typeface has to rely
+                only stem from formal design descisions. A typeface has to rely
                 on a strong technical foundation, in order to deliver an
                 advantage to modern-day type users. Protest Grotesk is placed
-                right into thes field of tension.
+                right into this field of tension.
               </p>
             </div>
             <div className="typeface-single-tester-wrap" ref={testerRef}>
@@ -477,7 +477,7 @@ const ProtestGroteskText = ({
               <Typetester
                 wght={100}
                 ital={0}
-                lineHeight={-0.00}
+                lineHeight={-0.0}
                 name={"Protest Grotesk Regular"}
                 fontFamily="Protest"
                 sample={
@@ -571,7 +571,9 @@ const ProtestGroteskText = ({
                 lineHeight={-0.001}
                 name={"Protest Grotesk Heavy Italic"}
                 fontFamily="Protest"
-                sample={"You can’t look at a glass half full or empty if it's overflowing. Sometimes I push the door close button on people running towards the elevator. I just need my own elevator sometimes. My sanctuary. People always tell you »Be humble. Be humble.« When was the last time someone told you to be amazing? Be great! Be awesome! Be awesome! I really love my Tesla. I'm in the future. Thank you Elon. I leave my emojis bart Simpson color. Let’s be like Water. Fur pillows are hard to actually sleep on. I don’t expect to be understood at all. Burn that excel spread sheet. Style is genderless. My dad got me a drone for Christmas. Believe in your flyness...conquer your shyness. You basically can say anything to someone on an email or text as long as you put LOL at the end. I hate when I’m on a flight and I wake up with a water bottle next to me like oh great now I gotta be responsible for this water bottle. We’re going to move the entire music industry into the 21st Century. I’d like to meet with Tim Cook, I got some Ideas. My memories are from the future. Sometimes you have to get rid of everything. I watch Bladerunner on repeat. People only get jealous when they care. I’m nice at ping pong. I make awesome decisions in bike stores!!! Manga all day. Who made up the term major label in the first place??? Ma$e is one of my favorite rappers and I based a lot of my flows off of him. I’ll say things that are serious and put them in a joke form so people can enjoy them. We laugh to keep from crying. My first pillar when I'm on the board of adidas will be an adidas Nike collaboration to support community growth. There’s so many lonely emojis man. Truth is my goal. Controversy is my gym. I'll do a hundred reps of controversy for a 6 pack of truth. "}
+                sample={
+                  "You can’t look at a glass half full or empty if it's overflowing. Sometimes I push the door close button on people running towards the elevator. I just need my own elevator sometimes. My sanctuary. People always tell you »Be humble. Be humble.« When was the last time someone told you to be amazing? Be great! Be awesome! Be awesome! I really love my Tesla. I'm in the future. Thank you Elon. I leave my emojis bart Simpson color. Let’s be like Water. Fur pillows are hard to actually sleep on. I don’t expect to be understood at all. Burn that excel spread sheet. Style is genderless. My dad got me a drone for Christmas. Believe in your flyness...conquer your shyness. You basically can say anything to someone on an email or text as long as you put LOL at the end. I hate when I’m on a flight and I wake up with a water bottle next to me like oh great now I gotta be responsible for this water bottle. We’re going to move the entire music industry into the 21st Century. I’d like to meet with Tim Cook, I got some Ideas. My memories are from the future. Sometimes you have to get rid of everything. I watch Bladerunner on repeat. People only get jealous when they care. I’m nice at ping pong. I make awesome decisions in bike stores!!! Manga all day. Who made up the term major label in the first place??? Ma$e is one of my favorite rappers and I based a lot of my flows off of him. I’ll say things that are serious and put them in a joke form so people can enjoy them. We laugh to keep from crying. My first pillar when I'm on the board of adidas will be an adidas Nike collaboration to support community growth. There’s so many lonely emojis man. Truth is my goal. Controversy is my gym. I'll do a hundred reps of controversy for a 6 pack of truth. "
+                }
               />
               <Typetester
                 wght={250}
@@ -579,7 +581,9 @@ const ProtestGroteskText = ({
                 lineHeight={0}
                 name={"Protest Grotesk Black"}
                 fontFamily="Protest"
-                sample={"Awesome decisions in bike stores!!! Manga all day. Who made up the term major label in the first place??? Ma$e is one of my favorite rappers and I based a lot of my flows off of him. I’ll say things that are serious and put them in a joke form so people can enjoy them. We laugh to keep from crying. My first pillar when I'm on the board of adidas will be an adidas Nike collaboration to support community growth. There’s so many lonely emojis man. Truth is my goal. Controversy is my gym. I'll do a hundred reps of controversy for a 6 pack of truth. You can’t look at a glass half full or empty if it's overflowing. Sometimes I push the door close button on people running towards the elevator. I just need my own elevator sometimes. My sanctuary. People always tell you »Be humble. Be humble.« When was the last time someone told you to be amazing? Be great! Be awesome! Be awesome! I really love my Tesla. I'm in the future. Thank you Elon. I leave my emojis bart Simpson color. Let’s be like Water. Fur pillows are hard to actually sleep on. I don’t expect to be understood at all. Burn that excel spread sheet. Style is genderless. My dad got me a drone for Christmas. Believe in your flyness...conquer your shyness. You basically can say anything to someone on an email or text as long as you put LOL at the end. I hate when I’m on a flight and I wake up with a water bottle next to me like oh great now I gotta be responsible for this water bottle. We’re going to move the entire music industry into the 21st Century. I’d like to meet with Tim Cook, I got some Ideas. My memories are from the future. Sometimes you have to get rid of everything. I watch Bladerunner on repeat. People only get jealous when they care. I’m nice at ping pong. "}
+                sample={
+                  "Awesome decisions in bike stores!!! Manga all day. Who made up the term major label in the first place??? Ma$e is one of my favorite rappers and I based a lot of my flows off of him. I’ll say things that are serious and put them in a joke form so people can enjoy them. We laugh to keep from crying. My first pillar when I'm on the board of adidas will be an adidas Nike collaboration to support community growth. There’s so many lonely emojis man. Truth is my goal. Controversy is my gym. I'll do a hundred reps of controversy for a 6 pack of truth. You can’t look at a glass half full or empty if it's overflowing. Sometimes I push the door close button on people running towards the elevator. I just need my own elevator sometimes. My sanctuary. People always tell you »Be humble. Be humble.« When was the last time someone told you to be amazing? Be great! Be awesome! Be awesome! I really love my Tesla. I'm in the future. Thank you Elon. I leave my emojis bart Simpson color. Let’s be like Water. Fur pillows are hard to actually sleep on. I don’t expect to be understood at all. Burn that excel spread sheet. Style is genderless. My dad got me a drone for Christmas. Believe in your flyness...conquer your shyness. You basically can say anything to someone on an email or text as long as you put LOL at the end. I hate when I’m on a flight and I wake up with a water bottle next to me like oh great now I gotta be responsible for this water bottle. We’re going to move the entire music industry into the 21st Century. I’d like to meet with Tim Cook, I got some Ideas. My memories are from the future. Sometimes you have to get rid of everything. I watch Bladerunner on repeat. People only get jealous when they care. I’m nice at ping pong. "
+                }
               />
               <Typetester
                 wght={250}
@@ -587,7 +591,9 @@ const ProtestGroteskText = ({
                 lineHeight={-0.0024}
                 name={"Protest Grotesk Black Italic"}
                 fontFamily="Protest"
-                sample={"Believe in your flyness...conquer your shyness. You basically can say anything to someone on an email or text as long as you put LOL at the end. I hate when I’m on a flight and I wake up with a water bottle next to me like oh great now I gotta be responsible for this water bottle. We’re going to move the entire music industry into the 21st Century. I’d like to meet with Tim Cook, I got some Ideas. My memories are from the future. Sometimes you have to get rid of everything. I watch Bladerunner on repeat. People only get jealous when they care. I’m nice at ping pong. I make awesome decisions in bike stores!!! Manga all day. Who made up the term major label in the first place??? Ma$e is one of my favorite rappers and I based a lot of my flows off of him. I’ll say things that are serious and put them in a joke form so people can enjoy them. We laugh to keep from crying. My first pillar when I'm on the board of adidas will be an adidas Nike collaboration to support community growth. There’s so many lonely emojis man. Truth is my goal. Controversy is my gym. I'll do a hundred reps of controversy for a 6 pack of truth. You can’t look at a glass half full or empty if it's overflowing. Sometimes I push the door close button on people running towards the elevator. I just need my own elevator sometimes. My sanctuary. People always tell you »Be humble. Be humble.« When was the last time someone told you to be amazing? Be great! Be awesome! Be awesome! I really love my Tesla. I'm in the future. Thank you Elon. I leave my emojis bart Simpson color. Let’s be like Water. Fur pillows are hard to actually sleep on. I don’t expect to be understood at all. Burn that excel spread sheet. Style is genderless. My dad got me a drone for Christmas. "}
+                sample={
+                  "Believe in your flyness...conquer your shyness. You basically can say anything to someone on an email or text as long as you put LOL at the end. I hate when I’m on a flight and I wake up with a water bottle next to me like oh great now I gotta be responsible for this water bottle. We’re going to move the entire music industry into the 21st Century. I’d like to meet with Tim Cook, I got some Ideas. My memories are from the future. Sometimes you have to get rid of everything. I watch Bladerunner on repeat. People only get jealous when they care. I’m nice at ping pong. I make awesome decisions in bike stores!!! Manga all day. Who made up the term major label in the first place??? Ma$e is one of my favorite rappers and I based a lot of my flows off of him. I’ll say things that are serious and put them in a joke form so people can enjoy them. We laugh to keep from crying. My first pillar when I'm on the board of adidas will be an adidas Nike collaboration to support community growth. There’s so many lonely emojis man. Truth is my goal. Controversy is my gym. I'll do a hundred reps of controversy for a 6 pack of truth. You can’t look at a glass half full or empty if it's overflowing. Sometimes I push the door close button on people running towards the elevator. I just need my own elevator sometimes. My sanctuary. People always tell you »Be humble. Be humble.« When was the last time someone told you to be amazing? Be great! Be awesome! Be awesome! I really love my Tesla. I'm in the future. Thank you Elon. I leave my emojis bart Simpson color. Let’s be like Water. Fur pillows are hard to actually sleep on. I don’t expect to be understood at all. Burn that excel spread sheet. Style is genderless. My dad got me a drone for Christmas. "
+                }
               />
             </div>
             <div className="typefaceInfosection">
@@ -599,10 +605,11 @@ const ProtestGroteskText = ({
                 <span className="highlight01">
                   Latin Extended Character Set
                 </span>{" "}
-                of Protest Grotesk®, including an extended set of punctuations,
-                symbols and arrows is available. There are{" "}
+                of Protest Grotesk® is available in our shop, which includes an
+                expanded set of punctuations, symbols and arrows as well as
+                plenty of OpenType font features. Those also contain{" "}
                 <span className="highlight01">
-                  two stylistic alternative-sets included
+                  two alternative stylistic sets
                 </span>
                 .
                 <span className="highlight02">
@@ -610,13 +617,16 @@ const ProtestGroteskText = ({
                 </span>{" "}
                 and{" "}
                 <span className="highlight02">
-                  Set 02 has a double-storey lowercase »g«
+                  Set 02 has a single-storey lowercase »g«
                 </span>
-                . We are currently working on a{" "}
-                <span className="highlight02">cyrillic extension</span>, which
-                will be added soon. You will of course get an updated version
-                for free, if you purchase a license now. If you want to stay up
-                to date, you can register to our newsletter.
+                . We also offer a monospaced variation of Protest Grotesk,
+                called{" "}
+                <span className="highlight01">
+                  <Link href="/typefaces/protest-grotesk-mono">
+                    Protest Grotesk Mono
+                  </Link>
+                </span>{" "}
+                as a separate family with 8 weights in our shop.
               </p>
             </div>
 

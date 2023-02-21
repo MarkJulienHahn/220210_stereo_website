@@ -9,6 +9,7 @@ body {
   font-variation-settings: "ital" 0;
   transition: font-variation-settings 3s ease;
   -webkit-font-smoothing: antialiased;
+  font-feature-settings: "liga" 1;
   /* scroll-behavior: smooth; */
 }
 
@@ -689,7 +690,7 @@ margin-right: 3px
   }
 
   .typefaceDisplay div {
-    height: unset;
+    height: 121px;
   }
 
   .typefaceInfosection div {
