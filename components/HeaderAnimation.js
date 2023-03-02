@@ -133,7 +133,7 @@ const HeaderAnimation = ({
           >
             <div>
               <span style={headerStyleMobile}>{name}</span>
-              <span className={"smallR"}>®</span>
+              {/* <span className={"smallR"}>®</span> */}
             </div>
           </motion.div>
           <div style={headerIndexStyle} className={"headerMouseIndex"}>
@@ -163,7 +163,7 @@ const HeaderAnimation = ({
           >
             <div>
               <span style={headerStyle}>{name}</span>
-              <span className={"smallR"}>®</span>
+              {/* <span className={"smallR"}>®</span> */}
             </div>
           </motion.div>
           <div style={headerIndexStyle} className={"headerMouseIndex"}>

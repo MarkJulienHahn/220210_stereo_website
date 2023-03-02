@@ -32,9 +32,11 @@ const Nav = ({ darkMode }) => {
     >
       <div className={styles.logoTypo} style={darkMode ? dark : {}}>
         {isActive ? (
-          <div style={{ transform: "translateX(5px)" }}>
-            {windowWidth > 1000 ? (hover ? "MENU" : "STEREO") : "MENU"}
-
+          <div 
+          // style={{ transform: "translateX(5px)" }}
+          >
+            {windowWidth > 1000 ? (hover ? "OPEN" : "MENU") : "MENU"}
+{/* 
             <span
               style={{
                 fontFamily: "Protest",
@@ -44,7 +46,7 @@ const Nav = ({ darkMode }) => {
               }}
             >
                {windowWidth > 1000 ? (hover ? "" : "®") : ""}
-            </span>
+            </span> */}
           </div>
         ) : (
           "CLOSE"

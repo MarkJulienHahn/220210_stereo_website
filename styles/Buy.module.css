@@ -159,7 +159,7 @@
   display: flex;
   flex-wrap: wrap;
   top: 0px;
-  z-index: 1000;
+  z-index: 100;
 }
 
 .buyTableButtons div {
@@ -225,6 +225,13 @@
   text-align: right;
 }
 
+.taxInformation {
+  font-size: 10pt;
+  line-height: 13pt;
+  padding-top: var(--margin-M);
+  width: 50%
+}
+
 .totalWrapper {
   width: calc(50vw - 2 * var(--margin-M));
   font-size: 20pt;
@@ -251,6 +258,16 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+}
+
+.tax {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 10pt;
+  line-height: 13pt;
+  margin-bottom: var(--margin-S);
+  margin-top: var(--margin-S)
 }
 
 .totalDiscount {
@@ -325,14 +342,15 @@
   background: white;
   width: 100vw;
   height: 100vh;
-  z-index: 1000;
+  z-index: 400;
   padding: var(--margin-M);
   font-size: 4vw;
   line-height: 4vw;
   letter-spacing: -0.15vw;
   border-radius: 10px;
   cursor: pointer;
-  animation: appear 0.5s ease-out;
+  animation: appear 0.2s ease;
+  cursor: none;
 }
 
 .choiceWrapper:hover .varValues {
@@ -459,7 +477,7 @@
     z-index: 1000;
   }
 
-  .total {
+  .total, .tax {
     flex-direction: column;
     padding-bottom: var(--margin-S);
   }

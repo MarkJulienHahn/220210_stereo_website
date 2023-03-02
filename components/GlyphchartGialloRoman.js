@@ -20,6 +20,9 @@ function Glyphchart(props) {
     fontVariationSettings: `'wght' ${wght}, 'wdth' ${props.fontWidth}, 'ital' ${ital}`,
     background: props.darkMode && props.dark.background,
     color: props.darkMode && props.dark.color,
+  };
+
+  const glyphDisplayLetter = {
     fontVariant: smallCaps && "small-caps",
   };
 
@@ -653,8 +656,8 @@ function Glyphchart(props) {
         "Ⅷ",
         "Ⅸ",
         "Ⅹ",
-        "Ⅺ",
-        "Ⅻ",
+        // "Ⅺ",
+        // "Ⅻ",
         "Ⅼ",
         "Ⅽ",
         "Ⅾ",
@@ -960,12 +963,12 @@ function Glyphchart(props) {
             </div>
           </div>
           <div className="glyphchartDisplay" style={glyphDisplay}>
-            <div>{glyph}</div>
+            <div style={glyphDisplayLetter}>{glyph}</div>
           </div>
         </div>
         <div className="glyphchartTable">
           <div className="glyphchartDisplayMobile" style={glyphDisplay}>
-            <span>{glyph}</span>
+            <span style={glyphDisplayLetter}>{glyph}</span>
 
             <div className="glyphchartSliderMobile" style={glyphDisplay}>
               <div className="glyphchartSliderSingle">
@@ -979,7 +982,7 @@ function Glyphchart(props) {
                 />
               </div>
               <div className="glyphchartSliderSingle">
-                <p>&#8594; Italic</p>
+                <p>&#8594; Oblique</p>
                 <Slider
                   min={0}
                   max={100}

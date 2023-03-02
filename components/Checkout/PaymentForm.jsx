@@ -23,10 +23,12 @@ const PaymentForm = ({
   nextStep,
   setProcessing,
   Processing,
+  taxable
 }) => {
   const [AccCreditCard, setAccCreditCard] = useState(false);
   const [AccPayPal, setAccPayPal] = useState(false);
 
+  console.log(shippingData)
 
   const handleSubmit = async (event, elements, stripe) => {
     event.preventDefault();
@@ -35,6 +37,11 @@ const PaymentForm = ({
     setProcessing(true);
 
     const cardElement = elements.getElement(CardElement);
+
+    // await fetch("/api/tax", {
+    //   method: "post",
+    //   body: JSON.stringify(checkoutToken.id),
+    // });
 
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
@@ -54,9 +61,9 @@ const PaymentForm = ({
           name: "International",
           street: shippingData.address1,
           town_city: shippingData.city,
-          county_state: shippingData.shippingSubdivision,
+          county_state: taxable ? shippingData.shippingSubdivision : "CH-ZH",
           postal_zip_code: shippingData.zip,
-          country: shippingData.shippingCountry,
+          country: taxable ? shippingData.shippingCountry : "CH",
         },
         fulfillment: { shipping_method: shippingData.shippingOption },
         payment: {
@@ -89,9 +96,9 @@ const PaymentForm = ({
         name: "International",
         street: shippingData.address1,
         town_city: shippingData.city,
-        county_state: shippingData.shippingSubdivision,
+        county_state: taxable ? shippingData.shippingSubdivision : "CH-ZH",
         postal_zip_code: shippingData.zip,
-        country: shippingData.shippingCountry,
+        country: taxable ? shippingData.shippingCountry : "CH",
       },
       fulfillment: { shipping_method: shippingData.shippingOption },
       payment: {
@@ -104,9 +111,6 @@ const PaymentForm = ({
 
     onCaptureCheckout(checkoutToken.id, orderData);
   };
-
-
-
 
   const inactive = {
     height: "0px",

@@ -2242,14 +2242,17 @@ margin-right: 3px
 
 .infoVar1 {
   background: var(--tertiary);
+  color: black;
 }
 
 .infoVar2 {
   background: var(--fifth);
+  color: black;
 }
 
 .infoVar3 {
   background: var(--primary);
+  color: black;
 }
 
 .infoHeader {

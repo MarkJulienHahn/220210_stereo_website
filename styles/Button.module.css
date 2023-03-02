@@ -35,7 +35,7 @@
   background: var(--tertiary);
   padding: 0 20px;
   font-variation-settings: "wght" 116, "wdth" 0;
-  z-index: 100;
+  z-index: 10000;
   font-size: var(--pgSmallSize);
   letter-spacing: var(--pgSmallLetterSpacing);
   border-radius: 3px;

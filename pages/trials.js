@@ -7,13 +7,16 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 
 import Button from "../components/Button";
+
+import ThreeDObject from "../components/ThreeDObject";
+
 import TrialsPreviewSingle from "../components/Storefront/TrialsPreviewSingle";
 import TrialsSingle from "../components/TrialsSingle";
-
 
 const Trials = ({ cart, setShowCheckout, live }) => {
   const [showTrials, setShowTrials] = useState(false);
   const location = useRouter();
+
   return (
     <div>
       <Head>
@@ -30,7 +33,6 @@ const Trials = ({ cart, setShowCheckout, live }) => {
         <Button lable={"Trials"} subclass={"quaternaryMuted"} />
       </div>
 
-
       <AnimatePresence exitBeforeEnter>
         <motion.div
           location={location}
@@ -40,6 +42,8 @@ const Trials = ({ cart, setShowCheckout, live }) => {
           exit={{ y: -300, opacity: 0 }}
           transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
         >
+          {/* <ThreeDObject /> */}
+
           {showTrials && <TrialsSingle />}
           <TrialsPreviewSingle setShowTrials={setShowTrials} />
         </motion.div>

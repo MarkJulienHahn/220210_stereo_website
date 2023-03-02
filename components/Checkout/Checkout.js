@@ -5,6 +5,8 @@ import dynamic from "next/dynamic";
 import styles from "../../styles/Buy.module.css";
 import { commerce } from "../../lib/commerce";
 
+import { rates } from "./taxRates"
+
 import Button from "../Button";
 import MouseButton from "../MouseButton";
 import BigMouseButton from "../BigMouseButton";
@@ -56,6 +58,9 @@ const Checkout = ({
   const [showBuy, setShowBuy] = useState(font);
   const [showLicensing, setShowLicensing] = useState(false);
   const [Processing, setProcessing] = useState(false);
+
+  const [taxable, setTaxable] = useState(false);
+  const [vatRate, setVatRate] = useState({});
 
   const [checkoutToken, setCheckoutToken] = useState(null);
   const [shippingData, setShippingData] = useState({});
@@ -771,12 +776,13 @@ const Checkout = ({
         attachment: b64,
       };
 
-      console.log("pdfData" + b64, orderData);
+      // console.log("pdfData" + b64, orderData);
 
       await fetch("/api/mail", {
         method: "post",
         body: JSON.stringify(orderData),
-      });
+      })
+
     } catch (error) {
       setErrorMessage("An Error occured");
       alert(
@@ -815,7 +821,7 @@ const Checkout = ({
 
   const scrollUp = () => {
     windowWidth > 1000 &&
-      checkoutList.current.scrollIntoView({
+      checkoutList.current?.scrollIntoView({
         behavior: "smooth",
         block: "end",
       });
@@ -827,9 +833,6 @@ const Checkout = ({
       : (updateButtonContent(""), setAnimated(false));
   }, [loading]);
 
-  useEffect(() => {
-    scrollUp();
-  }, [showBuy]);
 
   return (
     <div>
@@ -1561,7 +1564,7 @@ const Checkout = ({
                   {cart.line_items.length | undefined ? (
                     <>
                       <div className={styles.total}>
-                        <span>Total (incl. Tax)</span>
+                        <span>Total</span>
                         <span>EUR {cart.subtotal.formatted}</span>
                       </div>
                       <div className={styles.emptyCartMobile}>
@@ -1622,6 +1625,11 @@ const Checkout = ({
             getLiveObject={getLiveObject}
             next={next}
             WebLicence={WebLicence}
+            taxable={taxable}
+            setTaxable={setTaxable}
+            rates={rates} 
+            vatRate={vatRate}
+            setVatRate={setVatRate}
           />
         )}
 
@@ -1648,6 +1656,10 @@ const Checkout = ({
             getPaypalPaymentId={getPaypalPaymentId}
             Processing={Processing}
             setProcessing={setProcessing}
+            taxable={taxable}
+            setTaxable={setTaxable}
+            vatRate={vatRate}
+            setVatRate={setVatRate}
           />
         )}
 

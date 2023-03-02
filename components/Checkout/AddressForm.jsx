@@ -1,13 +1,22 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { commerce } from "../../lib/commerce";
 import { Grid } from "@material-ui/core";
 import { useForm, FormProvider } from "react-hook-form";
 
-import styles2 from "../../styles/Forms.module.css";
+import styles from "../../styles/Forms.module.css";
 
 import FormInput from "./CustomTextField";
 
-const AddressForm = ({ checkoutToken, next, WebLicence }) => {
+const AddressForm = ({
+  checkoutToken,
+  next,
+  WebLicence,
+  setTaxable,
+  setVatId,
+  vatId,
+  rates,
+  setVatRate,
+}) => {
   const [shippingCountries, setShippingCountries] = useState([]);
   const [shippingCountry, setShippingCountry] = useState("");
   const [licenseCountry, setLicenseCountry] = useState("");
@@ -16,7 +25,9 @@ const AddressForm = ({ checkoutToken, next, WebLicence }) => {
   const [shippingOptions, setShippingOptions] = useState([]);
   const [shippingOption, setShippingOption] = useState("");
   const [licenseInfo, setLicenseInfo] = useState(false);
+
   const methods = useForm();
+  var validate = require("validate-vat");
 
   const countries = Object.entries(shippingCountries).map(([code, name]) => ({
     id: code,
@@ -79,10 +90,50 @@ const AddressForm = ({ checkoutToken, next, WebLicence }) => {
       );
   }, [shippingSubdivision]);
 
+  useEffect(() => {
+    (shippingCountry == "AT" && vatId.length <= 4) ||
+    (shippingCountry == "BE" && vatId.length <= 4) ||
+    (shippingCountry == "BG" && vatId.length <= 4) ||
+    (shippingCountry == "CY" && vatId.length <= 4) ||
+    (shippingCountry == "CZ" && vatId.length <= 4) ||
+    (shippingCountry == "DK" && vatId.length <= 4) ||
+    (shippingCountry == "EE" && vatId.length <= 4) ||
+    (shippingCountry == "FI" && vatId.length <= 4) ||
+    (shippingCountry == "FR" && vatId.length <= 4) ||
+    (shippingCountry == "CR" && vatId.length <= 4) ||
+    (shippingCountry == "GR" && vatId.length <= 4) ||
+    (shippingCountry == "HU" && vatId.length <= 4) ||
+    (shippingCountry == "IE" && vatId.length <= 4) ||
+    (shippingCountry == "IT" && vatId.length <= 4) ||
+    (shippingCountry == "LV" && vatId.length <= 4) ||
+    (shippingCountry == "LT" && vatId.length <= 4) ||
+    (shippingCountry == "LU" && vatId.length <= 4) ||
+    (shippingCountry == "MT" && vatId.length <= 4) ||
+    (shippingCountry == "NL" && vatId.length <= 4) ||
+    (shippingCountry == "PL" && vatId.length <= 4) ||
+    (shippingCountry == "PT" && vatId.length <= 4) ||
+    (shippingCountry == "RO" && vatId.length <= 4) ||
+    (shippingCountry == "SK" && vatId.length <= 4) ||
+    (shippingCountry == "SI" && vatId.length <= 4) ||
+    (shippingCountry == "ES" && vatId.length <= 4) ||
+    (shippingCountry == "SE" && vatId.length <= 4) ||
+    shippingCountry == "DE"
+      ? setTaxable(true)
+      : setTaxable(false);
+  });
+
+  useEffect(() => {
+    setVatRate(rates.find((el) => el.short == shippingCountry));
+  });
+
+  validate(shippingCountry, vatId, function (err, validationInfo) {
+    console.log(validationInfo, shippingCountry, vatId);
+  });
+
   return (
     <>
       <FormProvider {...methods}>
-        <div className={styles2.billingHeader}>Billing Information</div>
+        <div className={styles.billingHeader}>Billing Information</div>
         <form
           onSubmit={methods.handleSubmit((data) =>
             next({
@@ -91,6 +142,7 @@ const AddressForm = ({ checkoutToken, next, WebLicence }) => {
               shippingSubdivision,
               shippingOption,
               licenseCountry,
+              vatId,
             })
           )}
         >
@@ -105,17 +157,19 @@ const AddressForm = ({ checkoutToken, next, WebLicence }) => {
               required={true}
             />
             <FormInput name="city" label="City*" required={true} />
-            <div className={styles2.inputLeftbound}>
-              <FormInput
-                name="zip"
-                label="ZIP / Postal code*"
-                required={true}
-              />
-            </div>
+            <FormInput name="zip" label="ZIP / Postal code*" required={true} />
             <Grid item xs={12} sm={6}>
-              <div className={styles2.inputHeader}>Country</div>
+              <input
+                className={styles.inputField}
+                name="vatId"
+                placeholder="VAT ID Number"
+                onChange={(e) => setVatId(e.target.value)}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <div className={styles.inputHeader}>Country</div>
               <select
-                className={styles2.inputField}
+                className={styles.inputField}
                 value={shippingCountry}
                 fullwidth
                 onChange={(e) => setShippingCountry(e.target.value)}
@@ -128,9 +182,9 @@ const AddressForm = ({ checkoutToken, next, WebLicence }) => {
               </select>
             </Grid>
             <Grid item xs={12} sm={6}>
-              <div className={styles2.inputHeader}>State / Subdivision</div>
+              <div className={styles.inputHeader}>State / Subdivision</div>
               <select
-                className={styles2.inputField}
+                className={styles.inputField}
                 value={shippingSubdivision}
                 fullwidth
                 onChange={(e) => setShippingSubdivision(e.target.value)}
@@ -147,21 +201,21 @@ const AddressForm = ({ checkoutToken, next, WebLicence }) => {
 
           {shippingSubdivision && shippingCountry ? (
             <div style={{ display: "flex", justifyContent: "space-between " }}>
-              <button className={styles2.payButton} type="submit">
+              <button className={styles.payButton} type="submit">
                 Continue to Payment
               </button>
             </div>
           ) : (
             <div style={{ display: "flex", justifyContent: "space-between " }}>
-              <button className={styles2.payButtonLocked}>
+              <button className={styles.payButtonLocked}>
                 Continue to Payment
               </button>
             </div>
           )}
-          </form>
+        </form>
 
-          <div className={styles2.licenseHeader}>License Information</div>
-          <form
+        <div className={styles.licenseHeader}>License Information</div>
+        <form
           onSubmit={methods.handleSubmit((data) =>
             next({
               ...data,
@@ -197,9 +251,9 @@ const AddressForm = ({ checkoutToken, next, WebLicence }) => {
                 required={true}
               />
             ) : (
-              <div className={styles2.inputLeftbound}>
+              <div className={styles.inputLeftbound}>
                 <FormInput
-                  name="zip"
+                  name="zipLicense"
                   label="ZIP / Postal code*"
                   required={true}
                 />
@@ -207,9 +261,9 @@ const AddressForm = ({ checkoutToken, next, WebLicence }) => {
             )}
 
             <Grid item xs={12} sm={6}>
-              <div className={styles2.inputHeader}>Country</div>
+              <div className={styles.inputHeader}>Country</div>
               <select
-                className={styles2.inputField}
+                className={styles.inputField}
                 value={licenseCountry}
                 fullwidth
                 onChange={(e) => setLicenseCountry(e.target.value)}
@@ -231,7 +285,7 @@ const AddressForm = ({ checkoutToken, next, WebLicence }) => {
                 justifyContent: "space-between ",
               }}
             >
-              <button className={styles2.payButton} type="submit">
+              <button className={styles.payButton} type="submit">
                 Continue to Payment
               </button>
             </div>
@@ -242,7 +296,7 @@ const AddressForm = ({ checkoutToken, next, WebLicence }) => {
                 justifyContent: "space-between ",
               }}
             >
-              <button className={styles2.payButtonLocked}>
+              <button className={styles.payButtonLocked}>
                 Continue to Payment
               </button>
             </div>
@@ -250,7 +304,7 @@ const AddressForm = ({ checkoutToken, next, WebLicence }) => {
         </form>
       </FormProvider>
 
-      {/* <div className={styles2.licenseButton}>
+      {/* <div className={styles.licenseButton}>
         <Button
           lable={`Licensing information is ${
             licenseInfo ? "same as" : "different from"
