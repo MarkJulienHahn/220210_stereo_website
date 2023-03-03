@@ -36,7 +36,7 @@ const About = ({
 }) => {
   const [buttonContent, setButtonContent] = useState(null);
   const [showCheckout, setShowCheckout] = useState(false);
-  
+
   const location = useRouter();
 
   return (
@@ -124,15 +124,15 @@ const About = ({
             subclass={!darkMode ? "secondary" : "quaternary"}
             onClick={() => setDarkMode(!darkMode)}
           />
-        <Cartbutton
-          lable={
-            cart.line_items ? `Cart [${cart.total_unique_items}]` : `Cart [0]`
-          }
-          subclass={"tertiary"}
-          setShowCheckout={setShowCheckout}
-          live={live}
-          cart={cart}
-        />
+          <Cartbutton
+            lable={
+              cart.line_items ? `Cart [${cart.total_unique_items}]` : `Cart [0]`
+            }
+            subclass={"tertiary"}
+            setShowCheckout={setShowCheckout}
+            live={live}
+            cart={cart}
+          />
         </div>
 
         <motion.div
@@ -150,21 +150,28 @@ const About = ({
                   <span className="infoHeader">STEREO</span>{" "}
                   <span className="infoSubheader">Typefaces®</span>
                 </span>{" "}
-                is a type design practice offering{" "}
+                is a Berlin based type design agency and typography label that
+                offers&nbsp;
                 <span className="infoVar1">
-                  retail typefaces, custom fonts and typography-related services
-                </span>
-                . Inspired by modern-day culture, as well as traditional graphic design, we produce high quality
-                typefaces with designers’ demands in mind. From local designers to international agencies we are happy work on all sorts of type-related tasks and support designers all over the world.
+                  font software for retail customers
+                </span>{" "}
+                as well as <span className="infoVar1">corporate typefaces</span>
+                &nbsp; for specific areas of application and other typographic
+                services on request. Incorporating current culture and design
+                trends as well as traditional graphic design, high-quality,
+                contemporary typefaces with extensive and flexible character
+                sets are produced. These are adapted to the current tasks of
+                designers and the needs of their customers with regard to all
+                sorts of media (digital and print).
               </p>
             </div>
 
             <div className={"infoText"}>
               <p>
-                Besides our <span className="infoVar0">retail shop</span>, we
-                also work on{" "}
-                <span className="infoVar2">client-commissions</span>. This is
-                what services we have to offer:
+                In addition to <span className="infoVar0">retail</span> there is
+                also work on&nbsp;
+                <span className="infoVar2">customer request</span>. Feel free to
+                get in touch for the following services:
                 <span
                   style={{
                     fontFamily: "Skyline",
@@ -174,23 +181,19 @@ const About = ({
                 <br />
                 <br />
                 <span>
-                  —&emsp;Custom typefaces
+                  —&emsp;Custom typefaces (static and variable)
                   <br />
                 </span>
                 <span>
-                  —&emsp;Creative direction
+                  —&emsp;Art direction and consulting for typographic concepts
                   <br />
                 </span>
                 <span>
-                  —&emsp;Typographic Animations
+                  —&emsp;Design and redesign of logos and wordmarks
                   <br />
                 </span>
                 <span>
-                  —&emsp;(Typographic) logo design
-                  <br />
-                </span>
-                <span>
-                  —&emsp;Typographic development
+                  —&emsp;Typographic animations (2D + 3D)
                   <br />
                 </span>
                 <span>
@@ -202,8 +205,9 @@ const About = ({
 
             <div className={"infoText"}>
               <p>
-                Want to work with us of have a question about one of our
-                products or services? Feel free to write us an email to: &ensp;
+                Questions on products / licensing / services, interests in
+                collaboration or if you just want to say »hi«, send an email
+                to:&ensp;
                 <span className="infoVar3">
                   <a href="mailto:info@stereotypefaces.com">
                     info@stereotypefaces.com
@@ -211,12 +215,12 @@ const About = ({
                 </span>
                 <br />
                 <br />
-                Or you can give us a call and talk to us personally. We are
-                available from Monday — Friday from 9.00am — 6.00pm (CEST):
-                &ensp;
+                For faster reply, call:&nbsp;{" "}
                 <span className="infoVar3">
                   +49&nbsp;152&nbsp;03&nbsp;56&nbsp;93&nbsp;05
                 </span>
+                <br />
+                Working hours: Monday — Friday from 10 am — 6 pm (CEST)
                 <br />
                 <br />
               </p>

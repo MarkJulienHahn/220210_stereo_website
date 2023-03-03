@@ -8,7 +8,7 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import Button from "../components/Button";
 
-import ThreeDObject from "../components/ThreeDObject";
+// import ThreeDObject from "../components/ThreeDObject";
 
 import TrialsPreviewSingle from "../components/Storefront/TrialsPreviewSingle";
 import TrialsSingle from "../components/TrialsSingle";

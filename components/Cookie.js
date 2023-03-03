@@ -1,4 +1,4 @@
-import React from "react";
+import Link from "next/link";
 import Button from "../components/Button";
 
 const Cookie = ({ acceptCookie }) => {
@@ -13,7 +13,9 @@ const Cookie = ({ acceptCookie }) => {
           subclass={"primary"}
           onClick={() => acceptCookie()}
         />
-        <Button lable={"Learn More"} subclass={"secondary"} />
+        <Link href="/legals">
+          <Button lable={"Learn More"} subclass={"secondary"} />
+        </Link>
       </div>
     </>
   );

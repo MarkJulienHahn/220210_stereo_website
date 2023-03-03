@@ -179,8 +179,7 @@ const TrialsSingle = ({ setShowTrials }) => {
             <>
               <div className="trialsConfirmation">
                 <p>
-                  Thank you for your Interest, <br />
-                  {name}
+                  Thank you for your interest, {name}. <br/>Please check your inbox.
                   <br />
                   🦄
                 </p>

@@ -25,6 +25,7 @@ const AddressForm = ({
   const [shippingOptions, setShippingOptions] = useState([]);
   const [shippingOption, setShippingOption] = useState("");
   const [licenseInfo, setLicenseInfo] = useState(false);
+  const [vatValidationObject, setVatValidationObject] = useState({});
 
   const methods = useForm();
   var validate = require("validate-vat");
@@ -126,9 +127,20 @@ const AddressForm = ({
     setVatRate(rates.find((el) => el.short == shippingCountry));
   });
 
-  validate(shippingCountry, vatId, function (err, validationInfo) {
-    console.log(validationInfo, shippingCountry, vatId);
-  });
+  // useEffect(() => {
+  //   setVatValidationObject({ vat: vatId, country: shippingCountry });
+  // }, [vatId || shippingCountry]);
+
+  // fetch("/api/vatValidation", {
+  //   method: "post",
+  //   body: JSON.stringify(vatValidationObject),
+  // })
+
+  // console.log(vatValidationObject);
+
+  // // validate(shippingCountry, vatId, function (err, validationInfo) {
+  // //   console.log(validationInfo, shippingCountry, vatId);
+  // // });
 
   return (
     <>
