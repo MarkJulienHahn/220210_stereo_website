@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { useRouter } from "next/router";
 import Head from "next/head";
@@ -13,10 +13,17 @@ import ThreeDObject from "../components/ThreeDObject";
 import TrialsPreviewSingle from "../components/Storefront/TrialsPreviewSingle";
 import TrialsSingle from "../components/TrialsSingle";
 
-const Trials = ({ cart, setShowCheckout, live }) => {
+const Trials = () => {
   const [showTrials, setShowTrials] = useState(false);
+  const [show3Dobject, setShow3Dobject] = useState(false);
   const location = useRouter();
-  const canvas = { width: "100vw", height: "100vh" };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShow3Dobject(true)
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div>
@@ -35,8 +42,11 @@ const Trials = ({ cart, setShowCheckout, live }) => {
       </div>
 
       <div className="buttonsRightWrapper" scroll={false}>
-
-        <Button onClick={() => setShowTrials(!showTrials)} lable={"Get your Trials"} subclass={"primary"} />
+        <Button
+          onClick={() => setShowTrials(!showTrials)}
+          lable={"Get your Trials"}
+          subclass={"primary"}
+        />
       </div>
 
       <AnimatePresence exitBeforeEnter>
@@ -48,13 +58,15 @@ const Trials = ({ cart, setShowCheckout, live }) => {
           exit={{ y: -300, opacity: 0 }}
           transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
         >
-          {" "}
+          <div
+            style={{ width: "100vw", height: "100vh", background: "black" }}
+            onClick={() => setShow3Dobject(true)}
+          >
+            {show3Dobject && <ThreeDObject />}
 
-
-            <ThreeDObject />
-
-          {showTrials && <TrialsSingle />}
-          {/* <TrialsPreviewSingle setShowTrials={setShowTrials} /> */}
+            {showTrials && <TrialsSingle />}
+            {/* <TrialsPreviewSingle setShowTrials={setShowTrials} /> */}
+          </div>
         </motion.div>
       </AnimatePresence>
     </div>
