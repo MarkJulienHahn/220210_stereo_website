@@ -111,8 +111,8 @@ const Footer = () => {
                   </p>
                   <hr />
                   <p className={"disclaimer"}>
-                    By registering you agree to accept the Terms & Conditions
-                    and have read the Privacy Policy.
+                    By registering you agree to accept the <Link href="/general-terms">general terms & conditions</Link>
+                    {" "}and have read the Privacy Policy.
                   </p>
                   <button>Submit</button>
                 </form>

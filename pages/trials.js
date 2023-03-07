@@ -8,7 +8,7 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import Button from "../components/Button";
 
-// import ThreeDObject from "../components/ThreeDObject";
+import ThreeDObject from "../components/ThreeDObject";
 
 import TrialsPreviewSingle from "../components/Storefront/TrialsPreviewSingle";
 import TrialsSingle from "../components/TrialsSingle";
@@ -16,6 +16,7 @@ import TrialsSingle from "../components/TrialsSingle";
 const Trials = ({ cart, setShowCheckout, live }) => {
   const [showTrials, setShowTrials] = useState(false);
   const location = useRouter();
+  const canvas = { width: "100vw", height: "100vh" };
 
   return (
     <div>
@@ -33,6 +34,11 @@ const Trials = ({ cart, setShowCheckout, live }) => {
         <Button lable={"Trials"} subclass={"quaternaryMuted"} />
       </div>
 
+      <div className="buttonsRightWrapper" scroll={false}>
+
+        <Button onClick={() => setShowTrials(!showTrials)} lable={"Get your Trials"} subclass={"primary"} />
+      </div>
+
       <AnimatePresence exitBeforeEnter>
         <motion.div
           location={location}
@@ -42,10 +48,13 @@ const Trials = ({ cart, setShowCheckout, live }) => {
           exit={{ y: -300, opacity: 0 }}
           transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
         >
-          {/* <ThreeDObject /> */}
+          {" "}
+
+
+            <ThreeDObject />
 
           {showTrials && <TrialsSingle />}
-          <TrialsPreviewSingle setShowTrials={setShowTrials} />
+          {/* <TrialsPreviewSingle setShowTrials={setShowTrials} /> */}
         </motion.div>
       </AnimatePresence>
     </div>

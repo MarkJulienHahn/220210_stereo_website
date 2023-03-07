@@ -2187,6 +2187,10 @@ margin-right: 3px
   padding-top: var(--margin-M);
 }
 
+.disclaimer a:hover {
+  text-decoration: underline;
+}
+
 @media only screen and (max-width: 1000px) {
   .footer {
     flex-direction: column-reverse;
@@ -2235,9 +2239,9 @@ margin-right: 3px
 .infoText p {
   font-family: "Giallo";
   font-size: 25pt;
-  line-height: 29.5pt;
-  letter-spacing: -0.8px;
-  word-spacing: -2px;
+  line-height: 31.5pt;
+  letter-spacing: -0.7px;
+  word-spacing: -1px;
 }
 
 .infoVar1 {
