@@ -5,6 +5,7 @@ import Head from "next/head";
 import Link from "next/link";
 
 import { AnimatePresence, motion } from "framer-motion";
+import useWindowDimensions from "../components/Hooks/useWindowDimensions";
 
 import Button from "../components/Button";
 
@@ -17,6 +18,8 @@ const Trials = () => {
   const [showTrials, setShowTrials] = useState(false);
   const [show3Dobject, setShow3Dobject] = useState(false);
   const location = useRouter();
+
+  const { windowHeight, windowWidth } = useWindowDimensions();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -59,13 +62,12 @@ const Trials = () => {
           transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
         >
           <div
-            style={{ width: "100vw", height: "100vh", background: "black" }}
+            style={{ width: "100vw", height: windowHeight, background: "black" }}
             onClick={() => setShow3Dobject(true)}
           >
-            {show3Dobject && <ThreeDObject />}
+            {show3Dobject && <ThreeDObject windowWidth={windowWidth}/>}
 
             {showTrials && <TrialsSingle />}
-            {/* <TrialsPreviewSingle setShowTrials={setShowTrials} /> */}
           </div>
         </motion.div>
       </AnimatePresence>

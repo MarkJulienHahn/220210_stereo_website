@@ -12,34 +12,7 @@ import dynamic from "next/dynamic";
 
 const Model = dynamic(() => import("./Model"));
 
-// const Cube = () => {
-//   const meshRef = useRef(null);
-//   useFrame(() => {
-//     if (!meshRef.current) {
-//       return;
-//     }
-
-//     meshRef.current.rotation.y += 0.004;
-//   });
-
-//   return (
-//     <mesh ref={meshRef}>
-//       <boxGeometry attac="geometry" args={[2, 2, 2]} />
-//       <meshStandardMaterial color="blue" />
-//     </mesh>
-//   );
-// };
-
-// function Test(props) {
-//   const { nodes, materials } = useGLTF('/test.glb')
-//   return (
-//     <group {...props} dispose={null}>
-//       <mesh geometry={nodes.SADFACE.geometry} material={materials['Shiny Plastic']} position={[0.02, 0.28, -0.54]} rotation={[Math.PI / 2, 0, Math.PI / 2]} />
-//     </group>
-//   )
-// }
-
-const ThreeDObject = ({
+const ThreeDObject = ({ windowWidth, 
   env = "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/brown_photostudio_02_1k.hdr",
 }) => {
   const canvas = { width: "100vw", height: "100vh", alignItems: "center" };
@@ -48,7 +21,7 @@ const ThreeDObject = ({
       <Suspense fallback={"loading"}>
         <Canvas
           style={canvas}
-          camera={{ fov: 40, zoom: 7, near: 1, far: 1000 }}
+          camera={{ fov: 40, zoom: windowWidth > 1000 ? 7 : 4, near: 1, far: 1000 }}
           shadows
         >
           <Environment
