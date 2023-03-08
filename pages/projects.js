@@ -1,3 +1,4 @@
+import { useState } from "react"
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -17,8 +18,6 @@ const Trials = dynamic(() => import("../components/Trials"));
 
 const Projects = ({
   cart,
-  showCheckout,
-  setShowCheckout,
   products,
   checkoutToken,
   handleAddToCart,
@@ -39,6 +38,7 @@ const Projects = ({
   dark
 }) => {
   const location = useRouter();
+  const [showCheckout, setShowCheckout] = useState(false);
 
   return (
     <main className={Styles.AppInner} style={darkMode ? dark : {}}>
@@ -81,32 +81,32 @@ const Projects = ({
       </div>
 
       <div className="buttonsRightWrapper">
-        {/* <div
-          className="lightBulb"
-          style={{
-            fontSize: "17pt",
-            paddingRight: "10px",
-            cursor: "pointer",
-            opacity: darkMode ? 0.5 : 1,
-          }}
-          onClick={() => setDarkMode(!darkMode)}
-        >
-          💡
-        </div> */}
         <Button
           lable={darkMode ? "Light" : "Dark"}
           subclass={!darkMode ? "secondary" : "quaternary"}
           onClick={() => setDarkMode(!darkMode)}
         />
-        <Cartbutton
-          lable={
-            cart.line_items ? `Cart [${cart.total_unique_items}]` : `Cart [0]`
-          }
-          subclass={"tertiary"}
-          setShowCheckout={setShowCheckout}
-          live={live}
-          cart={cart}
+        <Link href="/trials" scroll={false}>
+          <a>
+            <Button lable={"Trials"} subclass={"tertiary"} />
+          </a>
+        </Link>
+        <Button
+          lable={"Buy"}
+          subclass={"primary"}
+          onClick={cart.line_items ? () => setShowCheckout(true) : () => {}}
         />
+        {cart.line_items?.length ? (
+          <Cartbutton
+            lable={`Cart [${cart.total_unique_items}]`}
+            subclass={"tertiary"}
+            setShowCheckout={setShowCheckout}
+            live={live}
+            cart={cart}
+          />
+        ) : (
+          ""
+        )}
       </div>
 
       <AnimatePresence exitBeforeEnter>

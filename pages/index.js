@@ -130,7 +130,7 @@ const Home = ({
       <div className="buttonsLeftWrapper">
         <Link href="/" scroll={false}>
           <a>
-            <Button lable={"Home"} subclass={"quaternaryActive"} />
+            <Button lable={"Home"} subclass={"quaternaryMuted"} />
           </a>
         </Link>
 
@@ -153,7 +153,6 @@ const Home = ({
             </a>
           </Link>
         </div>
-
       </div>
 
       <div className="buttonsRightWrapper">
@@ -162,21 +161,30 @@ const Home = ({
           subclass={!darkMode ? "secondary" : "quaternary"}
           onClick={() => setDarkMode(!darkMode)}
         />
+        <Link href="/trials" scroll={false}>
+          <a>
+            <Button lable={"Trials"} subclass={"tertiary"} />
+          </a>
+        </Link>
         <Button
           lable={"Buy"}
           subclass={"primary"}
           onClick={cart.line_items ? () => setShowCheckout(true) : () => {}}
         />
-        <Cartbutton
-          lable={
-            cart.line_items ? `Cart [${cart.total_unique_items}]` : `Cart [0]`
-          }
-          subclass={"tertiary"}
-          setShowCheckout={setShowCheckout}
-          live={live}
-          cart={cart}
-        />
+        {cart.line_items?.length ? (
+          <Cartbutton
+            lable={`Cart [${cart.total_unique_items}]`}
+            subclass={"tertiary"}
+            setShowCheckout={setShowCheckout}
+            live={live}
+            cart={cart}
+          />
+        ) : (
+          ""
+        )}
       </div>
+
+
       <AnimatePresence exitBeforeEnter>
         <motion.div
           location={location}

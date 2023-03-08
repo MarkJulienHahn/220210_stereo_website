@@ -107,33 +107,33 @@ const About = ({
         </div>
 
         <div className="buttonsRightWrapper">
-          {/* <div
-            className="lightBulb"
-            style={{
-              fontSize: "17pt",
-              paddingRight: "10px",
-              cursor: "pointer",
-              opacity: darkMode ? 0.5 : 1,
-            }}
-            onClick={() => setDarkMode(!darkMode)}
-          >
-            💡
-          </div> */}
-          <Button
-            lable={darkMode ? "Light" : "Dark"}
-            subclass={!darkMode ? "secondary" : "quaternary"}
-            onClick={() => setDarkMode(!darkMode)}
-          />
+        <Button
+          lable={darkMode ? "Light" : "Dark"}
+          subclass={!darkMode ? "secondary" : "quaternary"}
+          onClick={() => setDarkMode(!darkMode)}
+        />
+        <Link href="/trials" scroll={false}>
+          <a>
+            <Button lable={"Trials"} subclass={"tertiary"} />
+          </a>
+        </Link>
+        <Button
+          lable={"Buy"}
+          subclass={"primary"}
+          onClick={cart.line_items ? () => setShowCheckout(true) : () => {}}
+        />
+        {cart.line_items?.length ? (
           <Cartbutton
-            lable={
-              cart.line_items ? `Cart [${cart.total_unique_items}]` : `Cart [0]`
-            }
+            lable={`Cart [${cart.total_unique_items}]`}
             subclass={"tertiary"}
             setShowCheckout={setShowCheckout}
             live={live}
             cart={cart}
           />
-        </div>
+        ) : (
+          ""
+        )}
+      </div>
 
         <motion.div
           location={location}

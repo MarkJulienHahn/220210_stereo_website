@@ -130,7 +130,7 @@ const TypefacePreviewAutomat = (props) => {
       <div
         className="typefaceDisplay"
         style={style01}
-        onMouseEnter={() => updateButtonContent("COMING SOON!")}
+        onMouseEnter={() => updateButtonContent("Available on Request")}
         onMouseLeave={() => updateButtonContent("")}
       >
         <div>{props.content[nmbr]}</div>

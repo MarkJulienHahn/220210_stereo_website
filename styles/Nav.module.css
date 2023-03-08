@@ -42,7 +42,7 @@
 
 .menuTypo:hover {
     font-variation-settings: 'wdth' 500;
-    transition: font-variation-settings 0.5s ease;
+    transition: font-variation-settings 0.4s ease;
 }
 
 .menuBarClosed .menuLink, .menuBarClosed hr {
