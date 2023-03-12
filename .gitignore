@@ -34,4 +34,5 @@ yarn-error.log*
 # vercel
 .vercel
 
-public/happyface/logo.gltf
+# old shit
+/_old

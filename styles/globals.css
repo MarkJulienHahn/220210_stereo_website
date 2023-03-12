@@ -1864,7 +1864,7 @@ margin-right: 3px
 
 .storefrontTrialsWrapper {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   color: black;
   background: var(--primary);
   font-size: 8vw;
@@ -1875,6 +1875,15 @@ margin-right: 3px
   animation: variationAnimation 1s ease alternate-reverse;
   animation-iteration-count: infinite;
 }
+
+.storefrontTrialsInner {
+  width: 100vw;
+  height: 100%;
+  animation: fadeIn 2s ease;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
 
 .storefrontTrialsWrapper p {
   cursor: pointer;

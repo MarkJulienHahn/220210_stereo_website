@@ -98,9 +98,7 @@ const Home = ({
           content="Stereo Typefaces® is an independent type-design lable, based in Berlin. As a foundry it is specialized in retail typefaces, custom typography and variable fonts."
         />
         <link rel="icon" href="/favicon.ico" sizes="any"></link>
-        <link rel="icon" href="/icon.svg" type="image/svg+xml"></link>
         <link rel="apple-touch-icon" href="/apple-touch-icon.png"></link>
-        <link rel="manifest" href="/manifest.webmanifest"></link>
       </Head>
 
       {showCheckout && (

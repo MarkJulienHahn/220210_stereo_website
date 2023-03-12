@@ -12,34 +12,41 @@ import dynamic from "next/dynamic";
 
 const Model = dynamic(() => import("./Model"));
 
-const ThreeDObject = ({ windowWidth, 
+const ThreeDObject = ({
+  windowWidth,
   env = "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/brown_photostudio_02_1k.hdr",
 }) => {
-  const canvas = { width: "100vw", height: "100vh", alignItems: "center" };
+  const canvas = { width: "100vw", height: "100%", alignItems: "center" };
   return (
     <div className="storefrontTrialsWrapper" style={{ background: "black" }}>
-      <Suspense fallback={"loading"}>
-        <Canvas
-          style={canvas}
-          camera={{ fov: 40, zoom: windowWidth > 1000 ? 7 : 4, near: 1, far: 1000 }}
-          shadows
-        >
-          <Environment
-            files={env}
-            ground={{ height: 5, radius: 40, scale: 20 }}
-          />
-          <PresentationControls
-            global
-            config={{ mass: 2, tension: 500 }}
-            snap={{ mass: 4, tension: 1500 }}
-            rotation={[0, 0.3, 0]}
-            polar={[-Math.PI / 3, Math.PI / 3]}
-            azimuth={[-Math.PI / 1.4, Math.PI / 2]}
+      <div className="storefrontTrialsInner">
+        <Suspense fallback={"loading"}>
+          <Canvas
+            style={canvas}
+            camera={{
+              fov: 40,
+              zoom: windowWidth > 1000 ? 7 : 4,
+              near: 1,
+              far: 1000,
+            }}
+            shadows
           >
-            <Model />
-            <BakeShadows />
-          </PresentationControls>
-          {/* <ambientLight intensity={100} />
+            <Environment
+              files={env}
+              ground={{ height: 5, radius: 40, scale: 20 }}
+            />
+            <PresentationControls
+              global
+              config={{ mass: 2, tension: 500 }}
+              snap={{ mass: 4, tension: 1500 }}
+              rotation={[0, 0.3, 0]}
+              polar={[-Math.PI / 3, Math.PI / 3]}
+              azimuth={[-Math.PI / 1.4, Math.PI / 2]}
+            >
+              <Model />
+              <BakeShadows />
+            </PresentationControls>
+            {/* <ambientLight intensity={100} />
           <directionalLight
             castShadow
             shadow-mapSize-height={512}
@@ -71,8 +78,9 @@ const ThreeDObject = ({ windowWidth,
             intensity={0.1}
             color="#d0ffe1"
           /> */}
-        </Canvas>
-      </Suspense>
+          </Canvas>
+        </Suspense>
+      </div>
     </div>
   );
 };
