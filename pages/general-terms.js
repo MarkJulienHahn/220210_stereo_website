@@ -106,7 +106,7 @@ const GeneralTerms = () => {
                 <br />
                 (3) After full payment is received, you will receive an email
                 with the font software or a download link for the purchased
-                software. The licences you acquire with a purchase are defined
+                software. The licenses you acquire with a purchase are defined
                 in § 5 below.
                 <br />
                 <br />
@@ -203,7 +203,7 @@ const GeneralTerms = () => {
                 However, we do not participate in a dispute resolution procedure
                 before a consumer arbitration board.
               </p>
-              <h1>§ 5 Scope of licence</h1>
+              <h1>§ 5 Scope of license</h1>
               <p>
                 (1) Fonts are used in various ways and in various media. We
                 therefore offer different licenses for corresponding font

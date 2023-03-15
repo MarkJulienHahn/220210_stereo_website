@@ -3,8 +3,8 @@ import ProductChoice from "./ProductChoice";
 import styles from "../../styles/Buy.module.css";
 
 const BuyProtest = ({
-  licenceChoice,
-  LicenceUser,
+  licenseChoice,
+  LicenseUser,
   products,
   onAddToCart,
   onRemoveFromCart,
@@ -16,7 +16,7 @@ const BuyProtest = ({
   priceFactor5,
   priceFactor6,
   priceFactor7,
-  Licence,
+  License,
   NumEmployees,
   scrollDown,
   loading,
@@ -32,11 +32,11 @@ const BuyProtest = ({
   const [addBundle2, setAddBundle2] = useState(false);
   const [addBundle3, setAddBundle3] = useState(false);
 
-  const updateLicenceType = (name, licence) => {
-    products.find((el) => el.name === name).licence =
+  const updateLicenseType = (name, license) => {
+    products.find((el) => el.name === name).license =
       NumEmployees != "Student License"
-        ? `${licence} ${NumEmployees} Employees`
-        : `${licence} ${NumEmployees}`;
+        ? `${license} ${NumEmployees} Employees`
+        : `${license} ${NumEmployees}`;
   };
 
   const protest = products.filter((x) =>
@@ -252,13 +252,13 @@ const BuyProtest = ({
       <div
         item
         onClick={
-          licenceChoice &&
-          LicenceUser &&
+          licenseChoice &&
+          LicenseUser &&
           !items.some((item) => item.product_id === protestBundles[0].id)
             ? async () => {
-                updateLicenceType(
+                updateLicenseType(
                   protestBundles[0].name,
-                  Licence,
+                  License,
                   NumEmployees
                 ),
                   clearFullFamily();
@@ -281,13 +281,13 @@ const BuyProtest = ({
           product={protestBundles[0]}
           name={protestBundles[0]?.name}
           price={
-            licenceChoice
+            licenseChoice
               ? `EUR  ${protestBundles[0]?.price.raw * priceFactor}`
               : "Please choose a license Type"
           }
           id={protestBundles[0]?.id}
           cart={cart}
-          licenceChoice={licenceChoice}
+          licenseChoice={licenseChoice}
         />
       </div>
 
@@ -296,13 +296,13 @@ const BuyProtest = ({
       <div
         item
         onClick={
-          licenceChoice &&
-          LicenceUser &&
+          licenseChoice &&
+          LicenseUser &&
           !items.some((item) => item.product_id === protestBundles[1].id)
             ? async () => {
-                updateLicenceType(
+                updateLicenseType(
                   protestBundles[1].name,
-                  Licence,
+                  License,
                   NumEmployees
                 ),
                   onAddToCart(protestBundles[1].id, 1 * priceFactor);
@@ -325,13 +325,13 @@ const BuyProtest = ({
           product={protestBundles[1]}
           name={protestBundles[1]?.name}
           price={
-            licenceChoice
+            licenseChoice
               ? `EUR  ${protestBundles[1]?.price.raw * priceFactor}`
               : "Please choose a license Type"
           }
           id={protestBundles[1]?.id}
           cart={cart}
-          licenceChoice={licenceChoice}
+          licenseChoice={licenseChoice}
         />
       </div>
 
@@ -340,13 +340,13 @@ const BuyProtest = ({
       <div
         item
         onClick={
-          licenceChoice &&
-          LicenceUser &&
+          licenseChoice &&
+          LicenseUser &&
           !items.some((item) => item.product_id === protestBundles[2]?.id)
             ? () => {
-                updateLicenceType(
+                updateLicenseType(
                   protestBundles[2]?.name,
-                  Licence,
+                  License,
                   NumEmployees
                 ),
                   clearBundle2(),
@@ -370,13 +370,13 @@ const BuyProtest = ({
           product={protestBundles[2]}
           name={protestBundles[2]?.name}
           price={
-            licenceChoice
+            licenseChoice
               ? `EUR  ${protestBundles[2]?.price.raw * priceFactor}`
               : "Please choose a license Type"
           }
           id={protestBundles[2]?.id}
           cart={cart}
-          licenceChoice={licenceChoice}
+          licenseChoice={licenseChoice}
         />
       </div>
 
@@ -385,13 +385,13 @@ const BuyProtest = ({
       <div
         item
         onClick={
-          licenceChoice &&
-          LicenceUser &&
+          licenseChoice &&
+          LicenseUser &&
           !items.some((item) => item.product_id === protestBundles[3]?.id)
             ? () => {
-                updateLicenceType(
+                updateLicenseType(
                   protestBundles[3]?.name,
-                  Licence,
+                  License,
                   NumEmployees
                 ),
                   clearBundle3(),
@@ -415,13 +415,13 @@ const BuyProtest = ({
           product={protestBundles[3]}
           name={protestBundles[3]?.name}
           price={
-            licenceChoice
+            licenseChoice
               ? `EUR  ${protestBundles[3]?.price.raw * priceFactor}`
               : "Please choose a license Type"
           }
           id={protestBundles[3]?.id}
           cart={cart}
-          licenceChoice={licenceChoice}
+          licenseChoice={licenseChoice}
         />
       </div>
 
@@ -440,11 +440,11 @@ const BuyProtest = ({
           <div
             item
             onClick={
-              licenceChoice &&
-              LicenceUser &&
+              licenseChoice &&
+              LicenseUser &&
               !items.some((item) => item.product_id === product.id)
                 ? () => {
-                    updateLicenceType(product.name, Licence, NumEmployees),
+                    updateLicenseType(product.name, License, NumEmployees),
                       onAddToCart(product.id, 1 * priceFactor);
                     setTimeout(scrollDown(), 1000);
                   }
@@ -458,7 +458,7 @@ const BuyProtest = ({
               product={product}
               name={product.name}
               price={
-                licenceChoice
+                licenseChoice
                   ? `EUR  ${product.price.raw * priceFactor}`
                   : "Please choose a license Type"
               }

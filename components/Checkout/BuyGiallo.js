@@ -3,8 +3,8 @@ import ProductChoice from "./ProductChoice";
 import styles from "../../styles/Buy.module.css";
 
 const BuyGiallo = ({
-  licenceChoice,
-  LicenceUser,
+  licenseChoice,
+  LicenseUser,
   products,
   onAddToCart,
   onRemoveFromCart,
@@ -16,7 +16,7 @@ const BuyGiallo = ({
   priceFactor5,
   priceFactor6,
   priceFactor7,
-  Licence,
+  License,
   NumEmployees,
   scrollDown,
   loading,
@@ -32,11 +32,11 @@ const BuyGiallo = ({
   const [addBundle2, setAddBundle2] = useState(false);
   const [addBundle3, setAddBundle3] = useState(false);
 
-  const updateLicenceType = (name, licence) => {
-    products.find((el) => el.name === name).licence =
+  const updateLicenseType = (name, license) => {
+    products.find((el) => el.name === name).license =
       NumEmployees != "Student License"
-        ? `${licence} ${NumEmployees} Employees`
-        : `${licence} ${NumEmployees}`;
+        ? `${license} ${NumEmployees} Employees`
+        : `${license} ${NumEmployees}`;
   };
 
   const giallo = products.filter((x) =>
@@ -254,11 +254,11 @@ const BuyGiallo = ({
       <div
         item
         onClick={
-          licenceChoice &&
-          LicenceUser &&
+          licenseChoice &&
+          LicenseUser &&
           !items.some((item) => item.product_id === gialloBundles[0].id)
             ? async () => {
-                updateLicenceType(gialloBundles[0].name, Licence, NumEmployees),
+                updateLicenseType(gialloBundles[0].name, License, NumEmployees),
                   clearFullFamily();
                 onAddToCart(gialloBundles[0].id, 1 * priceFactor);
                 setTimeout(scrollDown(), 1000);
@@ -279,13 +279,13 @@ const BuyGiallo = ({
           product={gialloBundles[0]}
           name={gialloBundles[0]?.name}
           price={
-            licenceChoice
+            licenseChoice
               ? `EUR  ${gialloBundles[0]?.price.raw * priceFactor}`
               : "Please choose a license Type"
           }
           id={gialloBundles[0]?.id}
           cart={cart}
-          licenceChoice={licenceChoice}
+          licenseChoice={licenseChoice}
         />
       </div>
 
@@ -294,13 +294,13 @@ const BuyGiallo = ({
       <div
         item
         onClick={
-          licenceChoice &&
-          LicenceUser &&
+          licenseChoice &&
+          LicenseUser &&
           !items.some((item) => item.product_id === gialloBundles[1]?.id)
             ? () => {
-                updateLicenceType(
+                updateLicenseType(
                   gialloBundles[1]?.name,
-                  Licence,
+                  License,
                   NumEmployees
                 ),
                   clearBundle1(),
@@ -323,13 +323,13 @@ const BuyGiallo = ({
           product={gialloBundles[1]}
           name={gialloBundles[1].name}
           price={
-            licenceChoice
+            licenseChoice
               ? `EUR  ${gialloBundles[1].price.raw * priceFactor}`
               : "Please choose a license Type"
           }
           id={gialloBundles[1].id}
           cart={cart}
-          licenceChoice={licenceChoice}
+          licenseChoice={licenseChoice}
         />
       </div>
 
@@ -338,13 +338,13 @@ const BuyGiallo = ({
       <div
         item
         onClick={
-          licenceChoice &&
-          LicenceUser &&
+          licenseChoice &&
+          LicenseUser &&
           !items.some((item) => item.product_id === gialloBundles[2]?.id)
             ? () => {
-                updateLicenceType(
+                updateLicenseType(
                   gialloBundles[2]?.name,
-                  Licence,
+                  License,
                   NumEmployees
                 ),
                   clearBundle2(),
@@ -367,13 +367,13 @@ const BuyGiallo = ({
           product={gialloBundles[2]}
           name={gialloBundles[2].name}
           price={
-            licenceChoice
+            licenseChoice
               ? `EUR  ${gialloBundles[2].price.raw * priceFactor}`
               : "Please choose a license Type"
           }
           id={gialloBundles[2].id}
           cart={cart}
-          licenceChoice={licenceChoice}
+          licenseChoice={licenseChoice}
         />
       </div>
 
@@ -382,13 +382,13 @@ const BuyGiallo = ({
       <div
         item
         onClick={
-          licenceChoice &&
-          LicenceUser &&
+          licenseChoice &&
+          LicenseUser &&
           !items.some((item) => item.product_id === gialloBundles[3]?.id)
             ? () => {
-                updateLicenceType(
+                updateLicenseType(
                   gialloBundles[3]?.name,
-                  Licence,
+                  License,
                   NumEmployees
                 ),
                   clearBundle3(),
@@ -411,13 +411,13 @@ const BuyGiallo = ({
           product={gialloBundles[3]}
           name={gialloBundles[3]?.name}
           price={
-            licenceChoice
+            licenseChoice
               ? `EUR  ${gialloBundles[3]?.price.raw * priceFactor}`
               : "Please choose a license Type"
           }
           id={gialloBundles[3]?.id}
           cart={cart}
-          licenceChoice={licenceChoice}
+          licenseChoice={licenseChoice}
         />
       </div>
 
@@ -436,11 +436,11 @@ const BuyGiallo = ({
           <div
             item
             onClick={
-              licenceChoice &&
-              LicenceUser &&
+              licenseChoice &&
+              LicenseUser &&
               !items.some((item) => item.product_id === product.id)
                 ? () => {
-                    updateLicenceType(product.name, Licence, NumEmployees),
+                    updateLicenseType(product.name, License, NumEmployees),
                       onAddToCart(product.id, 1 * priceFactor);
                     setTimeout(scrollDown(), 1000);
                   }
@@ -454,7 +454,7 @@ const BuyGiallo = ({
               product={product}
               name={product.name}
               price={
-                licenceChoice
+                licenseChoice
                   ? `EUR  ${product.price.raw * priceFactor}`
                   : "Please choose a license Type"
               }

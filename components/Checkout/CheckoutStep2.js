@@ -20,7 +20,7 @@ const CheckoutStep2 = ({
   cart,
   next,
   live,
-  WebLicence,
+  WebLicense,
   taxable,
   setTaxable,
   rates,
@@ -74,8 +74,8 @@ const CheckoutStep2 = ({
                       <span className={styles.cartItem}>
                         — {item.name}
                         <br />
-                        <span className={styles.licenceType}>
-                          {products.find((el) => el.name === item.name).licence}
+                        <span className={styles.licenseType}>
+                          {products.find((el) => el.name === item.name).license}
                         </span>
                       </span>
 
@@ -162,7 +162,7 @@ const CheckoutStep2 = ({
           <div className={styles.buyAdressContent}>
             <AddressForm
               checkoutToken={checkoutToken}
-              WebLicence={WebLicence}
+              WebLicense={WebLicense}
               next={next}
               setTaxable={setTaxable}
               setVatId={setVatId}

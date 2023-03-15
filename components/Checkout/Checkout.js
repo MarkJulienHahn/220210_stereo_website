@@ -79,16 +79,16 @@ const Checkout = ({
   const [priceFactor6, setPriceFactor6] = useState(0);
   const [priceFactor7, setPriceFactor7] = useState(0);
 
-  const [LicenceUser, setLicenceUser] = useState([]);
-  const [DesktopLicence, setDesktopLicence] = useState([]);
-  const [WebLicence, setWebLicence] = useState("");
-  const [InteractiveLicence, setInteractiveLicence] = useState("");
-  const [SocialLicence, setSocialLicence] = useState("");
-  const [LogoLicence, setLogoLicence] = useState("");
-  const [VideoLicence, setVideoLicence] = useState("");
+  const [LicenseUser, setLicenseUser] = useState([]);
+  const [DesktopLicense, setDesktopLicense] = useState([]);
+  const [WebLicense, setWebLicense] = useState("");
+  const [InteractiveLicense, setInteractiveLicense] = useState("");
+  const [SocialLicense, setSocialLicense] = useState("");
+  const [LogoLicense, setLogoLicense] = useState("");
+  const [VideoLicense, setVideoLicense] = useState("");
   const [NumEmployees, setNumEmployees] = useState("");
 
-  const [licenceChoice, setLicenceChoice] = useState(false);
+  const [licenseChoice, setLicenseChoice] = useState(false);
 
   const [animated, setAnimated] = useState(false);
 
@@ -96,37 +96,37 @@ const Checkout = ({
 
   const [fontPreview, setFontPreview] = useState(null);
 
-  const Licence = [
-    `${DesktopLicence && `${DesktopLicence},`} ${
-      WebLicence && `${WebLicence},`
-    } ${InteractiveLicence && `${InteractiveLicence},`} ${
-      SocialLicence && `${SocialLicence},`
-    } ${LogoLicence && `${LogoLicence},`} ${
-      VideoLicence && `${VideoLicence},`
+  const License = [
+    `${DesktopLicense && `${DesktopLicense},`} ${
+      WebLicense && `${WebLicense},`
+    } ${InteractiveLicense && `${InteractiveLicense},`} ${
+      SocialLicense && `${SocialLicense},`
+    } ${LogoLicense && `${LogoLicense},`} ${
+      VideoLicense && `${VideoLicense},`
     }`,
   ];
 
-  const updateLicenceUser = (user) => {
-    setLicenceUser(user);
+  const updateLicenseUser = (user) => {
+    setLicenseUser(user);
   };
 
-  const updateDesktopLicence = (licence) => {
-    setDesktopLicence(licence);
+  const updateDesktopLicense = (license) => {
+    setDesktopLicense(license);
   };
-  const updateWebLicence = (licence) => {
-    setWebLicence(licence);
+  const updateWebLicense = (license) => {
+    setWebLicense(license);
   };
-  const updateInteractiveLicence = (licence) => {
-    setInteractiveLicence(licence);
+  const updateInteractiveLicense = (license) => {
+    setInteractiveLicense(license);
   };
-  const updateSocialLicence = (licence) => {
-    setSocialLicence(licence);
+  const updateSocialLicense = (license) => {
+    setSocialLicense(license);
   };
-  const updateLogoLicence = (licence) => {
-    setLogoLicence(licence);
+  const updateLogoLicense = (license) => {
+    setLogoLicense(license);
   };
-  const updateVideoLicence = (licence) => {
-    setVideoLicence(licence);
+  const updateVideoLicense = (license) => {
+    setVideoLicense(license);
   };
   const updateNumEmployees = (num) => {
     setNumEmployees(num);
@@ -134,9 +134,9 @@ const Checkout = ({
 
   useEffect(() => {
     if (priceFactor4 < 3) {
-      updateSocialLicence(""),
-        updateLogoLicence(""),
-        updateVideoLicence(""),
+      updateSocialLicense(""),
+        updateLogoLicense(""),
+        updateVideoLicense(""),
         updatePriceFactor5(0),
         updatePriceFactor6(0),
         updatePriceFactor7(0);
@@ -144,10 +144,10 @@ const Checkout = ({
   }, [priceFactor4]);
 
   useEffect(() => {
-    if (LicenceUser == "Student") {
-      updateSocialLicence(""),
-        updateLogoLicence(""),
-        updateVideoLicence(""),
+    if (LicenseUser == "Student") {
+      updateSocialLicense(""),
+        updateLogoLicense(""),
+        updateVideoLicense(""),
         updatePriceFactor5(0),
         updatePriceFactor6(0),
         updatePriceFactor7(0);
@@ -165,12 +165,12 @@ const Checkout = ({
         priceFactor6 +
         priceFactor7 &&
         priceFactor4 &&
-        LicenceUser !== "") ||
-      (LicenceUser == "Student" &&
+        LicenseUser !== "") ||
+      (LicenseUser == "Student" &&
         priceFactor1 + priceFactor2 + priceFactor3 !== 0)
     )
-      setLicenceChoice(true);
-    else setLicenceChoice(false);
+      setLicenseChoice(true);
+    else setLicenseChoice(false);
   });
 
   const updateButtonContent = (input1) => {
@@ -229,13 +229,13 @@ const Checkout = ({
       updatePriceFactor5(0),
       updatePriceFactor6(0),
       updatePriceFactor7(0),
-      updateDesktopLicence(""),
-      updateWebLicence(""),
-      updateInteractiveLicence(""),
-      updateSocialLicence(""),
-      updateLogoLicence(""),
-      updateVideoLicence(""),
-      updateLicenceUser("");
+      updateDesktopLicense(""),
+      updateWebLicense(""),
+      updateInteractiveLicense(""),
+      updateSocialLicense(""),
+      updateLogoLicense(""),
+      updateVideoLicense(""),
+      updateLicenseUser("");
   };
 
   React.useEffect(() => {
@@ -316,84 +316,84 @@ const Checkout = ({
   });
 
   React.useEffect(() => {
-    const data = localStorage.getItem("licenceUser");
+    const data = localStorage.getItem("licenseUser");
     if (data) {
-      setLicenceUser(JSON.parse(data));
+      setLicenseUser(JSON.parse(data));
     }
   }, []);
 
   React.useEffect(() => {
-    localStorage.setItem("licenceUser", JSON.stringify(LicenceUser));
+    localStorage.setItem("licenseUser", JSON.stringify(LicenseUser));
   });
 
   React.useEffect(() => {
-    const data = localStorage.getItem("licenceDesktop");
+    const data = localStorage.getItem("licenseDesktop");
     if (data) {
-      setDesktopLicence(JSON.parse(data));
+      setDesktopLicense(JSON.parse(data));
     }
   }, []);
 
   React.useEffect(() => {
-    localStorage.setItem("licenceDesktop", JSON.stringify(DesktopLicence));
+    localStorage.setItem("licenseDesktop", JSON.stringify(DesktopLicense));
   });
 
   React.useEffect(() => {
-    const data = localStorage.getItem("licenceWeb");
+    const data = localStorage.getItem("licenseWeb");
     if (data) {
-      setWebLicence(JSON.parse(data));
+      setWebLicense(JSON.parse(data));
     }
   }, []);
 
   React.useEffect(() => {
-    localStorage.setItem("licenceWeb", JSON.stringify(WebLicence));
+    localStorage.setItem("licenseWeb", JSON.stringify(WebLicense));
   });
 
   React.useEffect(() => {
-    const data = localStorage.getItem("licenceApp");
+    const data = localStorage.getItem("licenseApp");
     if (data) {
-      setInteractiveLicence(JSON.parse(data));
+      setInteractiveLicense(JSON.parse(data));
     }
   }, []);
 
   React.useEffect(() => {
-    localStorage.setItem("licenceApp", JSON.stringify(InteractiveLicence));
+    localStorage.setItem("licenseApp", JSON.stringify(InteractiveLicense));
   });
 
   React.useEffect(() => {
-    const data = localStorage.getItem("licenceSocial");
+    const data = localStorage.getItem("licenseSocial");
     if (data) {
-      setSocialLicence(JSON.parse(data));
+      setSocialLicense(JSON.parse(data));
     }
   }, []);
 
   React.useEffect(() => {
-    localStorage.setItem("licenceSocial", JSON.stringify(SocialLicence));
+    localStorage.setItem("licenseSocial", JSON.stringify(SocialLicense));
   });
 
   React.useEffect(() => {
-    const data = localStorage.getItem("licenceLogo");
+    const data = localStorage.getItem("licenseLogo");
     if (data) {
-      setLogoLicence(JSON.parse(data));
+      setLogoLicense(JSON.parse(data));
     }
   }, []);
 
   React.useEffect(() => {
-    localStorage.setItem("licenceLogo", JSON.stringify(LogoLicence));
+    localStorage.setItem("licenseLogo", JSON.stringify(LogoLicense));
   });
 
   React.useEffect(() => {
-    const data = localStorage.getItem("licenceVideo");
+    const data = localStorage.getItem("licenseVideo");
     if (data) {
-      setVideoLicence(JSON.parse(data));
+      setVideoLicense(JSON.parse(data));
     }
   }, []);
 
   React.useEffect(() => {
-    localStorage.setItem("licenceVideo", JSON.stringify(VideoLicence));
+    localStorage.setItem("licenseVideo", JSON.stringify(VideoLicense));
   });
 
   React.useEffect(() => {
-    localStorage.setItem("licence", JSON.stringify(Licence));
+    localStorage.setItem("license", JSON.stringify(License));
   });
 
   React.useEffect(() => {
@@ -622,7 +622,7 @@ const Checkout = ({
                   text: [
                     `${
                       products.find((el) => el.name === item.product_name)
-                        .licence
+                        .license
                     }`,
                   ],
                   style: "orderStyleLicense",
@@ -746,7 +746,7 @@ const Checkout = ({
           {
             product_license: products.find(
               (el) => el.name === item.product_name
-            ).licence,
+            ).license,
           },
           { product_price: item.line_total_with_tax.formatted_with_code },
           {
@@ -946,32 +946,32 @@ const Checkout = ({
                     </li>
                   </div>
                   <li
-                    style={LicenceUser == "Client" ? active : inactive}
+                    style={LicenseUser == "Client" ? active : inactive}
                     onClick={
-                      LicenceUser !== "Client"
-                        ? () => updateLicenceUser("Client")
-                        : () => updateLicenceUser("")
+                      LicenseUser !== "Client"
+                        ? () => updateLicenseUser("Client")
+                        : () => updateLicenseUser("")
                     }
                   >
                     Client
                   </li>
                   <li
-                    style={LicenceUser == "Designer" ? active : inactive}
+                    style={LicenseUser == "Designer" ? active : inactive}
                     onClick={
-                      LicenceUser == "Designer"
-                        ? () => updateLicenceUser("")
-                        : () => updateLicenceUser("Designer")
+                      LicenseUser == "Designer"
+                        ? () => updateLicenseUser("")
+                        : () => updateLicenseUser("Designer")
                     }
                   >
                     Designer
                   </li>
 
                   <li
-                    style={LicenceUser == "Student" ? active : inactive}
+                    style={LicenseUser == "Student" ? active : inactive}
                     onClick={
-                      LicenceUser !== "Student"
-                        ? () => updateLicenceUser("Student")
-                        : () => updateLicenceUser("")
+                      LicenseUser !== "Student"
+                        ? () => updateLicenseUser("Student")
+                        : () => updateLicenseUser("")
                     }
                   >
                     Student
@@ -980,7 +980,7 @@ const Checkout = ({
                   <div
                     className={styles.buyConfigurationSection}
                     style={
-                      !LicenceUser || LicenceUser == "Student"
+                      !LicenseUser || LicenseUser == "Student"
                         ? disabled
                         : enabled
                     }
@@ -1152,8 +1152,8 @@ const Checkout = ({
                   <div
                     className={styles.buyConfigurationSection}
                     style={
-                      (priceFactor4 > 1 && LicenceUser) ||
-                      LicenceUser == "Student"
+                      (priceFactor4 > 1 && LicenseUser) ||
+                      LicenseUser == "Student"
                         ? enabled
                         : disabled
                     }
@@ -1176,11 +1176,11 @@ const Checkout = ({
                       onClick={
                         priceFactor1 === 9
                           ? () => {
-                              updatePriceFactor1(0), updateDesktopLicence("");
+                              updatePriceFactor1(0), updateDesktopLicense("");
                             }
                           : () => {
                               updatePriceFactor1(9),
-                                updateDesktopLicence("Desktop");
+                                updateDesktopLicense("Desktop");
                             }
                       }
                     >
@@ -1192,10 +1192,10 @@ const Checkout = ({
                       onClick={
                         priceFactor2 === 14
                           ? () => {
-                              updatePriceFactor2(0), updateWebLicence("");
+                              updatePriceFactor2(0), updateWebLicense("");
                             }
                           : () => {
-                              updatePriceFactor2(14), updateWebLicence("Web");
+                              updatePriceFactor2(14), updateWebLicense("Web");
                             }
                       }
                     >
@@ -1208,11 +1208,11 @@ const Checkout = ({
                         priceFactor3 === 24
                           ? () => {
                               updatePriceFactor3(0),
-                                updateInteractiveLicence("");
+                                updateInteractiveLicense("");
                             }
                           : () => {
                               updatePriceFactor3(24),
-                                updateInteractiveLicence("Interactive");
+                                updateInteractiveLicense("Interactive");
                             }
                       }
                     >
@@ -1230,7 +1230,7 @@ const Checkout = ({
                     >
                       <div
                         style={
-                          priceFactor4 == 2 || LicenceUser == "Student"
+                          priceFactor4 == 2 || LicenseUser == "Student"
                             ? disabled
                             : enabled
                         }
@@ -1241,11 +1241,11 @@ const Checkout = ({
                             priceFactor4 >= 3 && priceFactor5 === 8
                               ? () => {
                                   updatePriceFactor5(0),
-                                    updateSocialLicence("");
+                                    updateSocialLicense("");
                                 }
                               : () => {
                                   updatePriceFactor5(8),
-                                    updateSocialLicence("Social Media");
+                                    updateSocialLicense("Social Media");
                                 }
                           }
                         >
@@ -1257,11 +1257,11 @@ const Checkout = ({
                           onClick={
                             priceFactor6 === 8
                               ? () => {
-                                  updatePriceFactor6(0), updateLogoLicence("");
+                                  updatePriceFactor6(0), updateLogoLicense("");
                                 }
                               : () => {
                                   updatePriceFactor6(8),
-                                    updateLogoLicence("Logo");
+                                    updateLogoLicense("Logo");
                                 }
                           }
                         >
@@ -1272,11 +1272,11 @@ const Checkout = ({
                           onClick={
                             priceFactor7 === 12
                               ? () => {
-                                  updatePriceFactor7(0), updateVideoLicence("");
+                                  updatePriceFactor7(0), updateVideoLicense("");
                                 }
                               : () => {
                                   updatePriceFactor7(12),
-                                    updateVideoLicence("Video");
+                                    updateVideoLicense("Video");
                                 }
                           }
                         >
@@ -1409,23 +1409,23 @@ const Checkout = ({
 
                 <div
                   onMouseEnter={
-                    !licenceChoice || !LicenceUser
+                    !licenseChoice || !LicenseUser
                       ? () =>
                           updateButtonContent(
-                            "Please complete your Licence Choice"
+                            "Please complete your License Choice"
                           )
                       : () => {}
                   }
                   onMouseLeave={
-                    !licenceChoice || !LicenceUser
+                    !licenseChoice || !LicenseUser
                       ? () => updateButtonContent("")
                       : () => {}
                   }
                 >
                   <div
                     style={
-                      (licenceChoice && priceFactor4 > 1) ||
-                      (LicenceUser == "Student" && licenceChoice)
+                      (licenseChoice && priceFactor4 > 1) ||
+                      (LicenseUser == "Student" && licenseChoice)
                         ? buyActive
                         : buyInactive
                     }
@@ -1452,10 +1452,10 @@ const Checkout = ({
                           priceFactor5={priceFactor5}
                           priceFactor6={priceFactor6}
                           priceFactor7={priceFactor7}
-                          licenceChoice={licenceChoice}
-                          LicenceUser={LicenceUser}
+                          licenseChoice={licenseChoice}
+                          LicenseUser={LicenseUser}
                           onUpdateCartPrice={handleUpdateCartPrice}
-                          Licence={Licence}
+                          License={License}
                           NumEmployees={NumEmployees}
                           scrollDown={scrollDown}
                           setFontPreview={setFontPreview}
@@ -1483,10 +1483,10 @@ const Checkout = ({
                           priceFactor5={priceFactor5}
                           priceFactor6={priceFactor6}
                           priceFactor7={priceFactor7}
-                          licenceChoice={licenceChoice}
-                          LicenceUser={LicenceUser}
+                          licenseChoice={licenseChoice}
+                          LicenseUser={LicenseUser}
                           onUpdateCartPrice={handleUpdateCartPrice}
-                          Licence={Licence}
+                          License={License}
                           NumEmployees={NumEmployees}
                           scrollDown={scrollDown}
                           setFontPreview={setFontPreview}
@@ -1514,10 +1514,10 @@ const Checkout = ({
                           priceFactor5={priceFactor5}
                           priceFactor6={priceFactor6}
                           priceFactor7={priceFactor7}
-                          licenceChoice={licenceChoice}
-                          LicenceUser={LicenceUser}
+                          licenseChoice={licenseChoice}
+                          LicenseUser={LicenseUser}
                           onUpdateCartPrice={handleUpdateCartPrice}
-                          Licence={Licence}
+                          License={License}
                           NumEmployees={NumEmployees}
                           scrollDown={scrollDown}
                           setFontPreview={setFontPreview}
@@ -1542,10 +1542,10 @@ const Checkout = ({
                           <span className={styles.cartItem}>
                             — {item.name}
                             <br />
-                            <span className={styles.licenceType}>
+                            <span className={styles.licenseType}>
                               {
                                 products.find((el) => el.name === item.name)
-                                  .licence
+                                  .license
                               }
                             </span>
                           </span>
@@ -1624,7 +1624,7 @@ const Checkout = ({
             handleCouponCode={handleCouponCode}
             getLiveObject={getLiveObject}
             next={next}
-            WebLicence={WebLicence}
+            WebLicense={WebLicense}
             taxable={taxable}
             setTaxable={setTaxable}
             rates={rates} 

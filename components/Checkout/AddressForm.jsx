@@ -10,7 +10,7 @@ import FormInput from "./CustomTextField";
 const AddressForm = ({
   checkoutToken,
   next,
-  WebLicence,
+  WebLicense,
   setTaxable,
   setVatId,
   vatId,
@@ -244,11 +244,11 @@ const AddressForm = ({
               label="Company / User*"
               required={true}
             />
-            {WebLicence == "Web" ? (
+            {WebLicense == "Web" ? (
               <FormInput
                 name="website"
-                label={WebLicence == "Web" ? "Website*" : "Website"}
-                required={WebLicence == "Web" ? true : false}
+                label={WebLicense == "Web" ? "Website*" : "Website"}
+                required={WebLicense == "Web" ? true : false}
               />
             ) : (
               ""
@@ -256,7 +256,7 @@ const AddressForm = ({
 
             <FormInput name="cityLicense" label="City*" required={true} />
 
-            {WebLicence == "Web" ? (
+            {WebLicense == "Web" ? (
               <FormInput
                 name="zipLicense"
                 label="ZIP / Postal code*"

@@ -74,8 +74,8 @@ const CheckoutStep3 = ({
                     <span className={styles.cartItem}>
                       — {item.name}
                       <br />
-                      <span className={styles.licenceType}>
-                        {products.find((el) => el.name === item.name).licence}
+                      <span className={styles.licenseType}>
+                        {products.find((el) => el.name === item.name).license}
                       </span>
                     </span>
 

@@ -56,7 +56,7 @@ const ProductChoice = (props) => {
         }
       >
         <div
-          style={props.licenceChoice && props.licenceUser ? enabled : disabled}
+          style={props.licenseChoice && props.licenseUser ? enabled : disabled}
           className={styles.productWrapper}
         >
           <span
