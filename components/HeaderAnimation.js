@@ -131,10 +131,8 @@ const HeaderAnimation = ({
               bounce: 0.15,
             }}
           >
-            <div>
               <span style={headerStyleMobile}>{name}</span>
               {/* <span className={"smallR"}>®</span> */}
-            </div>
           </motion.div>
           <div style={headerIndexStyle} className={"headerMouseIndex"}>
             <span>{wght <= wghtMax ? threeDigits(wght) : wghtMax-1}</span>
@@ -161,10 +159,8 @@ const HeaderAnimation = ({
               bounce: 0.15,
             }}
           >
-            <div>
               <span style={headerStyle}>{name}</span>
               {/* <span className={"smallR"}>®</span> */}
-            </div>
           </motion.div>
           <div style={headerIndexStyle} className={"headerMouseIndex"}>
             <span>
