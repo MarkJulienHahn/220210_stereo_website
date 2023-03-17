@@ -29,6 +29,7 @@
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.28.0",
     "react-intersection-observer": "^8.33.1",
+    "react-use-downloader": "^1.2.4",
     "stripe": "^8.209.0",
     "swiper": "^8.1.4",
     "three": "^0.149.0",

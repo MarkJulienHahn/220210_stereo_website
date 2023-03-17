@@ -3,9 +3,16 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import Button from "../components/Button";
 import { useRouter } from "next/router";
+import useDownloader from "react-use-downloader";
 
 const Trialdownload = () => {
   const location = useRouter();
+  const { size, elapsed, percentage, download, cancel, error, isInProgress } =
+    useDownloader();
+
+  const fileUrl = "/StereoTypefaces-Trials-2023.zip";
+  const filename = "StereoTypefaces_Trials.zip";
+
   return (
     <div>
       <Head>
@@ -31,10 +38,8 @@ const Trialdownload = () => {
           exit={{ y: -300, opacity: 0 }}
           transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
         >
-          <div className="storefrontTrialsWrapper">
-            <p>
-              <a href="/public/StereoTypefaces-Trials-2023.zip" download>Get your Trials</a>
-            </p>
+          <div className="storefrontTrialsWrapper" style={{ height: "100vh" }}>
+            <p onClick={() => download(fileUrl, filename)}>Get your Trials</p>
           </div>
         </motion.div>
       </AnimatePresence>
