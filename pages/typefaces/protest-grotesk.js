@@ -79,7 +79,6 @@ const ProtestGroteskText = ({
   const technicalScroll = useRef(null);
 
   const hideQuicklinks = () => setShowQuicklinks(false);
-  const fadeOutQuicklinks = () => setTimeout(hideQuicklinks, 2000);
 
   const scrollUp = () => {
     checkoutOverview.current.scrollIntoView({
@@ -256,7 +255,7 @@ const ProtestGroteskText = ({
               </h1>
               <p>
                 When we first started designing Protest Grotesk in 2015, the
-                intention was to
+                intention was to&nbsp;
                 <span className="highlight02">
                   build the font upon a geometrical skeleton
                 </span>

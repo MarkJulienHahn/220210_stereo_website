@@ -253,7 +253,7 @@ const Home = ({
                 darkMode={darkMode}
                 fontSize="11.3vw"
                 lineHeight="10.9vw"
-                letterSpacing="-0.8vw"
+                letterSpacing="-0.6vw"
               />
             </div>
 

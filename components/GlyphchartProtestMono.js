@@ -9,6 +9,7 @@ function GlyphchartProtestMono(props) {
   const [wght, updateWght] = useState(40);
   const [ital, updateItal] = useState(0);
   const [styleset, updateStyleset] = useState("normal");
+  const [fontVariant, setFontVariant] = useState(null)
 
   const glyphStyle = {
     fontFamily: props.fontFamily,
@@ -20,6 +21,7 @@ function GlyphchartProtestMono(props) {
     fontVariationSettings: `'wght' ${wght}, 'wdth' ${props.fontWidth}, 'ital' ${ital}`,
     background: props.darkMode && props.dark.background,
     color: props.darkMode && props.dark.color,
+    fontVariant: fontVariant
   };
 
   function changeWght(e, wght) {
@@ -626,6 +628,11 @@ function GlyphchartProtestMono(props) {
       styleset: "ss02",
     },
     {
+      lable: "Slashed Zero",
+      glyphs: ["0", "₀", "⁰"],
+      fontVariantNumeric: "slashed-zero",
+    },
+    {
       lable: "Punctuation",
       glyphs: [
         ".",
@@ -908,9 +915,9 @@ function GlyphchartProtestMono(props) {
               <div
                 className="glyphchartLetterWrapper"
                 onMouseEnter={
-                  category.styleset
-                    ? () => changeStyleset(`"${category.styleset}"`)
-                    : () => changeStyleset("normal")
+                  category.styleset || category.fontVariantNumeric
+                    ? () => {changeStyleset(`"${category.styleset}"`), setFontVariant(category.fontVariantNumeric)}
+                    : () => {changeStyleset("normal"), setFontVariant("normal")}
                 }
               >
                 {category.glyphs.map((letter, i) => (
@@ -920,6 +927,7 @@ function GlyphchartProtestMono(props) {
                     changeGlyph={(glyph) => setGlyph(glyph)}
                     wght={80}
                     ss={category.styleset}
+                    fontVariantNumeric={category.fontVariantNumeric}
                   />
                 ))}
               </div>

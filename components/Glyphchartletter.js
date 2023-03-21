@@ -2,7 +2,8 @@ function Glyphchartletter(props) {
   const glyphstyle = {
     fontVariationSettings: `"wght" ${props.wght}`,
     fontFeatureSettings: `"${props.ss}"`,
-    fontVariant: props.smallCaps && "small-caps"
+    fontVariant: props.smallCaps && "small-caps",
+    fontVariant: props.fontVariantNumeric
   };
 
   return (

@@ -6,7 +6,7 @@ import Button from "./Button";
 
 function Typetester(props) {
   const [val, updateVal] = useState(200);
-  const [val2, updateVal2] = useState(-7);
+  const [val2, updateVal2] = useState(-3);
   const [val3, setVal3] = useState("ss00");
   const [val4, setVal4] = useState("ss00");
   const [ss01Color, setColor01] = useState("quaternary");
@@ -92,10 +92,10 @@ function Typetester(props) {
               <p>&#8594; Tracking </p>
               <Slider
                 className={styles.slider}
-                min={-20}
-                max={20}
+                min={-10}
+                max={5}
                 step={0.1}
-                defaultValue={-7}
+                defaultValue={-3}
                 onChange={changeVal2}
               />
             </div>

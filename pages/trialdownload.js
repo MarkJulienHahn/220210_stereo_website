@@ -7,7 +7,7 @@ import useDownloader from "react-use-downloader";
 
 const Trialdownload = () => {
   const location = useRouter();
-  const { size, elapsed, percentage, download, cancel, error, isInProgress } =
+  const { download } =
     useDownloader();
 
   const fileUrl = "/StereoTypefaces-Trials-2023.zip";

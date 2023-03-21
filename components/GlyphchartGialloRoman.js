@@ -9,6 +9,7 @@ function Glyphchart(props) {
   const [ital, updateItal] = useState(0);
   const [styleset, updateStyleset] = useState("normal");
   const [smallCaps, updateSmallCaps] = useState(false);
+  const [fontVariant, setFontVariant] = useState(null);
 
   const glyphStyle = {
     fontFamily: props.fontFamily,
@@ -20,10 +21,12 @@ function Glyphchart(props) {
     fontVariationSettings: `'wght' ${wght}, 'wdth' ${props.fontWidth}, 'ital' ${ital}`,
     background: props.darkMode && props.dark.background,
     color: props.darkMode && props.dark.color,
+    fontVariant: fontVariant,
   };
 
   const glyphDisplayLetter = {
     fontVariant: smallCaps && "small-caps",
+    fontVariant: fontVariant,
   };
 
   function changeWght(e, wght) {
@@ -544,11 +547,7 @@ function Glyphchart(props) {
       glyphs: ["ğ", "ĝ", "ģ", "ġ", "ḡ", "ǥ", "ǧ"],
       styleset: "ss02",
     },
-    {
-      lable: "Stylistic Set 3",
-      glyphs: ["7", "₇", "⁷", "⅞"],
-      styleset: "ss03",
-    },
+
     {
       lable: "Stylistic Set 4",
       glyphs: ["®"],
@@ -572,6 +571,7 @@ function Glyphchart(props) {
         "ffh",
         "ffk",
         "fft",
+        "Tb",
         "Th",
         "Tk",
         "Tl",
@@ -671,6 +671,7 @@ function Glyphchart(props) {
         "❼",
         "❽",
         "❾",
+        "⓿ ",
         "①",
         "②",
         "③",
@@ -680,6 +681,7 @@ function Glyphchart(props) {
         "⑦",
         "⑧",
         "⑨",
+        "⓪",
         "⁄",
         "⅟",
         "½",
@@ -692,6 +694,16 @@ function Glyphchart(props) {
         "⅝",
         "⅞",
       ],
+    },
+    {
+      lable: "Slashed Zero",
+      glyphs: ["0", "₀", "⁰", "⓪", "⓿ "],
+      fontVariantNumeric: "slashed-zero",
+    },
+    {
+      lable: "Stylistic Set 3",
+      glyphs: ["7", "₇", "⁷", "⅞", "❼", "⑦", "♹"],
+      styleset: "ss03",
     },
     {
       lable: "Punctuation",
@@ -889,7 +901,7 @@ function Glyphchart(props) {
         "♸",
         "♹",
         "♺",
-        "♻",
+        // "♻",
         // "♾",
         "⚀",
         "⚁",
@@ -1003,7 +1015,12 @@ function Glyphchart(props) {
                   changeStyleset(
                     category.styleset ? `"${category.styleset}"` : "normal"
                   ),
-                    updateSmallCaps(category.smallCaps ? true : false);
+                    updateSmallCaps(category.smallCaps ? true : false),
+                    setFontVariant(
+                      category.fontVariantNumeric
+                        ? category.fontVariantNumeric
+                        : "discretionary-ligatures"
+                    );
                 }}
               >
                 {category.glyphs.map((letter, i) => (
@@ -1014,6 +1031,7 @@ function Glyphchart(props) {
                     wght={400}
                     ss={category.styleset}
                     smallCaps={category.smallCaps}
+                    fontVariantNumeric={category.fontVariantNumeric}
                   />
                 ))}
               </div>

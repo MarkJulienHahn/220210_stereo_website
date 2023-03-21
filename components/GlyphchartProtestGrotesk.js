@@ -10,6 +10,7 @@ function Glyphchart(props) {
   const [wght, updateWght] = useState(100);
   const [ital, updateItal] = useState(0);
   const [styleset, updateStyleset] = useState("normal");
+  const [fontVariant, setFontVariant] = useState(null)
 
   const glyphStyle = {
     fontFamily: props.fontFamily,
@@ -21,6 +22,7 @@ function Glyphchart(props) {
     fontVariationSettings: `'wght' ${wght}, 'wdth' ${props.fontWidth}, 'ital' ${ital}`,
     background: props.darkMode && props.dark.background,
     color: props.darkMode && props.dark.color,
+    fontVariant: fontVariant
   };
 
   function changeWght(e, wght) {
@@ -617,7 +619,11 @@ function Glyphchart(props) {
         "⅝",
         "⅞",
       ],
-      styleset: "ss02",
+    },
+    {
+      lable: "Slashed Zero",
+      glyphs: ["0", "₀", "⁰"],
+      fontVariantNumeric: "slashed-zero",
     },
     {
       lable: "Punctuation",
@@ -870,7 +876,7 @@ function Glyphchart(props) {
         </div>
         <div className="glyphchartTable">
           <div className="glyphchartDisplayMobile" style={glyphDisplay}>
-          <span>{glyph}</span>
+            <span>{glyph}</span>
 
             <div className="glyphchartSliderMobile" style={glyphDisplay}>
               <div className="glyphchartSliderSingle">
@@ -902,9 +908,9 @@ function Glyphchart(props) {
               <div
                 className="glyphchartLetterWrapper"
                 onMouseEnter={
-                  category.styleset
-                    ? () => changeStyleset(`"${category.styleset}"`)
-                    : () => changeStyleset("normal")
+                  category.styleset || category.fontVariantNumeric
+                    ? () => {changeStyleset(`"${category.styleset}"`), setFontVariant(category.fontVariantNumeric)}
+                    : () => {changeStyleset("normal"), setFontVariant("normal")}
                 }
               >
                 {category.glyphs.map((letter, i) => (
@@ -914,6 +920,7 @@ function Glyphchart(props) {
                     changeGlyph={(glyph) => setGlyph(glyph)}
                     wght={90}
                     ss={category.styleset}
+                    fontVariantNumeric={category.fontVariantNumeric}
                   />
                 ))}
               </div>

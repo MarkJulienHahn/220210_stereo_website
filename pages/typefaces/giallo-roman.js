@@ -466,7 +466,7 @@ const GialloRoman = ({
                 name={"Giallo Roman Light Oblique"}
                 fontFamily="Protest"
                 sample={
-                  "Jane shreds the the content of Peter’s bag. Elsa struggles with the store detective, and then she is getting attacked by another man, a tramp. Other scenes include a fight breaking out in a police station, a couple arguing vehemently in public and a struggle in a restaurant. These are background incidents, suggesting that violence is endemic to the entire society. Even the dogs give into the urge to attack and maim. No matter how brightly lit the environment is, no matter what we do to make everything clean and light, we’re always going to face violence in real life, committed by ourselves or others. It doesn’t matter how many streetlamps the local authorities installs, or, more to the point, how many horror films the government bans. Blaming films and books is not the answer because the violence and potential malice is there with or without them."
+                  "There’s telepathic communication and — further — telepathic communication with insects. There are both a psychopathic killer and a mutated monster, conflated into one all-purpose bogeyman. There is the academy full of vicious schoolgirls and the terminally weird staff: Mrs Bruckner — who was raped by a deformed lunatic and bore his dreadful child — and the chic headmistress, who is improbably convinced that Jennifer’s sleepwalking is a sign of incipient insanity or demonic possession, a chamber of horrors and a policeman in chains, a lunatic asylum located somewhere in the ninth circle of hell and a boarding school in the »Swiss Transylvania«."
                 }
               />
               <Typetester
@@ -475,7 +475,9 @@ const GialloRoman = ({
                 letterSpacing={0.002}
                 name={"Giallo Roman Regular"}
                 fontFamily="Protest"
-                sample="There’s telepathic communication and — further — telepathic communication with insects. There are both a psychopathic killer and a mutated monster, conflated into one all-purpose bogeyman. There is the academy full of vicious schoolgirls and the terminally weird staff: Mrs Bruckner — who was raped by a deformed lunatic and bore his dreadful child — and the chic headmistress, who is improbably convinced that Jennifer’s sleepwalking is a sign of incipient insanity or demonic possession, a chamber of horrors and a policeman in chains, a lunatic asylum located somewhere in the ninth circle of hell and a boarding school in the »Swiss Transylvania«."
+                sample={
+                  "Jane shreds the the content of Peter’s bag. Elsa struggles with the store detective, and then she is getting attacked by another man, a tramp. Other scenes include a fight breaking out in a police station, a couple arguing vehemently in public and a struggle in a restaurant. These are background incidents, suggesting that violence is endemic to the entire society. Even the dogs give into the urge to attack and maim. No matter how brightly lit the environment is, no matter what we do to make everything clean and light, we’re always going to face violence in real life, committed by ourselves or others. It doesn’t matter how many streetlamps the local authorities installs, or, more to the point, how many horror films the government bans. Blaming films and books is not the answer because the violence and potential malice is there with or without them."
+                }
               />
               <Typetester
                 wght={300}
@@ -504,7 +506,7 @@ const GialloRoman = ({
                 name={"Giallo Roman Book Oblique"}
                 fontFamily="Protest"
                 sample={
-                  "A film which includes most of the genre’s codes and conventions, like its ambivalence towards modernity, the (imagined) locations which are these films’ settings, the impact of bourgeois detectives, depravity and of course, the over-the-top set pieces. Throughout the classic gialli, we are presented with a variety of imagined locations; imagined in the sense that these are tourist impressions. fantasies and have little bearing on the actual place. While the external location shooting establishes an imagined experience of travel, the preponderance of interior sequences (those scenes shot indoors) in these films suggests an interiority of the mind. The killer’s madness not only comes from inside the family, but also from inside the killer’s mind."
+                  "Its extraordinary style is not there just for style’s sake. If it had been, it would still have made the film memorable. But it becomes all the more striking for its connection with film’s focus on society’s perversities. Representing the »jet set«: independently wealthy, foreign visitors to Italy; a community of leisured cultural migrants no longer bound by nationalist borders. As Carlo compares, Marc represents the bourgeoisie while he (Carlo) is the proletariat. We can take that example farther to propose that the fantasy of the international dolce vita lifestyle is a self-conscious fictional concept reflecting the artificiality of the fiction film we are watching."
                 }
               />
               <Typetester
@@ -514,7 +516,7 @@ const GialloRoman = ({
                 name={"Giallo Roman Medium"}
                 fontFamily="Protest"
                 sample={
-                  "Its extraordinary style is not there just for style’s sake. If it had been, it would still have made the film memorable. But it becomes all the more striking for its connection with film’s focus on society’s perversities. Representing the »jet set«: independently wealthy, foreign visitors to Italy; a community of leisured cultural migrants no longer bound by nationalist borders. As Carlo compares, Marc represents the bourgeoisie while he (Carlo) is the proletariat. We can take that example farther to propose that the fantasy of the international dolce vita lifestyle is a self-conscious fictional concept reflecting the artificiality of the fiction film we are watching."
+                  "A film which includes most of the genre’s codes and conventions, like its ambivalence towards modernity, the (imagined) locations which are these films’ settings, the impact of bourgeois detectives, depravity and of course, the over-the-top set pieces. Throughout the classic gialli, we are presented with a variety of imagined locations; imagined in the sense that these are tourist impressions. fantasies and have little bearing on the actual place. While the external location shooting establishes an imagined experience of travel, the preponderance of interior sequences (those scenes shot indoors) in these films suggests an interiority of the mind. The killer’s madness not only comes from inside the family, but also from inside the killer’s mind."
                 }
               />
               <Typetester
@@ -594,7 +596,8 @@ const GialloRoman = ({
               <span className="highlight02">Set 04 an alternative »®«</span>.
               Check down below for a complete listing of all Open Type features,
               which have been so far implemented to Giallo®. We are currently
-              working on <span className="highlight02">
+              working on{" "}
+              <span className="highlight02">
                 monospace and italic extensions
               </span>
               , which will be added as soon as possible. Future updates of

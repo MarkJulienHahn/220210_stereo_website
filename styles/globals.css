@@ -452,7 +452,7 @@ margin-right: 3px
   color: black;
   font-family: "Protest";
   font-variation-settings: "wght" 150;
-  letter-spacing: -0.1px;
+  letter-spacing: 0.5px;
 }
 
 .highlight02 {
@@ -460,7 +460,7 @@ margin-right: 3px
   color: black;
   font-family: "Protest";
   font-variation-settings: "wght" 150;
-  letter-spacing: -0.1px;
+  letter-spacing: 0.5px;
 }
 
 .typefaceInfosectionList h1 {
@@ -494,7 +494,7 @@ margin-right: 3px
   font-variation-settings: "wdth" 50, "wght" 40;
   font-size: 5.8vw;
   line-height: 6.38vw;
-  letter-spacing: -0.35vw;
+  letter-spacing: -0.2vw;
 }
 
 .fontOpenerGiallo {
@@ -530,7 +530,6 @@ margin-right: 3px
 .typefaceControl {
   font-size: 20pt;
   line-height: 25pt;
-  letter-spacing: -0.6px;
   font-variation-settings: var(--pgSmallVariable);
   position: sticky;
   top: 0;
@@ -666,7 +665,7 @@ margin-right: 3px
   .typefaceControl {
     font-size: 10pt;
     line-height: 15pt;
-    letter-spacing: 0px;
+    letter-spacing: 0.4px;
     position: relative;
     margin-left: 16px;
     z-index: 150;
@@ -797,6 +796,7 @@ margin-right: 3px
   width: calc(100vw -30px);
   overflow: hidden;
   word-break: break-all;
+  padding-left: 21px;
 }
 
 .controlsWrapper {
@@ -1604,7 +1604,7 @@ margin-right: 3px
   align-items: center;
   overflow: hidden;
   text-align: center;
-  letter-spacing: -1.5vw;
+  letter-spacing: -1vw;
   overflow: hidden;
   width: 100vw;
   height: 100vh;
@@ -2378,7 +2378,7 @@ margin-right: 3px
 .legalsWrapper h1 {
   font-family: "Protest";
   font-variation-settings: "wght" 120;
-  letter-spacing: -1px;
+  letter-spacing: -0.5px;
   line-height: 34px;
 }
 
