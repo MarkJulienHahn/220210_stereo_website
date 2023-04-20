@@ -134,7 +134,7 @@ const Licensing = ({
 
               <h1>CLIENT(S) AS LICENSE OWNER</h1>
               <p>
-                What is meant by »clients have to own the license«? Let's take
+                What is meant by »clients have to own the license«? Let&apos;s take
                 an example to explain this: A designer uses our fonts to create
                 advertising material for Company XY. The license fee is based on
                 the total number of people employed by Company XY. In this
@@ -142,13 +142,13 @@ const Licensing = ({
                 subcontractor who uses our fonts to create designs for Company
                 XY. If the designer works for other clients, the corresponding
                 licenses must be purchased in their names. A designer cannot use
-                their own font license(s) for a client's project.
+                their own font license(s) for a client&apos;s project.
                 <br />
                 The various terminologies involved in this process can be
                 confusing. To simplify things, we sometimes use the terms Buyer,
-                License Owner, and Subcontractor interchangeably as "you." For
-                instance, "you" may be the Buyer and License Owner but not a
-                Subcontractor, or "you" may be the Buyer and a Subcontractor but
+                License Owner, and Subcontractor interchangeably as »you.« For
+                instance, »you« may be the Buyer and License Owner but not a
+                Subcontractor, or »you« may be the Buyer and a Subcontractor but
                 not the License Owner.
               </p>
 
@@ -192,7 +192,7 @@ const Licensing = ({
               <p>
                 Our online shop offers various license types for specific media
                 applications. It is important to purchase the appropriate
-                license(s) for your own or your client's specific tasks. If you
+                license(s) for your own or your client&apos;s specific tasks. If you
                 require assistance in finding the right one, please do not
                 hesitate to contact us directly at:&nbsp;
                 <a href="mailto:license@stereotypefaces.com">
