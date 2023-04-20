@@ -107,33 +107,33 @@ const About = ({
         </div>
 
         <div className="buttonsRightWrapper">
-        <Button
-          lable={darkMode ? "Light" : "Dark"}
-          subclass={!darkMode ? "secondary" : "quaternary"}
-          onClick={() => setDarkMode(!darkMode)}
-        />
-        <Link href="/trials" scroll={false}>
-          <a>
-            <Button lable={"Trials"} subclass={"tertiary"} />
-          </a>
-        </Link>
-        <Button
-          lable={"Buy"}
-          subclass={"primary"}
-          onClick={cart.line_items ? () => setShowCheckout(true) : () => {}}
-        />
-        {cart.line_items?.length ? (
-          <Cartbutton
-            lable={`Cart [${cart.total_unique_items}]`}
-            subclass={"tertiary"}
-            setShowCheckout={setShowCheckout}
-            live={live}
-            cart={cart}
+          <Button
+            lable={darkMode ? "Light" : "Dark"}
+            subclass={!darkMode ? "secondary" : "quaternary"}
+            onClick={() => setDarkMode(!darkMode)}
           />
-        ) : (
-          ""
-        )}
-      </div>
+          <Link href="/trials" scroll={false}>
+            <a>
+              <Button lable={"Trials"} subclass={"tertiary"} />
+            </a>
+          </Link>
+          <Button
+            lable={"Buy"}
+            subclass={"primary"}
+            onClick={cart.line_items ? () => setShowCheckout(true) : () => {}}
+          />
+          {cart.line_items?.length ? (
+            <Cartbutton
+              lable={`Cart [${cart.total_unique_items}]`}
+              subclass={"tertiary"}
+              setShowCheckout={setShowCheckout}
+              live={live}
+              cart={cart}
+            />
+          ) : (
+            ""
+          )}
+        </div>
 
         <motion.div
           location={location}
@@ -150,19 +150,20 @@ const About = ({
                   <span className="infoHeader">STEREO</span>{" "}
                   <span className="infoSubheader">Typefaces®</span>
                 </span>{" "}
-                is a Berlin based type design agency and typography label that
-                offers&nbsp;
+                is a type design agency and typography label based in Berlin
+                that provides{" "}
                 <span className="infoVar1">
                   font software for retail customers
-                </span>{" "}
-                as well as <span className="infoVar1">corporate typefaces</span>
-                &nbsp; for specific areas of application and other typographic
-                services on request. Incorporating current culture and design
-                trends as well as traditional graphic design, high-quality,
-                contemporary typefaces with extensive and flexible character
-                sets are produced. These are adapted to the current tasks of
-                designers and the needs of their customers with regard to all
-                sorts of media (digital and print).
+                </span>
+                , as well as{" "}
+                <span className="infoVar1">corporate typefaces</span> for
+                specific applications, and other typographic services upon
+                request. Their focus is on producing high-quality, contemporary
+                typefaces that incorporate current culture and design trends,
+                while also drawing from traditional graphic design. These
+                typefaces come with extensive and flexible character sets,
+                adapted to the needs of designers and their clients for various
+                media formats, both digital and print.
               </p>
             </div>
 

@@ -254,15 +254,25 @@ const ProtestGroteskText = ({
                 <span className="highlight01">A geometric Workhorse</span>
               </h1>
               <p>
-                When we first started designing Protest Grotesk in 2015, the
-                intention was to&nbsp;
-                <span className="highlight02">
-                  build the font upon a geometrical skeleton
+                When we began creating Protest Grotesk in 2015, our aim was to
+                base the font on&nbsp;
+                <span className="highlight02">a geometrical skeleton</span> that
+                drew inspiration from designs from pre-war Germany, like Futura
+                (Paul Renner, 1928) or Kabel (Rudolf Koch, 1929). However, we
+                quickly realized that adhering strictly to these formal
+                restrictions was not suitable for{" "}
+                <span className="highlight01">modern use-cases</span>. As a
+                result, we made adjustments to Protest Grotesk, achieving a{" "}
+                <span className="highlight01">
+                  {" "}
+                  more balanced form while retaining the distinct features of
+                  the constructivist era
                 </span>
-                , that referred strongly to designs from pre-war Germany, such
-                as Futura (Paul Renner, 1928) or Kabel (Rudolf Koch, 1929). We
-                soon realised, that such strict formal restrictions didn’t fit{" "}
-                <span className="highlight01">modern use-cases</span>, so we
+                . The result is a well-rounded typeface that is optimized for{" "}
+                <span className="highlight02">small text applications</span> as
+                well as <span className="highlight02">eye-catching usages</span>
+                .
+                {/* ., so we
                 modified Protest Grotesk® in a formally more balanced fashion,
                 and built a{" "}
                 <span className="highlight02">well-rounded typeface</span>,{" "}
@@ -270,7 +280,7 @@ const ProtestGroteskText = ({
                   optimized for small running-text applications
                 </span>
                 , still keeping special characteristics of the afore mentioned
-                constructivist era.
+                constructivist era. */}
               </p>
             </div>
             <div className="typeface-single-opener" ref={weightsRef}>
@@ -386,21 +396,18 @@ const ProtestGroteskText = ({
                 &#8594; <span className="highlight01">8 Weights</span> + Italics
               </h1>
               <p>
-                Protest Grotesk® is designed within a broad design-frame which
-                consists of two variable font axes (»Weight« 040—250 and
-                »Italic« 000—100). A{" "}
-                <span className="highlight01">
-                  variable-font-file is available when purchasing the full
-                  family.
-                </span>{" "}
-                Providing the possibility to{" "}
-                <span className="highlight02">
+                Protest Grotesk® is designed with two variable font axes
+                (»Weight« 040—250 and »Italic« 000—100) within a broad
+                design-frame. If you purchase the full family, you can access a{" "}
+                <span class="highlight01">variable-font-file</span> that allows
+                you to{" "}
+                <span class="highlight02">
                   steplessly interpolate between weights and italic angles
                 </span>
-                , variable fonts are especially useful in digital applications
-                or if you have to precisely adjust a typeface, without having to
-                rely on predefined weights. Adjust the slider below in order to
-                determine which weight fits your purpose best.
+                . This feature is particularly useful for digital applications
+                or when you need to precisely adjust a typeface without relying
+                on predefined weights. You can use the slider below to determine
+                which weight best suits your needs.
               </p>
             </div>
 
@@ -414,27 +421,7 @@ const ProtestGroteskText = ({
                 &#8594; <span className="highlight01">A »Grotesk«</span> Protest
               </h1>
               <p>
-                When the very first sans-serif Typefaces were introduced in the
-                Mid 1880s they were regarded as{" "}
-                <span className="highlight02">
-                  ugly and an insult for the renewed graphic designer.
-                </span>{" "}
-                The term »Grotesk« was meant to disqualify the typefaces. These
-                typefaces were{" "}
-                <span className="highlight01">
-                  controversial, highly misregarded and bad reputed.
-                </span>{" "}
-                They were seen as a{" "}
-                <span className="highlight02">
-                  protest against all ornamental and historically coloured
-                  typefaces.
-                </span>{" "}
-                They were an uprising against conservative values. Protest
-                Grotesk pays homage to these Typefaces. Nowadays quality can not
-                only stem from formal design descisions. A typeface has to rely
-                on a strong technical foundation, in order to deliver an
-                advantage to modern-day type users. Protest Grotesk is placed
-                right into this field of tension.
+              In the mid-1880s, when the first sans-serif typefaces were introduced, they were considered <span className="highlight02">unattractive and an insult to the then-renewed graphic design profession</span> The term »Grotesk« was used to criticize these typefaces. They were <span className="highlight01">controversial, highly disrespected, and had a bad reputation</span> They represented a protest against all ornamental and historically colored typefaces, and were an uprising against conservative values. Protest Grotesk pays homage to these typefaces. Nowadays, quality in typeface design cannot only be based on formal design decisions. A typeface must rely on a <span className="highlight02">strong technical foundation to provide an advantage to modern-day type users</span>. Protest Grotesk is positioned within this tension field.
               </p>
             </div>
             <div className="typeface-single-tester-wrap" ref={testerRef}>
