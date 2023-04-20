@@ -80,7 +80,7 @@ function Typetester(props) {
               <Slider
                 className={styles.slider}
                 min={15}
-                max={800}
+                max={700}
                 step={1}
                 defaultValue={200}
                 onChange={changeVal}

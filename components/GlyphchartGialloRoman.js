@@ -521,6 +521,7 @@ function Glyphchart(props) {
     {
       lable: "Stylistic Set 1",
       glyphs: [
+        "a",
         "ă",
         "á",
         "â",
@@ -544,7 +545,7 @@ function Glyphchart(props) {
     },
     {
       lable: "Stylistic Set 2",
-      glyphs: ["ğ", "ĝ", "ģ", "ġ", "ḡ", "ǥ", "ǧ"],
+      glyphs: ["g", "ğ", "ĝ", "ģ", "ġ", "ḡ", "ǥ", "ǧ"],
       styleset: "ss02",
     },
 

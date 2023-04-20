@@ -437,7 +437,7 @@ const GialloRoman = ({
                 wght={100}
                 ital={0}
                 letterSpacing={0.002}
-                name={"Giallo Roman Thin"}
+                name={"Giallo Roman Ligh"}
                 fontFamily="Protest"
                 sample="Black-gloved assassins, a writer impotently trapped in Rome, perverse chromosomal make-up, the something-not-quite-right, flashback — combined with flair of outrageous set pieces and jaw-dropping gore. Light and dark, sanity and insanity, fact and fiction, real and unreal, guilt and innocence, life and death. The impulse had become irresistible. There was only one answer to the fury that tortured him. And so he committed his first act of murder. He had broken the most deep-rooted taboo and found not guilt, not anxiety or fear, but freedom. Every humiliation which stood in his way could be swept aside by him simple act of annihilation: Murder."
               />
@@ -445,7 +445,7 @@ const GialloRoman = ({
                 wght={100}
                 ital={100}
                 letterSpacing={0}
-                name={"Giallo Roman Thin Oblique"}
+                name={"Giallo Roman Ligh Oblique"}
                 fontFamily="Protest"
                 sample="The idea behind the video nasties list in the first place was that the public had to be protected against the corrupting influences of sexually explicit or graphically violent films. Even today, horror films may be decried as pandering to the worst in human nature, and even blamed for creating real-life murderers. However horror films can be as conservative and reactionary as any Mary Whitehouse figure. Think of, for example, the Catholic Church’s active contribution to the filming of »The Exorcist« (William Friedkin, 1973). It goes down a different route. Like any genre of film – why should it be different here — there are good Gialli and bad Gialli. "
               />
@@ -453,7 +453,7 @@ const GialloRoman = ({
                 wght={200}
                 ital={0}
                 letterSpacing={0.001}
-                name={"Giallo Roman Light"}
+                name={"Giallo Roman Regular"}
                 fontFamily="Protest"
                 sample={
                   "This means that horror films can be curiously inconsistent. Absolutely no pretense is made in Friday the »13th: A New Beginning« (Danny Steinmann, 1985) when a girl reveals her breasts with a cry of “It’s showtime!” — the audience wants its kicks, and if they want MPA-friendly titillation, who are the filmmakers so deny them? But that girl ends up dying. They usually do in horror films. “Have sex and die” is one of the most well-known tropes in horror. Whilst a film may use it innocently, seeing it as an easy way to give the audience sex and horror at the same time, there’s always a danger that the dead girls are being punished specifically because of their sexuality."
@@ -463,7 +463,7 @@ const GialloRoman = ({
                 wght={200}
                 ital={100}
                 letterSpacing={0.003}
-                name={"Giallo Roman Light Oblique"}
+                name={"Giallo Roman Regular Oblique"}
                 fontFamily="Protest"
                 sample={
                   "There’s telepathic communication and — further — telepathic communication with insects. There are both a psychopathic killer and a mutated monster, conflated into one all-purpose bogeyman. There is the academy full of vicious schoolgirls and the terminally weird staff: Mrs Bruckner — who was raped by a deformed lunatic and bore his dreadful child — and the chic headmistress, who is improbably convinced that Jennifer’s sleepwalking is a sign of incipient insanity or demonic possession, a chamber of horrors and a policeman in chains, a lunatic asylum located somewhere in the ninth circle of hell and a boarding school in the »Swiss Transylvania«."
@@ -473,7 +473,7 @@ const GialloRoman = ({
                 wght={300}
                 ital={0}
                 letterSpacing={0.002}
-                name={"Giallo Roman Regular"}
+                name={"Giallo Roman Book"}
                 fontFamily="Protest"
                 sample={
                   "Jane shreds the the content of Peter’s bag. Elsa struggles with the store detective, and then she is getting attacked by another man, a tramp. Other scenes include a fight breaking out in a police station, a couple arguing vehemently in public and a struggle in a restaurant. These are background incidents, suggesting that violence is endemic to the entire society. Even the dogs give into the urge to attack and maim. No matter how brightly lit the environment is, no matter what we do to make everything clean and light, we’re always going to face violence in real life, committed by ourselves or others. It doesn’t matter how many streetlamps the local authorities installs, or, more to the point, how many horror films the government bans. Blaming films and books is not the answer because the violence and potential malice is there with or without them."
@@ -483,7 +483,7 @@ const GialloRoman = ({
                 wght={300}
                 ital={100}
                 letterSpacing={0.003}
-                name={"Giallo Roman Regular Oblique"}
+                name={"Giallo Roman Book Oblique"}
                 fontFamily="Protest"
                 sample={
                   "Deliberately theatrical — the opening conference is introduced with a parting of red curtains — a play with the melodrama of telepathy and the ability to see into the future with remarkable dexterity. Triggered by the genuine insights of the ill-fated medium, seen reacting in horror moments before the axe-murderer breaks down her apartment door, the precognitive theme is brilliantly carried through the entire sleight-of-hand narrative as a device foreshadowing each death. It takes its provocative Freudian motifs and visually elevates them into high art. With every voyeuristic nook and cranny explored by the purposeful camera. Even the daylight locations have been rendered as sinister and dangerous as the Edward Hopper-inspired nighttime ones, unlocking primal fears in the spectator they didn’t even know they had."
@@ -493,7 +493,7 @@ const GialloRoman = ({
                 wght={400}
                 ital={0}
                 letterSpacing={0.002}
-                name={"Giallo Roman Book"}
+                name={"Giallo Roman Medium"}
                 fontFamily="Protest"
                 sample={
                   "There are more practicing Satanists in Turin than in any other European city and I wanted that superstitious undercurrent unfolding in the background. Turin is actually where the Italian Film industry was originally based in the silent era. During the 1930s Mussolini moved it to Rome, to be nearer out of vanity, but I always preferred Turin. A veritable checklist of the genre’s most salient style motifs and story points. Gialli are often about modernity — the experience of living in the modern age — and the problems such experiences lead to. They are Italian-made murder-mysteries / horror movie hybrids which reached their peak of popularity in the 1970’s."
@@ -503,7 +503,7 @@ const GialloRoman = ({
                 wght={400}
                 ital={100}
                 letterSpacing={0.003}
-                name={"Giallo Roman Book Oblique"}
+                name={"Giallo Roman Medium Oblique"}
                 fontFamily="Protest"
                 sample={
                   "Its extraordinary style is not there just for style’s sake. If it had been, it would still have made the film memorable. But it becomes all the more striking for its connection with film’s focus on society’s perversities. Representing the »jet set«: independently wealthy, foreign visitors to Italy; a community of leisured cultural migrants no longer bound by nationalist borders. As Carlo compares, Marc represents the bourgeoisie while he (Carlo) is the proletariat. We can take that example farther to propose that the fantasy of the international dolce vita lifestyle is a self-conscious fictional concept reflecting the artificiality of the fiction film we are watching."
@@ -513,7 +513,7 @@ const GialloRoman = ({
                 wght={500}
                 ital={0}
                 letterSpacing={0.002}
-                name={"Giallo Roman Medium"}
+                name={"Giallo Roman Bold"}
                 fontFamily="Protest"
                 sample={
                   "A film which includes most of the genre’s codes and conventions, like its ambivalence towards modernity, the (imagined) locations which are these films’ settings, the impact of bourgeois detectives, depravity and of course, the over-the-top set pieces. Throughout the classic gialli, we are presented with a variety of imagined locations; imagined in the sense that these are tourist impressions. fantasies and have little bearing on the actual place. While the external location shooting establishes an imagined experience of travel, the preponderance of interior sequences (those scenes shot indoors) in these films suggests an interiority of the mind. The killer’s madness not only comes from inside the family, but also from inside the killer’s mind."
@@ -523,7 +523,7 @@ const GialloRoman = ({
                 wght={500}
                 ital={100}
                 letterSpacing={0.003}
-                name={"Giallo Roman Medium Oblique"}
+                name={"Giallo Roman Bold Oblique"}
                 fontFamily="Protest"
                 sample={
                   "Most police detectives who appear in gialli tend to be fairly useless at solving the murders. Here the detective appears to be more interested in food than solving the crimes. He is always filmed around food; when not eating a sandwich, he is beating up an unresponsive vending machine. For added Comic relief, he conducts his questioning with his mouth full of food. The police are frequently (although not always) presented as buffoons and incompetent. In Italian vernacular cinemas of the day, the Giallo lived happily alongside the Polizioteschi, an Italian crime film, as a separate genre. Gialli and Polizioteschi coexist: one concerning amateur detectives as crime solvers, the other focusing on professional detectives’ investigations."
@@ -533,7 +533,7 @@ const GialloRoman = ({
                 wght={600}
                 ital={0}
                 letterSpacing={0.001}
-                name={"Giallo Roman Bold"}
+                name={"Giallo Roman Heavy"}
                 fontFamily="Protest"
                 sample={
                   "These sequences — the gory murders and graphic deaths of the killers — are known as »set pieces«. Set pieces are moments the sequences are protracted beyond simply progressing the story. For example, we see (what we assume is) the killer stalking a person in its apartment, the protracted silence emerges, and then the persistent and repeated bashing of the victims mouth and teeth against the corner of its fireplace mantel and the corner of its desk, before finally being stabbed through the back of its head. These moments are moments when narratives stops, and we are asked to experience the sublime beauty of violence (violence made sublime via the agitation of the filmmaker)."
@@ -543,7 +543,7 @@ const GialloRoman = ({
                 wght={600}
                 ital={100}
                 letterSpacing={0.0025}
-                name={"Giallo Roman Bold Oblique"}
+                name={"Giallo Roman Heavy Oblique"}
                 fontFamily="Protest"
                 sample={
                   "Besides the overwhelming qualities of the statue that dominates the piazza, another construction inhabits the expanse: a glass fronted, single-storey building called the Blue Bar. Whilst the bar appears to be a real-life location, it was actually a wooden prop erected in the piazza and modeled on the bar depicted in Edward Hopper’s 1942 painting Nighthawks. The bar was designed in a hyperrealistic, postmodern style which juxtaposes it against the more muted look of the piazza, creating a point interest most notably through its striking use of light in an otherwise grey and dark environment. The bar’s signage is illuminated in a cyan blue, a color that links the bar to Helga Ullman’s apartment with its modernist menorah artwork, lit in the same strikingly unusual color."
