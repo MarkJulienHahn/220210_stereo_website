@@ -34,6 +34,8 @@ function MyApp({ Component, pageProps }) {
     background: "#0A0A0A",
   };
 
+// PRODUCTS
+
   const fetchProducts = async () => {
     const { data } = await commerce.products.list({ limit: 1000 });
 
@@ -67,14 +69,12 @@ function MyApp({ Component, pageProps }) {
   const handleRemoveFromCart = async (productId) => {
     setLoading(true);
     const { cart } = await commerce.cart.remove(productId);
-
     setCart(cart);
     setLoading(false);
   };
 
   const handleEmptyCart = async () => {
     const { cart } = await commerce.cart.empty();
-
     setCart(cart);
   };
 
@@ -101,19 +101,43 @@ function MyApp({ Component, pageProps }) {
     setLive(token);
   };
 
-  const acceptCookie = async () => {
-    setFadeCookie(true),
+  // COOKIES
+
+  const handleCookiesResponse = async (accepted) => {
+    if (accepted) {
+      // store user's preferences in a cookie or localStorage
+      setFadeCookie(true),
       await setTimeout(function () {
         setCookieSeen(true);
       }, 300);
-    localStorage.setItem("cookieSeen", "true");
+      localStorage.setItem("cookiesAccepted", "true");
+    } else {
+      // store user's preferences in a cookie or localStorage
+      setFadeCookie(true),
+      await setTimeout(function () {
+        setCookieSeen(true);
+      }, 300);
+      localStorage.setItem("cookiesAccepted", "false");
+    }
+  };
+
+  // execute Google Analytics tracking code
+  const trackPageView = () => {
+    // check if user has accepted cookies
+    const cookiesAccepted = localStorage.getItem("cookiesAccepted");
+    if (cookiesAccepted === "true") {
+      // execute Google Analytics tracking code here
+      // replace 'GA_MEASUREMENT_ID' with your Google Analytics measurement ID
+      window.gtag("config", "GA_MEASUREMENT_ID");
+    }
   };
 
   useEffect(() => {
+    trackPageView();
     fetchProducts();
     fetchCart();
     refreshCart();
-    const data = localStorage.getItem("cookieSeen");
+    const data = localStorage.getItem("cookieAccepted");
     if (data) {
       setCookieSeen(data);
     }
@@ -158,12 +182,18 @@ function MyApp({ Component, pageProps }) {
         }}
       />
 
-      {!cookieSeen ? (
+      {cookieSeen == undefined ? (
         <div
           className="cookieWrapper"
           style={fadeCookie ? { opacity: 0 } : { opacity: 1 }}
         >
-          <Cookie acceptCookie={acceptCookie} />
+          <Cookie
+            onAccept={() => {
+              handleCookiesResponse(true);
+              trackPageView();
+            }}
+            onDecline={() => handleCookiesResponse(false)}
+          />
         </div>
       ) : (
         ""

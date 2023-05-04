@@ -1992,7 +1992,7 @@ margin-right: 3px
   margin-bottom: 0;
 }
 
-.cookieButtonWrapper div:first-child {
+.cookieButtonWrapper div:first-child, .cookieButtonWrapper div:nth-child(2) {
   margin-right: var(--margin-S);
 }
 
