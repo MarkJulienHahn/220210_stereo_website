@@ -195,7 +195,7 @@ const data = [
     content: (
       <>
         <p>
-          Stereo Typefaces™ has the following payment methods available:
+          Stereo Typefaces® has the following payment methods available:
           <p />
           <p className="footerInfoHead">CREDIT CARDS</p>
           <p>

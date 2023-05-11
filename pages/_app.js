@@ -110,22 +110,22 @@ function MyApp({ Component, pageProps }) {
       await setTimeout(function () {
         setCookieSeen(true);
       }, 300);
-      localStorage.setItem("cookiesAccepted", "true");
+      localStorage.setItem("cookieSeen", "true");
     } else {
       // store user's preferences in a cookie or localStorage
       setFadeCookie(true),
       await setTimeout(function () {
         setCookieSeen(true);
       }, 300);
-      localStorage.setItem("cookiesAccepted", "false");
+      localStorage.setItem("cookieSeen", "false");
     }
   };
 
   // execute Google Analytics tracking code
   const trackPageView = () => {
     // check if user has accepted cookies
-    const cookiesAccepted = localStorage.getItem("cookiesAccepted");
-    if (cookiesAccepted === "true") {
+    const cookieSeen = localStorage.getItem("cookieSeen");
+    if (cookieSeen === "true") {
       // execute Google Analytics tracking code here
       // replace 'GA_MEASUREMENT_ID' with your Google Analytics measurement ID
       window.gtag("config", "GA_MEASUREMENT_ID");
@@ -137,7 +137,7 @@ function MyApp({ Component, pageProps }) {
     fetchProducts();
     fetchCart();
     refreshCart();
-    const data = localStorage.getItem("cookieAccepted");
+    const data = localStorage.getItem("cookieSeen");
     if (data) {
       setCookieSeen(data);
     }
