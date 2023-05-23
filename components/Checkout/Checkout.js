@@ -917,7 +917,7 @@ const Checkout = ({
                     onMouseEnter={() =>
                       updateBigButtonContent(
                         <div>
-                          <span style={{ fontVariationSettings: `"wght" 200` }}>
+                          {/* <span style={{ fontVariationSettings: `"wght" 200` }}>
                             Client:
                           </span>{" "}
                           Choose this if you’re buying a license for your
@@ -928,6 +928,13 @@ const Checkout = ({
                             Designer:
                           </span>{" "}
                           Choose this for your own or your agency’s project.
+                          <br />
+                          <br /> */}
+                          <span style={{ fontVariationSettings: `"wght" 200` }}>
+                            Professional:
+                          </span>{" "}
+                          Choose this if you’re buying a license for your
+                          client’s project or for your own or your agency’s project.
                           <br />
                           <br />
                           <span style={{ fontVariationSettings: `"wght" 200` }}>
@@ -942,10 +949,10 @@ const Checkout = ({
                     style={{ paddingTop: "30px" }}
                   >
                     <li className={styles.buyConfigurationHead}>
-                      &#8594; License Owner
+                      &#8594; License Type [ ? ]
                     </li>
                   </div>
-                  <li
+                  {/* <li
                     style={LicenseUser == "Client" ? active : inactive}
                     onClick={
                       LicenseUser !== "Client"
@@ -954,7 +961,7 @@ const Checkout = ({
                     }
                   >
                     Client
-                  </li>
+                  </li> */}
                   <li
                     style={LicenseUser == "Designer" ? active : inactive}
                     onClick={
@@ -963,7 +970,7 @@ const Checkout = ({
                         : () => updateLicenseUser("Designer")
                     }
                   >
-                    Designer
+                    Professional
                   </li>
 
                   <li
@@ -994,7 +1001,7 @@ const Checkout = ({
                       onMouseLeave={() => updateBigButtonContent("")}
                     >
                       <li className={styles.buyConfigurationHead}>
-                        &#8594; Company Size
+                        &#8594; Company Size [ ? ]
                       </li>
                     </div>
 
@@ -1167,7 +1174,7 @@ const Checkout = ({
                       onMouseLeave={() => updateBigButtonContent("")}
                     >
                       <li className={styles.buyConfigurationHead}>
-                        &#8594; License Type
+                        &#8594; License Type [ ? ]
                       </li>
                     </div>
 
