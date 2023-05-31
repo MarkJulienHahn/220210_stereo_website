@@ -71,7 +71,7 @@ const Checkout = ({
 
   const [errorMessage, setErrorMessage] = useState("");
 
-  const [priceFactor1, setPriceFactor1] = useState(1);
+  const [priceFactor1, setPriceFactor1] = useState(0);
   const [priceFactor2, setPriceFactor2] = useState(0);
   const [priceFactor3, setPriceFactor3] = useState(0);
   const [priceFactor4, setPriceFactor4] = useState(0);
@@ -238,82 +238,82 @@ const Checkout = ({
       updateLicenseUser("");
   };
 
-  React.useEffect(() => {
-    const data = localStorage.getItem("storage1");
-    if (data) {
-      setPriceFactor1(JSON.parse(data));
-    }
-  }, []);
+  // React.useEffect(() => {
+  //   const data = localStorage.getItem("storage1");
+  //   if (data) {
+  //     setPriceFactor1(JSON.parse(data));
+  //   }
+  // }, []);
 
-  React.useEffect(() => {
-    localStorage.setItem("storage1", JSON.stringify(priceFactor1));
-  });
+  // React.useEffect(() => {
+  //   localStorage.setItem("storage1", JSON.stringify(priceFactor1));
+  // });
 
-  React.useEffect(() => {
-    const data = localStorage.getItem("storage2");
-    if (data) {
-      setPriceFactor2(JSON.parse(data));
-    }
-  }, []);
+  // React.useEffect(() => {
+  //   const data = localStorage.getItem("storage2");
+  //   if (data) {
+  //     setPriceFactor2(JSON.parse(data));
+  //   }
+  // }, []);
 
-  React.useEffect(() => {
-    localStorage.setItem("storage2", JSON.stringify(priceFactor2));
-  });
+  // React.useEffect(() => {
+  //   localStorage.setItem("storage2", JSON.stringify(priceFactor2));
+  // });
 
-  React.useEffect(() => {
-    const data = localStorage.getItem("storage3");
-    if (data) {
-      setPriceFactor3(JSON.parse(data));
-    }
-  }, []);
+  // React.useEffect(() => {
+  //   const data = localStorage.getItem("storage3");
+  //   if (data) {
+  //     setPriceFactor3(JSON.parse(data));
+  //   }
+  // }, []);
 
-  React.useEffect(() => {
-    localStorage.setItem("storage3", JSON.stringify(priceFactor3));
-  });
+  // React.useEffect(() => {
+  //   localStorage.setItem("storage3", JSON.stringify(priceFactor3));
+  // });
 
-  React.useEffect(() => {
-    const data = localStorage.getItem("storage4");
-    if (data) {
-      setPriceFactor4(JSON.parse(data));
-    }
-  }, []);
+  // React.useEffect(() => {
+  //   const data = localStorage.getItem("storage4");
+  //   if (data) {
+  //     setPriceFactor4(JSON.parse(data));
+  //   }
+  // }, []);
 
-  React.useEffect(() => {
-    localStorage.setItem("storage4", JSON.stringify(priceFactor4));
-  });
+  // React.useEffect(() => {
+  //   localStorage.setItem("storage4", JSON.stringify(priceFactor4));
+  // });
 
-  React.useEffect(() => {
-    const data = localStorage.getItem("storage5");
-    if (data) {
-      setPriceFactor5(JSON.parse(data));
-    }
-  }, []);
+  // React.useEffect(() => {
+  //   const data = localStorage.getItem("storage5");
+  //   if (data) {
+  //     setPriceFactor5(JSON.parse(data));
+  //   }
+  // }, []);
 
-  React.useEffect(() => {
-    localStorage.setItem("storage5", JSON.stringify(priceFactor5));
-  });
+  // React.useEffect(() => {
+  //   localStorage.setItem("storage5", JSON.stringify(priceFactor5));
+  // });
 
-  React.useEffect(() => {
-    const data = localStorage.getItem("storage6");
-    if (data) {
-      setPriceFactor6(JSON.parse(data));
-    }
-  }, []);
+  // React.useEffect(() => {
+  //   const data = localStorage.getItem("storage6");
+  //   if (data) {
+  //     setPriceFactor6(JSON.parse(data));
+  //   }
+  // }, []);
 
-  React.useEffect(() => {
-    localStorage.setItem("storage6", JSON.stringify(priceFactor6));
-  });
+  // React.useEffect(() => {
+  //   localStorage.setItem("storage6", JSON.stringify(priceFactor6));
+  // });
 
-  React.useEffect(() => {
-    const data = localStorage.getItem("storage7");
-    if (data) {
-      setPriceFactor7(JSON.parse(data));
-    }
-  }, []);
+  // React.useEffect(() => {
+  //   const data = localStorage.getItem("storage7");
+  //   if (data) {
+  //     setPriceFactor7(JSON.parse(data));
+  //   }
+  // }, []);
 
-  React.useEffect(() => {
-    localStorage.setItem("storage7", JSON.stringify(priceFactor7));
-  });
+  // React.useEffect(() => {
+  //   localStorage.setItem("storage7", JSON.stringify(priceFactor7));
+  // });
 
   React.useEffect(() => {
     const data = localStorage.getItem("licenseUser");
@@ -832,6 +832,8 @@ const Checkout = ({
       ? (updateButtonContent("calculating"), setAnimated(true))
       : (updateButtonContent(""), setAnimated(false));
   }, [loading]);
+
+  console.log(priceFactor1)
 
 
   return (
