@@ -833,8 +833,6 @@ const Checkout = ({
       : (updateButtonContent(""), setAnimated(false));
   }, [loading]);
 
-  console.log(priceFactor1)
-
 
   return (
     <div>
