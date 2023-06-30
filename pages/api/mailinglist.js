@@ -11,7 +11,13 @@ export default async function handler(req, res) {
     method: "PUT",
     url: "/v3/marketing/contacts",
     body: {
-      contacts: [{ email: body.email, first_name: body.name }],
+      contacts: [
+        {
+          email: body.email,
+          first_name: body.name,
+          line: "Newsletter",
+        },
+      ],
     },
   };
   client
