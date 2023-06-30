@@ -41,6 +41,10 @@ const Trials = ({ setShowTrials }) => {
           method: "post",
           body: JSON.stringify(formData),
         });
+        fetch("/api/mailinglist", {
+          method: "post",
+          body: JSON.stringify(formData),
+        });
       } else {
         return;
       }

@@ -349,21 +349,20 @@ button {
   position: fixed;
   bottom: 23px;
   transition: transform 0.5s ease;
-  z-index: 100
+  z-index: 100;
 }
 
-.shortcutButtonsWrapper div{
-margin-right: 3px
+.shortcutButtonsWrapper div {
+  margin-right: 3px;
 }
 
 @media only screen and (max-width: 1300px) {
   .shortcutButtonsWrapper {
-    display: none
+    display: none;
   }
 }
 
 @media only screen and (max-width: 600px) {
-
   .buttonsLeftWrapper {
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -691,7 +690,7 @@ margin-right: 3px
     padding: 0;
   }
 
-    .typefaceInfosection p {
+  .typefaceInfosection p {
     padding-bottom: 15px;
   }
 
@@ -1613,7 +1612,7 @@ margin-right: 3px
 }
 
 .container span {
-  transform: translateY(100px)
+  transform: translateY(100px);
 }
 
 .headerMouseAnimation div {
@@ -1889,7 +1888,6 @@ margin-right: 3px
   opacity: 0;
 }
 
-
 .storefrontTrialsWrapper p {
   cursor: pointer;
 }
@@ -1992,7 +1990,8 @@ margin-right: 3px
   margin-bottom: 0;
 }
 
-.cookieButtonWrapper div:first-child, .cookieButtonWrapper div:nth-child(2) {
+.cookieButtonWrapper div:first-child,
+.cookieButtonWrapper div:nth-child(2) {
   margin-right: var(--margin-S);
 }
 
@@ -2715,6 +2714,83 @@ margin-right: 3px
   }
   #automatButtonsRowMobile {
     display: block;
+  }
+}
+
+/* PREMIUM ACCESS */
+
+.premiumAccessDownload {
+  width: 100vw;
+  height: 100vh;
+  padding: var(--margin-M);
+  font-family: "Giallo";
+  font-size: 30pt;
+}
+
+.premiumAccessDownload p {
+  transition: all 0.1s ease;
+  cursor: pointer;
+}
+
+.premiumAccessDownload p:hover {
+  color: blue;
+}
+
+.formPremiumDownloadUpper {
+  display: flex;
+  font-size: 15pt;
+}
+
+.formPremiumDownloadUpper span {
+  width: 25vw;
+  padding-top: 20px;
+}
+
+.inputPremium {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputPremium input {
+  border: 0;
+  padding: 0;
+  font-family: "Protest";
+  font-weight: 130;
+  font-size: 40px;
+  line-height: 16px;
+  letter-spacing: 0.5px;
+  background: transparent;
+  border-bottom: 1px solid black;
+  width: 25vw;
+}
+
+.inputPremium input::placeholder {
+  /* font-family: "Giallo-Mono"; */
+  color: black;
+  opacity: 1;
+  font-size: 12.5px;
+  line-height: 16px;
+  letter-spacing: 1px;
+}
+
+.inputPremium input::selection {
+  background: var(--primary);
+}
+
+.inputPremium input:focus {
+  border: 0px;
+  outline: 0;
+  border-bottom: 1px solid black;
+}
+
+@media screen and (max-width: 700px) {
+  .formPremiumDownloadUpper {
+    flex-direction: column;
+    padding-bottom: 30px;
+  }
+  .formPremiumDownloadUpper span,
+  .inputPremium input {
+    width: 100%;
   }
 }
 

@@ -1,33 +1,22 @@
-const client = require("@sendgrid/client");
+const { Client } = require("@sendgrid/client");
+const client = new Client();
 client.setApiKey(process.env.SENDGRID_API_KEY);
 
 export default async function handler(req, res) {
   const body = JSON.parse(req.body);
 
-  const data = {
-    contacts: [
-      {
-        email: body.email,
-        custom_fields: {
-          name: body.name,
-        },
-      },
-    ],
-  };
+  console.log("log", body);
 
   const request = {
-    url: `/v3/marketing/contacts`,
     method: "PUT",
-    body: data,
+    url: "/v3/marketing/contacts",
+    body: {
+      contacts: [{ email: body.email, first_name: body.name }],
+    },
   };
-
   client
     .request(request)
-    .then(([response, body]) => {
-      console.log(response.statusCode);
-      console.log(response.body);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+    .then(console.log("Email Sent"))
+    .then((json) => console.log(json))
+    .catch(console.error);
 }
