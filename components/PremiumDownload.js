@@ -11,7 +11,7 @@ const PremiumDownload = ({ password, title, fileUrl, filename }) => {
     name == password && setPw(true)
   }, [name])
 
-  return !pw ? (
+  return pw ? (
     <form method="post" onSubmit={(e) => handleOnSubmit(e)}>
       <div className="formPremiumDownloadUpper">
         <span>{title} →</span>
