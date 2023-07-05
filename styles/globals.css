@@ -462,6 +462,15 @@ button {
   letter-spacing: 0.5px;
 }
 
+.specimenThumbnailWrapper {
+  cursor: pointer;
+  filter: grayscale(100%);
+}
+
+.specimenThumbnailWrapper:hover {
+  filter: grayscale(0%);
+}
+
 .typefaceInfosectionList h1 {
   font-family: "Giallo-Mono";
   font-size: var(--gialloSmallSize);

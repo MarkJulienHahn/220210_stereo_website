@@ -18,6 +18,9 @@ import Footer from "../../components/Footer";
 import FontPreview from "../../components/FontPreview";
 import FontInfo from "../../components/FontInfo";
 
+const specimenUrl = "/specimen/specimen_protest-grotesk-mono.pdf";
+const specimenThumbnail = "/specimen/specimen_protest-grotesk-mono_thumbnail.png";
+
 const Checkout = dynamic(() => import("../../components/Checkout/Checkout"));
 
 const ProtestGroteskMono = ({
@@ -723,6 +726,11 @@ const ProtestGroteskMono = ({
                   "8859-15 Latin-9",
                   "8859-16 Latin-10 South-Eastern European",
                 ]}
+                specimen={{
+                  url: specimenUrl,
+                  thumbnail: specimenThumbnail,
+                  filename: "specimen_protest-grotesk-mono.pdf",
+                }}
               />
             </div>
             <div ref={bottomRef}>

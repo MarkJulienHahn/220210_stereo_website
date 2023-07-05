@@ -18,6 +18,9 @@ import Footer from "../../components/Footer";
 import FontPreview from "../../components/FontPreview";
 import FontInfo from "../../components/FontInfo";
 
+const specimenUrl = "/specimen/specimen_protest-grotesk.pdf";
+const specimenThumbnail = "/specimen/specimen_protest-grotesk_thumbnail.png";
+
 const Checkout = dynamic(() => import("../../components/Checkout/Checkout"));
 
 const ProtestGroteskText = ({
@@ -421,7 +424,27 @@ const ProtestGroteskText = ({
                 &#8594; <span className="highlight01">A »Grotesk«</span> Protest
               </h1>
               <p>
-              In the mid-1880s, when the first sans-serif typefaces were introduced, they were considered <span className="highlight02">unattractive and an insult to the then-renewed graphic design profession</span> The term »Grotesk« was used to criticize these typefaces. They were <span className="highlight01">controversial, highly disrespected, and had a bad reputation</span> They represented a protest against all ornamental and historically colored typefaces, and were an uprising against conservative values. Protest Grotesk pays homage to these typefaces. Nowadays, quality in typeface design cannot only be based on formal design decisions. A typeface must rely on a <span className="highlight02">strong technical foundation to provide an advantage to modern-day type users</span>. Protest Grotesk is positioned within this tension field.
+                In the mid-1880s, when the first sans-serif typefaces were
+                introduced, they were considered{" "}
+                <span className="highlight02">
+                  unattractive and an insult to the then-renewed graphic design
+                  profession
+                </span>{" "}
+                The term »Grotesk« was used to criticize these typefaces. They
+                were{" "}
+                <span className="highlight01">
+                  controversial, highly disrespected, and had a bad reputation
+                </span>{" "}
+                They represented a protest against all ornamental and
+                historically colored typefaces, and were an uprising against
+                conservative values. Protest Grotesk pays homage to these
+                typefaces. Nowadays, quality in typeface design cannot only be
+                based on formal design decisions. A typeface must rely on a{" "}
+                <span className="highlight02">
+                  strong technical foundation to provide an advantage to
+                  modern-day type users
+                </span>
+                . Protest Grotesk is positioned within this tension field.
               </p>
             </div>
             <div className="typeface-single-tester-wrap" ref={testerRef}>
@@ -693,6 +716,11 @@ const ProtestGroteskText = ({
                   "8859-15 Latin-9",
                   "8859-16 Latin-10 South-Eastern European",
                 ]}
+                specimen={{
+                  url: specimenUrl,
+                  thumbnail: specimenThumbnail,
+                  filename: "specimen_protest-grotesk.pdf",
+                }}
               />
             </div>
             <div ref={bottomRef}>

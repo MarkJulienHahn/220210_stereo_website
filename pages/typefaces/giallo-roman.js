@@ -17,6 +17,9 @@ import Footer from "../../components/Footer";
 import FontPreview from "../../components/FontPreview";
 import FontInfo from "../../components/FontInfo";
 
+const specimenUrl = "/specimen/specimen_giallo-roman.pdf";
+const specimenThumbnail = "/specimen/specimen_giallo-roman_thumbnail.png";
+
 const Checkout = dynamic(() => import("../../components/Checkout/Checkout"));
 
 const GialloRoman = ({
@@ -677,6 +680,11 @@ const GialloRoman = ({
                   "8859-15 Latin-9",
                   "8859-16 Latin-10 South-Eastern European",
                 ]}
+                specimen={{
+                  url: specimenUrl,
+                  thumbnail: specimenThumbnail,
+                  filename: "specimen_giallo-roman.pdf",
+                }}
               />
             </div>
 

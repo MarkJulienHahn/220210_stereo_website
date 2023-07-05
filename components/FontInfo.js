@@ -1,3 +1,7 @@
+import useDownloader from "react-use-downloader";
+
+import Image from "next/image";
+
 const FontInfo = ({
   info,
   opentype,
@@ -6,7 +10,10 @@ const FontInfo = ({
   appleMacintosh,
   microsoftWindows,
   iso8859,
+  specimen,
 }) => {
+  const { download } = useDownloader();
+
   return (
     <div className="typefaceInfosection">
       <div className="typefaceInfosectionList">
@@ -35,6 +42,21 @@ const FontInfo = ({
               {entry} <br />
             </span>
           ))}
+        </p>
+        <p>
+          &#8594; <span className="highlight02">PDf-Specimen</span>
+          <br />
+          <span
+            className="specimenThumbnailWrapper"
+            onClick={() => download(specimen.url, specimen.filename)}
+          >
+            <Image
+              src={specimen.thumbnail}
+              width={210}
+              height={148}
+              style={{ paddingTop: "8px" }}
+            />
+          </span>
         </p>
       </div>
       <p>
