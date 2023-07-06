@@ -8,13 +8,15 @@ const PremiumDownload = ({ password, title, fileUrl, filename }) => {
   const { download } = useDownloader();
 
   useEffect(() => {
-    name == password && setPw(true)
-  }, [name])
+    name == password && setPw(true);
+  }, [name]);
 
-  return pw ? (
+  return !pw ? (
     <form method="post" onSubmit={(e) => handleOnSubmit(e)}>
       <div className="formPremiumDownloadUpper">
-        <span>{title} →</span>
+        <span>
+          {title} <span className="formPremiumArrow">→</span>
+        </span>
         <p className="inputPremium">
           <input
             autoFocus="true"
@@ -27,7 +29,7 @@ const PremiumDownload = ({ password, title, fileUrl, filename }) => {
       </div>
     </form>
   ) : (
-    <p onClick={() => download(fileUrl, filename)}>📂 {filename}</p>
+    <p className="programDownloadLink"onClick={() => download(fileUrl, filename)}>📂 {filename}</p>
   );
 };
 

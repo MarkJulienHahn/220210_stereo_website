@@ -149,6 +149,7 @@ textarea:focus {
 
 p {
   margin: 0;
+  cursor: default;
 }
 
 ul {
@@ -461,6 +462,15 @@ button {
   font-variation-settings: "wght" 150;
   letter-spacing: 0.5px;
 }
+
+.highlight03 {
+  background: var(--fifth);
+  color: black;
+  font-family: "Protest";
+  font-variation-settings: "wght" 150;
+  letter-spacing: 0.5px;
+}
+
 
 .specimenThumbnailWrapper {
   cursor: pointer;
@@ -2734,25 +2744,38 @@ button {
   padding: var(--margin-M);
   font-family: "Giallo";
   font-size: 30pt;
+  display: flex;
 }
 
-.premiumAccessDownload p {
+.programDownloadLink {
   transition: all 0.1s ease;
   cursor: pointer;
 }
 
-.premiumAccessDownload p:hover {
-  color: blue;
+.programDownloadLink:hover {
+  color: var(--primary);
 }
 
 .formPremiumDownloadUpper {
   display: flex;
   font-size: 15pt;
+  cursor: default;
 }
 
 .formPremiumDownloadUpper span {
   width: 25vw;
   padding-top: 20px;
+}
+.formPremiumArrow {
+  transition: padding 0.2s ease;
+}
+
+.formPremiumDownloadUpper span:hover .formPremiumArrow {
+  padding-left: 8px;
+}
+
+.premiumInputWrapper {
+  padding: 30px 0 40px
 }
 
 .inputPremium {
@@ -2792,7 +2815,25 @@ button {
   border-bottom: 1px solid black;
 }
 
-@media screen and (max-width: 700px) {
+.premiumRight {
+  font-family: Giallo-Mono;
+  font-size: var(--gialloSmallSize);
+  line-height: var(--gialloSmallLineHeight);
+  letter-spacing: var(--gialloSmallLetterSpacing);
+  padding-bottom: 100px
+}
+
+.premiumLeft {
+  width: 50vw;
+  padding-bottom: 200px
+}
+
+@media screen and (max-width: 1000px) {
+  .premiumAccessDownload {
+    padding-top: 80px;
+    flex-direction: column;
+  }
+
   .formPremiumDownloadUpper {
     flex-direction: column;
     padding-bottom: 30px;
@@ -2801,6 +2842,7 @@ button {
   .inputPremium input {
     width: 100%;
   }
+  .premiumLeft {width: 100%;}
 }
 
 /* FONT PREVIEW */

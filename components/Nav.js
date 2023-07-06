@@ -26,8 +26,6 @@ const Nav = ({ darkMode }) => {
     color: "black",
   };
 
-  console.log(router);
-
   return (
     router.pathname != "/premium-access/download" && router.pathname != "/early-access/download" && (
       <nav
