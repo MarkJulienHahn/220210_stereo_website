@@ -44,7 +44,7 @@ const FontInfo = ({
           ))}
         </p>
         <p>
-          &#8594; <span className="highlight02">PDf-Specimen</span>
+          &#8594; <span className="highlight02">PDF-Specimen</span>
           <br />
           <span
             className="specimenThumbnailWrapper"
