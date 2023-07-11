@@ -471,7 +471,6 @@ button {
   letter-spacing: 0.5px;
 }
 
-
 .specimenThumbnailWrapper {
   cursor: pointer;
   filter: grayscale(100%);
@@ -2736,7 +2735,7 @@ button {
   }
 }
 
-/* PREMIUM ACCESS */
+/* PREMIUM / BETA ACCESS */
 
 .premiumAccessDownload {
   width: 100vw;
@@ -2775,10 +2774,11 @@ button {
 }
 
 .premiumInputWrapper {
-  padding: 30px 0 40px
+  padding: 30px 0 40px;
 }
 
-.inputPremium {
+.inputPremium,
+.inputBeta {
   display: flex;
   flex-direction: column;
 }
@@ -2796,7 +2796,20 @@ button {
   width: 25vw;
 }
 
-.inputPremium input::placeholder {
+.inputBeta input {
+  border: 0;
+  padding: 0;
+  font-family: "Protest";
+  font-weight: 130;
+  font-size: 40px;
+  line-height: 16px;
+  letter-spacing: 0.5px;
+  background: transparent;
+  border-bottom: 1px solid black;
+}
+
+.inputPremium input::placeholder,
+.inputBeta input::placeholder {
   /* font-family: "Giallo-Mono"; */
   color: black;
   opacity: 1;
@@ -2805,11 +2818,13 @@ button {
   letter-spacing: 1px;
 }
 
+.inputPremium input::selection,
 .inputPremium input::selection {
   background: var(--primary);
 }
 
-.inputPremium input:focus {
+.inputPremium input:focus,
+.inputBeta input:focus {
   border: 0px;
   outline: 0;
   border-bottom: 1px solid black;
@@ -2820,12 +2835,21 @@ button {
   font-size: var(--gialloSmallSize);
   line-height: var(--gialloSmallLineHeight);
   letter-spacing: var(--gialloSmallLetterSpacing);
-  padding-bottom: 100px
+  padding-bottom: 100px;
 }
 
 .premiumLeft {
   width: 50vw;
-  padding-bottom: 200px
+  padding-bottom: 200px;
+}
+
+.footerCentered {
+  width: 100vw;
+  padding: var(--margin-L) 25vw;
+}
+
+.footerCentered .confirmation {
+  text-align: center
 }
 
 @media screen and (max-width: 1000px) {
@@ -2842,7 +2866,13 @@ button {
   .inputPremium input {
     width: 100%;
   }
-  .premiumLeft {width: 100%;}
+  .premiumLeft {
+    width: 100%;
+  }
+  .footerCentered {
+  width: 100vw;
+  padding: var(--margin-L) var(--margin-M);
+}
 }
 
 /* FONT PREVIEW */

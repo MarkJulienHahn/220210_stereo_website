@@ -26,3 +26,9 @@ export default async function handler(req, res) {
     .then((json) => console.log(json))
     .catch(console.error);
 }
+
+export const config = {
+  api: {
+    externalResolver: true,
+  },
+}

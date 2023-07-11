@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import PremiumDownload from "../components/PremiumDownload";
 import PremiumSignupForm from "../components/PremiumSignupForm";
 
-const Trialdownload = () => {
+const PremiumProgram = () => {
   const location = useRouter();
 
   const GialloFileUrl = "/premium-program/Giallo-Roman_Premium-Program.zip";
@@ -26,7 +26,7 @@ const Trialdownload = () => {
   return (
     <div>
       <Head>
-        <title>Premium Access | Stereo Typefaces® </title>
+        <title>Premium Program | Stereo Typefaces® </title>
       </Head>
 
       <div className="buttonsLeftWrapper" scroll={false}>
@@ -79,4 +79,4 @@ const Trialdownload = () => {
   );
 };
 
-export default Trialdownload;
+export default PremiumProgram;

@@ -11,7 +11,7 @@ export default async function handler(req, res) {
     to: body.email,
     bcc: 'info@stereotypefaces.com',
     from: { 
-      email: 'trials@stereotypefaces.com', 
+      email: 'info@stereotypefaces.com', 
       name: 'Stereo Typefaces',
     },
     subject: `Thank you for your interest in our Trials, ${body.name}`,
@@ -30,3 +30,9 @@ export default async function handler(req, res) {
   .catch((error) => console.log(error.message));
   res.status(200).json({ status: 'Ok' });
 }  
+
+export const config = {
+  api: {
+    externalResolver: true,
+  },
+}

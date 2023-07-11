@@ -30,3 +30,9 @@ export default async function handler(req, res) {
   }).then((response) => response.json());
   return res.status(200).end();
 }
+
+export const config = {
+  api: {
+    externalResolver: true,
+  },
+}

@@ -15,7 +15,7 @@ export default async function handler(req, res) {
         {
           email: body.email,
           first_name: body.name,
-          line: "Newsletter",
+          line: "Beta",
         },
       ],
     },
