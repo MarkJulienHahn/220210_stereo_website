@@ -15,7 +15,7 @@ export default async function handler(req, res) {
   console.log(message);
 
   const data = {
-    to: "beta@stereotypefaces.com",
+    to: "info@stereotypefaces.com",
     from: {
       email: "info@stereotypefaces.com",
       name: "Stereo Typefaces",

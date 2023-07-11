@@ -10,7 +10,7 @@ export default async function handler(req, res) {
   const data = {
     to: body.email,
     from: {
-      email: "newsletter@stereotypefaces.com",
+      email: "info@stereotypefaces.com",
       name: "Stereo Typefaces",
     },
     subject: `Thank you for subscribing to our newsletter, ${body.firstName}`,
