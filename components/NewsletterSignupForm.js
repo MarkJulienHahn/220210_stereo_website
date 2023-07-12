@@ -5,7 +5,6 @@ import Link from "next/link";
 const NewsletterSignupForm = () => {
   const [name, setName] = useState();
   const [mail, setMail] = useState();
-  const [project, setProject] = useState();
   const [fulfilled, setFulfilled] = useState(false);
 
   async function handleOnSubmit(e) {
@@ -56,7 +55,7 @@ const NewsletterSignupForm = () => {
               <div className="premiumInputWrapper">
                 <p className={"inputBeta"}>
                   <input
-                    placeholder="Agency / Designer*"
+                    placeholder="Name*"
                     type="text"
                     name="name"
                     onChange={(e) => setName(e.target.value)}
@@ -68,14 +67,6 @@ const NewsletterSignupForm = () => {
                     type="email"
                     name="email"
                     onChange={(e) => setMail(e.target.value)}
-                  />
-                </p>
-                <p className={"inputBeta"}>
-                  <input
-                    placeholder="Specific Project?"
-                    type="text"
-                    name="project"
-                    onChange={(e) => setProject(e.target.value)}
                   />
                 </p>
               </div>
