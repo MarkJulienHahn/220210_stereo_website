@@ -1,9 +1,10 @@
-const mail = require('@sendgrid/mail');
+import { Client } from "@sendgrid/client";
+const sgMail = require("@sendgrid/mail"); 
 
-mail.setApiKey(process.env.SENDGRID_API_KEY);
+sgMail.setClient(new Client());
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 export default async function handler(req, res) {
-
   const body = JSON.parse(req.body);
 
   const message = `
@@ -22,7 +23,7 @@ export default async function handler(req, res) {
   }
 
 
- return mail
+ return sgMail
   .send(data)
   .then((response) => console.log("Email sent..."))
   .catch((error) => console.log(error.message));
