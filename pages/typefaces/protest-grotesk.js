@@ -242,7 +242,7 @@ const ProtestGroteskText = ({
               wghtMax={251}
               italic={true}
               color={"rgb(220,220,220)"}
-              background={darkMode ? "rgb(20,20,20)" : "var(--fifthSolid)"}
+              background={darkMode ? "rgb(20,20,20)" : "rgb(10,10,10)"}
             />
           </div>
 
