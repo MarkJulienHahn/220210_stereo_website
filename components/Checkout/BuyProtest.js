@@ -503,7 +503,7 @@ const BuyProtest = ({
 
         <div className={styles.buySectionWrapper}>
           {protestStyles.map((product, i) => (
-            <div onMouseEnter={noHover}>
+            <div onMouseEnter={noHover} key={i}>
               <div key={i} className={styles.choiceWrapper}>
                 <div
                   className={styles.varValues}

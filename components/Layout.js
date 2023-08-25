@@ -1,11 +1,13 @@
+import Head from 'next/head.js';
+
 import { AnalyticsWrapper } from './Analytics.js';
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
+      <Head>
         <title>Stereo Typefaces®</title>
-      </head>
+      </Head>
       <body>
         {children}
         <AnalyticsWrapper />
