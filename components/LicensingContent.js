@@ -31,7 +31,7 @@ const LicensingContent = () => {
             <span className="bg01">
               you and your studio/agency, your client, or both
             </span>
-            ? As long as you're working on behalf of a client, you’re good to go
+            ? As long as you’re working on behalf of a client, you’re good to go
             by choosing a desktop license for yourself and your studio. The
             Desktop License can be employed for an unlimited number of projects
             and an unlimited duration. However, for the Web License, the size of
@@ -39,15 +39,15 @@ const LicensingContent = () => {
             the case with our App License.
             <br />
             <br />
-            Here's an example: A design agency comprising 20 employees is
-            engaged to handle print and screen content for a client's campaign.
+            Here’s an example: A design agency comprising 20 employees is
+            engaged to handle print and screen content for a client’s campaign.
             The project includes designing a website for this particular
-            campaign. The client's company has a total of 85 employees.
+            campaign. The client’s company has a total of 85 employees.
             <br />
             <br />
             For this specific task, the agency requires a Desktop License for a
             maximum of 20 employees (L) for internal use, and a Web License for
-            the client's company with the maximum amount up to 85 employees
+            the client’s company with the maximum amount up to 85 employees
             (XXL). Further information on license types and sizes can be found
             below.
           </p>
@@ -166,7 +166,7 @@ const LicensingContent = () => {
             <br />
             <br />
             By selecting this option, you acknowledge that you are currently
-            enrolled in an educational institution. While we don't require proof
+            enrolled in an educational institution. While we don’t require proof
             at this moment, we might request it in the future.
           </p>
         </div>
@@ -208,7 +208,7 @@ const LicensingContent = () => {
           <p>
             Absolutely! Our services encompass everything from tailor-made logos
             and altering our font families to crafting an entirely new corporate
-            font. If you're interested in us customizing one of our existing
+            font. If you’re interested in us customizing one of our existing
             typefaces for you or your client, feel free to use the custom
             request form in our shop. Alternatively, you can contact us at
             service@stereotypefaces.com for any inquiries.
@@ -225,7 +225,7 @@ const LicensingContent = () => {
             beta program, you can access trial versions for free. However, full
             licenses are only available upon request. Kindly furnish additional
             details about your project, along with the desired license type and
-            size. You're welcome to register here.
+            size. You’re welcome to register here.
           </p>
         </div>
         <div className="licenseSection">
@@ -240,9 +240,9 @@ const LicensingContent = () => {
         <div className="licenseSection">
           <h1> More questions? </h1>
           <p>
-            Don’t hesitate reaching out to us. We're here to help you with
+            Don’t hesitate reaching out to us. We’re here to help you with
             licensing, custom logos, product extensions, appropriate solutions
-            for your clients' requirements, charity projects, or even just for a
+            for your clients’ requirements, charity projects, or even just for a
             casual chat! Contact us at support@stereotypefaces.com. Feedback, no
             matter the matter, is always welcome as well!
           </p>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Checkout from "../components/Checkout/Checkout";
 
-const checkout = ({
+const CheckoutPage = ({
   products,
   cart,
   checkoutToken,
@@ -45,4 +45,4 @@ const checkout = ({
   );
 };
 
-export default checkout;
+export default CheckoutPage;
