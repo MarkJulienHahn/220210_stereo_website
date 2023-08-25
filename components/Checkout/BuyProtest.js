@@ -451,7 +451,7 @@ const BuyProtest = ({
 
           {/* STARTER */}
 
-          <div
+          {/* <div
             item
             onClick={
               licenseChoice &&
@@ -494,7 +494,7 @@ const BuyProtest = ({
               cart={cart}
               licenseChoice={licenseChoice}
             />
-          </div>
+          </div> */}
         </div>
       </div>
       {/* SINGLE STYLE */}
