@@ -213,9 +213,9 @@ const BuyProtest = ({
     !items.some((item) => item.product_id === protestBundles[2].id)
       ? updateBundle2(false)
       : "";
-    !items.some((item) => item.product_id === protestBundles[3].id)
-      ? updateBundle3(false)
-      : "";
+    // !items.some((item) => item.product_id === protestBundles[3].id)
+    //   ? updateBundle3(false)
+    //   : "";
   }, [cart]);
 
   useEffect(() => {
