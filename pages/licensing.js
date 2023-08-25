@@ -6,6 +6,8 @@ import dynamic from "next/dynamic";
 import Button from "../components/Button";
 import Link from "next/link";
 import Cartbutton from "../components/Cartbutton";
+import LicensingContent from "../components/LicensingContent";
+import Footer from "../components/Footer";
 
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -61,7 +63,7 @@ const Licensing = ({
           checkoutToken={checkoutToken}
           getPaypalPaymentId={getPaypalPaymentId}
           refreshCart={refreshCart}
-          font={"Giallo"}
+          font={""}
         />
       )}
 
@@ -90,11 +92,11 @@ const Licensing = ({
           <Button
             lable={"Buy"}
             subclass={"primary"}
-            onClick={cart.line_items ? () => setShowCheckout(true) : () => {}}
+            onClick={cart?.line_items ? () => setShowCheckout(true) : () => {}}
           />
-          {cart.line_items?.length ? (
+          {cart?.line_items?.length ? (
             <Cartbutton
-              lable={`Cart [${cart.total_unique_items}]`}
+              lable={`Cart [${cart?.total_unique_items}]`}
               subclass={"tertiary"}
               setShowCheckout={setShowCheckout}
               live={live}
@@ -113,7 +115,10 @@ const Licensing = ({
           exit={{ y: -300, opacity: 0 }}
           transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
         >
-          <div className="licensingWrapper">
+          <LicensingContent />
+          <Footer />
+
+          {/* <div className="licensingWrapper">
             <div className="licensingSingleColumn">
               <h1>WHAT LICENSE DO I NEED? – COMPANY SIZE AS MAIN METRIC</h1>
               <p>
@@ -212,7 +217,7 @@ const Licensing = ({
                 <a href="mailto:license@stereotypefaces.com">
                   &nbsp;license@stereotypefaces.com
                 </a>
-              </p> */}
+              </p> 
 
               <h1>TRIAL LICENSE</h1>
               <p>
@@ -337,7 +342,7 @@ const Licensing = ({
               </p>
             </div>
             <p className="massiveLogo">STEREO</p>
-          </div>
+          </div> */}
         </motion.div>
       </AnimatePresence>
     </main>

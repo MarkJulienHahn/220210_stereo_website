@@ -28,8 +28,6 @@ const LicensingTerms = dynamic(() => import("./LicensingTerms"));
 const CheckoutStep2 = dynamic(() => import("./CheckoutStep2"));
 const CheckoutStep3 = dynamic(() => import("./CheckoutStep3"));
 const CheckoutStep4 = dynamic(() => import("./CheckoutStep4"));
-const CheckoutStep5 = dynamic(() => import("./CheckoutStep5"));
-const CheckoutCustomForm = dynamic(() => import("./CheckoutCustomForm"));
 
 const explaination = [
   <>
@@ -40,16 +38,15 @@ const explaination = [
   <>
     &#8594; Desktop License
     <br />
-    This license allows font installation on various devices for designing,
-    producing, and editing non-dynamic print and screen content, like posters,
-    (non-trademark) logos, images, books, animations, etc.
+    License to use desktop fonts to design, produce and edit printable and
+    digital assets. Desktop licensing is calculated by the size of the
+    organisation, that installs the font-file on their computer.
   </>,
   <>
     &#8594; Web License
     <br />
-    License for self-hosting a website with our fonts to display dynamic text on
-    a single designated domain, including subdomains. Provided font formats:
-    WOFF, WOFF2, TTF (variable).
+    License to use self-hosted webfonts for displaying dynamic text on specified
+    website domains. Our package includes WOFF and WOFF2 font formats.
   </>,
   <>
     &#8594; Student License
@@ -61,29 +58,24 @@ const explaination = [
   <>
     &#8594; App License
     <br />
-    Use this license to embed fonts in mobile or web apps, checkout systems,
-    e-publication or video games. Our custom request form will help you submit
-    the appropriate inquiry.
+    Chose this license if you are using one of our typefaces for a mobile app or
+    game application. This type of licence can’t be purchased via the website –
+    you will be redirected to our custom request form.
   </>,
   <>
-    &#8594; Custom License
+    &#8594; E-publishing License
     <br />
-    For unique logo design, font customization, or trademarking logos with our
-    fonts, this extension is necessary. We also provide these services upon
-    request. Please share additional details using our custom request form.
+    Chose this license if you are using one of our typefaces for e-publishing.
+    This type of licence can’t be purchased via the website – you will be
+    redirected to our custom request form.
   </>,
   <>
-    &#8594; Non-Profit Discount
+    &#8594; Font Modification
     <br />
-    Nonprofits and non-commercial projects get a discount. Please use our custom
-    request form to provide detailed project information.
-  </>,
-  <>
-    &#8594; Political/Religious Use
-    <br />
-    Using our fonts for religious or political contexts, including campaigns and
-    messages (slogans, claims, logos) by parties or organizations, requires
-    prior agreement. Contact us via our custom request form.
+    Click here, if you would like to modify one of our fonts, for example for
+    custom logo projects. In this case we will review your project and make a
+    custom offer for you needs. In this case you will be redirected to our
+    request form.
   </>,
 ];
 
@@ -113,8 +105,6 @@ const Checkout = ({
   const [showCheckoutStep2, setShowCheckoutStep2] = useState(false);
   const [showCheckoutStep3, setShowCheckoutStep3] = useState(false);
   const [showCheckoutStep4, setShowCheckoutStep4] = useState(false);
-  const [showCheckoutStep5, setShowCheckoutStep5] = useState(false);
-  const [showCheckoutCustomForm, setShowCheckoutCustomForm] = useState(false);
   const [fadeCheckout, setFadeCheckout] = useState(false);
   const [showBuy, setShowBuy] = useState(font);
   const [showFontList, setShowFontList] = useState(false);
@@ -135,23 +125,23 @@ const Checkout = ({
 
   const [showDesktop, setShowDesktop] = useState(false);
   const [showWeb, setShowWeb] = useState(false);
-  const [showApp, setShowApp] = useState(false);
 
   const [priceFactor1, setPriceFactor1] = useState(0);
   const [priceFactor2, setPriceFactor2] = useState(0);
   const [priceFactor3, setPriceFactor3] = useState(0);
-  const [priceFactor4, setPriceFactor4] = useState(1);
+  const [priceFactor4, setPriceFactor4] = useState(0);
+  const [priceFactor5, setPriceFactor5] = useState(0);
+  const [priceFactor6, setPriceFactor6] = useState(0);
+  const [priceFactor7, setPriceFactor7] = useState(0);
 
   const [LicenseUser, setLicenseUser] = useState([]);
-  const [DesktopLicense, setDesktopLicense] = useState("");
+  const [DesktopLicense, setDesktopLicense] = useState([]);
   const [WebLicense, setWebLicense] = useState("");
-  const [AppLicense, setAppLicense] = useState("");
+  const [InteractiveLicense, setInteractiveLicense] = useState("");
   const [SocialLicense, setSocialLicense] = useState("");
   const [LogoLicense, setLogoLicense] = useState("");
   const [VideoLicense, setVideoLicense] = useState("");
-  const [NumEmployeesDesktop, setNumEmployeesDesktop] = useState("");
-  const [NumEmployeesWeb, setNumEmployeesWeb] = useState("");
-  const [NumEmployeesApp, setNumEmployeesApp] = useState("");
+  const [NumEmployees, setNumEmployees] = useState("");
 
   const [explIndex, setExplIndex] = useState(null);
   const [licenseChoice, setLicenseChoice] = useState(false);
@@ -160,46 +150,18 @@ const Checkout = ({
 
   const { windowHeight, windowWidth } = useWindowDimensions();
   const [buyTableHeight, setBuyTableHeight] = useState(null);
-  const [checkoutOverviewHeight, setCheckoutOverviewHeight] = useState(0);
 
   const [fontPreview, setFontPreview] = useState(null);
 
-  const [virtualCart, setVirtualCart] = useState([]);
-  const [virtualCartPrice, setVirtualCartPrice] = useState(null);
-
-  const [nonProfit, setNonProfit] = useState(false);
-  const [modification, setModification] = useState(false);
-  const [political, setPolitical] = useState(null);
-
-  // const License = [
-  //   `${DesktopLicense && `${DesktopLicense},`} ${
-  //     WebLicense && `${WebLicense},`
-  //   } ${AppLicense && `${AppLicense},`}`,
-  // ];
-
-  const handleAddToVirtualCart = (
-    product_id,
-    quantity,
-    product_name,
-    price,
-    discount,
-    license
-  ) => {
-    setVirtualCart([
-      ...virtualCart,
-      { product_id, quantity, product_name, price, discount, license },
-    ]);
-  };
-
-  const handleRemoveFromVirtualCart = (id) => {
-    setVirtualCart(virtualCart.filter((item) => item.product_id !== id));
-  };
-
-  const transferCarts = async () => {
-    virtualCart.map((item) => {
-      handleAddToCart(item.product_id, item.quantity);
-    });
-  };
+  const License = [
+    `${DesktopLicense && `${DesktopLicense},`} ${
+      WebLicense && `${WebLicense},`
+    } ${InteractiveLicense && `${InteractiveLicense},`} ${
+      SocialLicense && `${SocialLicense},`
+    } ${LogoLicense && `${LogoLicense},`} ${
+      VideoLicense && `${VideoLicense},`
+    }`,
+  ];
 
   const updateLicenseUser = (user) => {
     setLicenseUser(user);
@@ -211,8 +173,8 @@ const Checkout = ({
   const updateWebLicense = (license) => {
     setWebLicense(license);
   };
-  const updateAppLicense = (license) => {
-    setAppLicense(license);
+  const updateInteractiveLicense = (license) => {
+    setInteractiveLicense(license);
   };
   const updateSocialLicense = (license) => {
     setSocialLicense(license);
@@ -229,40 +191,39 @@ const Checkout = ({
 
   const router = useRouter();
 
-  // useEffect(() => {
-  //   if (priceFactor4 < 3) {
-  //     updateSocialLicense(""),
-  //       updateLogoLicense(""),
-  //       updateVideoLicense("")
-  //       // updatePriceFactor5(0),
-  //       // updatePriceFactor6(0),
-  //       // updatePriceFactor7(0);
-  //   }
-  // }, [priceFactor4]);
+  useEffect(() => {
+    if (priceFactor4 < 3) {
+      updateSocialLicense(""),
+        updateLogoLicense(""),
+        updateVideoLicense(""),
+        updatePriceFactor5(0),
+        updatePriceFactor6(0),
+        updatePriceFactor7(0);
+    }
+  }, [priceFactor4]);
 
   useEffect(() => {
     if (LicenseUser == "Student") {
       updateSocialLicense(""),
         updateLogoLicense(""),
         updateVideoLicense(""),
-        updatePriceFactor4(1);
+        updatePriceFactor5(0),
+        updatePriceFactor6(0),
+        updatePriceFactor7(0);
+      updatePriceFactor4(1);
+      updateNumEmployees("Student License");
     }
   });
 
   useEffect(() => {
-    virtualCart.length &&
-      setVirtualCartPrice(
-        virtualCart
-          .map((item) => item.price)
-          .reduce((x, y) => {
-            return x + y;
-          })
-      );
-  }, [virtualCart]);
-
-  useEffect(() => {
     if (
-      (priceFactor1 + priceFactor2 + priceFactor3 + priceFactor4 &&
+      (priceFactor1 +
+        priceFactor2 +
+        priceFactor3 +
+        priceFactor5 +
+        priceFactor6 +
+        priceFactor7 &&
+        priceFactor4 &&
         LicenseUser !== "") ||
       (LicenseUser == "Student" &&
         priceFactor1 + priceFactor2 + priceFactor3 !== 0)
@@ -274,9 +235,12 @@ const Checkout = ({
   const updateButtonContent = (input1) => {
     setButtonContent(input1);
   };
+  const updateBigButtonContent = (input1) => {
+    setBigButtonContent(input1);
+  };
 
   useEffect(() => {
-    if (cart?.id) {
+    if (cart.id) {
       const generateToken = async () => {
         try {
           const token = await commerce.checkout.generateToken(cart.id, {
@@ -305,204 +269,202 @@ const Checkout = ({
   const updatePriceFactor4 = (fact4) => {
     setPriceFactor4(fact4);
   };
-  // const updatePriceFactor5 = (fact5) => {
-  //   setPriceFactor5(fact5);
-  // };
-  // const updatePriceFactor6 = (fact6) => {
-  //   setPriceFactor6(fact6);
-  // };
+  const updatePriceFactor5 = (fact5) => {
+    setPriceFactor5(fact5);
+  };
+  const updatePriceFactor6 = (fact6) => {
+    setPriceFactor6(fact6);
+  };
 
-  // const updatePriceFactor7 = (fact7) => {
-  //   setPriceFactor7(fact7);
-  // };
+  const updatePriceFactor7 = (fact7) => {
+    setPriceFactor7(fact7);
+  };
 
   const resetLicensing = () => {
     updatePriceFactor1(0),
       updatePriceFactor2(0),
       updatePriceFactor3(0),
-      updatePriceFactor4(1),
+      updatePriceFactor4(0),
+      updatePriceFactor5(0),
+      updatePriceFactor6(0),
+      updatePriceFactor7(0),
       updateDesktopLicense(""),
       updateWebLicense(""),
-      updateAppLicense(""),
+      updateInteractiveLicense(""),
       updateSocialLicense(""),
       updateLogoLicense(""),
       updateVideoLicense(""),
       updateLicenseUser("");
-    setShowDesktop(false),
-      setShowApp(false),
-      setShowWeb(false),
-      setDesktopLicense(false),
-      setWebLicense(false);
   };
 
-  // React.useEffect(() => {
-  //   const data = localStorage.getItem("licenseUser");
-  //   if (data) {
-  //     setLicenseUser(JSON.parse(data));
-  //   }
-  // }, []);
+  React.useEffect(() => {
+    const data = localStorage.getItem("licenseUser");
+    if (data) {
+      setLicenseUser(JSON.parse(data));
+    }
+  }, []);
 
-  // React.useEffect(() => {
-  //   localStorage.setItem("licenseUser", JSON.stringify(LicenseUser));
-  // });
+  React.useEffect(() => {
+    localStorage.setItem("licenseUser", JSON.stringify(LicenseUser));
+  });
 
-  // React.useEffect(() => {
-  //   const data = localStorage.getItem("licenseDesktop");
-  //   if (data) {
-  //     setDesktopLicense(JSON.parse(data));
-  //   }
-  // }, []);
+  React.useEffect(() => {
+    const data = localStorage.getItem("licenseDesktop");
+    if (data) {
+      setDesktopLicense(JSON.parse(data));
+    }
+  }, []);
 
-  // React.useEffect(() => {
-  //   localStorage.setItem("licenseDesktop", JSON.stringify(DesktopLicense));
-  // });
+  React.useEffect(() => {
+    localStorage.setItem("licenseDesktop", JSON.stringify(DesktopLicense));
+  });
 
-  // React.useEffect(() => {
-  //   const data = localStorage.getItem("licenseWeb");
-  //   if (data) {
-  //     setWebLicense(JSON.parse(data));
-  //   }
-  // }, []);
+  React.useEffect(() => {
+    const data = localStorage.getItem("licenseWeb");
+    if (data) {
+      setWebLicense(JSON.parse(data));
+    }
+  }, []);
 
-  // React.useEffect(() => {
-  //   localStorage.setItem("licenseWeb", JSON.stringify(WebLicense));
-  // });
+  React.useEffect(() => {
+    localStorage.setItem("licenseWeb", JSON.stringify(WebLicense));
+  });
 
-  // React.useEffect(() => {
-  //   const data = localStorage.getItem("licenseApp");
-  //   if (data) {
-  //     setAppLicense(JSON.parse(data));
-  //   }
-  // }, []);
+  React.useEffect(() => {
+    const data = localStorage.getItem("licenseApp");
+    if (data) {
+      setInteractiveLicense(JSON.parse(data));
+    }
+  }, []);
 
-  // React.useEffect(() => {
-  //   localStorage.setItem("licenseApp", JSON.stringify(AppLicense));
-  // });
+  React.useEffect(() => {
+    localStorage.setItem("licenseApp", JSON.stringify(InteractiveLicense));
+  });
 
-  // React.useEffect(() => {
-  //   const data = localStorage.getItem("licenseSocial");
-  //   if (data) {
-  //     setSocialLicense(JSON.parse(data));
-  //   }
-  // }, []);
+  React.useEffect(() => {
+    const data = localStorage.getItem("licenseSocial");
+    if (data) {
+      setSocialLicense(JSON.parse(data));
+    }
+  }, []);
 
-  // React.useEffect(() => {
-  //   localStorage.setItem("licenseSocial", JSON.stringify(SocialLicense));
-  // });
+  React.useEffect(() => {
+    localStorage.setItem("licenseSocial", JSON.stringify(SocialLicense));
+  });
 
-  // React.useEffect(() => {
-  //   const data = localStorage.getItem("licenseLogo");
-  //   if (data) {
-  //     setLogoLicense(JSON.parse(data));
-  //   }
-  // }, []);
+  React.useEffect(() => {
+    const data = localStorage.getItem("licenseLogo");
+    if (data) {
+      setLogoLicense(JSON.parse(data));
+    }
+  }, []);
 
-  // React.useEffect(() => {
-  //   localStorage.setItem("licenseLogo", JSON.stringify(LogoLicense));
-  // });
+  React.useEffect(() => {
+    localStorage.setItem("licenseLogo", JSON.stringify(LogoLicense));
+  });
 
-  // React.useEffect(() => {
-  //   const data = localStorage.getItem("licenseVideo");
-  //   if (data) {
-  //     setVideoLicense(JSON.parse(data));
-  //   }
-  // }, []);
+  React.useEffect(() => {
+    const data = localStorage.getItem("licenseVideo");
+    if (data) {
+      setVideoLicense(JSON.parse(data));
+    }
+  }, []);
 
-  // React.useEffect(() => {
-  //   localStorage.setItem("licenseVideo", JSON.stringify(VideoLicense));
-  // });
+  React.useEffect(() => {
+    localStorage.setItem("licenseVideo", JSON.stringify(VideoLicense));
+  });
 
-  // React.useEffect(() => {
-  //   localStorage.setItem("license", JSON.stringify(License));
-  // });
+  React.useEffect(() => {
+    localStorage.setItem("license", JSON.stringify(License));
+  });
 
-  // React.useEffect(() => {
-  //   const data = localStorage.getItem("Number of Employees");
-  //   if (data) {
-  //     setNumEmployees(JSON.parse(data));
-  //   }
-  // }, []);
+  React.useEffect(() => {
+    const data = localStorage.getItem("Number of Employees");
+    if (data) {
+      setNumEmployees(JSON.parse(data));
+    }
+  }, []);
 
-  // React.useEffect(() => {
-  //   localStorage.setItem("Number of Employees", JSON.stringify(NumEmployees));
-  // });
+  React.useEffect(() => {
+    localStorage.setItem("Number of Employees", JSON.stringify(NumEmployees));
+  });
 
-  // React.useEffect(() => {
-  //   const data = localStorage.getItem("priceFactor1");
-  //   if (data) {
-  //     setPriceFactor1(JSON.parse(data));
-  //   }
-  // }, []);
+  React.useEffect(() => {
+    const data = localStorage.getItem("priceFactor1");
+    if (data) {
+      setPriceFactor1(JSON.parse(data));
+    }
+  }, []);
 
-  // React.useEffect(() => {
-  //   localStorage.setItem("priceFactor1", JSON.stringify(NumEmployees));
-  // });
+  React.useEffect(() => {
+    localStorage.setItem("priceFactor1", JSON.stringify(NumEmployees));
+  });
 
-  // React.useEffect(() => {
-  //   const data = localStorage.getItem("priceFactor2");
-  //   if (data) {
-  //     setPriceFactor2(JSON.parse(data));
-  //   }
-  // }, []);
+  React.useEffect(() => {
+    const data = localStorage.getItem("priceFactor2");
+    if (data) {
+      setPriceFactor2(JSON.parse(data));
+    }
+  }, []);
 
-  // React.useEffect(() => {
-  //   localStorage.setItem("priceFactor2", JSON.stringify(NumEmployees));
-  // });
+  React.useEffect(() => {
+    localStorage.setItem("priceFactor2", JSON.stringify(NumEmployees));
+  });
 
-  // React.useEffect(() => {
-  //   const data = localStorage.getItem("priceFactor3");
-  //   if (data) {
-  //     setPriceFactor3(JSON.parse(data));
-  //   }
-  // }, []);
+  React.useEffect(() => {
+    const data = localStorage.getItem("priceFactor3");
+    if (data) {
+      setPriceFactor3(JSON.parse(data));
+    }
+  }, []);
 
-  // React.useEffect(() => {
-  //   localStorage.setItem("priceFactor3", JSON.stringify(NumEmployees));
-  // });
+  React.useEffect(() => {
+    localStorage.setItem("priceFactor3", JSON.stringify(NumEmployees));
+  });
 
-  // React.useEffect(() => {
-  //   const data = localStorage.getItem("priceFactor4");
-  //   if (data) {
-  //     setPriceFactor4(JSON.parse(data));
-  //   }
-  // }, []);
+  React.useEffect(() => {
+    const data = localStorage.getItem("priceFactor4");
+    if (data) {
+      setPriceFactor4(JSON.parse(data));
+    }
+  }, []);
 
-  // React.useEffect(() => {
-  //   localStorage.setItem("priceFactor4", JSON.stringify(NumEmployees));
-  // });
+  React.useEffect(() => {
+    localStorage.setItem("priceFactor4", JSON.stringify(NumEmployees));
+  });
 
-  // React.useEffect(() => {
-  //   const data = localStorage.getItem("priceFactor5");
-  //   if (data) {
-  //     setPriceFactor5(JSON.parse(data));
-  //   }
-  // }, []);
+  React.useEffect(() => {
+    const data = localStorage.getItem("priceFactor5");
+    if (data) {
+      setPriceFactor5(JSON.parse(data));
+    }
+  }, []);
 
-  // React.useEffect(() => {
-  //   localStorage.setItem("priceFactor5", JSON.stringify(NumEmployees));
-  // });
+  React.useEffect(() => {
+    localStorage.setItem("priceFactor5", JSON.stringify(NumEmployees));
+  });
 
-  // React.useEffect(() => {
-  //   const data = localStorage.getItem("priceFactor6");
-  //   if (data) {
-  //     setPriceFactor6(JSON.parse(data));
-  //   }
-  // }, []);
+  React.useEffect(() => {
+    const data = localStorage.getItem("priceFactor6");
+    if (data) {
+      setPriceFactor6(JSON.parse(data));
+    }
+  }, []);
 
-  // React.useEffect(() => {
-  //   localStorage.setItem("priceFactor6", JSON.stringify(NumEmployees));
-  // });
+  React.useEffect(() => {
+    localStorage.setItem("priceFactor6", JSON.stringify(NumEmployees));
+  });
 
-  // React.useEffect(() => {
-  //   const data = localStorage.getItem("priceFactor7");
-  //   if (data) {
-  //     setPriceFactor7(JSON.parse(data));
-  //   }
-  // }, []);
+  React.useEffect(() => {
+    const data = localStorage.getItem("priceFactor7");
+    if (data) {
+      setPriceFactor7(JSON.parse(data));
+    }
+  }, []);
 
-  // React.useEffect(() => {
-  //   localStorage.setItem("priceFactor7", JSON.stringify(NumEmployees));
-  // });
+  React.useEffect(() => {
+    localStorage.setItem("priceFactor7", JSON.stringify(NumEmployees));
+  });
 
   const active = {
     color: "var(--primary)",
@@ -524,14 +486,14 @@ const Checkout = ({
     pointerEvents: "auto",
   };
 
-  // const disabled = {
-  //   pointerEvents: "none",
-  //   opacity: 0.3,
-  // };
+  const disabled = {
+    pointerEvents: "none",
+    opacity: 0.3,
+  };
 
-  // const enabled = {
-  //   opacity: 1,
-  // };
+  const enabled = {
+    opacity: 1,
+  };
 
   const nextStep = () => {
     setShowCheckoutStep3(false), setShowCheckoutStep4(true);
@@ -544,11 +506,6 @@ const Checkout = ({
 
   const step2 = async () => {
     setShowCheckoutStep2(true);
-    setShowCheckoutStep1(false);
-  };
-
-  const customStep = async () => {
-    setShowCheckoutCustomForm(true);
     setShowCheckoutStep1(false);
   };
 
@@ -916,26 +873,22 @@ const Checkout = ({
       }, 2000);
   };
 
-  // const scrollUp = () => {
-  //   windowWidth > 1000 &&
-  //     checkoutList.current?.scrollIntoView({
-  //       behavior: "smooth",
-  //       block: "end",
-  //     });
-  // };
+  const scrollUp = () => {
+    windowWidth > 1000 &&
+      checkoutList.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+      });
+  };
 
   useEffect(() => {
     loading
-      ? (updateButtonContent("We are Preparing your Order"), setAnimated(true))
+      ? (updateButtonContent("calculating"), setAnimated(true))
       : (updateButtonContent(""), setAnimated(false));
   }, [loading]);
 
   useEffect(() => {
-    (licenseChoice && priceFactor1 > 1) ||
-    (licenseChoice && priceFactor2 > 1) ||
-    (licenseChoice && priceFactor3 > 1) ||
-    virtualCart.length ||
-    LicenseUser == "Student"
+    (licenseChoice && priceFactor4 > 1) || LicenseUser == "Student"
       ? setShowFontList(true)
       : setShowFontList(false);
   });
@@ -943,23 +896,14 @@ const Checkout = ({
   useEffect(() => {
     router.pathname != "/checkout" &&
       router.push(`${router.pathname}/?checkout`, "/checkout");
-    setBuyTableHeight(windowHeight - checkoutOverviewHeight);
+    setBuyTableHeight(windowHeight - checkoutOverview?.current?.clientHeight);
   }, []);
 
   useEffect(() => {
-    setCheckoutOverviewHeight(checkoutOverview?.current?.clientHeight);
-    setBuyTableHeight(windowHeight - checkoutOverviewHeight);
+    setBuyTableHeight(windowHeight - checkoutOverview?.current?.clientHeight);
   });
 
-  useEffect(() => {
-    priceFactor1 && priceFactor2 && setPriceFactor4((2/3));
-    priceFactor1 == 0 && setPriceFactor4(1);
-    priceFactor2 == 0 && setPriceFactor4(1);
-  }, [priceFactor1, priceFactor2, priceFactor3]);
-
-  useEffect(() => {
-    cart.line_items?.length && step2();
-  }, [cart]);
+  console.log(LicenseUser);
 
   return (
     <div>
@@ -973,17 +917,11 @@ const Checkout = ({
         showCheckoutStep2={showCheckoutStep2}
         showCheckoutStep3={showCheckoutStep3}
         showCheckoutStep4={showCheckoutStep4}
-        showCheckoutStep5={showCheckoutStep5}
-        showCheckoutCustomForm={showCheckoutCustomForm}
         showFontList={showFontList}
       />
 
       <div className={styles.buyWrapper} style={fadeCheckout ? fade : notFade}>
-        {!showCheckoutStep2 &&
-        !showCheckoutStep3 &&
-        !showCheckoutStep4 &&
-        !showCheckoutStep5 &&
-        !showCheckoutCustomForm ? (
+        {!showCheckoutStep2 && !showCheckoutStep3 && !showCheckoutStep4 ? (
           <div className={styles.buttonsLeftWrapper}>
             <Button
               lable={"Back"}
@@ -995,11 +933,11 @@ const Checkout = ({
               subclass={"quaternary"}
               onClick={() => resetLicensing()}
             />
-            {/* <Button
+            <Button
               lable={"Licensing Info"}
               subclass={"quaternary"}
               onClick={() => setShowLicensing(true)}
-            /> */}
+            />
           </div>
         ) : (
           ""
@@ -1097,8 +1035,7 @@ const Checkout = ({
                             onClick={
                               LicenseUser == "Student?"
                                 ? () => {
-                                    updateLicenseUser("Student"),
-                                      setVirtualCart([]);
+                                    updateLicenseUser("Student");
                                   }
                                 : () => updateLicenseUser("")
                             }
@@ -1127,10 +1064,7 @@ const Checkout = ({
                         <li className={styles.buyConfigurationHead}>
                           &#8594; What will the font be used for?
                         </li>
-
                         <span className={styles.licenseTypeOuter}>
-                          {/* DESKTOP CONFIG*/}
-
                           <span
                             className={styles.licenseTypeChoice}
                             onMouseEnter={() => setExplIndex(1)}
@@ -1138,157 +1072,110 @@ const Checkout = ({
                           >
                             <span
                               style={DesktopLicense ? active : inactive}
-                              onClick={() => {
-                                setShowDesktop(!showDesktop);
-                              }}
+                              onClick={
+                                priceFactor1 === 9
+                                  ? () => {
+                                      updatePriceFactor1(0);
+                                      setShowDesktop(false);
+                                    }
+                                  : () => {
+                                      updatePriceFactor1(9);
+                                      setShowDesktop(true);
+                                    }
+                              }
                             >
-                              Desktop {!showDesktop ? "↓" : "↑"}
+                              Desktop ↓
                             </span>
                             {showDesktop && (
                               <>
                                 <span
-                                  style={
-                                    priceFactor1 === 18 ? active : inactive
-                                  }
+                                  style={priceFactor4 === 2 ? active : inactive}
                                   onClick={
-                                    priceFactor1 === 18
+                                    priceFactor4 === 2
                                       ? () => {
-                                          updatePriceFactor1(0);
+                                          updatePriceFactor4(0);
                                           updateDesktopLicense("");
                                         }
                                       : () => {
-                                          updatePriceFactor1(18),
-                                            setNumEmployeesDesktop("S");
+                                          updatePriceFactor4(2),
+                                            updateNumEmployees(5);
                                           updateDesktopLicense("Desktop");
                                         }
                                   }
                                 >
-                                  <span className={styles.sizeWrapper}>S</span>
-                                  <span className={styles.sizeNumber}>
+                                  <span>S</span>
+                                  <span className={styles.sizeWrapper}>
                                     1 – 5 Employees
                                   </span>
                                 </span>
                                 <span
-                                  style={
-                                    priceFactor1 === 27 ? active : inactive
-                                  }
+                                  style={priceFactor4 === 3 ? active : inactive}
                                   onClick={
-                                    priceFactor1 === 27
+                                    priceFactor4 === 3
                                       ? () => {
-                                          updatePriceFactor1(0);
+                                          updatePriceFactor4(0);
                                           updateDesktopLicense("");
                                         }
                                       : () => {
-                                          updatePriceFactor1(27),
-                                            setNumEmployeesDesktop("M");
+                                          updatePriceFactor4(3),
+                                            updateNumEmployees(10);
                                           updateDesktopLicense("Desktop");
                                         }
                                   }
                                 >
-                                  <span className={styles.sizeWrapper}>M</span>
-                                  <span className={styles.sizeNumber}>
+                                  <span>M</span>
+                                  <span className={styles.sizeWrapper}>
                                     6 – 10 Employees
                                   </span>
                                 </span>
                                 <span
-                                  style={
-                                    priceFactor1 === 36 ? active : inactive
-                                  }
+                                  style={priceFactor4 === 4 ? active : inactive}
                                   onClick={
-                                    priceFactor1 === 36
+                                    priceFactor4 === 4
                                       ? () => {
-                                          updatePriceFactor1(0);
+                                          updatePriceFactor4(0);
                                           updateDesktopLicense("");
                                         }
                                       : () => {
-                                          updatePriceFactor1(36),
-                                            setNumEmployeesDesktop("L");
+                                          updatePriceFactor4(4),
+                                            updateNumEmployees(25);
                                           updateDesktopLicense("Desktop");
                                         }
                                   }
                                 >
-                                  <span className={styles.sizeWrapper}>L</span>
-                                  <span className={styles.sizeNumber}>
-                                    11 – 20 Employees
-                                  </span>
-                                </span>
-                                <span
-                                  style={
-                                    priceFactor1 === 54 ? active : inactive
-                                  }
-                                  onClick={
-                                    priceFactor1 === 54
-                                      ? () => {
-                                          updatePriceFactor1(0);
-                                          updateDesktopLicense("");
-                                        }
-                                      : () => {
-                                          updatePriceFactor1(54),
-                                            setNumEmployeesDesktop("XL");
-                                          updateDesktopLicense("Desktop");
-                                        }
-                                  }
-                                >
-                                  <span className={styles.sizeWrapper}>XL</span>
-                                  <span className={styles.sizeNumber}>
-                                    21 – 50 Employees
-                                  </span>
-                                </span>
-
-                                <span
-                                  style={
-                                    priceFactor1 === 72 ? active : inactive
-                                  }
-                                  onClick={
-                                    priceFactor1 === 72
-                                      ? () => {
-                                          updatePriceFactor1(0);
-                                          updateDesktopLicense("");
-                                        }
-                                      : () => {
-                                          updatePriceFactor1(72),
-                                            setNumEmployeesDesktop("XXL");
-                                          updateDesktopLicense("Desktop");
-                                        }
-                                  }
-                                >
+                                  <span>XXL</span>
                                   <span className={styles.sizeWrapper}>
-                                    XXL
-                                  </span>
-                                  <span className={styles.sizeNumber}>
                                     51 – 85 Employees
                                   </span>
                                 </span>
-
                                 <span
-                                  style={
-                                    priceFactor1 === 108 ? active : inactive
-                                  }
+                                  style={priceFactor4 === 4 ? active : inactive}
                                   onClick={
-                                    priceFactor1 === 108
+                                    priceFactor4 === 4
                                       ? () => {
-                                          updatePriceFactor1(0);
+                                          updatePriceFactor4(0);
                                           updateDesktopLicense("");
                                         }
                                       : () => {
-                                          updatePriceFactor1(108),
-                                            setNumEmployeesDesktop("XXXL");
+                                          updatePriceFactor4(4),
+                                            updateNumEmployees(25);
                                           updateDesktopLicense("Desktop");
                                         }
                                   }
                                 >
+                                  <span>XXXL</span>
                                   <span className={styles.sizeWrapper}>
-                                    XXXL
-                                  </span>
-                                  <span className={styles.sizeNumber}>
                                     86 – 100 Employees
                                   </span>
+                                </span>
+                                <span
+                                  style={priceFactor4 === 4 ? active : inactive}
+                                >
+                                  Bigger (Direct Request)
                                 </span>
                               </>
                             )}
                           </span>
-
-                          {/* WEB CONFIG */}
 
                           <span
                             className={styles.licenseTypeChoice}
@@ -1297,318 +1184,87 @@ const Checkout = ({
                           >
                             <span
                               style={WebLicense ? active : inactive}
-                              onClick={() => {
-                                setShowWeb(!showWeb);
-                              }}
+                              onClick={
+                                priceFactor2 === 14
+                                  ? () => {
+                                      updatePriceFactor2(0);
+                                      setShowWeb(false);
+                                    }
+                                  : () => {
+                                      updatePriceFactor2(14);
+                                      setShowWeb(true);
+                                    }
+                              }
                             >
-                              Web {!showWeb ? "↓" : "↑"}
+                              Web ↓
                             </span>
 
                             {showWeb && (
                               <>
                                 <span
-                                  style={
-                                    priceFactor2 === 18 ? active : inactive
-                                  }
+                                  style={priceFactor4 === 2 ? active : inactive}
                                   onClick={
-                                    priceFactor2 === 18
+                                    priceFactor4 === 2
                                       ? () => {
-                                          updatePriceFactor2(0);
-                                          updateWebLicense("");
+                                          updatePriceFactor4(0);
                                         }
                                       : () => {
-                                          updatePriceFactor2(18),
-                                            setNumEmployeesWeb("S");
-                                          updateWebLicense("Web");
+                                          updatePriceFactor4(2),
+                                            updateNumEmployees(5);
                                         }
                                   }
                                 >
-                                  <span className={styles.sizeWrapper}>S</span>
-                                  <span className={styles.sizeNumber}>
-                                    1 – 5 Employees
-                                  </span>
+                                  Small (1 – 5 Employees)
                                 </span>
-
                                 <span
-                                  style={
-                                    priceFactor2 === 27 ? active : inactive
-                                  }
+                                  style={priceFactor4 === 3 ? active : inactive}
                                   onClick={
-                                    priceFactor2 === 27
+                                    priceFactor4 === 3
                                       ? () => {
-                                          updatePriceFactor2(0);
-                                          updateWebLicense("");
+                                          updatePriceFactor4(0);
                                         }
                                       : () => {
-                                          updatePriceFactor2(27),
-                                            setNumEmployeesWeb("M");
-                                          updateWebLicense("Web");
+                                          updatePriceFactor4(3),
+                                            updateNumEmployees(10);
                                         }
                                   }
                                 >
-                                  <span className={styles.sizeWrapper}>M</span>
-                                  <span className={styles.sizeNumber}>
-                                    6 – 10 Employees
-                                  </span>
+                                  Medium (6 – 21 Employees)
                                 </span>
-
                                 <span
-                                  style={
-                                    priceFactor2 === 36 ? active : inactive
-                                  }
+                                  style={priceFactor4 === 4 ? active : inactive}
                                   onClick={
-                                    priceFactor2 === 36
+                                    priceFactor4 === 4
                                       ? () => {
-                                          updatePriceFactor2(0);
-                                          updateWebLicense("");
+                                          updatePriceFactor4(0);
                                         }
                                       : () => {
-                                          updatePriceFactor2(36),
-                                            setNumEmployeesWeb("L");
-                                          updateWebLicense("Web");
+                                          updatePriceFactor4(4),
+                                            updateNumEmployees(25);
                                         }
                                   }
                                 >
-                                  <span className={styles.sizeWrapper}>L</span>
-                                  <span className={styles.sizeNumber}>
-                                    11 – 20 Employees
-                                  </span>
+                                  Large (51 – 100 Employees)
                                 </span>
-
                                 <span
-                                  style={
-                                    priceFactor2 === 54 ? active : inactive
-                                  }
+                                  style={priceFactor4 === 4 ? active : inactive}
                                   onClick={
-                                    priceFactor2 === 54
+                                    priceFactor4 === 4
                                       ? () => {
-                                          updatePriceFactor2(0);
-                                          updateWebLicense("");
+                                          updatePriceFactor4(0);
                                         }
                                       : () => {
-                                          updatePriceFactor2(54),
-                                            setNumEmployeesWeb("XL");
-                                          updateWebLicense("Web");
+                                          updatePriceFactor4(4),
+                                            updateNumEmployees(25);
                                         }
                                   }
                                 >
-                                  <span className={styles.sizeWrapper}>XL</span>
-                                  <span className={styles.sizeNumber}>
-                                    21 – 50 Employees
-                                  </span>
+                                  X-Large (51 – 100 Employees)
                                 </span>
-
                                 <span
-                                  style={
-                                    priceFactor2 === 72 ? active : inactive
-                                  }
-                                  onClick={
-                                    priceFactor2 === 72
-                                      ? () => {
-                                          updatePriceFactor2(0);
-                                          updateWebLicense("");
-                                        }
-                                      : () => {
-                                          updatePriceFactor2(72),
-                                            setNumEmployeesWeb("XXL");
-                                          updateWebLicense("Web");
-                                        }
-                                  }
+                                  style={priceFactor4 === 4 ? active : inactive}
                                 >
-                                  <span className={styles.sizeWrapper}>
-                                    XXL
-                                  </span>
-                                  <span className={styles.sizeNumber}>
-                                    51 – 85 Employees
-                                  </span>
-                                </span>
-
-                                <span
-                                  style={
-                                    priceFactor2 === 108 ? active : inactive
-                                  }
-                                  onClick={
-                                    priceFactor2 === 108
-                                      ? () => {
-                                          updatePriceFactor2(0);
-                                          updateWebLicense("");
-                                        }
-                                      : () => {
-                                          updatePriceFactor2(108),
-                                            setNumEmployeesWeb("XXXL");
-                                          updateWebLicense("Web");
-                                        }
-                                  }
-                                >
-                                  <span className={styles.sizeWrapper}>
-                                    XXXL
-                                  </span>
-                                  <span className={styles.sizeNumber}>
-                                    86 – 100 Employees
-                                  </span>
-                                </span>
-                              </>
-                            )}
-                          </span>
-
-                          {/* APP CONFIG */}
-
-                          <span
-                            className={styles.licenseTypeChoice}
-                            onMouseEnter={() => setExplIndex(4)}
-                            onMouseLeave={() => setExplIndex(null)}
-                          >
-                            <span
-                              style={AppLicense ? active : inactive}
-                              onClick={() => {
-                                setShowApp(!showApp);
-                              }}
-                            >
-                              App {!showApp ? "↓" : "↑"}
-                            </span>
-
-                            {showApp && (
-                              <>
-                                <span
-                                  style={
-                                    priceFactor3 === 30 ? active : inactive
-                                  }
-                                  onClick={
-                                    priceFactor3 === 30
-                                      ? () => {
-                                          updatePriceFactor3(0);
-                                          updateAppLicense("");
-                                        }
-                                      : () => {
-                                          updatePriceFactor3(30),
-                                            setNumEmployeesApp("S");
-                                          updateAppLicense("App");
-                                        }
-                                  }
-                                >
-                                  <span className={styles.sizeWrapper}>S</span>
-                                  <span className={styles.sizeNumber}>
-                                    1 – 5 Employees
-                                  </span>
-                                </span>
-
-                                <span
-                                  style={
-                                    priceFactor3 === 45 ? active : inactive
-                                  }
-                                  onClick={
-                                    priceFactor3 === 45
-                                      ? () => {
-                                          updatePriceFactor3(0);
-                                          updateAppLicense("");
-                                        }
-                                      : () => {
-                                          updatePriceFactor3(45),
-                                            setNumEmployeesApp("M");
-                                          updateAppLicense("App");
-                                        }
-                                  }
-                                >
-                                  <span className={styles.sizeWrapper}>M</span>
-                                  <span className={styles.sizeNumber}>
-                                    6 – 10 Employees
-                                  </span>
-                                </span>
-
-                                <span
-                                  style={
-                                    priceFactor3 === 60 ? active : inactive
-                                  }
-                                  onClick={
-                                    priceFactor3 === 60
-                                      ? () => {
-                                          updatePriceFactor3(0);
-                                          updateAppLicense("");
-                                        }
-                                      : () => {
-                                          updatePriceFactor3(60),
-                                            setNumEmployeesApp("L");
-                                          updateAppLicense("Interactive");
-                                        }
-                                  }
-                                >
-                                  <span className={styles.sizeWrapper}>L</span>
-                                  <span className={styles.sizeNumber}>
-                                    11 – 20 Employees
-                                  </span>
-                                </span>
-
-                                <span
-                                  style={
-                                    priceFactor3 === 90 ? active : inactive
-                                  }
-                                  onClick={
-                                    priceFactor3 === 90
-                                      ? () => {
-                                          updatePriceFactor3(0);
-                                          updateAppLicense("");
-                                        }
-                                      : () => {
-                                          updatePriceFactor3(90),
-                                            setNumEmployeesApp("XL");
-                                          updateAppLicense("App");
-                                        }
-                                  }
-                                >
-                                  <span className={styles.sizeWrapper}>XL</span>
-                                  <span className={styles.sizeNumber}>
-                                    21 – 50 Employees
-                                  </span>
-                                </span>
-
-                                <span
-                                  style={
-                                    priceFactor3 === 120 ? active : inactive
-                                  }
-                                  onClick={
-                                    priceFactor3 === 120
-                                      ? () => {
-                                          updatePriceFactor3(0);
-                                          updateAppLicense("");
-                                        }
-                                      : () => {
-                                          updatePriceFactor3(120),
-                                            setNumEmployeesApp("XXL");
-                                          updateAppLicense("App");
-                                        }
-                                  }
-                                >
-                                  <span className={styles.sizeWrapper}>
-                                    XXL
-                                  </span>
-                                  <span className={styles.sizeNumber}>
-                                    51 – 85 Employees
-                                  </span>
-                                </span>
-
-                                <span
-                                  style={
-                                    priceFactor3 === 180 ? active : inactive
-                                  }
-                                  onClick={
-                                    priceFactor3 === 180
-                                      ? () => {
-                                          updatePriceFactor3(0);
-                                          updateAppLicense("");
-                                        }
-                                      : () => {
-                                          updatePriceFactor3(180),
-                                            setNumEmployeesApp("XXXL");
-                                          updateAppLicense("App");
-                                        }
-                                  }
-                                >
-                                  <span className={styles.sizeWrapper}>
-                                    XXXL
-                                  </span>
-                                  <span className={styles.sizeNumber}>
-                                    86 – 100 Employees
-                                  </span>
+                                  Bigger (Direct Request)
                                 </span>
                               </>
                             )}
@@ -1621,35 +1277,28 @@ const Checkout = ({
                               &#8594; Do you need any license extensions?
                             </li>
                             <div className={styles.licenseTypeOuter}>
-                              <div
-                                style={nonProfit ? { color: "blue" } : inactive}
+                              <span
+                                onMouseEnter={() => setExplIndex(4)}
+                                onMouseLeave={() => setExplIndex(null)}
+                                className={styles.licenseTypeChoice}
+                              >
+                                App / Game
+                              </span>
+                              <span
                                 onMouseEnter={() => setExplIndex(5)}
                                 onMouseLeave={() => setExplIndex(null)}
-                                onClick={() => setNonProfit(!nonProfit)}
-                                className={styles.customLicenseTypeChoice}
+                                className={styles.licenseTypeChoice}
                               >
-                                Custom
-                              </div>
-                              <div
-                                style={
-                                  modification ? { color: "blue" } : inactive
-                                }
+                                {" "}
+                                E-Publishing
+                              </span>
+                              <span
                                 onMouseEnter={() => setExplIndex(6)}
                                 onMouseLeave={() => setExplIndex(null)}
-                                onClick={() => setModification(!modification)}
-                                className={styles.customLicenseTypeChoice}
+                                className={styles.licenseTypeChoice}
                               >
-                                Non-Profit
-                              </div>
-                              <div
-                                style={political ? { color: "blue" } : inactive}
-                                onMouseEnter={() => setExplIndex(7)}
-                                onMouseLeave={() => setExplIndex(null)}
-                                onClick={() => setPolitical(!political)}
-                                className={styles.customLicenseTypeChoice}
-                              >
-                                Political/Religious
-                              </div>
+                                Modification
+                              </span>
                             </div>
                           </>
                         )}
@@ -1681,7 +1330,7 @@ const Checkout = ({
 
               <div
                 onMouseEnter={
-                  !showFontList
+                  !licenseChoice || !LicenseUser
                     ? () =>
                         updateButtonContent(
                           "Please complete your License Choice"
@@ -1689,90 +1338,70 @@ const Checkout = ({
                     : () => {}
                 }
                 onMouseLeave={
-                  !showFontList ? () => updateButtonContent("") : () => {}
+                  !licenseChoice || !LicenseUser
+                    ? () => updateButtonContent("")
+                    : () => {}
                 }
               >
                 <div
                   style={showFontList ? buyActive : buyInactive}
                   className={styles.buyTableContent}
                 >
-                  {virtualCart.length ? (
+                  {cart.line_items?.length ? (
                     <div className={styles.totalWrapper} ref={checkoutOverview}>
                       <div className={styles.buyConfigurationHead}>Cart</div>
                       <div className={styles.overviewItems}>
-                        {virtualCart.map((item) => (
+                        {cart.line_items?.map((item) => (
                           <>
                             <div
                               className={styles.productWrapper}
-                              onClick={() =>
-                                handleRemoveFromVirtualCart(item.product_id)
-                              }
+                              onClick={() => handleRemoveFromCart(item.id)}
                             >
                               <span className={styles.cartItem}>
-                                — {item.product_name}
+                                — {item.name}
                                 <br />
                                 <span className={styles.licenseType}>
-                                  {item.license}
+                                  {
+                                    products.find((el) => el.name === item.name)
+                                      .license
+                                  }
                                 </span>
                               </span>
-                              <span
-                                style={{
-                                  right: "100px",
-                                }}
-                                className={styles.discountPrice}
-                              >
-                                {item.discount != 0 &&
-                                  "EUR " + item.discount.toFixed(2)}
-                              </span>
+
                               <span className={styles.productPrice}>
-                                EUR {item.price.toFixed(2)}
+                                EUR {item.line_total.formatted}
                               </span>
                               <span className={styles.cartRemove}>
-                                &#8594; Remove from Cart
+                                &#8594; Remove
                               </span>
                             </div>
                           </>
                         ))}
                       </div>
 
-                      {virtualCart.length | undefined ? (
+                      {cart.line_items?.length | undefined ? (
                         <>
                           <div className={styles.total}>
                             <span>&#8594; Total</span>
-                            <span>EUR {virtualCartPrice?.toFixed(2)}</span>
+                            <span>EUR {cart.subtotal.formatted}</span>
                           </div>
 
                           <div className={styles.checkoutButton}>
-                            {nonProfit || modification || political ? (
-                              <Button
-                                lable={"Send Custom Request"}
-                                onClick={customStep}
-                                subclass={
-                                  virtualCart.length
-                                    ? "blue"
-                                    : "quaternaryMuted"
-                                }
-                              />
-                            ) : (
-                              <Button
-                                lable={"Continue to Checkout"}
-                                onClick={transferCarts}
-                                // onClick={
-                                //   cart.line_items?.length &&
-                                //   checkoutToken &&
-                                //   live
-                                //     ? () => {
-                                //         step2();
-                                //       }
-                                //     : () => {}
-                                // }
-                                subclass={
-                                  virtualCart.length
-                                    ? "primary"
-                                    : "quaternaryMuted"
-                                }
-                              />
-                            )}
+                            <Button
+                              lable={"Continue to Checkout"}
+                              onClick={
+                                cart.line_items?.length && checkoutToken && live
+                                  ? () => {
+                                      step2();
+                                    }
+                                  : () => {}
+                              }
+                              subclass={
+                                cart.line_items?.length && checkoutToken && live
+                                  ? "primary"
+                                  : "quaternaryMuted"
+                              }
+                            />
                           </div>
 
                           <div className={styles.emptyCartMobile}>
@@ -1780,7 +1409,7 @@ const Checkout = ({
                               lable={"Empty Cart"}
                               onClick={() => refreshCart()}
                               subclass={
-                                cart?.line_items?.length
+                                cart.line_items?.length
                                   ? "quaternary"
                                   : "quaternaryMuted"
                               }
@@ -1816,57 +1445,51 @@ const Checkout = ({
                   <div
                     className={styles.buyTable}
                     style={{
-                      marginTop: virtualCart.length
-                        ? checkoutOverviewHeight
+                      marginTop: cart.line_items?.length
+                        ? checkoutOverview?.current?.clientHeight
                         : 0,
-                      height: virtualCart.length
+                      height: cart.line_items?.length
                         ? buyTableHeight - 116
                         : windowHeight - 116,
                     }}
                   >
                     <div className={styles.buyTableInner}>
-                      <div>
-                        <div
-                          className={styles.buyConfigurationHead}
-                          ref={checkoutList}
+                      <div
+                        className={styles.buyConfigurationHead}
+                        ref={checkoutList}
+                      >
+                        &#8594; Select a Typeface.
+                      </div>
+                      <div className={styles.fontChoice}>
+                        <p
+                          style={{
+                            color:
+                              showBuy == "Protest" ? "var(--primary)" : "black",
+                          }}
+                          onClick={() => setShowBuy("Protest")}
                         >
-                          &#8594; Select a Typeface.
-                        </div>
-                        <div className={styles.fontChoice}>
-                          <p
-                            style={{
-                              color:
-                                showBuy == "Protest"
-                                  ? "var(--primary)"
-                                  : "black",
-                            }}
-                            onClick={() => setShowBuy("Protest")}
-                          >
-                            Protest Grotesk
-                          </p>
-                          <p
-                            style={{
-                              color:
-                                showBuy == "Giallo"
-                                  ? "var(--primary)"
-                                  : "black",
-                            }}
-                            onClick={() => setShowBuy("Giallo")}
-                          >
-                            Giallo Roman
-                          </p>
-                          <p
-                            style={{
-                              color:
-                                showBuy == "Protest Mono  "
-                                  ? "var(--primary)"
-                                  : "black",
-                            }}
-                            onClick={() => setShowBuy("Protest Mono")}
-                          >
-                            Protest Grotesk Mono
-                          </p>
-                        </div>
+                          Protest Grotesk
+                        </p>
+                        <p
+                          style={{
+                            color:
+                              showBuy == "Giallo" ? "var(--primary)" : "black",
+                          }}
+                          onClick={() => setShowBuy("Giallo")}
+                        >
+                          Giallo Roman
+                        </p>
+                        <p
+                          style={{
+                            color:
+                              showBuy == "Protest Mono  "
+                                ? "var(--primary)"
+                                : "black",
+                          }}
+                          onClick={() => setShowBuy("Protest Mono")}
+                        >
+                          Protest Grotesk Mono
+                        </p>
                       </div>
 
                       <div
@@ -1878,33 +1501,23 @@ const Checkout = ({
                           <BuyProtest
                             products={products}
                             onAddToCart={handleAddToCart}
-                            onAddToVirtualCart={handleAddToVirtualCart}
-                            onRemoveFromVirtualCart={
-                              handleRemoveFromVirtualCart
-                            }
                             handleEmptyCart={handleEmptyCart}
                             onRemoveFromCart={handleRemoveFromCart}
                             onUpdateCartQty={handleUpdateCartQty}
                             cart={cart}
-                            virtualCart={virtualCart}
                             checkoutToken={checkoutToken}
                             priceFactor1={priceFactor1}
                             priceFactor2={priceFactor2}
                             priceFactor3={priceFactor3}
                             priceFactor4={priceFactor4}
-                            // priceFactor5={priceFactor5}
-                            // priceFactor6={priceFactor6}
-                            // priceFactor7={priceFactor7}
+                            priceFactor5={priceFactor5}
+                            priceFactor6={priceFactor6}
+                            priceFactor7={priceFactor7}
                             licenseChoice={licenseChoice}
                             LicenseUser={LicenseUser}
-                            DesktopLicense={DesktopLicense}
-                            WebLicense={WebLicense}
-                            AppLicense={AppLicense}
                             onUpdateCartPrice={handleUpdateCartPrice}
-                            // License={License}
-                            NumEmployeesDesktop={NumEmployeesDesktop}
-                            NumEmployeesWeb={NumEmployeesWeb}
-                            NumEmployeesApp={NumEmployeesApp}
+                            License={License}
+                            NumEmployees={NumEmployees}
                             scrollDown={scrollDown}
                             setFontPreview={setFontPreview}
                           />
@@ -1923,19 +1536,18 @@ const Checkout = ({
                             priceFactor2={priceFactor2}
                             priceFactor3={priceFactor3}
                             priceFactor4={priceFactor4}
-                            // priceFactor5={priceFactor5}
-                            // priceFactor6={priceFactor6}
-                            // priceFactor7={priceFactor7}
+                            priceFactor5={priceFactor5}
+                            priceFactor6={priceFactor6}
+                            priceFactor7={priceFactor7}
                             licenseChoice={licenseChoice}
                             LicenseUser={LicenseUser}
                             onUpdateCartPrice={handleUpdateCartPrice}
-                            // License={License}
+                            License={License}
                             NumEmployees={NumEmployees}
                             scrollDown={scrollDown}
                             setFontPreview={setFontPreview}
                           />
                         )}
-
                         {showBuy == "Giallo" && (
                           <BuyGiallo
                             products={products}
@@ -1949,13 +1561,13 @@ const Checkout = ({
                             priceFactor2={priceFactor2}
                             priceFactor3={priceFactor3}
                             priceFactor4={priceFactor4}
-                            // priceFactor5={priceFactor5}
-                            // priceFactor6={priceFactor6}
-                            // priceFactor7={priceFactor7}
+                            priceFactor5={priceFactor5}
+                            priceFactor6={priceFactor6}
+                            priceFactor7={priceFactor7}
                             licenseChoice={licenseChoice}
                             LicenseUser={LicenseUser}
                             onUpdateCartPrice={handleUpdateCartPrice}
-                            // License={License}
+                            License={License}
                             NumEmployees={NumEmployees}
                             scrollDown={scrollDown}
                             setFontPreview={setFontPreview}
@@ -1964,12 +1576,14 @@ const Checkout = ({
                       </div>
 
                       <div className={styles.cartHead}>
-                        {virtualCart?.length || "" ? "" : "Your cart is empty"}{" "}
+                        {cart.line_items?.length || ""
+                          ? ""
+                          : "Your cart is empty"}{" "}
                       </div>
 
-                      {/* <div
+                      <div
                         className={styles.totalWrapper}
-                        // ref={checkoutOverview}
+                        ref={checkoutOverview}
                       >
                         <div className={styles.overviewItems}>
                           {cart.line_items?.map((item) => (
@@ -1999,9 +1613,9 @@ const Checkout = ({
                               </div>
                             </>
                           ))}
-                        </div> */}
+                        </div>
 
-                      {/* {cart.line_items?.length | undefined ? (
+                        {cart.line_items?.length | undefined ? (
                           <>
                             <div className={styles.total}>
                               <span>&#8594; Total</span>
@@ -2026,23 +1640,21 @@ const Checkout = ({
                         <div className={styles.buttonsMobileWrapper}>
                           <Button
                             lable={"Continue to Checkout"}
-                            onClick={transferCarts}
-                            // onClick={
-                            //   cart.line_items?.length && checkoutToken && live
-                            //     ? () => {
-                            //         step2();
-                            //       }
-                            //     : () => {}
-                            // }
-
+                            onClick={
+                              cart.line_items?.length && checkoutToken && live
+                                ? () => {
+                                    step2();
+                                  }
+                                : () => {}
+                            }
                             subclass={
                               cart.line_items?.length && checkoutToken && live
                                 ? "primary"
                                 : "quaternaryMuted"
                             }
                           />
+                        </div>
                       </div>
-                    </div> */}
                     </div>
                   </div>
                 </div>
@@ -2051,20 +1663,6 @@ const Checkout = ({
           </>
         ) : (
           ""
-        )}
-
-        {showCheckoutCustomForm && (
-          <CheckoutCustomForm
-            virtualCart={virtualCart}
-            cirtualCartPrice={virtualCartPrice}
-            nonProfit={nonProfit}
-            political={political}
-            modification={modification}
-            handleEmptyCart={handleEmptyCart}
-            setShowCheckoutCustomForm={setShowCheckoutCustomForm}
-            setShowCheckoutStep1={setShowCheckoutStep1}
-            setShowCheckoutStep5={setShowCheckoutStep5}
-          />
         )}
 
         {showCheckoutStep2 && (
@@ -2139,13 +1737,6 @@ const Checkout = ({
             onCaptureCheckout={handleCaptureCheckout}
             setShowCheckout={setShowCheckout}
             refreshCart={refreshCart}
-          />
-        )}
-
-        {showCheckoutStep5 && (
-          <CheckoutStep5
-            setShowCheckoutStep5={setShowCheckoutStep5}
-            fadeOutCheckout={fadeOutCheckout}
           />
         )}
       </div>

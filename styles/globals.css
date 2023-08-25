@@ -92,6 +92,11 @@ body {
   --pgSmallLetterSpacing: 1.2px;
   --pgSmallVariable: "wght" 116, "wdth" 0;
 
+  --pgMediumSize: 11pt;
+  --pgMediumLineHeight: 15pt;
+  --pgMediumLetterSpacing: 0.4px;
+  --pgMediumVariable: "wght" 116, "wdth" 0;
+
   --gialloSmallSize: 10.5pt;
   --gialloSmallLineHeight: 16pt;
   --gialloSmallLetterSpacing: 1.5px;
@@ -135,6 +140,10 @@ body {
   background: var(--fifthSolid);
   opacity: 1;
   color: inherit;
+}
+
+select:required:invalid {
+  color: gray;
 }
 
 a {
@@ -307,6 +316,16 @@ button {
 #fifth:hover {
   background: var(--secondary);
   color: white;
+}
+
+#blue {
+  background: blue;
+  color: white;
+}
+
+#blue:hover {
+  background: var(--quaternary);
+  color: black;
 }
 
 #textbutton {
@@ -2045,7 +2064,7 @@ button {
 }
 
 .footer {
-  min-height: 95vh;
+  min-height: 80vh;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -2054,7 +2073,6 @@ button {
   font-size: var(--gialloSmallSize);
   line-height: var(--gialloSmallLineHeight);
   letter-spacing: var(--gialloSmallLetterSpacing);
-  margin-top: var(--margin-XL);
 }
 
 .footerMobile {
@@ -2440,8 +2458,79 @@ button {
 /* LICENSING */
 
 .licensingMain {
-  background: var(--fifthSolid);
+  /* background: var(--fifthSolid); */
   animation: fadeIn 0.5s ease;
+}
+
+.licenseWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.licenseWrapper h1 {
+  font-variation-settings: "wght" 100;
+  letter-spacing: 0.5px;
+}
+
+.licenseHeadline {
+  height: 700px;
+  display: flex;
+  align-items: center;
+}
+
+.licenseBody {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.licenseSection {
+  width: calc(50% - 10px);
+  padding-bottom: 200px;
+}
+
+.licenseSection h1 {
+  text-align: center;
+}
+
+.licenseWrapper p {
+  font-family: "Giallo";
+  font-size: 18pt;
+  line-height: 23pt;
+  letter-spacing: -0.2px;
+  word-spacing: -0.7px;
+}
+
+.licenseIntro {
+  padding-bottom: 200px;
+}
+
+.licenseIntro p {
+  font-size: 25pt;
+  line-height: 31.5pt;
+  letter-spacing: -0.7px;
+  word-spacing: -1px;
+}
+
+.licenseBottom {
+  padding-top: 100px;
+  width: 100vw;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.bg01 {
+  background: var(--primary);
+}
+
+.bg02 {
+  background: var(--tertiary);
+}
+
+.licensingMain {
+  padding: var(--margin-M);
 }
 
 .licensingWrapper {
@@ -2849,7 +2938,7 @@ button {
 }
 
 .footerCentered .confirmation {
-  text-align: center
+  text-align: center;
 }
 
 @media screen and (max-width: 1000px) {
@@ -2870,9 +2959,9 @@ button {
     width: 100%;
   }
   .footerCentered {
-  width: 100vw;
-  padding: var(--margin-L) var(--margin-M);
-}
+    width: 100vw;
+    padding: var(--margin-L) var(--margin-M);
+  }
 }
 
 /* FONT PREVIEW */
@@ -2950,5 +3039,15 @@ button {
   .fontPreviewInner {
     font-size: 40vw;
     height: 60vw;
+  }
+}
+
+/* PAYPAL */
+
+@media only screen and (min-width: 500px) {
+  .paypal-button-container {
+    min-width: unset !important;
+    max-width: 100000px !important;
+    width: 100% !important;
   }
 }

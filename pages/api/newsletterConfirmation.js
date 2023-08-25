@@ -19,6 +19,7 @@ export default async function handler(req, res) {
       name: 'Stereo Typefaces',
     },
     subject: `Neue Newsletteranmeldung von ${body.name}`,
+    html: "<p>Hello HTML world!</p>",
     text: message,
   }
 

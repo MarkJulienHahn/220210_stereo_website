@@ -1,50 +1,90 @@
 .checkoutWrapper {
-    background: var(--tertiary);
-    height: 100vh;
-    width: 100vw;
-    padding: var(--margin-M);
-    display: flex;
-    justify-content: space-between;
+  background: var(--tertiary);
+  height: 100vh;
+  width: 100vw;
+  padding: var(--margin-M);
+  display: flex;
+  justify-content: space-between;
 }
 
 .checkoutSummary {
-    width: 45%;
-    font-variation-settings: 'wdth' 50, 'wght' 133;
-    font-size: 20pt;
-    line-height: 25pt;
-    letter-spacing: -0px;
+  width: 45%;
+  font-variation-settings: "wdth" 50, "wght" 133;
+  font-size: 20pt;
+  line-height: 25pt;
+  letter-spacing: -0px;
 }
 
 .checkoutForms {
-    width: 50%
+  width: 50%;
 }
 
 .productName {
-    font-size: 20pt;
-    line-height: 25pt;
-    letter-spacing: -0px;
+  font-size: 20pt;
+  line-height: 25pt;
+  letter-spacing: -0px;
 }
 
 .productRow {
-    display: flex;
-    justify-content: space-between;
-    margin-right: var(--margin-M);
+  display: flex;
+  justify-content: space-between;
+  margin-right: var(--margin-M);
 }
 
 .checkoutHeadline {
-    padding-bottom: 10px;
-    letter-spacing: var(--pgSmallLetterSpacing);
-    font-size: var(--pgSmallSize);
-    line-height: var(--pgSmallLineHeight);
-    font-variation-settings: var(--pgSmallVariable);
-    text-transform: uppercase;
+  padding-bottom: 10px;
+  letter-spacing: var(--pgSmallLetterSpacing);
+  font-size: var(--pgSmallSize);
+  line-height: var(--pgSmallLineHeight);
+  font-variation-settings: var(--pgSmallVariable);
+  text-transform: uppercase;
 }
 
 .confirmation {
-    font-variation-settings: var(--pgSmallVariable);
-    flex-direction: column;
-    font-size: 20pt;
-    line-height: 25pt;
-    letter-spacing: -0.5px;
+  font-variation-settings: var(--pgSmallVariable);
+  flex-direction: column;
+  font-size: 20pt;
+  line-height: 25pt;
+  letter-spacing: -0.5px;
+}
 
+.statusBarWrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 400;
+  width: 100vw;
+  height: 100px;
+  padding: var(--margin-M);
+  font-variation-settings: var(--pgSmallVariable);
+}
+
+.statusBarWrapper p {
+    font-size: var(--pgMediumSize);
+    letter-spacing: var(--pgMediumLetterSpacing)
+}
+
+.statusBarTopRow {
+    display: flex;
+    width: 100vw;
+    transition: all 0.5s ease;
+}
+
+.statusBarStep {
+    width: 25%
+}
+
+.statusBarBG {
+    height: 5px;
+    width: 100%;
+    background: var(--quaternary);
+    margin-top: var(--margin-S  )
+}
+
+.statusBarInner {
+    position: absolute;
+    background: black;
+    height: 5px;
+    width: 10px;
+    transition: width 0.5s ease-out;
 }

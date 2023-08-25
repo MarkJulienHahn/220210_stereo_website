@@ -121,7 +121,7 @@ const Home = ({
           checkoutToken={checkoutToken}
           getPaypalPaymentId={getPaypalPaymentId}
           refreshCart={refreshCart}
-          font={"Protest"}
+          font={""}
         />
       )}
 

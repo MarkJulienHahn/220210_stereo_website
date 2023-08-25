@@ -8,12 +8,30 @@ import { loadStripe } from "@stripe/stripe-js";
 import { commerce } from "../../lib/commerce";
 
 import PaypalCheckoutButton from "./PaypalCheckoutButton";
+import Button from "../Button";
 
 import styles from "../../styles/Forms.module.css";
 
 const stripePromise = loadStripe(
   `${process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY}`
 );
+
+const appearance = {
+  theme: "stripe",
+
+  variables: {
+    colorPrimary: "#0570de",
+    colorBackground: "#ffffff",
+    colorText: "#30313d",
+    colorDanger: "#df1b41",
+    fontFamily: "Ideal Sans, system-ui, sans-serif",
+    spacingUnit: "2px",
+    borderRadius: "4px",
+    // See all possible variables below
+  },
+};
+
+// Pass the appearance object to the Elements instance
 
 const PaymentForm = ({
   checkoutToken,
@@ -23,12 +41,12 @@ const PaymentForm = ({
   nextStep,
   setProcessing,
   Processing,
-  taxable
+  taxable,
 }) => {
   const [AccCreditCard, setAccCreditCard] = useState(false);
   const [AccPayPal, setAccPayPal] = useState(false);
 
-  console.log(shippingData)
+  console.log(shippingData);
 
   const handleSubmit = async (event, elements, stripe) => {
     event.preventDefault();
@@ -141,18 +159,40 @@ const PaymentForm = ({
         processing...
       </div>
 
-      <div
-        onClick={
-          AccCreditCard
-            ? () => setAccCreditCard(false)
-            : () => {
-                setAccCreditCard(true), setAccPayPal(false);
+      <div className={styles.paymentInfo}>
+        <div className={styles.paymentButtonsWrapper}>
+          <div className={styles.paymentButton}>
+            <Button
+              lable="Credit Card"
+              onClick={
+                AccCreditCard
+                  ? () => setAccCreditCard(false)
+                  : () => {
+                      setAccCreditCard(true), setAccPayPal(false);
+                    }
               }
-        }
-        className={styles.paymentInfo}
-      >
-        <hr />
-        <div className={styles.paymentHeader}>CREDIT CARD</div>
+              subclass={AccCreditCard ? "secondary" : "quaternary"}
+            />
+          </div>
+          <div className={styles.paymentButton}>
+            <Button
+              lable="PayPal"
+              onClick={
+                AccPayPal
+                  ? () => {
+                      setAccPayPal(false), setAccCreditCard(false);
+                    }
+                  : () => {
+                      setAccPayPal(true), setAccCreditCard(false);
+                      // handlePaypal();
+                    }
+              }
+              subclass={AccPayPal ? "secondary" : "quaternary"}
+            />
+          </div>
+        </div>
+
+        {/* STRIPE */}
 
         <div
           className={styles.paymentWrapper}
@@ -183,33 +223,30 @@ const PaymentForm = ({
             </Elements>
           </div>
         </div>
-      </div>
 
-      <div
-        onClick={
-          AccPayPal
-            ? () => setAccPayPal(false)
-            : () => {
-                setAccPayPal(true), setAccCreditCard(false);
-                // handlePaypal();
-              }
-        }
-        className={styles.paymentInfo}
-      >
-        <hr />
+        {/* PAYPAL */}
 
-        <div className={styles.paymentHeader}>PAYPAL</div>
-
-        {AccPayPal ? (
-          <PaypalCheckoutButton
-            checkoutToken={checkoutToken}
-            handlePaypalSubmit={handlePaypalSubmit}
-            nextStep={nextStep}
-          />
-        ) : (
-          ""
-        )}
-        <hr />
+        <div
+          onClick={
+            AccPayPal
+              ? () => setAccPayPal(false)
+              : () => {
+                  setAccPayPal(true), setAccCreditCard(false);
+                  // handlePaypal();
+                }
+          }
+          className={styles.payPalWrapper}
+        >
+          {AccPayPal ? (
+            <PaypalCheckoutButton
+              checkoutToken={checkoutToken}
+              handlePaypalSubmit={handlePaypalSubmit}
+              nextStep={nextStep}
+            />
+          ) : (
+            ""
+          )}
+        </div>
       </div>
     </>
   );

@@ -137,7 +137,7 @@ const ProtestGroteskMono = ({
           checkoutToken={checkoutToken}
           getPaypalPaymentId={getPaypalPaymentId}
           refreshCart={refreshCart}
-          font={"Protest Mono"}
+          font={""}
         />
       )}
 

@@ -13,9 +13,6 @@ const BuyProtestMono = ({
   priceFactor2,
   priceFactor3,
   priceFactor4,
-  priceFactor5,
-  priceFactor6,
-  priceFactor7,
   License,
   NumEmployees,
   scrollDown,
@@ -51,15 +48,7 @@ const BuyProtestMono = ({
     x.categories.find((y) => y.name === "Bundles")
   );
 
-  const priceFactor =
-    (priceFactor1 +
-      priceFactor2 +
-      priceFactor3 +
-      priceFactor5 +
-      priceFactor6 +
-      priceFactor7) *
-    priceFactor4;
-
+  const priceFactor = (priceFactor1 + priceFactor2 + priceFactor3) * priceFactor4;
   const items = cart.line_items;
 
   const clearBundle1 = () => {
@@ -228,7 +217,7 @@ const BuyProtestMono = ({
     { fontFamily: "ProtestMono", lable: "Protest Mono Black", wght: 250 },
   ];
 
-  console.log(protestBundles)
+  console.log(protestBundles);
 
   return (
     <div
@@ -239,139 +228,137 @@ const BuyProtestMono = ({
         setHoverBundle3(false);
       }}
     >
-      <p className={styles.buyConfigurationHead}>Bundles</p>
-
-      {/* FULL FAMILY */}
-
-      <div
-        item
-        onClick={
-          licenseChoice &&
-          LicenseUser &&
-          !items.some((item) => item.product_id === protestBundles[0].id)
-            ? async () => {
-                updateLicenseType(
-                  protestBundles[0].name,
-                  License,
-                  NumEmployees
-                ),
-                  clearFullFamily();
-                onAddToCart(protestBundles[0].id, 1 * priceFactor);
-                setTimeout(scrollDown(), 1000);
-                updateFullFamily(true);
-              }
-            : () => {
-                onRemoveFromCart(
-                  items.find((item) => item.product_id === protestBundles[0].id)
-                    .id
-                );
-                updateFullFamily(false);
-              }
-        }
-        onMouseEnter={() => setHoverFullFamily(true)}
-        onMouseLeave={() => setHoverFullFamily(false)}
-      >
-        <ProductChoice
-          product={protestBundles[0]}
-          name={protestBundles[0]?.name}
-          price={
-            licenseChoice
-              ? `EUR  ${protestBundles[0]?.price.raw * priceFactor}`
-              : "Please choose a license Type"
-          }
-          id={protestBundles[0]?.id}
-          cart={cart}
-          licenseChoice={licenseChoice}
-        />
-      </div>
-
-      {/* DELUXE */}
-
-      <div
-        item
-        onClick={
-          licenseChoice &&
-          LicenseUser &&
-          !items.some((item) => item.product_id === protestBundles[1].id)
-            ? async () => {
-                updateLicenseType(
-                  protestBundles[1].name,
-                  License,
-                  NumEmployees
-                ),
-                  onAddToCart(protestBundles[1].id, 1 * priceFactor);
+      <div className={styles.buySectionWrapper}>
+        <p className={styles.buyConfigurationHead}>Bundles</p>
+        {/* FULL FAMILY */}
+        <div
+          item
+          onClick={
+            licenseChoice &&
+            LicenseUser &&
+            !items.some((item) => item.product_id === protestBundles[0].id)
+              ? async () => {
+                  updateLicenseType(
+                    protestBundles[0].name,
+                    License,
+                    NumEmployees
+                  ),
+                    clearFullFamily();
+                  onAddToCart(protestBundles[0].id, 1 * priceFactor);
                   setTimeout(scrollDown(), 1000);
-                clearBundle1();
-                updateBundle1(true);
-              }
-            : () => {
-                onRemoveFromCart(
-                  items.find((item) => item.product_id === protestBundles[1].id)
-                    .id
-                );
-                updateBundle1(false);
-              }
-        }
-        onMouseEnter={() => setHoverBundle1(true)}
-        onMouseLeave={() => setHoverBundle1(false)}
-      >
-        <ProductChoice
-          product={protestBundles[1]}
-          name={protestBundles[1]?.name}
-          price={
-            licenseChoice
-              ? `EUR  ${protestBundles[1]?.price.raw * priceFactor}`
-              : "Please choose a license Type"
+                  updateFullFamily(true);
+                }
+              : () => {
+                  onRemoveFromCart(
+                    items.find(
+                      (item) => item.product_id === protestBundles[0].id
+                    ).id
+                  );
+                  updateFullFamily(false);
+                }
           }
-          id={protestBundles[1]?.id}
-          cart={cart}
-          licenseChoice={licenseChoice}
-        />
-      </div>
-
-      {/* ESSENTIAL */}
-
-      <div
-        item
-        onClick={
-          licenseChoice &&
-          LicenseUser &&
-          !items.some((item) => item.product_id === protestBundles[2]?.id)
-            ? () => {
-                updateLicenseType(
-                  protestBundles[2]?.name,
-                  License,
-                  NumEmployees
-                ),
-                  clearBundle2(),
-                  onAddToCart(protestBundles[2]?.id, 1 * priceFactor);
+          onMouseEnter={() => setHoverFullFamily(true)}
+          onMouseLeave={() => setHoverFullFamily(false)}
+        >
+          <ProductChoice
+            product={protestBundles[0]}
+            name={protestBundles[0]?.name}
+            price={
+              licenseChoice
+                ? `EUR  ${protestBundles[0]?.price.raw * priceFactor}`
+                : "Please choose a license Type"
+            }
+            id={protestBundles[0]?.id}
+            cart={cart}
+            licenseChoice={licenseChoice}
+          />
+        </div>
+        {/* DELUXE */}
+        <div
+          item
+          onClick={
+            licenseChoice &&
+            LicenseUser &&
+            !items.some((item) => item.product_id === protestBundles[1].id)
+              ? async () => {
+                  updateLicenseType(
+                    protestBundles[1].name,
+                    License,
+                    NumEmployees
+                  ),
+                    onAddToCart(protestBundles[1].id, 1 * priceFactor);
                   setTimeout(scrollDown(), 1000);
-                updateBundle2(true);
-              }
-            : () => {
-                onRemoveFromCart(
-                  items.find(
-                    (item) => item.product_id === protestBundles[2]?.id
-                  ).id
-                );
-                updateBundle2(false);
-              }
-        }
-        onMouseEnter={() => setHoverBundle2(true)}
-        onMouseLeave={() => setHoverBundle2(false)}
-      >
-        <ProductChoice
-          product={protestBundles[2]}
-          name={protestBundles[2]?.name}
-          price={
-            licenseChoice
-              ? `EUR  ${protestBundles[2]?.price.raw * priceFactor}`
-              : "Please choose a license Type"
+                  clearBundle1();
+                  updateBundle1(true);
+                }
+              : () => {
+                  onRemoveFromCart(
+                    items.find(
+                      (item) => item.product_id === protestBundles[1].id
+                    ).id
+                  );
+                  updateBundle1(false);
+                }
           }
-          id={protestBundles[2]?.id}
-          cart={cart}
-          licenseChoice={licenseChoice}
-        />
+          onMouseEnter={() => setHoverBundle1(true)}
+          onMouseLeave={() => setHoverBundle1(false)}
+        >
+          <ProductChoice
+            product={protestBundles[1]}
+            name={protestBundles[1]?.name}
+            price={
+              licenseChoice
+                ? `EUR  ${protestBundles[1]?.price.raw * priceFactor}`
+                : "Please choose a license Type"
+            }
+            id={protestBundles[1]?.id}
+            cart={cart}
+            licenseChoice={licenseChoice}
+          />
+        </div>
+        {/* ESSENTIAL */}
+        <div
+          item
+          onClick={
+            licenseChoice &&
+            LicenseUser &&
+            !items.some((item) => item.product_id === protestBundles[2]?.id)
+              ? () => {
+                  updateLicenseType(
+                    protestBundles[2]?.name,
+                    License,
+                    NumEmployees
+                  ),
+                    clearBundle2(),
+                    onAddToCart(protestBundles[2]?.id, 1 * priceFactor);
+                  setTimeout(scrollDown(), 1000);
+                  updateBundle2(true);
+                }
+              : () => {
+                  onRemoveFromCart(
+                    items.find(
+                      (item) => item.product_id === protestBundles[2]?.id
+                    ).id
+                  );
+                  updateBundle2(false);
+                }
+          }
+          onMouseEnter={() => setHoverBundle2(true)}
+          onMouseLeave={() => setHoverBundle2(false)}
+        >
+          <ProductChoice
+            product={protestBundles[2]}
+            name={protestBundles[2]?.name}
+            price={
+              licenseChoice
+                ? `EUR  ${protestBundles[2]?.price.raw * priceFactor}`
+                : "Please choose a license Type"
+            }
+            id={protestBundles[2]?.id}
+            cart={cart}
+            licenseChoice={licenseChoice}
+          />
+        </div>{" "}
       </div>
 
       {/* STARTER */}
@@ -421,57 +408,59 @@ const BuyProtestMono = ({
 
       <p className={styles.buyConfigurationHead}>Single Styles</p>
 
-      {protestStyles.map((product, i) => (
-        <div key={i} className={styles.choiceWrapper}>
-        <div
-          className={styles.varValues}
-          onClick={() => {
-            setFontPreview(varObject[i]);
-          }}
-        >
-          SHOW
-        </div>
-          <div
-            item
-            onClick={
-              licenseChoice &&
-              LicenseUser &&
-              !items.some((item) => item.product_id === product.id)
-                ? () => {
-                    updateLicenseType(product.name, License, NumEmployees),
-                      onAddToCart(product.id, 1 * priceFactor);
+      <div className={styles.buySectionWrapper}>
+        {protestStyles.map((product, i) => (
+          <div key={i} className={styles.choiceWrapper}>
+            <div
+              className={styles.varValues}
+              onClick={() => {
+                setFontPreview(varObject[i]);
+              }}
+            >
+              SHOW
+            </div>
+            <div
+              item
+              onClick={
+                licenseChoice &&
+                LicenseUser &&
+                !items.some((item) => item.product_id === product.id)
+                  ? () => {
+                      updateLicenseType(product.name, License, NumEmployees),
+                        onAddToCart(product.id, 1 * priceFactor);
                       setTimeout(scrollDown(), 1000);
-                  }
-                : () =>
-                    onRemoveFromCart(
-                      items.find((item) => item.product_id === product.id).id
-                    )
-            }
-          >
-            <ProductChoice
-              product={product}
-              name={product.name}
-              price={
-                licenseChoice
-                  ? `EUR  ${product.price.raw * priceFactor}`
-                  : "Please choose a license Type"
+                    }
+                  : () =>
+                      onRemoveFromCart(
+                        items.find((item) => item.product_id === product.id).id
+                      )
               }
-              items={items}
-              cart={cart}
-              hoverFullFamily={hoverFullFamily}
-              hoverBundle1={hoverBundle1}
-              hoverBundle2={hoverBundle2}
-              hoverBundle3={hoverBundle3}
-              bundle={product.extra_fields.map((a) => a.name)}
-              related={product.related_products[0] || undefined}
-              addFullFamily={addFullFamily}
-              addBundle1={addBundle1}
-              addBundle2={addBundle2}
-              addBundle3={addBundle3}
-            />
+            >
+              <ProductChoice
+                product={product}
+                name={product.name}
+                price={
+                  licenseChoice
+                    ? `EUR  ${product.price.raw * priceFactor}`
+                    : "Please choose a license Type"
+                }
+                items={items}
+                cart={cart}
+                hoverFullFamily={hoverFullFamily}
+                hoverBundle1={hoverBundle1}
+                hoverBundle2={hoverBundle2}
+                hoverBundle3={hoverBundle3}
+                bundle={product.extra_fields.map((a) => a.name)}
+                related={product.related_products[0] || undefined}
+                addFullFamily={addFullFamily}
+                addBundle1={addBundle1}
+                addBundle2={addBundle2}
+                addBundle3={addBundle3}
+              />
+            </div>
           </div>
-        </div>
-      ))}
+        ))}{" "}
+      </div>
     </div>
   );
 };

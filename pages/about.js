@@ -65,35 +65,11 @@ const About = ({
           checkoutToken={checkoutToken}
           getPaypalPaymentId={getPaypalPaymentId}
           refreshCart={refreshCart}
-          font={"Protest"}
+          font={""}
         />
       )}
 
       <MouseButton lable={buttonContent} />
-
-      {showCheckout && (
-        <Checkout
-          products={products}
-          cart={cart}
-          live={live}
-          handleAddToCart={handleAddToCart}
-          handleRemoveFromCart={handleRemoveFromCart}
-          handleEmptyCart={handleEmptyCart}
-          handleUpdateCartQty={handleUpdateCartQty}
-          handleUpdateCartPrice={handleUpdateCartPrice}
-          onCaptureCheckout={onCaptureCheckout}
-          handleCouponCode={handleCouponCode}
-          getLiveObject={getLiveObject}
-          setCart={setCart}
-          setShowCheckout={setShowCheckout}
-          showCheckout={showCheckout}
-          loading={loading}
-          checkoutToken={checkoutToken}
-          getPaypalPaymentId={getPaypalPaymentId}
-          refreshCart={refreshCart}
-          font={"Giallo"}
-        />
-      )}
 
       <AnimatePresence exitBeforeEnter>
         <div className="buttonsLeftWrapper">
@@ -147,7 +123,7 @@ const About = ({
             <div className={"infoText"}>
               <p>
                 <span className="infoVar">
-                  <span className="infoHeader">STEREO</span>{" "}
+                  <span className="infoHeader">STEREO</span>
                   <span className="infoSubheader">Typefaces®</span>
                 </span>{" "}
                 is a type design agency and typography label based in Berlin

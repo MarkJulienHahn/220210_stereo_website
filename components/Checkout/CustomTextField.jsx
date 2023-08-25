@@ -9,7 +9,7 @@ const FormInput = ({ name, label, required }) => {
   const isError = false;
 
   return (
-    <Grid item xs={12} sm={6}>
+    <Grid item xs={12} sm={12}>
       <Controller
         render={({ field }) =>
           required ? (

@@ -14,7 +14,7 @@
   backdrop-filter: blur(12px);
   font-size: 13vw;
   line-height: 20vw;
-  letter-spacing: -1vw;
+  letter-spacing: -0.5vw;
 }
 
 .couponInput input::selection {
@@ -26,7 +26,7 @@
   font-variation-settings: "wdth" 50, "wght" 120;
   font-size: 13vw;
   line-height: 20vw;
-  letter-spacing: -1vw;
+  letter-spacing: -0.5vw;
   white-space: nowrap;
   background: none;
   text-align: center;

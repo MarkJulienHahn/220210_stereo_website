@@ -4,6 +4,7 @@ import { Grid } from "@material-ui/core";
 import { useForm, FormProvider } from "react-hook-form";
 
 import styles from "../../styles/Forms.module.css";
+import styles2 from "../../styles/Buy.module.css";
 
 import FormInput from "./CustomTextField";
 
@@ -75,8 +76,8 @@ const AddressForm = ({
   };
 
   useEffect(() => {
-    fetchShippingCountries(checkoutToken?.id);
-  }, []);
+    shippingCountries == "" && fetchShippingCountries(checkoutToken?.id);
+  });
 
   useEffect(() => {
     if (shippingCountry) fetchSubdivisions(shippingCountry);
@@ -143,9 +144,9 @@ const AddressForm = ({
   // // });
 
   return (
-    <>
+    <div className={styles.addressFormWrapper}>
       <FormProvider {...methods}>
-        <div className={styles.billingHeader}>Billing Information</div>
+        <div className={styles2.buyConfigurationHead}>Billing Information</div>
         <form
           onSubmit={methods.handleSubmit((data) =>
             next({
@@ -158,7 +159,7 @@ const AddressForm = ({
             })
           )}
         >
-          <Grid container spacing={3}>
+          <Grid container spacing={0.5}>
             <FormInput name="firstName" label="First name*" required={true} />
             <FormInput name="lastName" label="Last name*" required={true} />
             <FormInput name="company" label="Company*" required={true} />
@@ -169,47 +170,46 @@ const AddressForm = ({
               required={true}
             />
             <FormInput name="city" label="City*" required={true} />
-            <FormInput name="zip" label="ZIP / Postal code*" required={true} />
-            <Grid item xs={12} sm={6}>
-              <input
-                className={styles.inputField}
-                name="vatId"
-                placeholder="VAT ID Number"
-                onChange={(e) => setVatId(e.target.value)}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <div className={styles.inputHeader}>Country</div>
-              <select
-                className={styles.inputField}
-                value={shippingCountry}
-                fullwidth
-                onChange={(e) => setShippingCountry(e.target.value)}
-              >
-                {countries.map((country) => (
-                  <option key={country.id} value={country.id}>
-                    {country.label}*
-                  </option>
-                ))}
-              </select>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <div className={styles.inputHeader}>State / Subdivision</div>
-              <select
-                className={styles.inputField}
-                value={shippingSubdivision}
-                fullwidth
-                onChange={(e) => setShippingSubdivision(e.target.value)}
-              >
-                {subdivisions.map((subdivision) => (
-                  <option key={subdivision.id} value={subdivision.id}>
-                    {subdivision.label}*
-                  </option>
-                ))}
-              </select>
-            </Grid>
+            <FormInput name="zip" label="ZIP*" required={true} />
+            <input
+              className={styles.inputField}
+              name="vatId"
+              placeholder="VAT ID Number"
+              onChange={(e) => setVatId(e.target.value)}
+            />
+
+            <select
+              className={styles.inputFieldOption}
+              value={shippingCountry}
+              fullwidth
+              onChange={(e) => setShippingCountry(e.target.value)}
+            >
+              <option value="" disabled selected>
+                Country*
+              </option>
+              {countries.map((country) => (
+                <option key={country.id} value={country.id}>
+                  {country.label}
+                </option>
+              ))}
+            </select>
+
+            <select
+              className={styles.inputFieldOption}
+              value={shippingSubdivision}
+              fullwidth
+              onChange={(e) => setShippingSubdivision(e.target.value)}
+            >
+              <option value="" disabled selected>
+                State / Subdivision*
+              </option>
+              {subdivisions.map((subdivision) => (
+                <option key={subdivision.id} value={subdivision.id}>
+                  {subdivision.label}
+                </option>
+              ))}
+            </select>
           </Grid>
-          <br />
 
           {shippingSubdivision && shippingCountry ? (
             <div style={{ display: "flex", justifyContent: "space-between " }}>
@@ -225,8 +225,11 @@ const AddressForm = ({
             </div>
           )}
         </form>
-
-        <div className={styles.licenseHeader}>License Information</div>
+        <div
+          className={`${styles2.buyConfigurationHead} ${styles.licenseHeader}`}
+        >
+          Licensing Information
+        </div>
         <form
           onSubmit={methods.handleSubmit((data) =>
             next({
@@ -238,81 +241,69 @@ const AddressForm = ({
             })
           )}
         >
-          <Grid container spacing={3}>
+          <Grid container>
             <FormInput
               name="companyLicense"
               label="Company / User*"
               required={true}
             />
-            {WebLicense == "Web" ? (
+            {WebLicense == "Web" && (
               <FormInput
                 name="website"
                 label={WebLicense == "Web" ? "Website*" : "Website"}
                 required={WebLicense == "Web" ? true : false}
               />
-            ) : (
-              ""
             )}
 
             <FormInput name="cityLicense" label="City*" required={true} />
 
             {WebLicense == "Web" ? (
-              <FormInput
-                name="zipLicense"
-                label="ZIP / Postal code*"
-                required={true}
-              />
+              <FormInput name="zipLicense" label="ZIP*" required={true} />
             ) : (
-              <div className={styles.inputLeftbound}>
-                <FormInput
-                  name="zipLicense"
-                  label="ZIP / Postal code*"
-                  required={true}
-                />
+              <FormInput name="zipLicense" label="ZIP*" required={true} />
+            )}
+            <select
+              className={styles.inputFieldOption}
+              value={licenseCountry}
+              fullwidth
+              onChange={(e) => setLicenseCountry(e.target.value)}
+            >
+              <option value="" disabled selected>
+                Country*
+              </option>
+              {countries.map((country) => (
+                <option key={country.id} value={country.id}>
+                  {country.label}
+                </option>
+              ))}
+            </select>
+
+            <br />
+
+            {shippingSubdivision && shippingCountry ? (
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between ",
+                }}
+              >
+                <button className={styles.payButton} type="submit">
+                  Continue to Payment
+                </button>
+              </div>
+            ) : (
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between ",
+                }}
+              >
+                <button className={styles.payButtonLocked}>
+                  Continue to Payment
+                </button>
               </div>
             )}
-
-            <Grid item xs={12} sm={6}>
-              <div className={styles.inputHeader}>Country</div>
-              <select
-                className={styles.inputField}
-                value={licenseCountry}
-                fullwidth
-                onChange={(e) => setLicenseCountry(e.target.value)}
-              >
-                {countries.map((country) => (
-                  <option key={country.id} value={country.id}>
-                    {country.label}*
-                  </option>
-                ))}
-              </select>
-            </Grid>
           </Grid>
-          <br />
-
-          {shippingSubdivision && shippingCountry ? (
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between ",
-              }}
-            >
-              <button className={styles.payButton} type="submit">
-                Continue to Payment
-              </button>
-            </div>
-          ) : (
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between ",
-              }}
-            >
-              <button className={styles.payButtonLocked}>
-                Continue to Payment
-              </button>
-            </div>
-          )}
         </form>
       </FormProvider>
 
@@ -325,7 +316,7 @@ const AddressForm = ({
           onClick={() => setLicenseInfo(!licenseInfo)}
         />
       </div> */}
-    </>
+    </div>
   );
 };
 

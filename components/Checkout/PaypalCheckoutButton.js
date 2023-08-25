@@ -15,6 +15,13 @@ const PaypalCheckoutButton = ({
   useEffect(() => {
     window.paypal
       .Buttons({
+        style: {
+          color: "blue",
+          label: "paypal",
+          height: 55,
+          disableMaxWidth: true,
+          tagline: false
+        },
         createOrder: (data, actions, err) => {
           return actions.order.create({
             // intent: "CAPTURE",
@@ -32,7 +39,6 @@ const PaypalCheckoutButton = ({
           const order = await actions.order.capture();
           console.log(order);
           await handlePaypalSubmit(checkoutToken.id, order);
-
         },
         onError: (err) => {
           console.log(err);

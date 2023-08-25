@@ -1,13 +1,14 @@
-import React from "react";
+import { useRef } from "react";
 import styles from "../../styles/ProductChoice.module.css";
 
 const ProductChoice = (props) => {
+  const priceRef = useRef();
 
   let inCart = false;
+  // const items = props.cart.line_items;
+  const items = props.virtualCart
 
-  const items = props.cart.line_items;
-
-  if (items.some((item) => item.product_id === props.product.id)) {
+  if (items?.some((item) => item.product_id === props.product.id)) {
     inCart = true;
   }
 
@@ -76,7 +77,13 @@ const ProductChoice = (props) => {
           >
             {props.name}
           </span>
-          <span style={normal} className={styles.productPrice}>
+          <span
+            style={{ right: priceRef?.current?.clientWidth }}
+            className={styles.discountPrice}
+          >
+            {props.discountPrice && props.discountPrice}
+          </span>
+          <span style={normal} className={styles.productPrice} ref={priceRef}>
             {inCart ? "ADDED" : props.price}
           </span>
         </div>
@@ -88,9 +95,7 @@ const ProductChoice = (props) => {
     <>
       <div className={styles.inCart}>
         <div style={added} className={styles.productWrapper}>
-          <span className={styles.productName}>
-            {props.name}
-          </span>
+          <span className={styles.productName}>{props.name}</span>
           <span style={primary} className={styles.productPrice}>
             {inCart ? "ADDED" : props.price}
           </span>

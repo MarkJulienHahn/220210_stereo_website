@@ -13,9 +13,9 @@ const BuyGiallo = ({
   priceFactor2,
   priceFactor3,
   priceFactor4,
-  priceFactor5,
-  priceFactor6,
-  priceFactor7,
+  // priceFactor5,
+  // priceFactor6,
+  // priceFactor7,
   License,
   NumEmployees,
   scrollDown,
@@ -51,15 +51,7 @@ const BuyGiallo = ({
     x.categories.find((y) => y.name === "Bundles")
   );
 
-  const priceFactor =
-    (priceFactor1 +
-      priceFactor2 +
-      priceFactor3 +
-      priceFactor5 +
-      priceFactor6 +
-      priceFactor7) *
-    priceFactor4;
-
+  const priceFactor = (priceFactor1 + priceFactor2 + priceFactor3) * priceFactor4;
   const items = cart.line_items;
 
   const clearBundle1 = () => {
@@ -247,233 +239,236 @@ const BuyGiallo = ({
         setHoverBundle3(false);
       }}
     >
-      <p className={styles.buyConfigurationHead}>Bundles</p>
 
-      {/* FULL FAMILY */}
-
-      <div
-        item
-        onClick={
-          licenseChoice &&
-          LicenseUser &&
-          !items.some((item) => item.product_id === gialloBundles[0].id)
-            ? async () => {
-                updateLicenseType(gialloBundles[0].name, License, NumEmployees),
-                  clearFullFamily();
-                onAddToCart(gialloBundles[0].id, 1 * priceFactor);
-                setTimeout(scrollDown(), 1000);
-                updateFullFamily(true);
-              }
-            : () => {
-                onRemoveFromCart(
-                  items.find((item) => item.product_id === gialloBundles[0].id)
-                    .id
-                );
-                updateFullFamily(false);
-              }
-        }
-        onMouseEnter={() => setHoverFullFamily(true)}
-        onMouseLeave={() => setHoverFullFamily(false)}
-      >
-        <ProductChoice
-          product={gialloBundles[0]}
-          name={gialloBundles[0]?.name}
-          price={
-            licenseChoice
-              ? `EUR  ${gialloBundles[0]?.price.raw * priceFactor}`
-              : "Please choose a license Type"
+      <div className={styles.buySectionWrapper}>
+        <p className={styles.buyConfigurationHead}>Bundles</p>
+        {/* FULL FAMILY */}
+        <div
+          item
+          onClick={
+            licenseChoice &&
+            LicenseUser &&
+            !items.some((item) => item.product_id === gialloBundles[0].id)
+              ? async () => {
+                  updateLicenseType(
+                    gialloBundles[0].name,
+                    License,
+                    NumEmployees
+                  ),
+                    clearFullFamily();
+                  onAddToCart(gialloBundles[0].id, 1 * priceFactor);
+                  setTimeout(scrollDown(), 1000);
+                  updateFullFamily(true);
+                }
+              : () => {
+                  onRemoveFromCart(
+                    items.find(
+                      (item) => item.product_id === gialloBundles[0].id
+                    ).id
+                  );
+                  updateFullFamily(false);
+                }
           }
-          id={gialloBundles[0]?.id}
-          cart={cart}
-          licenseChoice={licenseChoice}
-        />
-      </div>
-
-      {/* DELUXE */}
-
-      <div
-        item
-        onClick={
-          licenseChoice &&
-          LicenseUser &&
-          !items.some((item) => item.product_id === gialloBundles[1]?.id)
-            ? () => {
-                updateLicenseType(
-                  gialloBundles[1]?.name,
-                  License,
-                  NumEmployees
-                ),
-                  clearBundle1(),
-                  onAddToCart(gialloBundles[1]?.id, 1 * priceFactor);
-                setTimeout(scrollDown(), 1000);
-                updateBundle1(true);
-              }
-            : () => {
-                onRemoveFromCart(
-                  items.find((item) => item.product_id === gialloBundles[1]?.id)
-                    .id
-                );
-                updateBundle1(false);
-              }
-        }
-        onMouseEnter={() => setHoverBundle1(true)}
-        onMouseLeave={() => setHoverBundle1(false)}
-      >
-        <ProductChoice
-          product={gialloBundles[1]}
-          name={gialloBundles[1].name}
-          price={
-            licenseChoice
-              ? `EUR  ${gialloBundles[1].price.raw * priceFactor}`
-              : "Please choose a license Type"
-          }
-          id={gialloBundles[1].id}
-          cart={cart}
-          licenseChoice={licenseChoice}
-        />
-      </div>
-
-      {/* ESSENTIAL */}
-
-      <div
-        item
-        onClick={
-          licenseChoice &&
-          LicenseUser &&
-          !items.some((item) => item.product_id === gialloBundles[2]?.id)
-            ? () => {
-                updateLicenseType(
-                  gialloBundles[2]?.name,
-                  License,
-                  NumEmployees
-                ),
-                  clearBundle2(),
-                  onAddToCart(gialloBundles[2]?.id, 1 * priceFactor);
-                setTimeout(scrollDown(), 1000);
-                updateBundle2(true);
-              }
-            : () => {
-                onRemoveFromCart(
-                  items.find((item) => item.product_id === gialloBundles[2]?.id)
-                    .id
-                );
-                updateBundle2(false);
-              }
-        }
-        onMouseEnter={() => setHoverBundle2(true)}
-        onMouseLeave={() => setHoverBundle2(false)}
-      >
-        <ProductChoice
-          product={gialloBundles[2]}
-          name={gialloBundles[2].name}
-          price={
-            licenseChoice
-              ? `EUR  ${gialloBundles[2].price.raw * priceFactor}`
-              : "Please choose a license Type"
-          }
-          id={gialloBundles[2].id}
-          cart={cart}
-          licenseChoice={licenseChoice}
-        />
-      </div>
-
-      {/* STARTER */}
-
-      <div
-        item
-        onClick={
-          licenseChoice &&
-          LicenseUser &&
-          !items.some((item) => item.product_id === gialloBundles[3]?.id)
-            ? () => {
-                updateLicenseType(
-                  gialloBundles[3]?.name,
-                  License,
-                  NumEmployees
-                ),
-                  clearBundle3(),
-                  onAddToCart(gialloBundles[3]?.id, 1 * priceFactor);
-                setTimeout(scrollDown(), 1000);
-                updateBundle3(true);
-              }
-            : () => {
-                onRemoveFromCart(
-                  items.find((item) => item.product_id === gialloBundles[3]?.id)
-                    .id
-                );
-                updateBundle3(false);
-              }
-        }
-        onMouseEnter={() => setHoverBundle3(true)}
-        onMouseLeave={() => setHoverBundle3(false)}
-      >
-        <ProductChoice
-          product={gialloBundles[3]}
-          name={gialloBundles[3]?.name}
-          price={
-            licenseChoice
-              ? `EUR  ${gialloBundles[3]?.price.raw * priceFactor}`
-              : "Please choose a license Type"
-          }
-          id={gialloBundles[3]?.id}
-          cart={cart}
-          licenseChoice={licenseChoice}
-        />
-      </div>
-
-      <p className={styles.buyConfigurationHead}>Single Styles</p>
-
-      {gialloStyles.map((product, i) => (
-        <div key={i} className={styles.choiceWrapper}>
-          <div
-            className={styles.varValues}
-            onClick={() => {
-              setFontPreview(varObject[i]);
-            }}
-          >
-            SHOW
-          </div>
-          <div
-            item
-            onClick={
-              licenseChoice &&
-              LicenseUser &&
-              !items.some((item) => item.product_id === product.id)
-                ? () => {
-                    updateLicenseType(product.name, License, NumEmployees),
-                      onAddToCart(product.id, 1 * priceFactor);
-                    setTimeout(scrollDown(), 1000);
-                  }
-                : () =>
-                    onRemoveFromCart(
-                      items.find((item) => item.product_id === product.id).id
-                    )
+          onMouseEnter={() => setHoverFullFamily(true)}
+          onMouseLeave={() => setHoverFullFamily(false)}
+        >
+          <ProductChoice
+            product={gialloBundles[0]}
+            name={gialloBundles[0]?.name}
+            price={
+              licenseChoice
+                ? `EUR  ${gialloBundles[0]?.price.raw * priceFactor}`
+                : "Please choose a license Type"
             }
-          >
-            <ProductChoice
-              product={product}
-              name={product.name}
-              price={
-                licenseChoice
-                  ? `EUR  ${product.price.raw * priceFactor}`
-                  : "Please choose a license Type"
-              }
-              items={items}
-              cart={cart}
-              hoverFullFamily={hoverFullFamily}
-              hoverBundle1={hoverBundle1}
-              hoverBundle2={hoverBundle2}
-              hoverBundle3={hoverBundle3}
-              bundle={product.extra_fields.map((a) => a.name)}
-              related={product.related_products[0] || undefined}
-              addFullFamily={addFullFamily}
-              addBundle1={addBundle1}
-              addBundle2={addBundle2}
-              addBundle3={addBundle3}
-            />
-          </div>
+            id={gialloBundles[0]?.id}
+            cart={cart}
+            licenseChoice={licenseChoice}
+          />
         </div>
-      ))}
+        {/* DELUXE */}
+        <div
+          item
+          onClick={
+            licenseChoice &&
+            LicenseUser &&
+            !items.some((item) => item.product_id === gialloBundles[1]?.id)
+              ? () => {
+                  updateLicenseType(
+                    gialloBundles[1]?.name,
+                    License,
+                    NumEmployees
+                  ),
+                    clearBundle1(),
+                    onAddToCart(gialloBundles[1]?.id, 1 * priceFactor);
+                  setTimeout(scrollDown(), 1000);
+                  updateBundle1(true);
+                }
+              : () => {
+                  onRemoveFromCart(
+                    items.find(
+                      (item) => item.product_id === gialloBundles[1]?.id
+                    ).id
+                  );
+                  updateBundle1(false);
+                }
+          }
+          onMouseEnter={() => setHoverBundle1(true)}
+          onMouseLeave={() => setHoverBundle1(false)}
+        >
+          <ProductChoice
+            product={gialloBundles[1]}
+            name={gialloBundles[1].name}
+            price={
+              licenseChoice
+                ? `EUR  ${gialloBundles[1].price.raw * priceFactor}`
+                : "Please choose a license Type"
+            }
+            id={gialloBundles[1].id}
+            cart={cart}
+            licenseChoice={licenseChoice}
+          />
+        </div>
+        {/* ESSENTIAL */}
+        <div
+          item
+          onClick={
+            licenseChoice &&
+            LicenseUser &&
+            !items.some((item) => item.product_id === gialloBundles[2]?.id)
+              ? () => {
+                  updateLicenseType(
+                    gialloBundles[2]?.name,
+                    License,
+                    NumEmployees
+                  ),
+                    clearBundle2(),
+                    onAddToCart(gialloBundles[2]?.id, 1 * priceFactor);
+                  setTimeout(scrollDown(), 1000);
+                  updateBundle2(true);
+                }
+              : () => {
+                  onRemoveFromCart(
+                    items.find(
+                      (item) => item.product_id === gialloBundles[2]?.id
+                    ).id
+                  );
+                  updateBundle2(false);
+                }
+          }
+          onMouseEnter={() => setHoverBundle2(true)}
+          onMouseLeave={() => setHoverBundle2(false)}
+        >
+          <ProductChoice
+            product={gialloBundles[2]}
+            name={gialloBundles[2].name}
+            price={
+              licenseChoice
+                ? `EUR  ${gialloBundles[2].price.raw * priceFactor}`
+                : "Please choose a license Type"
+            }
+            id={gialloBundles[2].id}
+            cart={cart}
+            licenseChoice={licenseChoice}
+          />
+        </div>
+        {/* STARTER */}
+        <div
+          item
+          onClick={
+            licenseChoice &&
+            LicenseUser &&
+            !items.some((item) => item.product_id === gialloBundles[3]?.id)
+              ? () => {
+                  updateLicenseType(
+                    gialloBundles[3]?.name,
+                    License,
+                    NumEmployees
+                  ),
+                    clearBundle3(),
+                    onAddToCart(gialloBundles[3]?.id, 1 * priceFactor);
+                  setTimeout(scrollDown(), 1000);
+                  updateBundle3(true);
+                }
+              : () => {
+                  onRemoveFromCart(
+                    items.find(
+                      (item) => item.product_id === gialloBundles[3]?.id
+                    ).id
+                  );
+                  updateBundle3(false);
+                }
+          }
+          onMouseEnter={() => setHoverBundle3(true)}
+          onMouseLeave={() => setHoverBundle3(false)}
+        >
+          <ProductChoice
+            product={gialloBundles[3]}
+            name={gialloBundles[3]?.name}
+            price={
+              licenseChoice
+                ? `EUR  ${gialloBundles[3]?.price.raw * priceFactor}`
+                : "Please choose a license Type"
+            }
+            id={gialloBundles[3]?.id}
+            cart={cart}
+            licenseChoice={licenseChoice}
+          />
+        </div>
+      </div>
+      <p className={styles.buyConfigurationHead}>Single Styles</p>
+      <div className={styles.buySectionWrapper}>
+        {gialloStyles.map((product, i) => (
+          <div key={i} className={styles.choiceWrapper}>
+            <div
+              className={styles.varValues}
+              onClick={() => {
+                setFontPreview(varObject[i]);
+              }}
+            >
+              SHOW
+            </div>
+            <div
+              item
+              onClick={
+                licenseChoice &&
+                LicenseUser &&
+                !items.some((item) => item.product_id === product.id)
+                  ? () => {
+                      updateLicenseType(product.name, License, NumEmployees),
+                        onAddToCart(product.id, 1 * priceFactor);
+                      setTimeout(scrollDown(), 1000);
+                    }
+                  : () =>
+                      onRemoveFromCart(
+                        items.find((item) => item.product_id === product.id).id
+                      )
+              }
+            >
+              <ProductChoice
+                product={product}
+                name={product.name}
+                price={
+                  licenseChoice
+                    ? `EUR  ${product.price.raw * priceFactor}`
+                    : "Please choose a license Type"
+                }
+                items={items}
+                cart={cart}
+                hoverFullFamily={hoverFullFamily}
+                hoverBundle1={hoverBundle1}
+                hoverBundle2={hoverBundle2}
+                hoverBundle3={hoverBundle3}
+                bundle={product.extra_fields.map((a) => a.name)}
+                related={product.related_products[0] || undefined}
+                addFullFamily={addFullFamily}
+                addBundle1={addBundle1}
+                addBundle2={addBundle2}
+                addBundle3={addBundle3}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

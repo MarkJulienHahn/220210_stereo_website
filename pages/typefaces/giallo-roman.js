@@ -136,7 +136,7 @@ const GialloRoman = ({
           checkoutToken={checkoutToken}
           getPaypalPaymentId={getPaypalPaymentId}
           refreshCart={refreshCart}
-          font={"Giallo"}
+          font={""}
         />
       )}
 
