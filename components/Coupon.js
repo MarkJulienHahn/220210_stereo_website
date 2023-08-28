@@ -10,18 +10,28 @@ const Coupon = ({
   getLiveObject,
 }) => {
   const [value, setValue] = useState();
-  const [result, setResult] = useState(false);
+  const [result, setResult] = useState(null);
 
   const updateValue = () => {
     setValue(value);
   };
 
+  const delay = (t) => new Promise((resolve) => setTimeout(resolve, t));
+
   const submitCode = async (first, second) => {
-    setResult(true);
+    setResult("...checking");
     await handleCouponCode(first, second);
     await getLiveObject(checkoutToken.id);
-    setShowCoupon(false);
-    setValue(false);
+    if (checkoutToken.discount.length) {
+      setTimeout(notValid, 1500);
+    } else {
+      setResult("Not valid, sorry!");
+      setTimeout(notValid, 1500);
+    }
+  };
+
+  const notValid = () => {
+    setShowCoupon(false), setValue(false);
   };
 
   useEffect(() => {
@@ -63,7 +73,7 @@ const Coupon = ({
             onChange={(e) => setValue(e.target.value)}
           ></input>
         ) : (
-          <div className={styles.couponInput}>checking...</div>
+          <div className={styles.couponInput}>{result}</div>
         )}
       </div>
     </>

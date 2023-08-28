@@ -1,3 +1,5 @@
+
+
 .checkoutWrapper {
   background: var(--tertiary);
   height: 100vh;
@@ -60,31 +62,31 @@
 }
 
 .statusBarWrapper p {
-    font-size: var(--pgMediumSize);
-    letter-spacing: var(--pgMediumLetterSpacing)
+  font-size: var(--pgMediumSize);
+  letter-spacing: var(--pgMediumLetterSpacing);
 }
 
 .statusBarTopRow {
-    display: flex;
-    width: 100vw;
-    transition: all 0.5s ease;
+  display: flex;
+  width: 100vw;
+  transition: all 0.5s ease;
 }
 
 .statusBarStep {
-    width: 25%
+  width: 25%;
 }
 
 .statusBarBG {
-    height: 5px;
-    width: 100%;
-    background: var(--quaternary);
-    margin-top: var(--margin-S  )
+  height: 5px;
+  width: 100%;
+  background: var(--quaternary);
+  margin-top: var(--margin-S);
 }
 
 .statusBarInner {
-    position: absolute;
-    background: black;
-    height: 5px;
-    width: 10px;
-    transition: width 0.5s ease-out;
+  position: absolute;
+  background: black;
+  height: 5px;
+  width: 10px;
+  transition: width 0.5s ease-out;
 }

@@ -69,7 +69,7 @@ const CheckoutStep2 = ({
             onClick={() => {
               setShowCoupon(true);
             }}
-            subclass={live && !live?.discount.value ? "quaternary" : "quaternaryMuted"}
+            subclass={!live?.discount.value ? "quaternary" : "quaternaryMuted"}
           />
 
       </div>

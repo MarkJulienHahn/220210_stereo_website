@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Checkout from "../components/Checkout/Checkout";
+import style from "../styles/Checkout.module.css";
 
 const CheckoutPage = ({
   products,

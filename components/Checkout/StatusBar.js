@@ -8,14 +8,6 @@ const StatusBar = ({
   showCheckoutCustomForm,
   showFontList,
 }) => {
-  console.log(
-    showCheckoutStep2,
-    showCheckoutStep3,
-    showCheckoutStep4,
-    showCheckoutStep5,
-    showCheckoutCustomForm,
-    showFontList
-  );
   return (
     <div className={styles.statusBarWrapper}>
       <div className={styles.statusBarTopRow}>

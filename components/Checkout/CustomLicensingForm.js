@@ -26,6 +26,7 @@ const CustomLicensingForm = ({
   setShowCheckoutCustomForm,
 }) => {
   const [licenses, setLicenses] = useState([]);
+  const [projectName, setProjectName] = useState("");
   const [industry, setIndustry] = useState("");
   const [employees, setEmployees] = useState(null);
   const [description, setDescription] = useState("");
@@ -54,6 +55,7 @@ const CustomLicensingForm = ({
 
   useEffect(() => {
     setCustomLicenseData({
+      projectName: projectName,
       licenses: licenses.map((item) => item + ", "),
       industry: industry,
       employees: employees,
@@ -65,11 +67,18 @@ const CustomLicensingForm = ({
         (item) => item.product_name + ", " + item.license + " / "
       ),
     }),
-      virtualCart.length && employees && licenses && company && email
+      virtualCart.length &&
+      projectName &&
+      employees &&
+      licenses &&
+      company &&
+      description &&
+      email
         ? setValid(true)
         : setValid(false);
   }, [
     licenses,
+    projectName,
     industry,
     employees,
     description,
@@ -83,6 +92,13 @@ const CustomLicensingForm = ({
     <>
       <div className={styles.customForm}>
         <div className={styles.buyConfigurationHead}>Custom Licensing</div>
+        <input
+          className={styles2.inputField}
+          placeholder={"Project Name*"}
+          label={"Project Name"}
+          onChange={(e) => setProjectName(e.target.value)}
+          required
+        />
         <input
           className={styles2.inputField}
           placeholder={"Number of Employees*"}
@@ -111,6 +127,7 @@ const CustomLicensingForm = ({
         />
 
         <div className={styles.customCheckboxesWrapper}>
+          <div className={styles.buyConfigurationHead}>License Extension</div>
           {licenseArray.map((license, i) => (
             <Checkbox
               key={i}
@@ -145,7 +162,7 @@ const CustomLicensingForm = ({
 
         <Button
           lable={"Send Custom Request"}
-          onClick={handleSubmit}
+          onClick={valid ? handleSubmit : () => {}}
           subclass={valid ? "blue" : "quaternaryMuted"}
         />
       </div>

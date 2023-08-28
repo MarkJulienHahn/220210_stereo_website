@@ -7,15 +7,6 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 export default async function handler(req, res) {
   const body = JSON.parse(req.body);
 
-  const message = `
-   Neue Custom Licensing Anfrage von: ${body.company},  ${body.email}, ${body.telephone}. Für folgende Lizenzen: ${body.licenses.map(
-    (item) => item + ", "
-  )}. Description: ${body.description}, Number of Employees: ${
-    body.employees
-  }, Industry: ${body.industry}. Folgende Typefaces: ${body.typefaces.map(
-    (item) => item.product_name + " in " + item.license
-  )}`;
-
   console.log(body);
 
   const data = {
@@ -29,6 +20,7 @@ export default async function handler(req, res) {
     html: "<p>Hello HTML world!</p>",
     template_id: "d-e82fc5a6180a4eb8bdb1680ab7a4a518",
     dynamic_template_data: { 
+      projectName: body.projectName,
       company: body.company,
       email: body.email,
       telephone: body.telephone,

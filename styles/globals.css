@@ -2485,6 +2485,16 @@ button {
   justify-content: space-between;
 }
 
+.licenseBody p em {
+  background: var(--tertiary);
+  font-style: normal;
+}
+
+.licenseBody p strong {
+  background: var(--primary);
+  font-weight: normal;
+}
+
 .licenseSection {
   width: calc(50% - 10px);
   padding-bottom: 200px;

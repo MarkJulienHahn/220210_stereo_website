@@ -527,7 +527,7 @@
   height: calc(100vh - 116px);
   overflow: scroll;
   position: fixed;
-  right: var(--margin-M)
+  right: var(--margin-M);
 }
 
 .customForm::-webkit-scrollbar {
@@ -559,6 +559,10 @@
 .customCompanyWrapper {
   margin-top: 50px;
   margin-bottom: 6px;
+}
+
+.checkoutMobileWrapper {
+  display: none;
 }
 
 @media only screen and (max-width: 600px) {
@@ -735,5 +739,28 @@
 
   .emptyCartMobile {
     display: block;
+  }
+
+  .checkoutDesktopWrapper {
+    display: none;
+  }
+
+  .checkoutMobileWrapper {
+    display: block;
+  }
+
+  .disclaimer {
+    padding: var(--margin-M);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .disclaimer p {
+    padding-bottom: var(--margin-M);
+    font-variation-settings: "wght" 130;
+    font-size: 15pt;
+    word-spacing: -1.5px
   }
 }
