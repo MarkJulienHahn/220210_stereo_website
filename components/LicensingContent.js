@@ -1,7 +1,13 @@
+import { useState } from "react";
 import Link from "next/link";
+import LicenseAccordeon from "./LicenseAccordeon";
+
 import { PortableText } from "@portabletext/react";
-const LicensingContent = ({ licensing }) => {
-  // const Licensing = getLicensing();
+
+const LicensingContent = ({ licensing, licensingIntrotext }) => {
+  const [accIndex, setAccIndex] = useState(null);
+
+  console.log(licensingIntrotext);
 
   return (
     <div className="licenseWrapper">
@@ -11,25 +17,18 @@ const LicensingContent = ({ licensing }) => {
       </h1>
 
       <div className="licenseIntro">
-        <p>
-          Our primary focus is to maintain simplicity and transparency: with
-          just <span className="bg01">three purchasable license types</span> –{" "}
-          <span className="bg01">lifetime licenses</span>, and convenient access
-          to <span className="bg01">full trial versions</span> of our font
-          products. To determine the suitable license, we use company size based
-          on the <span className="bg02">number of employees</span>. We find this
-          metric easy to ascertain and well comparable, unlike metrics such as
-          the permitted number of font installations across workstations,
-          monthly website views or the amount of app downloads.
-        </p>
+        <PortableText value={licensingIntrotext.text} />
       </div>
 
       <div className="licenseBody">
         {licensing.map((item, i) => (
-          <div key={i} className="licenseSection">
-            <h1>{item.title}</h1>
-            <PortableText value={item.text} />
-          </div>
+          <LicenseAccordeon
+            key={i}
+            i={i}
+            item={item}
+            accIndex={accIndex}
+            setAccIndex={setAccIndex}
+          />
         ))}
       </div>
 

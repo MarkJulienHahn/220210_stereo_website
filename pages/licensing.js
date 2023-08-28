@@ -35,7 +35,8 @@ const Licensing = ({
   darkMode,
   setDarkMode,
   dark,
-  licensing
+  licensing,
+  licensingIntrotext,
 }) => {
   const location = useRouter();
   const [showCheckout, setShowCheckout] = useState(false);
@@ -120,7 +121,10 @@ const Licensing = ({
           exit={{ y: -300, opacity: 0 }}
           transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
         >
-          <LicensingContent licensing={licensing} />
+          <LicensingContent
+            licensing={licensing}
+            licensingIntrotext={licensingIntrotext[0]}
+          />
           <Footer />
         </motion.div>
       </AnimatePresence>
@@ -133,10 +137,13 @@ export default Licensing;
 export async function getServerSideProps() {
   const licensing = await client.fetch(`
   *[_type == "licensing"]{...}|order(orderRank)`);
+  const licensingIntrotext = await client.fetch(`
+  *[_type == "licensingIntrotext"]{...}`);
 
   return {
     props: {
       licensing,
+      licensingIntrotext,
     },
   };
 }

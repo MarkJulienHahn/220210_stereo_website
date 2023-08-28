@@ -2480,9 +2480,12 @@ button {
 }
 
 .licenseBody {
-  display: flex;
+  /* display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-between; */
+  margin-bottom: 200px;
+  border-bottom: 1.5px solid black;
+  padding-bottom: 25px;
 }
 
 .licenseBody p em {
@@ -2496,16 +2499,30 @@ button {
 }
 
 .licenseSection {
-  width: calc(50% - 10px);
-  padding-bottom: 200px;
+  width: clamp(500px, 75vw, 1500px);
+  transition: all 0.1s ease-out;
 }
 
 .licenseSection h1 {
   text-align: center;
+  height: 8px;
+  border-top: 1.5px solid black;
+  padding-top: 5px;
+  cursor: pointer;
+}
+
+.licenseSection:hover {
+  padding-bottom: 15px;
+}
+
+.licenseAccInner {
+  overflow: hidden;
+  transition: all 0.3s ease-out;
 }
 
 .licenseWrapper p {
   font-family: "Giallo";
+  padding-top: 40px;
   font-size: 18pt;
   line-height: 23pt;
   letter-spacing: -0.2px;
