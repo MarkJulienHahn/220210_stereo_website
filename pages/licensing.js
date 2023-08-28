@@ -132,7 +132,7 @@ export default Licensing;
 
 export async function getServerSideProps() {
   const licensing = await client.fetch(`
-  *[_type == "licensing"]|order(orderRank){...}`);
+  *[_type == "licensing"]{...}|order(orderRank)`);
 
   return {
     props: {
