@@ -10,6 +10,8 @@ body {
   transition: font-variation-settings 3s ease;
   -webkit-font-smoothing: antialiased;
   font-feature-settings: "liga" 1;
+  width: 100vw;
+  /* overflow-x: hidden; */
   /* scroll-behavior: smooth; */
 }
 
@@ -2198,6 +2200,19 @@ button {
   flex-direction: column;
 }
 
+input::placeholder,
+textarea::placeholder {
+  overflow: visible;
+  position: relative !important;
+  transform: translateY(-20px);
+}
+
+textarea::placeholder {
+  overflow: visible;
+  position: relative !important;
+  transform: translateY(-15px);
+}
+
 .input input {
   border: 0;
   padding: 0;
@@ -2469,8 +2484,9 @@ button {
 }
 
 .licenseWrapper h1 {
-  font-variation-settings: "wght" 100;
-  letter-spacing: 0.5px;
+  font-variation-settings: "wght" 130;
+  font-weight: 130;
+  letter-spacing: -0.2px;
 }
 
 .licenseHeadline {
@@ -2496,12 +2512,14 @@ button {
 .licenseIntro p em {
   background: var(--tertiary);
   font-style: normal;
+  color: black;
 }
 
 .licenseBody p strong,
 .licenseIntro p strong {
   background: var(--primary);
   font-weight: normal;
+  color: black;
 }
 
 .licenseSection {
@@ -2562,7 +2580,7 @@ button {
   background: var(--tertiary);
 }
 
-.licensingMain {
+.licenseWrapper {
   padding: var(--margin-M);
 }
 
@@ -2583,7 +2601,7 @@ button {
 }
 
 .licensingWrapper a {
-  color: white;
+  text-decoration: underline;
 }
 
 .licensingColumn {
@@ -2665,6 +2683,18 @@ button {
 
   .licenseWrapper h1 {
     font-size: 15pt;
+  }
+
+  .licenseSection h1 {
+    text-align: center;
+    height: unset;
+    min-height: 8px;
+    border-top: 1.5px solid white;
+    color: white;
+    mix-blend-mode: difference;
+    padding-top: 5px;
+    cursor: pointer;
+    margin: 2px 0 4px 0;
   }
 
   .licenseWrapper p {

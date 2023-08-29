@@ -15,6 +15,10 @@
   font-size: 10pt;
 }
 
+.productName {
+  width: calc(100% - 150px);
+}
+
 .notInCart:hover .productName,
 .notInCartCustom:hover .productName,
 .inCart:hover .productName {

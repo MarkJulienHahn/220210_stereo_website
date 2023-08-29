@@ -1351,7 +1351,7 @@ const Checkout = ({
                                     }
                                   >
                                     <div className={styles.hoverCustom}>
-                                      More than 100
+                                      Bigger
                                     </div>
                                   </span>
                                 </>
@@ -1547,7 +1547,7 @@ const Checkout = ({
                                     }
                                   >
                                     <div className={styles.hoverCustom}>
-                                      More than 100
+                                      Bigger
                                     </div>
                                   </span>
                                 </>
@@ -1743,7 +1743,7 @@ const Checkout = ({
                                     }
                                   >
                                     <div className={styles.hoverCustom}>
-                                      More than 100
+                                      Bigger
                                     </div>
                                   </span>
                                 </>
@@ -1880,7 +1880,10 @@ const Checkout = ({
                                     <span className={styles.cartRemove}>
                                       &#8594; Remove from Cart
                                     </span>
-                                    <span style={{ color: "blue" }}>
+                                    <span
+                                      className={styles.productPrice}
+                                      style={{ color: "blue" }}
+                                    >
                                       Price on Request
                                     </span>
                                   </>
@@ -2017,12 +2020,7 @@ const Checkout = ({
                               Giallo Roman
                             </p>
                             <p
-                              style={{
-                                color:
-                                  showBuy == "Protest Mono  "
-                                    ? "var(--primary)"
-                                    : "black",
-                              }}
+                              style={showBuy == "Protest Mono" ? active : {}}
                               onClick={() => setShowBuy("Protest Mono")}
                             >
                               Protest Grotesk Mono
@@ -2058,7 +2056,7 @@ const Checkout = ({
                               // priceFactor5={priceFactor5}
                               // priceFactor6={priceFactor6}
                               // priceFactor7={priceFactor7}
-                              licenseChoice={licenseChoice}
+                              licenseChoice={showFontList}
                               LicenseUser={LicenseUser}
                               DesktopLicense={DesktopLicense}
                               WebLicense={WebLicense}
@@ -2078,25 +2076,32 @@ const Checkout = ({
                             <BuyProtestMono
                               products={products}
                               onAddToCart={handleAddToCart}
+                              onAddToVirtualCart={handleAddToVirtualCart}
+                              onRemoveFromVirtualCart={
+                                handleRemoveFromVirtualCart
+                              }
                               handleEmptyCart={handleEmptyCart}
                               onRemoveFromCart={handleRemoveFromCart}
                               onUpdateCartQty={handleUpdateCartQty}
                               cart={cart}
+                              virtualCart={virtualCart}
                               checkoutToken={checkoutToken}
                               priceFactor1={priceFactor1}
                               priceFactor2={priceFactor2}
                               priceFactor3={priceFactor3}
                               priceFactor4={priceFactor4}
-                              // priceFactor5={priceFactor5}
-                              // priceFactor6={priceFactor6}
-                              // priceFactor7={priceFactor7}
-                              licenseChoice={licenseChoice}
+                              licenseChoice={showFontList}
                               LicenseUser={LicenseUser}
+                              DesktopLicense={DesktopLicense}
+                              WebLicense={WebLicense}
+                              AppLicense={AppLicense}
                               onUpdateCartPrice={handleUpdateCartPrice}
-                              // License={License}
-                              NumEmployees={NumEmployees}
+                              NumEmployeesDesktop={NumEmployeesDesktop}
+                              NumEmployeesWeb={NumEmployeesWeb}
+                              NumEmployeesApp={NumEmployeesApp}
                               scrollDown={scrollDown}
                               setFontPreview={setFontPreview}
+                              customForm={customForm}
                             />
                           )}
 
@@ -2104,25 +2109,32 @@ const Checkout = ({
                             <BuyGiallo
                               products={products}
                               onAddToCart={handleAddToCart}
+                              onAddToVirtualCart={handleAddToVirtualCart}
+                              onRemoveFromVirtualCart={
+                                handleRemoveFromVirtualCart
+                              }
                               handleEmptyCart={handleEmptyCart}
                               onRemoveFromCart={handleRemoveFromCart}
                               onUpdateCartQty={handleUpdateCartQty}
                               cart={cart}
+                              virtualCart={virtualCart}
                               checkoutToken={checkoutToken}
                               priceFactor1={priceFactor1}
                               priceFactor2={priceFactor2}
                               priceFactor3={priceFactor3}
                               priceFactor4={priceFactor4}
-                              // priceFactor5={priceFactor5}
-                              // priceFactor6={priceFactor6}
-                              // priceFactor7={priceFactor7}
-                              licenseChoice={licenseChoice}
+                              licenseChoice={showFontList}
                               LicenseUser={LicenseUser}
+                              DesktopLicense={DesktopLicense}
+                              WebLicense={WebLicense}
+                              AppLicense={AppLicense}
                               onUpdateCartPrice={handleUpdateCartPrice}
-                              // License={License}
-                              NumEmployees={NumEmployees}
+                              NumEmployeesDesktop={NumEmployeesDesktop}
+                              NumEmployeesWeb={NumEmployeesWeb}
+                              NumEmployeesApp={NumEmployeesApp}
                               scrollDown={scrollDown}
                               setFontPreview={setFontPreview}
+                              customForm={customForm}
                             />
                           )}
                         </div>

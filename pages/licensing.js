@@ -9,7 +9,7 @@ import Button from "../components/Button";
 import Link from "next/link";
 import Cartbutton from "../components/Cartbutton";
 import LicensingContent from "../components/LicensingContent";
-import Footer from "../components/Footer";
+
 
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -124,8 +124,9 @@ const Licensing = ({
           <LicensingContent
             licensing={licensing}
             licensingIntrotext={licensingIntrotext[0]}
+            darkMode={darkMode}
+            dark={dark}
           />
-          <Footer />
         </motion.div>
       </AnimatePresence>
     </main>

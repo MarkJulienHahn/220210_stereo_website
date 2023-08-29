@@ -134,6 +134,7 @@
 
 .licenseTypeOuter {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .licenseTypeChoice,
@@ -141,6 +142,7 @@
   width: 33%;
   display: flex;
   flex-direction: column;
+  min-width: 255px;
 }
 
 .licenseTypeChoice {
@@ -156,6 +158,9 @@
   bottom: 75px;
   width: calc(50vw - 10px);
   padding-right: 20px;
+  pointer-events: none;
+  /* background: var(--tertiary); */
+  backdrop-filter: blur(50px);
 }
 
 .explainationWrapper p {
@@ -413,8 +418,9 @@
 }
 
 .cartItem {
-  line-height: 15pt;
+  line-height: 22pt;
   padding: 5px 0px;
+  width: calc(100% - 150px);
 }
 
 .productWrapper:hover .cartRemove {

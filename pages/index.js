@@ -251,7 +251,7 @@ const Home = ({
                 default={[160, 0]}
                 slug={"protest-grotesk"}
                 darkMode={darkMode}
-                fontSize="11.3vw"
+                fontSize="11vw"
                 lineHeight="10.9vw"
                 letterSpacing="-0.4vw"
               />

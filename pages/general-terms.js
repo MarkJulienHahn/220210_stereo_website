@@ -6,10 +6,10 @@ import Link from "next/link";
 
 import { AnimatePresence, motion } from "framer-motion";
 
-const GeneralTerms = () => {
+const GeneralTerms = ({dark, darkMode, setDarkMode}) => {
   const location = useRouter();
   return (
-    <main className="licensingMain">
+    <main className="licensingMain" style={darkMode ? dark : {}}>
       <Head>
         <title>Typefaces | Stereo Typefaces®</title>
         <meta name="keywords" content="web" />
@@ -29,6 +29,14 @@ const GeneralTerms = () => {
           />
         </div>
 
+        <div className="buttonsRightWrapper">
+          <Button
+            lable={darkMode ? "Light" : "Dark"}
+            subclass={!darkMode ? "secondary" : "quaternary"}
+            onClick={() => setDarkMode(!darkMode)}
+          />
+        </div>
+
         <motion.div
           location={location}
           key={location.pathname}
@@ -37,7 +45,6 @@ const GeneralTerms = () => {
           exit={{ y: -300, opacity: 0 }}
           transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
         >
-          {" "}
           <div className="licensingWrapper">
             <div className="licensingColumn">
               <h1>

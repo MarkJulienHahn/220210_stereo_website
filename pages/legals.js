@@ -262,10 +262,10 @@ const Legals = () => {
                     <h2>k)    Consent</h2>
                     <p>
                       Consent of the data subject is any freely given, specific,
-                      informed and unambiguous indication of the data subject&apos;s
-                      wishes by which he or she, by a statement or by a clear
-                      affirmative action, signifies agreement to the processing
-                      of personal data relating to him or her.{" "}
+                      informed and unambiguous indication of the data
+                      subject&apos;s wishes by which he or she, by a statement
+                      or by a clear affirmative action, signifies agreement to
+                      the processing of personal data relating to him or her.{" "}
                     </p>
                   </li>
                 </ul>
@@ -415,15 +415,15 @@ const Legals = () => {
                 <p>
                   On the website of the Stereo Typefaces Hahn und Obst GbR,
                   users are given the opportunity to subscribe to our
-                  enterprise&apos;s newsletter. The input mask used for this purpose
-                  determines what personal data are transmitted, as well as when
-                  the newsletter is ordered from the controller.
+                  enterprise&apos;s newsletter. The input mask used for this
+                  purpose determines what personal data are transmitted, as well
+                  as when the newsletter is ordered from the controller.
                 </p>
                 <p>
                   The Stereo Typefaces Hahn und Obst GbR informs its customers
                   and business partners regularly by means of a newsletter about
-                  enterprise offers. The enterprise&apos;s newsletter may only be
-                  received by the data subject if (1) the data subject has a
+                  enterprise offers. The enterprise&apos;s newsletter may only
+                  be received by the data subject if (1) the data subject has a
                   valid e-mail address and (2) the data subject registers for
                   the newsletter shipping. A confirmation e-mail will be sent to
                   the e-mail address registered by a data subject for the first
@@ -820,13 +820,13 @@ const Legals = () => {
                     <p>
                       If the decision (1) is necessary for entering into, or the
                       performance of, a contract between the data subject and a
-                      data controller, or (2) it is based on the data subject&apos;s
-                      explicit consent, the Stereo Typefaces Hahn und Obst GbR
-                      shall implement suitable measures to safeguard the data
-                      subject&apos;s rights and freedoms and legitimate interests, at
-                      least the right to obtain human intervention on the part
-                      of the controller, to express his or her point of view and
-                      contest the decision.
+                      data controller, or (2) it is based on the data
+                      subject&apos;s explicit consent, the Stereo Typefaces Hahn
+                      und Obst GbR shall implement suitable measures to
+                      safeguard the data subject&apos;s rights and freedoms and
+                      legitimate interests, at least the right to obtain human
+                      intervention on the part of the controller, to express his
+                      or her point of view and contest the decision.
                     </p>
 
                     <p>

@@ -6,9 +6,7 @@ const BuyProtest = ({
   licenseChoice,
   LicenseUser,
   products,
-  onAddToCart,
   onAddToVirtualCart,
-  onRemoveFromCart,
   onRemoveFromVirtualCart,
   cart,
   virtualCart,
@@ -19,15 +17,13 @@ const BuyProtest = ({
   DesktopLicense,
   WebLicense,
   AppLicense,
-  // License,
   NumEmployees,
   NumEmployeesDesktop,
   NumEmployeesWeb,
   NumEmployeesApp,
   scrollDown,
-  loading,
   setFontPreview,
-  customForm
+  customForm,
 }) => {
   const [hoverFullFamily, setHoverFullFamily] = useState(false);
   const [hoverBundle1, setHoverBundle1] = useState(false);
@@ -49,9 +45,6 @@ const BuyProtest = ({
     } 
      ${WebLicense && "Web (" + NumEmployeesWeb + ") "} 
     ${AppLicense && "App (" + NumEmployeesApp + ") "}`;
-    // NumEmployees != "Student License"
-    //   ? `${license} ${NumEmployees} Employees`
-    //   : `${license} ${NumEmployees}`;
   };
 
   const protest = products.filter((x) =>
@@ -68,7 +61,8 @@ const BuyProtest = ({
 
   const priceFactor =
     (priceFactor1 + priceFactor2 + priceFactor3) * priceFactor4;
-  const items = cart.line_items;
+
+  const items = virtualCart;
 
   const noHover = () => {
     setHoverFullFamily(false), setHoverBundle1(false), setHoverBundle2(false);
@@ -77,112 +71,112 @@ const BuyProtest = ({
 
   const clearBundle1 = () => {
     items.forEach((item) => {
-      item.name.includes("Protest Grotesk Regular")
-        ? onRemoveFromCart(item.id)
+      item.product_name.includes("Protest Grotesk Regular")
+        ? onRemoveFromVirtualCart(item.id)
         : () => {};
     });
     items.forEach((item) => {
-      item.name.includes("Protest Grotesk Book")
-        ? onRemoveFromCart(item.id)
+      item.product_name.includes("Protest Grotesk Book")
+        ? onRemoveFromVirtualCart(item.id)
         : () => {};
     });
     items.forEach((item) => {
-      item.name.includes("Protest Grotesk Medium")
-        ? onRemoveFromCart(item.id)
+      item.product_name.includes("Protest Grotesk Medium")
+        ? onRemoveFromVirtualCart(item.id)
         : () => {};
     });
     items.forEach((item) => {
-      item.name.includes("Protest Grotesk Bold")
-        ? onRemoveFromCart(item.id)
+      item.product_name.includes("Protest Grotesk Bold")
+        ? onRemoveFromVirtualCart(item.id)
         : () => {};
     });
     items.forEach((item) => {
-      item.name.includes("Protest Grotesk Heavy")
-        ? onRemoveFromCart(item.id)
+      item.product_name.includes("Protest Grotesk Heavy")
+        ? onRemoveFromVirtualCart(item.id)
         : () => {};
     });
     items.forEach((item) => {
-      item.name.includes("Protest Grotesk Full Family")
-        ? onRemoveFromCart(item.id)
+      item.product_name.includes("Protest Grotesk Full Family")
+        ? onRemoveFromVirtualCart(item.id)
         : () => {};
     });
     items.forEach((item) => {
-      item.name.includes("Protest Grotesk Essential Pack")
-        ? onRemoveFromCart(item.id)
+      item.product_name.includes("Protest Grotesk Essential Pack")
+        ? onRemoveFromVirtualCart(item.id)
         : () => {};
     });
     items.forEach((item) => {
-      item.name.includes("Protest Grotesk Starter Pack")
-        ? onRemoveFromCart(item.id)
+      item.product_name.includes("Protest Grotesk Starter Pack")
+        ? onRemoveFromVirtualCart(item.id)
         : () => {};
     });
   };
 
   const clearBundle2 = () => {
     items.forEach((item) => {
-      item.name.includes("Protest Grotesk Regular")
-        ? onRemoveFromCart(item.id)
+      item.product_name.includes("Protest Grotesk Regular")
+        ? onRemoveFromVirtualCart(item.id)
         : () => {};
     });
     items.forEach((item) => {
-      item.name.includes("Protest Grotesk Medium")
-        ? onRemoveFromCart(item.id)
+      item.product_name.includes("Protest Grotesk Medium")
+        ? onRemoveFromVirtualCart(item.id)
         : () => {};
     });
     items.forEach((item) => {
-      item.name.includes("Protest Grotesk Heavy")
-        ? onRemoveFromCart(item.id)
+      item.product_name.includes("Protest Grotesk Heavy")
+        ? onRemoveFromVirtualCart(item.id)
         : () => {};
     });
     items.forEach((item) => {
-      item.name.includes("Protest Grotesk Full Family")
-        ? onRemoveFromCart(item.id)
+      item.product_name.includes("Protest Grotesk Full Family")
+        ? onRemoveFromVirtualCart(item.id)
         : () => {};
     });
     items.forEach((item) => {
-      item.name.includes("Protest Grotesk Deluxe Pack")
-        ? onRemoveFromCart(item.id)
+      item.product_name.includes("Protest Grotesk Deluxe Pack")
+        ? onRemoveFromVirtualCart(item.id)
         : () => {};
     });
     items.forEach((item) => {
-      item.name.includes("Protest Grotesk Starter Pack")
-        ? onRemoveFromCart(item.id)
+      item.product_name.includes("Protest Grotesk Starter Pack")
+        ? onRemoveFromVirtualCart(item.id)
         : () => {};
     });
   };
 
-  const clearBundle3 = () => {
-    items.forEach((item) => {
-      item.name.includes("Protest Grotesk Book")
-        ? onRemoveFromCart(item.id)
-        : () => {};
-    });
-    items.forEach((item) => {
-      item.name.includes("Protest Grotesk Bold")
-        ? onRemoveFromCart(item.id)
-        : () => {};
-    });
-    items.forEach((item) => {
-      item.name.includes("Protest Grotesk Full Family")
-        ? onRemoveFromCart(item.id)
-        : () => {};
-    });
-    items.forEach((item) => {
-      item.name.includes("Protest Grotesk Deluxe Pack")
-        ? onRemoveFromCart(item.id)
-        : () => {};
-    });
-    items.forEach((item) => {
-      item.name.includes("Protest Grotesk Essential Pack")
-        ? onRemoveFromCart(item.id)
-        : () => {};
-    });
-  };
+  // const clearBundle3 = () => {
+  //   items.forEach((item) => {
+  //     item.product_name.includes("Protest Grotesk Book")
+  //       ? onRemoveFromVirtualCart(item.id)
+  //       : () => {};
+  //   });
+  //   items.forEach((item) => {
+  //     item.product_name.includes("Protest Grotesk Bold")
+  //       ? onRemoveFromCart(item.id)
+  //       : () => {};
+  //   });
+  //   items.forEach((item) => {
+  //     item.product_name.includes("Protest Grotesk Full Family")
+  //       ? onRemoveFromCart(item.id)
+  //       : () => {};
+  //   });
+  //   items.forEach((item) => {
+  //     item.product_name.includes("Protest Grotesk Deluxe Pack")
+  //       ? onRemoveFromCart(item.id)
+  //       : () => {};
+  //   });
+  //   items.forEach((item) => {
+  //     item.product_name.includes("Protest Grotesk Essential Pack")
+  //       ? onRemoveFromCart(item.id)
+  //       : () => {};
+  //   });
+  // };
 
   const clearFullFamily = () => {
     items.forEach((item) => {
-      item.name.includes("Protest Grotesk")
-        ? onRemoveFromCart(item.id)
+      item.product_name.includes("Protest Grotesk")
+        ? onRemoveFromVirtualCart(item.id)
         : () => {};
     });
   };
@@ -200,10 +194,6 @@ const BuyProtest = ({
     setAddBundle2(i), localStorage.setItem("PGBundle2", JSON.stringify(i));
   };
 
-  const updateBundle3 = (i) => {
-    setAddBundle3(i), localStorage.setItem("PGBundle3", JSON.stringify(i));
-  };
-
   useEffect(() => {
     !items.some((item) => item.product_id === protestBundles[0].id)
       ? updateFullFamily(false)
@@ -214,10 +204,7 @@ const BuyProtest = ({
     !items.some((item) => item.product_id === protestBundles[2].id)
       ? updateBundle2(false)
       : "";
-    // !items.some((item) => item.product_id === protestBundles[3].id)
-    //   ? updateBundle3(false)
-    //   : "";
-  }, [cart]);
+  }, [virtualCart]);
 
   useEffect(() => {
     const data = localStorage.getItem("PGfullFamily");
@@ -316,24 +303,27 @@ const BuyProtest = ({
             onClick={
               licenseChoice &&
               LicenseUser &&
-              !items.some((item) => item.product_id === protestBundles[0].id)
+              !virtualCart?.some(
+                (item) => item.product_id === protestBundles[0].id
+              )
                 ? async () => {
                     updateLicenseType(
                       protestBundles[0].name,
-                      // License,
                       NumEmployees
                     ),
                       clearFullFamily();
-                    onAddToCart(protestBundles[0].id, 1 * priceFactor);
-                    setTimeout(scrollDown(), 1000);
+                    onAddToVirtualCart(
+                      protestBundles[0].id,
+                      1 * priceFactor,
+                      protestBundles[0].name,
+                      protestBundles[0].price.raw * priceFactor,
+                      protestBundles[0].price.raw * discountPrice,
+                      licenseType
+                    );
                     updateFullFamily(true);
                   }
                 : () => {
-                    onRemoveFromCart(
-                      items.find(
-                        (item) => item.product_id === protestBundles[0].id
-                      ).id
-                    );
+                    onRemoveFromVirtualCart(protestBundles[0].id);
                     updateFullFamily(false);
                   }
             }
@@ -348,11 +338,19 @@ const BuyProtest = ({
                   ? `EUR  ${(
                       protestBundles[0]?.price.raw * priceFactor
                     ).toFixed(2)}`
-                  : "Please choose a license Type"
+                  : " "
+              }
+              discountPrice={
+                discountPrice &&
+                `EUR  ${(protestBundles[0]?.price.raw * discountPrice).toFixed(
+                  2
+                )}`
               }
               id={protestBundles[0]?.id}
               cart={cart}
               licenseChoice={licenseChoice}
+              virtualCart={virtualCart}
+              customForm={customForm}
             />
           </div>
 
@@ -363,24 +361,27 @@ const BuyProtest = ({
             onClick={
               licenseChoice &&
               LicenseUser &&
-              !items.some((item) => item.product_id === protestBundles[1].id)
+              !virtualCart?.some(
+                (item) => item.product_id === protestBundles[1].id
+              )
                 ? async () => {
                     updateLicenseType(
                       protestBundles[1].name,
-                      // License,
                       NumEmployees
                     ),
-                      onAddToCart(protestBundles[1].id, 1 * priceFactor);
-                    setTimeout(scrollDown(), 1000);
-                    clearBundle1();
+                      clearBundle1();
+                    onAddToVirtualCart(
+                      protestBundles[1].id,
+                      1 * priceFactor,
+                      protestBundles[1].name,
+                      protestBundles[1].price.raw * priceFactor,
+                      protestBundles[1].price.raw * discountPrice,
+                      licenseType
+                    );
                     updateBundle1(true);
                   }
                 : () => {
-                    onRemoveFromCart(
-                      items.find(
-                        (item) => item.product_id === protestBundles[1].id
-                      ).id
-                    );
+                    onRemoveFromVirtualCart(protestBundles[1].id);
                     updateBundle1(false);
                   }
             }
@@ -395,11 +396,19 @@ const BuyProtest = ({
                   ? `EUR  ${(
                       protestBundles[1]?.price.raw * priceFactor
                     ).toFixed(2)}`
-                  : "Please choose a license Type"
+                  : " "
+              }
+              discountPrice={
+                discountPrice &&
+                `EUR  ${(protestBundles[1]?.price.raw * discountPrice).toFixed(
+                  2
+                )}`
               }
               id={protestBundles[1]?.id}
               cart={cart}
               licenseChoice={licenseChoice}
+              virtualCart={virtualCart}
+              customForm={customForm}
             />
           </div>
 
@@ -410,24 +419,29 @@ const BuyProtest = ({
             onClick={
               licenseChoice &&
               LicenseUser &&
-              !items.some((item) => item.product_id === protestBundles[2]?.id)
-                ? () => {
+              !virtualCart?.some(
+                (item) => item.product_id === protestBundles[2].id
+              )
+                ? async () => {
                     updateLicenseType(
-                      protestBundles[2]?.name,
+                      protestBundles[2].name,
                       // License,
                       NumEmployees
                     ),
-                      clearBundle2(),
-                      onAddToCart(protestBundles[2]?.id, 1 * priceFactor);
+                      clearBundle2();
+                    onAddToVirtualCart(
+                      protestBundles[2].id,
+                      1 * priceFactor,
+                      protestBundles[2].name,
+                      protestBundles[2].price.raw * priceFactor,
+                      protestBundles[2].price.raw * discountPrice,
+                      licenseType
+                    );
                     setTimeout(scrollDown(), 1000);
                     updateBundle2(true);
                   }
                 : () => {
-                    onRemoveFromCart(
-                      items.find(
-                        (item) => item.product_id === protestBundles[2]?.id
-                      ).id
-                    );
+                    onRemoveFromVirtualCart(protestBundles[2].id);
                     updateBundle2(false);
                   }
             }
@@ -442,11 +456,19 @@ const BuyProtest = ({
                   ? `EUR  ${(
                       protestBundles[2]?.price.raw * priceFactor
                     ).toFixed(2)}`
-                  : "Please choose a license Type"
+                  : " "
+              }
+              discountPrice={
+                discountPrice &&
+                `EUR  ${(protestBundles[2]?.price.raw * discountPrice).toFixed(
+                  2
+                )}`
               }
               id={protestBundles[2]?.id}
               cart={cart}
               licenseChoice={licenseChoice}
+              virtualCart={virtualCart}
+              customForm={customForm}
             />
           </div>
 
@@ -489,7 +511,7 @@ const BuyProtest = ({
                   ? `EUR  ${(
                       protestBundles[3]?.price.raw * priceFactor
                     ).toFixed(2)}`
-                  : "Please choose a license Type"
+                  : " "
               }
               id={protestBundles[3]?.id}
               cart={cart}
@@ -523,7 +545,6 @@ const BuyProtest = ({
                       ? () => {
                           updateLicenseType(
                             product.name,
-                            // License,
                             NumEmployees
                           ),
                             onAddToVirtualCart(
@@ -534,7 +555,6 @@ const BuyProtest = ({
                               product.price.raw * discountPrice,
                               licenseType
                             );
-                          setTimeout(scrollDown(), 1000);
                         }
                       : () => onRemoveFromVirtualCart(product.id)
                   }
@@ -545,7 +565,7 @@ const BuyProtest = ({
                     price={
                       licenseChoice
                         ? `EUR  ${(product.price.raw * priceFactor).toFixed(2)}`
-                        : "Please choose a license Type"
+                        : " "
                     }
                     discountPrice={
                       discountPrice &&

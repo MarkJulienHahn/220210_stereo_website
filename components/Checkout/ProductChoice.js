@@ -42,7 +42,9 @@ const ProductChoice = (props) => {
   const ItemNotInCart = () => (
     <>
       <div
-        className={!props.customForm ? styles.notInCart : styles.notInCartCustom}
+        className={
+          !props.customForm ? styles.notInCart : styles.notInCartCustom
+        }
         style={
           props.hoverFullFamily ||
           (inBundle1 && props.hoverBundle1) ||
@@ -77,12 +79,16 @@ const ProductChoice = (props) => {
           >
             {props.name}
           </span>
-          <span
-            style={{ right: priceRef?.current?.clientWidth }}
-            className={styles.discountPrice}
-          >
-            {props.discountPrice && props.discountPrice}
-          </span>
+          
+          {!props.customForm && (
+            <span
+              style={{ right: priceRef?.current?.clientWidth }}
+              className={styles.discountPrice}
+            >
+              {props.discountPrice && props.discountPrice}
+            </span>
+          )}
+
           <span style={normal} className={styles.productPrice} ref={priceRef}>
             {!props.customForm
               ? inCart
