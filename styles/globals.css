@@ -2475,8 +2475,12 @@ button {
 
 .licenseHeadline {
   height: 700px;
+  width: 100vw;
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
 }
 
 .licenseBody {
@@ -2485,15 +2489,15 @@ button {
   justify-content: space-between; */
   margin-bottom: 200px;
   border-bottom: 1.5px solid black;
-  padding-bottom: 25px;
+  padding-bottom: 15px;
 }
 
-.licenseBody p em {
+.licenseBody p em, .licenseIntro p em {
   background: var(--tertiary);
   font-style: normal;
 }
 
-.licenseBody p strong {
+.licenseBody p strong, .licenseIntro p strong {
   background: var(--primary);
   font-weight: normal;
 }
@@ -2652,10 +2656,43 @@ button {
     display: flex;
     align-items: center;
   }
-  .licensingWrapper h1,
+  /* .licensingWrapper h1,
   .licensingCancellationForm {
     margin-left: 50px;
+  } */
+
+  .licenseWrapper h1 {
+    font-size: 15pt;
   }
+
+  .licenseWrapper p {
+    font-size: 15pt;
+    line-height: 19pt;
+    word-spacing: -0.5px;
+  }
+
+  .infoHeader {
+    transform: translateY(3px);
+  }
+
+  .licenseSection {
+    width: 100%;
+  }
+  .licenseSection:hover {
+    padding-bottom: 0;
+  }
+
+.licenseHeadline {
+  height: 120px;
+  padding-top: 200px;
+  padding-bottom: 200px;
+}
+
+.licenseBottom {
+  padding-top: 0;
+  padding-bottom: 200px
+}
+
 }
 
 /* ERROR */

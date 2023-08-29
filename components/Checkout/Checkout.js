@@ -168,7 +168,7 @@ const Checkout = ({
   const [virtualCartPrice, setVirtualCartPrice] = useState(null);
 
   const [nonProfit, setNonProfit] = useState(false);
-  const [modification, setModification] = useState(false);
+  const [custom, setCustom] = useState(false);
   const [political, setPolitical] = useState(null);
 
   // const License = [
@@ -1299,6 +1299,30 @@ const Checkout = ({
                                       86 – 100 Employees
                                     </span>
                                   </span>
+
+                                  <span
+                                    style={
+                                      NumEmployeesDesktop === "Custom"
+                                        ? active
+                                        : inactive
+                                    }
+                                    onClick={
+                                      NumEmployeesDesktop === "Custom"
+                                        ? () => {
+                                            updateDesktopLicense("");
+                                            setNumEmployeesDesktop("");
+                                          }
+                                        : () => {
+                                            updateDesktopLicense("Desktop"),
+                                              setNumEmployeesDesktop("Custom"),
+                                              updatePriceFactor1(null);
+                                          }
+                                    }
+                                  >
+                                    <span style={{ wordWrap: "none" }}>
+                                      More than 100
+                                    </span>
+                                  </span>
                                 </>
                               )}
                             </span>
@@ -1654,22 +1678,22 @@ const Checkout = ({
                               <div className={styles.licenseTypeOuter}>
                                 <div
                                   style={
-                                    nonProfit ? { color: "blue" } : inactive
+                                    custom ? { color: "blue" } : inactive
                                   }
                                   onMouseEnter={() => setExplIndex(5)}
                                   onMouseLeave={() => setExplIndex(null)}
-                                  onClick={() => setNonProfit(!nonProfit)}
+                                  onClick={() => setCustom(!custom)}
                                   className={styles.customLicenseTypeChoice}
                                 >
                                   Custom
                                 </div>
                                 <div
                                   style={
-                                    modification ? { color: "blue" } : inactive
+                                    nonProfit ? { color: "blue" } : inactive
                                   }
                                   onMouseEnter={() => setExplIndex(6)}
                                   onMouseLeave={() => setExplIndex(null)}
-                                  onClick={() => setModification(!modification)}
+                                  onClick={() => setNonProfit(!nonProfit)}
                                   className={styles.customLicenseTypeChoice}
                                 >
                                   Non-Profit
@@ -1781,7 +1805,7 @@ const Checkout = ({
                             </div>
 
                             <div className={styles.checkoutButton}>
-                              {nonProfit || modification || political ? (
+                              {nonProfit || custom || political ? (
                                 <Button
                                   lable={"Send Custom Request"}
                                   onClick={customStep}
@@ -2101,7 +2125,7 @@ const Checkout = ({
               cirtualCartPrice={virtualCartPrice}
               nonProfit={nonProfit}
               political={political}
-              modification={modification}
+              modification={custom}
               handleEmptyCart={handleEmptyCart}
               setShowCheckoutCustomForm={setShowCheckoutCustomForm}
               setShowCheckoutStep1={setShowCheckoutStep1}
@@ -2196,10 +2220,14 @@ const Checkout = ({
         <div className={styles.buyBackground}>
           <div className={styles.disclaimer}>
             <p>
-              Right now you can only buy fonts on a desktop device, sorry for that. Please
-              use your computer to checkout!
+              Right now you can only buy fonts on a desktop device, sorry for
+              that. Please use your computer to checkout! ✌️
             </p>
-            <Button lable="back" subclass={"secondary"} onClick={fadeOutCheckout}/>
+            <Button
+              lable="back"
+              subclass={"secondary"}
+              onClick={fadeOutCheckout}
+            />
           </div>
         </div>
       </div>
