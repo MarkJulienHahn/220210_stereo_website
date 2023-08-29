@@ -16,6 +16,7 @@
 }
 
 .notInCart:hover .productName,
+.notInCartCustom:hover .productName,
 .inCart:hover .productName {
   opacity: 0;
 }
@@ -29,6 +30,15 @@
   color: var(--primary);
 }
 
+.notInCartCustom:hover:before {
+  position: absolute;
+  content: "→ Add to Cart";
+  font-size: 20pt;
+  line-height: 25pt;
+  letter-spacing: -0px;
+  color: blue;
+}
+
 .inCart:hover:before {
   position: absolute;
   content: "→ Remove from Cart";
@@ -39,7 +49,7 @@
 }
 
 .inCart,
-.notInCart {
+.notInCart, .notInCartCustom {
   cursor: pointer;
 }
 

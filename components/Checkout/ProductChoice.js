@@ -6,7 +6,7 @@ const ProductChoice = (props) => {
 
   let inCart = false;
   // const items = props.cart.line_items;
-  const items = props.virtualCart
+  const items = props.virtualCart;
 
   if (items?.some((item) => item.product_id === props.product.id)) {
     inCart = true;
@@ -15,7 +15,7 @@ const ProductChoice = (props) => {
   const added = {
     opacity: 1,
     pointerEvents: "none",
-    color: "var(--primary)",
+    color: !props.customForm ? "var(--primary)" : "blue",
   };
 
   const enabled = {
@@ -28,7 +28,7 @@ const ProductChoice = (props) => {
   };
 
   const primary = {
-    color: "var(--primary)",
+    color: !props.customForm ? "var(--primary)" : "blue",
   };
 
   const normal = {
@@ -42,7 +42,7 @@ const ProductChoice = (props) => {
   const ItemNotInCart = () => (
     <>
       <div
-        className={styles.notInCart}
+        className={!props.customForm ? styles.notInCart : styles.notInCartCustom}
         style={
           props.hoverFullFamily ||
           (inBundle1 && props.hoverBundle1) ||
@@ -84,7 +84,11 @@ const ProductChoice = (props) => {
             {props.discountPrice && props.discountPrice}
           </span>
           <span style={normal} className={styles.productPrice} ref={priceRef}>
-            {inCart ? "ADDED" : props.price}
+            {!props.customForm
+              ? inCart
+                ? "ADDED"
+                : props.price
+              : "Price on Request"}
           </span>
         </div>
       </div>

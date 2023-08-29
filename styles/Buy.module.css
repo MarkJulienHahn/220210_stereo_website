@@ -495,7 +495,7 @@
 }
 
 .varValues:hover {
-  color: var(--primary);
+  text-decoration: underline;
 }
 
 @keyframes appear {
@@ -505,6 +505,10 @@
   100% {
     opacity: 1;
   }
+}
+
+.hoverCustom:hover {
+  color: blue;
 }
 
 /* CUSTOM FORM */
@@ -761,6 +765,6 @@
     padding-bottom: var(--margin-M);
     font-variation-settings: "wght" 130;
     font-size: 15pt;
-    word-spacing: -1.5px
+    word-spacing: -1.5px;
   }
 }

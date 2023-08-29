@@ -2489,15 +2489,17 @@ button {
   justify-content: space-between; */
   margin-bottom: 200px;
   border-bottom: 1.5px solid black;
-  padding-bottom: 15px;
+  padding-bottom: 25px;
 }
 
-.licenseBody p em, .licenseIntro p em {
+.licenseBody p em,
+.licenseIntro p em {
   background: var(--tertiary);
   font-style: normal;
 }
 
-.licenseBody p strong, .licenseIntro p strong {
+.licenseBody p strong,
+.licenseIntro p strong {
   background: var(--primary);
   font-weight: normal;
 }
@@ -2682,17 +2684,20 @@ button {
     padding-bottom: 0;
   }
 
-.licenseHeadline {
-  height: 120px;
-  padding-top: 200px;
-  padding-bottom: 200px;
-}
+  .licenseHeadline {
+    height: 120px;
+    padding-top: 200px;
+    padding-bottom: 200px;
+  }
 
-.licenseBottom {
-  padding-top: 0;
-  padding-bottom: 200px
-}
+  .licenseBottom {
+    padding-top: 0;
+    padding-bottom: 200px;
+  }
 
+  .licenseBody {
+    padding-bottom: 15px;
+  }
 }
 
 /* ERROR */

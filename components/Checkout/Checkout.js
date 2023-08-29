@@ -155,6 +155,7 @@ const Checkout = ({
 
   const [explIndex, setExplIndex] = useState(null);
   const [licenseChoice, setLicenseChoice] = useState(false);
+  const [customForm, setCustomForm] = useState(false);
 
   const [animated, setAnimated] = useState(false);
 
@@ -321,16 +322,22 @@ const Checkout = ({
       updatePriceFactor2(0),
       updatePriceFactor3(0),
       updatePriceFactor4(1),
+      setNumEmployeesDesktop(null),
+      setNumEmployeesWeb(null),
+      setNumEmployeesApp(null),
       updateDesktopLicense(""),
       updateWebLicense(""),
       updateAppLicense(""),
       updateSocialLicense(""),
       updateLogoLicense(""),
       updateVideoLicense(""),
-      updateLicenseUser("");
-    setShowDesktop(false),
+      updateLicenseUser(""),
+      setShowDesktop(false),
       setShowApp(false),
       setShowWeb(false),
+      setCustom(false),
+      setNonProfit(false),
+      setPolitical(false),
       setDesktopLicense(false),
       setWebLicense(false);
   };
@@ -512,6 +519,11 @@ const Checkout = ({
   const inactive = {
     color: "black",
     opacty: 1,
+  };
+
+  const activeCustom = {
+    color: "blue",
+    opacity: 1,
   };
 
   const buyInactive = {
@@ -931,9 +943,27 @@ const Checkout = ({
   }, [loading]);
 
   useEffect(() => {
+    const checkCustomCart = virtualCart.map((item) =>
+      item.license.includes("Custom")
+    );
+    nonProfit ||
+    custom ||
+    political ||
+    NumEmployeesDesktop == "Custom" ||
+    NumEmployeesWeb == "Custom" ||
+    NumEmployeesApp == "Custom" ||
+    checkCustomCart.includes(true)
+      ? setCustomForm(true)
+      : setCustomForm(false);
+  });
+
+  useEffect(() => {
     (licenseChoice && priceFactor1 > 1) ||
     (licenseChoice && priceFactor2 > 1) ||
     (licenseChoice && priceFactor3 > 1) ||
+    NumEmployeesDesktop == "Custom" ||
+    NumEmployeesWeb == "Custom" ||
+    NumEmployeesApp == "Custom" ||
     virtualCart.length ||
     LicenseUser == "Student"
       ? setShowFontList(true)
@@ -1303,7 +1333,7 @@ const Checkout = ({
                                   <span
                                     style={
                                       NumEmployeesDesktop === "Custom"
-                                        ? active
+                                        ? activeCustom
                                         : inactive
                                     }
                                     onClick={
@@ -1315,13 +1345,14 @@ const Checkout = ({
                                         : () => {
                                             updateDesktopLicense("Desktop"),
                                               setNumEmployeesDesktop("Custom"),
-                                              updatePriceFactor1(null);
+                                              updatePriceFactor1(null),
+                                              setShowFontList(true);
                                           }
                                     }
                                   >
-                                    <span style={{ wordWrap: "none" }}>
+                                    <div className={styles.hoverCustom}>
                                       More than 100
-                                    </span>
+                                    </div>
                                   </span>
                                 </>
                               )}
@@ -1494,6 +1525,31 @@ const Checkout = ({
                                       86 – 100 Employees
                                     </span>
                                   </span>
+
+                                  <span
+                                    style={
+                                      NumEmployeesWeb === "Custom"
+                                        ? activeCustom
+                                        : inactive
+                                    }
+                                    onClick={
+                                      NumEmployeesWeb === "Custom"
+                                        ? () => {
+                                            updateWebLicense("");
+                                            setNumEmployeesWeb("");
+                                          }
+                                        : () => {
+                                            updateWebLicense("Web"),
+                                              setNumEmployeesWeb("Custom"),
+                                              updatePriceFactor1(null),
+                                              setShowFontList(true);
+                                          }
+                                    }
+                                  >
+                                    <div className={styles.hoverCustom}>
+                                      More than 100
+                                    </div>
+                                  </span>
                                 </>
                               )}
                             </span>
@@ -1665,6 +1721,31 @@ const Checkout = ({
                                       86 – 100 Employees
                                     </span>
                                   </span>
+
+                                  <span
+                                    style={
+                                      NumEmployeesApp === "Custom"
+                                        ? activeCustom
+                                        : inactive
+                                    }
+                                    onClick={
+                                      NumEmployeesApp === "Custom"
+                                        ? () => {
+                                            updateAppLicense("");
+                                            setNumEmployeesApp("");
+                                          }
+                                        : () => {
+                                            updateAppLicense("App"),
+                                              setNumEmployeesApp("Custom"),
+                                              updatePriceFactor1(null),
+                                              setShowFontList(true);
+                                          }
+                                    }
+                                  >
+                                    <div className={styles.hoverCustom}>
+                                      More than 100
+                                    </div>
+                                  </span>
                                 </>
                               )}
                             </span>
@@ -1677,9 +1758,7 @@ const Checkout = ({
                               </li>
                               <div className={styles.licenseTypeOuter}>
                                 <div
-                                  style={
-                                    custom ? { color: "blue" } : inactive
-                                  }
+                                  style={custom ? { color: "blue" } : inactive}
                                   onMouseEnter={() => setExplIndex(5)}
                                   onMouseLeave={() => setExplIndex(null)}
                                   onClick={() => setCustom(!custom)}
@@ -1777,21 +1856,35 @@ const Checkout = ({
                                     {item.license}
                                   </span>
                                 </span>
-                                <span
-                                  style={{
-                                    right: "100px",
-                                  }}
-                                  className={styles.discountPrice}
-                                >
-                                  {item.discount != 0 &&
-                                    "EUR " + item.discount.toFixed(2)}
-                                </span>
-                                <span className={styles.productPrice}>
-                                  EUR {item.price.toFixed(2)}
-                                </span>
-                                <span className={styles.cartRemove}>
-                                  &#8594; Remove from Cart
-                                </span>
+
+                                {!customForm ? (
+                                  <>
+                                    <span className={styles.cartRemove}>
+                                      &#8594; Remove from Cart
+                                    </span>
+                                    <span
+                                      style={{
+                                        right: "100px",
+                                      }}
+                                      className={styles.discountPrice}
+                                    >
+                                      {item.discount != 0 &&
+                                        "EUR " + item.discount.toFixed(2)}
+                                    </span>
+                                    <span className={styles.productPrice}>
+                                      EUR {item.price.toFixed(2)}
+                                    </span>
+                                  </>
+                                ) : (
+                                  <>
+                                    <span className={styles.cartRemove}>
+                                      &#8594; Remove from Cart
+                                    </span>
+                                    <span style={{ color: "blue" }}>
+                                      Price on Request
+                                    </span>
+                                  </>
+                                )}
                               </div>
                             </>
                           ))}
@@ -1799,13 +1892,19 @@ const Checkout = ({
 
                         {virtualCart.length | undefined ? (
                           <>
-                            <div className={styles.total}>
-                              <span>&#8594; Total</span>
-                              <span>EUR {virtualCartPrice?.toFixed(2)}</span>
-                            </div>
+                            {!customForm ? (
+                              <div className={styles.total}>
+                                <span>&#8594; Total</span>
+                                <span>EUR {virtualCartPrice?.toFixed(2)}</span>
+                              </div>
+                            ) : (
+                              <div
+                                style={{ borderTop: "1.5px solid black" }}
+                              ></div>
+                            )}
 
                             <div className={styles.checkoutButton}>
-                              {nonProfit || custom || political ? (
+                              {customForm ? (
                                 <Button
                                   lable={"Send Custom Request"}
                                   onClick={customStep}
@@ -1971,6 +2070,7 @@ const Checkout = ({
                               NumEmployeesApp={NumEmployeesApp}
                               scrollDown={scrollDown}
                               setFontPreview={setFontPreview}
+                              customForm={customForm}
                             />
                           )}
 
@@ -2032,83 +2132,6 @@ const Checkout = ({
                             ? ""
                             : "Your cart is empty"}{" "}
                         </div>
-
-                        {/* <div
-                        className={styles.totalWrapper}
-                        // ref={checkoutOverview}
-                      >
-                        <div className={styles.overviewItems}>
-                          {cart.line_items?.map((item) => (
-                            <>
-                              <div
-                                className={styles.productWrapper}
-                                onClick={() => handleRemoveFromCart(item.id)}
-                              >
-                                <span className={styles.cartItem}>
-                                  — {item.name}
-                                  <br />
-                                  <span className={styles.licenseType}>
-                                    {
-                                      products.find(
-                                        (el) => el.name === item.name
-                                      ).license
-                                    }
-                                  </span>
-                                </span>
-
-                                <span className={styles.productPrice}>
-                                  EUR {item.line_total.formatted}
-                                </span>
-                                <span className={styles.cartRemove}>
-                                  &#8594; Remove
-                                </span>
-                              </div>
-                            </>
-                          ))}
-                        </div> */}
-
-                        {/* {cart.line_items?.length | undefined ? (
-                          <>
-                            <div className={styles.total}>
-                              <span>&#8594; Total</span>
-                              <span>EUR {cart.subtotal.formatted}</span>
-                            </div>
-                            <div className={styles.emptyCartMobile}>
-                              <Button
-                                lable={"Empty Cart"}
-                                onClick={() => refreshCart()}
-                                subclass={
-                                  cart.line_items?.length
-                                    ? "quaternary"
-                                    : "quaternaryMuted"
-                                }
-                              />
-                            </div>
-                          </>
-                        ) : (
-                          ""
-                        )}
-
-                        <div className={styles.buttonsMobileWrapper}>
-                          <Button
-                            lable={"Continue to Checkout"}
-                            onClick={transferCarts}
-                            // onClick={
-                            //   cart.line_items?.length && checkoutToken && live
-                            //     ? () => {
-                            //         step2();
-                            //       }
-                            //     : () => {}
-                            // }
-
-                            subclass={
-                              cart.line_items?.length && checkoutToken && live
-                                ? "primary"
-                                : "quaternaryMuted"
-                            }
-                          />
-                      </div>
-                    </div> */}
                       </div>
                     </div>
                   </div>

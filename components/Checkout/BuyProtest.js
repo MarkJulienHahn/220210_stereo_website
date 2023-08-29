@@ -27,6 +27,7 @@ const BuyProtest = ({
   scrollDown,
   loading,
   setFontPreview,
+  customForm
 }) => {
   const [hoverFullFamily, setHoverFullFamily] = useState(false);
   const [hoverBundle1, setHoverBundle1] = useState(false);
@@ -563,6 +564,7 @@ const BuyProtest = ({
                     addBundle1={addBundle1}
                     addBundle2={addBundle2}
                     addBundle3={addBundle3}
+                    customForm={customForm}
                   />
                 </div>
               </div>

@@ -48,6 +48,7 @@ const CheckoutCustomForm = ({
                 <>
                   <div
                     className={styles.productWrapper}
+                    style={{pointerEvents: "none"}}
                     //   onClick={() => handleRemoveFromVirtualCart(item.product_id)}
                   >
                     <span className={styles.cartItem}>
@@ -56,9 +57,9 @@ const CheckoutCustomForm = ({
                       <span className={styles.licenseType}>{item.license}</span>
                     </span>
                     <span className={styles.onRequest}>Price on Request</span>
-                    <span className={styles.cartRemove}>
+                    {/* <span className={styles.cartRemove}>
                       &#8594; Remove from Cart
-                    </span>
+                    </span> */}
                   </div>
                 </>
               ))}
