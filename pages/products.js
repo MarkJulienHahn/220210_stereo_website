@@ -5,9 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import Image from "next/image";
 
-import image01 from "../public/images/image_07.jpg";
-import image02 from "../public/images/image_08.jpg";
-
 import Footer from "../components/Footer";
 import Button from "../components/Button";
 
