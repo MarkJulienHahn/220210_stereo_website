@@ -2240,6 +2240,7 @@ const Checkout = ({
               rates={rates}
               vatRate={vatRate}
               setVatRate={setVatRate}
+              LicenseUser={LicenseUser}
             />
           )}
 

@@ -18,8 +18,8 @@ const LicensingContent = ({
     <div style={darkMode ? dark : {}}>
       <div className="licenseWrapper">
         <h1 className="licenseHeadline">
-          How does the&nbsp;<span className="infoHeader">STEREO</span>®&nbsp;
-          <span className="bg02"> licensing system </span>&nbsp;work?
+          How does the&nbsp;<span className="infoHeader">STEREO TYPEFACES</span>®&nbsp;
+          <span className="bg02"> licensing model</span>&nbsp;work?
         </h1>
 
         <div className="licenseIntro">

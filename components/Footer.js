@@ -1,8 +1,8 @@
 import { useState } from "react";
-
+import useDownloader from "react-use-downloader";
 import Link from "next/link";
 
-const Footer = () => {
+const Footer = ({}) => {
   const [selected, setSelected] = useState(null);
 
   const toggle = (i) => {
@@ -44,6 +44,144 @@ const Footer = () => {
       return;
     }
   }
+
+  const { download } = useDownloader();
+
+  const fileUrl = "/STEREO_GTC-AGB_V1.0.pdf";
+  const filename = "STEREO_GTC-AGB_V1.0.pdf";
+
+  const data = [
+    {
+      title: "Contact Us",
+      content: (
+        <>
+          <p>
+            Customer service support, inquiries related to: prices and currency,
+            order and preorder payment, custom inquiries or collaborations.
+            <br />
+          </p>
+          <p className="footerInfoHead">Phone</p>
+          <p>+49 152 03 56 93 05</p>
+          <p className="footerInfoHead">Email</p>
+          <p>
+            Send us a message via&nbsp;
+            <a href="mailto:info@stereotypefaces.com">
+              info@stereotypefaces.com
+            </a>
+            .&nbsp;We’ll reply within 24 hours.
+          </p>
+          <p className="footerInfoHead">Working Hours</p>
+          <p> Available Mon — Fri 10 am — 6 pm (CEST)</p>
+        </>
+      ),
+    },
+    {
+      title: "Licensing",
+      content: (
+        <p>
+          Our licensing model is based on company size of the end user. You can
+          either buy a license for yourself as a designer to use, for example
+          your portfolio website, or (more commonly) for your client.
+          <br />
+          <br />
+          On top of that there are these use-specific licenses:
+          <br />
+          <br />
+          <Link href="/licensing#desktop">DESKTOP LICENSE</Link> &#8594; for
+          print products and signage
+          <br />
+          <Link href="/licensing#web">WEB LICENSE</Link> &#8594; for an embedded
+          font on a website
+          <br />
+          <Link href="/licensing#app">APP/GAME LICENSE</Link> &#8594; for an
+          embedded font in an interactive game or application
+          <br />
+          <br />
+          For bigger projects there are more specific licenses:
+          <br />
+          <Link href="/licensing#social">SOCIAL MEDIA LICENSE</Link> &#8594; for
+          use in a social network
+          <br />
+          <Link href="/licensing#logo">LOGO LICENSE</Link> &#8594; for use as a
+          brand logo or wordmark
+          <br />
+          <Link href="/licensing#video">VIDEO LICENSE</Link> &#8594; for use in
+          a movie, streaming platform or video billboard
+          <br />
+          <br />
+          Click here for&nbsp;
+          <Link href="/licensing">MORE SPECIFIC LICENSING-INFORMATION</Link>
+        </p>
+      ),
+    },
+    {
+      title: "Payment Methods",
+      content: (
+        <>
+          <p>
+            Stereo Typefaces® has the following payment methods available:
+            <p />
+            <p className="footerInfoHead">CREDIT CARDS</p>
+            <p>
+              (we accept Visa, Mastercard, American Express, Diners, Discover,
+              JCB and Union Pay)
+            </p>
+            <p className="footerInfoHead">PAYPAL</p>
+            <p>
+              (to register a paypal account, please visit their website at&nbsp;
+              <a href="https://paypal.com" target="_blank" rel="noreferrer">
+                paypal.com
+              </a>
+              ).
+            </p>
+          </p>
+          <p className="footerInfoHead">
+            Please note that all payment transactions are subject to
+            verification with the card issuer. Your credit card will be charged
+            only when the order is finalized, and we will not be held
+            responsible for any refusal of a card issuer to authorize the
+            transaction. Furthermore, we conduct standard pre-authorization on
+            the card; Products shall not be shipped until such checks have been
+            performed. Please note that the card issuer may charge a fee or
+            administrative-processing charge; we are not responsible for such
+            expenses.
+          </p>
+        </>
+      ),
+    },
+    {
+      title: "General Terms and Conditions",
+      content: (
+        <>
+          <p>
+            We offer a detailed general terms ans conditions (GTC) for for our
+            webshop. <br />
+            <br />
+            Click here for the <Link href="/general-terms">Online Version</Link>
+            <br />
+            and here for a{" "}
+            <a
+              style={{ cursor: "pointer" }}
+              onClick={() => download(fileUrl, filename)}
+            >
+              PDF-Download
+            </a>
+            .
+          </p>
+        </>
+      ),
+    },
+    {
+      title: (
+        <Link href="/legals">
+          <span style={{ textDecoration: "none" }}>
+            Legal Notice / Privacy Policy
+          </span>
+        </Link>
+      ),
+      content: <></>,
+    },
+  ];
 
   return (
     <>
@@ -111,8 +249,11 @@ const Footer = () => {
                   </p>
                   <hr />
                   <p className={"disclaimer"}>
-                    By registering you agree to accept the <Link href="/general-terms">general terms & conditions</Link>
-                    {" "}and have read the Privacy Policy.
+                    By registering you agree to accept the{" "}
+                    <Link href="/general-terms">
+                      general terms & conditions
+                    </Link>{" "}
+                    and have read the Privacy Policy.
                   </p>
                   <button>Submit</button>
                 </form>
@@ -124,141 +265,5 @@ const Footer = () => {
     </>
   );
 };
-
-const data = [
-  {
-    title: "Contact Us",
-    content: (
-      <>
-        <p>
-          Customer service support, inquiries related to: prices and currency,
-          order and preorder payment, custom inquiries or collaborations.
-          <br />
-        </p>
-        <p className="footerInfoHead">Phone</p>
-        <p>
-          +49 152 03 56 93 05
-        </p>
-        <p className="footerInfoHead">Email</p>
-        <p>
-          Send us a message via&nbsp;
-          <a href="mailto:info@stereotypefaces.com">
-            info@stereotypefaces.com
-          </a>
-          .&nbsp;We’ll reply within 24 hours.
-        </p>
-        <p className="footerInfoHead">Working Hours</p>
-        <p> Available Mon — Fri 10 am — 6 pm (CEST)</p>
-      </>
-    ),
-  },
-  {
-    title: "Licensing",
-    content: (
-      <p>
-        Our licensing model is based on company size of the end user. You can
-        either buy a license for yourself as a designer to use, for example your
-        portfolio website, or (more commonly) for your client.
-        <br />
-        <br />
-        On top of that there are these use-specific licenses:
-        <br />
-        <br />
-        <Link href="/licensing#desktop">DESKTOP LICENSE</Link> &#8594; for print
-        products and signage<br />
-        <Link href="/licensing#web">WEB LICENSE</Link> &#8594; for an embedded
-        font on a website
-        <br />
-        <Link href="/licensing#app">APP/GAME LICENSE</Link> &#8594; for an
-        embedded font in an interactive game or application
-        <br />
-        <br />
-        For bigger projects there are more specific licenses:
-        <br />
-        <Link href="/licensing#social">SOCIAL MEDIA LICENSE</Link> &#8594; for
-        use in a social network
-        <br />
-        <Link href="/licensing#logo">LOGO LICENSE</Link> &#8594; for use as a
-        brand logo or wordmark
-        <br />
-        <Link href="/licensing#video">VIDEO LICENSE</Link> &#8594; for use in a
-        movie, streaming platform or video billboard
-        <br />
-        <br />
-        Click here for&nbsp;
-        <Link href="/licensing">MORE SPECIFIC LICENSING-INFORMATION</Link>
-      </p>
-    ),
-  },
-  {
-    title: "Payment Methods",
-    content: (
-      <>
-        <p>
-          Stereo Typefaces® has the following payment methods available:
-          <p />
-          <p className="footerInfoHead">CREDIT CARDS</p>
-          <p>
-            (we accept Visa, Mastercard, American Express, Diners, Discover, JCB
-            and Union Pay)
-          </p>
-          <p className="footerInfoHead">PAYPAL</p>
-          <p>
-            (to register a paypal account, please visit their website at&nbsp;
-            <a href="https://paypal.com" target="_blank" rel="noreferrer">
-              paypal.com
-            </a>
-            ).
-          </p>
-        </p>
-        <p className="footerInfoHead">
-          Please note that all payment transactions are subject to verification
-          with the card issuer. Your credit card will be charged only when the
-          order is finalized, and we will not be held responsible for any
-          refusal of a card issuer to authorize the transaction. Furthermore, we
-          conduct standard pre-authorization on the card; Products shall not be
-          shipped until such checks have been performed. Please note that the
-          card issuer may charge a fee or administrative-processing charge; we
-          are not responsible for such expenses.
-        </p>
-      </>
-    ),
-  },
-  {
-    title: "General Terms and Conditions",
-    content: (
-      <>
-        <p>
-          We offer a detailed general terms ans conditions (GTC) for for our
-          webshop. <br />
-          <br />
-          Click here for{" "}
-          <Link href="/general-terms">
-            THE CURRENT VERSION (1.0 / OCTOBER 22)
-          </Link>
-          .
-        </p>{" "}
-      </>
-    ),
-  },
-  {
-    title: "Legal Notice / Privacy Policy",
-    content: (
-      <>
-        <p>
-          The content of this website is protected by copyright. All rights are
-          reserved to Stereo Typefaces GbR or its partner companies (suppliers,
-          providers, manufacturers, etc.). Any use of the content of this site
-          is only permitted with the express permission of Stereo Typefaces GbR.{" "}
-          <Link href="/legals">Show Full Legal Notice</Link>
-        </p>
-
-        <p className="footerInfoHead">
-          © {new Date().getFullYear()} Stereo Typefaces®
-        </p>
-      </>
-    ),
-  },
-];
 
 export default Footer;

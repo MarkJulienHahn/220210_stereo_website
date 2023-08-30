@@ -4,6 +4,8 @@ import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
 import * as gtag from "../lib/gtag";
 
+import client from "../client";
+
 import { AnimatePresence, motion } from "framer-motion";
 import { commerce } from "../lib/commerce";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
@@ -34,7 +36,7 @@ function MyApp({ Component, pageProps }) {
     background: "#0A0A0A",
   };
 
-// PRODUCTS
+  // PRODUCTS
 
   const fetchProducts = async () => {
     const { data } = await commerce.products.list({ limit: 1000 });
@@ -107,16 +109,16 @@ function MyApp({ Component, pageProps }) {
     if (accepted) {
       // store user's preferences in a cookie or localStorage
       setFadeCookie(true),
-      await setTimeout(function () {
-        setCookieSeen(true);
-      }, 300);
+        await setTimeout(function () {
+          setCookieSeen(true);
+        }, 300);
       localStorage.setItem("cookieSeen", "true");
     } else {
       // store user's preferences in a cookie or localStorage
       setFadeCookie(true),
-      await setTimeout(function () {
-        setCookieSeen(true);
-      }, 300);
+        await setTimeout(function () {
+          setCookieSeen(true);
+        }, 300);
       localStorage.setItem("cookieSeen", "false");
     }
   };
@@ -243,3 +245,14 @@ function MyApp({ Component, pageProps }) {
 }
 
 export default MyApp;
+
+export async function getServerSideProps() {
+  const gT = await client.fetch(`
+  *[_type == "generalTerms"]`);
+
+  return {
+    props: {
+      gT,
+    },
+  };
+}

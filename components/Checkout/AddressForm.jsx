@@ -17,6 +17,7 @@ const AddressForm = ({
   vatId,
   rates,
   setVatRate,
+  LicenseUser,
 }) => {
   const [shippingCountries, setShippingCountries] = useState([]);
   const [shippingCountry, setShippingCountry] = useState("");
@@ -244,9 +245,18 @@ const AddressForm = ({
           <Grid container>
             <FormInput
               name="companyLicense"
-              label="Company / User*"
+              label={LicenseUser != "Student" ? "Company / User*" : "Full Name*"}
               required={true}
             />
+
+            {LicenseUser == "Student" && (
+              <FormInput
+                name="university"
+                label={"School / University*"}
+                required={true}
+              />
+            )}
+
             {WebLicense == "Web" && (
               <FormInput
                 name="website"
@@ -262,6 +272,7 @@ const AddressForm = ({
             ) : (
               <FormInput name="zipLicense" label="ZIP*" required={true} />
             )}
+
             <select
               className={styles.inputFieldOption}
               value={licenseCountry}

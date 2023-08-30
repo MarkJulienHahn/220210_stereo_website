@@ -27,6 +27,7 @@ const CheckoutStep2 = ({
   rates,
   vatRate,
   setVatRate,
+  LicenseUser,
 }) => {
   const [vatId, setVatId] = useState("");
 
@@ -63,14 +64,15 @@ const CheckoutStep2 = ({
           // }
           subclass={"secondary"}
         />
-
-        <Button
-          lable={"Coupon code"}
-          onClick={() => {
-            setShowCoupon(true);
-          }}
-          subclass={!live?.discount.value ? "quaternary" : "quaternaryMuted"}
-        />
+        {LicenseUser != "Student" && (
+          <Button
+            lable={"Coupon code"}
+            onClick={() => {
+              setShowCoupon(true);
+            }}
+            subclass={!live?.discount.value ? "quaternary" : "quaternaryMuted"}
+          />
+        )}
       </div>
 
       <div className={styles.formsWrapper}>
@@ -176,6 +178,7 @@ const CheckoutStep2 = ({
               vatId={vatId}
               setVatRate={setVatRate}
               rates={rates}
+              LicenseUser={LicenseUser}
             />
           </div>
         </div>

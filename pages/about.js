@@ -5,6 +5,8 @@ import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 import { AnimatePresence, motion } from "framer-motion";
 
+import client from "../client";
+
 import Footer from "../components/Footer";
 import Button from "../components/Button";
 import Cartbutton from "../components/Cartbutton";
