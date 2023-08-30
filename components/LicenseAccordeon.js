@@ -26,12 +26,29 @@ const LicenseAccordeon = ({ item, i, accIndex, setAccIndex }) => {
       className="licenseSection"
       onClick={active ? () => setAccIndex(null) : activate}
     >
-      <h1 style={{ scrollMarginTop: "100px" }} ref={ref2}>{item.title}</h1>
+      <h1 className="licenseHeaderWrapper">
+        <span style={{ scrollMarginTop: "200px" }} ref={ref2}>
+          {item.title}
+        </span>
+        <span
+          className="licenseArrow"
+          style={
+            !active
+              ? { transform: "" }
+              : {
+                  transform: "rotate(-90deg) translate(-15px, -15px)",
+                  padding: "0",
+                }
+          }
+        >
+          &#8592;
+        </span>
+      </h1>
       <div
         className="licenseAccInner"
         style={active ? { height: ref.current?.clientHeight } : { height: 0 }}
       >
-        <div ref={ref} >
+        <div ref={ref}>
           <PortableText value={item.text} />
         </div>
       </div>

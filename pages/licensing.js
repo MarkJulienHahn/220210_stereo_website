@@ -41,11 +41,10 @@ const Licensing = ({
   const location = useRouter();
   const [showCheckout, setShowCheckout] = useState(false);
 
-  console.log(licensing);
   return (
     <main className="licensingMain">
       <Head>
-        <title>Typefaces | Stereo Typefaces®</title>
+        <title>Licensing | Stereo Typefaces®</title>
         <meta name="keywords" content="web" />
       </Head>
 

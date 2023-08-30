@@ -15,6 +15,7 @@ import StatusBar from "./StatusBar";
 import BuyGiallo from "./BuyGiallo";
 import BuyProtest from "./BuyProtest";
 import BuyProtestMono from "./BuyProtestMono";
+import BuyStudents from "./BuyStudents";
 
 import CheckoutFontPreview from "./CheckoutFontPreview";
 
@@ -85,6 +86,12 @@ const explaination = [
     messages (slogans, claims, logos) by parties or organizations, requires
     prior agreement. Contact us via our custom request form.
   </>,
+  <>
+    &#8594; Professional
+    <br />
+    Professionals choose this for themselves and/or their studios, design
+    agencies, etc., or they can directly buy a license for their clients here.
+  </>,
 ];
 
 const Checkout = ({
@@ -146,9 +153,7 @@ const Checkout = ({
   const [DesktopLicense, setDesktopLicense] = useState("");
   const [WebLicense, setWebLicense] = useState("");
   const [AppLicense, setAppLicense] = useState("");
-  const [SocialLicense, setSocialLicense] = useState("");
-  const [LogoLicense, setLogoLicense] = useState("");
-  const [VideoLicense, setVideoLicense] = useState("");
+
   const [NumEmployeesDesktop, setNumEmployeesDesktop] = useState("");
   const [NumEmployeesWeb, setNumEmployeesWeb] = useState("");
   const [NumEmployeesApp, setNumEmployeesApp] = useState("");
@@ -215,18 +220,18 @@ const Checkout = ({
   const updateAppLicense = (license) => {
     setAppLicense(license);
   };
-  const updateSocialLicense = (license) => {
-    setSocialLicense(license);
-  };
-  const updateLogoLicense = (license) => {
-    setLogoLicense(license);
-  };
-  const updateVideoLicense = (license) => {
-    setVideoLicense(license);
-  };
-  const updateNumEmployees = (num) => {
-    setNumEmployees(num);
-  };
+  // const updateSocialLicense = (license) => {
+  //   setSocialLicense(license);
+  // };
+  // const updateLogoLicense = (license) => {
+  //   setLogoLicense(license);
+  // };
+  // const updateVideoLicense = (license) => {
+  //   setVideoLicense(license);
+  // };
+  // const updateNumEmployees = (num) => {
+  //   setNumEmployees(num);
+  // };
 
   const router = useRouter();
 
@@ -243,10 +248,7 @@ const Checkout = ({
 
   useEffect(() => {
     if (LicenseUser == "Student") {
-      updateSocialLicense(""),
-        updateLogoLicense(""),
-        updateVideoLicense(""),
-        updatePriceFactor4(1);
+      updatePriceFactor4(1);
     }
   });
 
@@ -328,9 +330,9 @@ const Checkout = ({
       updateDesktopLicense(""),
       updateWebLicense(""),
       updateAppLicense(""),
-      updateSocialLicense(""),
-      updateLogoLicense(""),
-      updateVideoLicense(""),
+      // updateSocialLicense(""),
+      // updateLogoLicense(""),
+      // updateVideoLicense(""),
       updateLicenseUser(""),
       setShowDesktop(false),
       setShowApp(false),
@@ -944,7 +946,7 @@ const Checkout = ({
 
   useEffect(() => {
     const checkCustomCart = virtualCart.map((item) =>
-      item.license.includes("Custom")
+      item.license?.includes("Custom")
     );
     nonProfit ||
     custom ||
@@ -990,6 +992,16 @@ const Checkout = ({
   useEffect(() => {
     cart.line_items?.length && step2();
   }, [cart]);
+
+  const clearStudentPacks = () => {
+    setVirtualCart(
+      virtualCart.filter((item) => !item.product_name.includes("Student"))
+    );
+  };
+
+  useEffect(() => {
+    LicenseUser != "Student" && setShowBuy(""), clearStudentPacks();
+  }, [LicenseUser]);
 
   return (
     <>
@@ -1096,6 +1108,8 @@ const Checkout = ({
                           ? () => updateLicenseUser("")
                           : () => updateLicenseUser("Designer")
                       }
+                      onMouseEnter={() => setExplIndex(8)}
+                      onMouseLeave={() => setExplIndex(null)}
                     >
                       Professional
                     </li>
@@ -1135,7 +1149,8 @@ const Checkout = ({
                                 LicenseUser == "Student?"
                                   ? () => {
                                       updateLicenseUser("Student"),
-                                        setVirtualCart([]);
+                                        setShowBuy("Student");
+                                      setVirtualCart([]);
                                     }
                                   : () => updateLicenseUser("")
                               }
@@ -1989,44 +2004,46 @@ const Checkout = ({
                       }}
                     >
                       <div className={styles.buyTableInner}>
-                        <div>
-                          <div
-                            className={styles.buyConfigurationHead}
-                            ref={checkoutList}
-                          >
-                            &#8594; Select a Typeface.
+                        {showBuy != "Student" && (
+                          <div>
+                            <div
+                              className={styles.buyConfigurationHead}
+                              ref={checkoutList}
+                            >
+                              &#8594; Select a Typeface.
+                            </div>
+                            <div className={styles.fontChoice}>
+                              <p
+                                style={{
+                                  color:
+                                    showBuy == "Protest"
+                                      ? "var(--primary)"
+                                      : "black",
+                                }}
+                                onClick={() => setShowBuy("Protest")}
+                              >
+                                Protest Grotesk
+                              </p>
+                              <p
+                                style={{
+                                  color:
+                                    showBuy == "Giallo"
+                                      ? "var(--primary)"
+                                      : "black",
+                                }}
+                                onClick={() => setShowBuy("Giallo")}
+                              >
+                                Giallo Roman
+                              </p>
+                              <p
+                                style={showBuy == "Protest Mono" ? active : {}}
+                                onClick={() => setShowBuy("Protest Mono")}
+                              >
+                                Protest Grotesk Mono
+                              </p>
+                            </div>
                           </div>
-                          <div className={styles.fontChoice}>
-                            <p
-                              style={{
-                                color:
-                                  showBuy == "Protest"
-                                    ? "var(--primary)"
-                                    : "black",
-                              }}
-                              onClick={() => setShowBuy("Protest")}
-                            >
-                              Protest Grotesk
-                            </p>
-                            <p
-                              style={{
-                                color:
-                                  showBuy == "Giallo"
-                                    ? "var(--primary)"
-                                    : "black",
-                              }}
-                              onClick={() => setShowBuy("Giallo")}
-                            >
-                              Giallo Roman
-                            </p>
-                            <p
-                              style={showBuy == "Protest Mono" ? active : {}}
-                              onClick={() => setShowBuy("Protest Mono")}
-                            >
-                              Protest Grotesk Mono
-                            </p>
-                          </div>
-                        </div>
+                        )}
 
                         <div
                           style={
@@ -2107,6 +2124,39 @@ const Checkout = ({
 
                           {showBuy == "Giallo" && (
                             <BuyGiallo
+                              products={products}
+                              onAddToCart={handleAddToCart}
+                              onAddToVirtualCart={handleAddToVirtualCart}
+                              onRemoveFromVirtualCart={
+                                handleRemoveFromVirtualCart
+                              }
+                              handleEmptyCart={handleEmptyCart}
+                              onRemoveFromCart={handleRemoveFromCart}
+                              onUpdateCartQty={handleUpdateCartQty}
+                              cart={cart}
+                              virtualCart={virtualCart}
+                              checkoutToken={checkoutToken}
+                              priceFactor1={priceFactor1}
+                              priceFactor2={priceFactor2}
+                              priceFactor3={priceFactor3}
+                              priceFactor4={priceFactor4}
+                              licenseChoice={showFontList}
+                              LicenseUser={LicenseUser}
+                              DesktopLicense={DesktopLicense}
+                              WebLicense={WebLicense}
+                              AppLicense={AppLicense}
+                              onUpdateCartPrice={handleUpdateCartPrice}
+                              NumEmployeesDesktop={NumEmployeesDesktop}
+                              NumEmployeesWeb={NumEmployeesWeb}
+                              NumEmployeesApp={NumEmployeesApp}
+                              scrollDown={scrollDown}
+                              setFontPreview={setFontPreview}
+                              customForm={customForm}
+                            />
+                          )}
+
+                          {showBuy == "Student" && (
+                            <BuyStudents
                               products={products}
                               onAddToCart={handleAddToCart}
                               onAddToVirtualCart={handleAddToVirtualCart}

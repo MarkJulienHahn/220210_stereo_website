@@ -11,7 +11,7 @@ const Legals = () => {
   return (
     <main>
       <Head>
-        <title>Typefaces | Stereo Typefaces®</title>
+        <title>Legal Notice | Stereo Typefaces®</title>
         <meta name="keywords" content="web" />
       </Head>
 

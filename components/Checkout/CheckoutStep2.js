@@ -64,14 +64,13 @@ const CheckoutStep2 = ({
           subclass={"secondary"}
         />
 
-          <Button
-            lable={"Coupon code"}
-            onClick={() => {
-              setShowCoupon(true);
-            }}
-            subclass={!live?.discount.value ? "quaternary" : "quaternaryMuted"}
-          />
-
+        <Button
+          lable={"Coupon code"}
+          onClick={() => {
+            setShowCoupon(true);
+          }}
+          subclass={!live?.discount.value ? "quaternary" : "quaternaryMuted"}
+        />
       </div>
 
       <div className={styles.formsWrapper}>
@@ -86,9 +85,14 @@ const CheckoutStep2 = ({
                       <span className={styles.cartItem}>
                         — {item.name}
                         <br />
-                        <span className={styles.licenseType}>
-                          {products.find((el) => el.name === item.name).license}
-                        </span>
+                        {!item.name.includes("Student") && (
+                          <span className={styles.licenseType}>
+                            {
+                              products.find((el) => el.name === item.name)
+                                .license
+                            }
+                          </span>
+                        )}
                       </span>
 
                       <span className={styles.productPrice}>
@@ -109,16 +113,7 @@ const CheckoutStep2 = ({
                   <div className={styles.total}>
                     <span>→ Total</span>
                     <span>EUR {live.total.formatted}</span>
-                    {/* All EU customers can enter their VAT ID number to proceed
-                    without a tax charge. If you don’t have a VAT ID number, or
-                    if you are a private idividual, you may leave the last field
-                    blank. */}
                   </div>
-                  {/* <p className={styles.taxInformation}>
-                    In case you are a private customer from within the EU and
-                    you don’t have a VAT ID, taxes will be added according to
-                    your billing country.
-                  </p> */}
                 </>
               ) : (
                 <>
