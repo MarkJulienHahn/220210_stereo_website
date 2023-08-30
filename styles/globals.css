@@ -2617,6 +2617,7 @@ textarea::placeholder {
 }
 
 .licensingWrapper h1,
+.licensingWrapper ul,
 .licensingCancellationForm {
   font-family: "Giallo-Mono";
   font-size: var(--gialloSmallSize);
@@ -2626,6 +2627,10 @@ textarea::placeholder {
   font-weight: 100;
   max-width: 400px;
   margin-left: calc(var(--margin-L) - var(--margin-M));
+}
+
+.licensingWrapper li {
+  padding-bottom: var(--margin-M)
 }
 
 .licensingCancellationForm ul {
