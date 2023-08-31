@@ -2,6 +2,152 @@ import React, { useEffect, useState } from "react";
 import ProductChoice from "./ProductChoice";
 import styles from "../../styles/Buy.module.css";
 
+const varObject = [
+  { fontFamily: "ProtestMono", lable: "Protest Mono Thin", wght: 40 },
+  { fontFamily: "ProtestMono", lable: "Protest Mono Light", wght: 70 },
+  { fontFamily: "ProtestMono", lable: "Protest Mono Regular", wght: 100 },
+  { fontFamily: "ProtestMono", lable: "Protest Mono Book", wght: 130 },
+  { fontFamily: "ProtestMono", lable: "Protest Mono Medium", wght: 160 },
+  { fontFamily: "ProtestMono", lable: "Protest Mono Bold", wght: 190 },
+  { fontFamily: "ProtestMono", lable: "Protest Mono Heavy", wght: 220 },
+  { fontFamily: "ProtestMono", lable: "Protest Mono Black", wght: 250 },
+];
+
+const varBundleObject = [
+  [
+    {
+      bundle: true,
+
+      styles: [
+        {
+          fontFamily: "ProtestMono",
+          lable: "Protest Grotesk Mono Thin",
+          wght: 40,
+          ital: 0,
+        },
+        {
+          fontFamily: "ProtestMono",
+          lable: "Protest Grotesk Mono Light",
+          wght: 70,
+          ital: 0,
+        },
+
+        {
+          fontFamily: "ProtestMono",
+          lable: "Protest Grotesk Mono Regular",
+          wght: 100,
+          ital: 0,
+        },
+
+        {
+          fontFamily: "ProtestMono",
+          lable: "Protest Grotesk Mono Book",
+          wght: 130,
+          ital: 0,
+        },
+
+        {
+          fontFamily: "ProtestMono",
+          lable: "Protest Grotesk Mono Medium",
+          wght: 160,
+          ital: 0,
+        },
+
+        {
+          fontFamily: "ProtestMono",
+          lable: "Protest Grotesk Mono Bold",
+          wght: 190,
+          ital: 0,
+        },
+
+        {
+          fontFamily: "ProtestMono",
+          lable: "Protest Grotesk Mono Heavy",
+          wght: 220,
+          ital: 0,
+        },
+
+        {
+          fontFamily: "ProtestMono",
+          lable: "Protest Grotesk Mono Black",
+          wght: 250,
+          ital: 0,
+        },
+      ],
+    },
+  ],
+  [
+    {
+      bundle: true,
+
+      styles: [
+        {
+          fontFamily: "ProtestMono",
+          lable: "Protest Grotesk Mono Regular",
+          wght: 100,
+          ital: 0,
+        },
+
+        {
+          fontFamily: "ProtestMono",
+          lable: "Protest Grotesk Mono Book",
+          wght: 130,
+          ital: 0,
+        },
+
+        {
+          fontFamily: "ProtestMono",
+          lable: "Protest Grotesk Mono Medium",
+          wght: 160,
+          ital: 0,
+        },
+
+        {
+          fontFamily: "ProtestMono",
+          lable: "Protest Grotesk Mono Bold",
+          wght: 190,
+          ital: 0,
+        },
+
+        {
+          fontFamily: "ProtestMono",
+          lable: "Protest Grotesk Mono Heavy",
+          wght: 220,
+          ital: 0,
+        },
+      ],
+    },
+  ],
+  [
+    {
+      bundle: true,
+
+      styles: [
+        {
+          fontFamily: "ProtestMono",
+          lable: "Protest Grotesk Mono Regular",
+          wght: 100,
+          ital: 0,
+        },
+
+        {
+          fontFamily: "ProtestMono",
+          lable: "Protest Grotesk Mono Medium",
+          wght: 160,
+          ital: 0,
+        },
+
+        {
+          fontFamily: "ProtestMono",
+          lable: "Protest Grotesk Mono Bold",
+          wght: 190,
+          ital: 0,
+        },
+      ],
+    },
+  ],
+];
+
 const BuyProtestMono = ({
   licenseChoice,
   LicenseUser,
@@ -225,17 +371,6 @@ const BuyProtestMono = ({
     );
   });
 
-  const varObject = [
-    { fontFamily: "ProtestMono", lable: "Protest Mono Thin", wght: 40 },
-    { fontFamily: "ProtestMono", lable: "Protest Mono Light", wght: 70 },
-    { fontFamily: "ProtestMono", lable: "Protest Mono Regular", wght: 100 },
-    { fontFamily: "ProtestMono", lable: "Protest Mono Book", wght: 130 },
-    { fontFamily: "ProtestMono", lable: "Protest Mono Medium", wght: 160 },
-    { fontFamily: "ProtestMono", lable: "Protest Mono Bold", wght: 190 },
-    { fontFamily: "ProtestMono", lable: "Protest Mono Heavy", wght: 220 },
-    { fontFamily: "ProtestMono", lable: "Protest Mono Black", wght: 250 },
-  ];
-
   useEffect(() =>
     priceFactor4 != 1
       ? setDiscountPrice(priceFactor1 + priceFactor2 + priceFactor3)
@@ -248,172 +383,200 @@ const BuyProtestMono = ({
         <p className={styles.buyConfigurationHead}>Bundles</p>
         {/* FULL FAMILY */}
         <div onMouseLeave={noHover}>
-          <div
-            item
-            onClick={
-              licenseChoice &&
-              LicenseUser &&
-              !virtualCart?.some(
-                (item) => item.product_id === protestBundles[0].id
-              )
-                ? async () => {
-                    updateLicenseType(protestBundles[0].name, NumEmployees),
-                      clearFullFamily();
-                    onAddToVirtualCart(
-                      protestBundles[0].id,
-                      1 * priceFactor,
-                      protestBundles[0].name,
-                      protestBundles[0].price.raw * priceFactor,
-                      protestBundles[0].price.raw * discountPrice,
-                      licenseType
-                    );
-                    updateFullFamily(true);
-                  }
-                : () => {
-                    onRemoveFromVirtualCart(protestBundles[0].id);
-                    updateFullFamily(false);
-                  }
-            }
-            onMouseEnter={() => setHoverFullFamily(true)}
-            onMouseLeave={() => setHoverFullFamily(false)}
-          >
-            <ProductChoice
-              product={protestBundles[0]}
-              name={protestBundles[0]?.name}
-              price={
-                licenseChoice
-                  ? `EUR  ${(
-                      protestBundles[0]?.price.raw * priceFactor
-                    ).toFixed(2)}`
-                  : " "
+          <div className={styles.choiceWrapper}>
+            <div
+              className={styles.varValues}
+              onClick={() => {
+                setFontPreview(varBundleObject[0]);
+              }}
+            >
+              SHOW
+            </div>
+            <div
+              item
+              onClick={
+                licenseChoice &&
+                LicenseUser &&
+                !virtualCart?.some(
+                  (item) => item.product_id === protestBundles[0].id
+                )
+                  ? async () => {
+                      updateLicenseType(protestBundles[0].name, NumEmployees),
+                        clearFullFamily();
+                      onAddToVirtualCart(
+                        protestBundles[0].id,
+                        1 * priceFactor,
+                        protestBundles[0].name,
+                        protestBundles[0].price.raw * priceFactor,
+                        protestBundles[0].price.raw * discountPrice,
+                        licenseType
+                      );
+                      updateFullFamily(true);
+                    }
+                  : () => {
+                      onRemoveFromVirtualCart(protestBundles[0].id);
+                      updateFullFamily(false);
+                    }
               }
-              discountPrice={
-                discountPrice &&
-                `EUR  ${(protestBundles[0]?.price.raw * discountPrice).toFixed(
-                  2
-                )}`
-              }
-              id={protestBundles[0]?.id}
-              cart={cart}
-              licenseChoice={licenseChoice}
-              virtualCart={virtualCart}
-              customForm={customForm}
-            />
+              onMouseEnter={() => setHoverFullFamily(true)}
+              onMouseLeave={() => setHoverFullFamily(false)}
+            >
+              <ProductChoice
+                product={protestBundles[0]}
+                name={protestBundles[0]?.name}
+                price={
+                  licenseChoice
+                    ? `EUR  ${(
+                        protestBundles[0]?.price.raw * priceFactor
+                      ).toFixed(2)}`
+                    : " "
+                }
+                discountPrice={
+                  discountPrice &&
+                  `EUR  ${(
+                    protestBundles[0]?.price.raw * discountPrice
+                  ).toFixed(2)}`
+                }
+                id={protestBundles[0]?.id}
+                cart={cart}
+                licenseChoice={licenseChoice}
+                virtualCart={virtualCart}
+                customForm={customForm}
+              />
+            </div>
           </div>
 
           {/* DELUXE */}
-
-          <div
-            item
-            onClick={
-              licenseChoice &&
-              LicenseUser &&
-              !virtualCart?.some(
-                (item) => item.product_id === protestBundles[1].id
-              )
-                ? async () => {
-                    updateLicenseType(protestBundles[1].name, NumEmployees),
-                      clearBundle1();
-                    onAddToVirtualCart(
-                      protestBundles[1].id,
-                      1 * priceFactor,
-                      protestBundles[1].name,
-                      protestBundles[1].price.raw * priceFactor,
-                      protestBundles[1].price.raw * discountPrice,
-                      licenseType
-                    );
-                    updateBundle1(true);
-                  }
-                : () => {
-                    onRemoveFromVirtualCart(protestBundles[1].id);
-                    updateBundle1(false);
-                  }
-            }
-            onMouseEnter={() => setHoverBundle1(true)}
-            onMouseLeave={() => setHoverBundle1(false)}
-          >
-            <ProductChoice
-              product={protestBundles[1]}
-              name={protestBundles[1]?.name}
-              price={
-                licenseChoice
-                  ? `EUR  ${(
-                      protestBundles[1]?.price.raw * priceFactor
-                    ).toFixed(2)}`
-                  : " "
+          <div className={styles.choiceWrapper}>
+            <div
+              className={styles.varValues}
+              onClick={() => {
+                setFontPreview(varBundleObject[1]);
+              }}
+            >
+              SHOW
+            </div>
+            <div
+              item
+              onClick={
+                licenseChoice &&
+                LicenseUser &&
+                !virtualCart?.some(
+                  (item) => item.product_id === protestBundles[1].id
+                )
+                  ? async () => {
+                      updateLicenseType(protestBundles[1].name, NumEmployees),
+                        clearBundle1();
+                      onAddToVirtualCart(
+                        protestBundles[1].id,
+                        1 * priceFactor,
+                        protestBundles[1].name,
+                        protestBundles[1].price.raw * priceFactor,
+                        protestBundles[1].price.raw * discountPrice,
+                        licenseType
+                      );
+                      updateBundle1(true);
+                    }
+                  : () => {
+                      onRemoveFromVirtualCart(protestBundles[1].id);
+                      updateBundle1(false);
+                    }
               }
-              discountPrice={
-                discountPrice &&
-                `EUR  ${(protestBundles[1]?.price.raw * discountPrice).toFixed(
-                  2
-                )}`
-              }
-              id={protestBundles[1]?.id}
-              cart={cart}
-              licenseChoice={licenseChoice}
-              virtualCart={virtualCart}
-              customForm={customForm}
-            />
+              onMouseEnter={() => setHoverBundle1(true)}
+              onMouseLeave={() => setHoverBundle1(false)}
+            >
+              <ProductChoice
+                product={protestBundles[1]}
+                name={protestBundles[1]?.name}
+                price={
+                  licenseChoice
+                    ? `EUR  ${(
+                        protestBundles[1]?.price.raw * priceFactor
+                      ).toFixed(2)}`
+                    : " "
+                }
+                discountPrice={
+                  discountPrice &&
+                  `EUR  ${(
+                    protestBundles[1]?.price.raw * discountPrice
+                  ).toFixed(2)}`
+                }
+                id={protestBundles[1]?.id}
+                cart={cart}
+                licenseChoice={licenseChoice}
+                virtualCart={virtualCart}
+                customForm={customForm}
+              />
+            </div>
           </div>
 
           {/* ESSENTIAL */}
-
-          <div
-            item
-            onClick={
-              licenseChoice &&
-              LicenseUser &&
-              !virtualCart?.some(
-                (item) => item.product_id === protestBundles[2].id
-              )
-                ? async () => {
-                    updateLicenseType(
-                      protestBundles[2].name,
-                      // License,
-                      NumEmployees
-                    ),
-                      clearBundle2();
-                    onAddToVirtualCart(
-                      protestBundles[2].id,
-                      1 * priceFactor,
-                      protestBundles[2].name,
-                      protestBundles[2].price.raw * priceFactor,
-                      protestBundles[2].price.raw * discountPrice,
-                      licenseType
-                    );
-                    setTimeout(scrollDown(), 1000);
-                    updateBundle2(true);
-                  }
-                : () => {
-                    onRemoveFromVirtualCart(protestBundles[2].id);
-                    updateBundle2(false);
-                  }
-            }
-            onMouseEnter={() => setHoverBundle2(true)}
-            onMouseLeave={() => setHoverBundle2(false)}
-          >
-            <ProductChoice
-              product={protestBundles[2]}
-              name={protestBundles[2]?.name}
-              price={
-                licenseChoice
-                  ? `EUR  ${(
-                      protestBundles[2]?.price.raw * priceFactor
-                    ).toFixed(2)}`
-                  : " "
+          <div className={styles.choiceWrapper}>
+            <div
+              className={styles.varValues}
+              onClick={() => {
+                setFontPreview(varBundleObject[2]);
+              }}
+            >
+              SHOW
+            </div>
+            <div
+              item
+              onClick={
+                licenseChoice &&
+                LicenseUser &&
+                !virtualCart?.some(
+                  (item) => item.product_id === protestBundles[2].id
+                )
+                  ? async () => {
+                      updateLicenseType(
+                        protestBundles[2].name,
+                        // License,
+                        NumEmployees
+                      ),
+                        clearBundle2();
+                      onAddToVirtualCart(
+                        protestBundles[2].id,
+                        1 * priceFactor,
+                        protestBundles[2].name,
+                        protestBundles[2].price.raw * priceFactor,
+                        protestBundles[2].price.raw * discountPrice,
+                        licenseType
+                      );
+                      setTimeout(scrollDown(), 1000);
+                      updateBundle2(true);
+                    }
+                  : () => {
+                      onRemoveFromVirtualCart(protestBundles[2].id);
+                      updateBundle2(false);
+                    }
               }
-              discountPrice={
-                discountPrice &&
-                `EUR  ${(protestBundles[2]?.price.raw * discountPrice).toFixed(
-                  2
-                )}`
-              }
-              id={protestBundles[2]?.id}
-              cart={cart}
-              licenseChoice={licenseChoice}
-              virtualCart={virtualCart}
-              customForm={customForm}
-            />
+              onMouseEnter={() => setHoverBundle2(true)}
+              onMouseLeave={() => setHoverBundle2(false)}
+            >
+              <ProductChoice
+                product={protestBundles[2]}
+                name={protestBundles[2]?.name}
+                price={
+                  licenseChoice
+                    ? `EUR  ${(
+                        protestBundles[2]?.price.raw * priceFactor
+                      ).toFixed(2)}`
+                    : " "
+                }
+                discountPrice={
+                  discountPrice &&
+                  `EUR  ${(
+                    protestBundles[2]?.price.raw * discountPrice
+                  ).toFixed(2)}`
+                }
+                id={protestBundles[2]?.id}
+                cart={cart}
+                licenseChoice={licenseChoice}
+                virtualCart={virtualCart}
+                customForm={customForm}
+              />
+            </div>
           </div>
         </div>
       </div>

@@ -2,9 +2,11 @@ import MouseButton from "../MouseButton";
 import styles from "../../styles/Buy.module.css";
 
 const CheckoutFontPreview = ({ fontPreview, setFontPreview }) => {
+  console.log(fontPreview);
+
   return fontPreview !== null ? (
     <>
-    <MouseButton lable={"Back"}/>
+      <MouseButton lable={"Back"} />
       <div
         className={styles.fontPreviewWrapper}
         style={{
@@ -12,6 +14,8 @@ const CheckoutFontPreview = ({ fontPreview, setFontPreview }) => {
         }}
         onClick={() => setFontPreview(null)}
       >
+        {/* SINGLE STYLES REG + ITAL */}
+
         {!fontPreview.ital && !fontPreview.obli && (
           <span
             style={{
@@ -19,10 +23,49 @@ const CheckoutFontPreview = ({ fontPreview, setFontPreview }) => {
             }}
           >
             {fontPreview.lable}
+            {fontPreview.italBundle && (
+              <span
+                style={{
+                  fontVariationSettings: `"wght" ${fontPreview.wght}, "ital" 100`,
+                }}
+              >
+                <br />
+                {fontPreview.lable} Italic
+              </span>
+            )}
+            {fontPreview.oblBundle && (
+              <span
+                style={{
+                  fontVariationSettings: `"wght" ${fontPreview.wght}, "ital" 100`,
+                }}
+              >
+                <br />
+                {fontPreview.lable} Oblique
+              </span>
+            )}
           </span>
         )}
 
-        {fontPreview.ital && (
+        {/* BUNDLES REG + ITAL */}
+
+        {fontPreview[0]?.bundle && (
+          <div className={styles.fontPreviewBundleWrapper}>
+            {fontPreview[0].styles.map((item, i) => (
+              <div
+                style={{
+                  fontVariationSettings: `"wght" ${item.wght}, "ital" ${item?.ital}`,
+                  fontFamily: item.fontFamily,
+                }}
+                key={i}
+              >
+                {item.lable}
+              </div>
+            ))}
+          </div>
+        )}
+
+        <>
+          {/* {fontPreview.ital && (
           <span
             style={{
               fontVariationSettings: `"wght" ${fontPreview.wght}, "ital" ${fontPreview.ital}`,
@@ -40,7 +83,8 @@ const CheckoutFontPreview = ({ fontPreview, setFontPreview }) => {
           >
             {fontPreview.lable} Oblique
           </span>
-        )}
+        )} */}
+        </>
       </div>
     </>
   ) : (

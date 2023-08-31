@@ -47,8 +47,8 @@ const Footer = ({}) => {
 
   const { download } = useDownloader();
 
-  const fileUrl = "/STEREO_GTC-AGB_V1.0.pdf";
-  const filename = "STEREO_GTC-AGB_V1.0.pdf";
+  const fileUrl = "/STEREO_TYPEFACES_GTC-AGB_V2.0.pdf";
+  const filename = "STEREO_TYPEFACES_GTC-AGB_V2.0.pdf";
 
   const data = [
     {

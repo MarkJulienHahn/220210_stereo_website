@@ -1,6 +1,266 @@
-import React, { useEffect, useState } from "react";
 import ProductChoice from "./ProductChoice";
 import styles from "../../styles/Buy.module.css";
+
+const varObject = [
+  [
+    {
+      bundle: true,
+
+      styles: [
+        {
+          fontFamily: "Protest",
+          lable: "Protest Grotesk Thin",
+          wght: 40,
+          ital: 0,
+        },
+        {
+          fontFamily: "Protest",
+          lable: "Protest Grotesk Thin Italic",
+          wght: 40,
+          ital: 100,
+        },
+        {
+          fontFamily: "Protest",
+          lable: "Protest Grotesk Light",
+          wght: 70,
+          ital: 0,
+        },
+        {
+          fontFamily: "Protest",
+          lable: "Protest Grotesk Light Italic",
+          wght: 70,
+          ital: 100,
+        },
+        {
+          fontFamily: "Protest",
+          lable: "Protest Grotesk Regular",
+          wght: 100,
+          ital: 0,
+        },
+        {
+          fontFamily: "Protest",
+          lable: "Protest Grotesk Regular Italic",
+          wght: 100,
+          ital: 100,
+        },
+        {
+          fontFamily: "Protest",
+          lable: "Protest Grotesk Book",
+          wght: 130,
+          ital: 0,
+        },
+        {
+          fontFamily: "Protest",
+          lable: "Protest Grotesk Book Italic",
+          wght: 130,
+          ital: 100,
+        },
+        {
+          fontFamily: "Protest",
+          lable: "Protest Grotesk Medium",
+          wght: 160,
+          ital: 0,
+        },
+        {
+          fontFamily: "Protest",
+          lable: "Protest Grotesk Medium Italic",
+          wght: 160,
+          ital: 100,
+        },
+        {
+          fontFamily: "Protest",
+          lable: "Protest Grotesk Bold",
+          wght: 190,
+          ital: 0,
+        },
+        {
+          fontFamily: "Protest",
+          lable: "Protest Grotesk Bold Italic",
+          wght: 190,
+          ital: 100,
+        },
+        {
+          fontFamily: "Protest",
+          lable: "Protest Grotesk Heavy",
+          wght: 220,
+          ital: 0,
+        },
+        {
+          fontFamily: "Protest",
+          lable: "Protest Grotesk Heavy Italic",
+          wght: 220,
+          ital: 100,
+        },
+        {
+          fontFamily: "Protest",
+          lable: "Protest Grotesk Black",
+          wght: 250,
+          ital: 0,
+        },
+        {
+          fontFamily: "Protest",
+          lable: "Protest Grotesk Black Italic",
+          wght: 250,
+          ital: 100,
+        },
+      ],
+    },
+  ],
+  [
+    {
+      bundle: true,
+
+      styles: [
+        {
+          fontFamily: "Giallo",
+          lable: "Giallo Roman Light",
+          wght: 100,
+          ital: 0,
+        },
+        {
+          fontFamily: "Giallo",
+          lable: "Giallo Roman Light Italic",
+          wght: 100,
+          ital: 100,
+        },
+        {
+          fontFamily: "Giallo",
+          lable: "Giallo Roman Regular",
+          wght: 200,
+          ital: 0,
+        },
+        {
+          fontFamily: "Giallo",
+          lable: "Giallo Roman Regular Italic",
+          wght: 200,
+          ital: 100,
+        },
+        {
+          fontFamily: "Giallo",
+          lable: "Giallo Roman Book",
+          wght: 300,
+          ital: 0,
+        },
+        {
+          fontFamily: "Giallo",
+          lable: "Giallo Roman Book Italic",
+          wght: 300,
+          ital: 100,
+        },
+        {
+          fontFamily: "Giallo",
+          lable: "Giallo Roman Medium",
+          wght: 400,
+          ital: 0,
+        },
+        {
+          fontFamily: "Giallo",
+          lable: "Giallo Roman Medium Italic",
+          wght: 400,
+          ital: 100,
+        },
+        {
+          fontFamily: "Giallo",
+          lable: "Giallo Roman Bold",
+          wght: 500,
+          ital: 0,
+        },
+        {
+          fontFamily: "Giallo",
+          lable: "Giallo Roman Bold Italic",
+          wght: 500,
+          ital: 100,
+        },
+        {
+          fontFamily: "Giallo",
+          lable: "Giallo Roman Heavy",
+          wght: 600,
+          ital: 0,
+        },
+        {
+          fontFamily: "Giallo",
+          lable: "Giallo Roman Heavy Italic",
+          wght: 600,
+          ital: 100,
+        },
+        {
+          fontFamily: "Giallo",
+          lable: "Giallo Roman Black",
+          wght: 700,
+          ital: 0,
+        },
+        {
+          fontFamily: "Giallo",
+          lable: "Giallo Roman Black Italic",
+          wght: 700,
+          ital: 100,
+        },
+      ],
+    },
+  ],
+  [
+    {
+      bundle: true,
+
+      styles: [
+        {
+          fontFamily: "ProtestMono",
+          lable: "Protest Grotesk Mono Thin",
+          wght: 40,
+          ital: 0,
+        },
+        {
+          fontFamily: "ProtestMono",
+          lable: "Protest Grotesk Mono Light",
+          wght: 70,
+          ital: 0,
+        },
+
+        {
+          fontFamily: "ProtestMono",
+          lable: "Protest Grotesk Mono Regular",
+          wght: 100,
+          ital: 0,
+        },
+
+        {
+          fontFamily: "ProtestMono",
+          lable: "Protest Grotesk Mono Book",
+          wght: 130,
+          ital: 0,
+        },
+
+        {
+          fontFamily: "ProtestMono",
+          lable: "Protest Grotesk Mono Medium",
+          wght: 160,
+          ital: 0,
+        },
+
+        {
+          fontFamily: "ProtestMono",
+          lable: "Protest Grotesk Mono Bold",
+          wght: 190,
+          ital: 0,
+        },
+
+        {
+          fontFamily: "ProtestMono",
+          lable: "Protest Grotesk Mono Heavy",
+          wght: 220,
+          ital: 0,
+        },
+
+        {
+          fontFamily: "ProtestMono",
+          lable: "Protest Grotesk Mono Black",
+          wght: 250,
+          ital: 0,
+        },
+      ],
+    },
+  ],
+];
 
 const BuyProtest = ({
   licenseChoice,
@@ -10,56 +270,13 @@ const BuyProtest = ({
   onRemoveFromVirtualCart,
   cart,
   virtualCart,
-  priceFactor1,
-  priceFactor2,
-  priceFactor3,
-  priceFactor4,
-  DesktopLicense,
-  WebLicense,
-  AppLicense,
-  NumEmployees,
-  NumEmployeesDesktop,
-  NumEmployeesWeb,
-  NumEmployeesApp,
-  scrollDown,
   setFontPreview,
-  customForm,
 }) => {
-  const [hoverFullFamily, setHoverFullFamily] = useState(false);
-  const [hoverBundle1, setHoverBundle1] = useState(false);
-  const [hoverBundle2, setHoverBundle2] = useState(false);
-  const [hoverBundle3, setHoverBundle3] = useState(false);
-
-  const [addFullFamily, setAddFullFamily] = useState(false);
-  const [addBundle1, setAddBundle1] = useState(false);
-  const [addBundle2, setAddBundle2] = useState(false);
-  const [addBundle3, setAddBundle3] = useState(false);
-
-  const [discountPrice, setDiscountPrice] = useState();
-
-  const [licenseType, setLicenseType] = useState();
-
-  const updateLicenseType = (name, license) => {
-    products.find((el) => el.name === name).license = `${
-      DesktopLicense && "Desktop (" + NumEmployeesDesktop + ") "
-    } 
-     ${WebLicense && "Web (" + NumEmployeesWeb + ") "} 
-    ${AppLicense && "App (" + NumEmployeesApp + ") "}`;
-  };
-
   const studentPacks = products.filter((x) =>
     x.categories.find((y) => y.name === "Student Packs")
   );
 
   const items = virtualCart;
-
-  console.log(studentPacks);
-
-  useEffect(() =>
-    priceFactor4 != 1
-      ? setDiscountPrice(priceFactor1 + priceFactor2 + priceFactor3)
-      : setDiscountPrice(null)
-  );
 
   return (
     <div>
@@ -84,15 +301,13 @@ const BuyProtest = ({
                   LicenseUser &&
                   !virtualCart?.some((item) => item.product_id === product.id)
                     ? () => {
-                        updateLicenseType(product.name, NumEmployees),
-                          onAddToVirtualCart(
-                            product.id,
-                            1,
-                            product.name,
-                            product.price.raw,
-                            720,
-                            licenseType
-                          );
+                        onAddToVirtualCart(
+                          product.id,
+                          1,
+                          product.name,
+                          product.price.raw,
+                          720
+                        );
                       }
                     : () => onRemoveFromVirtualCart(product.id)
                 }
