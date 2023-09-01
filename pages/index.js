@@ -197,7 +197,7 @@ const Home = ({
               <TypefacePreview
                 key="001"
                 fontFamily="Protest"
-                lable="Protest Grotesk"
+                lable="Protest Grotesk" 
                 price="90"
                 weights={[
                   ["Thin ", 40, 0],
