@@ -5,13 +5,12 @@ const Checkbox = ({ setLicenses, licenses, updateCustomData, license }) => {
   const [clicked, setClicked] = useState(false);
 
   const handleAddToList = () => {
-    updateCustomData(license),
-    setClicked(!clicked)
+    updateCustomData(license), setClicked(!clicked);
   };
 
   const handleRemoveFromList = () => {
     setLicenses(licenses.filter((item) => item !== license)),
-    setClicked(!clicked)
+      setClicked(!clicked);
   };
 
   return (

@@ -211,59 +211,47 @@ const varObject = [
     wght: 100,
     oblBundle: true,
   },
-  { fontFamily: "Giallo", lable: "Giallo Roman Light", wght: 100, obli: 100 },
   {
     fontFamily: "Giallo",
     lable: "Giallo Roman Regular",
     wght: 200,
     oblBundle: true,
   },
-  {
-    fontFamily: "Giallo",
-    lable: "Giallo Roman Regular",
-    wght: 200,
-    obli: 100,
-  },
+
   {
     fontFamily: "Giallo",
     lable: "Giallo Roman Book",
     wght: 300,
     oblBundle: true,
   },
-  { fontFamily: "Giallo", lable: "Giallo Roman Book", wght: 300, obli: 100 },
+
   {
     fontFamily: "Giallo",
     lable: "Giallo Roman Medium",
     wght: 400,
     oblBundle: true,
   },
-  {
-    fontFamily: "Giallo",
-    lable: "Giallo Roman Medium",
-    wght: 400,
-    obli: 100,
-  },
+
   {
     fontFamily: "Giallo",
     lable: "Giallo Roman Bold",
     wght: 500,
     oblBundle: true,
   },
-  { fontFamily: "Giallo", lable: "Giallo Roman Bold", wght: 500, obli: 100 },
+
   {
     fontFamily: "Giallo",
     lable: "Giallo Roman Heavy",
     wght: 600,
     oblBundle: true,
   },
-  { fontFamily: "Giallo", lable: "Giallo Roman Heavy", wght: 600, obli: 100 },
+
   {
     fontFamily: "Giallo",
     lable: "Giallo Roman Black",
     wght: 700,
     oblBundle: true,
   },
-  { fontFamily: "Giallo", lable: "Giallo Roman Black", wght: 700, obli: 100 },
 ];
 
 const BuyGiallo = ({

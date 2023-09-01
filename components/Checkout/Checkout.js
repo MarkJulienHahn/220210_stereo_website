@@ -35,8 +35,9 @@ const CheckoutCustomForm = dynamic(() => import("./CheckoutCustomForm"));
 const explaination = [
   <>
     ⚠️ Special Offer ⚠️ <br />
-    We support students by offering full families for only EUR 50. Only while
-    stocks last!
+    We support students by offering full families for only EUR 50. These can be
+    used for personal and commercial projects during and after studies. Only
+    while stocks last!
   </>,
   <>
     &#8594; Desktop License
@@ -48,9 +49,9 @@ const explaination = [
   <>
     &#8594; Web License
     <br />
-    License for self-hosting a website with our fonts to display dynamic text on
-    a single designated domain, including subdomains. Provided font formats:
-    WOFF, WOFF2, TTF (variable).
+    License for self-hosted website use of our fonts to display dynamic text a
+    single (1) designated domain, including subdomains. Font formats: WOFF,
+    WOFF2, TTF (variable).
   </>,
   <>
     &#8594; Student License
@@ -62,16 +63,16 @@ const explaination = [
   <>
     &#8594; App License
     <br />
-    Use this license to embed fonts in mobile or web apps, checkout systems,
-    e-publication or video games. Our custom request form will help you submit
-    the appropriate inquiry.
+    Use this license to embed fonts in a single (1) mobile or web app, checkout
+    system, ePublication or a video game. Our custom request form will help you
+    submit the appropriate inquiry.
   </>,
   <>
     &#8594; Custom License
     <br />
-    For unique logo design, font customization, or trademarking logos with our
-    fonts, this extension is necessary. We also provide these services upon
-    request. Please share additional details using our custom request form.
+    For font customization, or trademarked logos using our fonts, this extension
+    is essential. We also offer these services upon request. Please provide more
+    information through our custom request form.
   </>,
   <>
     &#8594; Non-Profit Discount

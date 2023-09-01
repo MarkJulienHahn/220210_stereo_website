@@ -87,7 +87,7 @@ const TypefacePreview = (props) => {
             <a>→ {props.lable}</a>
           </Link>{" "}
           <p className="typefaceSpecs">
-            {props.weights.length} Weights, from 90 EUR
+            {props.weights.length} Weights, from {props.price} EUR
           </p>
         </span>
 

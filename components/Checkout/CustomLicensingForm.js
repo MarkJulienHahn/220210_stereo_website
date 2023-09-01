@@ -20,6 +20,8 @@ const licenseArray = [
   "Non-Profit",
 ];
 
+const explaination = [<>Please provide the title of your project.</>];
+
 const CustomLicensingForm = ({
   virtualCart,
   setShowCheckoutStep5,
@@ -34,6 +36,7 @@ const CustomLicensingForm = ({
   const [email, setEmail] = useState("");
   const [telephone, setTelephone] = useState("");
 
+  const [explIndex, setExplIndex] = useState(null);
   const [valid, setValid] = useState([]);
 
   const [customLicenseData, setCustomLicenseData] = useState({});
@@ -90,6 +93,12 @@ const CustomLicensingForm = ({
 
   return (
     <>
+      {explIndex != null && (
+        <div className={styles.explainationWrapper}>
+          <p>{explaination[explIndex]}</p>
+        </div>
+      )}
+
       <div className={styles.customForm}>
         <div className={styles.buyConfigurationHead}>Custom Licensing</div>
         <input
@@ -135,6 +144,7 @@ const CustomLicensingForm = ({
               licenses={licenses}
               updateCustomData={updateCustomData}
               license={license}
+              setExplIndex={setExplIndex}
             />
           ))}
         </div>

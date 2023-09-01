@@ -9,85 +9,54 @@ const varObject = [
     wght: 40,
     italBundle: true,
   },
-  {
-    fontFamily: "Protest",
-    lable: "Protest Grotesk Thin",
-    wght: 40,
-    ital: 100,
-  },
+
   {
     fontFamily: "Protest",
     lable: "Protest Grotesk Light",
     wght: 70,
     italBundle: true,
   },
-  {
-    fontFamily: "Protest",
-    lable: "Protest Grotesk Light",
-    wght: 70,
-    ital: 100,
-  },
+
   {
     fontFamily: "Protest",
     lable: "Protest Grotesk Regular",
     wght: 100,
     italBundle: true,
   },
-  {
-    fontFamily: "Protest",
-    lable: "Protest Grotesk Regular",
-    wght: 100,
-    ital: 100,
-  },
+
   {
     fontFamily: "Protest",
     lable: "Protest Grotesk Book",
     wght: 130,
     italBundle: true,
   },
-  {
-    fontFamily: "Protest",
-    lable: "Protest Grotesk Book",
-    wght: 130,
-    ital: 100,
-  },
-  { fontFamily: "Protest", lable: "Protest Grotesk Medium", wght: 160 },
+
   {
     fontFamily: "Protest",
     lable: "Protest Grotesk Medium",
     wght: 160,
-    ital: 100,
+    italBundle: true,
   },
+
   {
     fontFamily: "Protest",
     lable: "Protest Grotesk Bold",
     wght: 190,
     italBundle: true,
   },
-  {
-    fontFamily: "Protest",
-    lable: "Protest Grotesk Bold",
-    wght: 190,
-    ital: 100,
-  },
-  { fontFamily: "Protest", lable: "Protest Grotesk Heavy", wght: 220 },
+
   {
     fontFamily: "Protest",
     lable: "Protest Grotesk Heavy",
     wght: 220,
-    ital: 100,
+    italBundle: true,
   },
+
   {
     fontFamily: "Protest",
     lable: "Protest Grotesk Black",
     wght: 250,
     italBundle: true,
-  },
-  {
-    fontFamily: "Protest",
-    lable: "Protest Grotesk Black",
-    wght: 250,
-    ital: 100,
   },
 ];
 

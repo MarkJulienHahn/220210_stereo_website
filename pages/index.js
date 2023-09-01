@@ -192,13 +192,13 @@ const Home = ({
           exit={{ y: -300, opacity: 0 }}
           transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
         >
-          {" "}
           <main className={Styles.TypefacesInner} style={darkMode ? dark : {}}>
             <div ref={protestRef} id="protest-grotesk">
               <TypefacePreview
                 key="001"
                 fontFamily="Protest"
                 lable="Protest Grotesk"
+                price="90"
                 weights={[
                   ["Thin ", 40, 0],
                   ["Italic / ", 40, 100],
@@ -262,6 +262,7 @@ const Home = ({
                 key="001"
                 fontFamily="Giallo"
                 lable="Giallo Roman"
+                price="90"
                 weights={[
                   ["Light ", 100, 0],
                   ["Oblique / ", 100, 100],
@@ -324,6 +325,7 @@ const Home = ({
                 key="002"
                 fontFamily="ProtestMono"
                 lable="Protest Grotesk Mono"
+                price="72"
                 weights={[
                   ["Thin / ", 40, 0, 1],
                   ["Light / ", 70, 0, 2],
