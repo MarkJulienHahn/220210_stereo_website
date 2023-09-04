@@ -2,8 +2,6 @@ import MouseButton from "../MouseButton";
 import styles from "../../styles/Buy.module.css";
 
 const CheckoutFontPreview = ({ fontPreview, setFontPreview }) => {
-  console.log(fontPreview);
-
   return fontPreview !== null ? (
     <>
       <MouseButton lable={"Back"} />
@@ -24,24 +22,32 @@ const CheckoutFontPreview = ({ fontPreview, setFontPreview }) => {
           >
             {fontPreview.lable}
             {fontPreview.italBundle && (
-              <span
-                style={{
-                  fontVariationSettings: `"wght" ${fontPreview.wght}, "ital" 100`,
-                }}
-              >
+              <>
+                <span
+                  style={{
+                    fontVariationSettings: `"wght" ${fontPreview.wght}, "ital" 100`,
+                  }}
+                >
+                  <br />
+                  {fontPreview.lable} Italic
+                </span>
                 <br />
-                {fontPreview.lable} Italic
-              </span>
+                <span>+ Variable Font</span>
+              </>
             )}
             {fontPreview.oblBundle && (
-              <span
-                style={{
-                  fontVariationSettings: `"wght" ${fontPreview.wght}, "ital" 100`,
-                }}
-              >
+              <>
+                <span
+                  style={{
+                    fontVariationSettings: `"wght" ${fontPreview.wght}, "ital" 100`,
+                  }}
+                >
+                  <br />
+                  {fontPreview.lable} Oblique
+                </span>{" "}
                 <br />
-                {fontPreview.lable} Oblique
-              </span>
+                <span>+ Variable Font</span>
+              </>
             )}
           </span>
         )}
