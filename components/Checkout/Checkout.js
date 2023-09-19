@@ -6,6 +6,7 @@ import styles from "../../styles/Buy.module.css";
 import { commerce } from "../../lib/commerce";
 import { rates } from "./taxRates";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 import Button from "../Button";
 import MouseButton from "../MouseButton";
@@ -2310,11 +2311,13 @@ const Checkout = ({
               Right now you can only buy fonts on a desktop device, sorry for
               that. Please use your computer to checkout! ✌️
             </p>
-            <Button
-              lable="back"
-              subclass={"secondary"}
-              onClick={fadeOutCheckout}
-            />
+            <Link href="/">
+              <Button
+                lable="back"
+                subclass={"secondary"}
+                onClick={fadeOutCheckout}
+              />
+            </Link>
           </div>
         </div>
       </div>
