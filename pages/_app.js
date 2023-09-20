@@ -13,11 +13,13 @@ import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import Layout from "../components/Layout";
 import Nav from "../components/Nav";
 import Cookie from "../components/Cookie";
+import Newsletter from "../components/Newsletter";
 
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   const [cookieSeen, setCookieSeen] = useState();
+  const [newsletterSeen, setNewsletterSeen] = useState();
   const [fadeCookie, setFadeCookie] = useState(false);
 
   const location = useRouter();
@@ -134,14 +136,24 @@ function MyApp({ Component, pageProps }) {
     }
   };
 
+  // NEWSLETTER
+
+  const newsletterResponse = async () => {
+    setNewsletterSeen(true), localStorage.setItem("newsletterSeen", "true");
+  };
+
   useEffect(() => {
     trackPageView();
     fetchProducts();
     fetchCart();
     refreshCart();
-    const data = localStorage.getItem("cookieSeen");
-    if (data) {
-      setCookieSeen(data);
+    const cookieData = localStorage.getItem("cookieSeen");
+    if (cookieData) {
+      setCookieSeen(cookieData);
+    }
+    const newsletterData = localStorage.getItem("newsletterSeen");
+    if (newsletterData) {
+      setNewsletterSeen(newsletterData);
     }
   }, []);
 
@@ -183,6 +195,12 @@ function MyApp({ Component, pageProps }) {
           currency: "EUR",
         }}
       />
+
+      {!newsletterSeen ? (
+        <Newsletter newsletterResponse={newsletterResponse} />
+      ) : (
+        ""
+      )}
 
       {cookieSeen == undefined ? (
         <div

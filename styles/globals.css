@@ -2535,11 +2535,11 @@ textarea::placeholder {
   padding-top: 5px;
   cursor: pointer;
   font-variation-settings: "ital" 0;
-  transition: all 0.2s ease
+  transition: all 0.2s ease;
 }
 
-.licenseSection:hover h1{
-  font-variation-settings: "ital" 100
+.licenseSection:hover h1 {
+  font-variation-settings: "ital" 100;
 }
 
 .licenseAccInner {
@@ -2630,7 +2630,7 @@ textarea::placeholder {
 }
 
 .licensingWrapper li {
-  padding-bottom: var(--margin-M)
+  padding-bottom: var(--margin-M);
 }
 
 .licensingCancellationForm ul {
@@ -2725,8 +2725,6 @@ textarea::placeholder {
     cursor: pointer;
     margin: 2px 0 4px 0;
   }
-
-
 
   .licenseWrapper p {
     font-size: 15pt;
@@ -3180,4 +3178,74 @@ textarea::placeholder {
     max-width: 100000px !important;
     width: 100% !important;
   }
+}
+
+/* NEWSLETTER */
+
+@keyframes fadeInNewsletter {
+  0% {
+    transform: translateX(-50vw);
+  }
+  80% {
+    transform: translateX(-50vw);
+  }
+  100% {
+    transform: translateX(0vw);
+  }
+}
+
+.newsletterWrapper button {
+  background: var(--primary);
+}
+
+.newsletterWrapper {
+  position: fixed;
+  bottom: var(--margin-M);
+  left: 0;
+  margin: var(--margin-M);
+  padding: var(--margin-M) var(--margin-M) 0;
+  background: var(--quaternary);
+  z-index: 1000;
+  backdrop-filter: blur(25px);
+  width: 30%;
+  z-index: 200;
+  font-family: "Giallo-Mono";
+  font-size: var(--gialloSmallSize);
+  letter-spacing: 1px;
+  animation: fadeInNewsletter 2s ease;
+  animation-fill-mode: forwards;
+  animation-delay: 3s;
+  transition: opacity 0.2s linear;
+  transform: translateX(-50vw);
+}
+
+.newsletterButtonWrapper button {
+  margin-right: 3px;
+  transform: translateY(-30px);
+  width: 50%;
+}
+
+.newsletterWrapper input,
+.newsletterWrapper input::placeholder {
+  color: black !important;
+  mix-blend-mode: normal;
+}
+
+.newsletterWrapper input, 
+.newsletterWrapper input:focus {
+  border-bottom: 1px solid black;
+}
+
+.newsletterButtonWrapper {
+  margin-top: var(--margin-M);
+  display: flex;
+}
+
+.newsletterSubmitButtonMuted {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.newsletterSubmitButtonActive {
+  opacity: 1;
 }

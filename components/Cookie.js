@@ -14,7 +14,7 @@ const Cookie = ({ onAccept, onDecline }) => {
       Please note that this may limit the functionality of the website.
       <div className="cookieButtonWrapper">
         <Button lable={"Accept"} subclass={"primary"} onClick={onAccept} />
-        <Button lable={"Decline"} subclass={"secondary"} onClick={onAccept} />
+        <Button lable={"Decline"} subclass={"quaternary"} onClick={onAccept} />
         <Link href="/legals">
           <Button lable={"Learn More"} subclass={"quaternary"} />
         </Link>
