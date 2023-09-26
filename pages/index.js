@@ -348,7 +348,7 @@ const Home = ({
                     <br /> emerg–To
                   </>,
                   <>
-                    ↱BLUR TFT
+                    BLUR [TFT]
                     <br /> (GB£) +ÆG
                     <br /> Post &#123;Naw&#125;
                   </>,

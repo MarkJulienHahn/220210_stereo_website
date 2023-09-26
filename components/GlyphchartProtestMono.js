@@ -834,7 +834,7 @@ function GlyphchartProtestMono(props) {
         "ℓ",
         "‡",
         // "℮",
-        "№",
+        // "№",
         // "℆",
         // "℻",
         // "⌫",
