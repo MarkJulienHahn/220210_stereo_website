@@ -42,6 +42,7 @@ const Newsletter = ({ newsletterResponse }) => {
       {!fulfilled ? (
         <>
           <p>
+            <span style={{paddingBottom: "10px"}}>Join our Newsletter!</span><br/><br/>
             Want to stay up-to-date about new releases, special offers or other
             fun stuff? Sign up for our monthly newsletter!
           </p>

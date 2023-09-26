@@ -2008,7 +2008,7 @@ button {
   top: var(--margin-M);
   right: var(--margin-M);
   padding: var(--margin-S);
-  width: 30%;
+  width: clamp(400px, 30%, 600px);
   z-index: 200;
   font-family: "Giallo-Mono";
   font-size: var(--gialloSmallSize);
@@ -2046,7 +2046,7 @@ button {
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1200px) {
   .cookieWrapper {
     top: 55px;
     width: calc(100% - 2 * var(--margin-M));
@@ -3204,10 +3204,10 @@ textarea::placeholder {
   left: 0;
   margin: var(--margin-M);
   padding: var(--margin-M) var(--margin-M) 0;
-  background: var(--quaternary);
+  background: var(--tertiary);
   z-index: 1000;
   backdrop-filter: blur(25px);
-  width: 30%;
+  width: clamp(500px, 30vw, 500px);
   z-index: 200;
   font-family: "Giallo-Mono";
   font-size: var(--gialloSmallSize);
@@ -3231,7 +3231,7 @@ textarea::placeholder {
   mix-blend-mode: normal;
 }
 
-.newsletterWrapper input, 
+.newsletterWrapper input,
 .newsletterWrapper input:focus {
   border-bottom: 1px solid black;
 }
@@ -3248,4 +3248,14 @@ textarea::placeholder {
 
 .newsletterSubmitButtonActive {
   opacity: 1;
+}
+
+@media only screen and (max-width: 600px) {
+  .newsletterWrapper {
+    width: calc(100vw - 2 * var(--margin-M));
+    bottom: 56px;
+  }
+  .newsletterButtonWrapper button {
+    margin-top: 33px;
+  }
 }
