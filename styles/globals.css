@@ -3184,10 +3184,10 @@ textarea::placeholder {
 
 @keyframes fadeInNewsletter {
   0% {
-    transform: translateX(-50vw);
+    transform: translateX(-100vw);
   }
   80% {
-    transform: translateX(-50vw);
+    transform: translateX(-100vw);
   }
   100% {
     transform: translateX(0vw);
@@ -3216,7 +3216,7 @@ textarea::placeholder {
   animation-fill-mode: forwards;
   animation-delay: 3s;
   transition: opacity 0.2s linear;
-  transform: translateX(-50vw);
+  transform: translateX(-100vw);
 }
 
 .newsletterButtonWrapper button {
