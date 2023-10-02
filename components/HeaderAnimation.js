@@ -90,7 +90,7 @@ const HeaderAnimation = ({
     letterSpacing: letterSpacing,
     marginTop: "2vw",
     fontVariationSettings: `"wght" ${wght}
-    , "ital" ${ital}`,
+    , "ital" 0`,
   };
   const headerIndexStyle = {
     fontVariationSettings: `"wght" ${wght}, "ital" ${ital}`,
@@ -108,6 +108,8 @@ const HeaderAnimation = ({
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   });
+
+  console.log(wght, ital);
 
   return (
     <>
@@ -131,11 +133,11 @@ const HeaderAnimation = ({
               bounce: 0.15,
             }}
           >
-              <span style={headerStyleMobile}>{name}</span>
-              {/* <span className={"smallR"}>®</span> */}
+            <span style={headerStyleMobile}>{name}</span>
+            {/* <span className={"smallR"}>®</span> */}
           </motion.div>
           <div style={headerIndexStyle} className={"headerMouseIndex"}>
-            <span>{wght <= wghtMax ? threeDigits(wght) : wghtMax-1}</span>
+            <span>{wght <= wghtMax ? threeDigits(wght) : wghtMax - 1}</span>
           </div>
         </div>
       </div>
@@ -159,8 +161,8 @@ const HeaderAnimation = ({
               bounce: 0.15,
             }}
           >
-              <span style={headerStyle}>{name}</span>
-              {/* <span className={"smallR"}>®</span> */}
+            <span style={headerStyle}>{name}</span>
+            {/* <span className={"smallR"}>®</span> */}
           </motion.div>
           <div style={headerIndexStyle} className={"headerMouseIndex"}>
             <span>
