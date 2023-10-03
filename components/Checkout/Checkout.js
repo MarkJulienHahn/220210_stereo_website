@@ -1221,7 +1221,7 @@ const Checkout = ({
                                       S
                                     </span>
                                     <span className={styles.sizeNumber}>
-                                      1 – 5 Employees
+                                      1 – 5 Empl
                                     </span>
                                   </span>
                                   <span
@@ -1245,7 +1245,7 @@ const Checkout = ({
                                       M
                                     </span>
                                     <span className={styles.sizeNumber}>
-                                      6 – 10 Employees
+                                      6 – 10 Empl
                                     </span>
                                   </span>
                                   <span
@@ -1269,7 +1269,7 @@ const Checkout = ({
                                       L
                                     </span>
                                     <span className={styles.sizeNumber}>
-                                      11 – 20 Employees
+                                      11 – 20 Empl
                                     </span>
                                   </span>
                                   <span
@@ -1293,7 +1293,7 @@ const Checkout = ({
                                       XL
                                     </span>
                                     <span className={styles.sizeNumber}>
-                                      21 – 50 Employees
+                                      21 – 50 Empl
                                     </span>
                                   </span>
 
@@ -1318,7 +1318,7 @@ const Checkout = ({
                                       XXL
                                     </span>
                                     <span className={styles.sizeNumber}>
-                                      51 – 85 Employees
+                                      51 – 85 Empl
                                     </span>
                                   </span>
 
@@ -1343,7 +1343,7 @@ const Checkout = ({
                                       XXXL
                                     </span>
                                     <span className={styles.sizeNumber}>
-                                      86 – 100 Employees
+                                      86 – 100 Empl
                                     </span>
                                   </span>
 
@@ -1414,7 +1414,7 @@ const Checkout = ({
                                       S
                                     </span>
                                     <span className={styles.sizeNumber}>
-                                      1 – 5 Employees
+                                      1 – 5 Empl
                                     </span>
                                   </span>
 
@@ -1439,7 +1439,7 @@ const Checkout = ({
                                       M
                                     </span>
                                     <span className={styles.sizeNumber}>
-                                      6 – 10 Employees
+                                      6 – 10 Empl
                                     </span>
                                   </span>
 
@@ -1464,7 +1464,7 @@ const Checkout = ({
                                       L
                                     </span>
                                     <span className={styles.sizeNumber}>
-                                      11 – 20 Employees
+                                      11 – 20 Empl
                                     </span>
                                   </span>
 
@@ -1489,7 +1489,7 @@ const Checkout = ({
                                       XL
                                     </span>
                                     <span className={styles.sizeNumber}>
-                                      21 – 50 Employees
+                                      21 – 50 Empl
                                     </span>
                                   </span>
 
@@ -1514,7 +1514,7 @@ const Checkout = ({
                                       XXL
                                     </span>
                                     <span className={styles.sizeNumber}>
-                                      51 – 85 Employees
+                                      51 – 85 Empl
                                     </span>
                                   </span>
 
@@ -1539,7 +1539,7 @@ const Checkout = ({
                                       XXXL
                                     </span>
                                     <span className={styles.sizeNumber}>
-                                      86 – 100 Employees
+                                      86 – 100 Empl
                                     </span>
                                   </span>
 
@@ -1610,7 +1610,7 @@ const Checkout = ({
                                       S
                                     </span>
                                     <span className={styles.sizeNumber}>
-                                      1 – 5 Employees
+                                      1 – 5 Empl
                                     </span>
                                   </span>
 
@@ -1635,7 +1635,7 @@ const Checkout = ({
                                       M
                                     </span>
                                     <span className={styles.sizeNumber}>
-                                      6 – 10 Employees
+                                      6 – 10 Empl
                                     </span>
                                   </span>
 
@@ -1660,7 +1660,7 @@ const Checkout = ({
                                       L
                                     </span>
                                     <span className={styles.sizeNumber}>
-                                      11 – 20 Employees
+                                      11 – 20 Empl
                                     </span>
                                   </span>
 
@@ -1685,7 +1685,7 @@ const Checkout = ({
                                       XL
                                     </span>
                                     <span className={styles.sizeNumber}>
-                                      21 – 50 Employees
+                                      21 – 50 Empl
                                     </span>
                                   </span>
 
@@ -1710,7 +1710,7 @@ const Checkout = ({
                                       XXL
                                     </span>
                                     <span className={styles.sizeNumber}>
-                                      51 – 85 Employees
+                                      51 – 85 Empl
                                     </span>
                                   </span>
 
@@ -1735,7 +1735,7 @@ const Checkout = ({
                                       XXXL
                                     </span>
                                     <span className={styles.sizeNumber}>
-                                      86 – 100 Employees
+                                      86 – 100 Empl
                                     </span>
                                   </span>
 

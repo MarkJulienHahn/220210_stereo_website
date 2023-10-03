@@ -4,6 +4,9 @@ import Button from "../components/Button";
 const Cookie = ({ onAccept, onDecline }) => {
   return (
     <>
+      Cookies
+      <br />
+      <br />
       If you do not wish to allow any cookies, please click »Decline«. Please
       note that this may limit the functionality of the website.
       <div className="cookieButtonWrapper">

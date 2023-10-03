@@ -2005,10 +2005,10 @@ button {
   backdrop-filter: blur(20px);
   border-radius: 3px;
   position: fixed;
-  top: var(--margin-M);
+  bottom: 60px;
   right: var(--margin-M);
-  padding: var(--margin-S);
-  width: clamp(400px, 30%, 600px);
+  padding: var(--margin-M);
+  width: clamp(500px, 30vw, 500px);
   z-index: 200;
   font-family: "Giallo-Mono";
   font-size: var(--gialloSmallSize);
@@ -2031,7 +2031,7 @@ button {
 
 .cookieButtonWrapper div:first-child,
 .cookieButtonWrapper div:nth-child(2) {
-  margin-right: var(--margin-S);
+  margin-right: 3px;
 }
 
 @keyframes fadeInCookie {
@@ -2049,6 +2049,7 @@ button {
 @media only screen and (max-width: 1200px) {
   .cookieWrapper {
     top: 55px;
+    bottom: unset;
     width: calc(100% - 2 * var(--margin-M));
   }
 
