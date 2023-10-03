@@ -158,7 +158,11 @@
   bottom: 75px;
   width: calc(50vw - 10px);
   padding-right: 20px;
+
   pointer-events: none;
+  font-size: var(--pgMediumSize);
+  line-height: var(--pgMediumLineHeight);
+  letter-spacing: var(--pgMediumLetterSpacing);
   /* background: var(--tertiary); */
   backdrop-filter: blur(50px);
 }
@@ -166,6 +170,8 @@
 .explainationWrapper p {
   border-top: 1.5px solid black;
   border-bottom: 1.5px solid black;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .checkboxWrapper {
