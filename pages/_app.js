@@ -196,11 +196,11 @@ function MyApp({ Component, pageProps }) {
         }}
       />
 
-      {!newsletterSeen ? (
+      {/* {!newsletterSeen ? (
         <Newsletter newsletterResponse={newsletterResponse} />
       ) : (
         ""
-      )}
+      )} */}
 
       {cookieSeen == undefined ? (
         <div

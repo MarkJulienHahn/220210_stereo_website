@@ -292,10 +292,11 @@ const BuyGiallo = ({
   const [licenseType, setLicenseType] = useState();
 
   const updateLicenseType = (name, license) => {
-    products.find((el) => el.name === name).license =
-      NumEmployees != "Student License"
-        ? `${license} ${NumEmployees} Employees`
-        : `${license} ${NumEmployees}`;
+    products.find((el) => el.name === name).license = `${
+      DesktopLicense && "Desktop (" + NumEmployeesDesktop + ") "
+    } 
+     ${WebLicense && "Web (" + NumEmployeesWeb + ") "} 
+    ${AppLicense && "App (" + NumEmployeesApp + ") "}`;
   };
 
   const giallo = products.filter((x) =>
@@ -455,9 +456,9 @@ const BuyGiallo = ({
     !items.some((item) => item.product_id === gialloBundles[2].id)
       ? updateBundle2(false)
       : "";
-    !items.some((item) => item.product_id === gialloBundles[3].id)
-      ? updateBundle3(false)
-      : "";
+    // !items.some((item) => item.product_id === gialloBundles[3].id)
+    //   ? updateBundle3(false)
+    //   : "";
   }, [virtualCart]);
 
   useEffect(() => {

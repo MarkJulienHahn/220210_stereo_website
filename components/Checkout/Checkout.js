@@ -992,7 +992,7 @@ const Checkout = ({
   }, [priceFactor1, priceFactor2, priceFactor3]);
 
   useEffect(() => {
-    cart.line_items?.length && step2();
+    cart?.line_items?.length && step2();
   }, [cart]);
 
   const clearStudentPacks = () => {
@@ -1976,14 +1976,14 @@ const Checkout = ({
                           <Button
                             lable={"Continue to Checkout"}
                             onClick={
-                              cart.line_items?.length && checkoutToken && live
+                              cart?.line_items?.length && checkoutToken && live
                                 ? () => {
                                     step2();
                                   }
                                 : () => {}
                             }
                             subclass={
-                              cart.line_items?.length && checkoutToken && live
+                              cart?.line_items?.length && checkoutToken && live
                                 ? "primary"
                                 : "quaternaryMuted"
                             }
