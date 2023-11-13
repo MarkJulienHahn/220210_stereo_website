@@ -10,16 +10,16 @@ const Trialdownload = () => {
   const location = useRouter();
 
 
-  const GialloMonoFileUrl = "/StereoTypefaces-Trials-2023.zip";
+  const GialloMonoFileUrl = "/StereoTypefaces-Trials-2024.zip";
   const GialloMonoFilename = "Giallo-Mono-Medium-001.zip";
   const GialloMonoPW = process.env.NEXT_PUBLIC_GIALLO_PW;
 
-  const GialloSemimonoFileUrl = "/StereoTypefaces-Trials-2023.zip";
+  const GialloSemimonoFileUrl = "/StereoTypefaces-Trials-2024.zip";
   const GialloSemimonoFilename = "Giallo-Semimono-Medium-001.zip";
   const GialloSemimonoPW = process.env.NEXT_PUBLIC_GIALLO_PW;
 
 
-  // const ProtestMonoFileUrl = "/StereoTypefaces-Trials-2023.zip";
+  // const ProtestMonoFileUrl = "/StereoTypefaces-Trials-2024.zip";
   // const ProtestMonoFilename = "Protest-Mono_Full_1-001.zip";
   // const ProtestMonoPW = process.env.NEXT_PUBLIC_PROTEST_MONO_PW;
 

@@ -10,7 +10,7 @@ const Trialdownload = () => {
   const { download } =
     useDownloader();
 
-  const fileUrl = "/StereoTypefaces-Trials-2023.zip";
+  const fileUrl = "/StereoTypefaces-Trials-2024.zip";
   const filename = "StereoTypefaces_Trials.zip";
 
   return (
