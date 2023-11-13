@@ -764,7 +764,7 @@ function GlyphchartProtestMono(props) {
         "↳",
         // "↺",
         // "↻",
-        "⇆",
+        // "⇆",
       ],
     },
     {
