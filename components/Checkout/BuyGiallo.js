@@ -539,7 +539,7 @@ const BuyGiallo = ({
                   licenseChoice
                     ? `EUR  ${(
                         gialloBundles[0]?.price.raw * priceFactor
-                      ).toFixed(2)}}`
+                      ).toFixed(2)}`
                     : " "
                 }
                 discountPrice={
@@ -667,7 +667,7 @@ const BuyGiallo = ({
                   licenseChoice
                     ? `EUR  ${(
                         gialloBundles[1]?.price.raw * priceFactor
-                      ).toFixed(2)}}`
+                      ).toFixed(2)}`
                     : " "
                 }
                 discountPrice={
