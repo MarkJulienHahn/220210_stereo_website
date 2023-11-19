@@ -109,8 +109,6 @@ const HeaderAnimation = ({
     return () => window.removeEventListener("scroll", handleScroll);
   });
 
-  console.log(wght, ital);
-
   return (
     <>
       <div

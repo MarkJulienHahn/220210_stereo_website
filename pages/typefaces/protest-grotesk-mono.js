@@ -242,8 +242,8 @@ const ProtestGroteskMono = ({
               italic={false}
               wghtMin={40}
               wghtMax={249}
-              color={darkMode ? "rgb(220,220,220)" : "#292B36"}
-              background={darkMode ? "rgb(20,20,20)" : "var(--primary)"}
+              color={darkMode ? "var(--primary)" : "#41551b"}
+              background={darkMode ? "#41551b" : "var(--primary)"}
             />
           </div>
 
