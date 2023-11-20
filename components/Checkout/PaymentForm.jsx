@@ -79,9 +79,11 @@ const PaymentForm = ({
           name: "International",
           street: shippingData.address1,
           town_city: shippingData.city,
-          county_state: taxable ? shippingData.shippingSubdivision : "CH-ZH",
+          // county_state: taxable ? shippingData.shippingSubdivision : "CH-ZH",
+          county_state: shippingData.shippingSubdivision,
           postal_zip_code: shippingData.zip,
-          country: taxable ? shippingData.shippingCountry : "CH",
+          // country: taxable ? shippingData.shippingCountry : "CH",
+          country: shippingData.shippingCountry,
         },
         fulfillment: { shipping_method: shippingData.shippingOption },
         payment: {
