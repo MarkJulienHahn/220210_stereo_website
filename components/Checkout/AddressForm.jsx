@@ -29,8 +29,6 @@ const AddressForm = ({
   const [licenseInfo, setLicenseInfo] = useState(false);
   const [vatValidationObject, setVatValidationObject] = useState({});
 
-  console.log(shippingCountry, licenseCountry)
-
   const methods = useForm();
   var validate = require("validate-vat");
 

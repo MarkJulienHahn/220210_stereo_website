@@ -19,8 +19,6 @@ const LicenseAccordeon = ({ item, i, accIndex, setAccIndex }) => {
     i == accIndex ? setActive(true) : setActive(false);
   }, [accIndex]);
 
-  console.log(accIndex, active, ref.current?.clientHeight);
-
   return (
     <div
       className="licenseSection"

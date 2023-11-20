@@ -11,8 +11,6 @@ function Glyphchart(props) {
   const [smallCaps, updateSmallCaps] = useState(false);
   const [fontVariant, setFontVariant] = useState(null);
 
-  console.log(fontVariant)
-
   const glyphStyle = {
     fontFamily: props.fontFamily,
     fontVariationSettings: `'wght' 100, 'wdth' ${props.fontWidth}, 'ital' 0`,

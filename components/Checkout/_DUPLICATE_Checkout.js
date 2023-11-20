@@ -903,8 +903,6 @@ const Checkout = ({
     setBuyTableHeight(windowHeight - checkoutOverview?.current?.clientHeight);
   });
 
-  console.log(LicenseUser);
-
   return (
     <div>
       <div
