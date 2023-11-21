@@ -1009,8 +1009,6 @@ const Checkout = ({
     LicenseUser != "Student" && setShowBuy(""), clearStudentPacks();
   }, [LicenseUser]);
 
-  console.log(checkoutToken, cart);
-
   return (
     <>
       <div className={styles.checkoutDesktopWrapper}>
