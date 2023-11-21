@@ -896,6 +896,10 @@ const Checkout = ({
         method: "post",
         body: JSON.stringify(orderData),
       });
+      await fetch("/api/orderConfirmation", {
+        method: "post",
+        body: JSON.stringify(orderData),
+      });
     } catch (error) {
       setErrorMessage("An Error occured");
       alert(
@@ -1004,6 +1008,8 @@ const Checkout = ({
   useEffect(() => {
     LicenseUser != "Student" && setShowBuy(""), clearStudentPacks();
   }, [LicenseUser]);
+
+  console.log(checkoutToken, cart);
 
   return (
     <>

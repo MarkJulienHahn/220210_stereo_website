@@ -12,6 +12,8 @@ const PaypalCheckoutButton = ({
 }) => {
   const paypal = useRef();
 
+  console.log(checkoutToken)
+
   useEffect(() => {
     window.paypal
       .Buttons({
