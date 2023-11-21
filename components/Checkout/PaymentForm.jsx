@@ -42,11 +42,10 @@ const PaymentForm = ({
   setProcessing,
   Processing,
   taxable,
+  vatRate
 }) => {
   const [AccCreditCard, setAccCreditCard] = useState(false);
   const [AccPayPal, setAccPayPal] = useState(false);
-
-  console.log(checkoutToken)
 
   const handleSubmit = async (event, elements, stripe) => {
     event.preventDefault();
@@ -217,7 +216,7 @@ const PaymentForm = ({
                       type="submit"
                       disabled={!stripe}
                     >
-                      Pay EUR {live.total.formatted}
+                      Pay EUR {(live.total.raw + live.total.raw * vatRate).toFixed(2)}
                     </button>
                   </form>
                 )}
@@ -244,6 +243,8 @@ const PaymentForm = ({
               checkoutToken={checkoutToken}
               handlePaypalSubmit={handlePaypalSubmit}
               nextStep={nextStep}
+              taxable={taxable}
+              vatRate={vatRate}
             />
           ) : (
             ""
