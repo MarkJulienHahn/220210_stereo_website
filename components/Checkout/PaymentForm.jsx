@@ -46,8 +46,6 @@ const PaymentForm = ({
   const [AccCreditCard, setAccCreditCard] = useState(false);
   const [AccPayPal, setAccPayPal] = useState(false);
 
-  console.log(checkoutToken)
-
   const handleSubmit = async (event, elements, stripe) => {
     event.preventDefault();
     if (!stripe || !elements) return;
@@ -55,6 +53,8 @@ const PaymentForm = ({
     setProcessing(true);
 
     const cardElement = elements.getElement(CardElement);
+
+
 
     // await fetch("/api/tax", {
     //   method: "post",
@@ -71,9 +71,11 @@ const PaymentForm = ({
       const orderData = {
         line_items: checkoutToken.live.line_items,
         customer: {
+          company: shippingData.company,
           firstname: shippingData.firstName,
           lastname: shippingData.lastName,
           email: shippingData.email,
+          // vatID: shippingData.
         },
         shipping: {
           name: "International",
@@ -108,6 +110,7 @@ const PaymentForm = ({
     const orderData = {
       line_items: checkoutToken.live.line_items,
       customer: {
+        company: shippingData.company,
         firstname: shippingData.firstName,
         lastname: shippingData.lastName,
         email: shippingData.email,

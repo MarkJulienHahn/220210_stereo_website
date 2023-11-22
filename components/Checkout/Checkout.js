@@ -185,6 +185,20 @@ const Checkout = ({
   //   } ${AppLicense && `${AppLicense},`}`,
   // ];
 
+  const currentDate = new Date();
+
+  // Extract individual date components
+  const day = currentDate.getDate();
+  const month = currentDate.getMonth() + 1; // Adding 1 because month index starts from 0 (January is 0)
+  const year = currentDate.getFullYear();
+
+  // Ensure the day and month have leading zeros if needed
+  const formattedDay = day < 10 ? `0${day}` : day;
+  const formattedMonth = month < 10 ? `0${month}` : month;
+
+  // Display the date in DD/MM/YYYY format
+  const formattedDate = `${formattedDay}/${formattedMonth}/${year}`;
+
   const handleAddToVirtualCart = (
     product_id,
     quantity,
@@ -642,7 +656,7 @@ const Checkout = ({
                   SERVICE@STEREOTYPEFACES.COM
                   
 
-                  © 2022 STEREO TYPEFACES™`,
+                  © 2023 STEREO TYPEFACES™`,
               style: "footer",
             },
           ],
@@ -695,10 +709,32 @@ const Checkout = ({
               },
               {
                 width: "50%",
-                text: `${incomingOrder.customer.firstname} ${incomingOrder.customer.lastname}
+                // Sollte es keine Company geben (Students) wird Vor- und Nachname genannt
+                text: incomingOrder.company
+                  ? `${incomingOrder.company} 
             ${incomingOrder.shipping.street}
-            ${incomingOrder.shipping.postal_zip_code} ${incomingOrder.shipping.town_city}
-            Invoice-Nr: ${incomingOrder.customer_reference}
+            ${incomingOrder.shipping.postal_zip_code} ${
+                      incomingOrder.shipping.town_city
+                    }
+            ${incomingOrder.shipping.country}
+            
+            ${incomingOrder.vatId ? `VAT-ID: ${incomingOrder.vatId}` : ""}
+            
+            
+
+
+
+            `
+                  : `${incomingOrder.customer.firstname} ${
+                      incomingOrder.customer.lastname
+                    }
+            ${incomingOrder.shipping.street}
+            ${incomingOrder.shipping.postal_zip_code} ${
+                      incomingOrder.shipping.town_city
+                    }
+            ${incomingOrder.shipping.country}
+
+            ${incomingOrder.vatId ? `VAT-ID: ${incomingOrder.vatId}` : ""}
             
             
 
@@ -706,6 +742,24 @@ const Checkout = ({
 
             `,
                 style: "infoStyle",
+              },
+            ],
+          },
+
+          {
+            columns: [
+              {
+                width: "50%",
+                text: `
+                INVOICE DATE: ${formattedDate}
+                SERVICE DATE: ${formattedDate}
+                INVOICE NR.: ${incomingOrder.customer_reference}
+
+
+
+
+                `,
+                style: "captionStyle",
               },
             ],
           },
@@ -751,22 +805,12 @@ const Checkout = ({
             columns: [
               {
                 width: "50%",
-                text: [
-                  `
-                  
-                  Total (incl. Tax)`,
-                ],
-                style: "orderStyle",
+                text: [`Subtotal`],
+                style: "priceHeadline",
               },
               {
                 width: "50%",
-                text: [
-                  `
-                
-
-                   
-                  ${incomingOrder.order_value.formatted_with_code}`,
-                ],
+                text: [`${incomingOrder.order.total.formatted_with_code}`],
                 style: "textStyleColumnRight",
               },
             ],
@@ -776,13 +820,37 @@ const Checkout = ({
             columns: [
               {
                 width: "50%",
-                text: ["Tax"],
-                style: "orderStyle",
+                text: [
+                  `VAT (${Math.floor(
+                    (incomingOrder.tax.amount.raw /
+                      incomingOrder.order.total.raw) *
+                      100
+                  )}%)`,
+                ],
+                style: "priceHeadline",
+              },
+              {
+                width: "50%",
+                text: `${incomingOrder.tax.amount.formatted_with_code}`,
+                style: "textStyleColumnRight",
+              },
+            ],
+          },
+
+          {
+            columns: [
+              {
+                width: "50%",
+                text: [
+                  `
+                  Total`,
+                ],
+                style: "priceHeadline",
               },
               {
                 width: "50%",
                 text: `
-                 ${incomingOrder.tax.amount.formatted_with_code}`,
+                ${incomingOrder.order_value.formatted_with_code}`,
                 style: "textStyleColumnRight",
               },
             ],
@@ -797,7 +865,7 @@ const Checkout = ({
           },
           orderStyleLicense: {
             fontSize: 17,
-            lineHeight: 1.5,
+            // lineHeight: 1.5,
             font: "Giallo",
             characterSpacing: -0.5,
             color: "#b3b3b3",
@@ -805,6 +873,9 @@ const Checkout = ({
           textStyle: {
             fontSize: 14,
             font: "Giallo",
+          },
+          priceHeadline: {
+            fontSize: 10,
           },
           textTop: {
             // margin: [0, 80, 0, 0],
@@ -891,6 +962,8 @@ const Checkout = ({
         },
         attachment: b64,
       };
+
+      console.log("incomingOrder:", incomingOrder);
 
       await fetch("/api/mail", {
         method: "post",

@@ -239,6 +239,7 @@ const AddressForm = ({
               shippingSubdivision,
               shippingOption,
               licenseCountry,
+              vatId,
             })
           )}
         >

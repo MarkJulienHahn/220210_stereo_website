@@ -1,11 +1,15 @@
 import Button from "../Button";
 import Styles from "../../styles/Checkout.module.css";
 
+import { useRouter } from "next/router";
+
 const CheckoutStep4 = ({ refreshCart, setShowCheckout, shippingData }) => {
   const endCheckout = () => {
     refreshCart();
     setShowCheckout(false);
   };
+
+  const router = useRouter();
 
   return (
     <>
@@ -18,7 +22,7 @@ const CheckoutStep4 = ({ refreshCart, setShowCheckout, shippingData }) => {
         <Button
           lable={"Back to the Shop"}
           subclass={"primary"}
-          onClick={() => setShowCheckout()}
+          onClick={() => router.push("/")}
         />
       </div>
     </>

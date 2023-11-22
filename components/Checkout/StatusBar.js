@@ -8,8 +8,12 @@ const StatusBar = ({
   showCheckoutCustomForm,
   showFontList,
 }) => {
+
   return (
-    <div className={styles.statusBarWrapper}>
+    <div
+      className={styles.statusBarWrapper}
+      style={showCheckoutStep4 ? { display: "none" } : { display: "block" }}
+    >
       <div className={styles.statusBarTopRow}>
         <p
           className={styles.statusBarStep}
