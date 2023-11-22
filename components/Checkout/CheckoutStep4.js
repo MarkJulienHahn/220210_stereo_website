@@ -16,7 +16,7 @@ const CheckoutStep4 = ({ refreshCart, setShowCheckout, shippingData }) => {
       <div className={Styles.confirmation}>
         Thank you, {shippingData.firstName}. Your order was successful. ✨<br />
         Please check your mailbox to download your files!
-      </div>
+      </div> 
 
       <div className="buttonsRightWrapper">
         <Button
