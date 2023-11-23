@@ -93,8 +93,7 @@ const Home = ({
       <Head>
         <meta name="keywords" content="web" />
         <title>
-          Stereo Typefaces® | Berlin-based Independent Type Design Lable and
-          Type Foundry
+          Stereo Typefaces®
         </title>
         <meta
           name="description"
