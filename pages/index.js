@@ -93,11 +93,11 @@ const Home = ({
       <Head>
         <meta name="keywords" content="web" />
         <title>
-          Stereo Typefaces®
+          Stereo Typefaces® | Independent Type Design Lable, based in Berlin
         </title>
         <meta
           name="description"
-          content="Stereo Typefaces® is an independent type design lable, based in Berlin. As a type foundry it is specialized in retail typefaces, custom typography and variable fonts."
+          content="Stereo Typefaces® is a type design lable, based in Berlin. As a type foundry it is specialized in retail typefaces, custom typography and variable fonts."
         />
         <meta
           name="keywords"
