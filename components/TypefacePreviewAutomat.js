@@ -85,7 +85,7 @@ const TypefacePreviewAutomat = (props) => {
               Beta
             </span>
           </div>
-          <p>Variable Font Concept</p>
+          <p className="typefaceSpecs">Variable Font Concept</p>
         </span>
         <div onMouseEnter={() => updateFont("AutomatSquare")}>
           {props.weightsSQR.map((item) => (

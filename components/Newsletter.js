@@ -22,10 +22,10 @@ const Newsletter = ({ newsletterResponse }) => {
         method: "post",
         body: JSON.stringify(formData),
       });
-      fetch("/api/newsletterConfirmation", {
-        method: "post",
-        body: JSON.stringify(formData),
-      });
+      // fetch("/api/newsletterConfirmation", {
+      //   method: "post",
+      //   body: JSON.stringify(formData),
+      // });
       fetch("/api/mailinglist", {
         method: "post",
         body: JSON.stringify(formData),

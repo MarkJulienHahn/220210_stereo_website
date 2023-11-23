@@ -92,10 +92,21 @@ const Home = ({
     <>
       <Head>
         <meta name="keywords" content="web" />
-        <title>Stereo Typefaces®</title>
+        <title>
+          Stereo Typefaces® | Berlin-based Independent Type Design Lable and
+          Type Foundry
+        </title>
         <meta
           name="description"
-          content="Stereo Typefaces® is an independent type-design lable, based in Berlin. As a foundry it is specialized in retail typefaces, custom typography and variable fonts."
+          content="Stereo Typefaces® is an independent type design lable, based in Berlin. As a type foundry it is specialized in retail typefaces, custom typography and variable fonts."
+        />
+        <meta
+          name="keywords"
+          content="Stereo Typefaces, Type Design, Typefaces, Typography, Variable Fonts, Berlin"
+        />
+        <meta
+          name="thumbnail"
+          content="../public/images/stereo-typefaces_happyface.jpg"
         />
         <link rel="icon" href="/favicon.ico" sizes="any"></link>
         <link rel="apple-touch-icon" href="/apple-touch-icon.png"></link>
@@ -182,7 +193,6 @@ const Home = ({
         )}
       </div>
 
-
       <AnimatePresence exitBeforeEnter>
         <motion.div
           location={location}
@@ -193,11 +203,17 @@ const Home = ({
           transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
         >
           <main className={Styles.TypefacesInner} style={darkMode ? dark : {}}>
+            <div className={"headerSection"}>
+              <h1>Stereo Typefaces®</h1>
+              <h2>Independent Type Design Lable, based in Berlin</h2>
+              {/* <h1>Independent Type Design Lable, based in Berlin</h1> */}
+            </div>
             <div ref={protestRef} id="protest-grotesk">
               <TypefacePreview
                 key="001"
                 fontFamily="Protest"
-                lable="Protest Grotesk" g
+                lable="Protest Grotesk"
+                g
                 price="90"
                 weights={[
                   ["Thin ", 40, 0],

@@ -81,7 +81,7 @@ body {
   --margin-M: 30px;
   --margin-S: 12px;
 
-  --primary: #61FF9A;
+  --primary: #61ff9a;
   --secondary: rgba(0, 0, 0, 0.8);
   --tertiary: rgba(240, 233, 198, 0.6);
   --quaternary: rgba(220, 220, 220, 0.4);
@@ -378,6 +378,22 @@ button {
   margin-right: 3px;
 }
 
+.headerSection {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 50px;
+  padding-top: 10px;
+}
+
+.headerSection h1, .headerSection h2 {
+  font-size: 10pt;
+  line-height: 13pt;
+  font-variation-settings: var(--pgSmallVariable);
+  font-weight: normal;
+  cursor: default
+}
+
 @media only screen and (max-width: 1300px) {
   .shortcutButtonsWrapper {
     display: none;
@@ -558,12 +574,12 @@ button {
   width: 100%;
 }
 
-.typefaceWrapper p {
+/* .typefaceWrapper p {
   font-family: "Giallo-Mono";
   font-size: 12.5px;
   line-height: 16px;
   letter-spacing: 1px;
-}
+} */
 
 .typefaceControl {
   font-size: 20pt;
@@ -622,6 +638,14 @@ button {
 
 .swiper {
   height: 100vh;
+}
+
+.typefaceSpecs {
+  font-family: "Protest" !important;
+  font-size: 10pt;
+  line-height: 13pt;
+  font-variation-settings: var(--pgSmallVariable);
+  letter-spacing: 0;
 }
 
 /* .swiper-slide {
