@@ -34,6 +34,7 @@ const LicensingContent = ({
               item={item}
               accIndex={accIndex}
               setAccIndex={setAccIndex}
+              darkMode={darkMode}
             />
           ))}
         </div>

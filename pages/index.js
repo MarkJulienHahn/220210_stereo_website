@@ -381,7 +381,7 @@ const Home = ({
                 configuration={{
                   letterSpacing: "-0.9vw",
                 }}
-                default={[40, 0]}
+                default={[130, 0]}
                 slug={"protest-grotesk-mono"}
                 darkMode={darkMode}
               />

@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { PortableText } from "@portabletext/react";
 
-const LicenseAccordeon = ({ item, i, accIndex, setAccIndex }) => {
+const LicenseAccordeon = ({ item, i, accIndex, setAccIndex, darkMode }) => {
   const [active, setActive] = useState(false);
   const ref = useRef();
   const ref2 = useRef();
@@ -24,7 +24,7 @@ const LicenseAccordeon = ({ item, i, accIndex, setAccIndex }) => {
       className="licenseSection"
       onClick={active ? () => setAccIndex(null) : activate}
     >
-      <h1 className="licenseHeaderWrapper">
+      <h1 className="licenseHeaderWrapper" style={{borderColor: darkMode ? "white" : "black"}}>
         <span style={{ scrollMarginTop: "200px" }} ref={ref2}>
           {item.title}
         </span>
