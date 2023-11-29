@@ -9,7 +9,7 @@ export default async function handler(req, res) {
 
   const data = {
     to: body.email,
-    bcc: "info@stereotypefaces.com",
+    bcc: "mail@markjulienhahn.de",
     from: {
       email: "info@stereotypefaces.com",
       name: "Stereo Typefaces",
