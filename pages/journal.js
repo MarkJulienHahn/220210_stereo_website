@@ -5,9 +5,9 @@ import client from "../client";
 
 const journal = ({ journal }) => {
   return (
-    <div>
+    <>
       <Journal journal={journal} />
-    </div>
+    </>
   );
 };
 
