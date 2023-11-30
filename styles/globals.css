@@ -386,12 +386,13 @@ button {
   padding-top: 10px;
 }
 
-.headerSection h1, .headerSection h2 {
+.headerSection h1,
+.headerSection h2 {
   font-size: 10pt;
   line-height: 13pt;
   font-variation-settings: var(--pgSmallVariable);
   font-weight: normal;
-  cursor: default
+  cursor: default;
 }
 
 @media only screen and (max-width: 1300px) {
@@ -2583,6 +2584,7 @@ textarea::placeholder {
 
 .licenseIntro {
   padding-bottom: 200px;
+  width: clamp(500px, 75vw, 1500px);
 }
 
 .licenseIntro p {
@@ -3283,4 +3285,73 @@ textarea::placeholder {
   .newsletterButtonWrapper button {
     margin-top: 33px;
   }
+}
+
+/* JORNAL */
+
+.journalWrapper {
+  padding: var(--margin-M);
+  width: 100%;
+  min-height: 500px;
+}
+
+.journalWrapper h1 {
+  /* font-family: "Protest"; */
+  text-align: center;
+  font-size: 50pt;
+  font-weight: normal;
+  font-variation-settings: "wght" 140;
+  letter-spacing: -2px;
+  padding: 0 5vw;
+}
+
+.journalWrapper h1 em {
+  text-decoration: underline;
+  font-style: normal;
+}
+
+.journalEntryWrapper {
+  padding-bottom: 200px;
+}
+
+.journalDate {
+  /* font-family: "Giallo-Mono"; */
+  /* font-size: 20pt; */
+  font-variation-settings: "wght" 120;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+.journalBody {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.journalBody p {
+  min-width: 100vw;
+  padding: 0 20vw;
+  font-family: "Giallo";
+  max-width: 1000px;
+  font-size: 25pt;
+  line-height: 31.5pt;
+  letter-spacing: -0.7px;
+  word-spacing: -1px;
+}
+
+.journalBody p + p {
+  margin-top: var(--margin-M);
+}
+
+.journalImgWrapper {
+  /* height: 70vh; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+}
+
+.journalImgWrapper span {
+  /* height: 100vh; */
+  margin: 5px !important;
 }

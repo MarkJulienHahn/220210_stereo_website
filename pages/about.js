@@ -125,7 +125,7 @@ const About = ({
             <div className={"infoText"}>
               <p>
                 <span className="infoVar">
-                  <span className="infoHeader">STEREO</span>
+                  <span className="infoHeader">STEREO </span>
                   <span className="infoSubheader">Typefaces®</span>
                 </span>{" "}
                 is a type design agency and typography label based in Berlin
