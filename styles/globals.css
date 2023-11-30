@@ -398,6 +398,10 @@ button {
   .shortcutButtonsWrapper {
     display: none;
   }
+
+  .headerSection {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 600px) {
