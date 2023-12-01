@@ -24,13 +24,15 @@ const JournalPreview = ({ entry }) => {
     }
   }, []);
 
+  console.log(entry.button)
+
   return (
     <div className="journalEntryWrapper" ref={ref}>
       <PortableText value={entry.headline} />
       <p className="journalDate">{transformedDate}</p>
       <div className="journalBody">
         <div className="journalImgWrapper">
-          <Link href={`/journal/${entry.slug.current}`} scroll={false}>
+          <Link href={`/news/${entry.slug.current}`} scroll={false}>
             <img
               src={urlFor(entry.introImage.asset.url).url()}
               alt={
@@ -57,7 +59,7 @@ const JournalPreview = ({ entry }) => {
           title="Read the Article"
           color={entry.color.hex}
           background={entry.background.hex}
-          link={`/journal/${entry.slug.current}`}
+          link={`/news/${entry.slug.current}`}
           external={entry.externalBool}
         />
 
@@ -67,7 +69,7 @@ const JournalPreview = ({ entry }) => {
             color="black"
             background="white"
             outline={true}
-            link={"/typefaces/protest-grotesk-mono"}
+            link={entry.button.internalLink}
             external={entry.externalBool}
           />
         )}

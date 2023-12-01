@@ -1,23 +1,61 @@
+import React, { useState, useRef, useLayoutEffect } from "react";
 import { urlFor } from "./Hooks/useImageUrlBuilder";
 import { getImageDimensions } from "@sanity/asset-utils";
 
 const JournalImageComponent = ({ value }) => {
+  const [captionWidth, setCaptionWidth] = useState(null);
   const { width, height } = getImageDimensions(value);
-  return (
-    <img
-      src={urlFor(value.asset.url).url()}
-      alt={
-        value.alt ||
-        "An Image of nice Typography by Berlin based Type Foundry Stereo Typefaces"
+  const ref = useRef();
+
+  useLayoutEffect(() => {
+    const updateCaptionWidth = () => {
+      if (ref.current) {
+        setCaptionWidth(ref.current.clientWidth);
       }
-      loading="lazy"
-      style={{
-        aspectRatio: width / height,
-        maxHeight: "800px",
-        maxWidth: "calc(100vw - 2 * var(--margin-M))",
-        padding: "80px 5px",
-      }}
-    />
+    };
+
+    // Update width on initial render
+    updateCaptionWidth();
+
+    // Update width if image dimensions change after load
+    const image = ref.current;
+    if (image && image.complete) {
+      updateCaptionWidth();
+    } else if (image) {
+      image.addEventListener("load", updateCaptionWidth);
+    }
+
+    return () => {
+      if (image) {
+        image.removeEventListener("load", updateCaptionWidth);
+      }
+    };
+  }, [value]);
+
+  return (
+    <figure style={{ padding: "80px 5px" }}>
+      <img
+        src={urlFor(value.asset.url).url()}
+        alt={
+          value.alt ||
+          "An Image of nice Typography by Berlin based Type Foundry Stereo Typefaces"
+        }
+        loading="lazy"
+        style={{
+          aspectRatio: width / height,
+          maxHeight: value.small ? "400px" : "800px",
+          maxWidth: "calc(100vw - 2 * var(--margin-M))",
+        }}
+        ref={ref}
+      />
+      {value.subtitle ? (
+        <figcaption style={{ width: captionWidth }}>
+          {value.subtitle}
+        </figcaption>
+      ) : (
+        ""
+      )}
+    </figure>
   );
 };
 

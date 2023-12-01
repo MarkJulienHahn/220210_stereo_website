@@ -7,7 +7,10 @@ const JournalButton = ({
   outline,
   link,
   external,
+
+  
 }) => {
+  console.log(link)
   return !external ? (
     <Link href={link} scroll={false}>
       <div

@@ -6,8 +6,18 @@ import { PortableText } from "@portabletext/react";
 import transformDateFormat from "./Hooks/dateFormatter";
 
 import { motion, AnimatePresence } from "framer-motion";
+import JournalButton from "./JournalButton";
+import Button from "./Button";
+import Link from "next/link";
 
-const JournalEntry = ({ entry }) => {
+const JournalEntry = ({
+  entry,
+  cart,
+  dark,
+  darkMode,
+  setDarkMode,
+  setShowCheckout,
+}) => {
   const transformedDate = transformDateFormat(entry.date);
   const location = useRouter();
   const ref = useRef(null);
@@ -24,6 +34,44 @@ const JournalEntry = ({ entry }) => {
   }, []);
   return (
     <AnimatePresence exitBeforeEnter>
+      <div className="buttonsLeftWrapper">
+        <Link href="/" scroll={false}>
+          <a>
+            <Button lable={"Home"} subclass={"tertiary"} />
+          </a>
+        </Link>
+        <Link href={`/news`} scroll={false}>
+          <Button lable={"News"} subclass={"quaternary"} />
+        </Link>
+        <Button lable={entry.title} subclass={"quaternaryMuted"} />
+      </div>
+      <div className="buttonsRightWrapper">
+        <Button
+          lable={darkMode ? "Light" : "Dark"}
+          subclass={!darkMode ? "secondary" : "quaternary"}
+          onClick={() => setDarkMode(!darkMode)}
+        />
+        <Link href="/trials" scroll={false}>
+          <a>
+            <Button lable={"Trials"} subclass={"tertiary"} />
+          </a>
+        </Link>
+
+        <Link href="/checkout" scroll={false}>
+          <Button lable={"Buy"} subclass={"primary"} />
+        </Link>
+        {cart.line_items?.length ? (
+          <Cartbutton
+            lable={`Cart [${cart.total_unique_items}]`}
+            subclass={"tertiary"}
+            setShowCheckout={setShowCheckout}
+            live={live}
+            cart={cart}
+          />
+        ) : (
+          ""
+        )}
+      </div>
       <motion.div
         location={location}
         key={location.pathname}
@@ -32,7 +80,11 @@ const JournalEntry = ({ entry }) => {
         exit={{ y: -300, opacity: 0 }}
         transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
       >
-        <div className="journalEntryWrapper" ref={ref}>
+        <div
+          className="journalEntryWrapper"
+          ref={ref}
+          style={darkMode ? dark : {}}
+        >
           <PortableText value={entry.headline} />
           <p className="journalDate">{transformedDate}</p>
           <div className="journalBody">
@@ -62,6 +114,24 @@ const JournalEntry = ({ entry }) => {
                 },
               }}
             />
+          </div>
+          <div className="journalButtonsEntry">
+            <JournalButton
+              title="Back to News"
+              color="black"
+              background="white"
+              outline={true}
+              link={`/news`}
+            />
+            {entry.button && (
+              <JournalButton
+                title={entry.button.title}
+                color={entry.color.hex}
+                background={entry.background.hex}
+                link={entry.button.internalLink}
+                external={entry.externalBool}
+              />
+            )}
           </div>
         </div>
       </motion.div>

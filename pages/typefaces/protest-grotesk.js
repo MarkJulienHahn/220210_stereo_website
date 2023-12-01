@@ -241,8 +241,8 @@ const ProtestGroteskText = ({
               wghtMin={40}
               wghtMax={250}
               italic={true}
-              color={"rgb(220,220,220)"}
-              background={darkMode ? "rgb(20,20,20)" : "rgb(10,10,10)"}
+              color={!darkMode ? "#1E2800" : "#EDEDED"}
+              background={darkMode ? "#1E2800" : "#EDEDED"}
             />
           </div>
 

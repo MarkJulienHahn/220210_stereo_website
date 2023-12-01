@@ -3313,7 +3313,9 @@ textarea::placeholder {
   font-weight: normal;
   font-variation-settings: "wght" 140;
   letter-spacing: -2px;
-  padding: 0 5vw;
+  padding: 100px 5vw 80px;
+  width: 100%;
+  margin: 0;
 }
 
 .journalWrapper h1 em {
@@ -3362,6 +3364,28 @@ textarea::placeholder {
   font-weight: normal;
 }
 
+figure {
+  max-width: fit-content;
+  display: inline-block;
+  position: relative;
+}
+
+figcaption {
+  width: 100%; 
+  text-align: center; 
+}
+
+.journalBody figcaption {
+  /* font-size: 10pt;
+  line-height: 17pt; */
+  font-variation-settings: "wght" 120;
+  letter-spacing: 0.5px;
+  max-height: 100%;
+  padding-top: 10px;
+  text-wrap: balance;
+  min-height: 40pt;
+}
+
 .journalImgWrapper {
   display: flex;
   flex-wrap: wrap;
@@ -3373,11 +3397,15 @@ textarea::placeholder {
   margin: 5px !important;
 }
 
-.journalButtons {
+.journalButtons, .journalButtonsEntry {
   margin-top: 75px;
   display: flex;
   justify-content: center;
   width: 100%;
+}
+
+.journalButtonsEntry {
+  margin: 300px 0 200px;
 }
 
 .journalButton {
