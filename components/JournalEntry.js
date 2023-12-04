@@ -10,6 +10,8 @@ import JournalButton from "./JournalButton";
 import Button from "./Button";
 import Link from "next/link";
 
+import Cartbutton from "./Cartbutton";
+
 import dynamic from "next/dynamic";
 
 const Checkout = dynamic(() => import("../components/Checkout/Checkout"));
