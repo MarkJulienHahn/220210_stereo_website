@@ -3424,6 +3424,23 @@ figcaption {
   border-color: black !important;
 }
 
+.journalNewsletter {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-family: Giallo-Mono;
+  font-size: var(--gialloSmallSize);
+  line-height: var(--gialloSmallLineHeight);
+  letter-spacing: var(--gialloSmallLetterSpacing);
+  padding: 200px 0;
+}
+
+.journalNewsletter a {
+  background: var(--primary);
+  font-family: "Protest";
+  font-variation-settings: "wght" 150 
+}
+
 @media only screen and (max-width: 600px) {
   .journalWrapper {
     padding-top: 60px;
