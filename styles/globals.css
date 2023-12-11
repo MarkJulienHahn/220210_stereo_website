@@ -396,7 +396,7 @@ button {
 }
 
 @media only screen and (max-width: 1300px) {
-  .shortcutButtonsWrapper {
+  .headerSection, .shortcutButtonsWrapper {
     display: none;
   }
 }
@@ -3371,8 +3371,8 @@ figure {
 }
 
 figcaption {
-  width: 100%; 
-  text-align: center; 
+  width: 100%;
+  text-align: center;
 }
 
 .journalBody figcaption {
@@ -3397,7 +3397,8 @@ figcaption {
   margin: 5px !important;
 }
 
-.journalButtons, .journalButtonsEntry {
+.journalButtons,
+.journalButtonsEntry {
   margin-top: 75px;
   display: flex;
   justify-content: center;
@@ -3438,12 +3439,15 @@ figcaption {
 .journalNewsletter a {
   background: var(--primary);
   font-family: "Protest";
-  font-variation-settings: "wght" 150 
+  font-variation-settings: "wght" 150;
+}
+
+.journalImage {
+  padding: 80px 5px;
 }
 
 @media only screen and (max-width: 600px) {
   .journalWrapper {
-    padding-top: 60px;
     padding-bottom: 200px;
   }
 
@@ -3464,6 +3468,7 @@ figcaption {
   }
   .journalEntryWrapper {
     padding-bottom: 50px;
+    padding-top: 50px;
   }
   .journalBody p {
     padding: 0 var(--margin-M);
@@ -3474,6 +3479,8 @@ figcaption {
   }
   .journalButtons {
     display: block;
+    margin-top: 25px;
+    margin-bottom: 100px;
   }
   .journalButton {
     width: 100%;
@@ -3487,5 +3494,19 @@ figcaption {
     cursor: pointer;
     border-width: 1.5px !important;
     border-radius: 3px;
+  }
+  .journalImage {
+    padding: 5px 5px 5px;
+  }
+  .journalBody figcaption {
+    font-size: 9pt;
+    line-height: 12pt;
+    letter-spacing: 0.5px;
+    padding-top: 5px;
+  }
+  .journalButtonsEntry {
+    flex-direction: column;
+    margin: 100px var(--margin-M) 200px var(--margin-M);
+    width: unset
   }
 }

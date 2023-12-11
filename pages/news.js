@@ -1,6 +1,6 @@
 import React from "react";
 import Journal from "../components/Journal";
-
+import Footer from "../components/Footer";
 import client from "../client";
 
 const journal = ({
@@ -50,6 +50,9 @@ const journal = ({
         refreshCart={refreshCart}
         font={""}
       />
+      <div style={{ padding: "0 var(--margin-M)" }}>
+        <Footer />
+      </div>
     </>
   );
 };

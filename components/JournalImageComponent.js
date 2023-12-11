@@ -33,7 +33,7 @@ const JournalImageComponent = ({ value }) => {
   }, [value]);
 
   return (
-    <figure style={{ padding: "80px 5px" }}>
+    <figure className="journalImage">
       <img
         src={urlFor(value.asset.url).url()}
         alt={

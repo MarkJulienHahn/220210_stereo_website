@@ -1,6 +1,6 @@
 import { useState } from "react";
 import JournalPreview from "./JournalPreview";
-import Footer from "../components/Footer";
+
 import Button from "./Button";
 import Cartbutton from "./Cartbutton";
 import Link from "next/link";
@@ -112,7 +112,7 @@ const Journal = ({
               // <JournalEntry key={i} entry={entry} />
             ))}
 
-            <Footer />
+
           </div>
         </motion.div>
       </AnimatePresence>

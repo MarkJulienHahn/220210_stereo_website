@@ -93,11 +93,11 @@ const Home = ({
       <Head>
         <meta name="keywords" content="web" />
         <title>
-          Stereo Typefaces® | Independent Type Design Lable, based in Berlin
+          Stereo Typefaces® | Type Design Label | Berlin
         </title>
         <meta
           name="description"
-          content="Stereo Typefaces® is a type design lable, based in Berlin. As a type foundry it is specialized in retail typefaces, custom typography and variable fonts."
+          content="Stereo Typefaces® is a type design label, based in Berlin. As a type foundry it is specialized in retail typefaces, custom typography and variable fonts."
         />
         <meta
           name="keywords"
@@ -204,8 +204,8 @@ const Home = ({
           <main className={Styles.TypefacesInner} style={darkMode ? dark : {}}>
             <div className={"headerSection"}>
               <h1>Stereo Typefaces®</h1>
-              <h2>Independent Type Design Lable, based in Berlin</h2>
-              {/* <h1>Independent Type Design Lable, based in Berlin</h1> */}
+              <h2>Independent Type Design Label, based in Berlin</h2>
+              {/* <h1>Independent Type Design Label, based in Berlin</h1> */}
             </div>
             <div ref={protestRef} id="protest-grotesk">
               <TypefacePreview
