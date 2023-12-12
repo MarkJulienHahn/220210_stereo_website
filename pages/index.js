@@ -91,24 +91,11 @@ const Home = ({
   return (
     <>
       <Head>
-        <meta name="keywords" content="web" />
-        <title>
-          Stereo Typefaces® | Type Design Label | Berlin
-        </title>
+        <title>Stereo Typefaces® | Type Design Label | Berlin</title>
         <meta
           name="description"
           content="Stereo Typefaces® is a type design label, based in Berlin. As a type foundry it is specialized in retail typefaces, custom typography and variable fonts."
         />
-        <meta
-          name="keywords"
-          content="Stereo Typefaces, Type Design, Typefaces, Typography, Variable Fonts, Berlin"
-        />
-        <meta
-          name="thumbnail"
-          content="../public/images/stereo-typefaces_happyface.jpg"
-        />
-        <link rel="icon" href="/favicon.ico" sizes="any"></link>
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png"></link>
       </Head>
 
       {showCheckout && (

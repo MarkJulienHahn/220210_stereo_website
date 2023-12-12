@@ -43,6 +43,8 @@ const JournalEntry = ({
   const location = useRouter();
   const ref = useRef(null);
 
+  const filename = entry.introImage.filename?.current || "stereo-typefaces";
+
   useEffect(() => {
     if (ref.current) {
       const strongTags = ref.current.querySelectorAll("p strong");
@@ -135,7 +137,9 @@ const JournalEntry = ({
             <div className="journalBody">
               <div className="journalImgWrapper">
                 <img
-                  src={urlFor(entry.introImage.asset.url).url()}
+                  src={`${urlFor(
+                    entry.introImage.asset.url
+                  ).url()}/${filename}`}
                   alt={
                     entry.introImage.alt ||
                     "An Image of nice Typography by Berlin based Type Foundry Stereo Typefaces"

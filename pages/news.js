@@ -2,6 +2,7 @@ import React from "react";
 import Journal from "../components/Journal";
 import Footer from "../components/Footer";
 import client from "../client";
+import Head from "next/head";
 
 const journal = ({
   journal,
@@ -27,6 +28,13 @@ const journal = ({
 }) => {
   return (
     <>
+      <Head>
+        <title>Feed | Stereo Typefaces®</title>
+        <meta
+          name="description"
+          content="This is a news feed where current typography updates and information gets posted regularly. Here you can find out about new typeface releases and stay up-to-date about."
+        />
+      </Head>
       <Journal
         journal={journal}
         cart={cart}

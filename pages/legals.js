@@ -12,7 +12,10 @@ const Legals = () => {
     <main>
       <Head>
         <title>Legal Notice | Stereo Typefaces®</title>
-        <meta name="keywords" content="web" />
+        <meta
+          name="description"
+          content="This is the legal notice of Stereo Typefaces®, a type design label, based in Berlin. Here you find all the information about legal matters and licensing conditions."
+        />
       </Head>
 
       <AnimatePresence exitBeforeEnter>

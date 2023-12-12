@@ -34,7 +34,10 @@ const GeneralTerms = ({ dark, darkMode, setDarkMode, generalTerms }) => {
     <main className="licensingMain" style={darkMode ? dark : {}}>
       <Head>
         <title>General Terms | Stereo Typefaces®</title>
-        <meta name="keywords" content="web" />
+        <meta
+          name="description"
+          content="General Terms and Conditions (GTC) of Stereo Typefaces®. Here you find out everything about our licensing model and our End User License Agreement (EULA)."
+        />
       </Head>
 
       <AnimatePresence exitBeforeEnter>

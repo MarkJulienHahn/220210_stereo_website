@@ -19,6 +19,10 @@ const Trials = () => {
     <div>
       <Head>
         <title>Trials | Stereo Typefaces® </title>
+        <meta
+          name="description"
+          content="Here you can download free trial versions of all our typefaces, so you can test high quality typography without having to purchase in advance."
+        />
       </Head>
 
       <div className="buttonsLeftWrapper" scroll={false}>

@@ -7,6 +7,9 @@ const JournalImageComponent = ({ value }) => {
   const { width, height } = getImageDimensions(value);
   const ref = useRef();
 
+
+  const filename = value.filename?.current || "stereo-typefaces"
+
   useLayoutEffect(() => {
     const updateCaptionWidth = () => {
       if (ref.current) {
@@ -33,9 +36,11 @@ const JournalImageComponent = ({ value }) => {
   }, [value]);
 
   return (
-    <figure className="journalImage">
+    <figure
+      className="journalImage"
+    >
       <img
-        src={urlFor(value.asset.url).url()}
+        src={`${urlFor(value.asset.url).url()}/${filename}`}
         alt={
           value.alt ||
           "An Image of nice Typography by Berlin based Type Foundry Stereo Typefaces"

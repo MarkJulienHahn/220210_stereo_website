@@ -10,7 +10,7 @@ const JournalButton = ({
 
   
 }) => {
-  console.log(link)
+
   return !external ? (
     <Link href={link} scroll={false}>
       <div

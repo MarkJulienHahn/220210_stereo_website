@@ -1,5 +1,5 @@
 import JournalEntry from "../../components/JournalEntry";
-import React from "react";
+import Head from "next/head";
 
 import client from "../../client";
 
@@ -57,8 +57,44 @@ const single = ({
   setDarkMode,
   dark,
 }) => {
+  const stringifyBlockContent = (blockContent) => {
+    let textContent = "";
+
+    if (blockContent && Array.isArray(blockContent)) {
+      blockContent.forEach((block) => {
+        if (block._type === "block" && block.children) {
+          block.children.forEach((child) => {
+            if (child._type === "span" && child.text) {
+              textContent += `${child.text} `;
+            }
+          });
+        }
+      });
+    }
+    return textContent.trim();
+  };
+
+  const convertedString = stringifyBlockContent(
+    journal[0].content.slice(0, 160)
+  );
+
+  function truncateString(inputString, maxLength) {
+    if (inputString.length > maxLength) {
+      return inputString.slice(0, maxLength);
+    }
+    return inputString;
+  }
+
+  const maxLength = 160;
+
+  const truncatedString = truncateString(convertedString, maxLength);
+
   return (
     <>
+      <Head>
+        <title>{`${journal[0].title} | Stereo Typefaces®`}</title>
+        <meta name="description" content={truncatedString} />
+      </Head>
       <JournalEntry
         entry={journal[0]}
         cart={cart}

@@ -13,6 +13,8 @@ const JournalPreview = ({ entry }) => {
   const transformedDate = transformDateFormat(entry.date);
   const ref = useRef(null);
 
+  const filename = entry.introImage.filename?.current || "stereo-typefaces";
+
   useEffect(() => {
     if (ref.current) {
       const strongTags = ref.current.querySelectorAll("p strong");
@@ -24,8 +26,6 @@ const JournalPreview = ({ entry }) => {
     }
   }, []);
 
-  console.log(entry.button)
-
   return (
     <div className="journalEntryWrapper" ref={ref}>
       <PortableText value={entry.headline} />
@@ -34,7 +34,7 @@ const JournalPreview = ({ entry }) => {
         <div className="journalImgWrapper">
           <Link href={`/news/${entry.slug.current}`} scroll={false}>
             <img
-              src={urlFor(entry.introImage.asset.url).url()}
+              src={`${urlFor(entry.introImage.asset.url).url()}/${filename}`}
               alt={
                 entry.introImage.alt ||
                 "An Image of nice Typography by Berlin based Type Foundry Stereo Typefaces"

@@ -12,6 +12,10 @@ const Newsletter = () => {
     <div>
       <Head>
         <title>Newsletter | Stereo Typefaces® </title>
+        <meta
+          name="description"
+          content="Here you can sign up to our newsletter where current typography updates and information gets posted regularly. Here you can find out about new typeface releases and stay up-to-date about."
+        />
       </Head>
 
       <div className="buttonsLeftWrapper" scroll={false}>

@@ -115,6 +115,10 @@ const ProtestGroteskMono = ({
     <>
       <Head>
         <title>Protest Grotesk Mono | Stereo Typefaces® </title>
+        <meta
+          name="description"
+          content="Protest Grotesk® Mono is modern geometric sans-serif monospace typeface, designed by the Berlin based type foundry and type design lable Stereo Typefaces. It is also available as a variable font."
+        />
       </Head>
 
       {showCheckout && (

@@ -114,6 +114,10 @@ const GialloRoman = ({
     <>
       <Head>
         <title>Giallo Roman | Stereo Typefaces® </title>
+        <meta
+          name="description"
+          content="Giallo Roman® is contemporary serif typeface, designed by the Berlin based type foundry and type design lable Stereo Typefaces. It is also available as a variable font."
+        />
       </Head>
 
       {showCheckout && (

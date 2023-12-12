@@ -45,6 +45,10 @@ const About = ({
     <>
       <Head>
         <title>About | Stereo Typefaces®</title>
+        <meta
+          name="description"
+          content="Stereo Typefaces® is a type design label, based in Berlin. As a type foundry it is specialized in retail typefaces, custom typography and variable fonts."
+        />
       </Head>
 
       {showCheckout && (
@@ -125,7 +129,7 @@ const About = ({
             <div className={"infoText"}>
               <p>
                 <span className="infoVar">
-                  <span className="infoHeader">STEREO </span>
+                  <span className="infoHeader">STEREO</span>{" "}
                   <span className="infoSubheader">Typefaces®</span>
                 </span>{" "}
                 is a type design agency and typography label based in Berlin

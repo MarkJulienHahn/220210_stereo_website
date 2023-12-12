@@ -44,6 +44,10 @@ const Projects = ({
     <main className={Styles.AppInner} style={darkMode ? dark : {}}>
       <Head>
         <title>Projects | Stereo Typefaces®</title>
+        <meta
+          name="description"
+          content="An overview of some of our type design related research programs. Here current experimental typography gets explored through practical type design tools."
+        />
       </Head>
 
       {showCheckout && (
