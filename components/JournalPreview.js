@@ -30,9 +30,21 @@ const JournalPreview = ({ entry }) => {
     <div className="journalEntryWrapper" ref={ref}>
       <PortableText value={entry.headline} />
       <p className="journalDate">{transformedDate}</p>
-      <div className="journalBody">
-        <div className="journalImgWrapper">
-          <Link href={`/news/${entry.slug.current}`} scroll={false}>
+
+      <div className="journalImgWrapper">
+        <Link href={`/news/${entry.slug.current}`} scroll={false}>
+          <div
+            style={{
+              maxHeight: "80vh",
+              minHeight: "800px",
+              overflow: "hidden",
+              width: "100vw",
+              objectFit: "cover",
+              display: "flex",
+              alignItems: "center",
+              margin: "20px var(--margin-M)",
+            }}
+          >
             <img
               src={`${urlFor(entry.introImage.asset.url).url()}/${filename}`}
               alt={
@@ -41,19 +53,22 @@ const JournalPreview = ({ entry }) => {
               }
               loading="lazy"
               style={{
-                aspectRatio:
-                  entry.introImage.asset.metadata.width /
-                  entry.introImage.asset.metadata.height,
-                maxHeight: "800px",
-                maxWidth: "calc(100vw - 2 * var(--margin-M))",
-                padding: "40px 5px 80px",
+                // aspectRatio:
+                //   entry.introImage.asset.metadata.width /
+                //   entry.introImage.asset.metadata.height,
+                width: "100%",
+
                 cursor: "pointer",
               }}
             />
-          </Link>
-        </div>
+          </div>
+        </Link>
+      </div>
+
+      <div className="journalPreviewBody">
         <PortableText value={entry.preview} />
       </div>
+
       <div className="journalButtons">
         <JournalButton
           title="Read the Article"

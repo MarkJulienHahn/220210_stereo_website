@@ -27,7 +27,7 @@ const journal = ({
   dark,
 }) => {
   return (
-    <>
+    <div style={darkMode ? dark : {}}>
       <Head>
         <title>Feed | Stereo Typefaces®</title>
         <meta
@@ -38,8 +38,6 @@ const journal = ({
       <Journal
         journal={journal}
         cart={cart}
-        dark={dark}
-        darkMode={darkMode}
         setDarkMode={setDarkMode}
         products={products}
         live={live}
@@ -61,7 +59,7 @@ const journal = ({
       <div style={{ padding: "0 var(--margin-M)" }}>
         <Footer />
       </div>
-    </>
+    </div>
   );
 };
 

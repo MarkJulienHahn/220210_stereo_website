@@ -388,7 +388,7 @@ button {
 
 .headerSection h1,
 .headerSection h2 {
-  font-size: 10pt;
+  font-size: 11pt;
   line-height: 13pt;
   font-variation-settings: var(--pgSmallVariable);
   font-weight: normal;
@@ -396,7 +396,8 @@ button {
 }
 
 @media only screen and (max-width: 1300px) {
-  .headerSection, .shortcutButtonsWrapper {
+  .headerSection,
+  .shortcutButtonsWrapper {
     display: none;
   }
 }
@@ -3290,20 +3291,25 @@ textarea::placeholder {
 /* JORNAL */
 
 .journalWrapper {
-  padding: var(--margin-M);
   width: 100%;
-  min-height: 500px;
+  padding-top: 30px;
 }
 
 .journalWrapper h1,
-.journalEntryWrapper h1 {
+.journalEntryWrapper h1,
+.journalSingleEntryWrapper h1 {
   text-align: center;
-  font-size: 50pt;
-  line-height: 52pt;
+  font-size: 30pt;
+  line-height: 32pt;
   font-weight: normal;
   font-variation-settings: "wght" 140;
-  letter-spacing: -2px;
-  padding: 0 5vw;
+  letter-spacing: -1px;
+  padding: 20px 5vw;
+  margin: 0;
+}
+
+.journalSingleEntryWrapper {
+  padding-top: 30px;
 }
 
 .journalBody h2 {
@@ -3313,7 +3319,7 @@ textarea::placeholder {
   font-weight: normal;
   font-variation-settings: "wght" 140;
   letter-spacing: -2px;
-  padding: 100px 5vw 80px;
+  padding: 80px 5vw 30px;
   width: 100%;
   margin: 0;
 }
@@ -3329,13 +3335,16 @@ textarea::placeholder {
 }
 
 .journalEntryWrapper {
-  padding-bottom: 200px;
+  padding-bottom: 300px;
 }
 
 .journalDate {
-  font-variation-settings: "wght" 120;
-  letter-spacing: 0.5px;
+  font-size: 11pt;
+  font-variation-settings: var(--pgSmallVariable);
+  font-weight: normal;
+  cursor: default;
   text-align: center;
+  letter-spacing: 0.5px;
 }
 
 .journalBody {
@@ -3344,22 +3353,27 @@ textarea::placeholder {
   flex-wrap: wrap;
 }
 
-.journalBody p {
+.journalBody p,
+.journalPreviewBody p {
   min-width: 100vw;
   padding: 0 20vw;
   font-family: "Giallo";
   max-width: 1000px;
-  font-size: 25pt;
-  line-height: 31.5pt;
+  font-size: 20pt;
+  line-height: 25.5pt;
   letter-spacing: -0.7px;
   word-spacing: -1px;
 }
 
-.journalBody p + p {
-  margin-top: var(--margin-M);
+.journalBody p {
+  padding-bottom: 40px;
 }
 
-.journalBody p strong {
+/* .journalBody p + figure {
+  margin-bottom: var(--margin-M);
+} */
+
+.journalBody p strong, .journalPreviewBody p strong {
   background: var(--primary);
   font-weight: normal;
 }
@@ -3368,6 +3382,7 @@ figure {
   max-width: fit-content;
   display: inline-block;
   position: relative;
+  padding-bottom: 40px;
 }
 
 figcaption {
@@ -3376,14 +3391,14 @@ figcaption {
 }
 
 .journalBody figcaption {
-  /* font-size: 10pt;
-  line-height: 17pt; */
+  font-size: 11pt;
+  line-height: 17pt;
   font-variation-settings: "wght" 120;
   letter-spacing: 0.5px;
   max-height: 100%;
   padding-top: 10px;
   text-wrap: balance;
-  min-height: 40pt;
+  /* min-height: 40pt; */
 }
 
 .journalImgWrapper {
@@ -3392,6 +3407,17 @@ figcaption {
   justify-content: center;
   position: relative;
 }
+.journalImgWrapper div {
+  border-radius: 40px;
+}
+
+.journalImgWrapper:hover div img {
+  transform: scale(103%);
+}
+
+.journalImgWrapper div img {
+  transition: transform 0.3s ease;
+}
 
 .journalImgWrapper span {
   margin: 5px !important;
@@ -3399,7 +3425,7 @@ figcaption {
 
 .journalButtons,
 .journalButtonsEntry {
-  margin-top: 75px;
+  margin-top: 25px;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -3412,8 +3438,8 @@ figcaption {
 .journalButton {
   padding: 0 30px;
   margin: 5px;
-  font-size: 15pt;
-  line-height: 32pt;
+  font-size: 12pt;
+  line-height: 25pt;
   font-variation-settings: "wght" 140;
   cursor: pointer;
   border-radius: 3px;
@@ -3443,16 +3469,17 @@ figcaption {
 }
 
 .journalImage {
-  padding: 80px 5px;
+  margin: 15px;
 }
 
 @media only screen and (max-width: 600px) {
   .journalWrapper {
-    padding-bottom: 200px;
+    padding-bottom: 300px;
   }
 
   .journalWrapper h1,
-  .journalEntryWrapper h1 {
+  .journalEntryWrapper h1,
+  .journalSingleEntryWrapper h1 {
     font-size: 30pt;
     line-height: 32pt;
     padding: 0 10px;
@@ -3466,9 +3493,10 @@ figcaption {
     padding: 0 10px;
     letter-spacing: -1px;
   }
-  .journalEntryWrapper {
+  .journalEntryWrapper,
+  .journalSingleEntryWrapper {
     padding-bottom: 50px;
-    padding-top: 50px;
+    padding-top: 120px;
   }
   .journalBody p {
     padding: 0 var(--margin-M);
@@ -3479,7 +3507,7 @@ figcaption {
   }
   .journalButtons {
     display: block;
-    margin-top: 25px;
+    padding: 14px;
     margin-bottom: 100px;
   }
   .journalButton {
@@ -3507,6 +3535,6 @@ figcaption {
   .journalButtonsEntry {
     flex-direction: column;
     margin: 100px var(--margin-M) 200px var(--margin-M);
-    width: unset
+    width: unset;
   }
 }

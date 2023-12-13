@@ -128,12 +128,14 @@ const JournalEntry = ({
           transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
         >
           <div
-            className="journalEntryWrapper"
+            className="journalSingleEntryWrapper"
             ref={ref}
             style={darkMode ? dark : {}}
           >
             <PortableText value={entry.headline} />
-            <p className="journalDate">{transformedDate}</p>
+            <p className="journalDate" style={{ marginBottom: "75px" }}>
+              {transformedDate}
+            </p>
             <div className="journalBody">
               <div className="journalImgWrapper">
                 <img
@@ -151,7 +153,7 @@ const JournalEntry = ({
                       entry.introImage.asset.metadata.height,
                     maxHeight: "1000px",
                     maxWidth: "calc(100vw - 2 * var(--margin-M))",
-                    padding: "40px 5px 80px",
+                    paddingBottom: "65px",
                   }}
                 />
               </div>
@@ -164,7 +166,7 @@ const JournalEntry = ({
                 }}
               />
             </div>
-            <div className="journalButtonsEntry">
+            <div className="journalButtons">
               <JournalButton
                 title="Back to News"
                 color="black"

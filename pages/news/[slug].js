@@ -1,4 +1,5 @@
 import JournalEntry from "../../components/JournalEntry";
+import Footer from "../../components/Footer";
 import Head from "next/head";
 
 import client from "../../client";
@@ -90,7 +91,7 @@ const single = ({
   const truncatedString = truncateString(convertedString, maxLength);
 
   return (
-    <>
+    <div style={darkMode ? dark : {}}>
       <Head>
         <title>{`${journal[0].title} | Stereo Typefaces®`}</title>
         <meta name="description" content={truncatedString} />
@@ -118,7 +119,10 @@ const single = ({
         refreshCart={refreshCart}
         font={""}
       />
-    </>
+      <div style={{ paddingLeft: "var(--margin-M)" }}>
+        <Footer />
+      </div>
+    </div>
   );
 };
 
