@@ -68,7 +68,7 @@ export default journal;
 
 export async function getServerSideProps() {
   const journal = await client.fetch(`
-  *[_type == "journal"]{..., "introImage": introImage{..., "asset": asset->{...}}, "content": content[]{..., asset->{...}}}`);
+  *[_type == "journal"]|order(orderRank){..., "introImage": introImage{..., "asset": asset->{...}}, "content": content[]{..., asset->{...}}}`);
 
   return {
     props: {
