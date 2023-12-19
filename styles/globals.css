@@ -3387,7 +3387,7 @@ textarea::placeholder {
 figure {
   max-width: fit-content;
   display: inline-block;
-  position: relative;
+  position: relative; 
   padding-bottom: 40px;
 }
 
