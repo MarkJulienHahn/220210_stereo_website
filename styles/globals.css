@@ -3368,7 +3368,7 @@ textarea::placeholder {
 
 .journalBody p {
   padding-bottom: 40px;
-}
+} 
 
 .journalPreviewBody p:last-of-type:after {
   content: " [...]"
