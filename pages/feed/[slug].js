@@ -32,7 +32,7 @@ export async function getStaticProps(context) {
       journal,
       links,
     },
-    revalidate: 10,
+    revalidate: 5,
   };
 }
 
