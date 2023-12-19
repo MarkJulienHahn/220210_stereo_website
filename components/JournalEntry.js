@@ -87,8 +87,8 @@ const JournalEntry = ({
               <Button lable={"Home"} subclass={"tertiary"} />
             </a>
           </Link>
-          <Link href={`/news`} scroll={false}>
-            <Button lable={"News"} subclass={"quaternary"} />
+          <Link href={`/feed`} scroll={false}>
+            <Button lable={"Feed"} subclass={"quaternary"} />
           </Link>
           <Button lable={entry.title} subclass={"quaternaryMuted"} />
         </div>
@@ -168,11 +168,11 @@ const JournalEntry = ({
             </div>
             <div className="journalButtons">
               <JournalButton
-                title="Back to News"
+                title="Back to Feed"
                 color="black"
                 background="white"
                 outline={true}
-                link={`/news`}
+                link={`/feed`}
               />
               {entry.button && (
                 <JournalButton

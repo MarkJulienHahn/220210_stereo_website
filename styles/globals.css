@@ -3303,7 +3303,7 @@ textarea::placeholder {
   line-height: 32pt;
   font-weight: normal;
   font-variation-settings: "wght" 140;
-  letter-spacing: -1px;
+  letter-spacing: -0.5px;
   padding: 20px 5vw;
   margin: 0;
 }
@@ -3314,11 +3314,12 @@ textarea::placeholder {
 
 .journalBody h2 {
   text-align: center;
-  font-size: 40pt;
-  line-height: 41pt;
+  font-size: 30pt;
+  line-height: 32pt;
   font-weight: normal;
   font-variation-settings: "wght" 140;
-  letter-spacing: -2px;
+  letter-spacing: -0.5px;
+  margin: 0;
   padding: 80px 5vw 30px;
   width: 100%;
   margin: 0;
@@ -3369,11 +3370,16 @@ textarea::placeholder {
   padding-bottom: 40px;
 }
 
+.journalPreviewBody p:last-of-type:after {
+  content: " [...]"
+}
+
 /* .journalBody p + figure {
   margin-bottom: var(--margin-M);
 } */
 
-.journalBody p strong, .journalPreviewBody p strong {
+.journalBody p strong,
+.journalPreviewBody p strong {
   background: var(--primary);
   font-weight: normal;
 }

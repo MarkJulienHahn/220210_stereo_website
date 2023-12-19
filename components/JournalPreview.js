@@ -32,7 +32,7 @@ const JournalPreview = ({ entry }) => {
       <p className="journalDate">{transformedDate}</p>
 
       <div className="journalImgWrapper">
-        <Link href={`/news/${entry.slug.current}`} scroll={false}>
+        <Link href={`/feed/${entry.slug.current}`} scroll={false}>
           <div
             style={{
               maxHeight: "80vh",
@@ -74,7 +74,7 @@ const JournalPreview = ({ entry }) => {
           title="Read the Article"
           color={entry.color.hex}
           background={entry.background.hex}
-          link={`/news/${entry.slug.current}`}
+          link={`/feed/${entry.slug.current}`}
           external={entry.externalBool}
         />
 

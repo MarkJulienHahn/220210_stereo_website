@@ -41,6 +41,7 @@ const journal = ({
         setDarkMode={setDarkMode}
         products={products}
         live={live}
+        darkMode={darkMode}
         handleAddToCart={handleAddToCart}
         handleRemoveFromCart={handleRemoveFromCart}
         handleEmptyCart={handleEmptyCart}

@@ -93,8 +93,8 @@ const Nav = ({ darkMode }) => {
               </li>
 
               <li>
-                <Link href="/news" scroll={false}>
-                  <h2 className={styles.menuTypo}>NEWS</h2>
+                <Link href="/feed" scroll={false}>
+                  <h2 className={styles.menuTypo}>FEED</h2>
                 </Link>
               </li>
 

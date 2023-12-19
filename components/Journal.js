@@ -68,7 +68,7 @@ const Journal = ({
             </a>
           </Link>
 
-          <Button lable={"News"} subclass={"quaternaryMuted"} />
+          <Button lable={"Feed"} subclass={"quaternaryMuted"} />
         </div>
         <div className="buttonsRightWrapper">
           <Button
