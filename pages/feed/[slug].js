@@ -14,7 +14,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: true,
+    fallback: false,
   };
 }
 
@@ -32,7 +32,7 @@ export async function getStaticProps(context) {
       journal,
       links,
     },
-    revalidate: 5,
+    revalidate: 10,
   };
 }
 
