@@ -55,6 +55,8 @@ const JournalEntry = ({
       });
     }
   }, []);
+
+  console.log(entry)
   return (
     <>
       {showCheckout && (
@@ -180,6 +182,7 @@ const JournalEntry = ({
                   color={entry.color.hex}
                   background={entry.background.hex}
                   link={entry.button.internalLink}
+                  externalLink={entry.button?.external}
                   external={entry.externalBool}
                 />
               )}

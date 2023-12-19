@@ -7,10 +7,8 @@ const JournalButton = ({
   outline,
   link,
   external,
-
-  
+  externalLink,
 }) => {
-
   return !external ? (
     <Link href={link} scroll={false}>
       <div
@@ -25,7 +23,7 @@ const JournalButton = ({
       </div>
     </Link>
   ) : (
-    <a href={link} target="blank" rel="_noreferrer">
+    <a href={externalLink} target="blank" rel="_noreferrer">
       <div
         className="journalButton"
         style={{
