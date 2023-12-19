@@ -75,7 +75,6 @@ const JournalPreview = ({ entry }) => {
           color={entry.color.hex}
           background={entry.background.hex}
           link={`/feed/${entry.slug.current}`}
-          external={entry.externalBool}
         />
 
         {entry.button && (
@@ -85,6 +84,7 @@ const JournalPreview = ({ entry }) => {
             background="white"
             outline={true}
             link={entry.button.internalLink}
+            externalLink={entry.button?.external}
             external={entry.externalBool}
           />
         )}
