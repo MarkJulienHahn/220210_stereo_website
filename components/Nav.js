@@ -92,11 +92,11 @@ const Nav = ({ darkMode }) => {
                 )}
               </li>
 
-              <li>
+              {/* <li>
                 <Link href="/feed" scroll={false}>
                   <h2 className={styles.menuTypo}>FEED</h2>
                 </Link>
-              </li>
+              </li> */}
 
               <li>
                 <Link href="/trials" scroll={false}>
