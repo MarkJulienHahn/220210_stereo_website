@@ -149,9 +149,7 @@ const Trials = ({ setShowTrials }) => {
                       }}
                     >
                       I agree to Stereo Typefaces’{" "}
-                      <a href="">terms of service</a> and would like to stay
-                      informed about updates, future releases and special
-                      discounts
+                      <a href="">terms of service</a> and would like to stay informed about updates and future releases.
                     </p>
                   </div>
                   {/* <div className={styles.checkboxes}>

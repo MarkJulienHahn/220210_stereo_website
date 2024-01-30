@@ -61,22 +61,22 @@ const TrialsSingle = ({ setShowTrials }) => {
 
   const clicked = {
     background: "black",
-    cursor: "pointer"
+    cursor: "pointer",
   };
 
   const unclicked = {
     background: "inherit",
-    cursor: "pointer"
+    cursor: "pointer",
   };
 
   const checked = {
     letterSpacing: "1px",
-    cursor: "pointer"
+    cursor: "pointer",
   };
 
   const unchecked = {
     letterSpacing: "3px",
-    cursor: "pointer"
+    cursor: "pointer",
   };
 
   const fade = {
@@ -160,8 +160,7 @@ const TrialsSingle = ({ setShowTrials }) => {
                     >
                       I agree to Stereo Typefaces’{" "}
                       <a href="">terms of service</a> and would like to stay
-                      informed about updates, future releases and special
-                      discounts
+                      informed about updates and future releases.
                     </p>
                   </div>
                   {/* <div className="trialsCheckboxes">
