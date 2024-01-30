@@ -61,18 +61,22 @@ const TrialsSingle = ({ setShowTrials }) => {
 
   const clicked = {
     background: "black",
+    cursor: "pointer"
   };
 
   const unclicked = {
     background: "inherit",
+    cursor: "pointer"
   };
 
   const checked = {
     letterSpacing: "1px",
+    cursor: "pointer"
   };
 
   const unchecked = {
     letterSpacing: "3px",
+    cursor: "pointer"
   };
 
   const fade = {
@@ -143,18 +147,24 @@ const TrialsSingle = ({ setShowTrials }) => {
                   <div className="trialsCheckboxes">
                     <span
                       className="trialsCheckbox"
-                      onClick={() => setCheckbox1(!checkbox1)}
+                      onClick={() => {
+                        setCheckbox1(!checkbox1), setCheckbox2(!checkbox2);
+                      }}
                       style={checkbox1 ? clicked : unclicked}
                     ></span>
                     <p
                       style={!check ? unchecked : checked}
-                      onClick={() => setCheckbox1(!checkbox1)}
+                      onClick={() => {
+                        setCheckbox1(!checkbox1), setCheckbox2(!checkbox2);
+                      }}
                     >
                       I agree to Stereo Typefaces’{" "}
-                      <a href="">terms of service</a>
+                      <a href="">terms of service</a> and would like to stay
+                      informed about updates, future releases and special
+                      discounts
                     </p>
                   </div>
-                  <div className="trialsCheckboxes">
+                  {/* <div className="trialsCheckboxes">
                     <span
                       className="trialsCheckbox"
                       onClick={() => setCheckbox2(!checkbox2)}
@@ -164,7 +174,7 @@ const TrialsSingle = ({ setShowTrials }) => {
                       I would like to stay informed about updates, future
                       releases and special discounts
                     </p>
-                  </div>
+                  </div> */}
 
                   <div className="formTrialsLower">
                     <p className="trialsDisclaimer">
@@ -183,9 +193,9 @@ const TrialsSingle = ({ setShowTrials }) => {
             <>
               <div className="trialsConfirmation">
                 <p>
-                  Thank you for your interest, {name}. <br/>Please check your inbox.
+                  Thank you for your interest, {name}. <br />
+                  Please check your inbox.
                   <br />
-                  🦄
                 </p>
               </div>
             </>

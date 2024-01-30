@@ -11,7 +11,7 @@ const Trials = ({ setShowTrials }) => {
   const [checkbox2, setCheckbox2] = useState(false);
   const [check, setCheck] = useState(true);
 
-  const [fadeTrials, setFadeTrials] = useState(false)
+  const [fadeTrials, setFadeTrials] = useState(false);
 
   async function handleOnSubmit(e) {
     e.preventDefault();
@@ -78,17 +78,19 @@ const Trials = ({ setShowTrials }) => {
   };
 
   const fade = {
-    opacity: 0
-  }
+    opacity: 0,
+  };
 
   const notFade = {
-    opacity: 1
-  }
+    opacity: 1,
+  };
 
   const fadeOutTrials = async () => {
     setFadeTrials(true),
-    await setTimeout(function(){ setShowTrials(false) }, 300)
-  }
+      await setTimeout(function () {
+        setShowTrials(false);
+      }, 300);
+  };
 
   return (
     <>
@@ -135,17 +137,24 @@ const Trials = ({ setShowTrials }) => {
                   <div className={styles.checkboxes}>
                     <span
                       className={styles.checkbox}
-                      onClick={() => setCheckbox1(!checkbox1)}
+                      onClick={() => {
+                        setCheckbox1(!checkbox1), setCheckbox2(!checkbox2);
+                      }}
                       style={checkbox1 ? clicked : unclicked}
                     ></span>
                     <p
                       style={!check ? unchecked : checked}
-                      onClick={() => setCheckbox1(!checkbox1)}
+                      onClick={() => {
+                        setCheckbox1(!checkbox1), setCheckbox2(!checkbox2);
+                      }}
                     >
-                      I agree to Stereo Typefaces’ <a href="">terms of service</a>
+                      I agree to Stereo Typefaces’{" "}
+                      <a href="">terms of service</a> and would like to stay
+                      informed about updates, future releases and special
+                      discounts
                     </p>
                   </div>
-                  <div className={styles.checkboxes}>
+                  {/* <div className={styles.checkboxes}>
                     <span
                       className={styles.checkbox}
                       onClick={() => setCheckbox2(!checkbox2)}
@@ -155,7 +164,7 @@ const Trials = ({ setShowTrials }) => {
                       I would like to stay informed about updates, future
                       releases and special discounts
                     </p>
-                  </div>
+                  </div> */}
 
                   <div className={styles.formLower}>
                     <p className={styles.disclaimer}>
