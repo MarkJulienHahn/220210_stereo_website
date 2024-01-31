@@ -42,6 +42,7 @@ const PaymentForm = ({
   setProcessing,
   Processing,
   taxable,
+  vatRate
 }) => {
   const [AccCreditCard, setAccCreditCard] = useState(false);
   const [AccPayPal, setAccPayPal] = useState(false);
@@ -126,11 +127,17 @@ const PaymentForm = ({
       },
       fulfillment: { shipping_method: shippingData.shippingOption },
       payment: {
-        gateway: "manual",
-        manual: {
-          id: "gway_Mo1p2z129QLMwN",
+        gateway: 'paypal',
+        paypal: {
+          action: 'authorize',
         },
       },
+      // payment: {
+      //   gateway: "manual",
+      //   manual: {
+      //     id: "gway_Mo1p2z129QLMwN",
+      //   },
+      // },
     };
 
     onCaptureCheckout(checkoutToken.id, orderData);
@@ -155,6 +162,12 @@ const PaymentForm = ({
   const invisible = {
     display: "none",
   };
+
+  useEffect(() => {
+    taxable
+      ? setTotal(live.total.raw + live.total.raw * vatRate)
+      : setTotal(live.total.raw);
+  }, [live]);
 
   return (
     <>

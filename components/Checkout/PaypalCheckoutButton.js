@@ -6,6 +6,8 @@ const PaypalCheckoutButton = ({
   total }) => {
   const paypal = useRef();
 
+console.log(total)
+
   useEffect(() => {
     window.paypal
       .Buttons({
