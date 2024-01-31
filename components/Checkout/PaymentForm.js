@@ -45,6 +45,7 @@ const PaymentForm = ({
 }) => {
   const [AccCreditCard, setAccCreditCard] = useState(false);
   const [AccPayPal, setAccPayPal] = useState(false);
+  const [total, setTotal] = useState(null);
 
   const handleSubmit = async (event, elements, stripe) => {
     event.preventDefault();
@@ -247,6 +248,7 @@ const PaymentForm = ({
               checkoutToken={checkoutToken}
               handlePaypalSubmit={handlePaypalSubmit}
               nextStep={nextStep}
+              total={total}
             />
           ) : (
             ""
