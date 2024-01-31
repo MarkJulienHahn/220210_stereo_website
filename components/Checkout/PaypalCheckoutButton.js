@@ -5,14 +5,9 @@ const PaypalCheckoutButton = ({
   product,
   checkoutToken,
   handlePaypalSubmit,
-  nextStep,
-  onCapturePaypalCheckout,
-  shippingData,
-  getPaypalPaymentId,
+  total,
 }) => {
   const paypal = useRef();
-
-  console.log(checkoutToken)
 
   useEffect(() => {
     window.paypal
@@ -22,7 +17,7 @@ const PaypalCheckoutButton = ({
           label: "paypal",
           height: 55,
           disableMaxWidth: true,
-          tagline: false
+          tagline: false,
         },
         createOrder: (data, actions, err) => {
           return actions.order.create({
@@ -31,7 +26,7 @@ const PaypalCheckoutButton = ({
               {
                 amount: {
                   currency_code: "EUR",
-                  value: checkoutToken.live.total.raw,
+                  value: total,
                 },
               },
             ],

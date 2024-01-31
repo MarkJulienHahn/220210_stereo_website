@@ -976,7 +976,7 @@ const Checkout = ({
     } catch (error) {
       setErrorMessage("An Error occured");
       alert(
-        "Uhh damn, something went wrong 😵‍💫 Please contact support, sorry for that!"
+        "Something went wrong. Please contact support, sorry for that!"
       );
     }
   };

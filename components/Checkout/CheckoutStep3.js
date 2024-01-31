@@ -166,6 +166,7 @@ const CheckoutStep3 = ({
               live={live}
               getPaypalPaymentId={getPaypalPaymentId}
               taxable={taxable}
+              vatRate={vatRate?.rateDecimal}
             />
           </div>
         </div>

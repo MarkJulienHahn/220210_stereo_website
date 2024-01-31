@@ -42,9 +42,11 @@ const PaymentForm = ({
   setProcessing,
   Processing,
   taxable,
+  vatRate,
 }) => {
   const [AccCreditCard, setAccCreditCard] = useState(false);
   const [AccPayPal, setAccPayPal] = useState(false);
+  const [total, setTotal] = useState(null);
 
   const handleSubmit = async (event, elements, stripe) => {
     event.preventDefault();
@@ -53,8 +55,6 @@ const PaymentForm = ({
     setProcessing(true);
 
     const cardElement = elements.getElement(CardElement);
-
-
 
     // await fetch("/api/tax", {
     //   method: "post",
@@ -155,6 +155,12 @@ const PaymentForm = ({
     display: "none",
   };
 
+  useEffect(() => {
+    vatRate
+      ? setTotal(live.total.raw + live.total.raw * vatRate)
+      : setTotal(live.total.raw);
+  }, [live]);
+
   return (
     <>
       <div
@@ -220,7 +226,7 @@ const PaymentForm = ({
                       type="submit"
                       disabled={!stripe}
                     >
-                      Pay EUR {live.total.formatted}
+                      Pay EUR {total}
                     </button>
                   </form>
                 )}
@@ -247,6 +253,7 @@ const PaymentForm = ({
               checkoutToken={checkoutToken}
               handlePaypalSubmit={handlePaypalSubmit}
               nextStep={nextStep}
+              total={total}
             />
           ) : (
             ""
