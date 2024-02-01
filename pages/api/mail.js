@@ -58,9 +58,9 @@ export default async function handler(req, res) {
     ],
   };
 
-  console.log("attachment:", body.attachment, body.licensing);
-  // console.log(data);
-  // console.log(pdfAttachment);
+  // console.log("attachment:", body.attachment, body.licensing);
+  // // console.log(data);
+  // // console.log(pdfAttachment);
 
   return sgMail
     .send(data)

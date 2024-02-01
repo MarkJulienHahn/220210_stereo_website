@@ -1,12 +1,7 @@
 import { useEffect, useRef } from "react";
 
-const PaypalCheckoutButton = ({ 
-  checkoutToken, 
-  handlePaypalSubmit, 
-  total }) => {
+const PaypalCheckoutButton = ({ checkoutToken, handlePaypalSubmit, total }) => {
   const paypal = useRef();
-
-console.log(total)
 
   useEffect(() => {
     window.paypal
@@ -31,10 +26,15 @@ console.log(total)
             ],
           });
         },
+
         onApprove: async (data, actions) => {
           const order = await actions.order.capture();
-          console.log(order);
-          await handlePaypalSubmit(checkoutToken.id, order);
+
+          // Access payer_id and payment_id from the order object
+          const payer_id = order.payer.payer_id;
+          const payment_id = order.id; // PayPal's payment ID is the order ID in this context
+
+          await handlePaypalSubmit(payer_id, payment_id);
         },
         onError: (err) => {
           console.log(err);

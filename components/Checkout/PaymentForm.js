@@ -42,7 +42,7 @@ const PaymentForm = ({
   setProcessing,
   Processing,
   taxable,
-  vatRate
+  vatRate,
 }) => {
   const [AccCreditCard, setAccCreditCard] = useState(false);
   const [AccPayPal, setAccPayPal] = useState(false);
@@ -55,8 +55,6 @@ const PaymentForm = ({
     setProcessing(true);
 
     const cardElement = elements.getElement(CardElement);
-
-
 
     // await fetch("/api/tax", {
     //   method: "post",
@@ -101,7 +99,7 @@ const PaymentForm = ({
     }
   };
 
-  const handlePaypalSubmit = async (event, elements, stripe) => {
+  const handlePaypalSubmit = async (payer_id, payment_id) => {
     setProcessing(true);
 
     const checkout = await commerce.checkout.generateTokenFrom(
@@ -126,18 +124,20 @@ const PaymentForm = ({
         country: shippingData.shippingCountry,
       },
       fulfillment: { shipping_method: shippingData.shippingOption },
-      payment: {
-        gateway: 'paypal',
-        paypal: {
-          action: 'authorize',
-        },
-      },
       // payment: {
-      //   gateway: "manual",
-      //   manual: {
-      //     id: "gway_Mo1p2z129QLMwN",
+      //   gateway: "paypal",
+      //   paypal: {
+      //     action: "capture",
+      //     payment_id: payment_id,
+      //     payer_id: payer_id,
       //   },
       // },
+      payment: {
+        gateway: "manual",
+        manual: {
+          id: "gway_Mo1p2z129QLMwN",
+        },
+      },
     };
 
     onCaptureCheckout(checkoutToken.id, orderData);

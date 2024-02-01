@@ -109,13 +109,9 @@ const Checkout = ({
   handleCouponCode,
   setCart,
   loading,
-  onCaptureCheckout,
   getLiveObject,
   live,
   refreshCart,
-  setOrder,
-  order,
-  error,
   font,
 }) => {
   const [showCheckoutStep1, setShowCheckoutStep1] = useState(true);
@@ -346,9 +342,6 @@ const Checkout = ({
       updateDesktopLicense(""),
       updateWebLicense(""),
       updateAppLicense(""),
-      // updateSocialLicense(""),
-      // updateLogoLicense(""),
-      // updateVideoLicense(""),
       updateLicenseUser(""),
       setShowDesktop(false),
       setShowApp(false),
@@ -359,175 +352,6 @@ const Checkout = ({
       setDesktopLicense(false),
       setWebLicense(false);
   };
-
-  // React.useEffect(() => {
-  //   const data = localStorage.getItem("licenseUser");
-  //   if (data) {
-  //     setLicenseUser(JSON.parse(data));
-  //   }
-  // }, []);
-
-  // React.useEffect(() => {
-  //   localStorage.setItem("licenseUser", JSON.stringify(LicenseUser));
-  // });
-
-  // React.useEffect(() => {
-  //   const data = localStorage.getItem("licenseDesktop");
-  //   if (data) {
-  //     setDesktopLicense(JSON.parse(data));
-  //   }
-  // }, []);
-
-  // React.useEffect(() => {
-  //   localStorage.setItem("licenseDesktop", JSON.stringify(DesktopLicense));
-  // });
-
-  // React.useEffect(() => {
-  //   const data = localStorage.getItem("licenseWeb");
-  //   if (data) {
-  //     setWebLicense(JSON.parse(data));
-  //   }
-  // }, []);
-
-  // React.useEffect(() => {
-  //   localStorage.setItem("licenseWeb", JSON.stringify(WebLicense));
-  // });
-
-  // React.useEffect(() => {
-  //   const data = localStorage.getItem("licenseApp");
-  //   if (data) {
-  //     setAppLicense(JSON.parse(data));
-  //   }
-  // }, []);
-
-  // React.useEffect(() => {
-  //   localStorage.setItem("licenseApp", JSON.stringify(AppLicense));
-  // });
-
-  // React.useEffect(() => {
-  //   const data = localStorage.getItem("licenseSocial");
-  //   if (data) {
-  //     setSocialLicense(JSON.parse(data));
-  //   }
-  // }, []);
-
-  // React.useEffect(() => {
-  //   localStorage.setItem("licenseSocial", JSON.stringify(SocialLicense));
-  // });
-
-  // React.useEffect(() => {
-  //   const data = localStorage.getItem("licenseLogo");
-  //   if (data) {
-  //     setLogoLicense(JSON.parse(data));
-  //   }
-  // }, []);
-
-  // React.useEffect(() => {
-  //   localStorage.setItem("licenseLogo", JSON.stringify(LogoLicense));
-  // });
-
-  // React.useEffect(() => {
-  //   const data = localStorage.getItem("licenseVideo");
-  //   if (data) {
-  //     setVideoLicense(JSON.parse(data));
-  //   }
-  // }, []);
-
-  // React.useEffect(() => {
-  //   localStorage.setItem("licenseVideo", JSON.stringify(VideoLicense));
-  // });
-
-  // React.useEffect(() => {
-  //   localStorage.setItem("license", JSON.stringify(License));
-  // });
-
-  // React.useEffect(() => {
-  //   const data = localStorage.getItem("Number of Employees");
-  //   if (data) {
-  //     setNumEmployees(JSON.parse(data));
-  //   }
-  // }, []);
-
-  // React.useEffect(() => {
-  //   localStorage.setItem("Number of Employees", JSON.stringify(NumEmployees));
-  // });
-
-  // React.useEffect(() => {
-  //   const data = localStorage.getItem("priceFactor1");
-  //   if (data) {
-  //     setPriceFactor1(JSON.parse(data));
-  //   }
-  // }, []);
-
-  // React.useEffect(() => {
-  //   localStorage.setItem("priceFactor1", JSON.stringify(NumEmployees));
-  // });
-
-  // React.useEffect(() => {
-  //   const data = localStorage.getItem("priceFactor2");
-  //   if (data) {
-  //     setPriceFactor2(JSON.parse(data));
-  //   }
-  // }, []);
-
-  // React.useEffect(() => {
-  //   localStorage.setItem("priceFactor2", JSON.stringify(NumEmployees));
-  // });
-
-  // React.useEffect(() => {
-  //   const data = localStorage.getItem("priceFactor3");
-  //   if (data) {
-  //     setPriceFactor3(JSON.parse(data));
-  //   }
-  // }, []);
-
-  // React.useEffect(() => {
-  //   localStorage.setItem("priceFactor3", JSON.stringify(NumEmployees));
-  // });
-
-  // React.useEffect(() => {
-  //   const data = localStorage.getItem("priceFactor4");
-  //   if (data) {
-  //     setPriceFactor4(JSON.parse(data));
-  //   }
-  // }, []);
-
-  // React.useEffect(() => {
-  //   localStorage.setItem("priceFactor4", JSON.stringify(NumEmployees));
-  // });
-
-  // React.useEffect(() => {
-  //   const data = localStorage.getItem("priceFactor5");
-  //   if (data) {
-  //     setPriceFactor5(JSON.parse(data));
-  //   }
-  // }, []);
-
-  // React.useEffect(() => {
-  //   localStorage.setItem("priceFactor5", JSON.stringify(NumEmployees));
-  // });
-
-  // React.useEffect(() => {
-  //   const data = localStorage.getItem("priceFactor6");
-  //   if (data) {
-  //     setPriceFactor6(JSON.parse(data));
-  //   }
-  // }, []);
-
-  // React.useEffect(() => {
-  //   localStorage.setItem("priceFactor6", JSON.stringify(NumEmployees));
-  // });
-
-  // React.useEffect(() => {
-  //   const data = localStorage.getItem("priceFactor7");
-  //   if (data) {
-  //     setPriceFactor7(JSON.parse(data));
-  //   }
-  // }, []);
-
-  // React.useEffect(() => {
-  //   localStorage.setItem("priceFactor7", JSON.stringify(NumEmployees));
-  // });
 
   const active = {
     color: "var(--primary)",
@@ -553,15 +377,6 @@ const Checkout = ({
     opacity: 1,
     pointerEvents: "auto",
   };
-
-  // const disabled = {
-  //   pointerEvents: "none",
-  //   opacity: 0.3,
-  // };
-
-  // const enabled = {
-  //   opacity: 1,
-  // };
 
   const nextStep = () => {
     setShowCheckoutStep3(false), setShowCheckoutStep4(true);
@@ -604,7 +419,7 @@ const Checkout = ({
           italics: "Giallo-Roman-400-Medium.ttf",
           boldItalics: "Giallo-Roman-400-Medium.ttf",
         },
-        // example of usage fonts in collection
+
         Protest: {
           normal: ["ProtestGrotesk-Book.ttf"],
           bold: ["ProtestGrotesk-Book.ttf"],
@@ -963,7 +778,10 @@ const Checkout = ({
         attachment: b64,
       };
 
-      console.log("incomingOrder:", incomingOrder);
+      await fetch("/api/capturePaypalCheckout", {
+        method: "post",
+        body: JSON.stringify(incomingOrder),
+      });
 
       await fetch("/api/mail", {
         method: "post",
@@ -975,9 +793,7 @@ const Checkout = ({
       });
     } catch (error) {
       setErrorMessage("An Error occured");
-      alert(
-        "Something went wrong. Please contact support, sorry for that!"
-      );
+      alert("Something went wrong. Please contact support, sorry for that!");
     }
   };
 

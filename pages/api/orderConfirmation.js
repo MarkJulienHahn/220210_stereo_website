@@ -24,7 +24,7 @@ export default async function handler(req, res) {
   `;
 
   const data = {
-    to: "infos@stereotypefaces.com",
+    to: "confirmation@stereotypefaces.com",
     from: {
       email: "info@stereotypefaces.com",
       name: "Stereo Typefaces",
@@ -57,10 +57,6 @@ export default async function handler(req, res) {
       },
     ],
   };
-
-  console.log("attachment:", body.attachment, body.licensing);
-  // console.log(data);
-  // console.log(pdfAttachment);
 
   return sgMail
     .send(data)
